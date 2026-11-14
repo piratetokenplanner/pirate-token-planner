@@ -446,9 +446,9 @@ html{scroll-behavior:smooth;scroll-padding-top:16px}
 .fold.pnl #others ul,.fold.pnl ul{color:#fff}
 .fold.pnl .months .mo small{color:#d8e3fa}.fold.pnl .months .mo b{color:#fff}
 .fold.pnl .mbar{background:#ffffff1f}
-.fold.pnl .presets .pre{background:#fffaf0}
+.fold.pnl .presets .pre{background:var(--paper);color:var(--ink)}
 .fold.pnl .field,.fold.pnl .tog,.fold.pnl .sl label,.fold.pnl .sl output{color:inherit}
-.fold.pnl .subcard{background:#fffaf0;color:var(--ink)}
+.fold.pnl .subcard{background:var(--paper);color:var(--ink)}
 .fold.pnl .subcard h3{color:var(--ink)}
 .fold.pnl .subcard small,.fold.pnl .subcard .hint{color:var(--soft)}
 .verdict.pnl,.runbox.pnl{background:var(--pbg);border:0;box-shadow:0 10px 30px rgba(3,12,36,.22)}
@@ -474,3 +474,98 @@ html{scroll-behavior:smooth;scroll-padding-top:16px}
 :root[data-time=night] .rays{opacity:0}
 .timechip{display:inline-block;margin-left:6px}
 @media(max-width:600px){.pnl{padding:16px;border-radius:18px}.step.pnl{grid-template-columns:minmax(0,1fr)}}
+
+/* settings boxes follow light/dark mode so their text always contrasts */
+.fold.pnl .subcard .sl label,.fold.pnl .subcard .sl output,.fold.pnl .subcard .field,.fold.pnl .subcard .tog{color:var(--ink)}
+.fold.pnl .subcard input[type=search],.fold.pnl .subcard input:not([type]){background:var(--panel);color:var(--ink)}
+/* smooth hand-over from the surface water to the deep water (no hard edge) */
+.surface .w3::after{height:110vh;background:linear-gradient(180deg,var(--wat1) 0%,color-mix(in srgb,var(--wat1) 60%,transparent) 40%,transparent 100%)}
+.water{background:linear-gradient(180deg,var(--wat1) 0%,var(--wat1) 20%,var(--wat2) 60%,var(--wat3) 100%)}
+/* the deeper layers always get darker than the surface water, at every time of day */
+.water .deep{background:linear-gradient(180deg,var(--wat3),color-mix(in srgb,var(--wat3) 70%,#020a24))}
+.water .abyss{background:linear-gradient(180deg,color-mix(in srgb,var(--wat3) 55%,#020a24),color-mix(in srgb,var(--wat3) 30%,#01061a))}
+/* the wave tint only touches the waves, never the water below them */
+:root[data-time=dawn],:root[data-time=dusk]{--seaf:none}
+.surface .w3::after{background:linear-gradient(180deg,var(--wat1) 0,var(--wat1) 280px,transparent 100%)}
+
+/* crew counter + ship's bell */
+.crew{display:inline-flex;align-items:center;gap:8px;margin:0 0 14px 10px;background:#0b2a6e66;color:#fff;border-radius:999px;padding:4px 14px 4px 4px;font-size:14px;font-weight:700;vertical-align:top}
+.crew b{color:var(--gold)}
+.bell{width:36px;height:36px;border:0;border-radius:50%;background:#ffffff26;cursor:pointer;display:grid;place-items:center;padding:0}
+.bell svg{width:24px;height:26px;transform-origin:50% 8%}
+.bell:hover svg{transform:rotate(-8deg)}
+.bell.ding svg{animation:ding .7s ease-out}
+@keyframes ding{20%{transform:rotate(-24deg)}45%{transform:rotate(18deg)}70%{transform:rotate(-8deg)}100%{transform:none}}
+.bell:focus-visible{outline:3px solid var(--gold)}
+/* pirate card dialog */
+.cardlg{border:0;border-radius:24px;padding:18px;background:#0e1a33;color:#fff;max-width:min(94vw,460px);box-shadow:0 30px 80px #000a}
+.cardlg::backdrop{background:#04102ecc}
+.cardlg canvas{width:100%;height:auto;border-radius:14px;display:block}
+.cardlg .acts{justify-content:center}.cardlg .hint{text-align:center;color:#c3d5f7}
+@media(prefers-reduced-motion:reduce){.bell.ding svg{animation:none}}
+@media(max-width:600px){.crew{margin-left:0;display:flex;width:max-content;max-width:100%}}
+
+/* ===== Battle-royale styling: heavy condensed caps, slanted shapes, rarity colours ===== */
+:root{--fnt:"Anton","Luckiest Guy",Impact,sans-serif;--yel:#ffe23d;--yeld:#c9a400}
+h1,h2,.big,.stepnum,.sumt b,.countdown b{font-family:var(--fnt);text-transform:uppercase;letter-spacing:.5px;font-style:italic;font-weight:400}
+.hero h1{font-size:clamp(40px,6.4vw,76px);line-height:.98;text-shadow:0 5px 0 #0b2a6e,0 8px 22px #0006;transform:skewX(-4deg)}
+h2{font-size:clamp(28px,3.6vw,40px)}
+.big{font-size:clamp(34px,5vw,58px);color:var(--yel)}
+/* slanted, chunky buttons */
+.btn,.cue,.chip,.fchip,.pre,.ztag,.fanmade,.crew{border-radius:6px;transform:skewX(-8deg)}
+.btn>*,.cue>*,.ztag>*{transform:skewX(8deg)}
+.btn,.cue{text-transform:uppercase;letter-spacing:.4px;font-weight:900}
+.btn.gold,.cue{background:linear-gradient(180deg,#fff27a,var(--yel) 45%,#f2c400);color:#1a1300;box-shadow:0 4px 0 var(--yeld),0 6px 16px #0005}
+.btn.gold:hover,.cue:hover{filter:brightness(1.06)}
+.btn.ghost{border-width:3px}
+.ztag{font-family:var(--fnt);font-style:italic;font-weight:400;text-transform:uppercase;font-size:16px;letter-spacing:.6px;padding:6px 16px 6px 10px}
+.ztag.res{background:linear-gradient(180deg,#fff27a,var(--yel));color:#1a1300}
+.stepnum{border-radius:8px;transform:skewX(-8deg);background:linear-gradient(180deg,#fff27a,var(--yel));color:#1a1300;font-size:28px}
+/* panels: deep blue with a bright top edge, like the game's menus */
+.pnl{border-radius:14px;border-top:3px solid #ffffff40}
+.deck.ctrl .pnl{--pbg:linear-gradient(180deg,rgba(28,68,170,.9),rgba(14,36,104,.92))}
+.deck.info .pnl{--pbg:linear-gradient(180deg,rgba(20,52,140,.88),rgba(8,24,74,.9))}
+.deck.info.trans .pnl{--pbg:linear-gradient(180deg,rgba(40,48,78,.9),rgba(22,28,50,.92))}
+.deck.ctrl .fold.pnl .ico,.fold.pnl .ico{background:linear-gradient(180deg,#fff27a,var(--yel));box-shadow:0 3px 0 var(--yeld);border-radius:8px;transform:skewX(-8deg)}
+.fold.pnl .ico svg{stroke:#1a1300}
+.ztag.set{background:linear-gradient(180deg,#5aa2ff,#2a6ad8);color:#fff}
+/* Love / Maybe / Nope as item tiles: Love = legendary, Maybe = rare, Nope = common */
+.love{border:0;border-radius:10px;color:#fff;box-shadow:0 4px 0 #0004;text-shadow:0 1px 2px #0006}
+.deck .love{color:#fff}
+.love.s2{background:radial-gradient(120% 120% at 50% 0%,#ffb84d,#e6731a 55%,#a3410a);box-shadow:0 0 0 3px var(--yel),0 4px 0 #0005}
+.love.s1{background:radial-gradient(120% 120% at 50% 0%,#4fb3ff,#1f7ae0 55%,#114a9c)}
+.love.s0{background:radial-gradient(120% 120% at 50% 0%,#9aa6b8,#6b778b 60%,#4b5566);opacity:.85}
+.deck .love.s0{background:radial-gradient(120% 120% at 50% 0%,#9aa6b8,#6b778b 60%,#4b5566)}
+.love .lv{background:#0006;color:#fff;font-family:var(--fnt);font-style:italic;text-transform:uppercase;letter-spacing:.5px;font-weight:400}
+.love.s2 .lv{background:var(--yel);color:#1a1300}.love.s0 .lv{border:0}
+.love .gi{color:#fff;opacity:.9}
+.days label{border:0;border-radius:6px;transform:skewX(-8deg);background:#ffffff26;color:#fff;box-shadow:0 3px 0 #0004}
+.days label span{transform:skewX(8deg)}
+.days label:has(input:checked){background:linear-gradient(180deg,#fff27a,var(--yel));color:#1a1300;box-shadow:0 3px 0 var(--yeld)}
+.days label:has(input:checked)::after{display:none}
+/* the answer */
+.xmark{color:var(--yel);text-shadow:0 6px 0 var(--yeld),0 0 30px #ffe23d66}
+.bar.best{background:linear-gradient(var(--yel),#e0a800)}
+/* Item Shop tiles in rarity colours */
+.item{border:0;border-radius:10px;background:#0e1d44;color:#fff;box-shadow:0 4px 0 #0005}
+.deck .item{color:#fff}
+.item .img{background:var(--rb,radial-gradient(120% 100% at 50% 20%,#9aa6b8,#4b5566))}
+.item[data-r=uncommon]{--rb:radial-gradient(120% 100% at 50% 20%,#87e339,#319236)}
+.item[data-r=rare]{--rb:radial-gradient(120% 100% at 50% 20%,#4fd2ff,#1559c9)}
+.item[data-r=epic]{--rb:radial-gradient(120% 100% at 50% 20%,#d27bff,#6a1fb5)}
+.item[data-r=legendary]{--rb:radial-gradient(120% 100% at 50% 20%,#ffb84d,#b8510a)}
+.item[data-r=icon]{--rb:radial-gradient(120% 100% at 50% 20%,#5ff2ff,#127a8f)}
+.item[data-r=marvel]{--rb:radial-gradient(120% 100% at 50% 20%,#ff5a5a,#8e1010)}
+.item[data-r=gaming]{--rb:radial-gradient(120% 100% at 50% 20%,#8a7bff,#2b1e8f)}
+.item[data-r=dark]{--rb:radial-gradient(120% 100% at 50% 20%,#c04bff,#2a0a3d)}
+.item[data-r=music]{--rb:radial-gradient(120% 100% at 50% 20%,#ff7ad9,#7a1a8c)}
+.item .bd{background:linear-gradient(180deg,#0e1d44,#0a1532)}
+.item .nm{font-family:var(--fnt);font-style:italic;text-transform:uppercase;font-weight:400;font-size:18px;letter-spacing:.3px}
+.item .mt{color:#b9c8ea}.item .vb{color:var(--yel)}
+.item label{border-top-color:#ffffff1f;color:#dfe8ff}
+.item.hit{box-shadow:0 0 0 3px var(--yel),0 4px 0 #0005}
+.item.must{box-shadow:0 0 0 3px #ff6b57,0 4px 0 #0005}
+.shopgrid{gap:10px}
+/* footer: Epic's fan content disclaimer */
+.foot .epic{font-size:12px;color:#c3d5f7;margin-bottom:10px}
+@media(prefers-reduced-motion:reduce){.hero h1{transform:none}}

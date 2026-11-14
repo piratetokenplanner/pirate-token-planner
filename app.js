@@ -251,10 +251,10 @@ function render(recompute = true) {
     .sort((a, b) => b.must - a.must || b.value - a.value);
   const shown = render.allShop ? filtered : filtered.slice(0, 20);
   $('shopMore').hidden = render.allShop || filtered.length <= 20; $('shopMore').textContent = `Show all ${filtered.length}`;
-  $('shopgrid').innerHTML = shown.length ? shown.map(x => `<article class="item${x.own ? ' own' : ''}${x.must ? ' must' : ''}${hitIds.has(x.e.id) ? ' hit' : ''}"><div class="img">${x.e.image ? `<img loading="lazy" src="${esc(x.e.image)}" alt="" onerror="this.remove()">` : esc(x.e.name)}<button type="button" class="heart" data-must="${esc(x.e.id)}" aria-pressed="${x.must}" aria-label="Must have ${esc(x.e.name)}"><svg viewBox="0 0 24 24"><path d="M12 20s-7-4.4-7-10a4 4 0 0 1 7-2.6A4 4 0 0 1 19 10c0 5.6-7 10-7 10z"/></svg></button></div><div class="bd"><span class="nm">${esc(x.e.name)}</span><span class="mt">${KINDS[x.e.kind] || x.e.kind} · last day ${fmt(x.out - 1)}${x.e.gap === 'unseen' ? ' · not seen since ' + fmt(idx(D.shop.historyFrom || '2026-05-02')) : typeof x.e.gap === 'number' && x.e.gap > 1 ? ` · back after ${x.e.gap} days` : ''}</span><span class="vb">${n0(x.e.price)} V-Bucks · worth ${n0(x.value)} to you${x.must ? ' (must-have)' : ''}</span></div><label><input type="checkbox" data-own="${esc(x.e.id)}" ${x.own ? 'checked' : ''}>I already own this</label></article>`).join('') : '<p class="hint">Nothing matches.</p>';
+  $('shopgrid').innerHTML = shown.length ? shown.map(x => `<article data-r="${esc(rarityOf(x.e))}" class="item${x.own ? ' own' : ''}${x.must ? ' must' : ''}${hitIds.has(x.e.id) ? ' hit' : ''}"><div class="img">${x.e.image ? `<img loading="lazy" src="${esc(x.e.image)}" alt="" onerror="this.remove()">` : esc(x.e.name)}<button type="button" class="heart" data-must="${esc(x.e.id)}" aria-pressed="${x.must}" aria-label="Must have ${esc(x.e.name)}"><svg viewBox="0 0 24 24"><path d="M12 20s-7-4.4-7-10a4 4 0 0 1 7-2.6A4 4 0 0 1 19 10c0 5.6-7 10-7 10z"/></svg></button></div><div class="bd"><span class="nm">${esc(x.e.name)}</span><span class="mt">${KINDS[x.e.kind] || x.e.kind} · last day ${fmt(x.out - 1)}${x.e.gap === 'unseen' ? ' · not seen since ' + fmt(idx(D.shop.historyFrom || '2026-05-02')) : typeof x.e.gap === 'number' && x.e.gap > 1 ? ` · back after ${x.e.gap} days` : ''}</span><span class="vb">${n0(x.e.price)} V-Bucks · worth ${n0(x.value)} to you${x.must ? ' (must-have)' : ''}</span></div><label><input type="checkbox" data-own="${esc(x.e.id)}" ${x.own ? 'checked' : ''}>I already own this</label></article>`).join('') : '<p class="hint">Nothing matches.</p>';
   $('shopNote').textContent = `${filtered.length} of ${M.items.length} offers · gold border = in your 14 days · heart = must-have`;
 
-  formula(M); limits(M); pastShops(M); nextToken(M); activeMode(M); if (render.back) backSearch();
+  formula(M); limits(M); pastShops(M); activeMode(M); if (render.back) backSearch();
 }
 
 function formula(M) {
@@ -440,11 +440,6 @@ function bind() {
   const copy = async (txt, msg) => { try { await navigator.clipboard.writeText(txt); $('copyMsg').textContent = msg; } catch (e) { $('copyMsg').textContent = txt; } };
   $('copy').addEventListener('click', () => copy(render.plan, 'Plan copied.'));
   $('shareSet').addEventListener('click', () => copy(location.href.split('#')[0] + '#s=' + btoa(encodeURIComponent(JSON.stringify({ ...P, owned: [], claimed: [], activated: null }))), 'Link copied. It carries your taste, not your owned items.'));
-  $('share').addEventListener('click', async () => {
-    const url = location.href.split('#')[0], text = `My best Pirate Token day: ${$('vDay').textContent.replace('Activate ', '')}. Find yours:`;
-    try { if (navigator.share) { await navigator.share({ title: 'Pirate Token Planner', text, url }); return; } } catch (e) { if (e.name === 'AbortError') return; }
-    copy(`${text} ${url}`, 'Copied, paste it anywhere.');
-  });
   $('calBtn').addEventListener('click', () => openCal($('calBtn'), $('calMenu'), render.cal));
   document.addEventListener('click', e => { if (!e.target.closest('.calwrap')) document.querySelectorAll('.calmenu').forEach(m => { m.hidden = true; }); });
   document.addEventListener('keydown', e => { if (e.key === 'Escape') document.querySelectorAll('.calmenu').forEach(m => { m.hidden = true; }); });
@@ -551,16 +546,86 @@ function backSearch() {
   $('backRes').innerHTML = hits.map(card).join('') + '<p class="hint">A rough estimate from how long items stayed away in the past. Epic does not follow a schedule, so treat it as a hint, not a promise.</p>';
 }
 
-// ---------- second token (2027): which months tend to be best ----------
-function nextToken(M) {
-  const by = Array.from({ length: 12 }, () => []);
-  for (const [date, v] of M.byDate) by[+date.slice(5, 7) - 1].push(v);
-  const avg = by.map(v => v.length >= 10 ? v.reduce((a, b) => a + b, 0) / v.length * M.dur : null);
-  const known = avg.filter(v => v !== null), mx = Math.max(1, ...known), best = avg.indexOf(Math.max(...known));
-  const mon = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
-  $('nextLead').innerHTML = known.length ? `Your second token can be used from <b>Jan 1</b> to <b>Dec 15, 2027</b> (reported). In past shops, a 14-day window in <b>${mon[best]}</b> brought the most loot for your taste.` : 'Not enough past shops yet.';
-  $('months').innerHTML = avg.map((v, i) => `<div class="mo${v === null ? ' none' : ''}${i === best ? ' top' : ''}"><div class="mbar"><div style="height:${v === null ? 0 : Math.max(4, v / mx * 100)}%"></div></div><b>${mon[i]}</b><small>${v === null ? 'no data' : n0(v / 1000) + 'k'}</small></div>`).join('');
-  $('nextNote').textContent = `Expected loot of a 14-day window per month, from ${M.byDate.size} past days. ${12 - known.length} month${12 - known.length === 1 ? '' : 's'} have no data yet and fill in as the history grows. Seasons can change from year to year.`;
+// item rarity as a short class name, for the Item Shop style tile colours
+function rarityOf(e) { const r = String((e.items[0] && e.items[0].rarity) || '').toLowerCase(); return r.includes('legend') ? 'legendary' : r.includes('epic') ? 'epic' : r === 'rare' ? 'rare' : r.includes('uncommon') ? 'uncommon' : r.includes('icon') ? 'icon' : r.includes('marvel') ? 'marvel' : r.includes('gaming') ? 'gaming' : r.includes('shadow') || r.includes('dark') ? 'dark' : r ? 'common' : e.kind === 'jamtrack' ? 'music' : 'common'; }
+
+// ---------- crew counter and the ship's bell (shared, anonymous) ----------
+const COUNTER = 'https://abacus.jasoncameron.dev', NS = 'piratetokenplanner';
+async function counter(action, key) {
+  try { const r = await fetch(`${COUNTER}/${action}/${NS}/${key}`, { signal: AbortSignal.timeout(5000) }); if (!r.ok) return null; return (await r.json()).value ?? null; } catch { return null; }
+}
+async function crew() {
+  if (q.get('today') && !q.get('counter')) return; // no counting in previews and tests
+  let first = false; try { first = !localStorage.getItem('ptp-crew'); } catch {}
+  const [n, rings] = await Promise.all([counter(first ? 'hit' : 'get', 'crew'), counter('get', 'bell')]);
+  if (n === null) return;
+  try { if (first) localStorage.setItem('ptp-crew', String(n)); } catch {}
+  let mine = null; try { mine = +localStorage.getItem('ptp-crew'); } catch {}
+  const bellTxt = r => r ? ` · bell rung ${n0(r)}×` : ' · ring the bell!';
+  const show = r => { $('crewTxt').innerHTML = (first ? `Welcome aboard, <b>pirate #${n0(n)}</b>!` : `<b>${n0(n)}</b> pirates aboard${mine ? ` · you're #${n0(mine)}` : ''}`) + bellTxt(r); };
+  show(rings); $('crew').hidden = false;
+  let last = 0, local = rings || 0;
+  $('bell').addEventListener('click', async () => {
+    const b = $('bell'); b.classList.remove('ding'); void b.offsetWidth; b.classList.add('ding');
+    if (Date.now() - last < 3000) return; last = Date.now();
+    local++; show(local);
+    const v = await counter('hit', 'bell'); if (v !== null) { local = v; show(v); }
+  });
+}
+
+// ---------- pirate card: a shareable picture of your plan ----------
+const NAME_A = ['Captain', 'First Mate', 'Admiral', 'Quartermaster', 'Bosun', 'Cabin Boy', 'Sea Witch', 'Old', 'Lady', 'Skipper'];
+const NAME_B = ['Sleepy', 'Salty', 'Golden', 'Barnacle', 'Stormy', 'Crusty', 'Lucky', 'Rusty', 'Sneaky', 'Jolly', 'Soggy', 'Mighty'];
+const NAME_C = ['Beard', 'Plank', 'Doubloon', 'Kraken', 'Parrot', 'Anchor', 'Squid', 'Cutlass', 'Shrimp', 'Compass', 'Pickaxe', 'Llama'];
+function pirateName(seed) { let h = seed >>> 0; const pick = a => { h = Math.imul(h ^ h >>> 15, 2246822507) + 0x9e3779b9 >>> 0; return a[h % a.length]; }; return `${pick(NAME_A)} ${pick(NAME_B)}${pick(NAME_C)}`; }
+async function drawCard() {
+  const M = render.M, cur = M.all.find(a => a.s === sel), cv = $('cardCv'), g = cv.getContext('2d'), W = 1080, H = 1350;
+  await document.fonts.ready;
+  const sky = g.createLinearGradient(0, 0, 0, H); sky.addColorStop(0, '#8cc8ff'); sky.addColorStop(.45, '#3d7fe6'); sky.addColorStop(1, '#0b2a6e');
+  g.fillStyle = sky; g.fillRect(0, 0, W, H);
+  // waves
+  for (const [y, c] of [[520, '#a8d8ff'], [560, '#6aaef5'], [600, '#3d7fe6']]) { g.fillStyle = c; g.beginPath(); g.moveTo(0, H); g.lineTo(0, y); for (let x = 0; x <= W; x += 60) g.quadraticCurveTo(x + 30, y - 26, x + 60, y); g.lineTo(W, H); g.fill(); }
+  // bubbles and coins
+  g.fillStyle = '#ffffff40'; for (let k = 0; k < 40; k++) { g.beginPath(); g.arc((k * 197) % W, 700 + (k * 131) % 600, 3 + k % 6, 0, 7); g.fill(); }
+  const coin = (x, y, r) => { const cg = g.createRadialGradient(x - r * .3, y - r * .3, 2, x, y, r); cg.addColorStop(0, '#fff2a8'); cg.addColorStop(.5, '#ffc83d'); cg.addColorStop(1, '#b07c00'); g.fillStyle = cg; g.beginPath(); g.arc(x, y, r, 0, 7); g.fill(); g.strokeStyle = '#6b4300'; g.lineWidth = r / 7; g.lineCap = 'round'; g.beginPath(); g.moveTo(x - r * .35, y - r * .35); g.lineTo(x + r * .35, y + r * .35); g.moveTo(x + r * .35, y - r * .35); g.lineTo(x - r * .35, y + r * .35); g.stroke(); };
+  coin(160, 190, 90); coin(960, 1210, 40); coin(900, 1270, 28); coin(1010, 1265, 30);
+  g.fillStyle = '#fff'; g.textBaseline = 'alphabetic';
+  // shrink a line until it fits the card
+  const fit = (txt, x, y, max, size, font) => { let z = size; do { g.font = font.replace('#', z + 'px'); z -= 2; } while (g.measureText(txt).width > max && z > 14); g.fillText(txt, x, y); };
+  g.font = '800 34px Nunito, sans-serif'; g.fillText('MY PIRATE TOKEN PLAN', 280, 160);
+  g.fillStyle = '#fff'; fit(render.cardName, 280, 232, W - 340, 64, '# "Luckiest Guy", Impact, sans-serif');
+  g.font = '800 30px Nunito, sans-serif'; g.fillStyle = '#eaf1ff'; g.fillText('sets sail on', 90, 400);
+  g.font = '110px "Luckiest Guy", Impact, sans-serif'; g.fillStyle = '#ffc83d'; g.strokeStyle = '#7a4a00'; g.lineWidth = 10; g.lineJoin = 'round';
+  const day = fmt(sel, { weekday: 'short', day: 'numeric', month: 'short' }); g.strokeText(day, 90, 510); g.fillText(day, 90, 510);
+  // stats
+  const stat = (y, big, small) => { g.font = '86px "Luckiest Guy", Impact, sans-serif'; g.fillStyle = '#fff'; g.fillText(big, 90, y); g.font = '800 32px Nunito, sans-serif'; g.fillStyle = '#c3d5f7'; g.fillText(small, 90, y + 46); };
+  stat(760, `~${n0(cur.tot / 1000)}k`, 'V-Bucks of loot I want, for free');
+  const must = cur.rows.filter(r => r.hit && r.x.must).length;
+  stat(940, `${M.dur} days`, must ? `of free Item Shop · ${must} must-have${must > 1 ? 's' : ''} in the bag` : 'of free Item Shop');
+  const top = cur.rows.filter(r => r.hit).sort((a, b) => b.v - a.v).slice(0, 3).map(r => r.x.e.name);
+  if (top.length) { g.fillStyle = '#ffe08a'; fit('Top loot: ' + top.join(' · '), 90, 1090, W - 180, 30, '800 # Nunito, sans-serif'); }
+  g.font = '900 34px Nunito, sans-serif'; g.fillStyle = '#fff'; g.fillText('Find your best day:', 90, 1230);
+  g.fillStyle = '#ffc83d'; fit('piratetokenplanner.github.io/pirate-token-planner', 90, 1278, W - 300, 34, '900 # Nunito, sans-serif');
+  g.font = '700 22px Nunito, sans-serif'; g.fillStyle = '#c3d5f7'; g.fillText('Fan-made · not affiliated with Epic Games', 90, 1318);
+  $('cardDl').href = cv.toDataURL('image/png');
+}
+function cardUI() {
+  const dlg = $('cardDlg');
+  render.cardSeed = render.cardSeed ?? (Date.now() & 0xffff);
+  const open = async () => { render.cardName = pirateName(render.cardSeed); await drawCard(); $('cardMsg').textContent = ''; dlg.showModal ? dlg.showModal() : dlg.setAttribute('open', ''); };
+  $('share').addEventListener('click', open);
+  $('cardNew').addEventListener('click', async () => { render.cardSeed += 7919; render.cardName = pirateName(render.cardSeed); await drawCard(); });
+  $('cardClose').addEventListener('click', () => dlg.close());
+  dlg.addEventListener('click', e => { if (e.target === dlg) dlg.close(); });
+  $('cardShare').addEventListener('click', async () => {
+    const url = location.href.split('#')[0], text = `${render.cardName} sets sail on ${fmt(sel, { weekday: 'short', day: 'numeric', month: 'short' })}! Find your best Pirate Token day:`;
+    try {
+      const blob = await new Promise(r => $('cardCv').toBlob(r, 'image/png')), file = new File([blob], 'my-pirate-card.png', { type: 'image/png' });
+      if (navigator.canShare && navigator.canShare({ files: [file] })) { await navigator.share({ files: [file], text, url }); return; }
+      if (navigator.share) { await navigator.share({ text, url }); return; }
+      await navigator.clipboard.writeText(`${text} ${url}`); $('cardMsg').textContent = 'Link copied. Use Download to save the picture.';
+    } catch (e) { if (e.name !== 'AbortError') $('cardMsg').textContent = 'Use Download to save the picture, then share it anywhere.'; }
+  });
 }
 
 // ---------- data loading ----------
@@ -594,7 +659,7 @@ async function init() {
   // installable app: offline copy via a service worker, and an install button where the browser offers one
   if ('serviceWorker' in navigator && location.protocol === 'https:') navigator.serviceWorker.register('sw.js').catch(() => {});
   addEventListener('beforeinstallprompt', e => { e.preventDefault(); const b = $('installBtn'); b.hidden = false; b.onclick = async () => { b.hidden = true; e.prompt(); }; });
-  controls(); bind(); render(); sources();
+  controls(); bind(); render(); sources(); cardUI(); crew();
   // scroll drives the scene: the title floats away, the surface scrolls off and we dive towards the seabed
   const root = document.documentElement; let ticking = false;
   const scene = () => {
