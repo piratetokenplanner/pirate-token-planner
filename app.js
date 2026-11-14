@@ -848,27 +848,39 @@ async function init() {
   $('pastAttr').innerHTML = (D.pastSources || []).length ? 'past shops: ' + D.pastSources.map(x => `<a href="${esc(x.url)}">${esc(x.name)}</a>`).join(', ') : '';
   // scroll drives the scene: the title floats away, the surface scrolls off and we dive towards the seabed.
   // The values are set only on the scene and the title (not the whole page), so the browser restyles just those.
+  // ---- the scene follows the scroll ----
+  // Only a handful of elements are moved, with transform/opacity written directly (no CSS variables that
+  // every scene element would inherit and restyle), and nothing is updated when the value did not change.
   const root = document.documentElement, sceneEl = document.querySelector('.scene'), heroEl = document.querySelector('.hero');
+  const q1 = sel => sceneEl.querySelector(sel);
+  const surfEl = q1('.surface'), deepEl = q1('.water .deep'), abyssEl = q1('.water .abyss'), raysEl = q1('.rays'), bubEl = q1('.bubbles'), bedEl = q1('.seabed'), shipEl = q1('.surface .ship'), textEl = heroEl.querySelector('.herotext');
+  const jellies = [...sceneEl.querySelectorAll('.jelly')];
   const still = matchMedia('(prefers-reduced-motion: reduce)').matches;
-  let ticking = false, lastP = -1, lastSurf = null;
+  let ticking = false, last = '';
   const scene = () => {
     ticking = false;
-    const max = root.scrollHeight - innerHeight, y = scrollY;
-    const p = max > 0 ? Math.min(1, y / max) : 0, h = Math.min(1, y / (innerHeight * 0.45));
-    if (!still && Math.abs(p - lastP) > 0.0005) {
-      lastP = p;
-      sceneEl.style.setProperty('--p', p.toFixed(4)); sceneEl.style.setProperty('--h', h.toFixed(3)); sceneEl.style.setProperty('--sy', Math.round(y));
-      heroEl.style.setProperty('--h', h.toFixed(3));
+    const vh = innerHeight, max = root.scrollHeight - vh, y = Math.max(0, scrollY);
+    const p = max > 0 ? Math.min(1, y / max) : 0, h = Math.min(1, y / (vh * 0.45));
+    const key = (y >> 1) + '|' + vh; if (key === last) return; last = key;
+    const surfOn = y < vh * 1.1, bottom = p > 0.72;
+    if (!still) {
+      if (surfOn) { surfEl.style.transform = `translate3d(0,${-y}px,0)`; shipEl.style.transform = `translateX(${(h * 6).toFixed(2)}vw)`; }
+      if (h < 1 || scene.lastH < 1) { textEl.style.opacity = (1 - h).toFixed(3); textEl.style.transform = `translate3d(0,${(-60 * h).toFixed(1)}px,0) scale(${(1 - h * 0.06).toFixed(4)})`; } scene.lastH = h;
+      deepEl.style.opacity = Math.min(1, p * 1.5).toFixed(3); abyssEl.style.opacity = Math.max(0, (p - 0.55) * 2.2).toFixed(3);
+      if (raysEl) raysEl.style.opacity = Math.max(0, 0.5 - p * 0.7).toFixed(3); bubEl.style.opacity = Math.min(1, p * 4).toFixed(3);
+      const bedY = (1 - Math.min(1, p * 1.15)) * 300;
+      bedEl.style.transform = `translate3d(0,${bedY.toFixed(1)}px,0)`;
+      for (const j of jellies) j.style.transform = `translate3d(0,${(bedY * 1.6).toFixed(1)}px,0)`;
     }
-    // the surface (waves, ship, clouds) stops animating once it has scrolled out of view
-    const surf = y < innerHeight * 1.1;
-    if (surf !== lastSurf) { lastSurf = surf; sceneEl.classList.toggle('below', !surf); }
-    heroEl.classList.toggle('gone', h >= 1);
+    // pause what cannot be seen: the surface once scrolled away, the seabed until you get there
+    const flags = (surfOn ? 1 : 0) + (bottom ? 2 : 0) + (h >= 1 ? 4 : 0);
+    if (flags !== scene.flags) { scene.flags = flags;
+      sceneEl.classList.toggle('below', !surfOn); surfEl.style.visibility = surfOn ? '' : 'hidden';
+      sceneEl.classList.toggle('deepend', bottom); heroEl.classList.toggle('gone', h >= 1); }
   };
   addEventListener('scroll', () => { if (!ticking) { ticking = true; requestAnimationFrame(scene); } }, { passive: true });
-  // pause every scene animation while the tab is hidden
   document.addEventListener('visibilitychange', () => sceneEl.classList.toggle('paused', document.hidden));
-  addEventListener('resize', scene); scene();
+  addEventListener('resize', () => { last = ''; scene(); }); scene();
   // the scene follows the visitor's real clock: dawn, day, dusk or night, with the sun on its arc
   const daytime = () => {
     const d = new Date(), h = d.getHours() + d.getMinutes() / 60;

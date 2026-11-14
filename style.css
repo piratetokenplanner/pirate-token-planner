@@ -4034,3 +4034,45 @@ main a,.foot a,.tbl td{overflow-wrap:anywhere}
 @media(max-width:600px){.footcard{grid-template-columns:minmax(0,1fr);padding:20px!important}.surfaceup{grid-column:1;grid-row:auto;justify-self:start}.fbrand b{font-size:20px}}
 .foot .sig{max-width:none;justify-self:center}
 .foot{padding-top:0}
+
+
+/* ===== performance pass: fewer layers, fewer running animations ===== */
+/* no permanent will-change: the browser promotes moving things itself */
+.hero .herotext,.jelly,.school,.seabed,.surface{will-change:auto}
+/* light shafts: one static gradient instead of five blurred, masked, animated beams */
+.rays{display:none}
+.water::after{content:"";position:absolute;inset:0;opacity:max(0,calc(.9 - var(--p) * 1.3));
+  background:linear-gradient(104deg,transparent 8%,#ffffff14 11%,transparent 15%,transparent 28%,#ffffff10 30%,transparent 33%,transparent 52%,#ffffff12 55%,transparent 59%,transparent 74%,#ffffff0e 76%,transparent 79%);
+  -webkit-mask:linear-gradient(180deg,#000,transparent 75%);mask:linear-gradient(180deg,#000,transparent 75%)}
+/* fish swim as a group; no extra wiggle per fish */
+.school span{animation:none}
+/* gulls glide without flapping, stars only twinkle at night */
+.g{animation:none}
+.stars i{animation:none}
+:root[data-time=night] .stars i{animation:twinkle 3s ease-in-out infinite}
+/* things far away from the viewport don't animate */
+.school.off,.jelly.off{animation-play-state:paused;visibility:hidden}
+.seabed *{animation-play-state:paused!important}
+.scene.deepend .seabed *{animation-play-state:running!important}
+/* the share button shimmers a few times, then rests */
+.btn.sharebtn::after{animation-iteration-count:3}
+/* lighter shadows (blurred shadows over moving water are costly) */
+.pnl,.fold.pnl,.fold.pnl[open],.verdict.pnl,.runbox.pnl{box-shadow:0 6px 14px rgba(3,12,36,.22)}
+.ztag{box-shadow:0 2px 6px rgba(0,0,0,.25)}
+
+
+/* ===== performance pass 2: fewer layers, no inherited scroll variables, pause what is off screen ===== */
+.school,.jelly,.hero .herotext{will-change:auto}
+.school{top:var(--y);translate:none!important;visibility:visible!important}
+.jelly{top:auto;bottom:240px;translate:none!important;visibility:visible!important;animation:none!important}
+.jelly svg{display:block;animation:jelly2 4s ease-in-out infinite;animation-delay:var(--jd,0s)}
+.surface .w3::after{display:none}
+.water{background:linear-gradient(180deg,var(--wat1) 0%,var(--wat1) 25%,var(--wat2) 62%,var(--wat3) 100%)}
+.rays i{-webkit-mask:none;mask:none;background:linear-gradient(180deg,#ffffff2e,transparent 65%)}
+.rays i:nth-child(n+4),.bubbles i:nth-child(n+15){display:none}
+.scene:not(.deepend) .seabed *,.scene:not(.deepend) .jelly svg{animation-play-state:paused}
+.surface,.seabed{will-change:transform}
+/* bottom: taller seabed, footer resting closer to the sand */
+.seabed{height:300px}
+.foot .wrap{margin-bottom:220px}
+@media(max-width:760px){.seabed{height:200px}.foot .wrap{margin-bottom:170px}.jelly{bottom:170px}}
