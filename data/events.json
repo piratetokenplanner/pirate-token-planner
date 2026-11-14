@@ -16,7 +16,7 @@
     "mustContain": [
      "December 5"
     ],
-    "checkedAt": "2026-11-14T06:11:25.716Z",
+    "checkedAt": "2026-11-14T12:46:56.406Z",
     "reachable": true,
     "found": [
      {
@@ -25,15 +25,15 @@
      }
     ],
     "verified": true,
-    "hash": "a80a995c72971c10",
-    "changedSinceLastCheck": false
+    "hash": "7e912501e1d90efa",
+    "changedSinceLastCheck": true
    },
    {
     "url": "https://lootrundown.com/fortnite/event-calendar",
     "mustContain": [
      "December 5"
     ],
-    "checkedAt": "2026-11-14T06:11:26.025Z",
+    "checkedAt": "2026-11-14T12:46:56.794Z",
     "reachable": true,
     "found": [
      {
@@ -42,7 +42,7 @@
      }
     ],
     "verified": true,
-    "hash": "f037ba3137427931",
+    "hash": "1ba57a752e82c8b2",
     "changedSinceLastCheck": true
    }
   ],
@@ -66,7 +66,7 @@
     "mustContain": [
      "Chapter 8"
     ],
-    "checkedAt": "2026-11-14T06:11:26.026Z",
+    "checkedAt": "2026-11-14T12:46:56.795Z",
     "reachable": true,
     "found": [
      {
@@ -75,8 +75,8 @@
      }
     ],
     "verified": true,
-    "hash": "a80a995c72971c10",
-    "changedSinceLastCheck": false
+    "hash": "7e912501e1d90efa",
+    "changedSinceLastCheck": true
    }
   ],
   "calibrateFrom": [
@@ -151,7 +151,7 @@
     "mustContain": [
      "Winterfest"
     ],
-    "checkedAt": "2026-11-14T06:11:26.178Z",
+    "checkedAt": "2026-11-14T12:46:57.016Z",
     "reachable": true,
     "found": [
      {
@@ -168,7 +168,7 @@
     "mustContain": [
      "Winterfest"
     ],
-    "checkedAt": "2026-11-14T06:11:26.313Z",
+    "checkedAt": "2026-11-14T12:46:57.157Z",
     "reachable": true,
     "found": [
      {
