@@ -1,4 +1,34 @@
 {
+ "goodDayExtra": {
+  "glider": 604,
+  "bundle": 6403,
+  "pickaxe": 2127,
+  "outfit": 5803,
+  "backpack": 1465,
+  "wrap": 496,
+  "emote": 825,
+  "car": 223,
+  "kicks": 241,
+  "jamtrack": 9429,
+  "sidekick": 464,
+  "lego": 130,
+  "contrail": 33
+ },
+ "meanDayByKind": {
+  "glider": 1217,
+  "bundle": 11881,
+  "pickaxe": 3973,
+  "outfit": 15886,
+  "backpack": 3530,
+  "wrap": 1099,
+  "emote": 2713,
+  "car": 270,
+  "kicks": 1094,
+  "jamtrack": 4618,
+  "sidekick": 1094,
+  "lego": 43,
+  "contrail": 65
+ },
  "method": "past shops 2026-05-02 to 2026-11-13",
  "source": "https://github.com/Fortnite-Datamining/Fortnite-Datamining/tree/history/shop",
  "sources": [
@@ -518,7 +548,8 @@
     "car": 3300,
     "bundle": 600,
     "wrap": 300
-   }
+   },
+   "reserved": true
   },
   {
    "date": "2026-06-07",
@@ -533,7 +564,8 @@
     "car": 400,
     "glider": 1500,
     "wrap": 800
-   }
+   },
+   "reserved": true
   },
   {
    "date": "2026-06-08",
@@ -546,7 +578,8 @@
     "kicks": 3400,
     "pickaxe": 800,
     "bundle": 5600
-   }
+   },
+   "reserved": true
   },
   {
    "date": "2026-06-09",
@@ -561,7 +594,8 @@
     "wrap": 1300,
     "emote": 800,
     "sidekick": 2700
-   }
+   },
+   "reserved": true
   },
   {
    "date": "2026-06-10",
@@ -574,7 +608,8 @@
     "outfit": 5100,
     "emote": 3200,
     "wrap": 500
-   }
+   },
+   "reserved": true
   },
   {
    "date": "2026-06-11",
@@ -589,7 +624,8 @@
     "bundle": 6800,
     "kicks": 800,
     "glider": 1300
-   }
+   },
+   "reserved": true
   },
   {
    "date": "2026-06-12",
@@ -604,7 +640,8 @@
     "bundle": 11300,
     "glider": 500,
     "kicks": 1000
-   }
+   },
+   "reserved": true
   },
   {
    "date": "2026-06-13",
@@ -1619,7 +1656,8 @@
     "glider": 800,
     "outfit": 2000,
     "wrap": 500
-   }
+   },
+   "reserved": true
   },
   {
    "date": "2026-08-21",
@@ -1636,7 +1674,8 @@
     "wrap": 1300,
     "kicks": 1000,
     "glider": 800
-   }
+   },
+   "reserved": true
   },
   {
    "date": "2026-08-22",
@@ -1651,7 +1690,8 @@
     "wrap": 1500,
     "kicks": 1000,
     "sidekick": 1500
-   }
+   },
+   "reserved": true
   },
   {
    "date": "2026-08-23",
@@ -1666,7 +1706,8 @@
     "glider": 4000,
     "pickaxe": 9000,
     "wrap": 500
-   }
+   },
+   "reserved": true
   },
   {
    "date": "2026-08-24",
@@ -1682,7 +1723,8 @@
     "emote": 1000,
     "glider": 500,
     "contrail": 300
-   }
+   },
+   "reserved": true
   },
   {
    "date": "2026-08-25",
@@ -1696,7 +1738,8 @@
     "wrap": 2300,
     "glider": 800,
     "sidekick": 2700
-   }
+   },
+   "reserved": true
   },
   {
    "date": "2026-08-26",
@@ -1712,7 +1755,8 @@
     "glider": 2000,
     "emote": 1500,
     "car": 1200
-   }
+   },
+   "reserved": true
   },
   {
    "date": "2026-08-27",
