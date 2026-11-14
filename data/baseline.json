@@ -1,130 +1,2901 @@
 {
- "method": "arrivals of items still in the shop, last 14 days (biased low until 5+ days of snapshots exist)",
- "windowFrom": "2026-10-31",
- "windowTo": "2026-11-14",
- "snapshots": 1,
- "firstSnapshot": "2026-11-14",
- "lastSnapshot": "2026-11-14",
+ "method": "past shops 2026-05-02 to 2026-11-13, from the Fortnite-Datamining archive",
+ "source": "https://github.com/Fortnite-Datamining/Fortnite-Datamining/tree/history/shop",
+ "windowFrom": "2026-05-03",
+ "windowTo": "2026-11-13",
  "days": [
   {
-   "date": "2026-11-01",
-   "count": 111,
+   "date": "2026-05-03",
+   "count": 58,
    "byKind": {
-    "jamtrack": 49000,
-    "outfit": 5000,
-    "pickaxe": 2600,
-    "emote": 300,
-    "backpack": 1000,
-    "bundle": 4000,
-    "glider": 1200
+    "glider": 2000,
+    "bundle": 12500,
+    "pickaxe": 4700,
+    "outfit": 20900,
+    "backpack": 5400,
+    "wrap": 1300,
+    "emote": 2900
    }
   },
   {
-   "date": "2026-11-06",
-   "count": 17,
+   "date": "2026-05-04",
+   "count": 70,
    "byKind": {
-    "pickaxe": 800,
-    "jamtrack": 1500,
+    "pickaxe": 5700,
+    "outfit": 23400,
+    "backpack": 5200,
+    "glider": 3700,
+    "emote": 2000,
+    "car": 800,
+    "wrap": 1600,
+    "bundle": 19900,
+    "kicks": 1000,
+    "jamtrack": 1500
+   }
+  },
+  {
+   "date": "2026-05-05",
+   "count": 69,
+   "byKind": {
+    "backpack": 6400,
+    "wrap": 1600,
+    "outfit": 33500,
+    "emote": 3300,
+    "glider": 4000,
+    "pickaxe": 2600,
+    "bundle": 11400,
+    "sidekick": 2400,
+    "jamtrack": 500
+   }
+  },
+  {
+   "date": "2026-05-06",
+   "count": 64,
+   "byKind": {
+    "wrap": 1600,
+    "emote": 1900,
+    "backpack": 4900,
+    "outfit": 18900,
+    "bundle": 21000,
+    "pickaxe": 5500,
+    "glider": 1700,
+    "kicks": 800,
+    "car": 2300
+   }
+  },
+  {
+   "date": "2026-05-07",
+   "count": 51,
+   "byKind": {
+    "emote": 3400,
+    "backpack": 3900,
+    "outfit": 19300,
+    "jamtrack": 500,
+    "pickaxe": 3000,
+    "bundle": 12600,
+    "glider": 2000,
+    "kicks": 600,
+    "wrap": 1500
+   }
+  },
+  {
+   "date": "2026-05-08",
+   "count": 84,
+   "byKind": {
+    "jamtrack": 8000,
+    "emote": 3600,
+    "bundle": 15000,
+    "outfit": 19900,
+    "backpack": 5300,
+    "pickaxe": 7200,
+    "kicks": 3800,
+    "glider": 3300,
+    "wrap": 300,
+    "sidekick": 1200,
+    "car": 1100
+   }
+  },
+  {
+   "date": "2026-05-09",
+   "count": 52,
+   "byKind": {
+    "pickaxe": 6500,
+    "bundle": 21200,
+    "outfit": 9200,
+    "wrap": 1000,
+    "backpack": 2500,
+    "car": 800,
+    "emote": 5100,
+    "glider": 3600,
+    "kicks": 800
+   }
+  },
+  {
+   "date": "2026-05-10",
+   "count": 43,
+   "byKind": {
+    "outfit": 14600,
+    "kicks": 2200,
+    "bundle": 11500,
+    "backpack": 3900,
+    "pickaxe": 5600,
+    "wrap": 2000,
+    "emote": 1200
+   }
+  },
+  {
+   "date": "2026-05-11",
+   "count": 53,
+   "byKind": {
+    "emote": 4500,
+    "glider": 1600,
+    "wrap": 1600,
+    "backpack": 2900,
+    "bundle": 10600,
+    "pickaxe": 5100,
+    "outfit": 15000,
+    "kicks": 2000
+   }
+  },
+  {
+   "date": "2026-05-12",
+   "count": 38,
+   "byKind": {
+    "outfit": 22600,
+    "pickaxe": 5100,
+    "backpack": 2600,
+    "emote": 600,
+    "sidekick": 2400,
+    "bundle": 1800
+   }
+  },
+  {
+   "date": "2026-05-13",
+   "count": 38,
+   "byKind": {
+    "wrap": 2300,
+    "pickaxe": 6000,
+    "jamtrack": 500,
     "backpack": 1700,
-    "bundle": 4300,
-    "kicks": 2000,
-    "outfit": 3500,
+    "glider": 1200,
+    "emote": 2700,
+    "bundle": 6400,
+    "kicks": 800,
+    "outfit": 9600
+   }
+  },
+  {
+   "date": "2026-05-14",
+   "count": 47,
+   "byKind": {
+    "backpack": 3200,
+    "pickaxe": 2900,
+    "outfit": 26100,
+    "emote": 2100,
+    "wrap": 1000,
+    "bundle": 13000,
+    "car": 800
+   }
+  },
+  {
+   "date": "2026-05-15",
+   "count": 88,
+   "byKind": {
+    "lego": 7400,
+    "backpack": 6400,
+    "bundle": 15700,
+    "jamtrack": 8000,
+    "wrap": 1700,
+    "glider": 2400,
+    "emote": 3300,
+    "outfit": 20000,
+    "pickaxe": 6500
+   }
+  },
+  {
+   "date": "2026-05-16",
+   "count": 40,
+   "byKind": {
+    "bundle": 5400,
+    "outfit": 15000,
+    "emote": 1500,
+    "backpack": 4800,
+    "wrap": 800,
+    "jamtrack": 2500,
+    "kicks": 800,
+    "pickaxe": 800,
+    "glider": 800,
+    "sidekick": 1500
+   }
+  },
+  {
+   "date": "2026-05-17",
+   "count": 46,
+   "byKind": {
+    "pickaxe": 2900,
+    "backpack": 5200,
+    "outfit": 11300,
+    "jamtrack": 500,
+    "emote": 3500,
+    "bundle": 12500,
     "glider": 1200,
     "wrap": 500,
-    "emote": 1000
+    "sidekick": 1500
    }
   },
   {
-   "date": "2026-11-08",
-   "count": 10,
+   "date": "2026-05-18",
+   "count": 51,
    "byKind": {
-    "bundle": 8500,
-    "car": 400,
+    "outfit": 23000,
+    "wrap": 800,
+    "backpack": 3700,
+    "pickaxe": 2300,
+    "glider": 4000,
+    "bundle": 13100,
+    "kicks": 600,
+    "emote": 1800,
+    "jamtrack": 500
+   }
+  },
+  {
+   "date": "2026-05-19",
+   "count": 67,
+   "byKind": {
+    "backpack": 4800,
+    "pickaxe": 4100,
+    "outfit": 27400,
+    "bundle": 8200,
+    "glider": 3500,
+    "emote": 4600,
+    "sidekick": 3600,
+    "car": 700,
+    "wrap": 500
+   }
+  },
+  {
+   "date": "2026-05-20",
+   "count": 29,
+   "byKind": {
+    "bundle": 11800,
+    "outfit": 8300,
+    "emote": 2100,
+    "backpack": 1800,
+    "wrap": 500,
+    "pickaxe": 2400,
+    "glider": 800
+   }
+  },
+  {
+   "date": "2026-05-21",
+   "count": 41,
+   "byKind": {
+    "outfit": 9800,
+    "glider": 1600,
+    "backpack": 2600,
+    "bundle": 10000,
+    "pickaxe": 3100,
+    "emote": 4500,
+    "kicks": 600,
+    "wrap": 300
+   }
+  },
+  {
+   "date": "2026-05-22",
+   "count": 48,
+   "byKind": {
+    "backpack": 3300,
+    "bundle": 6300,
+    "jamtrack": 8000,
+    "outfit": 11300,
+    "wrap": 500,
+    "pickaxe": 1300,
+    "car": 2000,
+    "emote": 1300,
+    "glider": 800,
+    "sidekick": 1500
+   }
+  },
+  {
+   "date": "2026-05-23",
+   "count": 49,
+   "byKind": {
+    "emote": 4800,
+    "wrap": 1000,
+    "outfit": 17100,
+    "backpack": 4600,
+    "bundle": 9200,
+    "glider": 800,
+    "kicks": 2000,
+    "pickaxe": 4300
+   }
+  },
+  {
+   "date": "2026-05-24",
+   "count": 31,
+   "byKind": {
+    "backpack": 2000,
+    "outfit": 12200,
+    "kicks": 800,
+    "glider": 1000,
+    "pickaxe": 2600,
+    "bundle": 4200,
+    "contrail": 400,
+    "emote": 1000,
+    "wrap": 800
+   }
+  },
+  {
+   "date": "2026-05-25",
+   "count": 53,
+   "byKind": {
+    "outfit": 25400,
+    "pickaxe": 3600,
+    "backpack": 5300,
+    "bundle": 4800,
+    "wrap": 1300,
+    "emote": 3000,
+    "glider": 1600
+   }
+  },
+  {
+   "date": "2026-05-26",
+   "count": 56,
+   "byKind": {
+    "backpack": 5300,
+    "emote": 1700,
+    "outfit": 27200,
+    "glider": 2800,
+    "bundle": 6400,
+    "jamtrack": 500,
+    "sidekick": 2700,
+    "pickaxe": 5200
+   }
+  },
+  {
+   "date": "2026-05-27",
+   "count": 53,
+   "byKind": {
+    "outfit": 23200,
+    "backpack": 4000,
+    "bundle": 4500,
+    "emote": 4000,
+    "kicks": 600,
+    "pickaxe": 4300,
+    "wrap": 500,
+    "glider": 2300,
+    "jamtrack": 500
+   }
+  },
+  {
+   "date": "2026-05-28",
+   "count": 59,
+   "byKind": {
+    "bundle": 18700,
+    "pickaxe": 5800,
+    "outfit": 15900,
+    "emote": 2300,
+    "backpack": 3600,
+    "glider": 2000,
+    "kicks": 600,
     "sidekick": 1500,
-    "outfit": 3400,
-    "emote": 300,
-    "pickaxe": 800,
-    "backpack": 300
+    "car": 400,
+    "wrap": 1000
    }
   },
   {
-   "date": "2026-11-09",
-   "count": 2,
+   "date": "2026-05-29",
+   "count": 74,
    "byKind": {
+    "jamtrack": 8500,
+    "emote": 4500,
+    "backpack": 3100,
+    "pickaxe": 5300,
+    "wrap": 3800,
+    "bundle": 19500,
+    "outfit": 12200,
+    "car": 700
+   }
+  },
+  {
+   "date": "2026-05-30",
+   "count": 74,
+   "byKind": {
+    "backpack": 6300,
+    "outfit": 29800,
+    "jamtrack": 1500,
+    "bundle": 12300,
+    "glider": 2800,
+    "pickaxe": 6000,
+    "car": 800,
+    "wrap": 1000,
+    "kicks": 1400,
+    "sidekick": 2700,
+    "emote": 700
+   }
+  },
+  {
+   "date": "2026-05-31",
+   "count": 60,
+   "byKind": {
+    "emote": 5100,
+    "bundle": 15500,
+    "outfit": 11400,
+    "backpack": 3400,
+    "pickaxe": 6500,
+    "kicks": 1600,
+    "wrap": 2500,
+    "jamtrack": 500,
+    "glider": 2000
+   }
+  },
+  {
+   "date": "2026-06-01",
+   "count": 137,
+   "byKind": {
+    "jamtrack": 49500,
+    "pickaxe": 4800,
+    "outfit": 6400,
+    "bundle": 14400,
+    "emote": 1900,
+    "backpack": 2400,
+    "wrap": 1800,
+    "glider": 2100
+   }
+  },
+  {
+   "date": "2026-06-02",
+   "count": 52,
+   "byKind": {
+    "emote": 3000,
+    "outfit": 26300,
+    "backpack": 3700,
+    "pickaxe": 2600,
+    "glider": 1600,
+    "bundle": 1500,
+    "wrap": 500,
+    "sidekick": 2700
+   }
+  },
+  {
+   "date": "2026-06-03",
+   "count": 29,
+   "byKind": {
+    "outfit": 13300,
+    "backpack": 2500,
+    "emote": 3000,
+    "pickaxe": 1300,
+    "glider": 1200,
+    "wrap": 500,
+    "bundle": 1500
+   }
+  },
+  {
+   "date": "2026-06-04",
+   "count": 43,
+   "byKind": {
+    "bundle": 8100,
+    "kicks": 600,
+    "backpack": 3300,
+    "outfit": 14000,
+    "pickaxe": 2100,
+    "emote": 4200,
+    "wrap": 1300,
+    "glider": 2700
+   }
+  },
+  {
+   "date": "2026-06-05",
+   "count": 154,
+   "byKind": {
+    "jamtrack": 54500,
+    "outfit": 26100,
+    "backpack": 2300,
+    "bundle": 11700,
+    "pickaxe": 4000,
+    "emote": 2000,
+    "glider": 3200,
+    "wrap": 800
+   }
+  },
+  {
+   "date": "2026-06-06",
+   "count": 128,
+   "byKind": {
+    "jamtrack": 49500,
+    "emote": 3800,
+    "outfit": 6800,
+    "pickaxe": 1000,
+    "glider": 500,
+    "backpack": 2300,
+    "car": 3300,
+    "bundle": 600,
+    "wrap": 300
+   }
+  },
+  {
+   "date": "2026-06-07",
+   "count": 44,
+   "byKind": {
+    "backpack": 5600,
+    "bundle": 13500,
+    "outfit": 13400,
+    "emote": 2100,
+    "sidekick": 1200,
+    "pickaxe": 3400,
+    "car": 400,
+    "glider": 1500,
+    "wrap": 800
+   }
+  },
+  {
+   "date": "2026-06-08",
+   "count": 32,
+   "byKind": {
+    "emote": 4100,
+    "glider": 500,
+    "backpack": 2500,
+    "outfit": 11300,
+    "kicks": 3400,
+    "pickaxe": 800,
+    "bundle": 5600
+   }
+  },
+  {
+   "date": "2026-06-09",
+   "count": 42,
+   "byKind": {
+    "backpack": 3800,
+    "bundle": 6800,
+    "pickaxe": 2800,
+    "outfit": 19900,
+    "glider": 1200,
+    "kicks": 600,
+    "wrap": 1300,
+    "emote": 800,
+    "sidekick": 2700
+   }
+  },
+  {
+   "date": "2026-06-10",
+   "count": 28,
+   "byKind": {
+    "jamtrack": 500,
+    "pickaxe": 1800,
+    "backpack": 2800,
+    "bundle": 7100,
+    "outfit": 5100,
+    "emote": 3200,
+    "wrap": 500
+   }
+  },
+  {
+   "date": "2026-06-11",
+   "count": 30,
+   "byKind": {
+    "outfit": 11100,
+    "pickaxe": 3200,
+    "backpack": 2000,
+    "wrap": 1000,
+    "emote": 1100,
+    "jamtrack": 500,
+    "bundle": 6800,
+    "kicks": 800,
+    "glider": 1300
+   }
+  },
+  {
+   "date": "2026-06-12",
+   "count": 65,
+   "byKind": {
+    "outfit": 24000,
+    "pickaxe": 2100,
+    "emote": 3900,
+    "wrap": 1000,
+    "backpack": 2900,
+    "jamtrack": 8000,
+    "bundle": 11300,
+    "glider": 500,
+    "kicks": 1000
+   }
+  },
+  {
+   "date": "2026-06-13",
+   "count": 51,
+   "byKind": {
+    "outfit": 26400,
+    "bundle": 15100,
+    "backpack": 3700,
+    "emote": 1700,
+    "pickaxe": 5000,
+    "glider": 800,
+    "wrap": 1500,
+    "car": 400
+   }
+  },
+  {
+   "date": "2026-06-14",
+   "count": 79,
+   "byKind": {
+    "backpack": 10200,
+    "emote": 4600,
+    "pickaxe": 11600,
+    "bundle": 27000,
+    "outfit": 20400,
+    "glider": 2000,
+    "wrap": 500,
+    "sidekick": 1500,
+    "jamtrack": 500,
+    "kicks": 1000
+   }
+  },
+  {
+   "date": "2026-06-15",
+   "count": 40,
+   "byKind": {
+    "wrap": 1300,
+    "outfit": 16800,
+    "backpack": 2600,
+    "car": 400,
+    "pickaxe": 4200,
+    "bundle": 10600,
+    "kicks": 3400,
+    "glider": 1200,
+    "emote": 300
+   }
+  },
+  {
+   "date": "2026-06-16",
+   "count": 49,
+   "byKind": {
+    "outfit": 20800,
+    "pickaxe": 3900,
+    "emote": 4100,
+    "wrap": 1000,
+    "glider": 1500,
+    "backpack": 3500,
+    "sidekick": 2400,
+    "bundle": 9300,
+    "kicks": 600
+   }
+  },
+  {
+   "date": "2026-06-17",
+   "count": 33,
+   "byKind": {
+    "sidekick": 1500,
+    "emote": 1800,
+    "backpack": 3300,
+    "outfit": 8800,
+    "bundle": 14400,
+    "pickaxe": 3600,
+    "car": 400,
+    "kicks": 1000
+   }
+  },
+  {
+   "date": "2026-06-18",
+   "count": 44,
+   "byKind": {
+    "bundle": 12500,
+    "backpack": 2900,
+    "pickaxe": 6500,
+    "outfit": 11700,
+    "glider": 2400,
+    "emote": 2900,
+    "kicks": 800,
+    "wrap": 500
+   }
+  },
+  {
+   "date": "2026-06-19",
+   "count": 55,
+   "byKind": {
+    "backpack": 3500,
+    "pickaxe": 3600,
+    "outfit": 17300,
+    "jamtrack": 8000,
+    "bundle": 9500,
+    "emote": 1300,
+    "glider": 4100,
+    "sidekick": 1200,
+    "wrap": 800
+   }
+  },
+  {
+   "date": "2026-06-20",
+   "count": 57,
+   "byKind": {
+    "outfit": 13600,
+    "emote": 6100,
+    "bundle": 17900,
+    "glider": 4200,
+    "backpack": 6200,
+    "pickaxe": 5400,
+    "wrap": 1600,
+    "kicks": 600
+   }
+  },
+  {
+   "date": "2026-06-21",
+   "count": 48,
+   "byKind": {
+    "backpack": 3700,
+    "emote": 1200,
+    "bundle": 22300,
+    "pickaxe": 5700,
+    "outfit": 10500,
+    "glider": 500,
+    "kicks": 2000,
+    "wrap": 500,
+    "car": 200
+   }
+  },
+  {
+   "date": "2026-06-22",
+   "count": 66,
+   "byKind": {
+    "pickaxe": 4100,
+    "wrap": 2400,
+    "backpack": 3900,
+    "outfit": 33100,
+    "glider": 2300,
+    "bundle": 12200,
+    "sidekick": 1500,
+    "emote": 3700,
+    "kicks": 4200
+   }
+  },
+  {
+   "date": "2026-06-23",
+   "count": 40,
+   "byKind": {
+    "emote": 1300,
+    "backpack": 3300,
+    "outfit": 21200,
+    "glider": 1600,
+    "bundle": 6600,
+    "pickaxe": 2600,
+    "wrap": 500,
+    "sidekick": 2400
+   }
+  },
+  {
+   "date": "2026-06-24",
+   "count": 24,
+   "byKind": {
+    "bundle": 9500,
+    "emote": 3200,
+    "backpack": 1700,
+    "outfit": 4200,
+    "pickaxe": 2400,
+    "wrap": 500
+   }
+  },
+  {
+   "date": "2026-06-25",
+   "count": 35,
+   "byKind": {
+    "bundle": 7200,
+    "backpack": 4600,
+    "emote": 1500,
+    "pickaxe": 800,
+    "contrail": 600,
+    "wrap": 500,
+    "jamtrack": 2500,
+    "outfit": 11700
+   }
+  },
+  {
+   "date": "2026-06-26",
+   "count": 45,
+   "byKind": {
+    "backpack": 3500,
+    "pickaxe": 800,
+    "outfit": 9100,
+    "jamtrack": 10500,
+    "emote": 3000,
+    "bundle": 4400
+   }
+  },
+  {
+   "date": "2026-06-27",
+   "count": 69,
+   "byKind": {
+    "bundle": 23100,
+    "outfit": 19600,
+    "emote": 1600,
+    "pickaxe": 8000,
+    "wrap": 3500,
+    "car": 400,
+    "backpack": 4100,
+    "jamtrack": 1000,
+    "kicks": 2000,
+    "glider": 1600,
+    "sidekick": 1500
+   }
+  },
+  {
+   "date": "2026-06-28",
+   "count": 68,
+   "byKind": {
+    "backpack": 5500,
+    "outfit": 24700,
+    "kicks": 2000,
+    "emote": 3200,
+    "bundle": 21500,
+    "glider": 3600,
+    "pickaxe": 8000,
+    "contrail": 600,
+    "wrap": 1000,
+    "car": 700
+   }
+  },
+  {
+   "date": "2026-06-29",
+   "count": 73,
+   "byKind": {
+    "backpack": 3600,
+    "glider": 3800,
+    "kicks": 3200,
+    "contrail": 1500,
+    "pickaxe": 6600,
+    "bundle": 23000,
+    "emote": 3500,
+    "jamtrack": 1000,
+    "wrap": 2800,
+    "outfit": 17400
+   }
+  },
+  {
+   "date": "2026-06-30",
+   "count": 60,
+   "byKind": {
+    "emote": 5500,
+    "outfit": 17200,
+    "pickaxe": 3900,
+    "backpack": 4200,
+    "jamtrack": 3000,
+    "contrail": 1100,
+    "wrap": 1300,
+    "bundle": 10100,
+    "sidekick": 4500,
     "kicks": 1400
    }
   },
   {
-   "date": "2026-11-10",
+   "date": "2026-07-01",
+   "count": 150,
+   "byKind": {
+    "jamtrack": 48500,
+    "backpack": 2900,
+    "pickaxe": 5200,
+    "outfit": 15200,
+    "emote": 2500,
+    "glider": 1600,
+    "bundle": 17900,
+    "wrap": 2100,
+    "sidekick": 1500
+   }
+  },
+  {
+   "date": "2026-07-02",
+   "count": 53,
+   "byKind": {
+    "kicks": 1400,
+    "backpack": 4300,
+    "emote": 4200,
+    "outfit": 18900,
+    "jamtrack": 2500,
+    "wrap": 2500,
+    "bundle": 10300,
+    "pickaxe": 1300
+   }
+  },
+  {
+   "date": "2026-07-03",
+   "count": 51,
+   "byKind": {
+    "jamtrack": 9500,
+    "backpack": 1200,
+    "sidekick": 1500,
+    "bundle": 10300,
+    "pickaxe": 4500,
+    "emote": 900,
+    "outfit": 14900,
+    "kicks": 800,
+    "wrap": 500,
+    "glider": 800
+   }
+  },
+  {
+   "date": "2026-07-04",
+   "count": 47,
+   "byKind": {
+    "glider": 1600,
+    "emote": 3200,
+    "pickaxe": 3600,
+    "backpack": 2800,
+    "outfit": 15000,
+    "kicks": 1800,
+    "jamtrack": 1500,
+    "wrap": 1500,
+    "bundle": 7300
+   }
+  },
+  {
+   "date": "2026-07-05",
+   "count": 53,
+   "byKind": {
+    "outfit": 16500,
+    "pickaxe": 4800,
+    "backpack": 5300,
+    "kicks": 2800,
+    "emote": 3200,
+    "glider": 1700,
+    "bundle": 18700,
+    "wrap": 1500,
+    "car": 400,
+    "jamtrack": 500
+   }
+  },
+  {
+   "date": "2026-07-06",
+   "count": 52,
+   "byKind": {
+    "pickaxe": 5000,
+    "outfit": 14400,
+    "backpack": 3000,
+    "emote": 4500,
+    "bundle": 15500,
+    "kicks": 2600,
+    "glider": 800
+   }
+  },
+  {
+   "date": "2026-07-07",
+   "count": 42,
+   "byKind": {
+    "wrap": 1000,
+    "outfit": 20400,
+    "backpack": 3800,
+    "sidekick": 2400,
+    "emote": 1600,
+    "pickaxe": 2100,
+    "bundle": 8000,
+    "glider": 1200
+   }
+  },
+  {
+   "date": "2026-07-08",
    "count": 30,
    "byKind": {
-    "pickaxe": 2100,
-    "outfit": 15100,
+    "emote": 3400,
+    "bundle": 9500,
+    "backpack": 3600,
+    "pickaxe": 1600,
+    "outfit": 3900,
+    "wrap": 800,
+    "jamtrack": 1500
+   }
+  },
+  {
+   "date": "2026-07-09",
+   "count": 40,
+   "byKind": {
+    "backpack": 3300,
+    "pickaxe": 2900,
+    "wrap": 2500,
+    "kicks": 600,
+    "bundle": 13200,
+    "emote": 400,
+    "outfit": 13800,
+    "glider": 800,
+    "car": 700
+   }
+  },
+  {
+   "date": "2026-07-10",
+   "count": 63,
+   "byKind": {
+    "emote": 4900,
+    "backpack": 2900,
+    "pickaxe": 4100,
+    "outfit": 11000,
+    "jamtrack": 10000,
+    "sidekick": 1200,
+    "bundle": 8200,
+    "wrap": 500,
+    "car": 700
+   }
+  },
+  {
+   "date": "2026-07-11",
+   "count": 34,
+   "byKind": {
+    "outfit": 15000,
+    "pickaxe": 2600,
+    "kicks": 2200,
+    "backpack": 2500,
+    "wrap": 2000,
+    "sidekick": 1200,
+    "emote": 1400,
+    "bundle": 2000
+   }
+  },
+  {
+   "date": "2026-07-12",
+   "count": 36,
+   "byKind": {
+    "pickaxe": 3200,
+    "emote": 2500,
     "backpack": 2600,
+    "outfit": 5500,
+    "glider": 800,
+    "bundle": 14100,
+    "wrap": 1000,
+    "car": 700,
+    "jamtrack": 1000
+   }
+  },
+  {
+   "date": "2026-07-13",
+   "count": 25,
+   "byKind": {
+    "pickaxe": 1600,
+    "kicks": 3400,
+    "glider": 1200,
+    "backpack": 1400,
+    "outfit": 8600,
+    "bundle": 4000,
+    "sidekick": 1000,
+    "wrap": 1800,
+    "emote": 300
+   }
+  },
+  {
+   "date": "2026-07-14",
+   "count": 45,
+   "byKind": {
+    "emote": 4300,
+    "backpack": 4100,
+    "outfit": 17900,
+    "pickaxe": 2400,
+    "glider": 800,
+    "wrap": 500,
+    "kicks": 2000,
+    "bundle": 5300,
+    "sidekick": 2400
+   }
+  },
+  {
+   "date": "2026-07-15",
+   "count": 41,
+   "byKind": {
+    "pickaxe": 4400,
+    "emote": 1700,
+    "bundle": 17300,
+    "outfit": 8100,
+    "backpack": 1900,
+    "wrap": 1900,
+    "glider": 500
+   }
+  },
+  {
+   "date": "2026-07-16",
+   "count": 65,
+   "byKind": {
+    "bundle": 16200,
+    "pickaxe": 5700,
+    "backpack": 6400,
+    "outfit": 25600,
+    "emote": 2700,
+    "wrap": 800,
+    "glider": 1000,
+    "kicks": 1000,
+    "sidekick": 2500
+   }
+  },
+  {
+   "date": "2026-07-17",
+   "count": 53,
+   "byKind": {
+    "outfit": 13700,
+    "pickaxe": 1800,
+    "jamtrack": 12500,
+    "backpack": 2900,
+    "wrap": 300,
+    "bundle": 5200,
+    "emote": 300
+   }
+  },
+  {
+   "date": "2026-07-18",
+   "count": 83,
+   "byKind": {
+    "bundle": 22800,
+    "backpack": 5700,
+    "outfit": 27900,
+    "emote": 6500,
+    "pickaxe": 8400,
+    "jamtrack": 2000,
+    "wrap": 1500,
+    "kicks": 2400,
+    "glider": 500
+   }
+  },
+  {
+   "date": "2026-07-19",
+   "count": 47,
+   "byKind": {
+    "kicks": 800,
+    "backpack": 3500,
+    "pickaxe": 2900,
+    "bundle": 15600,
+    "outfit": 18200,
+    "emote": 2000,
+    "sidekick": 1200,
+    "wrap": 1300,
+    "jamtrack": 500
+   }
+  },
+  {
+   "date": "2026-07-20",
+   "count": 46,
+   "byKind": {
+    "pickaxe": 2900,
+    "outfit": 26400,
+    "wrap": 1000,
+    "kicks": 3200,
+    "backpack": 3000,
+    "emote": 2300,
+    "bundle": 6800
+   }
+  },
+  {
+   "date": "2026-07-21",
+   "count": 72,
+   "byKind": {
+    "backpack": 4700,
+    "pickaxe": 5000,
+    "emote": 4000,
+    "outfit": 18300,
+    "bundle": 25500,
+    "glider": 800,
+    "car": 800,
+    "wrap": 2000,
+    "jamtrack": 1500,
+    "sidekick": 2400,
+    "kicks": 800
+   }
+  },
+  {
+   "date": "2026-07-22",
+   "count": 43,
+   "byKind": {
+    "backpack": 5500,
+    "emote": 4500,
+    "outfit": 15400,
+    "pickaxe": 2000,
+    "jamtrack": 1500,
+    "wrap": 1000,
+    "bundle": 4100,
+    "kicks": 600,
+    "contrail": 600
+   }
+  },
+  {
+   "date": "2026-07-23",
+   "count": 55,
+   "byKind": {
+    "outfit": 17000,
+    "kicks": 800,
+    "bundle": 23900,
+    "wrap": 1500,
+    "glider": 3200,
+    "backpack": 3800,
+    "pickaxe": 7300,
+    "emote": 2700,
+    "jamtrack": 500,
+    "car": 400
+   }
+  },
+  {
+   "date": "2026-07-24",
+   "count": 55,
+   "byKind": {
+    "jamtrack": 10500,
+    "sidekick": 3000,
+    "outfit": 9500,
+    "backpack": 4300,
+    "car": 800,
+    "bundle": 5400,
+    "emote": 3500,
+    "pickaxe": 2900
+   }
+  },
+  {
+   "date": "2026-07-25",
+   "count": 64,
+   "byKind": {
+    "bundle": 11400,
+    "glider": 2000,
+    "pickaxe": 4500,
+    "backpack": 5300,
+    "outfit": 15800,
+    "sidekick": 12300,
+    "wrap": 2600,
+    "emote": 1500,
+    "jamtrack": 2500,
+    "kicks": 1000
+   }
+  },
+  {
+   "date": "2026-07-26",
+   "count": 40,
+   "byKind": {
+    "emote": 3800,
+    "pickaxe": 2600,
+    "kicks": 4000,
+    "bundle": 12000,
+    "outfit": 4000,
+    "sidekick": 1800,
+    "backpack": 2500,
+    "jamtrack": 1000,
+    "glider": 800,
+    "car": 400,
+    "wrap": 1000
+   }
+  },
+  {
+   "date": "2026-07-27",
+   "count": 39,
+   "byKind": {
+    "outfit": 15900,
+    "backpack": 4900,
+    "wrap": 1500,
+    "emote": 1900,
+    "bundle": 6900,
+    "pickaxe": 1300,
+    "kicks": 4000,
+    "car": 400
+   }
+  },
+  {
+   "date": "2026-07-28",
+   "count": 36,
+   "byKind": {
+    "bundle": 12800,
+    "backpack": 3000,
+    "emote": 2500,
+    "outfit": 10500,
+    "pickaxe": 3600,
+    "car": 400,
+    "wrap": 500,
+    "kicks": 1000,
+    "jamtrack": 500
+   }
+  },
+  {
+   "date": "2026-07-29",
+   "count": 38,
+   "byKind": {
+    "jamtrack": 3500,
+    "emote": 4800,
+    "outfit": 5400,
+    "backpack": 1000,
+    "sidekick": 10200,
+    "pickaxe": 1200,
+    "bundle": 6300,
+    "glider": 2700,
+    "wrap": 300
+   }
+  },
+  {
+   "date": "2026-07-30",
+   "count": 41,
+   "byKind": {
+    "wrap": 800,
+    "outfit": 11800,
+    "emote": 3700,
+    "pickaxe": 1300,
+    "glider": 1200,
+    "bundle": 14300,
+    "jamtrack": 2000,
+    "kicks": 1400,
+    "backpack": 2000,
+    "car": 1100,
+    "sidekick": 1200
+   }
+  },
+  {
+   "date": "2026-07-31",
+   "count": 70,
+   "byKind": {
+    "pickaxe": 6800,
+    "wrap": 500,
+    "jamtrack": 9500,
+    "backpack": 4000,
+    "bundle": 14800,
+    "outfit": 17300,
+    "emote": 2500,
+    "car": 400,
+    "sidekick": 1500,
+    "kicks": 600
+   }
+  },
+  {
+   "date": "2026-08-01",
+   "count": 125,
+   "byKind": {
+    "jamtrack": 49500,
+    "bundle": 10300,
+    "pickaxe": 2900,
+    "outfit": 2600,
+    "emote": 2400,
+    "car": 400,
+    "wrap": 800,
+    "backpack": 1200,
+    "glider": 1200
+   }
+  },
+  {
+   "date": "2026-08-02",
+   "count": 39,
+   "byKind": {
+    "sidekick": 13300,
+    "outfit": 8200,
+    "wrap": 1000,
+    "backpack": 2500,
+    "emote": 1300,
+    "bundle": 8000,
+    "pickaxe": 3200,
+    "glider": 800,
+    "kicks": 800
+   }
+  },
+  {
+   "date": "2026-08-03",
+   "count": 40,
+   "byKind": {
+    "outfit": 13700,
+    "glider": 800,
+    "bundle": 6500,
+    "kicks": 3800,
+    "backpack": 2600,
+    "emote": 3000,
+    "pickaxe": 800,
+    "jamtrack": 500,
+    "wrap": 1500
+   }
+  },
+  {
+   "date": "2026-08-04",
+   "count": 37,
+   "byKind": {
+    "backpack": 4000,
+    "outfit": 19200,
+    "pickaxe": 4500,
     "emote": 500,
+    "sidekick": 2400,
+    "bundle": 4600,
+    "glider": 800
+   }
+  },
+  {
+   "date": "2026-08-05",
+   "count": 37,
+   "byKind": {
+    "bundle": 9500,
+    "glider": 1200,
+    "car": 200,
+    "backpack": 2000,
+    "outfit": 18600,
+    "emote": 2800,
+    "jamtrack": 500,
+    "wrap": 1000
+   }
+  },
+  {
+   "date": "2026-08-06",
+   "count": 47,
+   "byKind": {
+    "outfit": 9300,
+    "car": 2700,
+    "backpack": 2900,
+    "bundle": 16800,
+    "emote": 2000,
+    "pickaxe": 4200,
+    "glider": 1600,
+    "jamtrack": 500,
+    "wrap": 1000
+   }
+  },
+  {
+   "date": "2026-08-07",
+   "count": 84,
+   "byKind": {
+    "contrail": 300,
+    "jamtrack": 9500,
+    "outfit": 30800,
+    "backpack": 4800,
+    "bundle": 15100,
+    "emote": 4700,
+    "wrap": 300,
+    "kicks": 600,
+    "sidekick": 1500,
+    "pickaxe": 4500,
+    "car": 400
+   }
+  },
+  {
+   "date": "2026-08-08",
+   "count": 30,
+   "byKind": {
+    "backpack": 2000,
+    "outfit": 17900,
+    "pickaxe": 2100,
+    "wrap": 1000,
+    "bundle": 2400,
+    "kicks": 1800,
+    "emote": 400
+   }
+  },
+  {
+   "date": "2026-08-09",
+   "count": 25,
+   "byKind": {
+    "emote": 2800,
+    "pickaxe": 1300,
+    "outfit": 4000,
+    "car": 400,
+    "bundle": 10700,
+    "backpack": 1400,
+    "wrap": 500,
+    "glider": 800,
+    "jamtrack": 500,
+    "sidekick": 1500
+   }
+  },
+  {
+   "date": "2026-08-10",
+   "count": 41,
+   "byKind": {
+    "pickaxe": 3400,
+    "bundle": 17200,
+    "kicks": 3200,
+    "outfit": 10600,
+    "backpack": 3200,
+    "car": 700,
+    "emote": 300,
+    "glider": 800,
+    "wrap": 500
+   }
+  },
+  {
+   "date": "2026-08-11",
+   "count": 72,
+   "byKind": {
+    "emote": 3100,
+    "backpack": 7900,
+    "outfit": 25700,
+    "bundle": 19500,
+    "wrap": 600,
+    "glider": 4400,
+    "pickaxe": 7500,
+    "sidekick": 2400,
+    "jamtrack": 500
+   }
+  },
+  {
+   "date": "2026-08-12",
+   "count": 37,
+   "byKind": {
+    "emote": 2700,
+    "bundle": 14500,
+    "backpack": 1400,
+    "outfit": 8700,
+    "jamtrack": 2000,
+    "wrap": 1000,
+    "glider": 2000,
+    "pickaxe": 2300,
+    "contrail": 500,
+    "sidekick": 1500,
+    "kicks": 600
+   }
+  },
+  {
+   "date": "2026-08-13",
+   "count": 25,
+   "byKind": {
+    "emote": 2700,
+    "bundle": 8500,
+    "jamtrack": 500,
+    "outfit": 6000,
+    "pickaxe": 2400,
+    "backpack": 1200
+   }
+  },
+  {
+   "date": "2026-08-14",
+   "count": 53,
+   "byKind": {
+    "backpack": 5100,
+    "bundle": 14700,
+    "jamtrack": 8000,
+    "outfit": 9100,
+    "wrap": 500,
+    "car": 2000,
+    "pickaxe": 2900,
+    "emote": 500,
+    "sidekick": 1500
+   }
+  },
+  {
+   "date": "2026-08-15",
+   "count": 46,
+   "byKind": {
+    "outfit": 25400,
+    "bundle": 10800,
+    "emote": 2700,
+    "backpack": 3700,
+    "pickaxe": 2100,
+    "kicks": 1600,
+    "wrap": 500
+   }
+  },
+  {
+   "date": "2026-08-16",
+   "count": 33,
+   "byKind": {
+    "emote": 200,
+    "backpack": 3200,
+    "outfit": 13100,
+    "pickaxe": 2800,
+    "bundle": 7400,
+    "jamtrack": 1000,
+    "sidekick": 1200,
+    "wrap": 500
+   }
+  },
+  {
+   "date": "2026-08-17",
+   "count": 28,
+   "byKind": {
+    "backpack": 3300,
+    "outfit": 4700,
+    "kicks": 2200,
+    "emote": 2400,
+    "bundle": 3600,
+    "sidekick": 1200,
+    "pickaxe": 3200,
+    "wrap": 500
+   }
+  },
+  {
+   "date": "2026-08-18",
+   "count": 53,
+   "byKind": {
+    "outfit": 19800,
+    "backpack": 5600,
+    "pickaxe": 1000,
+    "kicks": 1800,
+    "bundle": 9200,
+    "wrap": 1500,
+    "contrail": 600,
+    "emote": 2400,
+    "glider": 800,
+    "jamtrack": 1500,
+    "sidekick": 2400
+   }
+  },
+  {
+   "date": "2026-08-19",
+   "count": 18,
+   "byKind": {
+    "bundle": 7900,
+    "car": 800,
+    "emote": 2400,
+    "backpack": 2400,
+    "pickaxe": 1600,
+    "wrap": 500
+   }
+  },
+  {
+   "date": "2026-08-20",
+   "count": 24,
+   "byKind": {
+    "backpack": 3400,
+    "pickaxe": 1800,
+    "emote": 1300,
+    "bundle": 10900,
+    "glider": 800,
+    "outfit": 2000,
+    "wrap": 500
+   }
+  },
+  {
+   "date": "2026-08-21",
+   "count": 116,
+   "byKind": {
+    "jamtrack": 41500,
+    "car": 700,
+    "outfit": 13400,
+    "sidekick": 1200,
+    "backpack": 1400,
+    "bundle": 9800,
+    "pickaxe": 800,
+    "emote": 1700,
+    "wrap": 1300,
+    "kicks": 1000,
+    "glider": 800
+   }
+  },
+  {
+   "date": "2026-08-22",
+   "count": 53,
+   "byKind": {
+    "backpack": 3700,
+    "pickaxe": 3600,
+    "outfit": 19200,
+    "emote": 2300,
+    "bundle": 12700,
+    "car": 800,
+    "wrap": 1500,
+    "kicks": 1000,
+    "sidekick": 1500
+   }
+  },
+  {
+   "date": "2026-08-23",
+   "count": 76,
+   "byKind": {
+    "outfit": 34900,
+    "bundle": 20700,
+    "kicks": 2400,
+    "backpack": 6800,
+    "emote": 4200,
+    "sidekick": 1500,
+    "glider": 4000,
+    "pickaxe": 9000,
+    "wrap": 500
+   }
+  },
+  {
+   "date": "2026-08-24",
+   "count": 62,
+   "byKind": {
+    "pickaxe": 6600,
+    "kicks": 4400,
+    "bundle": 16700,
+    "outfit": 18800,
+    "wrap": 2200,
+    "car": 400,
+    "backpack": 4100,
+    "emote": 1000,
+    "glider": 500,
+    "contrail": 300
+   }
+  },
+  {
+   "date": "2026-08-25",
+   "count": 48,
+   "byKind": {
+    "outfit": 17200,
+    "emote": 2400,
+    "pickaxe": 2000,
+    "backpack": 3700,
+    "bundle": 10700,
+    "wrap": 2300,
+    "glider": 800,
+    "sidekick": 2700
+   }
+  },
+  {
+   "date": "2026-08-26",
+   "count": 39,
+   "byKind": {
+    "outfit": 13400,
+    "pickaxe": 2100,
+    "bundle": 13800,
+    "kicks": 600,
+    "sidekick": 4200,
+    "backpack": 1800,
+    "jamtrack": 1500,
+    "glider": 2000,
+    "emote": 1500,
+    "car": 1200
+   }
+  },
+  {
+   "date": "2026-08-27",
+   "count": 32,
+   "byKind": {
+    "emote": 4000,
+    "bundle": 7800,
+    "outfit": 11400,
+    "backpack": 3400,
+    "pickaxe": 1600,
+    "glider": 1200,
+    "wrap": 500,
+    "jamtrack": 500
+   }
+  },
+  {
+   "date": "2026-08-28",
+   "count": 41,
+   "byKind": {
+    "bundle": 8400,
+    "jamtrack": 8000,
+    "backpack": 2400,
+    "pickaxe": 3000,
+    "outfit": 4600,
+    "wrap": 1000,
+    "emote": 1300
+   }
+  },
+  {
+   "date": "2026-08-29",
+   "count": 40,
+   "byKind": {
+    "emote": 3000,
+    "wrap": 500,
+    "outfit": 19800,
+    "backpack": 3200,
+    "sidekick": 3000,
+    "pickaxe": 2100,
+    "kicks": 2000,
+    "bundle": 6800
+   }
+  },
+  {
+   "date": "2026-08-30",
+   "count": 36,
+   "byKind": {
+    "backpack": 1700,
+    "pickaxe": 3200,
+    "bundle": 10800,
+    "outfit": 11900,
+    "wrap": 2800,
+    "emote": 1400,
+    "glider": 2000,
+    "sidekick": 1000
+   }
+  },
+  {
+   "date": "2026-08-31",
+   "count": 49,
+   "byKind": {
+    "pickaxe": 3300,
+    "backpack": 2900,
+    "outfit": 14400,
+    "kicks": 4400,
+    "bundle": 11900,
+    "emote": 4300,
+    "jamtrack": 500,
+    "wrap": 500,
+    "sidekick": 1500
+   }
+  },
+  {
+   "date": "2026-09-01",
+   "count": 152,
+   "byKind": {
+    "bundle": 14800,
+    "pickaxe": 3400,
+    "jamtrack": 50000,
+    "outfit": 18200,
+    "backpack": 3500,
+    "car": 400,
+    "kicks": 1000,
+    "emote": 3100,
+    "wrap": 1300,
+    "sidekick": 2400,
+    "glider": 2000
+   }
+  },
+  {
+   "date": "2026-09-02",
+   "count": 40,
+   "byKind": {
+    "pickaxe": 4700,
+    "backpack": 2400,
+    "emote": 3200,
+    "outfit": 12500,
+    "glider": 1200,
+    "bundle": 12700,
+    "wrap": 500,
+    "jamtrack": 500
+   }
+  },
+  {
+   "date": "2026-09-03",
+   "count": 7,
+   "byKind": {
+    "wrap": 500,
+    "outfit": 3500,
+    "jamtrack": 1000,
+    "glider": 800
+   }
+  },
+  {
+   "date": "2026-09-04",
+   "count": 133,
+   "byKind": {
+    "pickaxe": 8700,
+    "outfit": 37400,
+    "backpack": 10100,
+    "kicks": 6200,
+    "bundle": 25600,
+    "wrap": 1000,
+    "sidekick": 4800,
+    "emote": 5800,
+    "jamtrack": 10500,
+    "glider": 2800,
+    "car": 400
+   }
+  },
+  {
+   "date": "2026-09-05",
+   "count": 85,
+   "byKind": {
+    "pickaxe": 8800,
+    "glider": 2900,
+    "bundle": 22300,
+    "jamtrack": 3500,
+    "backpack": 5500,
+    "emote": 3000,
+    "outfit": 22200,
+    "wrap": 3500,
+    "kicks": 1000,
+    "car": 1900,
+    "contrail": 1500,
+    "sidekick": 1500
+   }
+  },
+  {
+   "date": "2026-09-06",
+   "count": 40,
+   "byKind": {
+    "emote": 3300,
+    "outfit": 13900,
+    "bundle": 8600,
+    "wrap": 1500,
+    "pickaxe": 3200,
+    "glider": 1700,
+    "backpack": 2200,
+    "sidekick": 1200
+   }
+  },
+  {
+   "date": "2026-09-07",
+   "count": 55,
+   "byKind": {
+    "pickaxe": 3900,
+    "wrap": 600,
+    "outfit": 22100,
+    "jamtrack": 500,
+    "backpack": 3800,
+    "bundle": 13300,
+    "glider": 3200,
+    "kicks": 3200,
+    "emote": 1200
+   }
+  },
+  {
+   "date": "2026-09-08",
+   "count": 56,
+   "byKind": {
+    "backpack": 4900,
+    "wrap": 1000,
+    "outfit": 22000,
+    "emote": 4000,
+    "contrail": 600,
+    "bundle": 11300,
+    "pickaxe": 3000,
+    "sidekick": 2400,
+    "jamtrack": 500
+   }
+  },
+  {
+   "date": "2026-09-09",
+   "count": 47,
+   "byKind": {
+    "bundle": 8100,
+    "outfit": 21700,
+    "wrap": 1500,
+    "backpack": 4400,
+    "car": 400,
+    "pickaxe": 2900,
+    "glider": 1200,
+    "contrail": 500,
+    "emote": 800
+   }
+  },
+  {
+   "date": "2026-09-10",
+   "count": 36,
+   "byKind": {
+    "emote": 3500,
+    "backpack": 2600,
+    "outfit": 7700,
+    "contrail": 600,
+    "bundle": 6100,
+    "jamtrack": 3000,
+    "pickaxe": 1800,
+    "wrap": 1000,
+    "glider": 1200
+   }
+  },
+  {
+   "date": "2026-09-11",
+   "count": 49,
+   "byKind": {
+    "outfit": 17600,
+    "jamtrack": 8000,
+    "emote": 900,
+    "backpack": 2300,
+    "pickaxe": 3200,
+    "bundle": 10600,
+    "car": 1100,
+    "sidekick": 2700
+   }
+  },
+  {
+   "date": "2026-09-12",
+   "count": 146,
+   "byKind": {
+    "jamtrack": 42500,
+    "backpack": 4000,
+    "emote": 5200,
+    "pickaxe": 7000,
+    "outfit": 15600,
+    "wrap": 1000,
+    "bundle": 16600,
+    "kicks": 1000,
+    "car": 800,
+    "sidekick": 1500
+   }
+  },
+  {
+   "date": "2026-09-13",
+   "count": 43,
+   "byKind": {
+    "wrap": 1500,
+    "backpack": 3400,
+    "outfit": 10500,
+    "jamtrack": 2000,
+    "emote": 1900,
+    "bundle": 11100,
+    "pickaxe": 3900,
+    "glider": 2000
+   }
+  },
+  {
+   "date": "2026-09-14",
+   "count": 45,
+   "byKind": {
+    "outfit": 10000,
+    "pickaxe": 3000,
+    "backpack": 2800,
+    "emote": 5100,
+    "wrap": 1500,
+    "bundle": 7600,
+    "kicks": 2400,
+    "jamtrack": 500,
+    "glider": 1600
+   }
+  },
+  {
+   "date": "2026-09-15",
+   "count": 55,
+   "byKind": {
+    "emote": 1500,
+    "outfit": 16900,
+    "bundle": 15300,
+    "backpack": 5500,
+    "pickaxe": 4500,
+    "glider": 1600,
+    "wrap": 2600,
+    "sidekick": 2700
+   }
+  },
+  {
+   "date": "2026-09-16",
+   "count": 27,
+   "byKind": {
+    "emote": 3800,
+    "outfit": 6500,
+    "pickaxe": 2100,
+    "kicks": 600,
+    "backpack": 1400,
+    "bundle": 8700,
+    "wrap": 1000
+   }
+  },
+  {
+   "date": "2026-09-17",
+   "count": 58,
+   "byKind": {
+    "jamtrack": 12000,
+    "pickaxe": 6400,
+    "outfit": 13000,
+    "sidekick": 1500,
+    "car": 800,
+    "emote": 1100,
+    "bundle": 9300,
+    "glider": 1200,
+    "backpack": 2000,
+    "kicks": 1000,
+    "wrap": 300
+   }
+  },
+  {
+   "date": "2026-09-18",
+   "count": 154,
+   "byKind": {
+    "jamtrack": 47000,
+    "backpack": 5400,
+    "pickaxe": 8000,
+    "car": 2800,
+    "wrap": 1000,
+    "emote": 4700,
+    "outfit": 11100,
+    "bundle": 24200,
+    "glider": 2000
+   }
+  },
+  {
+   "date": "2026-09-19",
+   "count": 36,
+   "byKind": {
+    "jamtrack": 1500,
+    "outfit": 9300,
+    "backpack": 3000,
+    "kicks": 2000,
+    "bundle": 11000,
+    "pickaxe": 2900,
+    "emote": 1800,
+    "wrap": 1500,
+    "sidekick": 1500
+   }
+  },
+  {
+   "date": "2026-09-20",
+   "count": 61,
+   "byKind": {
+    "emote": 3600,
+    "pickaxe": 6900,
+    "outfit": 15200,
+    "backpack": 3300,
+    "glider": 2900,
+    "sidekick": 1200,
+    "bundle": 15800,
+    "wrap": 1600,
+    "kicks": 2000,
+    "jamtrack": 1000,
+    "contrail": 500
+   }
+  },
+  {
+   "date": "2026-09-21",
+   "count": 49,
+   "byKind": {
+    "pickaxe": 5300,
+    "backpack": 3100,
+    "kicks": 4000,
+    "outfit": 13200,
+    "contrail": 500,
+    "bundle": 13300,
+    "car": 400,
+    "emote": 800,
+    "glider": 1200,
+    "wrap": 500
+   }
+  },
+  {
+   "date": "2026-09-22",
+   "count": 83,
+   "byKind": {
+    "bundle": 36700,
+    "outfit": 24100,
+    "jamtrack": 1000,
+    "pickaxe": 7100,
+    "emote": 3000,
+    "backpack": 6000,
+    "wrap": 800,
+    "glider": 1600,
+    "sidekick": 2400,
+    "car": 400
+   }
+  },
+  {
+   "date": "2026-09-23",
+   "count": 20,
+   "byKind": {
+    "outfit": 8500,
+    "pickaxe": 1000,
+    "bundle": 4600,
+    "backpack": 600,
+    "sidekick": 1500,
+    "emote": 1000,
+    "jamtrack": 500,
+    "kicks": 800,
+    "wrap": 500
+   }
+  },
+  {
+   "date": "2026-09-24",
+   "count": 45,
+   "byKind": {
+    "outfit": 24300,
+    "sidekick": 1500,
+    "emote": 3400,
+    "backpack": 2400,
+    "bundle": 11500,
+    "wrap": 800,
+    "pickaxe": 3400,
+    "car": 400,
+    "glider": 500,
+    "kicks": 1000
+   }
+  },
+  {
+   "date": "2026-09-25",
+   "count": 55,
+   "byKind": {
+    "jamtrack": 10500,
+    "outfit": 14200,
+    "bundle": 6700,
+    "wrap": 1800,
+    "pickaxe": 1300,
+    "backpack": 3000,
+    "emote": 3000,
+    "glider": 800
+   }
+  },
+  {
+   "date": "2026-09-26",
+   "count": 117,
+   "byKind": {
+    "backpack": 10100,
+    "jamtrack": 3000,
+    "outfit": 37200,
+    "emote": 9700,
+    "pickaxe": 8900,
+    "glider": 1200,
+    "wrap": 1500,
+    "bundle": 29300,
+    "car": 400,
+    "kicks": 1000,
+    "sidekick": 1500
+   }
+  },
+  {
+   "date": "2026-09-27",
+   "count": 53,
+   "byKind": {
+    "glider": 1600,
+    "pickaxe": 6400,
+    "backpack": 3400,
+    "outfit": 15200,
+    "emote": 1600,
+    "bundle": 19400,
+    "kicks": 600,
+    "wrap": 800,
+    "sidekick": 1200
+   }
+  },
+  {
+   "date": "2026-09-28",
+   "count": 42,
+   "byKind": {
+    "glider": 2000,
+    "wrap": 500,
+    "outfit": 11000,
+    "pickaxe": 4200,
+    "backpack": 2700,
+    "bundle": 13800,
+    "emote": 2600,
+    "kicks": 3400
+   }
+  },
+  {
+   "date": "2026-09-29",
+   "count": 40,
+   "byKind": {
+    "backpack": 3700,
+    "outfit": 18300,
+    "bundle": 3700,
+    "pickaxe": 1800,
+    "glider": 800,
+    "jamtrack": 500,
+    "sidekick": 3600,
+    "emote": 500,
+    "wrap": 300
+   }
+  },
+  {
+   "date": "2026-09-30",
+   "count": 16,
+   "byKind": {
+    "bundle": 6700,
+    "emote": 2700,
+    "outfit": 5600,
+    "backpack": 400,
+    "pickaxe": 500
+   }
+  },
+  {
+   "date": "2026-10-01",
+   "count": 135,
+   "byKind": {
+    "backpack": 4100,
+    "emote": 1500,
+    "jamtrack": 50500,
+    "pickaxe": 3400,
+    "outfit": 12900,
+    "kicks": 1000,
+    "bundle": 6900,
+    "wrap": 1000
+   }
+  },
+  {
+   "date": "2026-10-02",
+   "count": 166,
+   "byKind": {
+    "jamtrack": 59500,
+    "outfit": 19000,
+    "backpack": 4100,
+    "wrap": 1200,
+    "emote": 3500,
+    "bundle": 9400,
+    "pickaxe": 3400,
+    "car": 400,
+    "glider": 500
+   }
+  },
+  {
+   "date": "2026-10-03",
+   "count": 21,
+   "byKind": {
+    "jamtrack": 2000,
+    "backpack": 1500,
+    "kicks": 800,
+    "bundle": 4100,
+    "outfit": 4000,
+    "pickaxe": 2400,
+    "wrap": 1300,
+    "emote": 800
+   }
+  },
+  {
+   "date": "2026-10-04",
+   "count": 48,
+   "byKind": {
+    "backpack": 4400,
+    "outfit": 11400,
+    "car": 800,
+    "bundle": 11900,
+    "wrap": 3000,
+    "glider": 800,
+    "emote": 3000,
+    "pickaxe": 3700,
+    "kicks": 600,
+    "sidekick": 1200
+   }
+  },
+  {
+   "date": "2026-10-05",
+   "count": 37,
+   "byKind": {
+    "kicks": 3200,
+    "wrap": 800,
+    "outfit": 15400,
+    "emote": 700,
+    "sidekick": 1200,
+    "backpack": 3200,
+    "bundle": 4600,
+    "pickaxe": 2800,
+    "car": 400,
+    "glider": 1200
+   }
+  },
+  {
+   "date": "2026-10-06",
+   "count": 60,
+   "byKind": {
+    "backpack": 4100,
+    "outfit": 20700,
+    "pickaxe": 4600,
+    "bundle": 12300,
+    "emote": 5300,
+    "glider": 1300,
+    "car": 400,
+    "sidekick": 2400
+   }
+  },
+  {
+   "date": "2026-10-07",
+   "count": 43,
+   "byKind": {
+    "outfit": 20100,
+    "bundle": 11000,
+    "emote": 1900,
+    "glider": 1600,
+    "pickaxe": 4900,
+    "wrap": 800,
+    "backpack": 2100,
+    "car": 400
+   }
+  },
+  {
+   "date": "2026-10-08",
+   "count": 32,
+   "byKind": {
+    "pickaxe": 3500,
+    "emote": 3000,
+    "backpack": 2100,
+    "bundle": 10600,
+    "outfit": 7100,
+    "sidekick": 1500,
+    "wrap": 500,
+    "glider": 800
+   }
+  },
+  {
+   "date": "2026-10-09",
+   "count": 66,
+   "byKind": {
+    "jamtrack": 7000,
+    "bundle": 16900,
+    "pickaxe": 3700,
+    "backpack": 6300,
+    "outfit": 13100,
+    "wrap": 2000,
+    "emote": 4100,
+    "car": 400,
+    "glider": 1200,
+    "kicks": 2600,
+    "sidekick": 1500
+   }
+  },
+  {
+   "date": "2026-10-10",
+   "count": 41,
+   "byKind": {
+    "outfit": 14600,
+    "backpack": 2300,
+    "emote": 2900,
+    "bundle": 8300,
+    "kicks": 800,
+    "pickaxe": 4700,
+    "contrail": 600,
+    "glider": 2000,
+    "wrap": 500
+   }
+  },
+  {
+   "date": "2026-10-11",
+   "count": 43,
+   "byKind": {
+    "outfit": 11900,
+    "bundle": 10600,
+    "pickaxe": 4200,
+    "backpack": 2700,
+    "kicks": 1400,
+    "jamtrack": 3500,
+    "glider": 2000,
+    "emote": 1400,
+    "wrap": 1000
+   }
+  },
+  {
+   "date": "2026-10-12",
+   "count": 44,
+   "byKind": {
+    "backpack": 3100,
+    "pickaxe": 3500,
+    "outfit": 13400,
+    "emote": 3000,
+    "kicks": 3400,
+    "wrap": 1300,
+    "bundle": 4000
+   }
+  },
+  {
+   "date": "2026-10-13",
+   "count": 75,
+   "byKind": {
+    "bundle": 26300,
+    "outfit": 21600,
+    "pickaxe": 7700,
+    "emote": 2500,
+    "backpack": 7300,
+    "car": 1200,
+    "wrap": 1500,
+    "jamtrack": 500,
+    "sidekick": 2400
+   }
+  },
+  {
+   "date": "2026-10-14",
+   "count": 39,
+   "byKind": {
+    "backpack": 1700,
+    "emote": 3700,
+    "bundle": 11400,
+    "pickaxe": 2900,
+    "outfit": 12000,
+    "wrap": 900,
+    "glider": 1200
+   }
+  },
+  {
+   "date": "2026-10-15",
+   "count": 65,
+   "byKind": {
+    "bundle": 28000,
+    "outfit": 16000,
+    "kicks": 800,
+    "emote": 3000,
+    "wrap": 2500,
+    "backpack": 3200,
+    "glider": 3200,
+    "pickaxe": 11000,
+    "sidekick": 4500
+   }
+  },
+  {
+   "date": "2026-10-16",
+   "count": 181,
+   "byKind": {
+    "emote": 5300,
+    "bundle": 15800,
+    "jamtrack": 58500,
+    "kicks": 1600,
+    "outfit": 30900,
+    "pickaxe": 5600,
+    "wrap": 1800,
+    "backpack": 3500,
+    "glider": 1500
+   }
+  },
+  {
+   "date": "2026-10-17",
+   "count": 58,
+   "byKind": {
+    "emote": 2000,
+    "backpack": 4700,
+    "pickaxe": 7800,
+    "glider": 2000,
+    "outfit": 18500,
+    "bundle": 11200,
+    "jamtrack": 1000,
+    "wrap": 1700,
+    "sidekick": 1200,
+    "kicks": 2000
+   }
+  },
+  {
+   "date": "2026-10-18",
+   "count": 27,
+   "byKind": {
+    "backpack": 1500,
+    "emote": 4400,
+    "pickaxe": 1300,
+    "outfit": 8900,
+    "bundle": 6300,
+    "wrap": 500,
+    "glider": 1200,
+    "kicks": 1000
+   }
+  },
+  {
+   "date": "2026-10-19",
+   "count": 45,
+   "byKind": {
+    "outfit": 18300,
+    "bundle": 10300,
+    "emote": 900,
+    "kicks": 3000,
+    "pickaxe": 4000,
+    "backpack": 5100,
+    "wrap": 800,
+    "car": 400
+   }
+  },
+  {
+   "date": "2026-10-20",
+   "count": 62,
+   "byKind": {
+    "bundle": 10400,
+    "backpack": 3700,
+    "outfit": 38800,
+    "pickaxe": 4200,
+    "emote": 2400,
+    "car": 700,
+    "sidekick": 3600,
+    "wrap": 500
+   }
+  },
+  {
+   "date": "2026-10-21",
+   "count": 55,
+   "byKind": {
+    "jamtrack": 2500,
+    "bundle": 13800,
+    "pickaxe": 5500,
+    "sidekick": 2200,
+    "outfit": 12700,
+    "backpack": 2600,
+    "emote": 1200,
+    "car": 1200,
+    "wrap": 2500,
+    "kicks": 1600,
+    "glider": 500
+   }
+  },
+  {
+   "date": "2026-10-22",
+   "count": 30,
+   "byKind": {
+    "bundle": 7000,
+    "outfit": 7500,
+    "backpack": 1300,
+    "wrap": 300,
+    "emote": 2600,
+    "pickaxe": 3600,
+    "kicks": 600,
+    "glider": 1200
+   }
+  },
+  {
+   "date": "2026-10-23",
+   "count": 58,
+   "byKind": {
+    "outfit": 18500,
+    "bundle": 9100,
+    "jamtrack": 8000,
+    "emote": 400,
+    "wrap": 500,
+    "backpack": 3900,
+    "kicks": 3600,
+    "pickaxe": 4100,
+    "glider": 2000
+   }
+  },
+  {
+   "date": "2026-10-24",
+   "count": 44,
+   "byKind": {
+    "outfit": 8500,
+    "emote": 3900,
+    "wrap": 2100,
+    "pickaxe": 4700,
+    "backpack": 1300,
+    "jamtrack": 4000,
+    "bundle": 6500,
+    "kicks": 1000
+   }
+  },
+  {
+   "date": "2026-10-25",
+   "count": 46,
+   "byKind": {
+    "outfit": 13800,
+    "car": 700,
+    "kicks": 4000,
+    "pickaxe": 5200,
+    "backpack": 5400,
+    "bundle": 13200,
+    "jamtrack": 1500,
+    "emote": 1000,
+    "wrap": 1000,
+    "glider": 2000
+   }
+  },
+  {
+   "date": "2026-10-26",
+   "count": 85,
+   "byKind": {
+    "outfit": 35600,
+    "pickaxe": 6100,
+    "wrap": 4500,
+    "backpack": 4500,
+    "emote": 4600,
+    "bundle": 19500,
+    "kicks": 3200,
+    "jamtrack": 1000,
+    "sidekick": 2400,
+    "car": 1100
+   }
+  },
+  {
+   "date": "2026-10-27",
+   "count": 40,
+   "byKind": {
+    "wrap": 1000,
+    "outfit": 17400,
+    "bundle": 7100,
+    "backpack": 3500,
+    "pickaxe": 2100,
+    "emote": 1000,
+    "sidekick": 2400,
+    "kicks": 800,
+    "car": 200,
+    "glider": 1200
+   }
+  },
+  {
+   "date": "2026-10-28",
+   "count": 36,
+   "byKind": {
+    "outfit": 20000,
+    "pickaxe": 2100,
+    "bundle": 12200,
+    "emote": 3100,
+    "backpack": 1700,
+    "kicks": 800,
+    "wrap": 800
+   }
+  },
+  {
+   "date": "2026-10-29",
+   "count": 45,
+   "byKind": {
+    "bundle": 10700,
+    "backpack": 2100,
+    "pickaxe": 2600,
+    "outfit": 19900,
+    "jamtrack": 3000,
+    "wrap": 500,
+    "emote": 1500,
+    "glider": 800
+   }
+  },
+  {
+   "date": "2026-10-30",
+   "count": 63,
+   "byKind": {
+    "jamtrack": 8000,
+    "outfit": 18100,
+    "pickaxe": 5800,
+    "backpack": 2200,
+    "emote": 2700,
+    "kicks": 4200,
+    "glider": 800,
+    "bundle": 6000,
+    "wrap": 1500
+   }
+  },
+  {
+   "date": "2026-10-31",
+   "count": 30,
+   "byKind": {
+    "backpack": 1800,
+    "outfit": 9600,
+    "emote": 1100,
+    "pickaxe": 2900,
+    "glider": 1200,
+    "wrap": 1000,
+    "bundle": 9300,
+    "jamtrack": 1000
+   }
+  },
+  {
+   "date": "2026-11-01",
+   "count": 127,
+   "byKind": {
+    "jamtrack": 50000,
+    "emote": 3000,
+    "pickaxe": 2800,
+    "backpack": 3200,
+    "outfit": 11400,
+    "glider": 1200,
+    "bundle": 2800
+   },
+   "reserved": true
+  },
+  {
+   "date": "2026-11-02",
+   "count": 88,
+   "byKind": {
+    "outfit": 29500,
+    "backpack": 9200,
+    "bundle": 23100,
+    "emote": 4400,
+    "pickaxe": 10600,
+    "glider": 2000,
+    "sidekick": 3000,
+    "kicks": 3600,
+    "car": 800
+   },
+   "reserved": true
+  },
+  {
+   "date": "2026-11-03",
+   "count": 62,
+   "byKind": {
+    "sidekick": 2400,
+    "glider": 2000,
+    "backpack": 2200,
+    "emote": 3500,
+    "outfit": 31500,
+    "bundle": 9500,
+    "pickaxe": 2600,
+    "wrap": 1900,
+    "kicks": 1000
+   },
+   "reserved": true
+  },
+  {
+   "date": "2026-11-04",
+   "count": 45,
+   "byKind": {
+    "pickaxe": 4700,
+    "backpack": 2200,
+    "outfit": 14200,
+    "wrap": 800,
+    "emote": 1100,
+    "bundle": 17900,
+    "sidekick": 1200,
+    "kicks": 1400,
+    "car": 400
+   },
+   "reserved": true
+  },
+  {
+   "date": "2026-11-05",
+   "count": 58,
+   "byKind": {
+    "bundle": 15700,
+    "backpack": 7400,
+    "emote": 3600,
+    "wrap": 2600,
+    "pickaxe": 5200,
+    "outfit": 12300,
+    "glider": 800
+   },
+   "reserved": true
+  },
+  {
+   "date": "2026-11-06",
+   "count": 169,
+   "byKind": {
+    "pickaxe": 5300,
+    "jamtrack": 58600,
+    "wrap": 1800,
+    "outfit": 14800,
+    "backpack": 3900,
+    "glider": 2500,
+    "bundle": 13300,
+    "kicks": 6800,
+    "emote": 2600
+   },
+   "reserved": true
+  },
+  {
+   "date": "2026-11-07",
+   "count": 63,
+   "byKind": {
+    "bundle": 30100,
+    "kicks": 2200,
+    "emote": 4500,
+    "glider": 2000,
+    "backpack": 4900,
+    "pickaxe": 7600,
+    "wrap": 2000,
+    "outfit": 9700
+   },
+   "reserved": true
+  },
+  {
+   "date": "2026-11-08",
+   "count": 33,
+   "byKind": {
+    "outfit": 8400,
+    "bundle": 19700,
+    "emote": 1600,
+    "wrap": 1300,
+    "backpack": 1400,
+    "car": 400,
+    "pickaxe": 2400,
+    "sidekick": 1500,
+    "kicks": 600,
+    "glider": 1500
+   }
+  },
+  {
+   "date": "2026-11-09",
+   "count": 63,
+   "byKind": {
+    "pickaxe": 8400,
+    "bundle": 19400,
+    "wrap": 3000,
+    "backpack": 3400,
+    "outfit": 20400,
+    "kicks": 2800,
+    "emote": 2800
+   }
+  },
+  {
+   "date": "2026-11-10",
+   "count": 57,
+   "byKind": {
+    "pickaxe": 4700,
+    "outfit": 20900,
+    "bundle": 15300,
+    "jamtrack": 500,
+    "emote": 1200,
+    "backpack": 5200,
     "sidekick": 2700,
-    "bundle": 2000,
+    "glider": 800,
     "wrap": 300
    }
   },
   {
    "date": "2026-11-11",
-   "count": 42,
+   "count": 53,
    "byKind": {
-    "bundle": 12000,
-    "emote": 7200,
-    "outfit": 11300,
+    "pickaxe": 4500,
+    "emote": 7500,
+    "bundle": 13800,
+    "outfit": 15500,
     "sidekick": 2700,
-    "pickaxe": 4000,
-    "backpack": 1800,
-    "jamtrack": 1500,
-    "glider": 1600
+    "backpack": 2500,
+    "glider": 3600,
+    "jamtrack": 2000
    }
   },
   {
    "date": "2026-11-12",
-   "count": 15,
+   "count": 20,
    "byKind": {
-    "emote": 300,
-    "backpack": 1500,
-    "outfit": 6900,
+    "emote": 800,
+    "backpack": 1700,
+    "outfit": 8900,
     "pickaxe": 1600,
     "bundle": 5900,
+    "glider": 800,
     "wrap": 500
    }
   },
   {
    "date": "2026-11-13",
-   "count": 70,
+   "count": 78,
    "byKind": {
-    "backpack": 2400,
+    "backpack": 2800,
     "jamtrack": 11000,
     "wrap": 1300,
-    "bundle": 11800,
-    "emote": 4300,
-    "kicks": 6600,
-    "outfit": 13600,
+    "bundle": 12900,
+    "emote": 4800,
+    "pickaxe": 3700,
+    "kicks": 8000,
     "contrail": 300,
-    "pickaxe": 2900,
+    "outfit": 15900,
     "glider": 500,
-    "car": 400
-   }
-  },
-  {
-   "date": "2026-11-14",
-   "count": 19,
-   "byKind": {
-    "pickaxe": 2900,
-    "backpack": 1100,
-    "outfit": 6600,
-    "emote": 400,
-    "bundle": 5000,
-    "wrap": 500,
-    "glider": 1200,
     "car": 400
    }
   }
  ],
- "medianStayDays": 13,
- "staySamples": 311
+ "medianDayVbucks": 43700,
+ "medianByKind": {
+  "glider": 1200,
+  "bundle": 11000,
+  "pickaxe": 3600,
+  "outfit": 15000,
+  "backpack": 3300,
+  "wrap": 1000,
+  "emote": 2700,
+  "car": 0,
+  "kicks": 800,
+  "jamtrack": 500,
+  "sidekick": 0,
+  "lego": 0,
+  "contrail": 0
+ },
+ "medianStayDays": 3,
+ "staySamples": 191,
+ "snapshots": 196
 }
