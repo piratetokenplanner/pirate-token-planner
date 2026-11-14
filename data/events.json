@@ -16,7 +16,7 @@
     "mustContain": [
      "December 5"
     ],
-    "checkedAt": "2026-11-14T06:11:25.716Z",
+    "checkedAt": "2026-11-14T06:19:16.306Z",
     "reachable": true,
     "found": [
      {
@@ -33,7 +33,7 @@
     "mustContain": [
      "December 5"
     ],
-    "checkedAt": "2026-11-14T06:11:26.025Z",
+    "checkedAt": "2026-11-14T06:19:16.548Z",
     "reachable": true,
     "found": [
      {
@@ -42,7 +42,7 @@
      }
     ],
     "verified": true,
-    "hash": "f037ba3137427931",
+    "hash": "8e50f8d681e1b848",
     "changedSinceLastCheck": true
    }
   ],
@@ -66,7 +66,7 @@
     "mustContain": [
      "Chapter 8"
     ],
-    "checkedAt": "2026-11-14T06:11:26.026Z",
+    "checkedAt": "2026-11-14T06:19:16.548Z",
     "reachable": true,
     "found": [
      {
@@ -151,7 +151,7 @@
     "mustContain": [
      "Winterfest"
     ],
-    "checkedAt": "2026-11-14T06:11:26.178Z",
+    "checkedAt": "2026-11-14T06:19:16.644Z",
     "reachable": true,
     "found": [
      {
@@ -160,15 +160,15 @@
      }
     ],
     "verified": true,
-    "hash": "b9561f453d9de91e",
-    "changedSinceLastCheck": false
+    "hash": "9edd6048dfac8c2a",
+    "changedSinceLastCheck": true
    },
    {
     "url": "https://www.techradar.com/gaming/fortnite-winterfest-2025-start-date",
     "mustContain": [
      "Winterfest"
     ],
-    "checkedAt": "2026-11-14T06:11:26.313Z",
+    "checkedAt": "2026-11-14T06:19:16.826Z",
     "reachable": true,
     "found": [
      {
