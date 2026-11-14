@@ -20,14 +20,14 @@ const resetLocal = new Date(T0).toLocaleTimeString([], { hour: '2-digit', minute
 const KINDS = { outfit: 'Outfits', bundle: 'Bundles', emote: 'Emotes', pickaxe: 'Pickaxes', glider: 'Gliders', backpack: 'Back blings', wrap: 'Wraps', sidekick: 'Sidekicks', jamtrack: 'Jam Tracks', music: 'Lobby music', kicks: 'Kicks', car: 'Cars', contrail: 'Contrails', loadingscreen: 'Loading screens', lego: 'LEGO kits', instrument: 'Instruments', other: 'Everything else' };
 // The cards in step 1. Love / Maybe / Nope set every type in the group to 10 / 3 / 0.
 const GROUPS = [
-  { id: 'outfits', label: 'Outfits & bundles', ex: 'Skins and skin sets', kinds: ['outfit', 'bundle'] },
-  { id: 'emotes', label: 'Emotes', ex: 'Dances and moves', kinds: ['emote'] },
-  { id: 'gear', label: 'Pickaxes, gliders & back blings', ex: 'Your gear', kinds: ['pickaxe', 'glider', 'backpack'] },
-  { id: 'sidekick', label: 'Sidekicks', ex: 'Pets that follow you (only 1 free)', kinds: ['sidekick'] },
-  { id: 'kicks', label: 'Kicks', ex: 'Shoes', kinds: ['kicks'] },
-  { id: 'wraps', label: 'Wraps & contrails', ex: 'Weapon skins and trails', kinds: ['wrap', 'contrail', 'loadingscreen'] },
-  { id: 'music', label: 'Jam Tracks & music', ex: 'Songs, lobby music, instruments', kinds: ['jamtrack', 'music', 'instrument'] },
-  { id: 'rides', label: 'Cars & LEGO', ex: 'Rocket Racing and LEGO kits', kinds: ['car', 'lego', 'other'] }
+  { id: 'outfits', icon: '<path d="M8 4l4 2 4-2 4 4-3 3v9H7v-9L4 8z"/>', label: 'Outfits & bundles', ex: 'Skins and skin sets', kinds: ['outfit', 'bundle'] },
+  { id: 'emotes', icon: '<circle cx="12" cy="5" r="2"/><path d="M12 7v6M7 10l5 2 5-4M9 21l3-8 3 8"/>', label: 'Emotes', ex: 'Dances and moves', kinds: ['emote'] },
+  { id: 'gear', icon: '<path d="M5 19L15 9M13 5c3-1 6 2 6 6l-4-2-2-4z"/>', label: 'Pickaxes, gliders & back blings', ex: 'Your gear', kinds: ['pickaxe', 'glider', 'backpack'] },
+  { id: 'sidekick', icon: '<circle cx="7" cy="9" r="1.6"/><circle cx="17" cy="9" r="1.6"/><circle cx="10" cy="6" r="1.6"/><circle cx="14" cy="6" r="1.6"/><path d="M8 16c0-3 2-5 4-5s4 2 4 5-2 3-4 3-4 0-4-3z"/>', label: 'Sidekicks', ex: 'Pets that follow you (only 1 free)', kinds: ['sidekick'] },
+  { id: 'kicks', icon: '<path d="M3 16h18v3H3zM4 16l1-7h5l2 3h4l4 4"/>', label: 'Kicks', ex: 'Shoes', kinds: ['kicks'] },
+  { id: 'wraps', icon: '<path d="M4 20c4-8 8-12 16-16M8 20c3-5 6-8 12-12"/>', label: 'Wraps & contrails', ex: 'Weapon skins and trails', kinds: ['wrap', 'contrail', 'loadingscreen'] },
+  { id: 'music', icon: '<path d="M9 18V6l10-2v12"/><circle cx="7" cy="18" r="2"/><circle cx="17" cy="16" r="2"/>', label: 'Jam Tracks & music', ex: 'Songs, lobby music, instruments', kinds: ['jamtrack', 'music', 'instrument'] },
+  { id: 'rides', icon: '<path d="M4 15l2-5h12l2 5v3H4z"/><circle cx="8" cy="18" r="1.6"/><circle cx="16" cy="18" r="1.6"/>', label: 'Cars & LEGO', ex: 'Rocket Racing and LEGO kits', kinds: ['car', 'lego', 'other'] }
 ];
 const LEVELS = [['Nope', 0], ['Maybe', 3], ['Love', 10]];
 const levelOf = g => { const v = P.types[g.kinds[0]] ?? 0; return v >= 7 ? 2 : v >= 1 ? 1 : 0; };
@@ -87,6 +87,17 @@ function model() {
   const taste = byKind => Object.entries(byKind).reduce((t, [k, v]) => t + v * w(k), 0);
   const poolVals = D.base.byWd.map(list => list.map(taste));
   const Bwd = poolVals.map(v => v.length >= 6 ? v.reduce((a, b) => a + b, 0) / v.length : B);
+  // season: how the same weeks went a year earlier (same weekday, ±10 days), relative to the average day.
+  // Shrunk halfway to 1, because one past year is a small sample. Needs data from a year back.
+  const byDate = new Map(D.base.pool.map(d => [d.date, taste(d.byKind)]));
+  const poolMean = byDate.size ? [...byDate.values()].reduce((a, b) => a + b, 0) / byDate.size : 0;
+  const seasonCache = {};
+  const season = i => {
+    if (i in seasonCache) return seasonCache[i];
+    const vs = []; for (let k = -10; k <= 10; k++) { const v = byDate.get(dt(i - 364 + k).toISOString().slice(0, 10)); if (v !== undefined) vs.push(v); }
+    const f = vs.length >= 8 && poolMean ? Math.min(1.6, Math.max(0.6, 1 + 0.5 * (vs.reduce((a, b) => a + b, 0) / vs.length / poolMean - 1))) : 1;
+    return (seasonCache[i] = { f, n: vs.length });
+  };
   const wdOf = i => (dt(i).getUTCDay() + 6) % 7;
 
   const events = D.events.filter(e => e.extraVbucks > 0 || e.fromHistory).map(e => {
@@ -117,7 +128,7 @@ function model() {
     // 2) future normal days (today's arrivals are already in the shop)
     const st = Math.max(1, D.base.stay);
     const freshDays = W.filter(d => d >= 1 && valid(d)).filter(d => { for (let j = d; j < d + st; j++) if (okSet.has(j)) return true; return false; });
-    fresh = freshDays.reduce((t, d) => t + Bwd[wdOf(d)], 0);
+    fresh = freshDays.reduce((t, d) => t + Bwd[wdOf(d)] * season(d).f, 0);
     // 3) expected events, scaled by how much of each falls inside your window
     const evRows = events.map(x => {
       const len = x.b - x.a + 1;
@@ -138,7 +149,7 @@ function model() {
   const sims = all.map(() => []), wins = all.map(() => 0);
   for (let r = 0; r < N; r++) {
     const scale = D.base.fallback ? Math.exp(gauss(rnd) * U.fallbackSpread) : 1;
-    const day = []; for (let d = 0; d <= startMax + dur; d++) { const v = poolVals[wdOf(d)].length >= 6 ? poolVals[wdOf(d)] : allVals; day.push(v.length ? v[Math.floor(rnd() * v.length)] : B * scale); }
+    const day = []; for (let d = 0; d <= startMax + dur; d++) { const v = poolVals[wdOf(d)].length >= 6 ? poolVals[wdOf(d)] : allVals; day.push((v.length ? v[Math.floor(rnd() * v.length)] : B * scale) * season(d).f); }
     const evs = events.map(x => {
       const happens = rnd() < x.conf;
       const sh = x.e.status === 'pattern' ? Math.round((rnd() * 2 - 1) * U.patternShiftDays) : 0;
@@ -159,7 +170,7 @@ function model() {
     wins[bestI]++;
   }
   all.forEach((a, i) => { const v = sims[i].sort((x, y) => x - y); a.p10 = v[Math.floor(N * .1)]; a.p50 = v[Math.floor(N * .5)]; a.p90 = v[Math.floor(N * .9)]; a.pBest = wins[i] / N; });
-  return { win, startMin, startMax, deadIdx, dur, all, items, B, Bwd, poolVals, taste, events, kws, rareMul, U };
+  return { win, startMin, startMax, deadIdx, dur, all, items, B, Bwd, poolVals, taste, events, kws, rareMul, U, season, byDate, poolMean };
 }
 
 // ---------- rendering ----------
@@ -178,7 +189,7 @@ function render(recompute = true) {
   const every = all.length > 40 ? 10 : 5;
   $('ticks').innerHTML = all.map((a, i) => `<span>${i % every === 0 ? fmt(a.s) : ''}</span>`).join('');
   $('vDay').textContent = best === 0 ? 'Activate today' : 'Activate ' + fmtL(best);
-  if (render.lastBest !== undefined && render.lastBest !== best) { const v = document.querySelector('.verdict'); v.classList.remove('pop'); void v.offsetWidth; v.classList.add('pop'); }
+  if (render.lastBest !== undefined && render.lastBest !== best) { const v = document.querySelector('.verdict'); v.classList.remove('pop'); void v.offsetWidth; v.classList.add('pop'); coins(); }
   render.lastBest = best;
   $('vWhen').textContent = (best === 0 ? 'Now' : `At ${resetLocal}, after the shop reset`) + ` · ends ${fmtL(best + dur)}` + (best + dur > deadIdx ? ' (past the deadline, unconfirmed)' : '');
   const pb = Math.round(rank[0].pBest * 100), close = rank.slice(1, 4).filter(a => a.p90 >= rank[0].p10).length;
@@ -218,7 +229,7 @@ function render(recompute = true) {
     rows.push(`<tr class="${r.hit ? '' : 'miss'}"><td data-l="What">${esc(x.e.name)} <span class="fine">${KINDS[x.e.kind] || x.e.kind}</span></td><td data-l="Inputs">${n0(x.e.price)} V-Bucks · weight ${P.types[x.e.kind] ?? 2}${x.fav ? ` · favourite "${esc(x.fav)}" ×${P.kwBoost}` : ''}${x.rare ? ` · rare return ×${M.rareMul.toFixed(1)}` : ''}${x.share < 1 ? ` · ${Math.round(x.share * 100)}% of items not sold separately` : ''} · in shop until ${fmt(x.out - 1)}</td><td data-l="Calculation">${r.hit ? `<code>${parts.join(' × ')}</code>` : esc(r.why)}</td><td class="num" data-l="V-Bucks">${r.hit ? n0(r.v) : '0'}</td></tr>`);
   }
   if (zero.length) rows.push(`<tr class="miss"><td data-l="What">${zero.length} items worth 0 to you</td><td data-l="Inputs">${esc(zero.slice(0, 6).map(r => r.x.e.name).join(', '))}${zero.length > 6 ? '…' : ''}</td><td data-l="Calculation">Type weight 0 or marked as owned</td><td class="num" data-l="V-Bucks">0</td></tr>`);
-  rows.push(`<tr><td data-l="What">New items on later days</td><td data-l="Inputs">${cur.freshDays.length} shop days you can reach · ${n0(M.B)} per day for your taste</td><td data-l="Calculation"><code>${cur.freshDays.length} × ${n0(M.B)}</code></td><td class="num" data-l="V-Bucks">${n0(cur.fresh)}</td></tr>`);
+  rows.push(`<tr><td data-l="What">New items on later days</td><td data-l="Inputs">${cur.freshDays.length} shop days you can reach · weekday average for your taste${M.season(sel + 7).n ? ' × season factor from a year ago' : ''}</td><td data-l="Calculation"><code>sum of ${cur.freshDays.length} days ≈ ${n0(cur.fresh / Math.max(1, cur.freshDays.length))}/day</code></td><td class="num" data-l="V-Bucks">${n0(cur.fresh)}</td></tr>`);
   for (const r of cur.evRows) rows.push(`<tr class="${r.v > 0 ? '' : 'miss'}"><td data-l="What">${esc(r.x.e.name)}</td><td data-l="Inputs">${n0(r.x.val)} for your taste${r.x.e.fromHistory ? ' (from past shops)' : ' (estimate)'} · ${r.x.e.status} ×${r.x.conf} · interest ×${r.x.interest.toFixed(1)} · ${r.inside.length} of ${r.x.b - r.x.a + 1} days inside</td><td data-l="Calculation"><code>${n0(r.x.val)} × ${r.x.conf} × ${r.x.interest.toFixed(1)} × ${r.cov.toFixed(2)}</code></td><td class="num" data-l="V-Bucks">${n0(r.v)}</td></tr>`);
   const itemRows = rows.length - 1 - cur.evRows.length; // item rows come first, then later days, then events
   const keep = render.allMath ? rows : [...rows.slice(0, Math.min(12, itemRows)), ...(itemRows > 12 ? [`<tr class="miss"><td colspan="4">${itemRows - 12} more items…</td></tr>`] : []), ...rows.slice(itemRows)];
@@ -264,27 +275,38 @@ function pastShops(M) {
   const b = D.base, wdN = ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'];
   if (b.fallback) { $('pastLead').textContent = 'No past shops loaded yet.'; return; }
   const avg = M.Bwd.reduce((a, c) => a + c, 0) / 7, top = M.Bwd.indexOf(Math.max(...M.Bwd)), low = M.Bwd.indexOf(Math.min(...M.Bwd));
-  $('pastLead').innerHTML = `A normal day adds about <b>${n0(avg)} V-Bucks</b> of new loot for your taste. <b>${wdN[top]}</b> is usually the richest day, <b>${wdN[low]}</b> the leanest.`;
+  const span = Math.round((Date.parse(b.windowTo) - Date.parse(b.windowFrom)) / DAY) + 1;
+  const s0 = M.season(sel + 7);
+  const seasonTxt = s0.n ? (() => { const pc = Math.round((s0.f - 1) * 2 * 100); return ` The same weeks a year ago were <b>${Math.abs(pc)}% ${pc >= 0 ? 'richer' : 'leaner'}</b> than an average day, so the forecast leans ${pc >= 0 ? 'up' : 'down'} a little.`; })() : '';
+  $('pastLead').innerHTML = `A normal day adds about <b>${n0(avg)} V-Bucks</b> of new loot for your taste. <b>${wdN[top]}</b> is usually the richest day, <b>${wdN[low]}</b> the leanest.${seasonTxt}`;
+  // coverage meter: seasons can only be compared with a full year
+  const cov = Math.min(1, span / 365);
+  $('pastCov').innerHTML = `<div class="covbar"><div style="width:${cov * 100}%"></div></div><span>${span >= 365 ? `${span} days of history: a full year, so seasons can be compared` : `${span} of 365 days of history. Seasons can be compared once a full year is loaded.`}</span>`;
   const mx = Math.max(...M.Bwd, 1);
-  $('wdbars').innerHTML = M.Bwd.map((v, i) => `<div class="wdrow${i === top ? ' top' : ''}${render.wdHl === i ? ' hl' : ''}" data-wd="${i}" role="button" tabindex="0" aria-pressed="${render.wdHl === i}"><span>${wdN[i]}</span><div class="wdtrack"><div class="wdfill" style="width:${v / mx * 100}%"></div></div><b>${n0(v)}</b></div>`).join('');
-  const days = (b.days || []), vals = days.map(d => M.taste(d.byKind));
-  const el = $('spark'), W = el.clientWidth || 500, H = 160, pad = 4, vmax = Math.max(...vals, 1);
-  const x = i => pad + i / Math.max(1, days.length - 1) * (W - 2 * pad), y = v => H - 18 - v / vmax * (H - 30);
-  const pts = vals.map((v, i) => `${x(i).toFixed(1)},${y(v).toFixed(1)}`).join(' ');
-  const res = days.map((d, i) => d.reserved ? i : -1).filter(i => i >= 0);
-  const months = days.map((d, i) => d.date.endsWith('-01') ? i : -1).filter(i => i >= 0);
-  const hl = render.wdHl;
-  const dots = hl === undefined ? '' : days.map((d, i) => (new Date(d.date + 'T00:00:00Z').getUTCDay() + 6) % 7 === hl ? `<circle cx="${x(i).toFixed(1)}" cy="${y(vals[i]).toFixed(1)}" r="3.5" fill="#e39b00"/>` : '').join('');
-  render.spark = { days, vals, x, y, W, H };
-  el.innerHTML = `<svg viewBox="0 0 ${W} ${H}" width="100%" height="${H}" role="img" aria-label="New loot per past day">
-    ${res.length ? `<rect x="${x(res[0]) - 2}" y="4" width="${x(res.at(-1)) - x(res[0]) + 4}" height="${H - 22}" fill="#ffc83d44" rx="4"/>` : ''}
-    <line x1="0" x2="${W}" y1="${y(avg)}" y2="${y(avg)}" stroke="#ff6b57" stroke-dasharray="5 4" stroke-width="1.5"/>
- <text x="${pad}" y="12" font-size="11" fill="currentColor">${n0(vmax)}</text>
-    <polyline points="${pts}" fill="none" stroke="#0f6b6f" stroke-width="1.6" stroke-linejoin="round"/>${dots}
-    <g class="cross" visibility="hidden"><line y1="4" y2="${H - 18}" stroke="currentColor" stroke-width="1"/><circle r="4.5" fill="#ffc83d" stroke="#fff" stroke-width="2"/></g>
-    ${months.map(i => `<text x="${x(i)}" y="${H - 3}" font-size="11" fill="currentColor" text-anchor="middle">${new Date(days[i].date + 'T00:00:00Z').toLocaleDateString('en-GB', { month: 'short', timeZone: 'UTC' })}</text>`).join('')}
+  $('wdbars').innerHTML = M.Bwd.map((v, i) => `<div class="wdrow${i === top ? ' top' : ''}"><span>${wdN[i]}</span><div class="wdtrack"><div class="wdfill" style="width:${v / mx * 100}%"></div></div><b>${n0(v)}</b></div>`).join('');
+  // one line per calendar year, weekly averages, so years sit on top of each other
+  const years = {};
+  for (const [date, v] of M.byDate) { const y = date.slice(0, 4), doy = Math.floor((Date.parse(date) - Date.UTC(+y, 0, 1)) / DAY), wk = Math.min(51, Math.floor(doy / 7)); ((years[y] ||= {})[wk] ||= []).push(v); }
+  const ys = Object.keys(years).sort(), series = ys.map(y => ({ y, pts: Object.entries(years[y]).map(([wk, vs]) => [+wk, vs.reduce((a, c) => a + c, 0) / vs.length]).filter(([, , n]) => true).sort((a, c) => a[0] - c[0]) }));
+  const el = $('spark'), W = el.clientWidth || 500, H = 190, L = 8, R = 8, vmax = Math.max(1, ...series.flatMap(s => s.pts.map(p => p[1])));
+  const x = wk => L + wk / 51 * (W - L - R), y = v => H - 22 - v / vmax * (H - 40);
+  const cols = series.map((_, k) => k === series.length - 1 ? 'var(--main)' : ['#9fb7d9', '#e39b00'][k % 2]);
+  const path = pts => { let d = '', prev = -9; for (const [wk, v] of pts) { d += `${wk - prev > 1 ? 'M' : 'L'}${x(wk).toFixed(1)},${y(v).toFixed(1)} `; prev = wk; } return d; };
+  const mo = ['J', 'F', 'M', 'A', 'M', 'J', 'J', 'A', 'S', 'O', 'N', 'D'];
+  const nowWk = Math.min(51, Math.floor((T0 - Date.UTC(dt(0).getUTCFullYear(), 0, 1)) / DAY / 7));
+  const band = (a, c, label) => `<rect x="${x(a)}" y="6" width="${Math.max(4, x(c) - x(a))}" height="${H - 28}" fill="#ffc83d33" rx="4"/><text x="${x(a) + 3}" y="16" font-size="10" fill="currentColor">${label}</text>`;
+  render.spark = { series, x, y, W, H, ys };
+  el.innerHTML = `<svg viewBox="0 0 ${W} ${H}" width="100%" height="${H}" role="img" aria-label="Weekly new loot, one line per year">
+    ${band(44, 51, 'Winterfest')}
+    <line x1="${x(nowWk)}" x2="${x(nowWk)}" y1="6" y2="${H - 22}" stroke="currentColor" stroke-dasharray="3 3" opacity=".6"/><text x="${x(nowWk) - 3}" y="${H - 26}" font-size="10" text-anchor="end" fill="currentColor">today</text>
+    ${series.map((s, k) => `<path d="${path(s.pts)}" fill="none" stroke="${cols[k]}" stroke-width="${k === series.length - 1 ? 2.6 : 2}" stroke-linejoin="round" stroke-linecap="round"/>`).join('')}
+    ${mo.map((m, i) => `<text x="${x(i * 52 / 12)}" y="${H - 6}" font-size="11" fill="currentColor">${m}</text>`).join('')}
+    <g class="cross" visibility="hidden"><line y1="6" y2="${H - 22}" stroke="currentColor" stroke-width="1"/></g>
   </svg>`;
-  $('pastSrc').innerHTML = `${b.n} days, ${fmt(idx(b.windowFrom))} to ${fmt(idx(b.windowTo))}, from the <a href="${esc(b.source)}">Fortnite-Datamining shop archive</a>. Updated daily.`;
+  $('yearKey').innerHTML = series.map((s, k) => `<span><i class="sw" style="background:${cols[k]};height:4px"></i>${s.y}</span>`).join('') + '<span><i class="sw sw-launch"></i>Winterfest weeks</span>';
+  const srcs = (D.pastSources || []).map(x => `<a href="${esc(x.url)}">${esc(x.name)}</a>`).join(' and ');
+  $('pastAttr').innerHTML = srcs ? `past shops from ${srcs}${(D.pastSources || []).some(x => x.name === 'itemshop.gg') ? ' (Data from itemshop.gg)' : ''}` : '';
+  $('pastSrc').innerHTML = `${b.n} days, ${fmt(idx(b.windowFrom), { day: 'numeric', month: 'short', year: 'numeric' })} to ${fmt(idx(b.windowTo))}${srcs ? `, from ${srcs}` : ''}.${(D.pastSources || []).some(x => x.name === 'itemshop.gg') ? ' Data from <a href="https://itemshop.gg">itemshop.gg</a>.' : ''}`;
 }
 
 function limits(M) {
@@ -317,15 +339,37 @@ function sources() {
 }
 
 function loves() {
-  $('loves').innerHTML = GROUPS.map(g => { const l = levelOf(g); return `<button type="button" class="love s${l}" data-g="${g.id}" aria-label="${g.label}: ${LEVELS[l][0]}. Tap to change."><span class="lv">${LEVELS[l][0]}</span><span>${g.label}</span></button>`; }).join('');
+  $('loves').innerHTML = GROUPS.map(g => { const l = levelOf(g); return `<button type="button" class="love s${l}" data-g="${g.id}" aria-label="${g.label}: ${LEVELS[l][0]}. Tap to change."><span class="lvrow"><span class="lv">${LEVELS[l][0]}</span><svg class="gi" viewBox="0 0 24 24" aria-hidden="true">${g.icon}</svg></span><span>${g.label}</span></button>`; }).join('');
+}
+// a little burst of gold coins from the X when the best day changes
+function coins() {
+  if (matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+  const x = document.querySelector('.xmark'); if (!x) return;
+  for (let i = 0; i < 9; i++) {
+    const c = document.createElement('i'); c.className = 'coinfx';
+    const a = Math.PI * (1.1 + Math.random() * 0.8), r = 60 + Math.random() * 60;
+    c.style.setProperty('--dx', Math.cos(a) * r + 'px'); c.style.setProperty('--dy', Math.sin(a) * r + 'px'); c.style.animationDelay = i * 25 + 'ms';
+    x.appendChild(c); setTimeout(() => c.remove(), 900);
+  }
+}
+// what a 0-10 weight means, in words
+const WORD = v => v <= 0 ? 'skip' : v <= 2 ? 'barely' : v <= 4 ? 'maybe' : v <= 6 ? 'like' : v <= 8 ? 'want' : 'love';
+const EVWORD = v => v <= 0 ? 'ignore' : v < 5 ? 'less' : v === 5 ? 'neutral' : v < 10 ? 'more' : 'double';
+function scaleEx() {
+  const o = P.types.outfit ?? 10, ex = 1500;
+  $('scaleEx').innerHTML = `<div class="scalebar">${[[0, 'skip'], [2, 'barely'], [4, 'maybe'], [6, 'like'], [8, 'want'], [10, 'love']].map(([v, w]) => `<span style="--a:${v / 10}"><b>${v}</b>${w}</span>`).join('')}</div>
+    <p>The number is how much of an item's price counts as loot for you. <b>10</b> = worth its full price, <b>5</b> = half, <b>0</b> = ignored.</p>
+    <p class="exrow">Your outfits are at <b>${o}</b> (${WORD(o)}), so a ${n0(ex)} V-Bucks outfit counts as <b>${n0(ex * o / 10)}</b>.</p>`;
 }
 function controls() {
-  loves();
+  loves(); scaleEx();
   $('presets').innerHTML = Object.keys(PRESETS).map(k => `<button class="pre" type="button" data-p="${k}">${k}</button>`).join('');
   const sl = (id, label, val, min, max, step = 1, hint = '') => `<div class="sl"><label for="${id}">${label}</label><output id="o_${id}">${val}</output><input type="range" id="${id}" min="${min}" max="${max}" step="${step}" value="${val}">${hint ? `<small>${hint}</small>` : ''}</div>`;
   $('types').innerHTML = Object.entries(KINDS).map(([k, l]) => sl('t_' + k, l, P.types[k] ?? 2, 0, 10)).join('');
+  for (const k of Object.keys(KINDS)) { const o = $('o_t_' + k); if (o) o.textContent = `${P.types[k] ?? 2} · ${WORD(P.types[k] ?? 2)}`; }
   $('boosts').innerHTML = sl('kwBoost', 'Favourite boost', P.kwBoost, 1, 3, .5, 'Multiplier for items matching a favourite word') + sl('rare', 'Rare return bonus', P.rare, 0, 10, 1, 'Adds 10% per step for items not in the shop for 6+ months');
-  $('evw').innerHTML = D.events.filter(e => e.extraVbucks > 0).map(e => sl('e_' + e.id, esc(e.name), P.ev[e.id] ?? 5, 0, 10)).join('');
+  $('evw').innerHTML = D.events.filter(e => e.extraVbucks > 0 || e.fromHistory).map(e => sl('e_' + e.id, esc(e.name), P.ev[e.id] ?? 5, 0, 10)).join('');
+  for (const e of D.events) { const o = $('o_e_' + e.id); if (o) o.textContent = `${P.ev[e.id] ?? 5} · ${EVWORD(P.ev[e.id] ?? 5)}`; }
   $('days').innerHTML = ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'].map((d, i) => `<label><input type="checkbox" data-d="${i}" ${P.days[i] ? 'checked' : ''}><span>${d}</span></label>`).join('');
   $('kw').value = P.kw; $('late').checked = P.late;
 }
@@ -334,8 +378,8 @@ function bind() {
   document.querySelector('main').addEventListener('input', e => {
     const t = e.target, id = t.id;
     if (t.type === 'range') {
-      const v = +t.value; $('o_' + id).textContent = v;
-      if (id.startsWith('t_')) { P.types[id.slice(2)] = v; loves(); } else if (id.startsWith('e_')) P.ev[id.slice(2)] = v; else P[id] = v;
+      const v = +t.value; $('o_' + id).textContent = id.startsWith('t_') ? `${v} · ${WORD(v)}` : id.startsWith('e_') ? `${v} · ${EVWORD(v)}` : v;
+      if (id.startsWith('t_')) { P.types[id.slice(2)] = v; loves(); scaleEx(); } else if (id.startsWith('e_')) P.ev[id.slice(2)] = v; else P[id] = v;
     } else if (id === 'kw') P.kw = t.value;
     else return;
     save(); render();
@@ -392,15 +436,12 @@ function bind() {
   $('spark').addEventListener('pointermove', ev => {
     const S = render.spark, svg = $('spark').querySelector('svg'); if (!S || !svg) return;
     const r = svg.getBoundingClientRect(), px = (ev.clientX - r.left) / r.width * S.W;
-    const i = Math.max(0, Math.min(S.days.length - 1, Math.round((px - 4) / (S.W - 8) * (S.days.length - 1))));
-    const g = svg.querySelector('.cross'); g.setAttribute('visibility', 'visible');
-    g.querySelector('line').setAttribute('x1', S.x(i)); g.querySelector('line').setAttribute('x2', S.x(i));
-    g.querySelector('circle').setAttribute('cx', S.x(i)); g.querySelector('circle').setAttribute('cy', S.y(S.vals[i]));
-    $('sparkInfo').textContent = `${new Date(S.days[i].date + 'T00:00:00Z').toLocaleDateString('en-GB', { weekday: 'short', day: 'numeric', month: 'short', timeZone: 'UTC' })}: ${n0(S.vals[i])} V-Bucks of new loot for you`;
+    const wk = Math.max(0, Math.min(51, Math.round((px - 8) / (S.W - 16) * 51)));
+    const g = svg.querySelector('.cross'); g.setAttribute('visibility', 'visible'); g.querySelector('line').setAttribute('x1', S.x(wk)); g.querySelector('line').setAttribute('x2', S.x(wk));
+    const d0 = new Date(Date.UTC(2026, 0, 1 + wk * 7)).toLocaleDateString('en-GB', { day: 'numeric', month: 'short', timeZone: 'UTC' });
+    $('sparkInfo').innerHTML = `Week of ${d0}: ` + S.series.map(s => { const p = s.pts.find(p => p[0] === wk); return `<b>${s.y}</b> ${p ? n0(p[1]) + '/day' : 'no data'}`; }).join(' · ');
   });
-  $('spark').addEventListener('pointerleave', () => { const g = $('spark').querySelector('.cross'); if (g) g.setAttribute('visibility', 'hidden'); $('sparkInfo').textContent = 'Move over the line to see a day'; });
-  const wdPick = e => { const r = e.target.closest('[data-wd]'); if (!r) return; const i = +r.dataset.wd; render.wdHl = render.wdHl === i ? undefined : i; render(false); };
-  $('wdbars').addEventListener('click', wdPick); $('wdbars').addEventListener('keydown', e => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); wdPick(e); } });
+  $('spark').addEventListener('pointerleave', () => { const g = $('spark').querySelector('.cross'); if (g) g.setAttribute('visibility', 'hidden'); $('sparkInfo').textContent = 'Move over the chart to compare a week'; });
   $('bars').addEventListener('click', pick); $('alts').addEventListener('click', pick);
   const copy = async (txt, msg) => { try { await navigator.clipboard.writeText(txt); $('copyMsg').textContent = msg; } catch (e) { $('copyMsg').textContent = txt; } };
   $('copy').addEventListener('click', () => copy(render.plan, 'Plan copied.'));
@@ -429,6 +470,7 @@ async function init() {
   if (pool.length) { for (const d of pool) for (const [k, v] of Object.entries(d.byKind)) mean[k] = (mean[k] || 0) + v / pool.length; }
   else Object.assign(mean, fb.baselinePerDayByKind);
   const stay = Math.max(1, Math.round(b.medianStayDays || fb.stayDays));
+  D.pastSources = b.sources || (b.source ? [{ name: 'Fortnite-Datamining archive', url: b.source }] : []);
   D.base = { ...b, pool, byWd, mean, stay, fallback: !pool.length, n: pool.length, stayFrom: b.medianStayDays ? `the median planned stay of new offers in the archive` : 'a fallback value' };
   const age = meta && meta.generatedAt ? Math.round((Date.now() - Date.parse(meta.generatedAt)) / 36e5) : null;
   $('fresh').innerHTML = `Shop of <b>${fmt(idx(D.shop.shopDate))}</b>${age !== null ? ` · updated ${age < 1 ? 'just now' : age + ' h ago'}` : ''}${D.live ? ' · live' : ''}${meta && meta.fixture ? ' · <b>test data</b>' : ''}`;

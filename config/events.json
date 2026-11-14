@@ -32,7 +32,7 @@
   "to": "2026-12-12",
   "claim": "pattern",
   "extraVbucks": 8000,
-  "basis": "Sized from the last season launch in the shop archive (Treasure Hunters, Nov 1 to 7, 2026): what that week brought above a median day, per item type. The author estimate is used only if the archive is missing.",
+  "basis": "Sized from past season-launch weeks in the shop history (Chapter 7, Nov 30 to Dec 6, 2025, and Treasure Hunters, Nov 1 to 7, 2026): what they brought above a median day, per item type.",
   "newsKeywords": [
    "chapter 8"
   ],
@@ -45,6 +45,11 @@
    }
   ],
   "calibrateFrom": [
+   {
+    "from": "2025-11-30",
+    "to": "2025-12-06",
+    "label": "Chapter 7 launch week"
+   },
    {
     "from": "2026-11-01",
     "to": "2026-11-07",
@@ -59,7 +64,7 @@
   "to": "2026-12-31",
   "claim": "pattern",
   "extraVbucks": 6000,
-  "basis": "Author assumption from past years: Winterfest starts mid to late December with holiday outfits and returning winter items.",
+  "basis": "Sized from Winterfest 2025 (Dec 18, 2025 to Jan 5, 2026) once the shop history reaches back that far; until then an author estimate.",
   "newsKeywords": [
    "winterfest"
   ],
@@ -69,6 +74,19 @@
     "mustContain": [
      "Winterfest"
     ]
+   },
+   {
+    "url": "https://www.techradar.com/gaming/fortnite-winterfest-2025-start-date",
+    "mustContain": [
+     "Winterfest"
+    ]
+   }
+  ],
+  "calibrateFrom": [
+   {
+    "from": "2025-12-18",
+    "to": "2026-01-01",
+    "label": "Winterfest 2025"
    }
   ]
  },
@@ -79,8 +97,15 @@
   "to": "2026-12-27",
   "claim": "pattern",
   "extraVbucks": 3000,
-  "basis": "Author assumption, no source: rare holiday skins often return around Christmas.",
+  "basis": "Sized from Christmas week 2025 once the shop history reaches back that far; until then an author estimate.",
   "newsKeywords": [],
-  "sources": []
+  "sources": [],
+  "calibrateFrom": [
+   {
+    "from": "2025-12-20",
+    "to": "2025-12-27",
+    "label": "Christmas week 2025"
+   }
+  ]
  }
 ]

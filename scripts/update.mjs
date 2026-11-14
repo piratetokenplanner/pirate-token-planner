@@ -11,6 +11,37 @@ const NEWS_URL = 'https://fortnite-api.com/v2/news/br?language=en';
 const PAST_BASE = 'https://raw.githubusercontent.com/Fortnite-Datamining/Fortnite-Datamining/history/shop/';
 const PAST_REPO = 'https://github.com/Fortnite-Datamining/Fortnite-Datamining/tree/history/shop';
 const PAST_FIRST = '2026-05-02';
+const PAST_TARGET_DAYS = 560; // statistics should cover well over a year
+
+// itemshop.gg history (free key, attribution "Data from itemshop.gg" shown on the page)
+async function fetchItemshop(date, key) {
+  for (let attempt = 0; attempt < 3; attempt++) {
+    try {
+      const r = await fetch(`https://itemshop.gg/api/v1/history/fortnite/${date}`, { headers: { authorization: `Bearer ${key}`, 'user-agent': 'pirate-token-planner' }, signal: AbortSignal.timeout(30000) });
+      if (r.status === 429) { await new Promise(res => setTimeout(res, 1000 * (+r.headers.get('retry-after') || 5))); continue; }
+      return r.ok ? await r.text() : null;
+    } catch { /* retry */ }
+  }
+  return null;
+}
+const ISG_KIND = [['bundle', 'bundle'], ['outfit', 'outfit'], ['emote', 'emote'], ['pickaxe', 'pickaxe'], ['harvesting', 'pickaxe'], ['glider', 'glider'], ['back bling', 'backpack'], ['backpack', 'backpack'], ['wrap', 'wrap'], ['jam track', 'jamtrack'], ['track', 'jamtrack'], ['kicks', 'kicks'], ['shoe', 'kicks'], ['sidekick', 'sidekick'], ['car', 'car'], ['wheel', 'car'], ['lego', 'lego'], ['contrail', 'contrail'], ['loading', 'loadingscreen'], ['music', 'music'], ['guitar', 'instrument'], ['bass', 'instrument'], ['drum', 'instrument'], ['keytar', 'instrument'], ['microphone', 'instrument']];
+function parseItemshop(text) {
+  let j; try { j = JSON.parse(text); } catch { return null; }
+  const d = j.data || j;
+  const items = (d.sections || []).flatMap(s => s.items || []).concat(d.items || []);
+  if (!items.length) return null;
+  const out = [];
+  for (const it of items) {
+    const price = it.price && typeof it.price.amount === 'number' ? it.price.amount : null;
+    if (!(price > 0)) continue;
+    const t = String(it.bundle ? 'bundle' : it.type || '').toLowerCase();
+    const kind = (ISG_KIND.find(([k]) => t.includes(k)) || [null, 'other'])[1];
+    const keyId = k => k ? String(k).split(':').pop().toLowerCase() : null;
+    const ids = (it.contents && it.contents.length ? it.contents.map(c => keyId(c.itemKey) || String(c.name).toLowerCase()) : [keyId(it.itemKey) || String(it.name).toLowerCase()]).filter(Boolean);
+    out.push({ id: it.id || it.itemKey || it.name, kind, price, items: kind === 'jamtrack' ? [] : ids });
+  }
+  return out;
+}
 const FIX = process.env.FIXTURE_DIR;
 const DAY = 864e5;
 const log = [];
@@ -90,6 +121,46 @@ if (!FIX) {
     });
   }
   past.lastOffers = prevOffers ? [...prevOffers] : []; past.lastItems = [...prevItems];
+
+  // ---- 1b. Older days (before the archive starts) from itemshop.gg -------
+  // Needs a free API key in the GitHub secret ITEMSHOP_KEY. Goes back PAST_TARGET_DAYS from today,
+  // so the statistics cover more than a full year (and last year's Winterfest and season launches).
+  const KEY = process.env.ITEMSHOP_KEY;
+  const target = iso(Date.now() - PAST_TARGET_DAYS * DAY);
+  const older = [];
+  for (let t = Date.parse(target); iso(t) < PAST_FIRST; t += DAY) older.push(iso(t));
+  const haveDates = new Set(past.days.map(d => d.date));
+  const need = older.filter(d => !haveDates.has(d));
+  if (KEY && need.length) {
+    let pOffers = null, pItems = new Set(), pDate = null, got = 0;
+    // resume from the newest backfilled day before the gap, so arrivals are computed against the day before
+    const lastOld = past.days.filter(d => d.date < need[0]).at(-1);
+    if (lastOld && lastOld.src === 'itemshop.gg' && past.oldTail) { pOffers = new Set(past.oldTail.offers); pItems = new Set(past.oldTail.items); pDate = lastOld.date; }
+    for (let i = 0; i < need.length; i += 6) {
+      const batch = need.slice(i, i + 6);
+      const texts = await Promise.all(batch.map(d => fetchItemshop(d, KEY)));
+      batch.forEach((d, k) => {
+        const day = texts[k] && parseItemshop(texts[k]);
+        if (!day) { pastLog.missing.push(d + ' (itemshop.gg)'); pOffers = null; return; }
+        const contiguous = pOffers && pDate && Date.parse(d) - Date.parse(pDate) === DAY;
+        const byKind = {}; let count = 0;
+        for (const e of day) {
+          if (contiguous && !pOffers.has(e.id)) { byKind[e.kind] = (byKind[e.kind] || 0) + e.price; count++; }
+          for (const id of e.items) { const list = (appear[id] ||= []); if (pItems.has(id) && contiguous && list.length) { const r = list.find(r => r[1] === pDate); if (r) r[1] = d; else list.push([d, d]); } else list.push([d, d]); }
+        }
+        past.days.push(contiguous ? { date: d, offers: day.length, count, byKind, src: 'itemshop.gg' } : { date: d, offers: day.length, gapBefore: true, src: 'itemshop.gg' });
+        pOffers = new Set(day.map(e => e.id)); pItems = new Set(day.flatMap(e => e.items)); pDate = d; got++;
+      });
+    }
+    past.oldTail = pOffers ? { offers: [...pOffers], items: [...pItems] } : null;
+    for (const list of Object.values(appear)) list.sort((x, y) => x[0].localeCompare(y[0]));
+    past.days.sort((x, y) => x.date.localeCompare(y.date));
+    log.push({ url: 'https://itemshop.gg/api/v1/history/fortnite/…', at: new Date().toISOString(), ok: true, status: 200, bytes: got, sha256: `${got} older days imported` });
+    pastLog.imported += got;
+  } else if (!KEY && need.length) {
+    log.push({ url: 'https://itemshop.gg/api/v1/history/fortnite/…', at: new Date().toISOString(), ok: false, error: `no ITEMSHOP_KEY secret: ${need.length} older days not loaded` });
+  }
+  past.sources = [{ name: 'Fortnite-Datamining archive', url: PAST_REPO, from: PAST_FIRST }, ...(past.days.some(d => d.src === 'itemshop.gg') ? [{ name: 'itemshop.gg', url: 'https://itemshop.gg', from: past.days.find(d => d.src === 'itemshop.gg').date }] : [])];
   past.source = PAST_REPO; past.first = past.days[0] && past.days[0].date; past.last = past.days.at(-1) && past.days.at(-1).date;
   await mkdir('data/past', { recursive: true });
   await write('data/past/days.json', past);
@@ -148,8 +219,8 @@ for (const ev of cfgEventsRaw) {
   }
 }
 await write('data/baseline.json', {
-  method: usable.length ? `past shops ${past.first} to ${past.last}, from the Fortnite-Datamining archive` : 'none yet',
-  source: PAST_REPO, windowFrom: usable[0] && usable[0].date, windowTo: usable.at(-1) && usable.at(-1).date,
+  method: usable.length ? `past shops ${past.first} to ${past.last}` : 'none yet',
+  source: PAST_REPO, sources: past.sources || [{ name: 'Fortnite-Datamining archive', url: PAST_REPO, from: PAST_FIRST }], windowFrom: usable[0] && usable[0].date, windowTo: usable.at(-1) && usable.at(-1).date,
   days: usable.map(({ date, count, byKind }) => ({ date, count, byKind, reserved: reserved.has(date) || undefined })),
   medianDayVbucks: median(usable.map(total)), medianByKind: medByKind,
   medianStayDays: median(usable.map(d => d.stay).filter(x => x > 0 && x < 60)), staySamples: usable.filter(d => d.stay).length,
