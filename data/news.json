@@ -1,11 +1,7 @@
 {
- "fetchedAt": "2026-11-14T02:51:49.879Z",
+ "fetchedAt": "2026-11-14T03:06:46.482Z",
  "source": "https://fortnite-api.com/v2/news/br?language=en",
  "items": [
-  {
-   "title": "Live - One Piece: Buggy Cup",
-   "body": "Compete in the Duos Battle Royale or the Duos Zero Build One Piece: Buggy Cup now! Top regional performers will receive the Buggy Outfit. Find additional details in the Compete Tab."
-  },
   {
    "title": "Devil Fruits Across the Island",
    "body": "Rare Devil Fruits have dropped in across the map! Eat the Gum-Gum Fruit to stretch your skills as Luffy, or the Flame-Flame Fruit to come in hot as Ace... just stay away from water."
@@ -21,6 +17,10 @@
   {
    "title": "Multi-Punches Flex",
    "body": "GUM-GUM GATLING!"
+  },
+  {
+   "title": "Adventure Awaits!",
+   "body": "Explore One Piece's Arlong Park, sail past Baratie Bay, or storm The $.$. Rocky on this mysterious skull-shaped island."
   }
  ]
 }
