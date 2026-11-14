@@ -83,6 +83,9 @@ async function fetchOnce(url, fixtureName, quiet = false) {
 // "arrives" when it wasn't in the previous day's shop), plus when each item was in the shop.
 const past = await readJSON('data/past/days.json', { source: PAST_REPO, days: [], lastOffers: [], lastItems: [] });
 const appear = await readJSON('data/past/items.json', {}); // item id -> [[firstDay, lastDay], ...]
+const names = await readJSON('data/past/names.json', {}); // item id -> { n: name, t: type }
+const TYPE = { outfit: 'outfit', emote: 'emote', pickaxe: 'pickaxe', glider: 'glider', backpack: 'backpack', wrap: 'wrap', shoe: 'kicks', shoes: 'kicks', kicks: 'kicks', contrail: 'contrail', loadingscreen: 'loadingscreen', music: 'music', sidekick: 'sidekick', pet: 'sidekick', petcarrier: 'sidekick' };
+const remember = it => { if (it.type !== 'jamtrack' && it.name) names[String(it.id).toLowerCase()] = { n: it.name, t: TYPE[String(it.type).toLowerCase()] || 'other' }; };
 const pastLog = { requested: 0, imported: 0, missing: [] };
 if (!FIX) {
   const have = new Set(past.days.map(d => d.date));
@@ -110,6 +113,7 @@ if (!FIX) {
         }
         for (const it of e.items) {
           if (it.type === 'jamtrack') continue;
+          remember(it);
           const id = String(it.id).toLowerCase(), list = (appear[id] ||= []);
           if (prevItems.has(id) && list.length && contiguous) list.at(-1)[1] = d; else list.push([d, d]);
         }
@@ -158,7 +162,8 @@ if (!FIX) {
     log.push({ url: 'https://itemshop.gg/api/v1/history/fortnite/…', at: new Date().toISOString(), ok: true, status: 200, bytes: got, sha256: `${got} older days imported` });
     pastLog.imported += got;
   } else if (!KEY && need.length) {
-    log.push({ url: 'https://itemshop.gg/api/v1/history/fortnite/…', at: new Date().toISOString(), ok: false, error: `no ITEMSHOP_KEY secret: ${need.length} older days not loaded` });
+    // optional source: without a key this step is skipped, which is not an error
+    log.push({ url: 'https://itemshop.gg/api/v1/history/fortnite/…', at: new Date().toISOString(), ok: true, status: 'skipped', sha256: `no ITEMSHOP_KEY: ${need.length} older days not loaded` });
   }
   past.sources = [{ name: 'Fortnite-Datamining archive', url: PAST_REPO, from: PAST_FIRST }, ...(past.days.some(d => d.src === 'itemshop.gg') ? [{ name: 'itemshop.gg', url: 'https://itemshop.gg', from: past.days.find(d => d.src === 'itemshop.gg').date }] : [])];
   past.source = PAST_REPO; past.first = past.days[0] && past.days[0].date; past.last = past.days.at(-1) && past.days.at(-1).date;
@@ -184,7 +189,7 @@ if (shop) {
       const list = appear[String(it.id).toLowerCase()] || [];
       const before = list.filter(([, b]) => b < iso(Date.parse(cur) - DAY));
       const g = before.length ? Math.round((Date.parse(cur) - Date.parse(before.at(-1)[1])) / DAY) : (start ? 'unseen' : null);
-      it.appearances = list.length;
+      it.appearances = list.length; remember(it);
       gap = gap === null ? g : g === 'unseen' ? gap : gap === 'unseen' ? g : Math.min(gap, g);
     }
     e.gap = gap;
@@ -194,6 +199,37 @@ if (shop) {
   await mkdir('data/history', { recursive: true });
   await write(`data/history/${shop.shopDate}.json`,
     shop.entries.map(({ id, name, kind, price, inDate, outDate }) => ({ id, name, kind, price, inDate, outDate })));
+}
+
+// ---- 2b. Return chances: how long items stay away before coming back -----
+// Pooled over all items: every finished absence (between two shop stays) is an observation,
+// every absence still running at the end of the history is a censored one (Kaplan-Meier).
+if (past.last) {
+  const end = past.last, gaps = [], open = [], items = [];
+  for (const [id, list] of Object.entries(appear)) {
+    if (!names[id]) continue;
+    // days away between two stays; 0 or less means two records of one stay (a missing archive day), not a return
+    const g = [];
+    for (let k = 1; k < list.length; k++) { const x = Math.round((Date.parse(list[k][0]) - Date.parse(list[k - 1][1])) / DAY) - 1; if (x > 0) g.push(x); }
+    gaps.push(...g);
+    const last = list.at(-1)[1];
+    const away = Math.round((Date.parse(end) - Date.parse(last)) / DAY);
+    if (away > 0) open.push(away);
+    items.push({ i: id, n: names[id].n, t: names[id].t, k: g.length + 1, l: last, g: g.length ? median(g) : null });
+  }
+  const T = Math.round((Date.parse(end) - Date.parse(past.first)) / DAY);
+  const S = []; let surv = 1;
+  const ev = new Array(T + 2).fill(0), cen = new Array(T + 2).fill(0);
+  for (const x of gaps) if (x <= T) ev[x]++;
+  for (const x of open) if (x <= T) cen[x]++;
+  let atRisk = gaps.length + open.length;
+  for (let t = 0; t <= T; t++) { if (atRisk > 0) surv *= 1 - ev[t] / atRisk; S.push(+surv.toFixed(4)); atRisk -= ev[t] + cen[t]; }
+  await writeFile('data/past/returns.json', JSON.stringify({
+    asOf: end, from: past.first, finishedGaps: gaps.length, openGaps: open.length, medianGap: median(gaps),
+    note: 'S[t] = share of absences longer than t days (Kaplan-Meier over all items). Items: i id, n name, t type, k stays, f first seen, l last day in shop, g median gap.',
+    S, items
+  }) + '\n');
+  await writeFile('data/past/names.json', JSON.stringify(names) + '\n');
 }
 
 // ---- 3. Baseline: what a normal shop day brings, from past shops ---------

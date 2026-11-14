@@ -39,7 +39,7 @@ const PRESETS = {
   'Music lover': { ...base, jamtrack: 10, music: 10, instrument: 10, outfit: 3, bundle: 3 },
   'Hoarder': Object.fromEntries(Object.keys(base).map(k => [k, 10]))
 };
-const DEF = { types: { ...base }, kw: '', kwBoost: 2, rare: 3, ev: {}, days: [1, 1, 1, 1, 1, 1, 1], late: true, owned: [], must: [] };
+const DEF = { types: { ...base }, kw: '', kwBoost: 2, rare: 3, ev: {}, days: [1, 1, 1, 1, 1, 1, 1], late: true, owned: [], must: [], claimed: [], activated: null };
 let P = structuredClone(DEF), sel = null;
 try { Object.assign(P, JSON.parse(localStorage.getItem('ptp3') || '{}')); } catch (e) {}
 if (location.hash.startsWith('#s=')) { try { Object.assign(P, JSON.parse(decodeURIComponent(atob(location.hash.slice(3))))); } catch (e) {} }
@@ -254,7 +254,7 @@ function render(recompute = true) {
   $('shopgrid').innerHTML = shown.length ? shown.map(x => `<article class="item${x.own ? ' own' : ''}${x.must ? ' must' : ''}${hitIds.has(x.e.id) ? ' hit' : ''}"><div class="img">${x.e.image ? `<img loading="lazy" src="${esc(x.e.image)}" alt="" onerror="this.remove()">` : esc(x.e.name)}<button type="button" class="heart" data-must="${esc(x.e.id)}" aria-pressed="${x.must}" aria-label="Must have ${esc(x.e.name)}"><svg viewBox="0 0 24 24"><path d="M12 20s-7-4.4-7-10a4 4 0 0 1 7-2.6A4 4 0 0 1 19 10c0 5.6-7 10-7 10z"/></svg></button></div><div class="bd"><span class="nm">${esc(x.e.name)}</span><span class="mt">${KINDS[x.e.kind] || x.e.kind} · last day ${fmt(x.out - 1)}${x.e.gap === 'unseen' ? ' · not seen since ' + fmt(idx(D.shop.historyFrom || '2026-05-02')) : typeof x.e.gap === 'number' && x.e.gap > 1 ? ` · back after ${x.e.gap} days` : ''}</span><span class="vb">${n0(x.e.price)} V-Bucks · worth ${n0(x.value)} to you${x.must ? ' (must-have)' : ''}</span></div><label><input type="checkbox" data-own="${esc(x.e.id)}" ${x.own ? 'checked' : ''}>I already own this</label></article>`).join('') : '<p class="hint">Nothing matches.</p>';
   $('shopNote').textContent = `${filtered.length} of ${M.items.length} offers · gold border = in your 14 days · heart = must-have`;
 
-  formula(M); limits(M); pastShops(M);
+  formula(M); limits(M); pastShops(M); nextToken(M); activeMode(M); if (render.back) backSearch();
 }
 
 function formula(M) {
@@ -439,7 +439,100 @@ function bind() {
   $('bars').addEventListener('click', pick); $('alts').addEventListener('click', pick);
   const copy = async (txt, msg) => { try { await navigator.clipboard.writeText(txt); $('copyMsg').textContent = msg; } catch (e) { $('copyMsg').textContent = txt; } };
   $('copy').addEventListener('click', () => copy(render.plan, 'Plan copied.'));
-  $('share').addEventListener('click', () => copy(location.href.split('#')[0] + '#s=' + btoa(encodeURIComponent(JSON.stringify({ ...P, owned: [] }))), 'Link copied. It carries your taste, not your owned items.'));
+  $('shareSet').addEventListener('click', () => copy(location.href.split('#')[0] + '#s=' + btoa(encodeURIComponent(JSON.stringify({ ...P, owned: [], claimed: [], activated: null }))), 'Link copied. It carries your taste, not your owned items.'));
+  $('share').addEventListener('click', async () => {
+    const url = location.href.split('#')[0], text = `My best Pirate Token day: ${$('vDay').textContent.replace('Activate ', '')}. Find yours:`;
+    try { if (navigator.share) { await navigator.share({ title: 'Pirate Token Planner', text, url }); return; } } catch (e) { if (e.name === 'AbortError') return; }
+    copy(`${text} ${url}`, 'Copied, paste it anywhere.');
+  });
+  // "I've activated" mode
+  $('actBtn').addEventListener('click', () => { $('actForm').hidden = false; $('actDate').value = dt(0).toISOString().slice(0, 10); $('actDate').max = dt(0).toISOString().slice(0, 10); $('actDate').min = dt(-13).toISOString().slice(0, 10); $('actDate').focus(); });
+  $('actCancel').addEventListener('click', () => { $('actForm').hidden = true; });
+  $('actForm').addEventListener('submit', e => { e.preventDefault(); P.activated = $('actDate').value || dt(0).toISOString().slice(0, 10); P.claimed = []; save(); $('actForm').hidden = true; render(false); scrollTo({ top: $('runbox').getBoundingClientRect().top + scrollY - 80, behavior: 'smooth' }); });
+  $('runbox').addEventListener('click', e => {
+    const a = e.target.closest('[data-act]'); if (!a) return;
+    if (a.dataset.act === 'clear') { P.activated = null; P.claimed = []; save(); render(false); }
+    if (a.dataset.act === 'change') { P.activated = null; save(); render(false); $('actBtn').click(); }
+    if (a.dataset.act === 'more') { render.allClaim = true; render(false); }
+  });
+  $('runbox').addEventListener('change', e => { const id = e.target.dataset.claim; if (id == null) return; P.claimed = e.target.checked ? [...new Set([...P.claimed, id])] : P.claimed.filter(x => x !== id); save(); render(false); });
+  // will it come back?
+  $('backsec').addEventListener('toggle', async () => { if (!$('backsec').open || render.back) return; $('backRes').innerHTML = '<p class="hint">Loading the shop history…</p>'; render.back = await load('data/past/returns.json'); backSearch(); });
+  $('backQ').addEventListener('input', () => backSearch());
+  $('backRes').addEventListener('click', e => { const b = e.target.closest('[data-pick]'); if (!b) return; $('backQ').value = b.dataset.pick; backSearch(); });
+}
+
+// ---------- "I've activated": countdown and claim list ----------
+function activeMode(M) {
+  const on = !!P.activated, show = (id, v) => { const el = document.getElementById(id); if (el) el.hidden = !v; };
+  show('runbox', on); show('verdict', !on); show('alts', !on);
+  document.querySelectorAll('.result .panel').forEach(p => { p.hidden = on; });
+  if (!on) return;
+  const a = idx(P.activated), end = a + M.dur, left = end - 0, dayNo = Math.min(M.dur, 1 - a);
+  if (left <= 0) {
+    $('runbox').innerHTML = `<div class="runhead"><div><div class="big">Your 14 days are over</div><p class="when">They ended on ${fmtL(end)}. Hope the haul was good! The planner for your 2027 token is below.</p></div></div><div class="acts"><button class="btn gold" type="button" data-act="clear">Back to the planner</button></div>`;
+    return;
+  }
+  const want = M.items.filter(x => (x.value > 0 || x.must) && !x.own).sort((p, q) => p.out - q.out || q.value - p.value);
+  const claimed = new Set(P.claimed), todo = want.filter(x => !claimed.has(x.e.id));
+  const today = todo.filter(x => x.out - 1 <= 0), tomorrow = todo.filter(x => x.out - 1 === 1);
+  const list = render.allClaim ? want : want.slice(0, 16);
+  const chip = x => `<span class="lchip${x.must ? ' must' : ''}">${esc(x.e.name)} <small>${KINDS[x.e.kind] || x.e.kind}</small></span>`;
+  const chips = xs => { const top = [...xs].sort((p, q) => q.must - p.must || q.value - p.value); return top.slice(0, 8).map(chip).join('') + (top.length > 8 ? `<span class="lchip more">+${top.length - 8} more in the claim list</span>` : ''); };
+  const endsAt = new Date(T0 + end * DAY).toLocaleString([], { weekday: 'short', day: 'numeric', month: 'short', hour: '2-digit', minute: '2-digit' });
+  $('runbox').innerHTML = `<div class="runhead">
+      <div class="countdown"><b>${left}</b><span>day${left === 1 ? '' : 's'} left</span></div>
+      <div><div class="big">Your plunder is running</div><p class="when">Day ${Math.max(1, dayNo)} of ${M.dur} · ends ${esc(endsAt)}</p>
+      <div class="runbar"><div style="width:${Math.min(100, Math.max(1, dayNo) / M.dur * 100)}%"></div></div></div>
+    </div>
+    <div class="leave">
+      <div><h3>Leaving the shop today</h3>${today.length ? chips(today) : '<p class="hint">Nothing you want leaves today.</p>'}</div>
+      <div><h3>Leaving tomorrow</h3>${tomorrow.length ? chips(tomorrow) : '<p class="hint">Nothing you want leaves tomorrow.</p>'}</div>
+    </div>
+    <h3 class="clh">Claim list <span>${want.length - todo.length} of ${want.length} claimed</span></h3>
+    <ul class="claims">${list.map(x => `<li class="${claimed.has(x.e.id) ? 'done' : ''}"><label><input type="checkbox" data-claim="${esc(x.e.id)}" ${claimed.has(x.e.id) ? 'checked' : ''}><span>${esc(x.e.name)}</span></label><small>${KINDS[x.e.kind] || x.e.kind} · ${x.out - 1 <= 0 ? 'last day today' : 'until ' + fmt(x.out - 1)}${x.must ? ' · must-have' : ''}</small></li>`).join('')}</ul>
+    ${!render.allClaim && want.length > 16 ? `<button class="btn ghost" type="button" data-act="more">Show all ${want.length}</button>` : ''}
+    <p class="hint">Only today's shop is known. New items appear every day after the reset at ${resetLocal}.</p>
+    <div class="acts"><button class="btn ghost" type="button" data-act="change">Change date</button><button class="btn ghost" type="button" data-act="clear">I haven't activated</button></div>`;
+}
+
+// ---------- will it come back? ----------
+function backSearch() {
+  const R = render.back, q = ($('backQ').value || '').trim().toLowerCase();
+  if (!R) { $('backRes').innerHTML = '<p class="hint">The shop history could not be loaded.</p>'; return; }
+  $('backSrc').textContent = `Based on ${R.finishedGaps.toLocaleString('en-US')} returns of ${R.items.length.toLocaleString('en-US')} items, ${fmt(idx(R.from), { day: 'numeric', month: 'short', year: 'numeric' })} to ${fmt(idx(R.asOf))}. Typical time away: ${R.medianGap} days.`;
+  if (q.length < 2) { $('backRes').innerHTML = '<p class="hint">Type at least two letters.</p>'; return; }
+  const hits = R.items.filter(x => x.n.toLowerCase().includes(q)).sort((a, b) => (b.n.toLowerCase().startsWith(q) - a.n.toLowerCase().startsWith(q)) || b.k - a.k).slice(0, 8);
+  if (!hits.length) { $('backRes').innerHTML = '<p class="hint">Not in the shop history. It may not have been sold since ' + fmt(idx(R.from), { month: 'long', year: 'numeric' }) + '.</p>'; return; }
+  const inShop = new Map(); for (const e of D.shop.entries) for (const it of e.items) inShop.set(String(it.id).toLowerCase(), e);
+  const T = R.S.length - 1, S = t => t < 0 ? 1 : R.S[Math.min(T, t)];
+  const s0 = render.M ? sel : 0;
+  const card = x => {
+    const e = inShop.get(x.i);
+    if (e) return `<div class="bcard"><div><b>${esc(x.n)}</b><small>${KINDS[x.t] || x.t}</small></div><p class="good2">In the shop right now, until ${fmt(idx(e.outDate || D.shop.shopDate) - 1)}.</p></div>`;
+    const away = Math.round((T0 - Date.parse(x.l)) / DAY) - 1;
+    // item-specific pace: items that came back quickly before are assumed to come back faster again
+    const f = x.k >= 3 && x.g ? Math.min(4, Math.max(0.25, R.medianGap / Math.max(1, x.g))) : 1;
+    const Si = t => S(Math.floor(t * f));
+    const chance = (a, b) => { const base = Si(away + a - 1); if (base < 0.03 || (away + b) * f > T) return null; return Math.max(0, Math.min(1, (base - Si(away + b)) / base)); };
+    const pWin = chance(Math.max(0, s0), s0 + 13), p30 = chance(0, 29);
+    const bar = (p, label) => p === null ? `<div class="pc"><span>${label}</span><em>beyond what the history can judge</em></div>` : `<div class="pc"><span>${label}</span><div class="pbar"><div style="width:${Math.round(p * 100)}%"></div></div><b>${Math.round(p * 100)}%</b></div>`;
+    return `<div class="bcard"><div><b>${esc(x.n)}</b><small>${KINDS[x.t] || x.t} · in the shop ${x.k} time${x.k === 1 ? '' : 's'} since ${fmt(idx(R.from), { month: 'short' })} · last seen ${fmt(idx(x.l))} (${away} days ago)${x.g ? ` · usually away ${x.g} days` : ''}</small></div>
+      ${bar(pWin, `In your 14 days (${fmt(s0)}–${fmt(s0 + 13)})`)}${bar(p30, 'In the next 30 days')}</div>`;
+  };
+  $('backRes').innerHTML = hits.map(card).join('') + '<p class="hint">A rough estimate from how long items stayed away in the past. Epic does not follow a schedule, so treat it as a hint, not a promise.</p>';
+}
+
+// ---------- second token (2027): which months tend to be best ----------
+function nextToken(M) {
+  const by = Array.from({ length: 12 }, () => []);
+  for (const [date, v] of M.byDate) by[+date.slice(5, 7) - 1].push(v);
+  const avg = by.map(v => v.length >= 10 ? v.reduce((a, b) => a + b, 0) / v.length * M.dur : null);
+  const known = avg.filter(v => v !== null), mx = Math.max(1, ...known), best = avg.indexOf(Math.max(...known));
+  const mon = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
+  $('nextLead').innerHTML = known.length ? `Your second token can be used from <b>Jan 1</b> to <b>Dec 15, 2027</b> (reported). In past shops, a 14-day window in <b>${mon[best]}</b> brought the most loot for your taste.` : 'Not enough past shops yet.';
+  $('months').innerHTML = avg.map((v, i) => `<div class="mo${v === null ? ' none' : ''}${i === best ? ' top' : ''}"><div class="mbar"><div style="height:${v === null ? 0 : Math.max(4, v / mx * 100)}%"></div></div><b>${mon[i]}</b><small>${v === null ? 'no data' : n0(v / 1000) + 'k'}</small></div>`).join('');
+  $('nextNote').textContent = `Expected loot of a 14-day window per month, from ${M.byDate.size} past days. ${12 - known.length} month${12 - known.length === 1 ? '' : 's'} have no data yet and fill in as the history grows. Seasons can change from year to year.`;
 }
 
 // ---------- data loading ----------
@@ -469,6 +562,10 @@ async function init() {
   const age = meta && meta.generatedAt ? Math.round((Date.now() - Date.parse(meta.generatedAt)) / 36e5) : null;
   $('fresh').innerHTML = `Shop of <b>${fmt(idx(D.shop.shopDate))}</b>${age !== null ? ` · updated ${age < 1 ? 'just now' : age + ' h ago'}` : ''}${D.live ? ' · live' : ''}${meta && meta.fixture ? ' · <b>test data</b>' : ''}`;
   if (meta && meta.fixture) document.body.insertAdjacentHTML('afterbegin', '<div class="banner">Test data: this copy was built from sample files, not the real shop.</div>');
+  else if (age !== null && age >= 12 && !q.get('today')) document.body.insertAdjacentHTML('afterbegin', `<div class="banner">Heads up: the shop data is ${age} hours old. The automatic update may have stopped, so today's items could be missing.</div>`);
+  // installable app: offline copy via a service worker, and an install button where the browser offers one
+  if ('serviceWorker' in navigator && location.protocol === 'https:') navigator.serviceWorker.register('sw.js').catch(() => {});
+  addEventListener('beforeinstallprompt', e => { e.preventDefault(); const b = $('installBtn'); b.hidden = false; b.onclick = async () => { b.hidden = true; e.prompt(); }; });
   controls(); bind(); render(); sources();
 }
 init();

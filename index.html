@@ -5,6 +5,17 @@
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Fortnite Pirate Shop Token Planner</title>
 <meta name="description" content="Fan-made Fortnite helper: pick the best day to activate Fortnite Pirate Shop Access, based on the live Item Shop and what you like.">
+<meta name="theme-color" content="#2160d8">
+<link rel="manifest" href="manifest.webmanifest">
+<link rel="icon" href="icons/icon-192.png" type="image/png">
+<link rel="apple-touch-icon" href="icons/icon-192.png">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Fortnite Pirate Shop Token Planner">
+<meta property="og:description" content="Found the Pirate Token? Find your best 14 days of free Item Shop, from the live shop and your own taste. Fan-made.">
+<meta property="og:url" content="https://piratetokenplanner.github.io/pirate-token-planner/">
+<meta property="og:image" content="https://piratetokenplanner.github.io/pirate-token-planner/og.png">
+<meta property="og:image:width" content="1200"><meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Luckiest+Guy&family=Nunito:wght@400;600;800;900&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="style.css">
@@ -45,6 +56,7 @@
     </div>
     <p class="lede">Pirate Shop Access = 14 days of free Item Shop. We find your best start day.</p>
     <p class="fresh" id="fresh">Loading today's shop…</p>
+    <button class="install" id="installBtn" type="button" hidden>Install as app</button>
   </div>
 
   <div class="sea" aria-hidden="false">
@@ -79,9 +91,11 @@
           <circle cx="96" cy="172" r="11" fill="#f2c7a0"/>
           <path class="lids" d="M89 172 q3 3 6 0 M98 172 q3 3 6 0" stroke="#3a1a08" stroke-width="2" fill="none" stroke-linecap="round"/>
           <g class="eyes" opacity="0"><circle cx="92" cy="171" r="2" fill="#3a1a08"/><circle cx="101" cy="171" r="2" fill="#3a1a08"/></g>
-          <path d="M84 168 Q92 146 116 152 Q108 156 106 166 Z" fill="#ff6b57"/>
-          <path d="M84 169 Q96 163 108 169" stroke="#fff" stroke-width="4" fill="none" stroke-linecap="round"/>
-          <circle cx="118" cy="153" r="5" fill="#fff"/>
+          <path d="M84 169 Q88 145 110 146 Q128 149 127 173 Q120 159 107 167 Z" fill="#3f4aa8"/>
+          <path d="M96 150 Q104 147 112 149" stroke="#5b67c9" stroke-width="2" fill="none" stroke-linecap="round"/>
+          <path d="M84 169 Q96 164 107 168" stroke="#2c3480" stroke-width="3.5" fill="none" stroke-linecap="round"/>
+          <path d="M97 157 l1.2 2.6 2.6 1.2 -2.6 1.2 -1.2 2.6 -1.2 -2.6 -2.6 -1.2 2.6 -1.2z M114 153 l.9 2 2 .9 -2 .9 -.9 2 -.9 -2 -2 -.9 2 -.9z" fill="#ffc83d"/>
+          <path d="M127 173 l0 5" stroke="#ffc83d" stroke-width="1.5"/><circle cx="127" cy="180" r="3" fill="#ffc83d"/>
           <g class="zzz" font-family="Luckiest Guy, Impact" fill="#fff"><text x="66" y="150" font-size="13">z</text><text x="54" y="134" font-size="17">z</text><text x="40" y="116" font-size="21">Z</text></g>
           <text class="arr" x="44" y="146" font-family="Luckiest Guy, Impact" font-size="18" fill="#ffc83d" opacity="0">Arr?</text>
         </g>
@@ -125,7 +139,8 @@
 
 <section class="band result"><div class="wrap">
   <div class="step"><span class="stepnum">3</span><h2>Your best day</h2></div>
-  <div class="verdict" aria-live="polite">
+  <div class="runbox" id="runbox" hidden aria-live="polite"></div>
+  <div class="verdict" id="verdict" aria-live="polite">
     <div class="xmark" aria-hidden="true">X</div>
     <div>
       <div class="big" id="vDay">…</div>
@@ -133,8 +148,14 @@
       <div class="sure" id="vSure"></div>
       <div class="acts">
         <a class="btn gold" id="gcal" href="#" target="_blank" rel="noopener">Remind me in Google Calendar</a>
-        <button class="btn ghost" id="copy" type="button">Copy plan</button>
+        <button class="btn ghost" id="share" type="button">Share</button>
+        <button class="btn ghost" id="actBtn" type="button">I've activated</button>
       </div>
+      <form class="actform" id="actForm" hidden>
+        <label>Activated on <input type="date" id="actDate"></label>
+        <button class="btn gold" type="submit">Start countdown</button>
+        <button class="btn ghost" type="button" id="actCancel">Cancel</button>
+      </form>
       <p class="msg" id="copyMsg"></p>
     </div>
   </div>
@@ -170,14 +191,12 @@
         </div>
         <div class="subcard">
           <h3>Expected events</h3>
-          <p class="hint">5 = neutral, 10 = counts double, 0 = ignore the event.</p>
           <div id="evw"></div>
           <label class="tog"><input type="checkbox" id="late"><span>Count days after Dec 15 (unconfirmed)</span></label>
         </div>
       </div>
       <div class="subcard">
         <h3>Per item type (0–10)</h3>
-        <div class="scale" id="scaleEx"></div>
         <div class="typegrid" id="types"></div>
       </div>
     </div>
@@ -193,6 +212,24 @@
         <div class="pcard"><h3>Year by year, week by week</h3><p class="hint sparkinfo" id="sparkInfo">Move over the chart to compare a week</p><div class="spark" id="spark"></div><div class="lg dark" id="yearKey"></div></div>
       </div>
       <p class="hint" id="pastSrc"></p>
+    </div>
+  </details>
+
+  <details class="fold" id="backsec">
+    <summary><span class="ico"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 12a8 8 0 1 0 3-6.2"/><path d="M4 4v4h4"/><path d="M12 8v4l3 2"/></svg></span><span class="sumt"><b>Will it come back?</b><small>Chance a skin returns during your 14 days</small></span></summary>
+    <div class="foldbody">
+      <input id="backQ" type="search" placeholder="Search any skin, emote, pickaxe…" autocomplete="off" aria-label="Search an item">
+      <div class="backres" id="backRes"><p class="hint">Type a name to see how often it was in the shop and how likely it is to return.</p></div>
+      <p class="hint" id="backSrc"></p>
+    </div>
+  </details>
+
+  <details class="fold" id="nextsec">
+    <summary><span class="ico"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="4" y="5" width="16" height="15" rx="2"/><path d="M4 10h16M9 3v4M15 3v4"/></svg></span><span class="sumt"><b>Your second token (2027)</b><small>Which months tend to be best</small></span></summary>
+    <div class="foldbody">
+      <p class="lead" id="nextLead"></p>
+      <div class="months" id="months"></div>
+      <p class="hint" id="nextNote"></p>
     </div>
   </details>
 
@@ -215,7 +252,7 @@
     <div class="foldbody">
       <div class="sum" id="sum"></div>
       <div class="scroll"><table class="tbl stack" id="mtab"><thead><tr><th>What</th><th>Inputs</th><th>Calculation</th><th class="num">V-Bucks</th></tr></thead><tbody></tbody></table></div>
-      <div class="acts"><button class="btn ghost" id="mathMore" type="button" hidden>Show all rows</button><button class="btn ghost" id="share" type="button">Copy link with my settings</button></div>
+      <div class="acts"><button class="btn ghost" id="mathMore" type="button" hidden>Show all rows</button><button class="btn ghost" id="copy" type="button">Copy plan</button><button class="btn ghost" id="shareSet" type="button">Copy link with my settings</button></div>
     </div>
   </details>
 
