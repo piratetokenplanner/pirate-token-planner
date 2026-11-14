@@ -418,7 +418,7 @@ function howWhy(M) {
     r1 = rb(lo1, hi1, 'one'); r14 = rb(lo14, hi14, 'two');
   }
   const b = D.backtest && (D.backtest.tastes.Balanced || Object.values(D.backtest.tastes)[0]);
-  const tests = b ? [['This planner', b.regretNew, 'us'], ['Always day 1', b.regretDay1, 'd1'], ['Old version', b.regretOld, 'old']] : [['This planner', .061, 'us'], ['Always day 1', .091, 'd1'], ['Old version', .093, 'old']];
+  const tests = b ? [['This planner', b.regretNew, 'us'], ['Control: always day 1', b.regretDay1, 'd1']] : [['This planner', .061, 'us'], ['Control: always day 1', .091, 'd1']];
   const tmx = Math.max(...tests.map(t => t[1]));
   $('howWhy').innerHTML = `
     <div class="hwcard"><h3>Your numbers, step by step</h3><p>The shop is a conveyor belt. Your 14 days are the time you stand next to it: everything that passes is free.</p>
@@ -429,7 +429,7 @@ function howWhy(M) {
       ${r1 ? `<div class="hrrow"><span>1 day</span>${r1}<b>±${spread1}%</b></div><div class="hrrow"><span>14 days</span>${r14}<b>±${spread14}%</b></div><p class="hsmall">Bars: 8 of 10 real past days (top) vs. 8 of 10 random 14-day mixes (bottom). The line is the average.</p>` : ''}</div>
     <div class="hwcard"><h3>Tested on real shops</h3><p>We replayed the planner on ${b ? b.origins : 106} past days, using only what it knew then, and checked which start day really was best.</p>
       ${tests.map(([l, v, c]) => `<div class="htrow"><span>${l}</span><div class="htbar"><i class="${c}" style="width:${v / tmx * 100}%"></i></div><b>−${(v * 100).toFixed(1)}%</b></div>`).join('')}
-      <p class="hsmall">Loot lost compared with the day that turned out best. Lower is better. It can't see surprise collabs, but it picks better than guessing.</p></div>`;
+      <p class="hsmall">Loot lost compared with the day that turned out best. Lower is better. The control simply activates on the first day, with no planning. It can't see surprise collabs, but it picks better than the control.</p></div>`;
 }
 
 // ---------- "How it works": a treasure map plus a tiny dice game ----------
@@ -569,12 +569,12 @@ function render(recompute = true) {
 // live results of scripts/backtest.py (data/backtest.json) and the daily track record (data/track.json)
 function accuracyCard() {
   const b = D.backtest, t = D.track && D.track.summary, pc = x => Math.round(x * 1000) / 10 + '%';
-  if (!b) return `<div class="card"><h3>8. How well it works</h3><p>Back-test on the archive (May–Nov 2026, scripts/backtest.py): the pick lost about <b>6%</b> of loot compared with the day that turned out best, versus 9–10% for the previous model and for always activating on day 1.</p></div>`;
+  if (!b) return `<div class="card"><h3>8. How well it works</h3><p>Back-test on the archive (May–Nov 2026, scripts/backtest.py): the pick lost about <b>6%</b> of loot compared with the day that turned out best, versus about 9% for the control (always activating on day 1).</p></div>`;
   const T = b.tastes, bal = T.Balanced || Object.values(T)[0], names = Object.keys(T);
   const lw = bal.launches;
   return `<div class="card wide"><h3>8. How well it works</h3>
     <p>Back-test on ${bal.origins} past start points (${fmt(idx(bal.from))} to ${fmt(idx(bal.to))}, updated ${fmt(idx(b.generatedAt.slice(0, 10)))}): loot lost compared with the day that turned out best.</p>
-    <table class="tbl acc"><thead><tr><th>Taste</th><th class="num">This planner</th><th class="num">Last 30 days</th><th class="num">Always day 1</th><th class="num">Range held</th></tr></thead><tbody>
+    <table class="tbl acc"><thead><tr><th>Taste</th><th class="num">This planner</th><th class="num">Last 30 days</th><th class="num">Control: day 1</th><th class="num">Range held</th></tr></thead><tbody>
     ${names.map(n => `<tr><td>${n}</td><td class="num"><b>${pc(T[n].regretNew)}</b></td><td class="num">${pc(T[n].regretNewLast30)}</td><td class="num">${pc(T[n].regretDay1)}</td><td class="num">${Math.round(T[n].cover * 100)}%</td></tr>`).join('')}</tbody></table>
     <p>"% sure" is scaled by ${b.sureScale.toFixed(2)}: before that it came true less often than it said.${lw ? ` Season-launch weeks were not reliably bigger (${Object.entries(lw.uplift).map(([k, v]) => `${esc(k.replace(' launch week', ''))} ${v >= 0 ? '+' : ''}${n0(v)}`).join(', ')} V-Bucks vs an average week), so the next launch is sized from all of them together.` : ''}</p>
     <p>${t && t.scoredDays ? `<b>Track record:</b> ${t.scoredDays} daily picks scored so far lost ${pc(t.regret)} vs the best day (always day 1: ${pc(t.regretDay1)}).` : `<b>Track record:</b> every day's pick is saved${t ? ` (${t.recordedDays} so far, since ${fmt(idx(t.firstRecord))})` : ''} and scored 35 days later against the real shop.`}</p></div>`;

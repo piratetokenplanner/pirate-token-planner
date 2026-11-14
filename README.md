@@ -32,8 +32,7 @@ A GitHub Action (`.github/workflows/update.yml`) runs every 6 hours: it reads th
 | | Loot lost vs the truly best day |
 |---|---|
 | This planner | ~6% |
-| Previous model | ~9–10% |
-| Always activate on day 1 | ~9–10% |
+| Control: always activate on day 1 | ~9% |
 
 - The 10–90% range holds about 8 of 10 real outcomes. "% sure" is scaled down by the back-test (it was too optimistic).
 - Season-launch weeks were not reliably bigger (June 2026 below an average week, August and November above), so the next launch is sized from all of them together. Winterfest and holiday events have no past data yet.
