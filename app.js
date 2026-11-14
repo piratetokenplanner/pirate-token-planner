@@ -33,6 +33,26 @@ const GROUPS = [
   { id: 'rides', icon: '<path d="M4 15l2-5h12l2 5v3H4z"/><circle cx="8" cy="18" r="1.6"/><circle cx="16" cy="18" r="1.6"/>', label: 'Cars & LEGO', ex: 'Rocket Racing and LEGO kits', kinds: ['car', 'lego', 'other'] }
 ];
 const LEVELS = [['Nope', 0], ['Maybe', 3], ['Love', 10]];
+// themes ("genres"): matched against the item name, its set and its series. Love = ×favourite boost, Skip = 0.
+const GENRES = [
+  { id: 'anime', label: 'Anime', words: ['one piece', 'naruto', 'dragon ball', 'jujutsu', 'my hero academia', 'attack on titan', 'demon slayer', 'bleach', 'solo leveling', 'hunter x hunter', 'sailor moon', 'chainsaw man', 'evangelion', 'kaiju no'] },
+  { id: 'marvel', label: 'Marvel', words: ['marvel'] },
+  { id: 'dc', label: 'DC', words: ['dc series', 'batman', 'superman', 'wonder woman', 'harley quinn', 'justice league', 'aquaman', 'catwoman'] },
+  { id: 'starwars', label: 'Star Wars', words: ['star wars', 'mandalorian', 'jedi', 'sith', 'darth'] },
+  { id: 'gaming', label: 'Game crossovers', words: ['gaming legends', 'mega man', 'sonic', 'kingdom hearts', 'halo', 'god of war', 'street fighter', 'metal gear', 'tekken', "assassin's creed", 'tomb raider', 'resident evil', 'doom', 'minecraft', 'final fantasy'] },
+  { id: 'icons', label: 'Music & stars', words: ['icon series'] },
+  { id: 'movies', label: 'TV & movies', words: ['stranger things', 'squid game', 'avatar', 'walking dead', 'godzilla', 'transformers', 'tmnt', 'teenage mutant', 'simpsons', 'family guy', 'south park', 'ghostbusters', 'john wick', 'terminator', 'alien', 'predator', 'matrix', 'beetlejuice', 'jason'] },
+  { id: 'spooky', label: 'Spooky', words: ['dark series', 'shadow series', 'horror', 'scream', 'halloween', 'spooky', 'zombie', 'ghost', 'skull', 'vampire', 'fortnitemares', 'reaper'] },
+  { id: 'sports', label: 'Sports & brands', words: ['nfl', 'nba', 'fifa', 'football', 'soccer', 'wwe', 'ufc', 'golf', 'teed off', 'nike', 'jordan', 'puma', 'vans', 'crocs', 'adidas', 'new balance'] },
+  { id: 'originals', label: 'Fortnite originals', words: null }
+];
+const genreHay = e => [e.name, ...e.items.flatMap(i => [i.name, i.set, i.series])].filter(Boolean).join(' | ').toLowerCase();
+// ids of the themes an offer belongs to; "originals" = no series and no collab theme
+function genresOf(e) {
+  const hay = genreHay(e), hit = GENRES.filter(g => g.words && g.words.some(w => hay.includes(w))).map(g => g.id);
+  if (!hit.length && !e.items.some(i => i.series) && e.kind !== 'jamtrack') hit.push('originals');
+  return hit;
+}
 const levelOf = g => { const v = P.types[g.kinds[0]] ?? 0; return v >= 7 ? 2 : v >= 1 ? 1 : 0; };
 const base = { outfit: 10, bundle: 10, emote: 3, pickaxe: 3, glider: 3, backpack: 3, wrap: 0, sidekick: 3, jamtrack: 0, contrail: 0, loadingscreen: 0, music: 0, kicks: 3, car: 0, lego: 0, instrument: 0, other: 0 };
 const PRESETS = {
@@ -42,7 +62,7 @@ const PRESETS = {
   'Music lover': { ...base, jamtrack: 10, music: 10, instrument: 10, outfit: 3, bundle: 3 },
   'Hoarder': Object.fromEntries(Object.keys(base).map(k => [k, 10]))
 };
-const DEF = { types: { ...base }, kw: '', kwBoost: 2, rare: 3, ev: {}, days: [1, 1, 1, 1, 1, 1, 1], late: true, owned: [], must: [], claimed: [], activated: null, off: [], wish: [] };
+const DEF = { types: { ...base }, kw: '', kwBoost: 2, rare: 3, ev: {}, days: [1, 1, 1, 1, 1, 1, 1], late: true, owned: [], must: [], claimed: [], activated: null, off: [], wish: [], genres: {}, locker: [] };
 let P = structuredClone(DEF), sel = null;
 try { Object.assign(P, JSON.parse(localStorage.getItem('ptp3') || '{}')); } catch (e) {}
 if (location.hash.startsWith('#s=')) { try { Object.assign(P, JSON.parse(decodeURIComponent(atob(location.hash.slice(3))))); } catch (e) {} }
@@ -93,17 +113,22 @@ function model() {
   // value of each item in today's shop
   // items also sold on their own: a bundle only counts for the part you can't get separately
   const solo = new Set(D.shop.entries.filter(e => e.kind !== 'bundle').flatMap(e => e.items.map(i => i.id)));
+  const lockerSet = new Set((P.locker || []).map(x => x.i));
   const items = D.shop.entries.map(e => {
     // outDate is the last day an offer is in the shop (…T23:59:59Z), so it is gone from the next day on
     const out = e.outDate ? idx(e.outDate) + 1 : (e.inDate ? idx(e.inDate) : 0) + (D.base.stay);
     const hay = [e.name, ...e.items.flatMap(i => [i.name, i.set, i.series])].filter(Boolean).join(' ');
     const fav = kwHit(hay);
     const rare = e.gap === 'unseen' || (typeof e.gap === 'number' && e.gap >= 180);
-    const own = P.owned.includes(e.id), must = (P.must || []).includes(e.id);
-    const share = e.kind === 'bundle' && e.items.length ? e.items.filter(i => !solo.has(i.id)).length / e.items.length : 1;
+    // owned: ticked in the shop, or every item of it is in "My locker" (a bundle with some owned items counts the rest)
+    const lockN = e.items.filter(i => lockerSet.has(String(i.id).toLowerCase())).length;
+    const own = P.owned.includes(e.id) || (e.items.length > 0 && lockN === e.items.length), must = (P.must || []).includes(e.id);
+    const share = (e.kind === 'bundle' && e.items.length ? e.items.filter(i => !solo.has(i.id)).length / e.items.length : 1) * (e.items.length ? 1 - lockN / e.items.length : 1);
+    const gs = genresOf(e), gLove = gs.some(g => P.genres[g] === 'love'), gSkip = !gLove && gs.some(g => P.genres[g] === 'skip');
+    const boost = fav || gLove;
     // a must-have is worth 3x its full price, whatever the sliders say
-    const value = own ? 0 : must ? e.price * 3 : e.price * w(e.kind) * (fav ? P.kwBoost : 1) * (rare ? rareMul : 1) * share;
-    return { e, out, fav, rare, own, must, value, share };
+    const value = own ? 0 : must ? e.price * 3 : gSkip ? 0 : e.price * w(e.kind) * (boost ? P.kwBoost : 1) * (rare ? rareMul : 1) * share;
+    return { e, out, fav, rare, own, must, value, share, gs, gLove, gSkip };
   }).filter(x => x.out > 0);
 
   // a normal future day: average new arrivals by type, weighted by your taste
@@ -261,21 +286,21 @@ function offCal(M) {
   const n = [...off].filter(x => idx(x) >= 0).length;
   $('offN').textContent = n ? `${n} day${n === 1 ? '' : 's'} away` : '';
 }
-// ---------- "I own these": match pasted names against today's shop ----------
-function lockerImport(text) {
-  const norm = t => t.toLowerCase().replace(/[’']/g, "'").replace(/[^a-z0-9' ]+/g, ' ').replace(/\s+/g, ' ').trim();
-  const names = [...new Set(text.split(/[\n,;]+/).map(norm).filter(t => t.length >= 3))];
-  const got = new Set(P.owned), found = new Set();
-  for (const e of D.shop.entries) {
-    const own = [e.name, ...e.items.map(i => i.name)].filter(Boolean).map(norm);
-    // a bundle counts as owned only if every item in it is on the list
-    const hit = e.kind === 'bundle' && e.items.length > 1 ? e.items.every(i => names.includes(norm(i.name || ''))) : own.some(n => names.includes(n));
-    if (hit) { got.add(e.id); for (const n of own) if (names.includes(n)) found.add(n); }
-  }
-  const added = got.size - P.owned.length;
-  P.owned = [...got];
-  return { added, missing: names.filter(n => !found.has(n)) };
+// ---------- "My locker": search every known cosmetic and mark what you own ----------
+function lockerList() {
+  const L = P.locker || [];
+  $('lockerList').innerHTML = L.length ? L.map(x => `<span class="lchip">${esc(x.n)}<small>${KINDS[x.t] || x.t}</small><button type="button" data-unlock="${esc(x.i)}" aria-label="Remove ${esc(x.n)}">×</button></span>`).join('') + (L.length > 1 ? '<button type="button" class="lclear" id="lockerClear">Clear all</button>' : '') : '<p class="hint">Nothing in your locker yet.</p>';
 }
+async function lockerSearch() {
+  const q = $('lockerQ').value.trim().toLowerCase(), box = $('lockerRes');
+  if (q.length < 2) { box.hidden = true; return; }
+  if (!render.names) { box.hidden = false; box.innerHTML = '<p class="hint">Loading item names…</p>'; render.names = (await load('data/past/names.json')) || {}; for (const e of D.shop.entries) for (const it of e.items) if (it.name && it.type !== 'jamtrack') render.names[String(it.id).toLowerCase()] ||= { n: it.name, t: KIND_OF_TYPE[String(it.type).toLowerCase()] || e.kind }; }
+  const have = new Set((P.locker || []).map(x => x.i));
+  const hits = Object.entries(render.names).filter(([, v]) => v.n.toLowerCase().includes(q)).map(x => [x, (n => n.startsWith(q) ? 2 : new RegExp('\\b' + q.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')).test(n) ? 1 : 0)(x[1].n.toLowerCase())]).sort((a, b) => b[1] - a[1] || a[0][1].n.length - b[0][1].n.length).map(x => x[0]).slice(0, 8);
+  box.hidden = false;
+  box.innerHTML = hits.length ? hits.map(([i, v]) => `<button type="button" role="option" data-lock="${esc(i)}" ${have.has(i) ? 'aria-selected="true" disabled' : ''}><b>${esc(v.n)}</b><small>${KINDS[v.t] || v.t}${have.has(i) ? ' · in your locker' : ''}</small></button>`).join('') : '<p class="hint">No item with that name in the shop history.</p>';
+}
+const KIND_OF_TYPE = { outfit: 'outfit', emote: 'emote', pickaxe: 'pickaxe', glider: 'glider', backpack: 'backpack', wrap: 'wrap', shoe: 'kicks', shoes: 'kicks', kicks: 'kicks', contrail: 'contrail', loadingscreen: 'loadingscreen', music: 'music', sidekick: 'sidekick', pet: 'sidekick', petcarrier: 'sidekick' };
 
 // ---------- explained words: hover (or tap) any dotted word ----------
 const T = (k, txt) => `<span class="term" tabindex="0" role="button" data-gl="${k}">${txt}</span>`;
@@ -296,6 +321,9 @@ const GLOSS = {
   leaves: () => ['Leaves the shop', "The last day an item is in the shop, as far as the data says. Your 14 days must start before then to claim it."],
   event: () => ['Expected event', 'Big shop moments like a season launch or Winterfest. Dates and extra loot are estimates from past years until Epic confirms them.'],
   wish: () => ['Wishlist', 'Items you hearted in "Will it come back?" that are not in the shop now. Each counts 3× a typical price, times the chance it returns while your 14 days are running (from how long items stayed away in the past).', 1],
+  genre: () => ['Themes', 'Themes are matched against each item\'s name, set and series (for example One Piece, MARVEL SERIES, Icon Series). Love counts matching items with your favourite boost, Skip counts them 0. They only change items we can see: today\'s shop. Later days stay an average shop day.'],
+  known: () => ['Known', "Items that are in today's shop right now, with their published leave dates. This part of each bar is not a guess."],
+  estimate: () => ['Estimate', "Everything after today's shop: new items on later days (an average past shop day), events and wishlist returns. Nobody knows these yet, so this part of each bar is an estimate from past shops."],
   gone: () => ['Gone before your days', 'This item leaves the shop before the start day you picked, so you could not claim it. Pick an earlier day or heart it.'],
 };
 function glossUI() {
@@ -358,7 +386,7 @@ function shopView(M, cur) {
     const last = x.out - 1, hit = hitIds.has(x.e.id), want = x.value > 0;
     const until = last <= 0 ? 'Last day today' : last === 1 ? 'Until tomorrow' : 'Until ' + fmt(last);
     const note = x.own ? '' : x.must ? '<span class="scnt must">♥ counts 3×</span>'
-      : !want ? '<span class="scnt nope">Nope for you</span>'
+      : !want ? `<span class="scnt nope">${x.gSkip ? 'Theme you skip' : 'Nope for you'}</span>`
       : !hit ? `<span class="scnt gone">${T('gone', 'Gone before your days')}</span>`
       : Math.round(x.value) !== x.e.price ? `<span class="scnt">${T('worth', 'counts ' + n0(x.value))}</span>` : '';
     return `<article class="stile${x.must ? ' must' : ''}${x.own ? ' own' : ''}${!x.own && (!want || !hit) ? ' dim' : ''}" data-r="${esc(rarityOf(x.e))}">
@@ -424,7 +452,7 @@ function render(recompute = true) {
   const cur = all.find(a => a.s === sel);
   const pct = x => Math.round(x / rank[0].tot * 100);
 
-  $('bars').innerHTML = all.map(a => `<button class="col" data-s="${a.s}" aria-label="${fmtL(a.s)}: about ${n0(a.tot)} V-Bucks, likely ${n0(a.p10)} to ${n0(a.p90)}, near-best in ${Math.round(a.pNear * 100)}% of simulated futures"><span class="bar${a.s === best ? ' best' : ''}${a.s === sel ? ' sel' : ''}${a.s + dur > deadIdx ? ' late' : ''}" style="height:${Math.max(3, a.tot / max * 100)}%"></span><span class="wh" style="bottom:${a.p10 / max * 100}%;height:${Math.max(1, (a.p90 - a.p10) / max * 100)}%"></span>${a.s === best ? `<span class="x" style="bottom:calc(${Math.max(a.tot, a.p90) / max * 100}% + 2px)">X</span>` : ''}</button>`).join('');
+  $('bars').innerHTML = all.map(a => `<button class="col" data-s="${a.s}" aria-label="${fmtL(a.s)}: about ${n0(a.tot)} V-Bucks, likely ${n0(a.p10)} to ${n0(a.p90)}, near-best in ${Math.round(a.pNear * 100)}% of simulated futures"><span class="bar${a.s === best ? ' best' : ''}${a.s === sel ? ' sel' : ''}${a.s + dur > deadIdx ? ' late' : ''}" style="height:${Math.max(3, a.tot / max * 100)}%"></span><span class="kn${a.s === best ? ' best' : ''}${a.s + dur > deadIdx ? ' late' : ''}" style="height:${Math.min(a.tot, a.shop) / max * 100}%"></span><span class="wh" style="bottom:${a.p10 / max * 100}%;height:${Math.max(1, (a.p90 - a.p10) / max * 100)}%"></span>${a.s === best ? `<span class="x" style="bottom:calc(${Math.max(a.tot, a.p90) / max * 100}% + 2px)">X</span>` : ''}</button>`).join('');
   // both charts share one time axis (today .. last day of the latest window), so a start day sits at the same x in both
   const XH = M.startMax + dur + 1, xp = i => Math.max(0, Math.min(100, i / XH * 100));
   const bb = $('bars'); bb.style.marginLeft = xp(M.startMin) + '%'; bb.style.width = xp(M.startMax + 1 - M.startMin) + '%';
@@ -465,8 +493,8 @@ function render(recompute = true) {
   $('vTitle').textContent = `Your 14 days: ${fmt(sel)} – ${fmt(sel + dur - 1)}`;
   $('vScore').textContent = `~${n0(cur.tot)} V-Bucks`;
   $('selInfo').textContent = sel === best ? `Showing the best day, ${fmtL(sel)}` : `Showing ${fmtL(sel)} · ${pct(cur.tot)}% of the best day`;
-  render.tipFor = s => { const a = all.find(x => x.s === s); return `<b>${fmtL(s)}</b><br>~${n0(a.tot)} V-Bucks<br>likely ${n0(a.p10)}–${n0(a.p90)}<br>${a.s === best ? 'best day' : pct(a.tot) + '% of best'}`; };
-  $('track').innerHTML = `<div class="win" style="left:${tp(sel)}%;width:${tp(dur)}%"></div><div class="dl" style="left:${tp(deadIdx)}%"><b>Deadline</b></div><div class="today" style="left:0"><b>Today</b></div>` +
+  render.tipFor = s => { const a = all.find(x => x.s === s); return `<b>${fmtL(s)}</b><br>~${n0(a.tot)} V-Bucks<br><span class="tk">known ${n0(a.shop)}</span> · <span class="te">estimate ${n0(a.tot - a.shop)}</span><br>likely ${n0(a.p10)}–${n0(a.p90)}<br>${a.s === best ? 'best day' : pct(a.tot) + '% of best'}`; };
+  $('track').innerHTML = `<div class="estzone" style="left:${tp(1)}%"><b>${T('estimate', 'Estimate from here')} →</b></div><div class="knownzone" style="width:${tp(1)}%"></div><div class="win" style="left:${tp(sel)}%;width:${tp(dur)}%"></div><div class="dl" style="left:${tp(deadIdx)}%"><b>Deadline</b></div><div class="today" style="left:0"><b>Today</b></div>` +
     `<div class="row">${groups.map(({ d, xs }) => `<span class="tick ${d > sel ? '' : 'out'}" style="left:${tp(d)}%" title="${xs.length} item${xs.length > 1 ? 's' : ''} you want leave from ${fmt(d)}: ${esc(xs.slice(0, 5).map(x => x.e.name).join(', '))}${xs.length > 5 ? '…' : ''}">${xs.length}</span>`).join('')}</div>` +
     shownEv.map(e => { const a = idx(e.from), b = idx(e.to), r = cur.evRows.find(r => r.x.e.id === e.id); return `<div class="row"><div class="ev ${r && r.v > 0 ? 'in' : 'out'}" style="left:${tp(a)}%;width:max(${Math.min(tp(b - a + 1), 100 - tp(a))}%,28px);background:${e.extraVbucks ? '#7fe3c6' : '#cfe3ff'}" title="${esc(e.name)}">${esc(e.name)}</div></div>`; }).join('');
   $('evlist').innerHTML = shownEv.map(e => { const r = cur.evRows.find(r => r.x.e.id === e.id); return `<li class="${r && r.v > 0 ? 'in' : ''}"><b>${esc(e.name)}</b> ${fmt(idx(e.from))}–${fmt(idx(e.to))}${r && r.v > 0 ? ' · in your days' : ''}</li>`; }).join('');
@@ -480,8 +508,8 @@ function render(recompute = true) {
   const rows = [];
   const zero = cur.rows.filter(r => !r.hit && r.x.value === 0);
   for (const r of [...cur.rows].filter(r => !zero.includes(r)).sort((a, b) => b.hit - a.hit || b.x.value - a.x.value)) {
-    const x = r.x, parts = [`${n0(x.e.price)}`, `${P.types[x.e.kind] ?? 2}/10`]; if (x.fav) parts.push(P.kwBoost); if (x.rare) parts.push(M.rareMul.toFixed(1)); if (x.share < 1) parts.push(x.share.toFixed(2));
-    rows.push(`<tr class="${r.hit ? '' : 'miss'}"><td data-l="What">${esc(x.e.name)} <span class="fine">${KINDS[x.e.kind] || x.e.kind}</span></td><td data-l="Inputs">${n0(x.e.price)} V-Bucks · weight ${P.types[x.e.kind] ?? 2}${x.fav ? ` · favourite "${esc(x.fav)}" ×${P.kwBoost}` : ''}${x.rare ? ` · rare return ×${M.rareMul.toFixed(1)}` : ''}${x.share < 1 ? ` · ${Math.round(x.share * 100)}% of items not sold separately` : ''} · in shop until ${fmt(x.out - 1)}</td><td data-l="Calculation">${r.hit ? `<code>${parts.join(' × ')}</code>` : esc(r.why)}</td><td class="num" data-l="V-Bucks">${r.hit ? n0(r.v) : '0'}</td></tr>`);
+    const x = r.x, parts = [`${n0(x.e.price)}`, `${P.types[x.e.kind] ?? 2}/10`]; if (x.fav || x.gLove) parts.push(P.kwBoost); if (x.rare) parts.push(M.rareMul.toFixed(1)); if (x.share < 1) parts.push(x.share.toFixed(2));
+    rows.push(`<tr class="${r.hit ? '' : 'miss'}"><td data-l="What">${esc(x.e.name)} <span class="fine">${KINDS[x.e.kind] || x.e.kind}</span></td><td data-l="Inputs">${n0(x.e.price)} V-Bucks · weight ${P.types[x.e.kind] ?? 2}${x.fav ? ` · favourite "${esc(x.fav)}" ×${P.kwBoost}` : x.gLove ? ` · theme you love ×${P.kwBoost}` : ''}${x.gSkip ? ' · theme you skip ×0' : ''}${x.rare ? ` · rare return ×${M.rareMul.toFixed(1)}` : ''}${x.share < 1 ? ` · ${Math.round(x.share * 100)}% of items not sold separately` : ''} · in shop until ${fmt(x.out - 1)}</td><td data-l="Calculation">${r.hit ? `<code>${parts.join(' × ')}</code>` : esc(r.why)}</td><td class="num" data-l="V-Bucks">${r.hit ? n0(r.v) : '0'}</td></tr>`);
   }
   if (zero.length) rows.push(`<tr class="miss"><td data-l="What">${zero.length} items worth 0 to you</td><td data-l="Inputs">${esc(zero.slice(0, 6).map(r => r.x.e.name).join(', '))}${zero.length > 6 ? '…' : ''}</td><td data-l="Calculation">Type weight 0 or marked as owned</td><td class="num" data-l="V-Bucks">0</td></tr>`);
   rows.push(`<tr><td data-l="What">New items on later days</td><td data-l="Inputs">${cur.freshW.length} later shop days · average day for your taste × chance its items are still there on your first play day${M.season(sel + 7).n ? ' × season factor from a year ago' : ''}</td><td data-l="Calculation"><code>${n0(M.Bday[0])} × (${cur.freshW.map(([, v]) => v.toFixed(2)).slice(0, 6).join(' + ')}${cur.freshW.length > 6 ? ' + …' : ''})</code></td><td class="num" data-l="V-Bucks">${n0(cur.fresh)}</td></tr>`);
@@ -523,7 +551,7 @@ function formula(M) {
   const kindRows = Object.entries(b.mean).filter(([, v]) => v > 0).map(([k, v]) => `<code>${KINDS[k] || k}: ${n0(v)} × ${P.types[k] ?? 2}/10</code>`).join(' ');
   const wdN = ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'];
   $('formula').innerHTML = `
-  <div class="card"><h3>1. Item value</h3><p><code>price × weight/10 × favourite ×${P.kwBoost} × rare ×${M.rareMul.toFixed(1)}</code></p><p>Favourite = a word from your list is in the name, set or artist. Rare = not in the shop for 6+ months (checked against the archive since ${fmt(idx(D.shop.historyFrom || '2026-05-02'))}). Owned items count 0.</p></div>
+  <div class="card"><h3>1. Item value</h3><p><code>price × weight/10 × favourite ×${P.kwBoost} × rare ×${M.rareMul.toFixed(1)}</code></p><p>Favourite = a word from your list, or a theme you love, is in the name, set or series (themes you skip count 0). Rare = not in the shop for 6+ months (checked against the archive since ${fmt(idx(D.shop.historyFrom || '2026-05-02'))}). Owned items count 0.</p></div>
   <div class="card"><h3>2. Today's shop</h3><p>An item counts if you play at least once inside your 14 days and before it leaves. Only the best new Sidekick counts.</p></div>
   <div class="card"><h3>3. Later days</h3><p>Each later day adds the average new loot of a past shop day, for your taste: <code>${n0(M.Bday[0])} V-Bucks</code>. It counts with the chance its items are still in the shop on your first play day: ${M.surv.slice(0, 8).map((v, j) => `<code>${j} d: ${Math.round(v * 100)}%</code>`).join(' ')}</p><p>This includes days <i>before</i> your start: items that arrive then and are still there when you activate. ${b.fallback ? 'No archive yet: a fallback guess from config/rules.json.' : `${b.n} past days (${fmt(idx(b.windowFrom))} to ${fmt(idx(b.windowTo))}).`} Weekday averages are shown under Past shops but not used: in back-tests they picked worse days than one average day.</p></div>
   <div class="card"><h3>4. Events</h3><p><code>value for your taste × confidence × interest/5 × share of event days inside</code></p><p>Chapter 8 is sized from the last season launch week in the archive. Other events are author estimates. Confidence: ${Object.entries(D.rules.confidence).map(([k, v]) => `${k} ${v}`).join(', ')}.</p></div>
@@ -576,7 +604,9 @@ function limits(M) {
   const L = [
     ['The future shop is unknown', `Epic doesn't publish it. Later days are averages of ${b.fallback ? 'a rough guess' : `${b.n} past days`}, not real items. A surprise drop can change the best day.`],
     ['Past is not future', 'The archive covers only about six months. In back-tests on those months, the pick lost about 6% of loot on average compared with the day that turned out best (always activating on day 1 lost about 9%). Around season launches it was harder: about 12%.'],
-    ['Events are the weakest part', 'Season-launch weeks ranged from well below to well above a normal week, so they are sized from all past launches together. Winterfest and holiday events have no past data yet (the archive starts in May 2026): their values are author estimates.'],
+    ['Events are the weakest part', 'Season-launch weeks ranged from well below to well above a normal week, so they are sized from all past launches together. ' + (D.events.some(e => e.id === 'winterfest' && e.fromHistory)
+      ? 'Winterfest is sized from Winterfest 2025 in the long cosmetics history (shop dates from fortnite-api.com at typical prices, no bundles): rougher than the daily archive.'
+      : 'Winterfest has no past data yet: its value is an author estimate until the long cosmetics history loads.')],
     ['Some event values are guesses', est.length ? `${est.map(e => `${esc(e.name)} ${n0(e.extraVbucks)} V-Bucks`).join(', ')}: author assumptions with no past data behind them.` : 'All event values come from past shops.'],
     ['Event dates may move', 'Pattern events are dated from past years. The simulation shifts them a few days; real events can move further or not happen.'],
     ['Token rules come from news reports', 'The 14 days, the deadline and the exclusions come from gaming sites, not Epic. Check your own token in-game.'],
@@ -601,7 +631,12 @@ function sources() {
   $('fetches').tBodies[0].innerHTML = (m.fetches || []).map(f => `<tr><td data-l="URL">${esc(f.url)}</td><td data-l="Result" class="${f.ok ? 'okc' : 'bad'}">${f.ok ? f.status : esc(f.error || f.status)}</td><td data-l="Fingerprint"><code>${esc(f.sha256 || '–')}</code></td><td class="num" data-l="Time">${f.ms ?? '–'} ms</td></tr>`).join('');
 }
 
+function genreChips() {
+  const count = {}; if (D.shop) for (const e of D.shop.entries) for (const g of genresOf(e)) count[g] = (count[g] || 0) + 1;
+  $('genres').innerHTML = GENRES.map(g => { const st = P.genres[g.id] || ''; return `<button type="button" class="gchip${st ? ' ' + st : ''}" data-genre="${g.id}" aria-label="${g.label}: ${st === 'love' ? 'Love' : st === 'skip' ? 'Skip' : 'no preference'}. ${count[g.id] || 0} in today's shop. Tap to change.">${st === 'love' ? '<i>♥</i>' : st === 'skip' ? '<i>✕</i>' : ''}${g.label}<small>${count[g.id] || 0}</small></button>`; }).join('');
+}
 function loves() {
+  if (D.shop) genreChips();
   $('loves').innerHTML = GROUPS.map(g => { const l = levelOf(g); return `<button type="button" class="love s${l}" data-g="${g.id}" aria-label="${g.label}: ${LEVELS[l][0]}. Tap to change."><span class="lvrow"><span class="lv">${LEVELS[l][0]}</span><svg class="gi" viewBox="0 0 24 24" aria-hidden="true">${g.icon}</svg></span><span>${g.label}</span></button>`; }).join('');
 }
 // a little burst of gold coins from the X when the best day changes
@@ -668,12 +703,15 @@ function bind() {
   $('days').addEventListener('change', e => { P.days[+e.target.dataset.d] = e.target.checked ? 1 : 0; save(); render(); });
   $('offTog').addEventListener('click', () => { const c = $('offCal'), open = c.hidden; c.hidden = !open; $('offTog').setAttribute('aria-expanded', open); if (open) offCal(render.M); });
   $('offGrid').addEventListener('click', e => { const b = e.target.closest('[data-off]'); if (!b) return; const d = b.dataset.off; P.off = (P.off || []).includes(d) ? P.off.filter(x => x !== d) : [...(P.off || []), d].filter(x => idx(x) >= -1); save(); render(); });
-  $('lockerGo').addEventListener('click', () => {
-    const { added, missing } = lockerImport($('lockerIn').value);
-    save(); render();
-    $('lockerMsg').textContent = `${added} item${added === 1 ? '' : 's'} in today's shop marked as owned.` + (missing.length ? ` Not in today's shop: ${missing.slice(0, 6).join(', ')}${missing.length > 6 ? '…' : ''}.` : '');
+  let lockT; $('lockerQ').addEventListener('input', () => { clearTimeout(lockT); lockT = setTimeout(lockerSearch, 120); });
+  $('lockerQ').addEventListener('keydown', e => { if (e.key === 'Escape') $('lockerRes').hidden = true; });
+  $('lockerRes').addEventListener('click', e => { const b = e.target.closest('[data-lock]'); if (!b) return; const v = render.names[b.dataset.lock]; P.locker = [...(P.locker || []), { i: b.dataset.lock, n: v.n, t: v.t }]; save(); render(); lockerList(); lockerSearch(); $('lockerQ').focus(); });
+  $('lockerList').addEventListener('click', e => {
+    if (e.target.id === 'lockerClear') { P.locker = []; save(); render(); lockerList(); return; }
+    const b = e.target.closest('[data-unlock]'); if (!b) return; P.locker = (P.locker || []).filter(x => x.i !== b.dataset.unlock); save(); render(); lockerList();
   });
-  $('lockerClear').addEventListener('click', () => { const n = P.owned.length; P.owned = []; save(); render(); $('lockerMsg').textContent = `${n} owned mark${n === 1 ? '' : 's'} removed.`; });
+  document.addEventListener('click', e => { if (!e.target.closest('.lsearch')) $('lockerRes').hidden = true; });
+  $('genres').addEventListener('click', e => { const b = e.target.closest('[data-genre]'); if (!b) return; const id = b.dataset.genre, st = P.genres[id]; P.genres = { ...P.genres }; if (!st) P.genres[id] = 'love'; else if (st === 'love') P.genres[id] = 'skip'; else delete P.genres[id]; save(); genreChips(); render(); const nb = document.querySelector(`[data-genre="${id}"]`); if (nb) nb.focus(); });
   $('late').addEventListener('change', e => { P.late = e.target.checked; save(); render(); });
 
   const pick = e => { const b = e.target.closest('[data-s]'); if (!b) return; sel = +b.dataset.s; render(false); };
@@ -1098,7 +1136,7 @@ async function init() {
   if ('serviceWorker' in navigator && location.protocol === 'https:') navigator.serviceWorker.register('sw.js').catch(() => {});
   addEventListener('beforeinstallprompt', e => { e.preventDefault(); const b = $('installBtn'); b.hidden = false; b.onclick = async () => { b.hidden = true; e.prompt(); }; });
   [D.backtest, D.track] = await Promise.all([load('data/backtest.json'), load('data/track.json')]);
-  sharedBanner(); controls(); bind(); glossUI(); howUI(); render(); sources(); cardUI(); compareUI(); crew();
+  sharedBanner(); controls(); bind(); glossUI(); howUI(); render(); lockerList(); sources(); cardUI(); compareUI(); crew();
   { const n = (P.off || []).filter(x => idx(x) >= 0).length; $('offN').textContent = n ? `${n} day${n === 1 ? '' : 's'} away` : ''; }
   // wishlist items need the return history: load it after the first paint, then re-plan
   if ((P.wish || []).length) load('data/past/returns.json').then(r => { if (r) { render.back = r; render(); } });

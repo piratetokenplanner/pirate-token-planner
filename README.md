@@ -38,7 +38,8 @@ A GitHub Action (`.github/workflows/update.yml`) runs every 6 hours: it reads th
 - The 10–90% range holds about 8 of 10 real outcomes. "% sure" is scaled down by the back-test (it was too optimistic).
 - Season-launch weeks were not reliably bigger (June 2026 below an average week, August and November above), so the next launch is sized from all of them together. Winterfest and holiday events have no past data yet.
 - Track record: every day the Action saves the pick for three tastes (`data/track.json`) and scores it 35 days later against the real shop.
-- Older shops: a free [itemshop.gg](https://itemshop.gg) API key in the repository secret `ITEMSHOP_KEY` adds about a year of older shops (last Winterfest and more season launches), so events can be measured instead of estimated.
+- Older shops: every day the update also reads the full cosmetics list from fortnite-api.com (no key). Each cosmetic lists the days it was in the shop, which gives about two years of new arrivals per day (`data/past/history.json`, valued at typical prices for their type and rarity, without bundles). Events outside the daily archive, like Winterfest 2025 and earlier season launches, are measured from it: how much more arrived than in the weeks around them. Checked against the archive, this gave −66k vs −58k V-Bucks for the June 2026 launch week.
+- Optional: an [itemshop.gg](https://itemshop.gg) API key in the repository secret `ITEMSHOP_KEY` adds older shops with real prices and bundles.
 
 ## Files
 | Path | What |

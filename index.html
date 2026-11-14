@@ -334,6 +334,10 @@
       <h2>What do you want?</h2>
       <p class="hint">Tap to switch between <span class="term" tabindex="0" role="button" data-gl="love">Love, Maybe and Nope</span>.</p>
       <div class="loves" id="loves"></div>
+      <div class="genres">
+        <p class="hint"><b>Any themes?</b> Tap once for <span class="term" tabindex="0" role="button" data-gl="genre">Love (counts 2×)</span>, twice for Skip.</p>
+        <div class="gchips" id="genres"></div>
+      </div>
     </div>
   </div>
   <div class="step pnl">
@@ -367,11 +371,13 @@
         </div>
       </div>
       <div class="subcard">
-        <h3>Already own some of it?</h3>
-        <p class="hint">Paste item names from your locker, one per line or separated by commas. Matching items in today's shop count 0.</p>
-        <textarea id="lockerIn" rows="4" placeholder="Monkey D. Luffy&#10;Renegade Raider, Take the L" aria-label="Item names you own"></textarea>
-        <div class="acts"><button class="btn gold" id="lockerGo" type="button">Mark as owned</button><button class="btn ghost" id="lockerClear" type="button">Clear owned</button></div>
-        <p class="msg" id="lockerMsg"></p>
+        <h3>My locker</h3>
+        <p class="hint">Search for things you already own. They count 0, and bundles count only the part you don't have.</p>
+        <div class="lsearch">
+          <label class="srch"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="6.5"/><path d="M16 16l4.5 4.5"/></svg><input id="lockerQ" type="search" placeholder="Search any skin, emote, pickaxe…" autocomplete="off" aria-label="Search items you own" aria-controls="lockerRes"></label>
+          <div class="lres" id="lockerRes" role="listbox" hidden></div>
+        </div>
+        <div class="lchips" id="lockerList"></div>
       </div>
       <div class="subcard">
         <h3>Per item type (0–10)</h3>
@@ -427,7 +433,7 @@
     <div class="barsbox"><div class="bars" id="bars" role="group" aria-label="Expected loot for each activation day"></div><div class="dl barsdl" id="barsDl"><b>Deadline</b></div></div>
     <div class="ticks axis" id="ticks"></div>
     <div class="tip" id="tip" hidden></div>
-    <div class="lg"><span><i class="sw sw-best"></i><span class="term" tabindex="0" role="button" data-gl="top">Best day</span></span><span><i class="sw sw-day"></i>Other days</span><span><i class="sw sw-late"></i>Runs past the <span class="term" tabindex="0" role="button" data-gl="deadline">deadline</span></span><span><i class="sw sw-range"></i><span class="term" tabindex="0" role="button" data-gl="range">Likely range</span></span><span class="lgh">Tap a bar to pick it</span></div>
+    <div class="lg"><span><i class="sw sw-known"></i><span class="term" tabindex="0" role="button" data-gl="known">Solid: known (today's shop)</span></span><span><i class="sw sw-est"></i><span class="term" tabindex="0" role="button" data-gl="estimate">Striped: estimate</span></span><span><i class="sw sw-best"></i><span class="term" tabindex="0" role="button" data-gl="top">Best day</span></span><span><i class="sw sw-day"></i>Other days</span><span><i class="sw sw-late"></i>Runs past the <span class="term" tabindex="0" role="button" data-gl="deadline">deadline</span></span><span><i class="sw sw-range"></i><span class="term" tabindex="0" role="button" data-gl="range">Likely range</span></span><span class="lgh">Tap a bar to pick it</span></div>
   </div>
   <div class="panel pnl">
     <div class="ph"><b id="vTitle">Your 14 days</b><span id="vScore"></span></div>
