@@ -354,7 +354,7 @@ function pastShops(M) {
   </svg>`;
   $('yearKey').innerHTML = series.map((s, k) => `<span><i class="sw" style="background:${cols[k]};height:4px"></i>${s.y}</span>`).join('') + '<span><i class="sw sw-launch"></i>Winterfest weeks</span>';
   const srcs = (D.pastSources || []).map(x => `<a href="${esc(x.url)}">${esc(x.name)}</a>`).join(' and ');
-  $('pastAttr').innerHTML = srcs ? `past shops from ${srcs}${(D.pastSources || []).some(x => x.name === 'itemshop.gg') ? ' (Data from itemshop.gg)' : ''}` : '';
+  $('pastAttr').innerHTML = srcs ? `, past shops from ${srcs}${(D.pastSources || []).some(x => x.name === 'itemshop.gg') ? ' (Data from itemshop.gg)' : ''}` : '';
   $('pastSrc').innerHTML = `${b.n} days, ${fmt(idx(b.windowFrom), { day: 'numeric', month: 'short', year: 'numeric' })} to ${fmt(idx(b.windowTo))}${srcs ? `, from ${srcs}` : ''}.${(D.pastSources || []).some(x => x.name === 'itemshop.gg') ? ' Data from <a href="https://itemshop.gg">itemshop.gg</a>.' : ''}`;
 }
 
@@ -845,7 +845,7 @@ async function init() {
   if ('serviceWorker' in navigator && location.protocol === 'https:') navigator.serviceWorker.register('sw.js').catch(() => {});
   addEventListener('beforeinstallprompt', e => { e.preventDefault(); const b = $('installBtn'); b.hidden = false; b.onclick = async () => { b.hidden = true; e.prompt(); }; });
   sharedBanner(); controls(); bind(); render(); sources(); cardUI(); compareUI(); crew();
-  $('pastAttr').innerHTML = (D.pastSources || []).length ? 'past shops: ' + D.pastSources.map(x => `<a href="${esc(x.url)}">${esc(x.name)}</a>`).join(', ') : '';
+  $('pastAttr').innerHTML = (D.pastSources || []).length ? ', past shops: ' + D.pastSources.map(x => `<a href="${esc(x.url)}">${esc(x.name)}</a>`).join(', ') : '';
   // scroll drives the scene: the title floats away, the surface scrolls off and we dive towards the seabed.
   // The values are set only on the scene and the title (not the whole page), so the browser restyles just those.
   // ---- the scene follows the scroll ----

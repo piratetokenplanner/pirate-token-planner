@@ -4076,3 +4076,7 @@ main a,.foot a,.tbl td{overflow-wrap:anywhere}
 .seabed{height:300px}
 .foot .wrap{margin-bottom:220px}
 @media(max-width:760px){.seabed{height:200px}.foot .wrap{margin-bottom:170px}.jelly{bottom:170px}}
+/* seabed v3: crab shuffles between bed and chest */
+.crab{animation:crab3 7s ease-in-out infinite alternate}
+@keyframes crab3{to{transform:translateX(-38px)}}
+@media(prefers-reduced-motion:reduce){.crab{animation:none}}
