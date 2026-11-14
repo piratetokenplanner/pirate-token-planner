@@ -1,6 +1,13 @@
 {
- "method": "past shops 2026-05-02 to 2026-11-13, from the Fortnite-Datamining archive",
+ "method": "past shops 2026-05-02 to 2026-11-13",
  "source": "https://github.com/Fortnite-Datamining/Fortnite-Datamining/tree/history/shop",
+ "sources": [
+  {
+   "name": "Fortnite-Datamining archive",
+   "url": "https://github.com/Fortnite-Datamining/Fortnite-Datamining/tree/history/shop",
+   "from": "2026-05-02"
+  }
+ ],
  "windowFrom": "2026-05-03",
  "windowTo": "2026-11-13",
  "days": [
