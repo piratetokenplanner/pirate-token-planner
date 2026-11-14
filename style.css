@@ -4009,3 +4009,28 @@ main a,.foot a,.tbl td{overflow-wrap:anywhere}
 .octo.awake .tent{animation-duration:.5s}
 @media(prefers-reduced-motion:reduce){.octo .tent,.octo .ozz>*,.octo .ozt>*{animation:none}.octo .ozz>*,.octo .ozt>*{opacity:1}}
 .foot{pointer-events:none}.foot .wrap{pointer-events:auto}
+
+/* octopus v2: asleep on a shell pillow with a sleep mask and a snore bubble */
+.octo .snore{transform-box:fill-box;transform-origin:center;animation:snore 3s ease-in-out infinite}
+@keyframes snore{0%,100%{transform:scale(.4)}60%{transform:scale(1.6)}}
+.octo .osay{transition:opacity .2s}
+.octo.awake .snore{opacity:0}
+.octo.awake rect[fill="#ff7ab5"]{transform:translateY(-10px);transition:transform .2s}
+@media(prefers-reduced-motion:reduce){.octo .snore{animation:none}}
+/* footer card */
+.footcard{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:18px 28px;align-items:center;padding:26px 28px!important;border-radius:20px!important;background:linear-gradient(180deg,rgba(14,34,90,.92),rgba(6,16,46,.94))!important;box-shadow:0 14px 40px rgba(0,0,0,.3);border-top:3px solid #ffffff30}
+.fbrand{display:flex;align-items:center;gap:14px}
+.fbrand b{display:block;font-family:var(--fnt);font-style:italic;font-weight:400;font-size:24px;text-transform:uppercase;color:#fff;letter-spacing:.4px}
+.fbrand span{font-size:14px;color:#c3d5f7}
+.flinks{grid-column:1/-1;display:flex;flex-wrap:wrap;gap:8px}
+.flinks a{color:#fff;text-decoration:none;font-weight:800;font-size:14px;padding:8px 14px;border-radius:6px;background:#ffffff1a;transform:skewX(-8deg)}
+.flinks a:hover,.flinks a:focus-visible{background:#ffffff33;outline:none}
+.surfaceup{grid-column:2;grid-row:1;justify-self:end}
+.flegal{grid-column:1/-1;border-top:1px solid #ffffff22;padding-top:14px}
+.flegal p{font-size:12.5px;color:#b9c8ea;margin:0 0 8px;max-width:none}
+.flegal b{color:#fff}.flegal a{color:#ffe08a}
+.foot .sig{grid-column:1/-1;margin:0;text-align:center}
+.island{display:none}
+@media(max-width:600px){.footcard{grid-template-columns:minmax(0,1fr);padding:20px!important}.surfaceup{grid-column:1;grid-row:auto;justify-self:start}.fbrand b{font-size:20px}}
+.foot .sig{max-width:none;justify-self:center}
+.foot{padding-top:0}

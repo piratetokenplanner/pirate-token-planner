@@ -430,6 +430,8 @@ function bind() {
   const pir = document.getElementById('pirate');
   const wake = () => { pir.classList.add('awake'); clearTimeout(wake.t); wake.t = setTimeout(() => pir.classList.remove('awake'), 1800); };
   pir.addEventListener('click', wake);
+  $('toTop').addEventListener('click', () => scrollTo({ top: 0, behavior: matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth' }));
+  document.querySelectorAll('.flinks [data-open]').forEach(l => l.addEventListener('click', () => { const d = $(l.dataset.open); if (d) d.open = true; }));
   const octo = document.getElementById('octo');
   if (octo) { const nudge = () => { octo.classList.add('awake'); clearTimeout(nudge.t); nudge.t = setTimeout(() => octo.classList.remove('awake'), 2200); }; octo.addEventListener('click', nudge); } pir.addEventListener('keydown', e => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); wake(); } });
   const tip = $('tip'), chart = tip.parentElement;
@@ -843,6 +845,7 @@ async function init() {
   if ('serviceWorker' in navigator && location.protocol === 'https:') navigator.serviceWorker.register('sw.js').catch(() => {});
   addEventListener('beforeinstallprompt', e => { e.preventDefault(); const b = $('installBtn'); b.hidden = false; b.onclick = async () => { b.hidden = true; e.prompt(); }; });
   sharedBanner(); controls(); bind(); render(); sources(); cardUI(); compareUI(); crew();
+  $('pastAttr').innerHTML = (D.pastSources || []).length ? 'past shops: ' + D.pastSources.map(x => `<a href="${esc(x.url)}">${esc(x.name)}</a>`).join(', ') : '';
   // scroll drives the scene: the title floats away, the surface scrolls off and we dive towards the seabed.
   // The values are set only on the scene and the title (not the whole page), so the browser restyles just those.
   const root = document.documentElement, sceneEl = document.querySelector('.scene'), heroEl = document.querySelector('.hero');
