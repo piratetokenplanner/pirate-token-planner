@@ -853,7 +853,7 @@ async function init() {
   // every scene element would inherit and restyle), and nothing is updated when the value did not change.
   const root = document.documentElement, sceneEl = document.querySelector('.scene'), heroEl = document.querySelector('.hero');
   const q1 = sel => sceneEl.querySelector(sel);
-  const surfEl = q1('.surface'), deepEl = q1('.water .deep'), abyssEl = q1('.water .abyss'), raysEl = q1('.rays'), bubEl = q1('.bubbles'), bedEl = q1('.seabed'), shipEl = q1('.surface .ship'), textEl = heroEl.querySelector('.herotext');
+  const surfEl = q1('.surface'), deepEl = q1('.water .deep'), abyssEl = q1('.water .abyss'), raysEl = q1('.rays'), bubEl = q1('.bubbles'), bedEls = [...sceneEl.querySelectorAll('.seabed')], shipEl = q1('.surface .ship'), textEl = heroEl.querySelector('.herotext');
   const jellies = [...sceneEl.querySelectorAll('.jelly')];
   const still = matchMedia('(prefers-reduced-motion: reduce)').matches;
   let ticking = false, last = '';
@@ -869,7 +869,7 @@ async function init() {
       deepEl.style.opacity = Math.min(1, p * 1.5).toFixed(3); abyssEl.style.opacity = Math.max(0, (p - 0.55) * 2.2).toFixed(3);
       if (raysEl) raysEl.style.opacity = Math.max(0, 0.5 - p * 0.7).toFixed(3); bubEl.style.opacity = Math.min(1, p * 4).toFixed(3);
       const bedY = (1 - Math.min(1, p * 1.15)) * 300;
-      bedEl.style.transform = `translate3d(0,${bedY.toFixed(1)}px,0)`;
+      for (const el of bedEls) el.style.transform = `translate3d(0,${bedY.toFixed(1)}px,0)`;
       for (const j of jellies) j.style.transform = `translate3d(0,${(bedY * 1.6).toFixed(1)}px,0)`;
     }
     // pause what cannot be seen: the surface once scrolled away, the seabed until you get there
@@ -887,7 +887,7 @@ async function init() {
     const t = q.get('time') || (h >= 21 || h < 5.5 ? 'night' : h < 7.5 ? 'dawn' : h < 18.5 ? 'day' : 'dusk');
     root.dataset.time = t;
     // sun: rises on the left at 6, highest at 13, sets on the right at 20; the moon crosses at night
-    const f = t === 'night' ? ((h + 24 - 21) % 24) / 8.5 : Math.min(1, Math.max(0, (h - 6) / 14));
+    const f = Math.min(1, Math.max(0, t === 'night' ? ((h + 24 - 21) % 24) / 8.5 : (h - 6) / 14));
     root.style.setProperty('--sun-x', (innerWidth < 760 ? 74 + f * 14 : 62 + f * 28).toFixed(1) + '%');
     root.style.setProperty('--sun-y', (innerWidth < 760 ? 50 + Math.pow(2 * f - 1, 2) * 8 : 6 + Math.pow(2 * f - 1, 2) * 26).toFixed(1) + '%'); // on phones the sun sits low, beside the ship, away from the title
   };
