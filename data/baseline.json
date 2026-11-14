@@ -7,55 +7,124 @@
  "lastSnapshot": "2026-11-14",
  "days": [
   {
-   "date": "2026-11-08",
-   "count": 4,
+   "date": "2026-11-01",
+   "count": 111,
    "byKind": {
-    "outfit": 1200,
-    "sidekick": 1200,
+    "jamtrack": 49000,
+    "outfit": 5000,
+    "pickaxe": 2600,
+    "emote": 300,
+    "backpack": 1000,
+    "bundle": 4000,
+    "glider": 1200
+   }
+  },
+  {
+   "date": "2026-11-06",
+   "count": 17,
+   "byKind": {
+    "pickaxe": 800,
+    "jamtrack": 1500,
+    "backpack": 1700,
+    "bundle": 4300,
+    "kicks": 2000,
+    "outfit": 3500,
+    "glider": 1200,
+    "wrap": 500,
+    "emote": 1000
+   }
+  },
+  {
+   "date": "2026-11-08",
+   "count": 10,
+   "byKind": {
+    "bundle": 8500,
+    "car": 400,
+    "sidekick": 1500,
+    "outfit": 3400,
+    "emote": 300,
+    "pickaxe": 800,
+    "backpack": 300
+   }
+  },
+  {
+   "date": "2026-11-09",
+   "count": 2,
+   "byKind": {
+    "kicks": 1400
+   }
+  },
+  {
+   "date": "2026-11-10",
+   "count": 30,
+   "byKind": {
+    "pickaxe": 2100,
+    "outfit": 15100,
+    "backpack": 2600,
     "emote": 500,
-    "glider": 800
+    "sidekick": 2700,
+    "bundle": 2000,
+    "wrap": 300
    }
   },
   {
    "date": "2026-11-11",
-   "count": 3,
+   "count": 42,
    "byKind": {
-    "outfit": 2400,
-    "emote": 300
+    "bundle": 12000,
+    "emote": 7200,
+    "outfit": 11300,
+    "sidekick": 2700,
+    "pickaxe": 4000,
+    "backpack": 1800,
+    "jamtrack": 1500,
+    "glider": 1600
    }
   },
   {
    "date": "2026-11-12",
-   "count": 3,
+   "count": 15,
    "byKind": {
-    "outfit": 3500,
-    "emote": 500
+    "emote": 300,
+    "backpack": 1500,
+    "outfit": 6900,
+    "pickaxe": 1600,
+    "bundle": 5900,
+    "wrap": 500
    }
   },
   {
    "date": "2026-11-13",
-   "count": 6,
+   "count": 70,
    "byKind": {
-    "emote": 300,
-    "pickaxe": 800,
-    "backpack": 800,
-    "outfit": 1500,
-    "jamtrack": 500
+    "backpack": 2400,
+    "jamtrack": 11000,
+    "wrap": 1300,
+    "bundle": 11800,
+    "emote": 4300,
+    "kicks": 6600,
+    "outfit": 13600,
+    "other": 300,
+    "pickaxe": 2900,
+    "glider": 500,
+    "car": 400
    }
   },
   {
    "date": "2026-11-14",
-   "count": 8,
+   "count": 19,
    "byKind": {
-    "glider": 800,
-    "wrap": 600,
-    "outfit": 3500,
-    "pickaxe": 800,
-    "sidekick": 1200,
-    "bundle": 2200
+    "pickaxe": 2900,
+    "backpack": 1100,
+    "outfit": 6600,
+    "emote": 400,
+    "bundle": 5000,
+    "wrap": 500,
+    "glider": 1200,
+    "car": 400
    }
   }
  ],
- "medianStayDays": 7,
- "staySamples": 24
+ "medianStayDays": 13,
+ "staySamples": 311
 }

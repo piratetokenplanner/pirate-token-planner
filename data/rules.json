@@ -55,7 +55,7 @@
      "mustContain": [
       "14 days"
      ],
-     "checkedAt": "2026-11-13T23:47:21.605Z",
+     "checkedAt": "2026-11-14T00:13:23.680Z",
      "reachable": true,
      "found": [
       {
@@ -64,15 +64,15 @@
       }
      ],
      "verified": true,
-     "hash": "a25f32785ac32e87",
-     "changedSinceLastCheck": false
+     "hash": "890be73d0ff98ea4",
+     "changedSinceLastCheck": true
     },
     {
      "url": "https://beebom.com/fortnite-pirate-shop-guide/",
      "mustContain": [
       "14 days"
      ],
-     "checkedAt": "2026-11-13T23:47:21.605Z",
+     "checkedAt": "2026-11-14T00:13:23.813Z",
      "reachable": true,
      "found": [
       {
@@ -81,8 +81,8 @@
       }
      ],
      "verified": true,
-     "hash": "6fdb16ce9ae548b1",
-     "changedSinceLastCheck": false
+     "hash": "1996e01b9e4f7eb4",
+     "changedSinceLastCheck": true
     }
    ],
    "newsHits": [],
@@ -98,7 +98,7 @@
      "mustContain": [
       "December 15"
      ],
-     "checkedAt": "2026-11-13T23:47:21.605Z",
+     "checkedAt": "2026-11-14T00:13:23.814Z",
      "reachable": true,
      "found": [
       {
@@ -107,8 +107,8 @@
       }
      ],
      "verified": true,
-     "hash": "a25f32785ac32e87",
-     "changedSinceLastCheck": false
+     "hash": "890be73d0ff98ea4",
+     "changedSinceLastCheck": true
     }
    ],
    "newsHits": [],
@@ -125,7 +125,7 @@
       "gift",
       "Battle Pass"
      ],
-     "checkedAt": "2026-11-13T23:47:21.605Z",
+     "checkedAt": "2026-11-14T00:13:23.821Z",
      "reachable": true,
      "found": [
       {
@@ -134,16 +134,16 @@
       },
       {
        "text": "Battle Pass",
-       "ok": true
+       "ok": false
       }
      ],
-     "verified": true,
-     "hash": "a25f32785ac32e87",
-     "changedSinceLastCheck": false
+     "verified": false,
+     "hash": "890be73d0ff98ea4",
+     "changedSinceLastCheck": true
     }
    ],
    "newsHits": [],
-   "status": "reported"
+   "status": "unverified"
   },
   {
    "id": "sidekick",
@@ -155,7 +155,7 @@
      "mustContain": [
       "sidekick"
      ],
-     "checkedAt": "2026-11-13T23:47:21.605Z",
+     "checkedAt": "2026-11-14T00:13:23.830Z",
      "reachable": true,
      "found": [
       {
@@ -164,8 +164,8 @@
       }
      ],
      "verified": true,
-     "hash": "a25f32785ac32e87",
-     "changedSinceLastCheck": false
+     "hash": "890be73d0ff98ea4",
+     "changedSinceLastCheck": true
     }
    ],
    "newsHits": [],
@@ -181,14 +181,21 @@
      "mustContain": [
       "00:00 UTC"
      ],
-     "checkedAt": "2026-11-13T23:47:21.605Z",
-     "reachable": false,
-     "verified": false,
-     "hash": null
+     "checkedAt": "2026-11-14T00:13:23.963Z",
+     "reachable": true,
+     "found": [
+      {
+       "text": "00:00 UTC",
+       "ok": true
+      }
+     ],
+     "verified": true,
+     "hash": "93a501aea08263bc",
+     "changedSinceLastCheck": false
     }
    ],
    "newsHits": [],
-   "status": "unverified"
+   "status": "reported"
   },
   {
    "id": "window2027",
@@ -200,7 +207,7 @@
      "mustContain": [
       "2027"
      ],
-     "checkedAt": "2026-11-13T23:47:21.605Z",
+     "checkedAt": "2026-11-14T00:13:23.963Z",
      "reachable": true,
      "found": [
       {
@@ -209,8 +216,8 @@
       }
      ],
      "verified": true,
-     "hash": "6fdb16ce9ae548b1",
-     "changedSinceLastCheck": false
+     "hash": "1996e01b9e4f7eb4",
+     "changedSinceLastCheck": true
     }
    ],
    "newsHits": [],
