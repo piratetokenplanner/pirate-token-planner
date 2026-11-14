@@ -16,7 +16,7 @@
     "mustContain": [
      "December 5"
     ],
-    "checkedAt": "2026-11-14T01:50:13.192Z",
+    "checkedAt": "2026-11-14T02:15:36.878Z",
     "reachable": true,
     "found": [
      {
@@ -33,7 +33,7 @@
     "mustContain": [
      "December 5"
     ],
-    "checkedAt": "2026-11-14T01:50:13.566Z",
+    "checkedAt": "2026-11-14T02:15:37.346Z",
     "reachable": true,
     "found": [
      {
@@ -42,7 +42,7 @@
      }
     ],
     "verified": true,
-    "hash": "14631e863070ffb1",
+    "hash": "9c973c3687c35636",
     "changedSinceLastCheck": true
    }
   ],
@@ -56,7 +56,7 @@
   "to": "2026-12-12",
   "claim": "pattern",
   "extraVbucks": 8000,
-  "basis": "Author assumption: a new chapter brings a large wave of new outfits on top of a normal day. Replaced by observed numbers once the snapshots cover these dates.",
+  "basis": "Sized from the last season launch in the shop archive (Treasure Hunters, Nov 1 to 7, 2026): what that week brought above a median day, per item type. The author estimate is used only if the archive is missing.",
   "newsKeywords": [
    "chapter 8"
   ],
@@ -66,7 +66,7 @@
     "mustContain": [
      "Chapter 8"
     ],
-    "checkedAt": "2026-11-14T01:50:13.566Z",
+    "checkedAt": "2026-11-14T02:15:37.346Z",
     "reachable": true,
     "found": [
      {
@@ -79,8 +79,55 @@
     "changedSinceLastCheck": false
    }
   ],
+  "calibrateFrom": [
+   {
+    "from": "2026-11-01",
+    "to": "2026-11-07",
+    "label": "Treasure Hunters launch week"
+   }
+  ],
   "newsHits": [],
-  "status": "pattern"
+  "status": "pattern",
+  "fromHistory": {
+   "byKind": {
+    "glider": 2100,
+    "bundle": 35400,
+    "pickaxe": 13600,
+    "outfit": 18400,
+    "backpack": 9900,
+    "wrap": 2100,
+    "emote": 3800,
+    "car": 1200,
+    "kicks": 9400,
+    "jamtrack": 105100,
+    "sidekick": 6600,
+    "lego": 0,
+    "contrail": 0
+   },
+   "from": [
+    {
+     "from": "2026-11-01",
+     "to": "2026-11-07",
+     "label": "Treasure Hunters launch week",
+     "days": 7,
+     "byKind": {
+      "glider": 2100,
+      "bundle": 35400,
+      "pickaxe": 13600,
+      "outfit": 18400,
+      "backpack": 9900,
+      "wrap": 2100,
+      "emote": 3800,
+      "car": 1200,
+      "kicks": 9400,
+      "jamtrack": 105100,
+      "sidekick": 6600,
+      "lego": 0,
+      "contrail": 0
+     }
+    }
+   ]
+  }
  },
  {
   "id": "winterfest",
@@ -99,7 +146,7 @@
     "mustContain": [
      "Winterfest"
     ],
-    "checkedAt": "2026-11-14T01:50:13.872Z",
+    "checkedAt": "2026-11-14T02:15:37.805Z",
     "reachable": true,
     "found": [
      {

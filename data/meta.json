@@ -1,126 +1,96 @@
 {
- "generatedAt": "2026-11-14T01:50:15.360Z",
+ "generatedAt": "2026-11-14T02:15:39.493Z",
  "fixture": false,
  "shopOk": true,
  "newsOk": true,
  "shopEntries": 318,
+ "past": {
+  "first": "2026-05-02",
+  "last": "2026-11-13",
+  "days": 196,
+  "importedThisRun": 196,
+  "missing": []
+ },
  "fetches": [
   {
+   "url": "https://raw.githubusercontent.com/Fortnite-Datamining/Fortnite-Datamining/history/shop/…",
+   "at": "2026-11-14T02:15:35.857Z",
+   "ok": true,
+   "status": 200,
+   "bytes": 196,
+   "sha256": "196 days imported"
+  },
+  {
    "url": "https://fortnite-api.com/v2/shop?language=en",
-   "at": "2026-11-14T01:50:11.300Z",
+   "at": "2026-11-14T02:15:35.859Z",
    "status": 200,
    "ok": true,
    "bytes": 831001,
    "sha256": "aa6fc6ff5b448cd7",
-   "ms": 756
-  },
-  {
-   "url": "https://fortnite-api.com/v2/cosmetics/br/search/ids?id=BID_131_BlackWidowfemale&id=EID_SpectacleWeb&id=Pickaxe_ID_190_GolfClub&id=Character_CeleryStitch&id=Backpack_CeleryStitchCud&id=Pickaxe_CeleryStitchCud&id=EID_CeleryStitch&id=Wrap_StreetFashionEclipse&id=CID_A_182_Athena_Commando_M_Vivid_LZGQ3&id=BID_825_VividMale_7L9T0&id=Pickaxe_ID_661_VividMale1H_ZN6Q0&id=Glider_ID_308_VividMale_H8JAS&id=EID_Vivid_I434X&id=EID_Cottontail&id=CID_582_Athena_Commando_F_DarkDino&id=BID_383_DarkDinoFemale&id=Character_CosmicSquatter&id=Backpack_CosmicSquatter&id=Pickaxe_FlipperBalm&id=Pickaxe_CeleryStitch&id=Character_BrandCreed&id=Pickaxe_BrandCreed&id=Backpack_BrandCreed&id=EID_BrandCreed&id=Character_InsightBawl&id=Pickaxe_InsightBawl&id=Backpack_InsightBawl&id=Companion_BloomScar&id=Backpack_SweetLetter_Guitar&id=Pickaxe_SweetLetter_Guitar&id=Character_RookGeckoRod&id=Backpack_RookGeckoRod&id=Character_RookGeckoRye&id=Backpack_RookGeckoRye&id=Pickaxe_RookGeckoRod&id=EID_RookGeckoRod&id=EID_RookGeckoRye&id=Backpack_RookGeckoRye_Guitar&id=Pickaxe_RookGeckoRye_Guitar&id=Shoes_LemonJump&id=Wrap_RookGecko&id=LoadingScreen_RookGecko&id=Pickaxe_TonicMailYam&id=Character_DuneBriefShift&id=Pickaxe_DuneBriefShift&id=Backpack_DuneBriefShift&id=BID_062_Gumshoe&id=EID_GnatGala_Pancake&id=Backpack_FlipperBalm&id=Character_Jumpsuit_Scrap_Mutable",
-   "at": "2026-11-14T01:50:12.060Z",
-   "status": 200,
-   "ok": true,
-   "bytes": 59744,
-   "sha256": "feb3b2dcb0a60d2b",
-   "ms": 152
-  },
-  {
-   "url": "https://fortnite-api.com/v2/cosmetics/br/search/ids?id=Spray_Jumpsuit_13&id=Spray_Jumpsuit_17&id=Spray_Jumpsuit_18&id=Spray_Jumpsuit_19&id=Spray_Jumpsuit_38&id=Spray_Jumpsuit_9&id=Spray_JumpsuitMasks_8&id=Spray_Jumpsuit_22&id=Spray_Jumpsuit_14&id=Spray_Jumpsuit_11&id=Spray_Jumpsuit_39&id=Spray_Jumpsuit_28&id=Spray_Jumpsuit_34&id=Spray_Jumpsuit_5&id=Spray_JumpsuitMasks_2&id=Spray_JumpsuitMasks_7&id=Spray_JumpsuitMasks_5&id=Companion_LavaRex&id=Shoes_LungeStreamPitch&id=CID_775_Athena_Commando_F_StreetRacerCobraGold&id=BID_538_StreetRacerCobraGold&id=Backpack_CeleryStitch&id=Pickaxe_ID_820_SpectacleWebMale&id=BID_462_ModernMilitaryEclipse&id=EID_GalaxyLevel&id=EID_BillyBounce&id=Wrap_GnatGala&id=Backpack_SweetLetter&id=EID_ElegantLily&id=Character_TacticKale_D&id=EID_LocketSnug&id=Backpack_IceRetreat&id=EID_ElegantLilyCharm&id=Character_BoastJoint&id=Backpack_BoastJoint&id=Pickaxe_BoastJoint&id=Character_LoomRise&id=Backpack_LoomRise&id=Pickaxe_LoomRise&id=Glider_CeleryStitch&id=Backpack_CeleryStitch_Guitar&id=Pickaxe_CeleryStitch_Guitar&id=Character_Firework&id=Backpack_Firework&id=Character_Jumpsuit_Mutable&id=Spray_Jumpsuit_1&id=Spray_Jumpsuit_4&id=Spray_Jumpsuit_16&id=Spray_Jumpsuit_20&id=Spray_Jumpsuit_21",
-   "at": "2026-11-14T01:50:12.212Z",
-   "status": 200,
-   "ok": true,
-   "bytes": 53796,
-   "sha256": "76e1172240c2b4e5",
-   "ms": 145
-  },
-  {
-   "url": "https://fortnite-api.com/v2/cosmetics/br/search/ids?id=Spray_Jumpsuit_3&id=Spray_Jumpsuit_32&id=Spray_JumpsuitMasks_4&id=Spray_JumpsuitMasks_6&id=Spray_Jumpsuit_7&id=Spray_Jumpsuit_2&id=Spray_Jumpsuit_8&id=Spray_Jumpsuit_6&id=Spray_Jumpsuit_31&id=Spray_Jumpsuit_29&id=Spray_Jumpsuit_27&id=Spray_JumpsuitMasks_1&id=Spray_JumpsuitMasks_9&id=Spray_JumpsuitMasks_3&id=Trails_ID_081_MissingLink&id=Character_LocketSnug&id=Backpack_LocketSnug&id=Pickaxe_LocketSnug&id=Character_GnatGala&id=Pickaxe_GnatGala&id=Backpack_GnatGala&id=EID_GnatGala&id=EID_FireDance&id=Backpack_GalaxyLevel&id=Backpack_TonicMailWeb_Mic&id=Pickaxe_TonicMailWeb_Mic&id=Pickaxe_VioletFare&id=Backpack_VioletFare&id=Shoes_TonicMailNote&id=Character_VoyagerCuboid&id=Backpack_VoyagerCuboid&id=Backpack_HeadHunterStar&id=Character_TonicMailYam&id=Backpack_TonicMailYam&id=Pickaxe_TackleShow&id=Backpack_TackleShow&id=Character_HeadhunterStar&id=Glider_TonicMailWeb&id=Shoes_TonicMailLetter&id=BID_220_FarmerFemale&id=Wrap_VioletFare&id=CID_581_Athena_Commando_M_DarkDino&id=BID_382_DarkDinoMale&id=Shoes_BarnCourt&id=BID_695_StreetFashionEclipse&id=EID_ModernMix&id=Companion_TrotUdon&id=Character_IceRetreat&id=Character_SweetLetter&id=Pickaxe_SweetLetter",
-   "at": "2026-11-14T01:50:12.357Z",
-   "status": 200,
-   "ok": true,
-   "bytes": 49264,
-   "sha256": "85d2bcb873dde603",
-   "ms": 158
-  },
-  {
-   "url": "https://fortnite-api.com/v2/cosmetics/br/search/ids?id=Wrap_SweetLetter&id=Backpack_SourWire_Bass&id=Pickaxe_SourWire_Bass&id=Character_TacticMushroom_D&id=Shoes_WhiskerCaesarChomp&id=EID_SandwichBop&id=Wrap_TonicMail&id=EID_TonicMailWeb&id=EID_Thrash&id=Companion_RareKrow&id=Shoes_GlitterMane&id=BID_090_StreetRacerWhiteMale&id=Shoes_PurityJadeAloe&id=Pickaxe_ID_541_StreetFashionEclipseFemale&id=Pickaxe_IonVial&id=CID_249_Athena_Commando_F_BlackWidow&id=Glider_ID_043_DarkNinja&id=Pickaxe_ID_064_Gumshoe&id=CID_679_Athena_Commando_M_ModernMilitaryEclipse&id=CID_190_Athena_Commando_M_StreetRacerWhite&id=EID_GasStation_104FQ&id=CID_336_Athena_Commando_M_DragonMask&id=EID_Tailor&id=CID_447_Athena_Commando_M_BannerB&id=Glider_GalaxyLevel&id=Character_TonicMailWeb&id=Backpack_TonicMailWeb&id=EID_TonicMailYam&id=Glider_ID_272_StreetFashionEclipseFemale&id=BID_746_ArmoredEngineer&id=Character_DuneBriefMerry&id=Pickaxe_DuneBriefMerry&id=Character_TackleShow&id=Companion_CacaoLynx&id=EID_DuneBrief&id=Character_SourWire&id=Shoes_StrandModeLychee&id=Character_OutletVerve&id=EID_GroceryGroove&id=CID_A_007_Athena_Commando_F_StreetFashionEclipse&id=Pickaxe_ID_295_DarkDino1H&id=Character_VioletFare&id=EID_MadHatter&id=CID_A_442_Athena_Commando_F_PennantSeasOne_B&id=CID_A_430_Athena_Commando_M_SpectacleWeb&id=BID_A_027_SpectacleWebMale&id=CID_A_077_Athena_Commando_F_ArmoredEngineer&id=Wrap_097_NeonLines&id=Spray_S43Icon&id=Emoticon_S43Icon",
-   "at": "2026-11-14T01:50:12.515Z",
-   "status": 200,
-   "ok": true,
-   "bytes": 60245,
-   "sha256": "312079d49bb53e55",
-   "ms": 157
-  },
-  {
-   "url": "https://fortnite-api.com/v2/cosmetics/br/search/ids?id=Character_GalaxyLevel&id=Pickaxe_GalaxyLevel&id=Emoji_S26_GalaxyLevel&id=Spray_GalaxyLevel&id=EID_ChipDip&id=Character_FlipperBalm&id=CID_A_168_Athena_Commando_F_Stands&id=EID_Matador&id=CID_614_Athena_Commando_M_MissingLink&id=EID_Viral&id=Shoes_GoblinPennyDemure&id=CID_154_Athena_Commando_M_Gumshoe&id=Character_RaggedRebel&id=Character_AzureBlade&id=Shoes_GraniteEmberlyStone&id=Character_MeekCrow&id=EID_HandSlap&id=EID_Vitality",
-   "at": "2026-11-14T01:50:12.672Z",
-   "status": 200,
-   "ok": true,
-   "bytes": 21054,
-   "sha256": "d26ed950e6f7b8c9",
-   "ms": 142
+   "ms": 608
   },
   {
    "url": "https://fortnite-api.com/v2/news/br?language=en",
-   "at": "2026-11-14T01:50:12.822Z",
+   "at": "2026-11-14T02:15:36.480Z",
    "status": 200,
    "ok": true,
    "bytes": 3127,
    "sha256": "ba77b94131e7b60c",
-   "ms": 140
+   "ms": 185
   },
   {
    "url": "https://ggseason.com/fortnite/",
-   "at": "2026-11-14T01:50:12.963Z",
+   "at": "2026-11-14T02:15:36.667Z",
    "status": 200,
    "ok": true,
    "bytes": 149671,
    "sha256": "a80a995c72971c10",
-   "ms": 229
+   "ms": 211
   },
   {
    "url": "https://lootrundown.com/fortnite/event-calendar",
-   "at": "2026-11-14T01:50:13.193Z",
+   "at": "2026-11-14T02:15:36.879Z",
    "status": 200,
    "ok": true,
-   "bytes": 66846,
-   "sha256": "14631e863070ffb1",
-   "ms": 373
+   "bytes": 71319,
+   "sha256": "9c973c3687c35636",
+   "ms": 467
   },
   {
    "url": "https://arenatrek.com/when-does-fortnite-winterfest-start-your-complete-2026-guide-to-dates-rewards-and-exclusive-content/",
-   "at": "2026-11-14T01:50:13.567Z",
+   "at": "2026-11-14T02:15:37.347Z",
    "status": 200,
    "ok": true,
    "bytes": 192820,
    "sha256": "02863df0ee053ba2",
-   "ms": 305
+   "ms": 458
   },
   {
    "url": "https://www.gamesradar.com/games/fortnite/fortnite-pirate-shop-token/",
-   "at": "2026-11-14T01:50:13.873Z",
+   "at": "2026-11-14T02:15:37.806Z",
    "status": 200,
    "ok": true,
-   "bytes": 2414680,
-   "sha256": "5b32d6aab761761f",
-   "ms": 1155
+   "bytes": 2408302,
+   "sha256": "ad70e1824fb9680b",
+   "ms": 1485
   },
   {
    "url": "https://beebom.com/fortnite-pirate-shop-guide/",
-   "at": "2026-11-14T01:50:15.036Z",
+   "at": "2026-11-14T02:15:39.299Z",
    "status": 200,
    "ok": true,
-   "bytes": 183867,
-   "sha256": "d6a8e97a3cc9f48c",
-   "ms": 171
+   "bytes": 183866,
+   "sha256": "fefe9fc0acd9d8cd",
+   "ms": 57
   },
   {
    "url": "https://piratetoken.net/pirate-token-activation",
-   "at": "2026-11-14T01:50:15.226Z",
+   "at": "2026-11-14T02:15:39.384Z",
    "status": 200,
    "ok": true,
    "bytes": 21190,
    "sha256": "93a501aea08263bc",
-   "ms": 133
+   "ms": 108
   }
  ]
 }

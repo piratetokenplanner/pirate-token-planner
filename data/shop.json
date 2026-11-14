@@ -32,7 +32,7 @@
    "outDate": "2026-11-15",
    "section": null,
    "image": "https://fortnite-api.com/images/cosmetics/br/bid_131_blackwidowfemale/featured.png",
-   "gap": null,
+   "gap": 129,
    "items": [
     {
      "id": "BID_131_BlackWidowfemale",
@@ -41,7 +41,7 @@
      "rarity": "Legendary",
      "series": null,
      "set": "Arachnid",
-     "appearances": null
+     "appearances": 6
     }
    ]
   },
@@ -118,7 +118,7 @@
    "outDate": "2026-11-15",
    "section": "Marvel",
    "image": "https://fortnite-api.com/images/cosmetics/br/newdisplayassets/d96a5173989911f6/renderimage_0.png",
-   "gap": null,
+   "gap": "unseen",
    "items": [
     {
      "id": "EID_SpectacleWeb",
@@ -127,7 +127,7 @@
      "rarity": "MARVEL SERIES",
      "series": "MARVEL SERIES",
      "set": "Zero War",
-     "appearances": null
+     "appearances": 2
     }
    ]
   },
@@ -162,7 +162,7 @@
    "outDate": "2026-11-14",
    "section": "Jacob's Pierogi Locker ",
    "image": "https://fortnite-api.com/images/cosmetics/br/newdisplayassets/fcdf3d87fc8c36fe/renderimage_0.png",
-   "gap": null,
+   "gap": 40,
    "items": [
     {
      "id": "Pickaxe_ID_190_GolfClub",
@@ -171,7 +171,7 @@
      "rarity": "Uncommon",
      "series": null,
      "set": "Teed Off",
-     "appearances": null
+     "appearances": 9
     }
    ]
   },
@@ -206,7 +206,7 @@
    "outDate": "2026-12-05",
    "section": "One Piece ",
    "image": "https://fortnite-api.com/images/cosmetics/br/newdisplayassets/9af63ea860febe11/renderimage_0.png",
-   "gap": null,
+   "gap": "unseen",
    "items": [
     {
      "id": "Character_CeleryStitch",
@@ -215,7 +215,7 @@
      "rarity": "Epic",
      "series": null,
      "set": "One Piece",
-     "appearances": null
+     "appearances": 2
     },
     {
      "id": "Backpack_CeleryStitchCud",
@@ -224,7 +224,7 @@
      "rarity": "Rare",
      "series": null,
      "set": "One Piece",
-     "appearances": null
+     "appearances": 2
     },
     {
      "id": "Pickaxe_CeleryStitchCud",
@@ -233,7 +233,7 @@
      "rarity": "Rare",
      "series": null,
      "set": "One Piece",
-     "appearances": null
+     "appearances": 2
     },
     {
      "id": "EID_CeleryStitch",
@@ -242,7 +242,7 @@
      "rarity": "Uncommon",
      "series": null,
      "set": "One Piece",
-     "appearances": null
+     "appearances": 3
     }
    ]
   },
@@ -256,7 +256,7 @@
    "outDate": "2026-11-14",
    "section": "Main Character Energy ",
    "image": "https://fortnite-api.com/images/cosmetics/br/newdisplayassets/8c2f18a505bd9ecf/renderimage_0.png",
-   "gap": null,
+   "gap": "unseen",
    "items": [
     {
      "id": "Wrap_StreetFashionEclipse",
@@ -265,7 +265,7 @@
      "rarity": "Uncommon",
      "series": null,
      "set": "Street Shadows",
-     "appearances": null
+     "appearances": 1
     }
    ]
   },
@@ -300,7 +300,7 @@
    "outDate": "2026-11-15",
    "section": "Main Stage Moment",
    "image": "https://fortnite-api.com/images/cosmetics/br/newdisplayassets/01b00ee12e5deb4f/renderimage_0.png",
-   "gap": null,
+   "gap": "unseen",
    "items": [
     {
      "id": "CID_A_182_Athena_Commando_M_Vivid_LZGQ3",
@@ -309,7 +309,7 @@
      "rarity": "Icon Series",
      "series": "Icon Series",
      "set": "J Balvin",
-     "appearances": null
+     "appearances": 2
     },
     {
      "id": "BID_825_VividMale_7L9T0",
@@ -318,7 +318,7 @@
      "rarity": "Icon Series",
      "series": "Icon Series",
      "set": "J Balvin",
-     "appearances": null
+     "appearances": 3
     },
     {
      "id": "Pickaxe_ID_661_VividMale1H_ZN6Q0",
@@ -327,7 +327,7 @@
      "rarity": "Icon Series",
      "series": "Icon Series",
      "set": "J Balvin",
-     "appearances": null
+     "appearances": 3
     },
     {
      "id": "Glider_ID_308_VividMale_H8JAS",
@@ -336,7 +336,7 @@
      "rarity": "Icon Series",
      "series": "Icon Series",
      "set": "J Balvin",
-     "appearances": null
+     "appearances": 2
     },
     {
      "id": "EID_Vivid_I434X",
@@ -345,7 +345,7 @@
      "rarity": "Icon Series",
      "series": "Icon Series",
      "set": "J Balvin",
-     "appearances": null
+     "appearances": 2
     }
    ]
   },
@@ -359,7 +359,7 @@
    "outDate": "2026-11-15",
    "section": "Main Stage Moment",
    "image": "https://fortnite-api.com/images/cosmetics/br/newdisplayassets/aaf4791b835489d3/renderimage_0.png",
-   "gap": null,
+   "gap": 51,
    "items": [
     {
      "id": "EID_Cottontail",
@@ -368,7 +368,7 @@
      "rarity": "Icon Series",
      "series": "Icon Series",
      "set": null,
-     "appearances": null
+     "appearances": 3
     }
    ]
   },
@@ -382,7 +382,7 @@
    "outDate": "2026-11-16",
    "section": "Main Character Energy ",
    "image": "https://fortnite-api.com/images/cosmetics/br/newdisplayassets/0702ef0acd6471b7/renderimage_0.png",
-   "gap": null,
+   "gap": "unseen",
    "items": [
     {
      "id": "CID_582_Athena_Commando_F_DarkDino",
@@ -391,7 +391,7 @@
      "rarity": "DARK SERIES",
      "series": "DARK SERIES",
      "set": "Dino Guard",
-     "appearances": null
+     "appearances": 1
     },
     {
      "id": "BID_383_DarkDinoFemale",
@@ -400,7 +400,7 @@
      "rarity": "DARK SERIES",
      "series": "DARK SERIES",
      "set": "Dino Guard",
-     "appearances": null
+     "appearances": 2
     }
    ]
   },
@@ -414,7 +414,7 @@
    "outDate": "2026-11-14",
    "section": "Jacob's Pierogi Locker ",
    "image": "https://fortnite-api.com/images/cosmetics/br/newdisplayassets/c44b982e7af9af5d/renderimage_0.png",
-   "gap": null,
+   "gap": 140,
    "items": [
     {
      "id": "Character_CosmicSquatter",
@@ -423,7 +423,7 @@
      "rarity": "Rare",
      "series": null,
      "set": "Breaker of Cages",
-     "appearances": null
+     "appearances": 5
     },
     {
      "id": "Backpack_CosmicSquatter",
@@ -432,7 +432,7 @@
      "rarity": "Rare",
      "series": null,
      "set": "Breaker of Cages",
-     "appearances": null
+     "appearances": 8
     }
    ]
   },
@@ -446,7 +446,7 @@
    "outDate": "2026-12-05",
    "section": "One Piece ",
    "image": "https://fortnite-api.com/images/cosmetics/br/newdisplayassets/499689366cc4e4e5/renderimage_0.png",
-   "gap": null,
+   "gap": "unseen",
    "items": [
     {
      "id": "Pickaxe_FlipperBalm",
@@ -455,7 +455,7 @@
      "rarity": "Rare",
      "series": null,
      "set": "One Piece",
-     "appearances": null
+     "appearances": 0
     }
    ]
   },
@@ -482,7 +482,7 @@
    "outDate": "2026-12-05",
    "section": "One Piece ",
    "image": "https://fortnite-api.com/images/cosmetics/br/newdisplayassets/1266e355c813ea76/renderimage_0.png",
-   "gap": null,
+   "gap": "unseen",
    "items": [
     {
      "id": "Pickaxe_CeleryStitch",
@@ -491,7 +491,7 @@
      "rarity": "Rare",
      "series": null,
      "set": "One Piece",
-     "appearances": null
+     "appearances": 2
     }
    ]
   },
@@ -505,7 +505,7 @@
    "outDate": "2026-12-05",
    "section": "One Piece ",
    "image": "https://fortnite-api.com/images/cosmetics/br/newdisplayassets/08e43d2736617a99/renderimage_0.png",
-   "gap": null,
+   "gap": "unseen",
    "items": [
     {
      "id": "Character_BrandCreed",
@@ -514,7 +514,7 @@
      "rarity": "Epic",
      "series": null,
      "set": "One Piece",
-     "appearances": null
+     "appearances": 2
     },
     {
      "id": "Pickaxe_BrandCreed",
@@ -523,7 +523,7 @@
      "rarity": "Rare",
      "series": null,
      "set": "One Piece",
-     "appearances": null
+     "appearances": 2
     },
     {
      "id": "Backpack_BrandCreed",
@@ -532,7 +532,7 @@
      "rarity": "Rare",
      "series": null,
      "set": "One Piece",
-     "appearances": null
+     "appearances": 3
     },
     {
      "id": "EID_BrandCreed",
@@ -541,7 +541,7 @@
      "rarity": "Uncommon",
      "series": null,
      "set": "One Piece",
-     "appearances": null
+     "appearances": 3
     },
     {
      "id": "Character_InsightBawl",
@@ -550,7 +550,7 @@
      "rarity": "Epic",
      "series": null,
      "set": "One Piece",
-     "appearances": null
+     "appearances": 2
     },
     {
      "id": "Pickaxe_InsightBawl",
@@ -559,7 +559,7 @@
      "rarity": "Rare",
      "series": null,
      "set": "One Piece",
-     "appearances": null
+     "appearances": 3
     },
     {
      "id": "Backpack_InsightBawl",
@@ -568,7 +568,7 @@
      "rarity": "Rare",
      "series": null,
      "set": "One Piece",
-     "appearances": null
+     "appearances": 3
     },
     {
      "id": "Companion_BloomScar",
@@ -577,7 +577,7 @@
      "rarity": "Uncommon",
      "series": null,
      "set": "One Piece",
-     "appearances": null
+     "appearances": 2
     }
    ]
   },
@@ -591,7 +591,7 @@
    "outDate": "2026-11-15",
    "section": "Marvel",
    "image": "https://fortnite-api.com/images/cosmetics/br/newdisplayassets/87f6e1f57dbd1f60/renderimage_0.png",
-   "gap": null,
+   "gap": 152,
    "items": [
     {
      "id": "Backpack_SweetLetter_Guitar",
@@ -600,7 +600,7 @@
      "rarity": "MARVEL SERIES",
      "series": "MARVEL SERIES",
      "set": "Black Cat",
-     "appearances": null
+     "appearances": 4
     },
     {
      "id": "Pickaxe_SweetLetter_Guitar",
@@ -609,7 +609,7 @@
      "rarity": "MARVEL SERIES",
      "series": "MARVEL SERIES",
      "set": "Black Cat",
-     "appearances": null
+     "appearances": 4
     }
    ]
   },
@@ -623,7 +623,7 @@
    "outDate": "2026-12-12",
    "section": "Lil Uzi Vert ",
    "image": "https://fortnite-api.com/images/cosmetics/br/newdisplayassets/d561e5f2b0adcf56/renderimage_0.png",
-   "gap": null,
+   "gap": "unseen",
    "items": [
     {
      "id": "Character_RookGeckoRod",
@@ -632,7 +632,7 @@
      "rarity": "Icon Series",
      "series": "Icon Series",
      "set": "Lil Uzi Vert",
-     "appearances": null
+     "appearances": 2
     },
     {
      "id": "Backpack_RookGeckoRod",
@@ -641,7 +641,7 @@
      "rarity": "Icon Series",
      "series": "Icon Series",
      "set": "Lil Uzi Vert",
-     "appearances": null
+     "appearances": 3
     },
     {
      "id": "Character_RookGeckoRye",
@@ -650,7 +650,7 @@
      "rarity": "Icon Series",
      "series": "Icon Series",
      "set": "Lil Uzi Vert",
-     "appearances": null
+     "appearances": 2
     },
     {
      "id": "Backpack_RookGeckoRye",
@@ -659,7 +659,7 @@
      "rarity": "Icon Series",
      "series": "Icon Series",
      "set": "Lil Uzi Vert",
-     "appearances": null
+     "appearances": 3
     },
     {
      "id": "Pickaxe_RookGeckoRod",
@@ -668,7 +668,7 @@
      "rarity": "Icon Series",
      "series": "Icon Series",
      "set": "Lil Uzi Vert",
-     "appearances": null
+     "appearances": 2
     },
     {
      "id": "EID_RookGeckoRod",
@@ -677,7 +677,7 @@
      "rarity": "Icon Series",
      "series": "Icon Series",
      "set": "Lil Uzi Vert",
-     "appearances": null
+     "appearances": 2
     },
     {
      "id": "EID_RookGeckoRye",
@@ -686,7 +686,7 @@
      "rarity": "Icon Series",
      "series": "Icon Series",
      "set": "Lil Uzi Vert",
-     "appearances": null
+     "appearances": 2
     },
     {
      "id": "Backpack_RookGeckoRye_Guitar",
@@ -695,7 +695,7 @@
      "rarity": "Icon Series",
      "series": "Icon Series",
      "set": "Lil Uzi Vert",
-     "appearances": null
+     "appearances": 2
     },
     {
      "id": "Pickaxe_RookGeckoRye_Guitar",
@@ -704,7 +704,7 @@
      "rarity": "Icon Series",
      "series": "Icon Series",
      "set": "Lil Uzi Vert",
-     "appearances": null
+     "appearances": 2
     },
     {
      "id": "Shoes_LemonJump",
@@ -713,7 +713,7 @@
      "rarity": "Uncommon",
      "series": null,
      "set": "Vans Shoes",
-     "appearances": null
+     "appearances": 2
     },
     {
      "id": "Wrap_RookGecko",
@@ -722,7 +722,7 @@
      "rarity": "Icon Series",
      "series": "Icon Series",
      "set": "Lil Uzi Vert",
-     "appearances": null
+     "appearances": 2
     },
     {
      "id": "LoadingScreen_RookGecko",
@@ -731,7 +731,7 @@
      "rarity": "Icon Series",
      "series": "Icon Series",
      "set": "Lil Uzi Vert",
-     "appearances": null
+     "appearances": 1
     }
    ]
   },
@@ -745,7 +745,7 @@
    "outDate": "2026-12-06",
    "section": "A$AP Rocky",
    "image": "https://fortnite-api.com/images/cosmetics/br/newdisplayassets/753cb647f77b84a0/renderimage_0.png",
-   "gap": null,
+   "gap": "unseen",
    "items": [
     {
      "id": "Pickaxe_TonicMailYam",
@@ -754,7 +754,7 @@
      "rarity": "Icon Series",
      "series": "Icon Series",
      "set": "A$AP Rocky",
-     "appearances": null
+     "appearances": 2
     }
    ]
   },
@@ -768,7 +768,7 @@
    "outDate": "2026-11-15",
    "section": "Mega Man",
    "image": "https://fortnite-api.com/images/cosmetics/br/newdisplayassets/eeac6cf236bb5715/renderimage_0.png",
-   "gap": null,
+   "gap": 52,
    "items": [
     {
      "id": "Character_DuneBriefShift",
@@ -777,7 +777,7 @@
      "rarity": "Gaming Legends Series",
      "series": "Gaming Legends Series",
      "set": "Mega Man",
-     "appearances": null
+     "appearances": 4
     },
     {
      "id": "Pickaxe_DuneBriefShift",
@@ -786,7 +786,7 @@
      "rarity": "Gaming Legends Series",
      "series": "Gaming Legends Series",
      "set": "Mega Man",
-     "appearances": null
+     "appearances": 6
     },
     {
      "id": "Backpack_DuneBriefShift",
@@ -795,7 +795,7 @@
      "rarity": "Gaming Legends Series",
      "series": "Gaming Legends Series",
      "set": "Mega Man",
-     "appearances": null
+     "appearances": 6
     }
    ]
   },
@@ -830,7 +830,7 @@
    "outDate": "2026-12-12",
    "section": "Lil Uzi Vert ",
    "image": "https://fortnite-api.com/images/cosmetics/br/newdisplayassets/4b90c741f191702b/renderimage_0.png",
-   "gap": null,
+   "gap": "unseen",
    "items": [
     {
      "id": "EID_RookGeckoRye",
@@ -839,7 +839,7 @@
      "rarity": "Icon Series",
      "series": "Icon Series",
      "set": "Lil Uzi Vert",
-     "appearances": null
+     "appearances": 2
     }
    ]
   },
@@ -887,7 +887,7 @@
    "outDate": "2026-11-14",
    "section": null,
    "image": "https://fortnite-api.com/images/cosmetics/br/bid_062_gumshoe/featured.png",
-   "gap": null,
+   "gap": "unseen",
    "items": [
     {
      "id": "BID_062_Gumshoe",
@@ -896,7 +896,7 @@
      "rarity": "Epic",
      "series": null,
      "set": "Hardboiled",
-     "appearances": null
+     "appearances": 0
     }
    ]
   },
@@ -910,7 +910,7 @@
    "outDate": "2026-12-05",
    "section": "One Piece ",
    "image": "https://fortnite-api.com/images/cosmetics/br/newdisplayassets/e608dd301d24f0f3/renderimage_0.png",
-   "gap": null,
+   "gap": "unseen",
    "items": [
     {
      "id": "EID_CeleryStitch",
@@ -919,7 +919,7 @@
      "rarity": "Uncommon",
      "series": null,
      "set": "One Piece",
-     "appearances": null
+     "appearances": 3
     }
    ]
   },
@@ -933,7 +933,7 @@
    "outDate": "2026-11-15",
    "section": "Friday the 13th",
    "image": "https://fortnite-api.com/images/cosmetics/br/newdisplayassets/fde7342d4eb08817/renderimage_0.png",
-   "gap": null,
+   "gap": 25,
    "items": [
     {
      "id": "EID_GnatGala_Pancake",
@@ -942,7 +942,7 @@
      "rarity": "Uncommon",
      "series": null,
      "set": "Jason Universe: Revenge",
-     "appearances": null
+     "appearances": 6
     }
    ]
   },
@@ -998,7 +998,7 @@
    "outDate": "2026-12-05",
    "section": "One Piece ",
    "image": "https://fortnite-api.com/images/cosmetics/br/newdisplayassets/6c0715c5a46366c6/renderimage_0.png",
-   "gap": null,
+   "gap": "unseen",
    "items": [
     {
      "id": "Backpack_FlipperBalm",
@@ -1007,7 +1007,7 @@
      "rarity": "Rare",
      "series": null,
      "set": "One Piece",
-     "appearances": null
+     "appearances": 0
     }
    ]
   },
@@ -1042,7 +1042,7 @@
    "outDate": "2026-11-14",
    "section": "Main Character Energy ",
    "image": "https://fortnite-api.com/images/cosmetics/br/newdisplayassets/d6073cf76e0c981f/renderimage_0.png",
-   "gap": null,
+   "gap": 17,
    "items": [
     {
      "id": "Character_Jumpsuit_Scrap_Mutable",
@@ -1051,7 +1051,7 @@
      "rarity": "Epic",
      "series": null,
      "set": "Escape Artists",
-     "appearances": null
+     "appearances": 11
     },
     {
      "id": "Spray_Jumpsuit_13",
@@ -1060,7 +1060,7 @@
      "rarity": "Uncommon",
      "series": null,
      "set": "Escape Artists",
-     "appearances": null
+     "appearances": 11
     },
     {
      "id": "Spray_Jumpsuit_17",
@@ -1069,7 +1069,7 @@
      "rarity": "Uncommon",
      "series": null,
      "set": "Escape Artists",
-     "appearances": null
+     "appearances": 11
     },
     {
      "id": "Spray_Jumpsuit_18",
@@ -1078,7 +1078,7 @@
      "rarity": "Uncommon",
      "series": null,
      "set": "Escape Artists",
-     "appearances": null
+     "appearances": 11
     },
     {
      "id": "Spray_Jumpsuit_19",
@@ -1087,7 +1087,7 @@
      "rarity": "Uncommon",
      "series": null,
      "set": "Escape Artists",
-     "appearances": null
+     "appearances": 11
     },
     {
      "id": "Spray_Jumpsuit_38",
@@ -1096,7 +1096,7 @@
      "rarity": "Uncommon",
      "series": null,
      "set": "Escape Artists",
-     "appearances": null
+     "appearances": 11
     },
     {
      "id": "Spray_Jumpsuit_9",
@@ -1105,7 +1105,7 @@
      "rarity": "Uncommon",
      "series": null,
      "set": "Escape Artists",
-     "appearances": null
+     "appearances": 11
     },
     {
      "id": "Spray_JumpsuitMasks_8",
@@ -1114,7 +1114,7 @@
      "rarity": "Uncommon",
      "series": null,
      "set": "Escape Artists",
-     "appearances": null
+     "appearances": 11
     },
     {
      "id": "Spray_Jumpsuit_22",
@@ -1123,7 +1123,7 @@
      "rarity": "Uncommon",
      "series": null,
      "set": "Escape Artists",
-     "appearances": null
+     "appearances": 5
     },
     {
      "id": "Spray_Jumpsuit_14",
@@ -1132,7 +1132,7 @@
      "rarity": "Uncommon",
      "series": null,
      "set": "Escape Artists",
-     "appearances": null
+     "appearances": 5
     },
     {
      "id": "Spray_Jumpsuit_11",
@@ -1141,7 +1141,7 @@
      "rarity": "Uncommon",
      "series": null,
      "set": "Escape Artists",
-     "appearances": null
+     "appearances": 5
     },
     {
      "id": "Spray_Jumpsuit_39",
@@ -1150,7 +1150,7 @@
      "rarity": "Uncommon",
      "series": null,
      "set": "Escape Artists",
-     "appearances": null
+     "appearances": 5
     },
     {
      "id": "Spray_Jumpsuit_28",
@@ -1159,7 +1159,7 @@
      "rarity": "Uncommon",
      "series": null,
      "set": "Escape Artists",
-     "appearances": null
+     "appearances": 5
     },
     {
      "id": "Spray_Jumpsuit_34",
@@ -1168,7 +1168,7 @@
      "rarity": "Uncommon",
      "series": null,
      "set": "Escape Artists",
-     "appearances": null
+     "appearances": 4
     },
     {
      "id": "Spray_Jumpsuit_5",
@@ -1177,7 +1177,7 @@
      "rarity": "Uncommon",
      "series": null,
      "set": "Escape Artists",
-     "appearances": null
+     "appearances": 5
     },
     {
      "id": "Spray_JumpsuitMasks_2",
@@ -1186,7 +1186,7 @@
      "rarity": "Uncommon",
      "series": null,
      "set": "Escape Artists",
-     "appearances": null
+     "appearances": 5
     },
     {
      "id": "Spray_JumpsuitMasks_7",
@@ -1195,7 +1195,7 @@
      "rarity": "Uncommon",
      "series": null,
      "set": "Escape Artists",
-     "appearances": null
+     "appearances": 5
     },
     {
      "id": "Spray_JumpsuitMasks_5",
@@ -1204,7 +1204,7 @@
      "rarity": "Uncommon",
      "series": null,
      "set": "Escape Artists",
-     "appearances": null
+     "appearances": 5
     }
    ]
   },
@@ -1218,7 +1218,7 @@
    "outDate": "2026-11-17",
    "section": "Hype Circuit",
    "image": "https://fortnite-api.com/images/cosmetics/br/newdisplayassets/218e495e6c0c21ca/renderimage_0.png",
-   "gap": null,
+   "gap": "unseen",
    "items": [
     {
      "id": "Companion_LavaRex",
@@ -1227,7 +1227,7 @@
      "rarity": "Uncommon",
      "series": null,
      "set": null,
-     "appearances": null
+     "appearances": 1
     }
    ]
   },
@@ -1262,7 +1262,7 @@
    "outDate": "2026-11-16",
    "section": "Get Your Kicks",
    "image": "https://fortnite-api.com/images/cosmetics/br/newdisplayassets/31e0a3ec431b303d/renderimage_0.png",
-   "gap": null,
+   "gap": 12,
    "items": [
     {
      "id": "Shoes_LungeStreamPitch",
@@ -1271,7 +1271,7 @@
      "rarity": "Uncommon",
      "series": null,
      "set": null,
-     "appearances": null
+     "appearances": 2
     }
    ]
   },
@@ -1285,7 +1285,7 @@
    "outDate": "2026-11-16",
    "section": "No Sweat",
    "image": "https://fortnite-api.com/images/cosmetics/br/newdisplayassets/b2bdf3368802f93f/renderimage_0.png",
-   "gap": null,
+   "gap": "unseen",
    "items": [
     {
      "id": "CID_775_Athena_Commando_F_StreetRacerCobraGold",
@@ -1294,7 +1294,7 @@
      "rarity": "Rare",
      "series": null,
      "set": "Hard Road",
-     "appearances": null
+     "appearances": 1
     },
     {
      "id": "BID_538_StreetRacerCobraGold",
@@ -1303,7 +1303,7 @@
      "rarity": "Rare",
      "series": null,
      "set": "Hard Road",
-     "appearances": null
+     "appearances": 2
     }
    ]
   },
@@ -1317,7 +1317,7 @@
    "outDate": "2026-12-05",
    "section": "One Piece ",
    "image": "https://fortnite-api.com/images/cosmetics/br/newdisplayassets/d8cae9b555f8ac8b/renderimage_0.png",
-   "gap": null,
+   "gap": "unseen",
    "items": [
     {
      "id": "Backpack_CeleryStitch",
@@ -1326,7 +1326,7 @@
      "rarity": "Rare",
      "series": null,
      "set": "One Piece",
-     "appearances": null
+     "appearances": 2
     }
    ]
   },
@@ -1361,7 +1361,7 @@
    "outDate": "2026-11-15",
    "section": "Marvel",
    "image": "https://fortnite-api.com/images/cosmetics/br/newdisplayassets/4911500241a13f52/renderimage_0.png",
-   "gap": null,
+   "gap": "unseen",
    "items": [
     {
      "id": "Pickaxe_ID_820_SpectacleWebMale",
@@ -1370,7 +1370,7 @@
      "rarity": "MARVEL SERIES",
      "series": "MARVEL SERIES",
      "set": "Zero War",
-     "appearances": null
+     "appearances": 2
     }
    ]
   },
@@ -1384,7 +1384,7 @@
    "outDate": "2026-11-16",
    "section": null,
    "image": "https://fortnite-api.com/images/cosmetics/br/bid_538_streetracercobragold/featured.png",
-   "gap": null,
+   "gap": "unseen",
    "items": [
     {
      "id": "BID_538_StreetRacerCobraGold",
@@ -1393,7 +1393,7 @@
      "rarity": "Rare",
      "series": null,
      "set": "Hard Road",
-     "appearances": null
+     "appearances": 2
     }
    ]
   },
@@ -1407,7 +1407,7 @@
    "outDate": "2026-11-14",
    "section": null,
    "image": "https://fortnite-api.com/images/cosmetics/br/bid_462_modernmilitaryeclipse/featured.png",
-   "gap": null,
+   "gap": "unseen",
    "items": [
     {
      "id": "BID_462_ModernMilitaryEclipse",
@@ -1416,7 +1416,7 @@
      "rarity": "Shadow Series",
      "series": "Shadow Series",
      "set": "Archetype",
-     "appearances": null
+     "appearances": 2
     }
    ]
   },
@@ -1430,7 +1430,7 @@
    "outDate": "2026-11-15",
    "section": "Main Stage Moment",
    "image": "https://fortnite-api.com/images/cosmetics/br/newdisplayassets/604402e6654ed553/renderimage_0.png",
-   "gap": null,
+   "gap": "unseen",
    "items": [
     {
      "id": "EID_GalaxyLevel",
@@ -1439,7 +1439,7 @@
      "rarity": "Icon Series",
      "series": "Icon Series",
      "set": "J Balvin",
-     "appearances": null
+     "appearances": 2
     }
    ]
   },
@@ -1453,7 +1453,7 @@
    "outDate": "2026-11-14",
    "section": "Jacob's Pierogi Locker ",
    "image": "https://fortnite-api.com/images/cosmetics/br/newdisplayassets/e80f2e2a1cfdb551/renderimage_0.png",
-   "gap": null,
+   "gap": 39,
    "items": [
     {
      "id": "EID_BillyBounce",
@@ -1462,7 +1462,7 @@
      "rarity": "Rare",
      "series": null,
      "set": null,
-     "appearances": null
+     "appearances": 6
     }
    ]
   },
@@ -1518,7 +1518,7 @@
    "outDate": "2026-11-15",
    "section": "Mega Man",
    "image": "https://fortnite-api.com/images/cosmetics/br/newdisplayassets/12de3fd80e46074f/renderimage_0.png",
-   "gap": null,
+   "gap": 52,
    "items": [
     {
      "id": "Pickaxe_DuneBriefShift",
@@ -1527,7 +1527,7 @@
      "rarity": "Gaming Legends Series",
      "series": "Gaming Legends Series",
      "set": "Mega Man",
-     "appearances": null
+     "appearances": 6
     }
    ]
   },
@@ -1604,7 +1604,7 @@
    "outDate": "2026-11-15",
    "section": "Friday the 13th",
    "image": "https://fortnite-api.com/images/cosmetics/br/newdisplayassets/6bae057896074d72/renderimage_0.png",
-   "gap": null,
+   "gap": 25,
    "items": [
     {
      "id": "Wrap_GnatGala",
@@ -1613,7 +1613,7 @@
      "rarity": "Rare",
      "series": null,
      "set": "Jason Universe: Revenge",
-     "appearances": null
+     "appearances": 6
     }
    ]
   },
@@ -1648,7 +1648,7 @@
    "outDate": "2026-12-05",
    "section": "One Piece ",
    "image": "https://fortnite-api.com/images/cosmetics/br/newdisplayassets/a09eaa8da361febd/renderimage_0.png",
-   "gap": null,
+   "gap": "unseen",
    "items": [
     {
      "id": "Companion_BloomScar",
@@ -1657,7 +1657,7 @@
      "rarity": "Uncommon",
      "series": null,
      "set": "One Piece",
-     "appearances": null
+     "appearances": 2
     }
    ]
   },
@@ -1692,7 +1692,7 @@
    "outDate": "2026-11-15",
    "section": null,
    "image": "https://fortnite-api.com/images/cosmetics/br/backpack_sweetletter/featured.png",
-   "gap": null,
+   "gap": 152,
    "items": [
     {
      "id": "Backpack_SweetLetter",
@@ -1701,7 +1701,7 @@
      "rarity": "MARVEL SERIES",
      "series": "MARVEL SERIES",
      "set": "Black Cat",
-     "appearances": null
+     "appearances": 6
     }
    ]
   },
@@ -1715,7 +1715,7 @@
    "outDate": "2026-11-15",
    "section": "Main Stage Moment",
    "image": "https://fortnite-api.com/images/cosmetics/br/newdisplayassets/311452ba95a7c9f5/renderimage_0.png",
-   "gap": null,
+   "gap": "unseen",
    "items": [
     {
      "id": "EID_ElegantLily",
@@ -1724,7 +1724,7 @@
      "rarity": "Icon Series",
      "series": "Icon Series",
      "set": "Karol G",
-     "appearances": null
+     "appearances": 1
     }
    ]
   },
@@ -1801,7 +1801,7 @@
    "outDate": "2026-11-14",
    "section": "Main Character Energy ",
    "image": "https://fortnite-api.com/images/cosmetics/br/newdisplayassets/82005c0c6476a68d/renderimage_0.png",
-   "gap": null,
+   "gap": "unseen",
    "items": [
     {
      "id": "Character_TacticKale_D",
@@ -1810,7 +1810,7 @@
      "rarity": "Rare",
      "series": null,
      "set": "Skratch Company",
-     "appearances": null
+     "appearances": 0
     }
    ]
   },
@@ -1824,7 +1824,7 @@
    "outDate": "2026-11-20",
    "section": "iShowSpeed",
    "image": "https://fortnite-api.com/images/cosmetics/br/newdisplayassets/84f48846209956e6/renderimage_0.png",
-   "gap": null,
+   "gap": "unseen",
    "items": [
     {
      "id": "EID_LocketSnug",
@@ -1833,7 +1833,7 @@
      "rarity": "Icon Series",
      "series": "Icon Series",
      "set": "IShowSpeed",
-     "appearances": null
+     "appearances": 0
     }
    ]
   },
@@ -1868,7 +1868,7 @@
    "outDate": "2026-11-14",
    "section": null,
    "image": "https://fortnite-api.com/images/cosmetics/br/backpack_iceretreat/featured.png",
-   "gap": null,
+   "gap": 131,
    "items": [
     {
      "id": "Backpack_IceRetreat",
@@ -1877,7 +1877,7 @@
      "rarity": "Rare",
      "series": null,
      "set": "Summit's Idol",
-     "appearances": null
+     "appearances": 8
     }
    ]
   },
@@ -1933,7 +1933,7 @@
    "outDate": "2026-11-15",
    "section": "Main Stage Moment",
    "image": "https://fortnite-api.com/images/cosmetics/br/newdisplayassets/c9f8deb5ec961c6e/renderimage_0.png",
-   "gap": null,
+   "gap": "unseen",
    "items": [
     {
      "id": "EID_ElegantLilyCharm",
@@ -1942,7 +1942,7 @@
      "rarity": "Icon Series",
      "series": "Icon Series",
      "set": "Karol G",
-     "appearances": null
+     "appearances": 1
     }
    ]
   },
@@ -1956,7 +1956,7 @@
    "outDate": "2026-12-05",
    "section": "One Piece ",
    "image": "https://fortnite-api.com/images/cosmetics/br/newdisplayassets/d5ad5f42d4062e78/renderimage_0.png",
-   "gap": null,
+   "gap": "unseen",
    "items": [
     {
      "id": "Character_CeleryStitch",
@@ -1965,7 +1965,7 @@
      "rarity": "Epic",
      "series": null,
      "set": "One Piece",
-     "appearances": null
+     "appearances": 2
     },
     {
      "id": "Backpack_CeleryStitchCud",
@@ -1974,7 +1974,7 @@
      "rarity": "Rare",
      "series": null,
      "set": "One Piece",
-     "appearances": null
+     "appearances": 2
     },
     {
      "id": "Pickaxe_CeleryStitchCud",
@@ -1983,7 +1983,7 @@
      "rarity": "Rare",
      "series": null,
      "set": "One Piece",
-     "appearances": null
+     "appearances": 2
     },
     {
      "id": "EID_CeleryStitch",
@@ -1992,7 +1992,7 @@
      "rarity": "Uncommon",
      "series": null,
      "set": "One Piece",
-     "appearances": null
+     "appearances": 3
     },
     {
      "id": "Character_BoastJoint",
@@ -2001,7 +2001,7 @@
      "rarity": "Epic",
      "series": null,
      "set": "One Piece",
-     "appearances": null
+     "appearances": 2
     },
     {
      "id": "Backpack_BoastJoint",
@@ -2010,7 +2010,7 @@
      "rarity": "Rare",
      "series": null,
      "set": "One Piece",
-     "appearances": null
+     "appearances": 3
     },
     {
      "id": "Pickaxe_BoastJoint",
@@ -2019,7 +2019,7 @@
      "rarity": "Rare",
      "series": null,
      "set": "One Piece",
-     "appearances": null
+     "appearances": 3
     },
     {
      "id": "Character_LoomRise",
@@ -2028,7 +2028,7 @@
      "rarity": "Epic",
      "series": null,
      "set": "One Piece",
-     "appearances": null
+     "appearances": 2
     },
     {
      "id": "Backpack_LoomRise",
@@ -2037,7 +2037,7 @@
      "rarity": "Rare",
      "series": null,
      "set": "One Piece",
-     "appearances": null
+     "appearances": 3
     },
     {
      "id": "Pickaxe_LoomRise",
@@ -2046,7 +2046,7 @@
      "rarity": "Rare",
      "series": null,
      "set": "One Piece",
-     "appearances": null
+     "appearances": 3
     },
     {
      "id": "Glider_CeleryStitch",
@@ -2055,7 +2055,7 @@
      "rarity": "Epic",
      "series": null,
      "set": "One Piece",
-     "appearances": null
+     "appearances": 2
     },
     {
      "id": "Backpack_CeleryStitch",
@@ -2064,7 +2064,7 @@
      "rarity": "Rare",
      "series": null,
      "set": "One Piece",
-     "appearances": null
+     "appearances": 2
     },
     {
      "id": "Pickaxe_CeleryStitch",
@@ -2073,7 +2073,7 @@
      "rarity": "Rare",
      "series": null,
      "set": "One Piece",
-     "appearances": null
+     "appearances": 2
     },
     {
      "id": "Backpack_CeleryStitch_Guitar",
@@ -2082,7 +2082,7 @@
      "rarity": "Rare",
      "series": null,
      "set": "One Piece",
-     "appearances": null
+     "appearances": 2
     },
     {
      "id": "Pickaxe_CeleryStitch_Guitar",
@@ -2091,7 +2091,7 @@
      "rarity": "Rare",
      "series": null,
      "set": "One Piece",
-     "appearances": null
+     "appearances": 2
     }
    ]
   },
@@ -2105,7 +2105,7 @@
    "outDate": "2026-11-16",
    "section": "No Sweat",
    "image": "https://fortnite-api.com/images/cosmetics/br/newdisplayassets/39de3471fbf927a9/renderimage_0.png",
-   "gap": null,
+   "gap": 169,
    "items": [
     {
      "id": "Character_Firework",
@@ -2114,7 +2114,7 @@
      "rarity": "Rare",
      "series": null,
      "set": "Rally Rocketeer",
-     "appearances": null
+     "appearances": 2
     },
     {
      "id": "Backpack_Firework",
@@ -2123,7 +2123,7 @@
      "rarity": "Rare",
      "series": null,
      "set": "Rally Rocketeer",
-     "appearances": null
+     "appearances": 4
     }
    ]
   },
@@ -2192,7 +2192,7 @@
    "outDate": "2026-12-12",
    "section": "Lil Uzi Vert ",
    "image": "https://fortnite-api.com/images/cosmetics/br/newdisplayassets/3442e2c38eecfc7c/renderimage_0.png",
-   "gap": null,
+   "gap": "unseen",
    "items": [
     {
      "id": "EID_RookGeckoRod",
@@ -2201,7 +2201,7 @@
      "rarity": "Icon Series",
      "series": "Icon Series",
      "set": "Lil Uzi Vert",
-     "appearances": null
+     "appearances": 2
     }
    ]
   },
@@ -2236,7 +2236,7 @@
    "outDate": "2026-11-14",
    "section": "Main Character Energy ",
    "image": "https://fortnite-api.com/images/cosmetics/br/newdisplayassets/3ef565fe268e4b56/renderimage_0.png",
-   "gap": null,
+   "gap": 17,
    "items": [
     {
      "id": "Character_Jumpsuit_Mutable",
@@ -2245,7 +2245,7 @@
      "rarity": "Epic",
      "series": null,
      "set": "Escape Artists",
-     "appearances": null
+     "appearances": 12
     },
     {
      "id": "Character_Jumpsuit_Scrap_Mutable",
@@ -2254,7 +2254,7 @@
      "rarity": "Epic",
      "series": null,
      "set": "Escape Artists",
-     "appearances": null
+     "appearances": 11
     },
     {
      "id": "Spray_Jumpsuit_1",
@@ -2263,7 +2263,7 @@
      "rarity": "Uncommon",
      "series": null,
      "set": "Escape Artists",
-     "appearances": null
+     "appearances": 12
     },
     {
      "id": "Spray_Jumpsuit_9",
@@ -2272,7 +2272,7 @@
      "rarity": "Uncommon",
      "series": null,
      "set": "Escape Artists",
-     "appearances": null
+     "appearances": 11
     },
     {
      "id": "Spray_Jumpsuit_17",
@@ -2281,7 +2281,7 @@
      "rarity": "Uncommon",
      "series": null,
      "set": "Escape Artists",
-     "appearances": null
+     "appearances": 11
     },
     {
      "id": "Spray_Jumpsuit_4",
@@ -2290,7 +2290,7 @@
      "rarity": "Uncommon",
      "series": null,
      "set": "Escape Artists",
-     "appearances": null
+     "appearances": 12
     },
     {
      "id": "Spray_Jumpsuit_16",
@@ -2299,7 +2299,7 @@
      "rarity": "Uncommon",
      "series": null,
      "set": "Escape Artists",
-     "appearances": null
+     "appearances": 12
     },
     {
      "id": "Spray_Jumpsuit_20",
@@ -2308,7 +2308,7 @@
      "rarity": "Uncommon",
      "series": null,
      "set": "Escape Artists",
-     "appearances": null
+     "appearances": 4
     },
     {
      "id": "Spray_Jumpsuit_38",
@@ -2317,7 +2317,7 @@
      "rarity": "Uncommon",
      "series": null,
      "set": "Escape Artists",
-     "appearances": null
+     "appearances": 11
     },
     {
      "id": "Spray_Jumpsuit_18",
@@ -2326,7 +2326,7 @@
      "rarity": "Uncommon",
      "series": null,
      "set": "Escape Artists",
-     "appearances": null
+     "appearances": 11
     },
     {
      "id": "Spray_Jumpsuit_21",
@@ -2335,7 +2335,7 @@
      "rarity": "Uncommon",
      "series": null,
      "set": "Escape Artists",
-     "appearances": null
+     "appearances": 12
     },
     {
      "id": "Spray_Jumpsuit_3",
@@ -2344,7 +2344,7 @@
      "rarity": "Uncommon",
      "series": null,
      "set": "Escape Artists",
-     "appearances": null
+     "appearances": 12
     },
     {
      "id": "Spray_Jumpsuit_19",
@@ -2353,7 +2353,7 @@
      "rarity": "Uncommon",
      "series": null,
      "set": "Escape Artists",
-     "appearances": null
+     "appearances": 11
     },
     {
      "id": "Spray_Jumpsuit_13",
@@ -2362,7 +2362,7 @@
      "rarity": "Uncommon",
      "series": null,
      "set": "Escape Artists",
-     "appearances": null
+     "appearances": 11
     },
     {
      "id": "Spray_Jumpsuit_32",
@@ -2371,7 +2371,7 @@
      "rarity": "Uncommon",
      "series": null,
      "set": "Escape Artists",
-     "appearances": null
+     "appearances": 12
     },
     {
      "id": "Spray_JumpsuitMasks_8",
@@ -2380,7 +2380,7 @@
      "rarity": "Uncommon",
      "series": null,
      "set": "Escape Artists",
-     "appearances": null
+     "appearances": 11
     },
     {
      "id": "Spray_JumpsuitMasks_4",
@@ -2389,7 +2389,7 @@
      "rarity": "Uncommon",
      "series": null,
      "set": "Escape Artists",
-     "appearances": null
+     "appearances": 4
     },
     {
      "id": "Spray_JumpsuitMasks_6",
@@ -2398,7 +2398,7 @@
      "rarity": "Uncommon",
      "series": null,
      "set": "Escape Artists",
-     "appearances": null
+     "appearances": 12
     },
     {
      "id": "Spray_Jumpsuit_7",
@@ -2407,7 +2407,7 @@
      "rarity": "Uncommon",
      "series": null,
      "set": "Escape Artists",
-     "appearances": null
+     "appearances": 4
     },
     {
      "id": "Spray_Jumpsuit_2",
@@ -2416,7 +2416,7 @@
      "rarity": "Uncommon",
      "series": null,
      "set": "Escape Artists",
-     "appearances": null
+     "appearances": 4
     },
     {
      "id": "Spray_Jumpsuit_8",
@@ -2425,7 +2425,7 @@
      "rarity": "Uncommon",
      "series": null,
      "set": "Escape Artists",
-     "appearances": null
+     "appearances": 4
     },
     {
      "id": "Spray_Jumpsuit_6",
@@ -2434,7 +2434,7 @@
      "rarity": "Uncommon",
      "series": null,
      "set": "Escape Artists",
-     "appearances": null
+     "appearances": 4
     },
     {
      "id": "Spray_Jumpsuit_31",
@@ -2443,7 +2443,7 @@
      "rarity": "Uncommon",
      "series": null,
      "set": "Escape Artists",
-     "appearances": null
+     "appearances": 4
     },
     {
      "id": "Spray_Jumpsuit_29",
@@ -2452,7 +2452,7 @@
      "rarity": "Uncommon",
      "series": null,
      "set": "Escape Artists",
-     "appearances": null
+     "appearances": 4
     },
     {
      "id": "Spray_Jumpsuit_27",
@@ -2461,7 +2461,7 @@
      "rarity": "Uncommon",
      "series": null,
      "set": "Escape Artists",
-     "appearances": null
+     "appearances": 4
     },
     {
      "id": "Spray_JumpsuitMasks_1",
@@ -2470,7 +2470,7 @@
      "rarity": "Uncommon",
      "series": null,
      "set": "Escape Artists",
-     "appearances": null
+     "appearances": 4
     },
     {
      "id": "Spray_JumpsuitMasks_9",
@@ -2479,7 +2479,7 @@
      "rarity": "Uncommon",
      "series": null,
      "set": "Escape Artists",
-     "appearances": null
+     "appearances": 4
     },
     {
      "id": "Spray_JumpsuitMasks_3",
@@ -2488,7 +2488,7 @@
      "rarity": "Uncommon",
      "series": null,
      "set": "Escape Artists",
-     "appearances": null
+     "appearances": 4
     },
     {
      "id": "Spray_Jumpsuit_22",
@@ -2497,7 +2497,7 @@
      "rarity": "Uncommon",
      "series": null,
      "set": "Escape Artists",
-     "appearances": null
+     "appearances": 5
     },
     {
      "id": "Spray_Jumpsuit_14",
@@ -2506,7 +2506,7 @@
      "rarity": "Uncommon",
      "series": null,
      "set": "Escape Artists",
-     "appearances": null
+     "appearances": 5
     },
     {
      "id": "Spray_Jumpsuit_11",
@@ -2515,7 +2515,7 @@
      "rarity": "Uncommon",
      "series": null,
      "set": "Escape Artists",
-     "appearances": null
+     "appearances": 5
     },
     {
      "id": "Spray_Jumpsuit_39",
@@ -2524,7 +2524,7 @@
      "rarity": "Uncommon",
      "series": null,
      "set": "Escape Artists",
-     "appearances": null
+     "appearances": 5
     },
     {
      "id": "Spray_Jumpsuit_28",
@@ -2533,7 +2533,7 @@
      "rarity": "Uncommon",
      "series": null,
      "set": "Escape Artists",
-     "appearances": null
+     "appearances": 5
     },
     {
      "id": "Spray_Jumpsuit_5",
@@ -2542,7 +2542,7 @@
      "rarity": "Uncommon",
      "series": null,
      "set": "Escape Artists",
-     "appearances": null
+     "appearances": 5
     },
     {
      "id": "Spray_JumpsuitMasks_2",
@@ -2551,7 +2551,7 @@
      "rarity": "Uncommon",
      "series": null,
      "set": "Escape Artists",
-     "appearances": null
+     "appearances": 5
     },
     {
      "id": "Spray_JumpsuitMasks_7",
@@ -2560,7 +2560,7 @@
      "rarity": "Uncommon",
      "series": null,
      "set": "Escape Artists",
-     "appearances": null
+     "appearances": 5
     },
     {
      "id": "Spray_JumpsuitMasks_5",
@@ -2569,7 +2569,7 @@
      "rarity": "Uncommon",
      "series": null,
      "set": "Escape Artists",
-     "appearances": null
+     "appearances": 5
     }
    ]
   },
@@ -2625,7 +2625,7 @@
    "outDate": "2026-12-12",
    "section": "Lil Uzi Vert ",
    "image": "https://fortnite-api.com/images/cosmetics/br/newdisplayassets/a6868bfd4b850983/renderimage_0.png",
-   "gap": null,
+   "gap": "unseen",
    "items": [
     {
      "id": "Character_RookGeckoRye",
@@ -2634,7 +2634,7 @@
      "rarity": "Icon Series",
      "series": "Icon Series",
      "set": "Lil Uzi Vert",
-     "appearances": null
+     "appearances": 2
     },
     {
      "id": "Backpack_RookGeckoRye",
@@ -2643,7 +2643,7 @@
      "rarity": "Icon Series",
      "series": "Icon Series",
      "set": "Lil Uzi Vert",
-     "appearances": null
+     "appearances": 3
     }
    ]
   },
@@ -2657,7 +2657,7 @@
    "outDate": "2026-11-15",
    "section": null,
    "image": "https://fortnite-api.com/images/cosmetics/br/trails_id_081_missinglink/featured.png",
-   "gap": null,
+   "gap": 75,
    "items": [
     {
      "id": "Trails_ID_081_MissingLink",
@@ -2666,7 +2666,7 @@
      "rarity": "Rare",
      "series": null,
      "set": "Missing Link",
-     "appearances": null
+     "appearances": 6
     }
    ]
   },
@@ -2722,7 +2722,7 @@
    "outDate": "2026-12-05",
    "section": "One Piece ",
    "image": "https://fortnite-api.com/images/cosmetics/br/newdisplayassets/1ee2767c8db118a8/renderimage_0.png",
-   "gap": null,
+   "gap": "unseen",
    "items": [
     {
      "id": "Pickaxe_LoomRise",
@@ -2731,7 +2731,7 @@
      "rarity": "Rare",
      "series": null,
      "set": "One Piece",
-     "appearances": null
+     "appearances": 3
     }
    ]
   },
@@ -2745,7 +2745,7 @@
    "outDate": "2026-12-12",
    "section": "Lil Uzi Vert ",
    "image": "https://fortnite-api.com/images/cosmetics/br/newdisplayassets/57e957bb171de088/renderimage_0.png",
-   "gap": null,
+   "gap": "unseen",
    "items": [
     {
      "id": "Wrap_RookGecko",
@@ -2754,7 +2754,7 @@
      "rarity": "Icon Series",
      "series": "Icon Series",
      "set": "Lil Uzi Vert",
-     "appearances": null
+     "appearances": 2
     }
    ]
   },
@@ -2768,7 +2768,7 @@
    "outDate": "2026-11-20",
    "section": "iShowSpeed",
    "image": "https://fortnite-api.com/images/cosmetics/br/newdisplayassets/a283979341ca2ae2/renderimage_0.png",
-   "gap": null,
+   "gap": "unseen",
    "items": [
     {
      "id": "Character_LocketSnug",
@@ -2777,7 +2777,7 @@
      "rarity": "Icon Series",
      "series": "Icon Series",
      "set": "IShowSpeed",
-     "appearances": null
+     "appearances": 0
     },
     {
      "id": "Backpack_LocketSnug",
@@ -2786,7 +2786,7 @@
      "rarity": "Icon Series",
      "series": "Icon Series",
      "set": "IShowSpeed",
-     "appearances": null
+     "appearances": 0
     },
     {
      "id": "Pickaxe_LocketSnug",
@@ -2795,7 +2795,7 @@
      "rarity": "Icon Series",
      "series": "Icon Series",
      "set": "IShowSpeed",
-     "appearances": null
+     "appearances": 0
     },
     {
      "id": "EID_LocketSnug",
@@ -2804,7 +2804,7 @@
      "rarity": "Icon Series",
      "series": "Icon Series",
      "set": "IShowSpeed",
-     "appearances": null
+     "appearances": 0
     }
    ]
   },
@@ -2818,7 +2818,7 @@
    "outDate": "2026-11-15",
    "section": "Friday the 13th",
    "image": "https://fortnite-api.com/images/cosmetics/br/newdisplayassets/d18f93694cdc9afb/renderimage_0.png",
-   "gap": null,
+   "gap": 25,
    "items": [
     {
      "id": "Character_GnatGala",
@@ -2827,7 +2827,7 @@
      "rarity": "Epic",
      "series": null,
      "set": "Jason Universe: Revenge",
-     "appearances": null
+     "appearances": 6
     },
     {
      "id": "Pickaxe_GnatGala",
@@ -2836,7 +2836,7 @@
      "rarity": "Rare",
      "series": null,
      "set": "Jason Universe: Revenge",
-     "appearances": null
+     "appearances": 6
     },
     {
      "id": "Backpack_GnatGala",
@@ -2845,7 +2845,7 @@
      "rarity": "Rare",
      "series": null,
      "set": "Jason Universe: Revenge",
-     "appearances": null
+     "appearances": 6
     },
     {
      "id": "EID_GnatGala",
@@ -2854,7 +2854,7 @@
      "rarity": "Uncommon",
      "series": null,
      "set": "Jason Universe: Revenge",
-     "appearances": null
+     "appearances": 6
     },
     {
      "id": "EID_GnatGala_Pancake",
@@ -2863,7 +2863,7 @@
      "rarity": "Uncommon",
      "series": null,
      "set": "Jason Universe: Revenge",
-     "appearances": null
+     "appearances": 6
     },
     {
      "id": "Wrap_GnatGala",
@@ -2872,7 +2872,7 @@
      "rarity": "Rare",
      "series": null,
      "set": "Jason Universe: Revenge",
-     "appearances": null
+     "appearances": 6
     }
    ]
   },
@@ -2886,7 +2886,7 @@
    "outDate": "2026-11-16",
    "section": null,
    "image": "https://fortnite-api.com/images/cosmetics/br/backpack_firework/featured.png",
-   "gap": null,
+   "gap": 169,
    "items": [
     {
      "id": "Backpack_Firework",
@@ -2895,7 +2895,7 @@
      "rarity": "Rare",
      "series": null,
      "set": "Rally Rocketeer",
-     "appearances": null
+     "appearances": 4
     }
    ]
   },
@@ -2909,7 +2909,7 @@
    "outDate": "2026-11-17",
    "section": "Hype Circuit",
    "image": "https://fortnite-api.com/images/cosmetics/br/newdisplayassets/d8bf7d4450a20ef0/renderimage_0.png",
-   "gap": null,
+   "gap": "unseen",
    "items": [
     {
      "id": "EID_FireDance",
@@ -2918,7 +2918,7 @@
      "rarity": "Epic",
      "series": null,
      "set": null,
-     "appearances": null
+     "appearances": 1
     }
    ]
   },
@@ -2953,7 +2953,7 @@
    "outDate": "2026-11-15",
    "section": null,
    "image": "https://fortnite-api.com/images/cosmetics/br/backpack_galaxylevel/featured.png",
-   "gap": null,
+   "gap": "unseen",
    "items": [
     {
      "id": "Backpack_GalaxyLevel",
@@ -2962,7 +2962,7 @@
      "rarity": "Icon Series",
      "series": "Icon Series",
      "set": "J Balvin",
-     "appearances": null
+     "appearances": 3
     }
    ]
   },
@@ -2976,7 +2976,7 @@
    "outDate": "2026-12-06",
    "section": "A$AP Rocky",
    "image": "https://fortnite-api.com/images/cosmetics/br/newdisplayassets/ba4a40bfd1870ec0/renderimage_0.png",
-   "gap": null,
+   "gap": "unseen",
    "items": [
     {
      "id": "Backpack_TonicMailWeb_Mic",
@@ -2985,7 +2985,7 @@
      "rarity": "Icon Series",
      "series": "Icon Series",
      "set": "A$AP Rocky",
-     "appearances": null
+     "appearances": 2
     },
     {
      "id": "Pickaxe_TonicMailWeb_Mic",
@@ -2994,7 +2994,7 @@
      "rarity": "Icon Series",
      "series": "Icon Series",
      "set": "A$AP Rocky",
-     "appearances": null
+     "appearances": 2
     }
    ]
   },
@@ -3043,7 +3043,7 @@
    "outDate": "2026-11-15",
    "section": "Main Character Energy ",
    "image": "https://fortnite-api.com/images/cosmetics/br/newdisplayassets/336759c19eb4f3ca/renderimage_0.png",
-   "gap": null,
+   "gap": 58,
    "items": [
     {
      "id": "Pickaxe_VioletFare",
@@ -3052,7 +3052,7 @@
      "rarity": "Rare",
      "series": null,
      "set": "Seaward Guardian",
-     "appearances": null
+     "appearances": 1
     },
     {
      "id": "Backpack_VioletFare",
@@ -3061,7 +3061,7 @@
      "rarity": "Rare",
      "series": null,
      "set": "Seaward Guardian",
-     "appearances": null
+     "appearances": 1
     }
    ]
   },
@@ -3075,7 +3075,7 @@
    "outDate": "2026-12-06",
    "section": "A$AP Rocky",
    "image": "https://fortnite-api.com/images/cosmetics/br/newdisplayassets/288672a44f912b6c/renderimage_0.png",
-   "gap": null,
+   "gap": "unseen",
    "items": [
     {
      "id": "Shoes_TonicMailNote",
@@ -3084,7 +3084,7 @@
      "rarity": "Uncommon",
      "series": null,
      "set": "PUMA Shoes",
-     "appearances": null
+     "appearances": 3
     }
    ]
   },
@@ -3161,7 +3161,7 @@
    "outDate": "2026-11-17",
    "section": "Hype Circuit",
    "image": "https://fortnite-api.com/images/cosmetics/br/newdisplayassets/1f747876c2ec733a/renderimage_0.png",
-   "gap": null,
+   "gap": 84,
    "items": [
     {
      "id": "Character_VoyagerCuboid",
@@ -3170,7 +3170,7 @@
      "rarity": "Epic",
      "series": null,
      "set": "Voyager's Chaos",
-     "appearances": null
+     "appearances": 3
     },
     {
      "id": "Backpack_VoyagerCuboid",
@@ -3179,7 +3179,7 @@
      "rarity": "Rare",
      "series": null,
      "set": "Voyager's Chaos",
-     "appearances": null
+     "appearances": 6
     }
    ]
   },
@@ -3235,7 +3235,7 @@
    "outDate": "2026-12-05",
    "section": "One Piece ",
    "image": "https://fortnite-api.com/images/cosmetics/br/newdisplayassets/0e6ada1f404630c6/renderimage_0.png",
-   "gap": null,
+   "gap": "unseen",
    "items": [
     {
      "id": "Character_InsightBawl",
@@ -3244,7 +3244,7 @@
      "rarity": "Epic",
      "series": null,
      "set": "One Piece",
-     "appearances": null
+     "appearances": 2
     },
     {
      "id": "Pickaxe_InsightBawl",
@@ -3253,7 +3253,7 @@
      "rarity": "Rare",
      "series": null,
      "set": "One Piece",
-     "appearances": null
+     "appearances": 3
     },
     {
      "id": "Backpack_InsightBawl",
@@ -3262,7 +3262,7 @@
      "rarity": "Rare",
      "series": null,
      "set": "One Piece",
-     "appearances": null
+     "appearances": 3
     }
    ]
   },
@@ -3276,7 +3276,7 @@
    "outDate": "2026-12-12",
    "section": "Lil Uzi Vert ",
    "image": "https://fortnite-api.com/images/cosmetics/br/newdisplayassets/a836366535c1b074/renderimage_0.png",
-   "gap": null,
+   "gap": "unseen",
    "items": [
     {
      "id": "Shoes_LemonJump",
@@ -3285,7 +3285,7 @@
      "rarity": "Uncommon",
      "series": null,
      "set": "Vans Shoes",
-     "appearances": null
+     "appearances": 2
     }
    ]
   },
@@ -3320,7 +3320,7 @@
    "outDate": "2026-11-16",
    "section": null,
    "image": "https://fortnite-api.com/images/cosmetics/br/backpack_headhunterstar/featured.png",
-   "gap": null,
+   "gap": 174,
    "items": [
     {
      "id": "Backpack_HeadHunterStar",
@@ -3329,7 +3329,7 @@
      "rarity": "Rare",
      "series": null,
      "set": "Renegade Robotics",
-     "appearances": null
+     "appearances": 3
     }
    ]
   },
@@ -3343,7 +3343,7 @@
    "outDate": "2026-12-06",
    "section": "A$AP Rocky",
    "image": "https://fortnite-api.com/images/cosmetics/br/newdisplayassets/9aff7963aad5eba6/renderimage_0.png",
-   "gap": null,
+   "gap": "unseen",
    "items": [
     {
      "id": "Character_TonicMailYam",
@@ -3352,7 +3352,7 @@
      "rarity": "Icon Series",
      "series": "Icon Series",
      "set": "A$AP Rocky",
-     "appearances": null
+     "appearances": 2
     },
     {
      "id": "Backpack_TonicMailYam",
@@ -3361,7 +3361,7 @@
      "rarity": "Icon Series",
      "series": "Icon Series",
      "set": "A$AP Rocky",
-     "appearances": null
+     "appearances": 3
     }
    ]
   },
@@ -3409,7 +3409,7 @@
    "outDate": "2026-11-15",
    "section": "Mega Man",
    "image": "https://fortnite-api.com/images/cosmetics/br/newdisplayassets/e0b19847e3ae17c7/renderimage_0.png",
-   "gap": null,
+   "gap": 52,
    "items": [
     {
      "id": "Pickaxe_TackleShow",
@@ -3418,7 +3418,7 @@
      "rarity": "Gaming Legends Series",
      "series": "Gaming Legends Series",
      "set": "Mega Man",
-     "appearances": null
+     "appearances": 6
     },
     {
      "id": "Backpack_TackleShow",
@@ -3427,7 +3427,7 @@
      "rarity": "Gaming Legends Series",
      "series": "Gaming Legends Series",
      "set": "Mega Man",
-     "appearances": null
+     "appearances": 6
     }
    ]
   },
@@ -3441,7 +3441,7 @@
    "outDate": "2026-11-16",
    "section": "No Sweat",
    "image": "https://fortnite-api.com/images/cosmetics/br/newdisplayassets/c35c608c460b47ab/renderimage_0.png",
-   "gap": null,
+   "gap": 174,
    "items": [
     {
      "id": "Character_HeadhunterStar",
@@ -3450,7 +3450,7 @@
      "rarity": "Rare",
      "series": null,
      "set": "Renegade Robotics",
-     "appearances": null
+     "appearances": 2
     },
     {
      "id": "Backpack_HeadHunterStar",
@@ -3459,7 +3459,7 @@
      "rarity": "Rare",
      "series": null,
      "set": "Renegade Robotics",
-     "appearances": null
+     "appearances": 3
     }
    ]
   },
@@ -3515,7 +3515,7 @@
    "outDate": "2026-12-06",
    "section": "A$AP Rocky",
    "image": "https://fortnite-api.com/images/cosmetics/br/newdisplayassets/2ed28a32bec0c7e0/renderimage_0.png",
-   "gap": null,
+   "gap": "unseen",
    "items": [
     {
      "id": "Glider_TonicMailWeb",
@@ -3524,7 +3524,7 @@
      "rarity": "Icon Series",
      "series": "Icon Series",
      "set": "A$AP Rocky",
-     "appearances": null
+     "appearances": 2
     }
    ]
   },
@@ -3538,7 +3538,7 @@
    "outDate": "2026-12-05",
    "section": "One Piece ",
    "image": "https://fortnite-api.com/images/cosmetics/br/newdisplayassets/1237a29a1ed004e9/renderimage_0.png",
-   "gap": null,
+   "gap": "unseen",
    "items": [
     {
      "id": "EID_BrandCreed",
@@ -3547,7 +3547,7 @@
      "rarity": "Uncommon",
      "series": null,
      "set": "One Piece",
-     "appearances": null
+     "appearances": 3
     }
    ]
   },
@@ -3561,7 +3561,7 @@
    "outDate": "2026-12-05",
    "section": "One Piece ",
    "image": "https://fortnite-api.com/images/cosmetics/br/newdisplayassets/7dada1d37dd74140/renderimage_0.png",
-   "gap": null,
+   "gap": "unseen",
    "items": [
     {
      "id": "Character_BrandCreed",
@@ -3570,7 +3570,7 @@
      "rarity": "Epic",
      "series": null,
      "set": "One Piece",
-     "appearances": null
+     "appearances": 2
     },
     {
      "id": "Pickaxe_BrandCreed",
@@ -3579,7 +3579,7 @@
      "rarity": "Rare",
      "series": null,
      "set": "One Piece",
-     "appearances": null
+     "appearances": 2
     },
     {
      "id": "Backpack_BrandCreed",
@@ -3588,7 +3588,7 @@
      "rarity": "Rare",
      "series": null,
      "set": "One Piece",
-     "appearances": null
+     "appearances": 3
     },
     {
      "id": "EID_BrandCreed",
@@ -3597,7 +3597,7 @@
      "rarity": "Uncommon",
      "series": null,
      "set": "One Piece",
-     "appearances": null
+     "appearances": 3
     }
    ]
   },
@@ -3611,7 +3611,7 @@
    "outDate": "2026-12-06",
    "section": "A$AP Rocky",
    "image": "https://fortnite-api.com/images/cosmetics/br/newdisplayassets/490430e5698174d3/renderimage_0.png",
-   "gap": null,
+   "gap": "unseen",
    "items": [
     {
      "id": "Shoes_TonicMailLetter",
@@ -3620,7 +3620,7 @@
      "rarity": "Uncommon",
      "series": null,
      "set": "PUMA Shoes",
-     "appearances": null
+     "appearances": 2
     }
    ]
   },
@@ -3634,7 +3634,7 @@
    "outDate": "2026-11-14",
    "section": "Jacob's Pierogi Locker ",
    "image": "https://fortnite-api.com/images/cosmetics/br/newdisplayassets/ae3673682d1f7b89/renderimage_0.png",
-   "gap": null,
+   "gap": 10,
    "items": [
     {
      "id": "BID_220_FarmerFemale",
@@ -3643,7 +3643,7 @@
      "rarity": "Uncommon",
      "series": null,
      "set": "Fatal Fielders",
-     "appearances": null
+     "appearances": 5
     }
    ]
   },
@@ -3657,7 +3657,7 @@
    "outDate": "2026-11-15",
    "section": "Main Character Energy ",
    "image": "https://fortnite-api.com/images/cosmetics/br/newdisplayassets/ef94e7e2f169f10f/renderimage_0.png",
-   "gap": null,
+   "gap": 61,
    "items": [
     {
      "id": "Wrap_VioletFare",
@@ -3666,7 +3666,7 @@
      "rarity": "Rare",
      "series": null,
      "set": "Seaward Guardian",
-     "appearances": null
+     "appearances": 1
     }
    ]
   },
@@ -3680,7 +3680,7 @@
    "outDate": "2026-12-05",
    "section": "One Piece ",
    "image": "https://fortnite-api.com/images/cosmetics/br/newdisplayassets/764245f1c0535262/renderimage_0.png",
-   "gap": null,
+   "gap": "unseen",
    "items": [
     {
      "id": "Character_BoastJoint",
@@ -3689,7 +3689,7 @@
      "rarity": "Epic",
      "series": null,
      "set": "One Piece",
-     "appearances": null
+     "appearances": 2
     },
     {
      "id": "Backpack_BoastJoint",
@@ -3698,7 +3698,7 @@
      "rarity": "Rare",
      "series": null,
      "set": "One Piece",
-     "appearances": null
+     "appearances": 3
     },
     {
      "id": "Pickaxe_BoastJoint",
@@ -3707,7 +3707,7 @@
      "rarity": "Rare",
      "series": null,
      "set": "One Piece",
-     "appearances": null
+     "appearances": 3
     }
    ]
   },
@@ -3784,7 +3784,7 @@
    "outDate": "2026-12-05",
    "section": "One Piece ",
    "image": "https://fortnite-api.com/images/cosmetics/br/newdisplayassets/15b9c6582ec17a78/renderimage_0.png",
-   "gap": null,
+   "gap": "unseen",
    "items": [
     {
      "id": "Backpack_LoomRise",
@@ -3793,7 +3793,7 @@
      "rarity": "Rare",
      "series": null,
      "set": "One Piece",
-     "appearances": null
+     "appearances": 3
     }
    ]
   },
@@ -3807,7 +3807,7 @@
    "outDate": "2026-11-16",
    "section": "Main Character Energy ",
    "image": "https://fortnite-api.com/images/cosmetics/br/newdisplayassets/96384bb2879d9eab/renderimage_0.png",
-   "gap": null,
+   "gap": 186,
    "items": [
     {
      "id": "CID_581_Athena_Commando_M_DarkDino",
@@ -3816,7 +3816,7 @@
      "rarity": "DARK SERIES",
      "series": "DARK SERIES",
      "set": "Dino Guard",
-     "appearances": null
+     "appearances": 2
     },
     {
      "id": "BID_382_DarkDinoMale",
@@ -3825,7 +3825,7 @@
      "rarity": "DARK SERIES",
      "series": "DARK SERIES",
      "set": "Dino Guard",
-     "appearances": null
+     "appearances": 4
     }
    ]
   },
@@ -3965,7 +3965,7 @@
    "outDate": "2026-12-05",
    "section": "One Piece ",
    "image": "https://fortnite-api.com/images/cosmetics/br/newdisplayassets/8d18a7d0a6c5be85/renderimage_0.png",
-   "gap": null,
+   "gap": "unseen",
    "items": [
     {
      "id": "Character_LoomRise",
@@ -3974,7 +3974,7 @@
      "rarity": "Epic",
      "series": null,
      "set": "One Piece",
-     "appearances": null
+     "appearances": 2
     },
     {
      "id": "Backpack_LoomRise",
@@ -3983,7 +3983,7 @@
      "rarity": "Rare",
      "series": null,
      "set": "One Piece",
-     "appearances": null
+     "appearances": 3
     },
     {
      "id": "Pickaxe_LoomRise",
@@ -3992,7 +3992,7 @@
      "rarity": "Rare",
      "series": null,
      "set": "One Piece",
-     "appearances": null
+     "appearances": 3
     }
    ]
   },
@@ -4027,7 +4027,7 @@
    "outDate": "2026-11-16",
    "section": "Get Your Kicks",
    "image": "https://fortnite-api.com/images/cosmetics/br/newdisplayassets/6fd7d7b00ab4cb0d/renderimage_0.png",
-   "gap": null,
+   "gap": "unseen",
    "items": [
     {
      "id": "Shoes_BarnCourt",
@@ -4036,7 +4036,7 @@
      "rarity": "Uncommon",
      "series": null,
      "set": null,
-     "appearances": null
+     "appearances": 1
     }
    ]
   },
@@ -4092,7 +4092,7 @@
    "outDate": "2026-11-20",
    "section": "iShowSpeed",
    "image": "https://fortnite-api.com/images/cosmetics/br/newdisplayassets/949a15e45903f9a2/renderimage_0.png",
-   "gap": null,
+   "gap": "unseen",
    "items": [
     {
      "id": "Pickaxe_LocketSnug",
@@ -4101,7 +4101,7 @@
      "rarity": "Icon Series",
      "series": "Icon Series",
      "set": "IShowSpeed",
-     "appearances": null
+     "appearances": 0
     }
    ]
   },
@@ -4199,7 +4199,7 @@
    "outDate": "2026-11-14",
    "section": null,
    "image": "https://fortnite-api.com/images/cosmetics/br/bid_695_streetfashioneclipse/featured.png",
-   "gap": null,
+   "gap": "unseen",
    "items": [
     {
      "id": "BID_695_StreetFashionEclipse",
@@ -4208,7 +4208,7 @@
      "rarity": "Shadow Series",
      "series": "Shadow Series",
      "set": "Street Shadows",
-     "appearances": null
+     "appearances": 2
     }
    ]
   },
@@ -4222,7 +4222,7 @@
    "outDate": "2026-11-14",
    "section": "Victory Party",
    "image": "https://fortnite-api.com/images/cosmetics/br/newdisplayassets/18ca8eed06b988ad/renderimage_0.png",
-   "gap": null,
+   "gap": 79,
    "items": [
     {
      "id": "EID_ModernMix",
@@ -4231,7 +4231,7 @@
      "rarity": "Icon Series",
      "series": "Icon Series",
      "set": null,
-     "appearances": null
+     "appearances": 2
     }
    ]
   },
@@ -4266,7 +4266,7 @@
    "outDate": "2026-11-16",
    "section": "Hype Circuit",
    "image": "https://fortnite-api.com/images/cosmetics/br/newdisplayassets/247447039d905403/renderimage_0.png",
-   "gap": null,
+   "gap": "unseen",
    "items": [
     {
      "id": "Companion_TrotUdon",
@@ -4275,7 +4275,7 @@
      "rarity": "Uncommon",
      "series": null,
      "set": "Aibo",
-     "appearances": null
+     "appearances": 1
     }
    ]
   },
@@ -4373,7 +4373,7 @@
    "outDate": "2026-11-14",
    "section": "Main Character Energy ",
    "image": "https://fortnite-api.com/images/cosmetics/br/newdisplayassets/3c39ea4f94e79906/renderimage_0.png",
-   "gap": null,
+   "gap": 131,
    "items": [
     {
      "id": "Character_IceRetreat",
@@ -4382,7 +4382,7 @@
      "rarity": "Rare",
      "series": null,
      "set": "Summit's Idol",
-     "appearances": null
+     "appearances": 5
     },
     {
      "id": "Backpack_IceRetreat",
@@ -4391,7 +4391,7 @@
      "rarity": "Rare",
      "series": null,
      "set": "Summit's Idol",
-     "appearances": null
+     "appearances": 8
     },
     {
      "id": "sid_placeholder_88",
@@ -4433,7 +4433,7 @@
    "outDate": "2026-11-15",
    "section": "Marvel",
    "image": "https://fortnite-api.com/images/cosmetics/br/newdisplayassets/32e1e9cd0b48165a/renderimage_0.png",
-   "gap": null,
+   "gap": 152,
    "items": [
     {
      "id": "Character_SweetLetter",
@@ -4442,7 +4442,7 @@
      "rarity": "MARVEL SERIES",
      "series": "MARVEL SERIES",
      "set": "Black Cat",
-     "appearances": null
+     "appearances": 4
     },
     {
      "id": "Backpack_SweetLetter",
@@ -4451,7 +4451,7 @@
      "rarity": "MARVEL SERIES",
      "series": "MARVEL SERIES",
      "set": "Black Cat",
-     "appearances": null
+     "appearances": 6
     },
     {
      "id": "Pickaxe_SweetLetter",
@@ -4460,7 +4460,7 @@
      "rarity": "MARVEL SERIES",
      "series": "MARVEL SERIES",
      "set": "Black Cat",
-     "appearances": null
+     "appearances": 4
     },
     {
      "id": "Wrap_SweetLetter",
@@ -4469,7 +4469,7 @@
      "rarity": "MARVEL SERIES",
      "series": "MARVEL SERIES",
      "set": "Black Cat",
-     "appearances": null
+     "appearances": 4
     },
     {
      "id": "Backpack_SweetLetter_Guitar",
@@ -4478,7 +4478,7 @@
      "rarity": "MARVEL SERIES",
      "series": "MARVEL SERIES",
      "set": "Black Cat",
-     "appearances": null
+     "appearances": 4
     },
     {
      "id": "Pickaxe_SweetLetter_Guitar",
@@ -4487,7 +4487,7 @@
      "rarity": "MARVEL SERIES",
      "series": "MARVEL SERIES",
      "set": "Black Cat",
-     "appearances": null
+     "appearances": 4
     }
    ]
   },
@@ -4501,7 +4501,7 @@
    "outDate": "2026-11-15",
    "section": null,
    "image": "https://fortnite-api.com/images/cosmetics/br/backpack_sourwire_bass/featured.png",
-   "gap": null,
+   "gap": "unseen",
    "items": [
     {
      "id": "Backpack_SourWire_Bass",
@@ -4510,7 +4510,7 @@
      "rarity": "Icon Series",
      "series": "Icon Series",
      "set": "Karol G",
-     "appearances": null
+     "appearances": 2
     },
     {
      "id": "Pickaxe_SourWire_Bass",
@@ -4519,7 +4519,7 @@
      "rarity": "Icon Series",
      "series": "Icon Series",
      "set": "Karol G",
-     "appearances": null
+     "appearances": 2
     }
    ]
   },
@@ -4575,7 +4575,7 @@
    "outDate": "2026-12-12",
    "section": "Lil Uzi Vert ",
    "image": "https://fortnite-api.com/images/cosmetics/br/newdisplayassets/2c987b41787cb312/renderimage_0.png",
-   "gap": null,
+   "gap": "unseen",
    "items": [
     {
      "id": "Pickaxe_RookGeckoRye_Guitar",
@@ -4584,7 +4584,7 @@
      "rarity": "Icon Series",
      "series": "Icon Series",
      "set": "Lil Uzi Vert",
-     "appearances": null
+     "appearances": 2
     },
     {
      "id": "Backpack_RookGeckoRye_Guitar",
@@ -4593,7 +4593,7 @@
      "rarity": "Icon Series",
      "series": "Icon Series",
      "set": "Lil Uzi Vert",
-     "appearances": null
+     "appearances": 2
     }
    ]
   },
@@ -4607,7 +4607,7 @@
    "outDate": "2026-12-12",
    "section": "Lil Uzi Vert ",
    "image": "https://fortnite-api.com/images/cosmetics/br/newdisplayassets/b8b2128e580b14d1/renderimage_0.png",
-   "gap": null,
+   "gap": "unseen",
    "items": [
     {
      "id": "Character_RookGeckoRod",
@@ -4616,7 +4616,7 @@
      "rarity": "Icon Series",
      "series": "Icon Series",
      "set": "Lil Uzi Vert",
-     "appearances": null
+     "appearances": 2
     },
     {
      "id": "Backpack_RookGeckoRod",
@@ -4625,7 +4625,7 @@
      "rarity": "Icon Series",
      "series": "Icon Series",
      "set": "Lil Uzi Vert",
-     "appearances": null
+     "appearances": 3
     }
    ]
   },
@@ -4681,7 +4681,7 @@
    "outDate": "2026-11-16",
    "section": "No Sweat",
    "image": "https://fortnite-api.com/images/cosmetics/br/newdisplayassets/327511e9cf452da0/renderimage_0.png",
-   "gap": null,
+   "gap": "unseen",
    "items": [
     {
      "id": "Character_TacticMushroom_D",
@@ -4690,7 +4690,7 @@
      "rarity": "Rare",
      "series": null,
      "set": "Skratch Company",
-     "appearances": null
+     "appearances": 1
     }
    ]
   },
@@ -4704,7 +4704,7 @@
    "outDate": "2026-11-16",
    "section": "Get Your Kicks",
    "image": "https://fortnite-api.com/images/cosmetics/br/newdisplayassets/d48e5a449d9bedef/renderimage_0.png",
-   "gap": null,
+   "gap": 8,
    "items": [
     {
      "id": "Shoes_WhiskerCaesarChomp",
@@ -4713,7 +4713,7 @@
      "rarity": "Uncommon",
      "series": null,
      "set": "Crocs Shoes",
-     "appearances": null
+     "appearances": 2
     }
    ]
   },
@@ -4727,7 +4727,7 @@
    "outDate": "2026-11-14",
    "section": "Victory Party",
    "image": "https://fortnite-api.com/images/cosmetics/br/newdisplayassets/653d69a6e6f79227/renderimage_0.png",
-   "gap": null,
+   "gap": 101,
    "items": [
     {
      "id": "EID_SandwichBop",
@@ -4736,7 +4736,7 @@
      "rarity": "Icon Series",
      "series": "Icon Series",
      "set": null,
-     "appearances": null
+     "appearances": 2
     }
    ]
   },
@@ -4771,7 +4771,7 @@
    "outDate": "2026-12-06",
    "section": "A$AP Rocky",
    "image": "https://fortnite-api.com/images/cosmetics/br/newdisplayassets/39caaac1bd95d207/renderimage_0.png",
-   "gap": null,
+   "gap": "unseen",
    "items": [
     {
      "id": "Wrap_TonicMail",
@@ -4780,7 +4780,7 @@
      "rarity": "Icon Series",
      "series": "Icon Series",
      "set": null,
-     "appearances": null
+     "appearances": 2
     }
    ]
   },
@@ -4794,7 +4794,7 @@
    "outDate": "2026-12-06",
    "section": "A$AP Rocky",
    "image": "https://fortnite-api.com/images/cosmetics/br/newdisplayassets/047220a04e410620/renderimage_0.png",
-   "gap": null,
+   "gap": "unseen",
    "items": [
     {
      "id": "EID_TonicMailWeb",
@@ -4803,7 +4803,7 @@
      "rarity": "Icon Series",
      "series": "Icon Series",
      "set": "A$AP Rocky",
-     "appearances": null
+     "appearances": 2
     }
    ]
   },
@@ -4859,7 +4859,7 @@
    "outDate": "2026-11-26",
    "section": "Lil Uzi Vert ",
    "image": "https://fortnite-api.com/images/cosmetics/br/newdisplayassets/4073b784298738f1/renderimage_0.png",
-   "gap": null,
+   "gap": 103,
    "items": [
     {
      "id": "EID_Thrash",
@@ -4868,7 +4868,7 @@
      "rarity": "Icon Series",
      "series": "Icon Series",
      "set": null,
-     "appearances": null
+     "appearances": 3
     }
    ]
   },
@@ -4924,7 +4924,7 @@
    "outDate": "2026-11-16",
    "section": "Main Character Energy ",
    "image": "https://fortnite-api.com/images/cosmetics/br/newdisplayassets/e82a327c6beac6d6/renderimage_0.png",
-   "gap": null,
+   "gap": 94,
    "items": [
     {
      "id": "Companion_RareKrow",
@@ -4933,7 +4933,7 @@
      "rarity": "Uncommon",
      "series": null,
      "set": "Knight of Dragons",
-     "appearances": null
+     "appearances": 2
     }
    ]
   },
@@ -4947,7 +4947,7 @@
    "outDate": "2026-11-14",
    "section": null,
    "image": "https://fortnite-api.com/images/cosmetics/br/backpack_cosmicsquatter/featured.png",
-   "gap": null,
+   "gap": 140,
    "items": [
     {
      "id": "Backpack_CosmicSquatter",
@@ -4956,7 +4956,7 @@
      "rarity": "Rare",
      "series": null,
      "set": "Breaker of Cages",
-     "appearances": null
+     "appearances": 8
     }
    ]
   },
@@ -4970,7 +4970,7 @@
    "outDate": "2026-11-16",
    "section": "Get Your Kicks",
    "image": "https://fortnite-api.com/images/cosmetics/br/newdisplayassets/0188e03ff482a03c/renderimage_0.png",
-   "gap": null,
+   "gap": 8,
    "items": [
     {
      "id": "Shoes_GlitterMane",
@@ -4979,7 +4979,7 @@
      "rarity": "Uncommon",
      "series": null,
      "set": null,
-     "appearances": null
+     "appearances": 5
     }
    ]
   },
@@ -5014,7 +5014,7 @@
    "outDate": "2026-11-16",
    "section": null,
    "image": "https://fortnite-api.com/images/cosmetics/br/bid_090_streetracerwhitemale/featured.png",
-   "gap": null,
+   "gap": "unseen",
    "items": [
     {
      "id": "BID_090_StreetRacerWhiteMale",
@@ -5023,7 +5023,7 @@
      "rarity": "Epic",
      "series": null,
      "set": "Vanishing Point",
-     "appearances": null
+     "appearances": 2
     }
    ]
   },
@@ -5037,7 +5037,7 @@
    "outDate": "2026-11-16",
    "section": "Get Your Kicks",
    "image": "https://fortnite-api.com/images/cosmetics/br/newdisplayassets/052b85159d6f6bb8/renderimage_0.png",
-   "gap": null,
+   "gap": "unseen",
    "items": [
     {
      "id": "Shoes_PurityJadeAloe",
@@ -5046,7 +5046,7 @@
      "rarity": "Uncommon",
      "series": null,
      "set": "NIKE Shoes",
-     "appearances": null
+     "appearances": 1
     }
    ]
   },
@@ -5060,7 +5060,7 @@
    "outDate": "2026-12-06",
    "section": "A$AP Rocky",
    "image": "https://fortnite-api.com/images/cosmetics/br/newdisplayassets/c4d74875315ed52d/renderimage_0.png",
-   "gap": null,
+   "gap": "unseen",
    "items": [
     {
      "id": "Backpack_TonicMailYam",
@@ -5069,7 +5069,7 @@
      "rarity": "Icon Series",
      "series": "Icon Series",
      "set": "A$AP Rocky",
-     "appearances": null
+     "appearances": 3
     }
    ]
   },
@@ -5104,7 +5104,7 @@
    "outDate": "2026-11-14",
    "section": null,
    "image": "https://fortnite-api.com/images/cosmetics/br/pickaxe_id_541_streetfashioneclipsefemale/featured.png",
-   "gap": null,
+   "gap": "unseen",
    "items": [
     {
      "id": "Pickaxe_ID_541_StreetFashionEclipseFemale",
@@ -5113,7 +5113,7 @@
      "rarity": "Shadow Series",
      "series": "Shadow Series",
      "set": "Street Shadows",
-     "appearances": null
+     "appearances": 2
     }
    ]
   },
@@ -5127,7 +5127,7 @@
    "outDate": "2026-11-16",
    "section": "Hype Circuit",
    "image": "https://fortnite-api.com/images/cosmetics/br/newdisplayassets/029229768ec4abdc/renderimage_0.png",
-   "gap": null,
+   "gap": "unseen",
    "items": [
     {
      "id": "Pickaxe_IonVial",
@@ -5136,7 +5136,7 @@
      "rarity": "Rare",
      "series": null,
      "set": null,
-     "appearances": null
+     "appearances": 1
     }
    ]
   },
@@ -5171,7 +5171,7 @@
    "outDate": "2026-11-15",
    "section": "Main Character Energy ",
    "image": "https://fortnite-api.com/images/cosmetics/br/newdisplayassets/25b74de90f04edde/renderimage_0.png",
-   "gap": null,
+   "gap": 129,
    "items": [
     {
      "id": "CID_249_Athena_Commando_F_BlackWidow",
@@ -5180,7 +5180,7 @@
      "rarity": "Legendary",
      "series": null,
      "set": "Arachnid",
-     "appearances": null
+     "appearances": 3
     },
     {
      "id": "BID_131_BlackWidowfemale",
@@ -5189,7 +5189,7 @@
      "rarity": "Legendary",
      "series": null,
      "set": "Arachnid",
-     "appearances": null
+     "appearances": 6
     }
    ]
   },
@@ -5203,7 +5203,7 @@
    "outDate": "2026-11-20",
    "section": "iShowSpeed",
    "image": "https://fortnite-api.com/images/cosmetics/br/newdisplayassets/88f4f648f51342df/renderimage_0.png",
-   "gap": null,
+   "gap": "unseen",
    "items": [
     {
      "id": "Character_LocketSnug",
@@ -5212,7 +5212,7 @@
      "rarity": "Icon Series",
      "series": "Icon Series",
      "set": "IShowSpeed",
-     "appearances": null
+     "appearances": 0
     },
     {
      "id": "Backpack_LocketSnug",
@@ -5221,7 +5221,7 @@
      "rarity": "Icon Series",
      "series": "Icon Series",
      "set": "IShowSpeed",
-     "appearances": null
+     "appearances": 0
     }
    ]
   },
@@ -5235,7 +5235,7 @@
    "outDate": "2026-12-05",
    "section": "One Piece ",
    "image": "https://fortnite-api.com/images/cosmetics/br/newdisplayassets/0cffae2d10c12c17/renderimage_0.png",
-   "gap": null,
+   "gap": "unseen",
    "items": [
     {
      "id": "Pickaxe_InsightBawl",
@@ -5244,7 +5244,7 @@
      "rarity": "Rare",
      "series": null,
      "set": "One Piece",
-     "appearances": null
+     "appearances": 3
     },
     {
      "id": "Backpack_InsightBawl",
@@ -5253,7 +5253,7 @@
      "rarity": "Rare",
      "series": null,
      "set": "One Piece",
-     "appearances": null
+     "appearances": 3
     }
    ]
   },
@@ -5267,7 +5267,7 @@
    "outDate": "2026-11-14",
    "section": "Main Character Energy ",
    "image": "https://fortnite-api.com/images/cosmetics/br/newdisplayassets/59e8f83a89abda99/renderimage_0.png",
-   "gap": null,
+   "gap": "unseen",
    "items": [
     {
      "id": "Glider_ID_043_DarkNinja",
@@ -5276,7 +5276,7 @@
      "rarity": "Epic",
      "series": null,
      "set": "Overseer",
-     "appearances": null
+     "appearances": 0
     }
    ]
   },
@@ -5290,7 +5290,7 @@
    "outDate": "2026-11-14",
    "section": "Main Character Energy ",
    "image": "https://fortnite-api.com/images/cosmetics/br/newdisplayassets/db871c5a95149d14/renderimage_0.png",
-   "gap": null,
+   "gap": 34,
    "items": [
     {
      "id": "Pickaxe_ID_064_Gumshoe",
@@ -5299,7 +5299,7 @@
      "rarity": "Rare",
      "series": null,
      "set": "Hardboiled",
-     "appearances": null
+     "appearances": 1
     }
    ]
   },
@@ -5313,7 +5313,7 @@
    "outDate": "2026-11-14",
    "section": "Main Character Energy ",
    "image": "https://fortnite-api.com/images/cosmetics/br/newdisplayassets/4a4d77bec5febd87/renderimage_0.png",
-   "gap": null,
+   "gap": "unseen",
    "items": [
     {
      "id": "CID_679_Athena_Commando_M_ModernMilitaryEclipse",
@@ -5322,7 +5322,7 @@
      "rarity": "Shadow Series",
      "series": "Shadow Series",
      "set": "Archetype",
-     "appearances": null
+     "appearances": 1
     },
     {
      "id": "BID_462_ModernMilitaryEclipse",
@@ -5331,7 +5331,7 @@
      "rarity": "Shadow Series",
      "series": "Shadow Series",
      "set": "Archetype",
-     "appearances": null
+     "appearances": 2
     }
    ]
   },
@@ -5345,7 +5345,7 @@
    "outDate": "2026-11-15",
    "section": "Marvel",
    "image": "https://fortnite-api.com/images/cosmetics/br/newdisplayassets/057213dbcc3aca98/renderimage_0.png",
-   "gap": null,
+   "gap": 152,
    "items": [
     {
      "id": "Wrap_SweetLetter",
@@ -5354,7 +5354,7 @@
      "rarity": "MARVEL SERIES",
      "series": "MARVEL SERIES",
      "set": "Black Cat",
-     "appearances": null
+     "appearances": 4
     }
    ]
   },
@@ -5368,7 +5368,7 @@
    "outDate": "2026-12-05",
    "section": "One Piece ",
    "image": "https://fortnite-api.com/images/cosmetics/br/newdisplayassets/3ae6b56d744af2d6/renderimage_0.png",
-   "gap": null,
+   "gap": "unseen",
    "items": [
     {
      "id": "Pickaxe_BoastJoint",
@@ -5377,7 +5377,7 @@
      "rarity": "Rare",
      "series": null,
      "set": "One Piece",
-     "appearances": null
+     "appearances": 3
     }
    ]
   },
@@ -5412,7 +5412,7 @@
    "outDate": "2026-11-16",
    "section": "Hype Circuit",
    "image": "https://fortnite-api.com/images/cosmetics/br/newdisplayassets/7ccd2ae98e75250e/renderimage_0.png",
-   "gap": null,
+   "gap": "unseen",
    "items": [
     {
      "id": "CID_190_Athena_Commando_M_StreetRacerWhite",
@@ -5421,7 +5421,7 @@
      "rarity": "Epic",
      "series": null,
      "set": "Vanishing Point",
-     "appearances": null
+     "appearances": 1
     },
     {
      "id": "BID_090_StreetRacerWhiteMale",
@@ -5430,7 +5430,7 @@
      "rarity": "Epic",
      "series": null,
      "set": "Vanishing Point",
-     "appearances": null
+     "appearances": 2
     }
    ]
   },
@@ -5444,7 +5444,7 @@
    "outDate": "2026-11-20",
    "section": "iShowSpeed",
    "image": "https://fortnite-api.com/images/cosmetics/br/newdisplayassets/83b4b805921cf1ff/renderimage_0.png",
-   "gap": null,
+   "gap": "unseen",
    "items": [
     {
      "id": "Backpack_LocketSnug",
@@ -5453,7 +5453,7 @@
      "rarity": "Icon Series",
      "series": "Icon Series",
      "set": "IShowSpeed",
-     "appearances": null
+     "appearances": 0
     }
    ]
   },
@@ -5467,7 +5467,7 @@
    "outDate": "2026-11-18",
    "section": "Victory Party",
    "image": "https://fortnite-api.com/images/cosmetics/br/newdisplayassets/1ceb506b934ef87f/renderimage_0.png",
-   "gap": null,
+   "gap": 113,
    "items": [
     {
      "id": "EID_GasStation_104FQ",
@@ -5476,7 +5476,7 @@
      "rarity": "Icon Series",
      "series": "Icon Series",
      "set": null,
-     "appearances": null
+     "appearances": 2
     }
    ]
   },
@@ -5574,7 +5574,7 @@
    "outDate": "2026-11-17",
    "section": "Hype Circuit",
    "image": "https://fortnite-api.com/images/cosmetics/br/newdisplayassets/98803f08ae5bc4dd/renderimage_0.png",
-   "gap": null,
+   "gap": 27,
    "items": [
     {
      "id": "CID_336_Athena_Commando_M_DragonMask",
@@ -5583,7 +5583,7 @@
      "rarity": "Rare",
      "series": null,
      "set": null,
-     "appearances": null
+     "appearances": 2
     }
    ]
   },
@@ -5597,7 +5597,7 @@
    "outDate": "2026-11-15",
    "section": "Main Stage Moment",
    "image": "https://fortnite-api.com/images/cosmetics/br/newdisplayassets/8b8daf5c53ce17a9/renderimage_0.png",
-   "gap": null,
+   "gap": "unseen",
    "items": [
     {
      "id": "CID_A_182_Athena_Commando_M_Vivid_LZGQ3",
@@ -5606,7 +5606,7 @@
      "rarity": "Icon Series",
      "series": "Icon Series",
      "set": "J Balvin",
-     "appearances": null
+     "appearances": 2
     },
     {
      "id": "Pickaxe_ID_661_VividMale1H_ZN6Q0",
@@ -5615,7 +5615,7 @@
      "rarity": "Icon Series",
      "series": "Icon Series",
      "set": "J Balvin",
-     "appearances": null
+     "appearances": 3
     },
     {
      "id": "BID_825_VividMale_7L9T0",
@@ -5624,7 +5624,7 @@
      "rarity": "Icon Series",
      "series": "Icon Series",
      "set": "J Balvin",
-     "appearances": null
+     "appearances": 3
     }
    ]
   },
@@ -5638,7 +5638,7 @@
    "outDate": "2026-11-14",
    "section": "Main Character Energy ",
    "image": "https://fortnite-api.com/images/cosmetics/br/newdisplayassets/672f3c176c0b6214/renderimage_0.png",
-   "gap": null,
+   "gap": 41,
    "items": [
     {
      "id": "Character_Jumpsuit_Mutable",
@@ -5647,7 +5647,7 @@
      "rarity": "Epic",
      "series": null,
      "set": "Escape Artists",
-     "appearances": null
+     "appearances": 12
     },
     {
      "id": "Spray_Jumpsuit_1",
@@ -5656,7 +5656,7 @@
      "rarity": "Uncommon",
      "series": null,
      "set": "Escape Artists",
-     "appearances": null
+     "appearances": 12
     },
     {
      "id": "Spray_Jumpsuit_16",
@@ -5665,7 +5665,7 @@
      "rarity": "Uncommon",
      "series": null,
      "set": "Escape Artists",
-     "appearances": null
+     "appearances": 12
     },
     {
      "id": "Spray_Jumpsuit_21",
@@ -5674,7 +5674,7 @@
      "rarity": "Uncommon",
      "series": null,
      "set": "Escape Artists",
-     "appearances": null
+     "appearances": 12
     },
     {
      "id": "Spray_Jumpsuit_3",
@@ -5683,7 +5683,7 @@
      "rarity": "Uncommon",
      "series": null,
      "set": "Escape Artists",
-     "appearances": null
+     "appearances": 12
     },
     {
      "id": "Spray_Jumpsuit_32",
@@ -5692,7 +5692,7 @@
      "rarity": "Uncommon",
      "series": null,
      "set": "Escape Artists",
-     "appearances": null
+     "appearances": 12
     },
     {
      "id": "Spray_Jumpsuit_4",
@@ -5701,7 +5701,7 @@
      "rarity": "Uncommon",
      "series": null,
      "set": "Escape Artists",
-     "appearances": null
+     "appearances": 12
     },
     {
      "id": "Spray_JumpsuitMasks_6",
@@ -5710,7 +5710,7 @@
      "rarity": "Uncommon",
      "series": null,
      "set": "Escape Artists",
-     "appearances": null
+     "appearances": 12
     },
     {
      "id": "Spray_Jumpsuit_7",
@@ -5719,7 +5719,7 @@
      "rarity": "Uncommon",
      "series": null,
      "set": "Escape Artists",
-     "appearances": null
+     "appearances": 4
     },
     {
      "id": "Spray_Jumpsuit_2",
@@ -5728,7 +5728,7 @@
      "rarity": "Uncommon",
      "series": null,
      "set": "Escape Artists",
-     "appearances": null
+     "appearances": 4
     },
     {
      "id": "Spray_Jumpsuit_8",
@@ -5737,7 +5737,7 @@
      "rarity": "Uncommon",
      "series": null,
      "set": "Escape Artists",
-     "appearances": null
+     "appearances": 4
     },
     {
      "id": "Spray_Jumpsuit_6",
@@ -5746,7 +5746,7 @@
      "rarity": "Uncommon",
      "series": null,
      "set": "Escape Artists",
-     "appearances": null
+     "appearances": 4
     },
     {
      "id": "Spray_Jumpsuit_31",
@@ -5755,7 +5755,7 @@
      "rarity": "Uncommon",
      "series": null,
      "set": "Escape Artists",
-     "appearances": null
+     "appearances": 4
     },
     {
      "id": "Spray_Jumpsuit_29",
@@ -5764,7 +5764,7 @@
      "rarity": "Uncommon",
      "series": null,
      "set": "Escape Artists",
-     "appearances": null
+     "appearances": 4
     },
     {
      "id": "Spray_Jumpsuit_27",
@@ -5773,7 +5773,7 @@
      "rarity": "Uncommon",
      "series": null,
      "set": "Escape Artists",
-     "appearances": null
+     "appearances": 4
     },
     {
      "id": "Spray_JumpsuitMasks_1",
@@ -5782,7 +5782,7 @@
      "rarity": "Uncommon",
      "series": null,
      "set": "Escape Artists",
-     "appearances": null
+     "appearances": 4
     },
     {
      "id": "Spray_JumpsuitMasks_9",
@@ -5791,7 +5791,7 @@
      "rarity": "Uncommon",
      "series": null,
      "set": "Escape Artists",
-     "appearances": null
+     "appearances": 4
     },
     {
      "id": "Spray_JumpsuitMasks_3",
@@ -5800,7 +5800,7 @@
      "rarity": "Uncommon",
      "series": null,
      "set": "Escape Artists",
-     "appearances": null
+     "appearances": 4
     }
    ]
   },
@@ -5835,7 +5835,7 @@
    "outDate": "2026-11-15",
    "section": "Main Stage Moment",
    "image": "https://fortnite-api.com/images/cosmetics/br/newdisplayassets/f29696f08b002f98/renderimage_0.png",
-   "gap": null,
+   "gap": 43,
    "items": [
     {
      "id": "EID_Tailor",
@@ -5844,7 +5844,7 @@
      "rarity": "Icon Series",
      "series": "Icon Series",
      "set": null,
-     "appearances": null
+     "appearances": 2
     }
    ]
   },
@@ -5858,7 +5858,7 @@
    "outDate": "2026-11-15",
    "section": "Marvel",
    "image": "https://fortnite-api.com/images/cosmetics/br/newdisplayassets/a385192e1aefa050/renderimage_0.png",
-   "gap": null,
+   "gap": 152,
    "items": [
     {
      "id": "Character_SweetLetter",
@@ -5867,7 +5867,7 @@
      "rarity": "MARVEL SERIES",
      "series": "MARVEL SERIES",
      "set": "Black Cat",
-     "appearances": null
+     "appearances": 4
     },
     {
      "id": "Backpack_SweetLetter",
@@ -5876,7 +5876,7 @@
      "rarity": "MARVEL SERIES",
      "series": "MARVEL SERIES",
      "set": "Black Cat",
-     "appearances": null
+     "appearances": 6
     }
    ]
   },
@@ -5890,7 +5890,7 @@
    "outDate": "2026-11-15",
    "section": "Friday the 13th",
    "image": "https://fortnite-api.com/images/cosmetics/br/newdisplayassets/ffc736a5ccd64d86/renderimage_0.png",
-   "gap": null,
+   "gap": 25,
    "items": [
     {
      "id": "Character_GnatGala",
@@ -5899,7 +5899,7 @@
      "rarity": "Epic",
      "series": null,
      "set": "Jason Universe: Revenge",
-     "appearances": null
+     "appearances": 6
     }
    ]
   },
@@ -5913,7 +5913,7 @@
    "outDate": "2026-11-16",
    "section": null,
    "image": "https://fortnite-api.com/images/cosmetics/br/bid_382_darkdinomale/featured.png",
-   "gap": null,
+   "gap": 186,
    "items": [
     {
      "id": "BID_382_DarkDinoMale",
@@ -5922,7 +5922,7 @@
      "rarity": "DARK SERIES",
      "series": "DARK SERIES",
      "set": "Dino Guard",
-     "appearances": null
+     "appearances": 4
     }
    ]
   },
@@ -5936,7 +5936,7 @@
    "outDate": "2026-11-15",
    "section": "Main Character Energy ",
    "image": "https://fortnite-api.com/images/cosmetics/br/newdisplayassets/ce38a1573f4944b0/renderimage_0.png",
-   "gap": null,
+   "gap": "unseen",
    "items": [
     {
      "id": "CID_447_Athena_Commando_M_BannerB",
@@ -5945,7 +5945,7 @@
      "rarity": "Uncommon",
      "series": null,
      "set": "Banner Brigade",
-     "appearances": null
+     "appearances": 1
     }
    ]
   },
@@ -5959,7 +5959,7 @@
    "outDate": "2026-11-17",
    "section": null,
    "image": "https://fortnite-api.com/images/cosmetics/br/newdisplayassets/183dc11c32620e75/renderimage_0.png",
-   "gap": null,
+   "gap": 84,
    "items": [
     {
      "id": "Backpack_VoyagerCuboid",
@@ -5968,7 +5968,7 @@
      "rarity": "Rare",
      "series": null,
      "set": "Voyager's Chaos",
-     "appearances": null
+     "appearances": 6
     }
    ]
   },
@@ -6045,7 +6045,7 @@
    "outDate": "2026-11-15",
    "section": "Main Stage Moment",
    "image": "https://fortnite-api.com/images/cosmetics/br/newdisplayassets/15e8861129590986/renderimage_0.png",
-   "gap": null,
+   "gap": "unseen",
    "items": [
     {
      "id": "Glider_GalaxyLevel",
@@ -6054,7 +6054,7 @@
      "rarity": "Icon Series",
      "series": "Icon Series",
      "set": "J Balvin",
-     "appearances": null
+     "appearances": 2
     }
    ]
   },
@@ -6068,7 +6068,7 @@
    "outDate": "2026-12-06",
    "section": "A$AP Rocky",
    "image": "https://fortnite-api.com/images/cosmetics/br/newdisplayassets/71a72092e86a6f92/renderimage_0.png",
-   "gap": null,
+   "gap": "unseen",
    "items": [
     {
      "id": "Character_TonicMailWeb",
@@ -6077,7 +6077,7 @@
      "rarity": "Icon Series",
      "series": "Icon Series",
      "set": "A$AP Rocky",
-     "appearances": null
+     "appearances": 2
     },
     {
      "id": "Backpack_TonicMailWeb",
@@ -6086,7 +6086,7 @@
      "rarity": "Icon Series",
      "series": "Icon Series",
      "set": "A$AP Rocky",
-     "appearances": null
+     "appearances": 3
     },
     {
      "id": "Character_TonicMailYam",
@@ -6095,7 +6095,7 @@
      "rarity": "Icon Series",
      "series": "Icon Series",
      "set": "A$AP Rocky",
-     "appearances": null
+     "appearances": 2
     },
     {
      "id": "Shoes_TonicMailNote",
@@ -6104,7 +6104,7 @@
      "rarity": "Uncommon",
      "series": null,
      "set": "PUMA Shoes",
-     "appearances": null
+     "appearances": 3
     },
     {
      "id": "Glider_TonicMailWeb",
@@ -6113,7 +6113,7 @@
      "rarity": "Icon Series",
      "series": "Icon Series",
      "set": "A$AP Rocky",
-     "appearances": null
+     "appearances": 2
     },
     {
      "id": "Pickaxe_TonicMailYam",
@@ -6122,7 +6122,7 @@
      "rarity": "Icon Series",
      "series": "Icon Series",
      "set": "A$AP Rocky",
-     "appearances": null
+     "appearances": 2
     },
     {
      "id": "Backpack_TonicMailYam",
@@ -6131,7 +6131,7 @@
      "rarity": "Icon Series",
      "series": "Icon Series",
      "set": "A$AP Rocky",
-     "appearances": null
+     "appearances": 3
     },
     {
      "id": "EID_TonicMailWeb",
@@ -6140,7 +6140,7 @@
      "rarity": "Icon Series",
      "series": "Icon Series",
      "set": "A$AP Rocky",
-     "appearances": null
+     "appearances": 2
     },
     {
      "id": "EID_TonicMailYam",
@@ -6149,7 +6149,7 @@
      "rarity": "Icon Series",
      "series": "Icon Series",
      "set": "A$AP Rocky",
-     "appearances": null
+     "appearances": 2
     },
     {
      "id": "Shoes_TonicMailLetter",
@@ -6158,7 +6158,7 @@
      "rarity": "Uncommon",
      "series": null,
      "set": "PUMA Shoes",
-     "appearances": null
+     "appearances": 2
     },
     {
      "id": "Wrap_TonicMail",
@@ -6167,7 +6167,7 @@
      "rarity": "Icon Series",
      "series": "Icon Series",
      "set": null,
-     "appearances": null
+     "appearances": 2
     },
     {
      "id": "Pickaxe_TonicMailWeb_Mic",
@@ -6176,7 +6176,7 @@
      "rarity": "Icon Series",
      "series": "Icon Series",
      "set": "A$AP Rocky",
-     "appearances": null
+     "appearances": 2
     },
     {
      "id": "Backpack_TonicMailWeb_Mic",
@@ -6185,7 +6185,7 @@
      "rarity": "Icon Series",
      "series": "Icon Series",
      "set": "A$AP Rocky",
-     "appearances": null
+     "appearances": 2
     }
    ]
   },
@@ -6199,7 +6199,7 @@
    "outDate": "2026-11-14",
    "section": null,
    "image": "https://fortnite-api.com/images/cosmetics/br/glider_id_272_streetfashioneclipsefemale/featured.png",
-   "gap": null,
+   "gap": "unseen",
    "items": [
     {
      "id": "Glider_ID_272_StreetFashionEclipseFemale",
@@ -6208,7 +6208,7 @@
      "rarity": "Shadow Series",
      "series": "Shadow Series",
      "set": "Street Shadows",
-     "appearances": null
+     "appearances": 2
     }
    ]
   },
@@ -6235,7 +6235,7 @@
    "outDate": "2026-11-15",
    "section": "Friday the 13th",
    "image": "https://fortnite-api.com/images/cosmetics/br/newdisplayassets/a56cf75d31ad46b1/renderimage_0.png",
-   "gap": null,
+   "gap": 25,
    "items": [
     {
      "id": "Pickaxe_GnatGala",
@@ -6244,7 +6244,7 @@
      "rarity": "Rare",
      "series": null,
      "set": "Jason Universe: Revenge",
-     "appearances": null
+     "appearances": 6
     },
     {
      "id": "Backpack_GnatGala",
@@ -6253,7 +6253,7 @@
      "rarity": "Rare",
      "series": null,
      "set": "Jason Universe: Revenge",
-     "appearances": null
+     "appearances": 6
     }
    ]
   },
@@ -6267,7 +6267,7 @@
    "outDate": "2026-11-16",
    "section": null,
    "image": "https://fortnite-api.com/images/cosmetics/br/bid_746_armoredengineer/featured.png",
-   "gap": null,
+   "gap": "unseen",
    "items": [
     {
      "id": "BID_746_ArmoredEngineer",
@@ -6276,7 +6276,7 @@
      "rarity": "Rare",
      "series": null,
      "set": "Intrepid Engines",
-     "appearances": null
+     "appearances": 2
     }
    ]
   },
@@ -6311,7 +6311,7 @@
    "outDate": "2026-12-05",
    "section": "One Piece ",
    "image": "https://fortnite-api.com/images/cosmetics/br/newdisplayassets/c7cff4370be426d7/renderimage_0.png",
-   "gap": null,
+   "gap": "unseen",
    "items": [
     {
      "id": "Backpack_BoastJoint",
@@ -6320,7 +6320,7 @@
      "rarity": "Rare",
      "series": null,
      "set": "One Piece",
-     "appearances": null
+     "appearances": 3
     }
    ]
   },
@@ -6355,7 +6355,7 @@
    "outDate": "2026-11-15",
    "section": "Mega Man",
    "image": "https://fortnite-api.com/images/cosmetics/br/newdisplayassets/a5ab4d9b7c1fb4c2/renderimage_0.png",
-   "gap": null,
+   "gap": 52,
    "items": [
     {
      "id": "Character_DuneBriefMerry",
@@ -6364,7 +6364,7 @@
      "rarity": "Gaming Legends Series",
      "series": "Gaming Legends Series",
      "set": "Mega Man",
-     "appearances": null
+     "appearances": 4
     },
     {
      "id": "Pickaxe_DuneBriefMerry",
@@ -6373,7 +6373,7 @@
      "rarity": "Gaming Legends Series",
      "series": "Gaming Legends Series",
      "set": "Mega Man",
-     "appearances": null
+     "appearances": 6
     },
     {
      "id": "Character_DuneBriefShift",
@@ -6382,7 +6382,7 @@
      "rarity": "Gaming Legends Series",
      "series": "Gaming Legends Series",
      "set": "Mega Man",
-     "appearances": null
+     "appearances": 4
     },
     {
      "id": "Pickaxe_DuneBriefShift",
@@ -6391,7 +6391,7 @@
      "rarity": "Gaming Legends Series",
      "series": "Gaming Legends Series",
      "set": "Mega Man",
-     "appearances": null
+     "appearances": 6
     },
     {
      "id": "Backpack_DuneBriefShift",
@@ -6400,7 +6400,7 @@
      "rarity": "Gaming Legends Series",
      "series": "Gaming Legends Series",
      "set": "Mega Man",
-     "appearances": null
+     "appearances": 6
     },
     {
      "id": "Character_TackleShow",
@@ -6409,7 +6409,7 @@
      "rarity": "Gaming Legends Series",
      "series": "Gaming Legends Series",
      "set": "Mega Man",
-     "appearances": null
+     "appearances": 4
     },
     {
      "id": "Pickaxe_TackleShow",
@@ -6418,7 +6418,7 @@
      "rarity": "Gaming Legends Series",
      "series": "Gaming Legends Series",
      "set": "Mega Man",
-     "appearances": null
+     "appearances": 6
     },
     {
      "id": "Backpack_TackleShow",
@@ -6427,7 +6427,7 @@
      "rarity": "Gaming Legends Series",
      "series": "Gaming Legends Series",
      "set": "Mega Man",
-     "appearances": null
+     "appearances": 6
     },
     {
      "id": "Companion_CacaoLynx",
@@ -6436,7 +6436,7 @@
      "rarity": "Gaming Legends Series",
      "series": "Gaming Legends Series",
      "set": "Mega Man",
-     "appearances": null
+     "appearances": 4
     },
     {
      "id": "EID_DuneBrief",
@@ -6445,7 +6445,7 @@
      "rarity": "Gaming Legends Series",
      "series": "Gaming Legends Series",
      "set": "Mega Man",
-     "appearances": null
+     "appearances": 4
     }
    ]
   },
@@ -6480,7 +6480,7 @@
    "outDate": "2026-11-15",
    "section": "Main Stage Moment",
    "image": "https://fortnite-api.com/images/cosmetics/br/newdisplayassets/cf8f17908eae4afc/renderimage_0.png",
-   "gap": null,
+   "gap": "unseen",
    "items": [
     {
      "id": "Character_SourWire",
@@ -6489,7 +6489,7 @@
      "rarity": "Icon Series",
      "series": "Icon Series",
      "set": "Karol G",
-     "appearances": null
+     "appearances": 1
     },
     {
      "id": "Backpack_SourWire_Bass",
@@ -6498,7 +6498,7 @@
      "rarity": "Icon Series",
      "series": "Icon Series",
      "set": "Karol G",
-     "appearances": null
+     "appearances": 2
     },
     {
      "id": "Pickaxe_SourWire_Bass",
@@ -6507,7 +6507,7 @@
      "rarity": "Icon Series",
      "series": "Icon Series",
      "set": "Karol G",
-     "appearances": null
+     "appearances": 2
     }
    ]
   },
@@ -6521,7 +6521,7 @@
    "outDate": "2026-11-16",
    "section": "Get Your Kicks",
    "image": "https://fortnite-api.com/images/cosmetics/br/newdisplayassets/6834af27fa77899a/renderimage_0.png",
-   "gap": null,
+   "gap": 5,
    "items": [
     {
      "id": "Shoes_StrandModeLychee",
@@ -6530,7 +6530,7 @@
      "rarity": "Uncommon",
      "series": null,
      "set": "Jordan Shoes",
-     "appearances": null
+     "appearances": 2
     }
    ]
   },
@@ -6544,7 +6544,7 @@
    "outDate": "2026-11-15",
    "section": "Kernel Hearts",
    "image": "https://fortnite-api.com/images/cosmetics/br/newdisplayassets/ee70aec3cbc9713d/renderimage_0.png",
-   "gap": null,
+   "gap": 49,
    "items": [
     {
      "id": "Character_OutletVerve",
@@ -6553,7 +6553,7 @@
      "rarity": "Gaming Legends Series",
      "series": "Gaming Legends Series",
      "set": "Kernel Hearts",
-     "appearances": null
+     "appearances": 2
     }
    ]
   },
@@ -6672,7 +6672,7 @@
    "outDate": "2026-11-18",
    "section": "Victory Party",
    "image": "https://fortnite-api.com/images/cosmetics/br/newdisplayassets/3c67e4c462fb11be/renderimage_0.png",
-   "gap": null,
+   "gap": 57,
    "items": [
     {
      "id": "EID_GroceryGroove",
@@ -6681,7 +6681,7 @@
      "rarity": "Icon Series",
      "series": "Icon Series",
      "set": null,
-     "appearances": null
+     "appearances": 3
     }
    ]
   },
@@ -6695,7 +6695,7 @@
    "outDate": "2026-11-14",
    "section": null,
    "image": "https://fortnite-api.com/images/cosmetics/br/cid_a_007_athena_commando_f_streetfashioneclipse/featured.png",
-   "gap": null,
+   "gap": "unseen",
    "items": [
     {
      "id": "CID_A_007_Athena_Commando_F_StreetFashionEclipse",
@@ -6704,7 +6704,7 @@
      "rarity": "Shadow Series",
      "series": "Shadow Series",
      "set": "Street Shadows",
-     "appearances": null
+     "appearances": 2
     }
    ]
   },
@@ -6760,7 +6760,7 @@
    "outDate": "2026-11-14",
    "section": "Main Character Energy ",
    "image": "https://fortnite-api.com/images/cosmetics/br/newdisplayassets/3f2c28df282126b4/renderimage_0.png",
-   "gap": null,
+   "gap": "unseen",
    "items": [
     {
      "id": "CID_A_007_Athena_Commando_F_StreetFashionEclipse",
@@ -6769,7 +6769,7 @@
      "rarity": "Shadow Series",
      "series": "Shadow Series",
      "set": "Street Shadows",
-     "appearances": null
+     "appearances": 2
     },
     {
      "id": "BID_695_StreetFashionEclipse",
@@ -6778,7 +6778,7 @@
      "rarity": "Shadow Series",
      "series": "Shadow Series",
      "set": "Street Shadows",
-     "appearances": null
+     "appearances": 2
     },
     {
      "id": "Pickaxe_ID_541_StreetFashionEclipseFemale",
@@ -6787,7 +6787,7 @@
      "rarity": "Shadow Series",
      "series": "Shadow Series",
      "set": "Street Shadows",
-     "appearances": null
+     "appearances": 2
     },
     {
      "id": "Glider_ID_272_StreetFashionEclipseFemale",
@@ -6796,7 +6796,7 @@
      "rarity": "Shadow Series",
      "series": "Shadow Series",
      "set": "Street Shadows",
-     "appearances": null
+     "appearances": 2
     }
    ]
   },
@@ -6831,7 +6831,7 @@
    "outDate": "2026-12-12",
    "section": "Lil Uzi Vert ",
    "image": "https://fortnite-api.com/images/cosmetics/br/newdisplayassets/da0d82acfc7a0646/renderimage_0.png",
-   "gap": null,
+   "gap": "unseen",
    "items": [
     {
      "id": "Pickaxe_RookGeckoRod",
@@ -6840,7 +6840,7 @@
      "rarity": "Icon Series",
      "series": "Icon Series",
      "set": "Lil Uzi Vert",
-     "appearances": null
+     "appearances": 2
     }
    ]
   },
@@ -6854,7 +6854,7 @@
    "outDate": "2026-11-16",
    "section": "Main Character Energy ",
    "image": "https://fortnite-api.com/images/cosmetics/br/newdisplayassets/3d767ed664f03250/renderimage_0.png",
-   "gap": null,
+   "gap": "unseen",
    "items": [
     {
      "id": "Pickaxe_ID_295_DarkDino1H",
@@ -6863,7 +6863,7 @@
      "rarity": "DARK SERIES",
      "series": "DARK SERIES",
      "set": "Dino Guard",
-     "appearances": null
+     "appearances": 1
     }
    ]
   },
@@ -6898,7 +6898,7 @@
    "outDate": "2026-11-15",
    "section": "Friday the 13th",
    "image": "https://fortnite-api.com/images/cosmetics/br/newdisplayassets/9ed93b213bfbf6a0/renderimage_0.png",
-   "gap": null,
+   "gap": 25,
    "items": [
     {
      "id": "EID_GnatGala",
@@ -6907,7 +6907,7 @@
      "rarity": "Uncommon",
      "series": null,
      "set": "Jason Universe: Revenge",
-     "appearances": null
+     "appearances": 6
     }
    ]
   },
@@ -6942,7 +6942,7 @@
    "outDate": "2026-11-15",
    "section": "Main Character Energy ",
    "image": "https://fortnite-api.com/images/cosmetics/br/newdisplayassets/0b4ef6b29ae983e0/renderimage_0.png",
-   "gap": null,
+   "gap": 62,
    "items": [
     {
      "id": "Character_VioletFare",
@@ -6951,7 +6951,7 @@
      "rarity": "Epic",
      "series": null,
      "set": "Seaward Guardian",
-     "appearances": null
+     "appearances": 2
     }
    ]
   },
@@ -6965,7 +6965,7 @@
    "outDate": "2026-11-15",
    "section": "Main Stage Moment",
    "image": "https://fortnite-api.com/images/cosmetics/br/newdisplayassets/3ca3c7cda203212b/renderimage_0.png",
-   "gap": null,
+   "gap": 95,
    "items": [
     {
      "id": "EID_MadHatter",
@@ -6974,7 +6974,7 @@
      "rarity": "Icon Series",
      "series": "Icon Series",
      "set": null,
-     "appearances": null
+     "appearances": 2
     }
    ]
   },
@@ -6988,7 +6988,7 @@
    "outDate": "2026-11-15",
    "section": "Mega Man",
    "image": "https://fortnite-api.com/images/cosmetics/br/newdisplayassets/8972fd860b6e12d0/renderimage_0.png",
-   "gap": null,
+   "gap": 52,
    "items": [
     {
      "id": "Character_TackleShow",
@@ -6997,7 +6997,7 @@
      "rarity": "Gaming Legends Series",
      "series": "Gaming Legends Series",
      "set": "Mega Man",
-     "appearances": null
+     "appearances": 4
     },
     {
      "id": "Pickaxe_TackleShow",
@@ -7006,7 +7006,7 @@
      "rarity": "Gaming Legends Series",
      "series": "Gaming Legends Series",
      "set": "Mega Man",
-     "appearances": null
+     "appearances": 6
     },
     {
      "id": "Backpack_TackleShow",
@@ -7015,7 +7015,7 @@
      "rarity": "Gaming Legends Series",
      "series": "Gaming Legends Series",
      "set": "Mega Man",
-     "appearances": null
+     "appearances": 6
     }
    ]
   },
@@ -7050,7 +7050,7 @@
    "outDate": "2026-12-06",
    "section": "A$AP Rocky",
    "image": "https://fortnite-api.com/images/cosmetics/br/newdisplayassets/890d3f0a7bb7d959/renderimage_0.png",
-   "gap": null,
+   "gap": "unseen",
    "items": [
     {
      "id": "Character_TonicMailWeb",
@@ -7059,7 +7059,7 @@
      "rarity": "Icon Series",
      "series": "Icon Series",
      "set": "A$AP Rocky",
-     "appearances": null
+     "appearances": 2
     },
     {
      "id": "Backpack_TonicMailWeb",
@@ -7068,7 +7068,7 @@
      "rarity": "Icon Series",
      "series": "Icon Series",
      "set": "A$AP Rocky",
-     "appearances": null
+     "appearances": 3
     },
     {
      "id": "Shoes_TonicMailNote",
@@ -7077,7 +7077,7 @@
      "rarity": "Uncommon",
      "series": null,
      "set": "PUMA Shoes",
-     "appearances": null
+     "appearances": 3
     }
    ]
   },
@@ -7091,7 +7091,7 @@
    "outDate": "2026-11-16",
    "section": null,
    "image": "https://fortnite-api.com/images/cosmetics/br/bid_383_darkdinofemale/featured.png",
-   "gap": null,
+   "gap": "unseen",
    "items": [
     {
      "id": "BID_383_DarkDinoFemale",
@@ -7100,7 +7100,7 @@
      "rarity": "DARK SERIES",
      "series": "DARK SERIES",
      "set": "Dino Guard",
-     "appearances": null
+     "appearances": 2
     }
    ]
   },
@@ -7114,7 +7114,7 @@
    "outDate": "2026-11-16",
    "section": "No Sweat",
    "image": "https://fortnite-api.com/images/cosmetics/br/newdisplayassets/40b9ad9c5bfe9834/renderimage_0.png",
-   "gap": null,
+   "gap": "unseen",
    "items": [
     {
      "id": "CID_A_442_Athena_Commando_F_PennantSeasOne_B",
@@ -7123,7 +7123,7 @@
      "rarity": "Rare",
      "series": null,
      "set": "Squad Origins",
-     "appearances": null
+     "appearances": 1
     }
    ]
   },
@@ -7179,7 +7179,7 @@
    "outDate": "2026-11-15",
    "section": "Mega Man",
    "image": "https://fortnite-api.com/images/cosmetics/br/newdisplayassets/f8a713bac854eefb/renderimage_0.png",
-   "gap": null,
+   "gap": 52,
    "items": [
     {
      "id": "EID_DuneBrief",
@@ -7188,7 +7188,7 @@
      "rarity": "Gaming Legends Series",
      "series": "Gaming Legends Series",
      "set": "Mega Man",
-     "appearances": null
+     "appearances": 4
     }
    ]
   },
@@ -7236,7 +7236,7 @@
    "outDate": "2026-11-15",
    "section": "Main Stage Moment",
    "image": "https://fortnite-api.com/images/cosmetics/br/newdisplayassets/87b339acc6e088cc/renderimage_0.png",
-   "gap": null,
+   "gap": "unseen",
    "items": [
     {
      "id": "Glider_ID_308_VividMale_H8JAS",
@@ -7245,7 +7245,7 @@
      "rarity": "Icon Series",
      "series": "Icon Series",
      "set": "J Balvin",
-     "appearances": null
+     "appearances": 2
     }
    ]
   },
@@ -7280,7 +7280,7 @@
    "outDate": "2026-11-15",
    "section": "Mega Man",
    "image": "https://fortnite-api.com/images/cosmetics/br/newdisplayassets/2c6f2667b22859cf/renderimage_0.png",
-   "gap": null,
+   "gap": 52,
    "items": [
     {
      "id": "Backpack_DuneBriefShift",
@@ -7289,7 +7289,7 @@
      "rarity": "Gaming Legends Series",
      "series": "Gaming Legends Series",
      "set": "Mega Man",
-     "appearances": null
+     "appearances": 6
     }
    ]
   },
@@ -7366,7 +7366,7 @@
    "outDate": "2026-11-15",
    "section": "Marvel",
    "image": "https://fortnite-api.com/images/cosmetics/br/newdisplayassets/0fc2b6e3994dbd59/renderimage_0.png",
-   "gap": null,
+   "gap": "unseen",
    "items": [
     {
      "id": "CID_A_430_Athena_Commando_M_SpectacleWeb",
@@ -7375,7 +7375,7 @@
      "rarity": "MARVEL SERIES",
      "series": "MARVEL SERIES",
      "set": "Zero War",
-     "appearances": null
+     "appearances": 2
     },
     {
      "id": "BID_A_027_SpectacleWebMale",
@@ -7384,7 +7384,7 @@
      "rarity": "MARVEL SERIES",
      "series": "MARVEL SERIES",
      "set": "Zero War",
-     "appearances": null
+     "appearances": 3
     },
     {
      "id": "Pickaxe_ID_820_SpectacleWebMale",
@@ -7393,7 +7393,7 @@
      "rarity": "MARVEL SERIES",
      "series": "MARVEL SERIES",
      "set": "Zero War",
-     "appearances": null
+     "appearances": 2
     },
     {
      "id": "EID_SpectacleWeb",
@@ -7402,7 +7402,7 @@
      "rarity": "MARVEL SERIES",
      "series": "MARVEL SERIES",
      "set": "Zero War",
-     "appearances": null
+     "appearances": 2
     }
    ]
   },
@@ -7416,7 +7416,7 @@
    "outDate": "2026-12-05",
    "section": "One Piece ",
    "image": "https://fortnite-api.com/images/cosmetics/br/newdisplayassets/b59d99f835501268/renderimage_0.png",
-   "gap": null,
+   "gap": "unseen",
    "items": [
     {
      "id": "Glider_CeleryStitch",
@@ -7425,7 +7425,7 @@
      "rarity": "Epic",
      "series": null,
      "set": "One Piece",
-     "appearances": null
+     "appearances": 2
     }
    ]
   },
@@ -7481,7 +7481,7 @@
    "outDate": "2026-12-06",
    "section": "A$AP Rocky",
    "image": "https://fortnite-api.com/images/cosmetics/br/newdisplayassets/26228b8838e50734/renderimage_0.png",
-   "gap": null,
+   "gap": "unseen",
    "items": [
     {
      "id": "Backpack_TonicMailWeb",
@@ -7490,7 +7490,7 @@
      "rarity": "Icon Series",
      "series": "Icon Series",
      "set": "A$AP Rocky",
-     "appearances": null
+     "appearances": 3
     }
    ]
   },
@@ -7504,7 +7504,7 @@
    "outDate": "2026-11-16",
    "section": "No Sweat",
    "image": "https://fortnite-api.com/images/cosmetics/br/newdisplayassets/bbcad8de963d0496/renderimage_0.png",
-   "gap": null,
+   "gap": "unseen",
    "items": [
     {
      "id": "CID_A_077_Athena_Commando_F_ArmoredEngineer",
@@ -7513,7 +7513,7 @@
      "rarity": "Rare",
      "series": null,
      "set": "Intrepid Engines",
-     "appearances": null
+     "appearances": 1
     },
     {
      "id": "BID_746_ArmoredEngineer",
@@ -7522,7 +7522,7 @@
      "rarity": "Rare",
      "series": null,
      "set": "Intrepid Engines",
-     "appearances": null
+     "appearances": 2
     }
    ]
   },
@@ -7571,7 +7571,7 @@
    "outDate": "2026-11-14",
    "section": "Jacob's Pierogi Locker ",
    "image": "https://fortnite-api.com/images/cosmetics/br/newdisplayassets/de0dd1ac250ff99f/renderimage_0.png",
-   "gap": null,
+   "gap": 5,
    "items": [
     {
      "id": "Character_CosmicSquatter",
@@ -7580,7 +7580,7 @@
      "rarity": "Rare",
      "series": null,
      "set": "Breaker of Cages",
-     "appearances": null
+     "appearances": 5
     },
     {
      "id": "Backpack_CosmicSquatter",
@@ -7589,7 +7589,7 @@
      "rarity": "Rare",
      "series": null,
      "set": "Breaker of Cages",
-     "appearances": null
+     "appearances": 8
     },
     {
      "id": "BID_220_FarmerFemale",
@@ -7598,7 +7598,7 @@
      "rarity": "Uncommon",
      "series": null,
      "set": "Fatal Fielders",
-     "appearances": null
+     "appearances": 5
     },
     {
      "id": "Pickaxe_ID_190_GolfClub",
@@ -7607,7 +7607,7 @@
      "rarity": "Uncommon",
      "series": null,
      "set": "Teed Off",
-     "appearances": null
+     "appearances": 9
     },
     {
      "id": "EID_BillyBounce",
@@ -7616,7 +7616,7 @@
      "rarity": "Rare",
      "series": null,
      "set": null,
-     "appearances": null
+     "appearances": 6
     },
     {
      "id": "Wrap_097_NeonLines",
@@ -7625,7 +7625,7 @@
      "rarity": "Uncommon",
      "series": null,
      "set": "Waypoint",
-     "appearances": null
+     "appearances": 5
     },
     {
      "id": "Spray_S43Icon",
@@ -7634,7 +7634,7 @@
      "rarity": "Uncommon",
      "series": null,
      "set": null,
-     "appearances": null
+     "appearances": 1
     },
     {
      "id": "Emoticon_S43Icon",
@@ -7643,7 +7643,7 @@
      "rarity": "Uncommon",
      "series": null,
      "set": null,
-     "appearances": null
+     "appearances": 1
     }
    ]
   },
@@ -7657,7 +7657,7 @@
    "outDate": "2026-11-15",
    "section": "Main Stage Moment",
    "image": "https://fortnite-api.com/images/cosmetics/br/newdisplayassets/af5b42592666b607/renderimage_0.png",
-   "gap": null,
+   "gap": "unseen",
    "items": [
     {
      "id": "Character_GalaxyLevel",
@@ -7666,7 +7666,7 @@
      "rarity": "Icon Series",
      "series": "Icon Series",
      "set": "J Balvin",
-     "appearances": null
+     "appearances": 2
     },
     {
      "id": "Backpack_GalaxyLevel",
@@ -7675,7 +7675,7 @@
      "rarity": "Icon Series",
      "series": "Icon Series",
      "set": "J Balvin",
-     "appearances": null
+     "appearances": 3
     },
     {
      "id": "Pickaxe_GalaxyLevel",
@@ -7684,7 +7684,7 @@
      "rarity": "Icon Series",
      "series": "Icon Series",
      "set": "J Balvin",
-     "appearances": null
+     "appearances": 2
     },
     {
      "id": "Glider_GalaxyLevel",
@@ -7693,7 +7693,7 @@
      "rarity": "Icon Series",
      "series": "Icon Series",
      "set": "J Balvin",
-     "appearances": null
+     "appearances": 2
     },
     {
      "id": "EID_GalaxyLevel",
@@ -7702,7 +7702,7 @@
      "rarity": "Icon Series",
      "series": "Icon Series",
      "set": "J Balvin",
-     "appearances": null
+     "appearances": 2
     },
     {
      "id": "Emoji_S26_GalaxyLevel",
@@ -7711,7 +7711,7 @@
      "rarity": "Icon Series",
      "series": "Icon Series",
      "set": "J Balvin",
-     "appearances": null
+     "appearances": 1
     },
     {
      "id": "Spray_GalaxyLevel",
@@ -7720,7 +7720,7 @@
      "rarity": "Icon Series",
      "series": "Icon Series",
      "set": "J Balvin",
-     "appearances": null
+     "appearances": 1
     }
    ]
   },
@@ -7734,7 +7734,7 @@
    "outDate": "2026-11-15",
    "section": null,
    "image": "https://fortnite-api.com/images/cosmetics/br/bid_a_027_spectaclewebmale/featured.png",
-   "gap": null,
+   "gap": "unseen",
    "items": [
     {
      "id": "BID_A_027_SpectacleWebMale",
@@ -7743,7 +7743,7 @@
      "rarity": "MARVEL SERIES",
      "series": "MARVEL SERIES",
      "set": "Zero War",
-     "appearances": null
+     "appearances": 3
     }
    ]
   },
@@ -7778,7 +7778,7 @@
    "outDate": "2026-11-15",
    "section": "Main Stage Moment",
    "image": "https://fortnite-api.com/images/cosmetics/br/newdisplayassets/63b40af2e755de16/renderimage_0.png",
-   "gap": null,
+   "gap": "unseen",
    "items": [
     {
      "id": "Pickaxe_GalaxyLevel",
@@ -7787,7 +7787,7 @@
      "rarity": "Icon Series",
      "series": "Icon Series",
      "set": "J Balvin",
-     "appearances": null
+     "appearances": 2
     }
    ]
   },
@@ -7801,7 +7801,7 @@
    "outDate": "2026-11-14",
    "section": "Main Character Energy ",
    "image": "https://fortnite-api.com/images/cosmetics/br/newdisplayassets/4708c7b178c21949/renderimage_0.png",
-   "gap": null,
+   "gap": 131,
    "items": [
     {
      "id": "Character_IceRetreat",
@@ -7810,7 +7810,7 @@
      "rarity": "Rare",
      "series": null,
      "set": "Summit's Idol",
-     "appearances": null
+     "appearances": 5
     },
     {
      "id": "Backpack_IceRetreat",
@@ -7819,7 +7819,7 @@
      "rarity": "Rare",
      "series": null,
      "set": "Summit's Idol",
-     "appearances": null
+     "appearances": 8
     }
    ]
   },
@@ -7867,7 +7867,7 @@
    "outDate": "2026-11-18",
    "section": "Victory Party",
    "image": "https://fortnite-api.com/images/cosmetics/br/newdisplayassets/6c262fdb4e38f3af/renderimage_0.png",
-   "gap": null,
+   "gap": 103,
    "items": [
     {
      "id": "EID_ChipDip",
@@ -7876,7 +7876,7 @@
      "rarity": "Icon Series",
      "series": "Icon Series",
      "set": null,
-     "appearances": null
+     "appearances": 3
     }
    ]
   },
@@ -7890,7 +7890,7 @@
    "outDate": "2026-11-15",
    "section": "Main Stage Moment",
    "image": "https://fortnite-api.com/images/cosmetics/br/newdisplayassets/012503cfda425662/renderimage_0.png",
-   "gap": null,
+   "gap": "unseen",
    "items": [
     {
      "id": "Character_GalaxyLevel",
@@ -7899,7 +7899,7 @@
      "rarity": "Icon Series",
      "series": "Icon Series",
      "set": "J Balvin",
-     "appearances": null
+     "appearances": 2
     },
     {
      "id": "Backpack_GalaxyLevel",
@@ -7908,7 +7908,7 @@
      "rarity": "Icon Series",
      "series": "Icon Series",
      "set": "J Balvin",
-     "appearances": null
+     "appearances": 3
     }
    ]
   },
@@ -7943,7 +7943,7 @@
    "outDate": "2026-11-15",
    "section": "Main Character Energy ",
    "image": "https://fortnite-api.com/images/cosmetics/br/newdisplayassets/70c1166c8b8cf941/renderimage_0.png",
-   "gap": null,
+   "gap": 58,
    "items": [
     {
      "id": "Character_VioletFare",
@@ -7952,7 +7952,7 @@
      "rarity": "Epic",
      "series": null,
      "set": "Seaward Guardian",
-     "appearances": null
+     "appearances": 2
     },
     {
      "id": "Backpack_VioletFare",
@@ -7961,7 +7961,7 @@
      "rarity": "Rare",
      "series": null,
      "set": "Seaward Guardian",
-     "appearances": null
+     "appearances": 1
     },
     {
      "id": "Pickaxe_VioletFare",
@@ -7970,7 +7970,7 @@
      "rarity": "Rare",
      "series": null,
      "set": "Seaward Guardian",
-     "appearances": null
+     "appearances": 1
     },
     {
      "id": "Wrap_VioletFare",
@@ -7979,7 +7979,7 @@
      "rarity": "Rare",
      "series": null,
      "set": "Seaward Guardian",
-     "appearances": null
+     "appearances": 1
     }
    ]
   },
@@ -7993,7 +7993,7 @@
    "outDate": "2026-12-05",
    "section": "One Piece ",
    "image": "https://fortnite-api.com/images/cosmetics/br/newdisplayassets/544ccf473286f2a3/renderimage_0.png",
-   "gap": null,
+   "gap": "unseen",
    "items": [
     {
      "id": "Character_FlipperBalm",
@@ -8002,7 +8002,7 @@
      "rarity": "Epic",
      "series": null,
      "set": "One Piece",
-     "appearances": null
+     "appearances": 0
     },
     {
      "id": "Backpack_FlipperBalm",
@@ -8011,7 +8011,7 @@
      "rarity": "Rare",
      "series": null,
      "set": "One Piece",
-     "appearances": null
+     "appearances": 0
     },
     {
      "id": "Pickaxe_FlipperBalm",
@@ -8020,7 +8020,7 @@
      "rarity": "Rare",
      "series": null,
      "set": "One Piece",
-     "appearances": null
+     "appearances": 0
     }
    ]
   },
@@ -8034,7 +8034,7 @@
    "outDate": "2026-12-05",
    "section": "One Piece ",
    "image": "https://fortnite-api.com/images/cosmetics/br/newdisplayassets/c543c72dcaf558da/renderimage_0.png",
-   "gap": null,
+   "gap": "unseen",
    "items": [
     {
      "id": "Backpack_BrandCreed",
@@ -8043,7 +8043,7 @@
      "rarity": "Rare",
      "series": null,
      "set": "One Piece",
-     "appearances": null
+     "appearances": 3
     }
    ]
   },
@@ -8057,7 +8057,7 @@
    "outDate": "2026-11-15",
    "section": "Main Character Energy ",
    "image": "https://fortnite-api.com/images/cosmetics/br/newdisplayassets/f5fa0ef4e67cfd9a/renderimage_0.png",
-   "gap": null,
+   "gap": "unseen",
    "items": [
     {
      "id": "CID_A_168_Athena_Commando_F_Stands",
@@ -8066,7 +8066,7 @@
      "rarity": "Rare",
      "series": null,
      "set": "Press Play",
-     "appearances": null
+     "appearances": 1
     }
    ]
   },
@@ -8101,7 +8101,7 @@
    "outDate": "2026-11-15",
    "section": "Main Stage Moment",
    "image": "https://fortnite-api.com/images/cosmetics/br/newdisplayassets/6cdfcd0bfe7ba0ce/renderimage_0.png",
-   "gap": null,
+   "gap": "unseen",
    "items": [
     {
      "id": "EID_Matador",
@@ -8110,7 +8110,7 @@
      "rarity": "Icon Series",
      "series": "Icon Series",
      "set": null,
-     "appearances": null
+     "appearances": 1
     }
    ]
   },
@@ -8124,7 +8124,7 @@
    "outDate": "2026-11-15",
    "section": "Main Character Energy ",
    "image": "https://fortnite-api.com/images/cosmetics/br/newdisplayassets/e22eacd6dc1ab816/renderimage_0.png",
-   "gap": null,
+   "gap": 75,
    "items": [
     {
      "id": "CID_614_Athena_Commando_M_MissingLink",
@@ -8133,7 +8133,7 @@
      "rarity": "Rare",
      "series": null,
      "set": "Missing Link",
-     "appearances": null
+     "appearances": 3
     },
     {
      "id": "Trails_ID_081_MissingLink",
@@ -8142,7 +8142,7 @@
      "rarity": "Rare",
      "series": null,
      "set": "Missing Link",
-     "appearances": null
+     "appearances": 6
     }
    ]
   },
@@ -8156,7 +8156,7 @@
    "outDate": "2026-11-15",
    "section": "Mega Man",
    "image": "https://fortnite-api.com/images/cosmetics/br/newdisplayassets/471086c27df7e951/renderimage_0.png",
-   "gap": null,
+   "gap": 52,
    "items": [
     {
      "id": "Character_DuneBriefMerry",
@@ -8165,7 +8165,7 @@
      "rarity": "Gaming Legends Series",
      "series": "Gaming Legends Series",
      "set": "Mega Man",
-     "appearances": null
+     "appearances": 4
     },
     {
      "id": "Pickaxe_DuneBriefMerry",
@@ -8174,7 +8174,7 @@
      "rarity": "Gaming Legends Series",
      "series": "Gaming Legends Series",
      "set": "Mega Man",
-     "appearances": null
+     "appearances": 6
     }
    ]
   },
@@ -8188,7 +8188,7 @@
    "outDate": "2026-11-14",
    "section": "Victory Party",
    "image": "https://fortnite-api.com/images/cosmetics/br/newdisplayassets/d289d4f564c85378/renderimage_0.png",
-   "gap": null,
+   "gap": "unseen",
    "items": [
     {
      "id": "EID_Viral",
@@ -8197,7 +8197,7 @@
      "rarity": "Icon Series",
      "series": "Icon Series",
      "set": null,
-     "appearances": null
+     "appearances": 1
     }
    ]
   },
@@ -8211,7 +8211,7 @@
    "outDate": "2026-11-15",
    "section": "Mega Man",
    "image": "https://fortnite-api.com/images/cosmetics/br/newdisplayassets/82f9ccc18ccdc61b/renderimage_0.png",
-   "gap": null,
+   "gap": 52,
    "items": [
     {
      "id": "Pickaxe_DuneBriefMerry",
@@ -8220,7 +8220,7 @@
      "rarity": "Gaming Legends Series",
      "series": "Gaming Legends Series",
      "set": "Mega Man",
-     "appearances": null
+     "appearances": 6
     }
    ]
   },
@@ -8255,7 +8255,7 @@
    "outDate": "2026-11-16",
    "section": "Get Your Kicks",
    "image": "https://fortnite-api.com/images/cosmetics/br/newdisplayassets/768cad8b2f5c21c0/renderimage_0.png",
-   "gap": null,
+   "gap": "unseen",
    "items": [
     {
      "id": "Shoes_GoblinPennyDemure",
@@ -8264,7 +8264,7 @@
      "rarity": "Uncommon",
      "series": null,
      "set": "Jordan Shoes",
-     "appearances": null
+     "appearances": 1
     }
    ]
   },
@@ -8362,7 +8362,7 @@
    "outDate": "2026-11-14",
    "section": "Main Character Energy ",
    "image": "https://fortnite-api.com/images/cosmetics/br/newdisplayassets/0de19bfbcc820515/renderimage_0.png",
-   "gap": null,
+   "gap": "unseen",
    "items": [
     {
      "id": "CID_154_Athena_Commando_M_Gumshoe",
@@ -8371,7 +8371,7 @@
      "rarity": "Epic",
      "series": null,
      "set": "Hardboiled",
-     "appearances": null
+     "appearances": 0
     },
     {
      "id": "BID_062_Gumshoe",
@@ -8380,7 +8380,7 @@
      "rarity": "Epic",
      "series": null,
      "set": "Hardboiled",
-     "appearances": null
+     "appearances": 0
     }
    ]
   },
@@ -8394,7 +8394,7 @@
    "outDate": "2026-12-12",
    "section": "Lil Uzi Vert ",
    "image": "https://fortnite-api.com/images/cosmetics/br/newdisplayassets/aef63d45fa9e31dc/renderimage_0.png",
-   "gap": null,
+   "gap": "unseen",
    "items": [
     {
      "id": "Backpack_RookGeckoRye",
@@ -8403,7 +8403,7 @@
      "rarity": "Icon Series",
      "series": "Icon Series",
      "set": "Lil Uzi Vert",
-     "appearances": null
+     "appearances": 3
     }
    ]
   },
@@ -8438,7 +8438,7 @@
    "outDate": "2026-12-05",
    "section": "One Piece ",
    "image": "https://fortnite-api.com/images/cosmetics/br/newdisplayassets/5eb28f7e18991c73/renderimage_0.png",
-   "gap": null,
+   "gap": "unseen",
    "items": [
     {
      "id": "Pickaxe_CeleryStitch_Guitar",
@@ -8447,7 +8447,7 @@
      "rarity": "Rare",
      "series": null,
      "set": "One Piece",
-     "appearances": null
+     "appearances": 2
     },
     {
      "id": "Backpack_CeleryStitch_Guitar",
@@ -8456,7 +8456,7 @@
      "rarity": "Rare",
      "series": null,
      "set": "One Piece",
-     "appearances": null
+     "appearances": 2
     }
    ]
   },
@@ -8470,7 +8470,7 @@
    "outDate": "2026-11-16",
    "section": "Hype Circuit",
    "image": "https://fortnite-api.com/images/cosmetics/br/newdisplayassets/8a0dc268220cdf1f/renderimage_0.png",
-   "gap": null,
+   "gap": 65,
    "items": [
     {
      "id": "Character_RaggedRebel",
@@ -8479,7 +8479,7 @@
      "rarity": "Epic",
      "series": null,
      "set": "Horizon's Flight",
-     "appearances": null
+     "appearances": 2
     }
    ]
   },
@@ -8535,7 +8535,7 @@
    "outDate": "2026-11-16",
    "section": "No Sweat",
    "image": "https://fortnite-api.com/images/cosmetics/br/newdisplayassets/48dac6581229dff0/renderimage_0.png",
-   "gap": null,
+   "gap": "unseen",
    "items": [
     {
      "id": "Character_AzureBlade",
@@ -8544,7 +8544,7 @@
      "rarity": "Epic",
      "series": null,
      "set": "Shining Sentinel",
-     "appearances": null
+     "appearances": 1
     }
    ]
   },
@@ -8558,7 +8558,7 @@
    "outDate": "2026-11-15",
    "section": null,
    "image": "https://fortnite-api.com/images/cosmetics/br/pickaxe_id_661_vividmale1h_zn6q0/featured.png",
-   "gap": null,
+   "gap": "unseen",
    "items": [
     {
      "id": "Pickaxe_ID_661_VividMale1H_ZN6Q0",
@@ -8567,7 +8567,7 @@
      "rarity": "Icon Series",
      "series": "Icon Series",
      "set": "J Balvin",
-     "appearances": null
+     "appearances": 3
     },
     {
      "id": "BID_825_VividMale_7L9T0",
@@ -8576,7 +8576,7 @@
      "rarity": "Icon Series",
      "series": "Icon Series",
      "set": "J Balvin",
-     "appearances": null
+     "appearances": 3
     }
    ]
   },
@@ -8611,7 +8611,7 @@
    "outDate": "2026-12-06",
    "section": "A$AP Rocky",
    "image": "https://fortnite-api.com/images/cosmetics/br/newdisplayassets/ee964cecb97e8286/renderimage_0.png",
-   "gap": null,
+   "gap": "unseen",
    "items": [
     {
      "id": "EID_TonicMailYam",
@@ -8620,7 +8620,7 @@
      "rarity": "Icon Series",
      "series": "Icon Series",
      "set": "A$AP Rocky",
-     "appearances": null
+     "appearances": 2
     }
    ]
   },
@@ -8634,7 +8634,7 @@
    "outDate": "2026-11-14",
    "section": "Jacob's Pierogi Locker ",
    "image": "https://fortnite-api.com/images/cosmetics/br/newdisplayassets/3cd5224af8cbaa61/renderimage_0.png",
-   "gap": null,
+   "gap": 5,
    "items": [
     {
      "id": "Wrap_097_NeonLines",
@@ -8643,7 +8643,7 @@
      "rarity": "Uncommon",
      "series": null,
      "set": "Waypoint",
-     "appearances": null
+     "appearances": 5
     }
    ]
   },
@@ -8699,7 +8699,7 @@
    "outDate": "2026-12-12",
    "section": "Lil Uzi Vert ",
    "image": "https://fortnite-api.com/images/cosmetics/br/newdisplayassets/fb038103dfa6d6a8/renderimage_0.png",
-   "gap": null,
+   "gap": "unseen",
    "items": [
     {
      "id": "Backpack_RookGeckoRod",
@@ -8708,7 +8708,7 @@
      "rarity": "Icon Series",
      "series": "Icon Series",
      "set": "Lil Uzi Vert",
-     "appearances": null
+     "appearances": 3
     }
    ]
   },
@@ -8743,7 +8743,7 @@
    "outDate": "2026-11-15",
    "section": "Marvel",
    "image": "https://fortnite-api.com/images/cosmetics/br/newdisplayassets/03b848865ff3bef0/renderimage_0.png",
-   "gap": null,
+   "gap": "unseen",
    "items": [
     {
      "id": "CID_A_430_Athena_Commando_M_SpectacleWeb",
@@ -8752,7 +8752,7 @@
      "rarity": "MARVEL SERIES",
      "series": "MARVEL SERIES",
      "set": "Zero War",
-     "appearances": null
+     "appearances": 2
     },
     {
      "id": "BID_A_027_SpectacleWebMale",
@@ -8761,7 +8761,7 @@
      "rarity": "MARVEL SERIES",
      "series": "MARVEL SERIES",
      "set": "Zero War",
-     "appearances": null
+     "appearances": 3
     }
    ]
   },
@@ -8775,7 +8775,7 @@
    "outDate": "2026-11-16",
    "section": "Get Your Kicks",
    "image": "https://fortnite-api.com/images/cosmetics/br/newdisplayassets/471e2eb2163ab391/renderimage_0.png",
-   "gap": null,
+   "gap": "unseen",
    "items": [
     {
      "id": "Shoes_GraniteEmberlyStone",
@@ -8784,7 +8784,7 @@
      "rarity": "Uncommon",
      "series": null,
      "set": "Vans Shoes",
-     "appearances": null
+     "appearances": 1
     }
    ]
   },
@@ -8798,7 +8798,7 @@
    "outDate": "2026-11-16",
    "section": "No Sweat",
    "image": "https://fortnite-api.com/images/cosmetics/br/newdisplayassets/fe0560d938307337/renderimage_0.png",
-   "gap": null,
+   "gap": "unseen",
    "items": [
     {
      "id": "Character_MeekCrow",
@@ -8807,7 +8807,7 @@
      "rarity": "Epic",
      "series": null,
      "set": "Moon Wolf",
-     "appearances": null
+     "appearances": 1
     }
    ]
   },
@@ -8834,7 +8834,7 @@
    "outDate": "2026-11-15",
    "section": "Marvel",
    "image": "https://fortnite-api.com/images/cosmetics/br/newdisplayassets/1ab7edfc92a92364/renderimage_0.png",
-   "gap": null,
+   "gap": 152,
    "items": [
     {
      "id": "Pickaxe_SweetLetter",
@@ -8843,7 +8843,7 @@
      "rarity": "MARVEL SERIES",
      "series": "MARVEL SERIES",
      "set": "Black Cat",
-     "appearances": null
+     "appearances": 4
     }
    ]
   },
@@ -8857,7 +8857,7 @@
    "outDate": "2026-11-18",
    "section": "Victory Party",
    "image": "https://fortnite-api.com/images/cosmetics/br/newdisplayassets/8feaa0f0f5459020/renderimage_0.png",
-   "gap": null,
+   "gap": "unseen",
    "items": [
     {
      "id": "EID_HandSlap",
@@ -8866,7 +8866,7 @@
      "rarity": "Icon Series",
      "series": "Icon Series",
      "set": null,
-     "appearances": null
+     "appearances": 1
     }
    ]
   },
@@ -8922,7 +8922,7 @@
    "outDate": "2026-11-14",
    "section": "Victory Party",
    "image": "https://fortnite-api.com/images/cosmetics/br/newdisplayassets/aa17cc3b2ed6ac7e/renderimage_0.png",
-   "gap": null,
+   "gap": 73,
    "items": [
     {
      "id": "EID_Vitality",
@@ -8931,7 +8931,7 @@
      "rarity": "Icon Series",
      "series": "Icon Series",
      "set": null,
-     "appearances": null
+     "appearances": 3
     }
    ]
   },
@@ -8945,7 +8945,7 @@
    "outDate": "2026-11-15",
    "section": "Main Stage Moment",
    "image": "https://fortnite-api.com/images/cosmetics/br/newdisplayassets/fd246974be465a8e/renderimage_0.png",
-   "gap": null,
+   "gap": "unseen",
    "items": [
     {
      "id": "EID_Vivid_I434X",
@@ -8954,7 +8954,7 @@
      "rarity": "Icon Series",
      "series": "Icon Series",
      "set": "J Balvin",
-     "appearances": null
+     "appearances": 2
     }
    ]
   },
@@ -8968,7 +8968,7 @@
    "outDate": "2026-11-15",
    "section": "Mega Man",
    "image": "https://fortnite-api.com/images/cosmetics/br/newdisplayassets/57bae7f05a873723/renderimage_0.png",
-   "gap": null,
+   "gap": 52,
    "items": [
     {
      "id": "Companion_CacaoLynx",
@@ -8977,16 +8977,12 @@
      "rarity": "Gaming Legends Series",
      "series": "Gaming Legends Series",
      "set": "Mega Man",
-     "appearances": null
+     "appearances": 4
     }
    ]
   }
  ],
- "historyLookup": {
-  "requested": 218,
-  "found": 218,
-  "withHistory": 0
- },
- "fetchedAt": "2026-11-14T01:50:12.814Z",
- "source": "https://fortnite-api.com/v2/shop?language=en"
+ "fetchedAt": "2026-11-14T02:15:36.472Z",
+ "source": "https://fortnite-api.com/v2/shop?language=en",
+ "historyFrom": "2026-05-02"
 }
