@@ -55,7 +55,7 @@
      "mustContain": [
       "14 days"
      ],
-     "checkedAt": "2026-11-14T01:06:53.016Z",
+     "checkedAt": "2026-11-14T01:33:35.818Z",
      "reachable": true,
      "found": [
       {
@@ -65,14 +65,14 @@
      ],
      "verified": true,
      "hash": "5b32d6aab761761f",
-     "changedSinceLastCheck": true
+     "changedSinceLastCheck": false
     },
     {
      "url": "https://beebom.com/fortnite-pirate-shop-guide/",
      "mustContain": [
       "14 days"
      ],
-     "checkedAt": "2026-11-14T01:06:53.081Z",
+     "checkedAt": "2026-11-14T01:33:36.004Z",
      "reachable": true,
      "found": [
       {
@@ -81,7 +81,7 @@
       }
      ],
      "verified": true,
-     "hash": "ba959a342e0f3d01",
+     "hash": "dd476ad016429dbc",
      "changedSinceLastCheck": true
     }
    ],
@@ -98,7 +98,7 @@
      "mustContain": [
       "December 15"
      ],
-     "checkedAt": "2026-11-14T01:06:53.081Z",
+     "checkedAt": "2026-11-14T01:33:36.005Z",
      "reachable": true,
      "found": [
       {
@@ -108,7 +108,7 @@
      ],
      "verified": true,
      "hash": "5b32d6aab761761f",
-     "changedSinceLastCheck": true
+     "changedSinceLastCheck": false
     }
    ],
    "newsHits": [],
@@ -126,7 +126,7 @@
       "gifting",
       "real money bundles"
      ],
-     "checkedAt": "2026-11-14T01:06:53.090Z",
+     "checkedAt": "2026-11-14T01:33:36.013Z",
      "reachable": true,
      "found": [
       {
@@ -144,7 +144,7 @@
      ],
      "verified": true,
      "hash": "5b32d6aab761761f",
-     "changedSinceLastCheck": true
+     "changedSinceLastCheck": false
     }
    ],
    "newsHits": [],
@@ -160,7 +160,7 @@
      "mustContain": [
       "sidekick"
      ],
-     "checkedAt": "2026-11-14T01:06:53.101Z",
+     "checkedAt": "2026-11-14T01:33:36.023Z",
      "reachable": true,
      "found": [
       {
@@ -170,7 +170,7 @@
      ],
      "verified": true,
      "hash": "5b32d6aab761761f",
-     "changedSinceLastCheck": true
+     "changedSinceLastCheck": false
     }
    ],
    "newsHits": [],
@@ -186,7 +186,7 @@
      "mustContain": [
       "00:00 UTC"
      ],
-     "checkedAt": "2026-11-14T01:06:53.284Z",
+     "checkedAt": "2026-11-14T01:33:36.182Z",
      "reachable": true,
      "found": [
       {
@@ -212,7 +212,7 @@
      "mustContain": [
       "2027"
      ],
-     "checkedAt": "2026-11-14T01:06:53.284Z",
+     "checkedAt": "2026-11-14T01:33:36.183Z",
      "reachable": true,
      "found": [
       {
@@ -221,7 +221,7 @@
       }
      ],
      "verified": true,
-     "hash": "ba959a342e0f3d01",
+     "hash": "dd476ad016429dbc",
      "changedSinceLastCheck": true
     }
    ],
