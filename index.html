@@ -79,12 +79,30 @@
         <!-- sails -->
         <path d="M126 82 Q178 92 232 82 Q244 128 232 170 Q178 178 126 170 Q114 128 126 82 Z" fill="url(#sail)"/>
         <path d="M128 110 Q178 118 230 110 M126 140 Q178 148 232 140" stroke="#d8c7a0" stroke-width="1.2" fill="none"/>
-        <!-- the Pirate Shop token emblem on the sail: gold coin with crossed cutlasses -->
-        <g transform="translate(179 126)">
-          <circle r="27" fill="#b07c00" cy="2"/><circle r="27" fill="#ffc83d"/><circle r="22" fill="none" stroke="#b07c00" stroke-width="2" stroke-dasharray="1.5 3.5"/><circle r="14" fill="#ffd65c" stroke="#b07c00" stroke-width="2"/>
-          <path d="M-8 -8 L8 8 M8 -8 L-8 8" stroke="#6b4300" stroke-width="3.6" stroke-linecap="round"/><circle cx="-9" cy="-9" r="2.4" fill="#6b4300"/><circle cx="9" cy="-9" r="2.4" fill="#6b4300"/>
-          <path d="M-19 -9 Q-12 -21 2 -23" stroke="#fff" stroke-width="2.6" stroke-linecap="round" fill="none" opacity=".75"/>
-        </g>
+        <!-- the Pirate Shop token emblem on the sail -->
+        <svg x="149" y="96" width="60" height="60" viewBox="0 0 120 120"><defs>
+ <radialGradient id="skG" cx="35%" cy="28%" r="80%"><stop offset="0" stop-color="#fff6c2"/><stop offset=".4" stop-color="#ffcf3f"/><stop offset="1" stop-color="#b87800"/></radialGradient>
+ <linearGradient id="skH" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#ffd65c"/><stop offset="1" stop-color="#a86a00"/></linearGradient>
+ <radialGradient id="skE" cx="40%" cy="30%" r="80%"><stop offset="0" stop-color="#4f8ff7"/><stop offset=".6" stop-color="#1c4fc0"/><stop offset="1" stop-color="#0b2466"/></radialGradient>
+ <linearGradient id="skB" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#ffffff"/><stop offset="1" stop-color="#c9d6ea"/></linearGradient>
+</defs>
+<g transform="translate(60 60)">
+ <g fill="url(#skH)" stroke="#7a4d00" stroke-width="1.5"><rect x="-5" y="-58" width="10" height="16" rx="4" transform="rotate(0)"/><rect x="-5" y="-58" width="10" height="16" rx="4" transform="rotate(45)"/><rect x="-5" y="-58" width="10" height="16" rx="4" transform="rotate(90)"/><rect x="-5" y="-58" width="10" height="16" rx="4" transform="rotate(135)"/><rect x="-5" y="-58" width="10" height="16" rx="4" transform="rotate(180)"/><rect x="-5" y="-58" width="10" height="16" rx="4" transform="rotate(225)"/><rect x="-5" y="-58" width="10" height="16" rx="4" transform="rotate(270)"/><rect x="-5" y="-58" width="10" height="16" rx="4" transform="rotate(315)"/></g>
+ <circle r="47" cy="2.5" fill="#7a4d00"/>
+ <circle r="47" fill="url(#skG)" stroke="#8a5a00" stroke-width="2"/>
+ <circle r="40.5" fill="none" stroke="#9a6400" stroke-width="3" stroke-dasharray="4 3.2"/>
+ <circle r="34" fill="#8a5a00"/>
+ <circle r="32" fill="url(#skE)"/>
+ <path d="M-26 6a32 32 0 0 0 52 0" fill="#ffffff10"/>
+ <g stroke-linecap="round">
+  <path d="M-17 -15 Q-2 0 15 19" stroke="url(#skB)" stroke-width="5.5" fill="none"/>
+  <path d="M17 -15 Q2 0 -15 19" stroke="url(#skB)" stroke-width="5.5" fill="none"/>
+  <path d="M-22 -10 L-12 -20 M22 -10 L12 -20" stroke="#ffcf3f" stroke-width="5"/>
+  <path d="M-20 -21 L-24 -25 M20 -21 L24 -25" stroke="#ffcf3f" stroke-width="5"/>
+ </g>
+ <path d="M0 -27 l2.8 5.8 6.3 .9 -4.6 4.4 1.1 6.3 -5.6 -3 -5.6 3 1.1 -6.3 -4.6 -4.4 6.3 -.9z" fill="#ffcf3f" stroke="#7a4d00" stroke-width=".8"/>
+ <path d="M-36 -18 Q-26 -36 -6 -41" stroke="#fff" stroke-width="3.5" stroke-linecap="round" fill="none" opacity=".75"/>
+</g></svg>
         <path d="M244 92 L304 190 L244 190 Z" fill="url(#sail)"/>
         <path d="M246 140 L276 140" stroke="#d8c7a0" stroke-width="1.2"/>
         <!-- pirate (easter egg) -->
@@ -130,22 +148,29 @@
       <span id="crewTxt"></span>
     </div>
     <div class="brand">
-      <svg class="coin" viewBox="0 0 120 120" aria-hidden="true">
-        <defs>
-          <radialGradient id="cg" cx="38%" cy="32%" r="75%"><stop offset="0" stop-color="#fff2a8"/><stop offset=".45" stop-color="#ffc83d"/><stop offset="1" stop-color="#c98a00"/></radialGradient>
-          <path id="ring" d="M60 60 m-38 0 a38 38 0 1 1 76 0 a38 38 0 1 1 -76 0"/>
-        </defs>
-        <g class="spin">
-          <circle cx="60" cy="62" r="56" fill="#8a5a00"/>
-          <circle cx="60" cy="58" r="56" fill="url(#cg)"/>
-          <circle cx="60" cy="58" r="47" fill="none" stroke="#b07c00" stroke-width="3" stroke-dasharray="2 5"/>
-          <circle cx="60" cy="58" r="30" fill="#ffd65c" stroke="#b07c00" stroke-width="3"/>
-          <g stroke="#6b4300" stroke-width="6" stroke-linecap="round"><path d="M46 44 L74 72"/><path d="M74 44 L46 72"/></g>
-          <g fill="#6b4300"><circle cx="45" cy="43" r="4"/><circle cx="75" cy="43" r="4"/></g>
-          <text font-family="Luckiest Guy, Impact" font-size="11" fill="#6b4300" letter-spacing="1.5"><textPath href="#ring" startOffset="4%">PIRATE SHOP · 14 DAYS · PIRATE SHOP · 14 DAYS ·</textPath></text>
-          <path class="shine" d="M24 40 Q40 14 70 10" stroke="#fff" stroke-width="5" stroke-linecap="round" fill="none" opacity=".7"/>
-        </g>
-      </svg>
+      <svg class="coin" viewBox="0 0 120 120" aria-hidden="true"><g class="spin"><defs>
+ <radialGradient id="hkG" cx="35%" cy="28%" r="80%"><stop offset="0" stop-color="#fff6c2"/><stop offset=".4" stop-color="#ffcf3f"/><stop offset="1" stop-color="#b87800"/></radialGradient>
+ <linearGradient id="hkH" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#ffd65c"/><stop offset="1" stop-color="#a86a00"/></linearGradient>
+ <radialGradient id="hkE" cx="40%" cy="30%" r="80%"><stop offset="0" stop-color="#4f8ff7"/><stop offset=".6" stop-color="#1c4fc0"/><stop offset="1" stop-color="#0b2466"/></radialGradient>
+ <linearGradient id="hkB" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#ffffff"/><stop offset="1" stop-color="#c9d6ea"/></linearGradient>
+</defs>
+<g transform="translate(60 60)">
+ <g fill="url(#hkH)" stroke="#7a4d00" stroke-width="1.5"><rect x="-5" y="-58" width="10" height="16" rx="4" transform="rotate(0)"/><rect x="-5" y="-58" width="10" height="16" rx="4" transform="rotate(45)"/><rect x="-5" y="-58" width="10" height="16" rx="4" transform="rotate(90)"/><rect x="-5" y="-58" width="10" height="16" rx="4" transform="rotate(135)"/><rect x="-5" y="-58" width="10" height="16" rx="4" transform="rotate(180)"/><rect x="-5" y="-58" width="10" height="16" rx="4" transform="rotate(225)"/><rect x="-5" y="-58" width="10" height="16" rx="4" transform="rotate(270)"/><rect x="-5" y="-58" width="10" height="16" rx="4" transform="rotate(315)"/></g>
+ <circle r="47" cy="2.5" fill="#7a4d00"/>
+ <circle r="47" fill="url(#hkG)" stroke="#8a5a00" stroke-width="2"/>
+ <circle r="40.5" fill="none" stroke="#9a6400" stroke-width="3" stroke-dasharray="4 3.2"/>
+ <circle r="34" fill="#8a5a00"/>
+ <circle r="32" fill="url(#hkE)"/>
+ <path d="M-26 6a32 32 0 0 0 52 0" fill="#ffffff10"/>
+ <g stroke-linecap="round">
+  <path d="M-17 -15 Q-2 0 15 19" stroke="url(#hkB)" stroke-width="5.5" fill="none"/>
+  <path d="M17 -15 Q2 0 -15 19" stroke="url(#hkB)" stroke-width="5.5" fill="none"/>
+  <path d="M-22 -10 L-12 -20 M22 -10 L12 -20" stroke="#ffcf3f" stroke-width="5"/>
+  <path d="M-20 -21 L-24 -25 M20 -21 L24 -25" stroke="#ffcf3f" stroke-width="5"/>
+ </g>
+ <path d="M0 -27 l2.8 5.8 6.3 .9 -4.6 4.4 1.1 6.3 -5.6 -3 -5.6 3 1.1 -6.3 -4.6 -4.4 6.3 -.9z" fill="#ffcf3f" stroke="#7a4d00" stroke-width=".8"/>
+ <path d="M-36 -18 Q-26 -36 -6 -41" stroke="#fff" stroke-width="3.5" stroke-linecap="round" fill="none" opacity=".75"/>
+</g></g></svg>
       <div>
         <h1>When should you use your Pirate Token?</h1>
       </div>
@@ -258,6 +283,14 @@
     </div>
   </details>
 
+  <details class="fold pnl" id="cmpsec">
+    <summary><span class="ico"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="8" cy="9" r="3"/><circle cx="16" cy="9" r="3"/><path d="M3 20c0-3 2.5-5 5-5s5 2 5 5M11 20c0-3 2.5-5 5-5s5 2 5 5"/></svg></span><span class="sumt"><b>Compare with a friend</b><small>Paste their pirate card link or scan their QR code</small></span></summary>
+    <div class="foldbody">
+      <div class="filters"><input id="cmpIn" type="text" placeholder="Paste a friend's link or code" autocomplete="off" aria-label="Friend's link or code"><button class="btn gold" id="cmpGo" type="button">Compare</button></div>
+      <div id="cmpRes"><p class="hint">Your friend makes their pirate card and sends you the link, or you scan their QR code with your phone camera.</p></div>
+    </div>
+  </details>
+
   <details class="fold pnl" id="backsec">
     <summary><span class="ico"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 12a8 8 0 1 0 3-6.2"/><path d="M4 4v4h4"/><path d="M12 8v4l3 2"/></svg></span><span class="sumt"><b>Will it come back?</b><small>Chance a skin returns during your 14 days</small></span></summary>
     <div class="foldbody">
@@ -336,10 +369,13 @@
 
 <dialog class="cardlg" id="cardDlg" aria-label="Your pirate card">
   <canvas id="cardCv" width="1080" height="1350"></canvas>
+  <label class="namefld">Your pirate name
+    <span><input id="cardName" maxlength="32" autocomplete="off"><button class="dice" id="cardNew" type="button" aria-label="Random pirate name"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="4"/><circle cx="8" cy="8" r="1.5"/><circle cx="16" cy="8" r="1.5"/><circle cx="12" cy="12" r="1.5"/><circle cx="8" cy="16" r="1.5"/><circle cx="16" cy="16" r="1.5"/></svg></button></span>
+  </label>
   <div class="acts">
     <button class="btn gold" id="cardShare" type="button">Share</button>
     <a class="btn ghost" id="cardDl" download="my-pirate-card.png" href="#">Download</a>
-    <button class="btn ghost" id="cardNew" type="button">New pirate name</button>
+    <button class="btn ghost" id="cardCopy" type="button">Copy link</button>
     <button class="btn ghost" id="cardClose" type="button">Close</button>
   </div>
   <p class="hint" id="cardMsg"></p>

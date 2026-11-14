@@ -569,3 +569,30 @@ h2{font-size:clamp(28px,3.6vw,40px)}
 /* footer: Epic's fan content disclaimer */
 .foot .epic{font-size:12px;color:#c3d5f7;margin-bottom:10px}
 @media(prefers-reduced-motion:reduce){.hero h1{transform:none}}
+
+/* pirate card: name field, QR */
+.namefld{display:grid;gap:6px;margin:12px 0 0;font-weight:800;font-size:14px;color:#dfe8ff}
+.namefld span{display:flex;gap:8px}
+.namefld input{flex:1;background:#fff;color:#152238;border:0;font-weight:800}
+.dice{width:46px;height:46px;border:0;border-radius:8px;background:linear-gradient(180deg,#fff27a,var(--yel));cursor:pointer;display:grid;place-items:center;transform:skewX(-8deg);box-shadow:0 3px 0 var(--yeld)}
+.dice svg{width:24px;height:24px;fill:none;stroke:#1a1300;stroke-width:2}.dice circle{fill:#1a1300;stroke:none}
+.dice:active svg{animation:diceroll .4s}@keyframes diceroll{to{transform:rotate(360deg)}}
+.cardlg{max-height:94vh;overflow:auto}
+.cardlg canvas{max-height:56vh;width:auto;max-width:100%;margin:0 auto}
+/* banner when you open someone's shared settings */
+.sharedbar{position:sticky;top:0;z-index:30;display:flex;flex-wrap:wrap;gap:10px;align-items:center;justify-content:center;padding:10px 16px;background:#0b1f4a;color:#fff;box-shadow:0 6px 20px #0006;font-weight:700}
+.sharedbar b{color:var(--yel)}
+
+/* compare with a friend */
+#cmpIn{flex:1 1 260px}
+.cmpgrid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px;margin:6px 0 12px}
+.cmpc{display:grid;gap:2px;padding:14px 16px;border-radius:10px;color:#fff;transform:skewX(-4deg)}
+.cmpc>*{transform:skewX(4deg)}
+.cmpc small{font-weight:900;text-transform:uppercase;letter-spacing:.4px;opacity:.85}
+.cmpc b{font-family:var(--fnt);font-style:italic;font-weight:400;font-size:28px;text-transform:uppercase;line-height:1.1}
+.cmpc span{font-size:14px;opacity:.9}
+.cmpc.you{background:radial-gradient(120% 120% at 50% 0%,#4fb3ff,#1559c9)}
+.cmpc.fr{background:radial-gradient(120% 120% at 50% 0%,#d27bff,#6a1fb5)}
+.cmpc.tog{background:radial-gradient(120% 120% at 50% 0%,#ffb84d,#b8510a);box-shadow:0 0 0 3px var(--yel)}
+#cmpRes p{margin:6px 0}
+@media(max-width:600px){.cmpgrid{grid-template-columns:minmax(0,1fr)}}

@@ -43,6 +43,26 @@ const DEF = { types: { ...base }, kw: '', kwBoost: 2, rare: 3, ev: {}, days: [1,
 let P = structuredClone(DEF), sel = null;
 try { Object.assign(P, JSON.parse(localStorage.getItem('ptp3') || '{}')); } catch (e) {}
 if (location.hash.startsWith('#s=')) { try { Object.assign(P, JSON.parse(decodeURIComponent(atob(location.hash.slice(3))))); } catch (e) {} }
+// ---------- compact share codes: #c=… carries someone's taste (and their pirate name) ----------
+// format: v1 . types (one char 0-9/a per type) . play days (7 bits) . boost*2 rare late . events . favourite words . must-haves (last 10 chars of offer ids) . name
+const TKEYS = ['outfit', 'bundle', 'emote', 'pickaxe', 'glider', 'backpack', 'wrap', 'sidekick', 'jamtrack', 'music', 'kicks', 'car', 'contrail', 'loadingscreen', 'lego', 'instrument', 'other'];
+const b64u = t => btoa(unescape(encodeURIComponent(t))).replace(/\+/g, '-').replace(/\//g, '_').replace(/=+$/, '');
+const unb64u = t => decodeURIComponent(escape(atob(t.replace(/-/g, '+').replace(/_/g, '/'))));
+function shareCode(name) {
+  const d = n => n >= 10 ? 'a' : String(Math.max(0, Math.round(n)));
+  const parts = ['1', TKEYS.map(k => d(P.types[k] ?? 0)).join(''), P.days.join(''), `${Math.round(P.kwBoost * 2)}${d(P.rare)}${P.late ? 1 : 0}`,
+    Object.entries(P.ev).map(([k, v]) => `${k}:${v}`).join(','), P.kw || '', (P.must || []).map(id => String(id).slice(-10)).join(','), name || ''];
+  return b64u(parts.join('|'));
+}
+function readCode(code) {
+  const f = unb64u(code).split('|'); if (f[0] !== '1') throw new Error('unknown version');
+  const v = c => c === 'a' ? 10 : +c;
+  const types = {}; TKEYS.forEach((k, i) => { if (f[1][i] !== undefined) types[k] = v(f[1][i]); });
+  const ev = {}; for (const kv of (f[4] || '').split(',').filter(Boolean)) { const [k, x] = kv.split(':'); ev[k] = +x; }
+  return { types, days: f[2].split('').map(Number), kwBoost: +f[3][0] / 2, rare: v(f[3][1]), late: f[3][2] === '1', ev, kw: f[5] || '', mustTail: (f[6] || '').split(',').filter(Boolean), name: f[7] || '' };
+}
+let shared = null;
+if (location.hash.startsWith('#c=')) { try { shared = readCode(location.hash.slice(3)); shared.prev = structuredClone(P); const { mustTail, name, prev, ...rest } = shared; Object.assign(P, rest); } catch (e) { shared = null; } }
 const save = () => { try { localStorage.setItem('ptp3', JSON.stringify(P)); } catch (e) {} };
 
 let D = {}; // loaded data
@@ -439,7 +459,7 @@ function bind() {
   $('bars').addEventListener('click', pick); $('alts').addEventListener('click', pick);
   const copy = async (txt, msg) => { try { await navigator.clipboard.writeText(txt); $('copyMsg').textContent = msg; } catch (e) { $('copyMsg').textContent = txt; } };
   $('copy').addEventListener('click', () => copy(render.plan, 'Plan copied.'));
-  $('shareSet').addEventListener('click', () => copy(location.href.split('#')[0] + '#s=' + btoa(encodeURIComponent(JSON.stringify({ ...P, owned: [], claimed: [], activated: null }))), 'Link copied. It carries your taste, not your owned items.'));
+  $('shareSet').addEventListener('click', () => copy(shareUrl(''), 'Link copied. It carries your taste, not your owned items.'));
   $('calBtn').addEventListener('click', () => openCal($('calBtn'), $('calMenu'), render.cal));
   document.addEventListener('click', e => { if (!e.target.closest('.calwrap')) document.querySelectorAll('.calmenu').forEach(m => { m.hidden = true; }); });
   document.addEventListener('keydown', e => { if (e.key === 'Escape') document.querySelectorAll('.calmenu').forEach(m => { m.hidden = true; }); });
@@ -578,47 +598,179 @@ const NAME_A = ['Captain', 'First Mate', 'Admiral', 'Quartermaster', 'Bosun', 'C
 const NAME_B = ['Sleepy', 'Salty', 'Golden', 'Barnacle', 'Stormy', 'Crusty', 'Lucky', 'Rusty', 'Sneaky', 'Jolly', 'Soggy', 'Mighty'];
 const NAME_C = ['Beard', 'Plank', 'Doubloon', 'Kraken', 'Parrot', 'Anchor', 'Squid', 'Cutlass', 'Shrimp', 'Compass', 'Pickaxe', 'Llama'];
 function pirateName(seed) { let h = seed >>> 0; const pick = a => { h = Math.imul(h ^ h >>> 15, 2246822507) + 0x9e3779b9 >>> 0; return a[h % a.length]; }; return `${pick(NAME_A)} ${pick(NAME_B)}${pick(NAME_C)}`; }
+// images for the card: the token (same origin) and item pictures (only if their server allows it, else skipped)
+const imgCache = new Map();
+function loadImg(src, cors) {
+  if (!src) return Promise.resolve(null);
+  if (!imgCache.has(src)) imgCache.set(src, new Promise(ok => { const im = new Image(); if (cors) im.crossOrigin = 'anonymous'; const t = setTimeout(() => ok(null), 5000); im.onload = () => { clearTimeout(t); ok(im); }; im.onerror = () => { clearTimeout(t); ok(null); }; im.src = src; }));
+  return imgCache.get(src);
+}
 async function drawCard() {
   const M = render.M, cur = M.all.find(a => a.s === sel), cv = $('cardCv'), g = cv.getContext('2d'), W = 1080, H = 1350;
   await document.fonts.ready;
-  const sky = g.createLinearGradient(0, 0, 0, H); sky.addColorStop(0, '#8cc8ff'); sky.addColorStop(.45, '#3d7fe6'); sky.addColorStop(1, '#0b2a6e');
-  g.fillStyle = sky; g.fillRect(0, 0, W, H);
-  // waves
-  for (const [y, c] of [[520, '#a8d8ff'], [560, '#6aaef5'], [600, '#3d7fe6']]) { g.fillStyle = c; g.beginPath(); g.moveTo(0, H); g.lineTo(0, y); for (let x = 0; x <= W; x += 60) g.quadraticCurveTo(x + 30, y - 26, x + 60, y); g.lineTo(W, H); g.fill(); }
-  // bubbles and coins
-  g.fillStyle = '#ffffff40'; for (let k = 0; k < 40; k++) { g.beginPath(); g.arc((k * 197) % W, 700 + (k * 131) % 600, 3 + k % 6, 0, 7); g.fill(); }
-  const coin = (x, y, r) => { const cg = g.createRadialGradient(x - r * .3, y - r * .3, 2, x, y, r); cg.addColorStop(0, '#fff2a8'); cg.addColorStop(.5, '#ffc83d'); cg.addColorStop(1, '#b07c00'); g.fillStyle = cg; g.beginPath(); g.arc(x, y, r, 0, 7); g.fill(); g.strokeStyle = '#6b4300'; g.lineWidth = r / 7; g.lineCap = 'round'; g.beginPath(); g.moveTo(x - r * .35, y - r * .35); g.lineTo(x + r * .35, y + r * .35); g.moveTo(x + r * .35, y - r * .35); g.lineTo(x - r * .35, y + r * .35); g.stroke(); };
-  coin(160, 190, 90); coin(960, 1210, 40); coin(900, 1270, 28); coin(1010, 1265, 30);
-  g.fillStyle = '#fff'; g.textBaseline = 'alphabetic';
-  // shrink a line until it fits the card
-  const fit = (txt, x, y, max, size, font) => { let z = size; do { g.font = font.replace('#', z + 'px'); z -= 2; } while (g.measureText(txt).width > max && z > 14); g.fillText(txt, x, y); };
-  g.font = '800 34px Nunito, sans-serif'; g.fillText('MY PIRATE TOKEN PLAN', 280, 160);
-  g.fillStyle = '#fff'; fit(render.cardName, 280, 232, W - 340, 64, '# "Luckiest Guy", Impact, sans-serif');
-  g.font = '800 30px Nunito, sans-serif'; g.fillStyle = '#eaf1ff'; g.fillText('sets sail on', 90, 400);
-  g.font = '110px "Luckiest Guy", Impact, sans-serif'; g.fillStyle = '#ffc83d'; g.strokeStyle = '#7a4a00'; g.lineWidth = 10; g.lineJoin = 'round';
-  const day = fmt(sel, { weekday: 'short', day: 'numeric', month: 'short' }); g.strokeText(day, 90, 510); g.fillText(day, 90, 510);
-  // stats
-  const stat = (y, big, small) => { g.font = '86px "Luckiest Guy", Impact, sans-serif'; g.fillStyle = '#fff'; g.fillText(big, 90, y); g.font = '800 32px Nunito, sans-serif'; g.fillStyle = '#c3d5f7'; g.fillText(small, 90, y + 46); };
-  stat(760, `~${n0(cur.tot / 1000)}k`, 'V-Bucks of loot I want, for free');
-  const must = cur.rows.filter(r => r.hit && r.x.must).length;
-  stat(940, `${M.dur} days`, must ? `of free Item Shop · ${must} must-have${must > 1 ? 's' : ''} in the bag` : 'of free Item Shop');
-  const top = cur.rows.filter(r => r.hit).sort((a, b) => b.v - a.v).slice(0, 3).map(r => r.x.e.name);
-  if (top.length) { g.fillStyle = '#ffe08a'; fit('Top loot: ' + top.join(' · '), 90, 1090, W - 180, 30, '800 # Nunito, sans-serif'); }
-  g.font = '900 34px Nunito, sans-serif'; g.fillStyle = '#fff'; g.fillText('Find your best day:', 90, 1230);
-  g.fillStyle = '#ffc83d'; fit('piratetokenplanner.github.io/pirate-token-planner', 90, 1278, W - 300, 34, '900 # Nunito, sans-serif');
-  g.font = '700 22px Nunito, sans-serif'; g.fillStyle = '#c3d5f7'; g.fillText('Fan-made · not affiliated with Epic Games', 90, 1318);
+  const FN = '"Anton", "Luckiest Guy", Impact, sans-serif', NU = 'Nunito, sans-serif';
+  const top = cur.rows.filter(r => r.hit).sort((a, b) => b.v - a.v).slice(0, 3);
+  const [tok, ...pics] = await Promise.all([loadImg('icons/token.svg'), ...top.map(r => loadImg(r.x.e.image, true))]);
+  const token = (x, y, r) => { if (tok) g.drawImage(tok, x - r * 1.25, y - r * 1.25, r * 2.5, r * 2.5); else coin(x, y, r); };
+  const fit = (txt, x, y, max, size, font, align = 'left') => { let z = size; do { g.font = font.replace('#', z + 'px'); z -= 2; } while (g.measureText(txt).width > max && z > 14); g.textAlign = align; g.fillText(txt, x, y); g.textAlign = 'left'; };
+  const lin = (y0, y1, stops) => { const l = g.createLinearGradient(0, y0, 0, y1); stops.forEach(([o, c]) => l.addColorStop(o, c)); return l; };
+  const slant = (x, y, w, h, sk = 14) => { g.beginPath(); g.moveTo(x + sk, y); g.lineTo(x + w, y); g.lineTo(x + w - sk, y + h); g.lineTo(x, y + h); g.closePath(); };
+  const coin = (x, y, r) => { const cg = g.createRadialGradient(x - r * .3, y - r * .35, 2, x, y, r); cg.addColorStop(0, '#fff2a8'); cg.addColorStop(.5, '#ffc83d'); cg.addColorStop(1, '#b07c00');
+    g.fillStyle = '#8a5a00'; g.beginPath(); g.arc(x, y + r * .08, r, 0, 7); g.fill(); g.fillStyle = cg; g.beginPath(); g.arc(x, y, r, 0, 7); g.fill();
+    g.strokeStyle = '#b07c00'; g.lineWidth = r * .06; g.setLineDash([r * .06, r * .14]); g.beginPath(); g.arc(x, y, r * .82, 0, 7); g.stroke(); g.setLineDash([]);
+    g.strokeStyle = '#6b4300'; g.lineWidth = r / 7; g.lineCap = 'round'; g.beginPath(); g.moveTo(x - r * .34, y - r * .34); g.lineTo(x + r * .34, y + r * .34); g.moveTo(x + r * .34, y - r * .34); g.lineTo(x - r * .34, y + r * .34); g.stroke(); };
+  // sky
+  g.fillStyle = lin(0, 520, [[0, '#7cc0ff'], [1, '#3d86ee']]); g.fillRect(0, 0, W, 520);
+  const sun = g.createRadialGradient(900, 120, 10, 900, 120, 170); sun.addColorStop(0, '#fff6c2'); sun.addColorStop(.35, '#ffd96a'); sun.addColorStop(.36, '#ffe9a044'); sun.addColorStop(1, '#ffe9a000');
+  g.fillStyle = sun; g.beginPath(); g.arc(900, 120, 170, 0, 7); g.fill();
+  const cloud = (x, y, s) => { g.fillStyle = '#ffffffcc'; for (const [dx, dy, r] of [[0, 0, 26], [30, -14, 32], [64, -4, 28], [92, 6, 20]]) { g.beginPath(); g.arc(x + dx * s, y + dy * s, r * s, 0, 7); g.fill(); } g.fillRect(x - 10 * s, y, 112 * s, 26 * s); };
+  cloud(980, 250, .6);
+  // header text
+  g.fillStyle = '#fff'; g.shadowColor = '#0b2a6e'; g.shadowOffsetY = 4;
+  g.font = `900 30px ${NU}`; g.fillText('MY PIRATE TOKEN PLAN', 200, 112);
+  g.font = `italic 60px ${FN}`; fit(render.cardName.toUpperCase(), 200, 178, 520, 60, `italic # ${FN}`);
+  g.shadowOffsetY = 0; token(110, 140, 66);
+  g.font = `800 32px ${NU}`; g.fillStyle = '#eaf4ff'; g.fillText('sets sail on', 70, 300);
+  g.save(); g.transform(1, 0, -0.12, 1, 0, 0); g.font = `italic 128px ${FN}`; const day = fmt(sel, { weekday: 'short', day: 'numeric', month: 'short' }).toUpperCase();
+  g.lineWidth = 14; g.strokeStyle = '#6b4300'; g.lineJoin = 'round'; g.strokeText(day, 110, 430); g.fillStyle = lin(320, 430, [[0, '#fff27a'], [1, '#ffc400']]); g.fillText(day, 110, 430); g.restore();
+  const drawShip = () => {
+  g.save(); g.translate(700, 284); g.scale(1.1, 1.1);
+  g.fillStyle = '#4a2410'; g.fillRect(96, 10, 8, 150);
+  g.fillStyle = '#fffaf0'; g.beginPath(); g.moveTo(40, 40); g.quadraticCurveTo(100, 50, 160, 40); g.quadraticCurveTo(172, 90, 160, 140); g.quadraticCurveTo(100, 148, 40, 140); g.quadraticCurveTo(28, 90, 40, 40); g.fill();
+  g.beginPath(); g.moveTo(170, 50); g.lineTo(226, 150); g.lineTo(170, 150); g.fill();
+  g.fillStyle = '#1d2b2d'; g.beginPath(); g.moveTo(104, 8); g.quadraticCurveTo(126, 2, 150, 12); g.quadraticCurveTo(128, 16, 150, 26); g.quadraticCurveTo(126, 20, 104, 24); g.fill();
+  token(100, 92, 30);
+  g.fillStyle = lin(150, 210, [[0, '#a0522d'], [1, '#4f240e']]); g.beginPath(); g.moveTo(-6, 156); g.lineTo(236, 156); g.quadraticCurveTo(226, 204, 190, 212); g.lineTo(40, 212); g.quadraticCurveTo(4, 204, -6, 156); g.fill();
+  g.fillStyle = '#ffc83d'; g.fillRect(-8, 150, 248, 10);
+  g.fillStyle = '#2a1206'; for (const x of [40, 90, 140, 190]) { g.beginPath(); g.arc(x, 184, 7, 0, 7); g.fill(); }
+  g.restore();
+  };
+  // sea
+  g.fillStyle = lin(480, H, [[0, '#3d86ee'], [.4, '#1d5fc8'], [1, '#0a2462']]); g.fillRect(0, 500, W, H - 500);
+  // the ship sits in the water: drawn after the sea, with the front waves over its hull
+  drawShip();
+  for (const [y, c, a] of [[500, '#bfe4ff', 28], [530, '#7cbcff', 24], [560, '#3d86ee', 20]]) { g.fillStyle = c; g.beginPath(); g.moveTo(0, H); g.lineTo(0, y); for (let x = 0; x <= W; x += 72) g.quadraticCurveTo(x + 36, y - a, x + 72, y); g.lineTo(W, H); g.fill(); }
+  g.save(); g.globalAlpha = .12; g.fillStyle = '#fff'; for (const [x, w] of [[120, 70], [360, 40], [600, 90], [860, 50]]) { g.beginPath(); g.moveTo(x, 560); g.lineTo(x + w, 560); g.lineTo(x + w - 160, H); g.lineTo(x - 200, H); g.fill(); } g.restore();
+  g.strokeStyle = '#ffffff55'; g.lineWidth = 2; for (let k = 0; k < 34; k++) { g.beginPath(); g.arc((k * 197 + 40) % W, 640 + (k * 131) % 640, 3 + k % 7, 0, 7); g.stroke(); }
+  const fish = (x, y, s, c1, c2, flip) => { g.save(); g.translate(x, y); g.scale(flip ? -s : s, s); g.fillStyle = c1; g.beginPath(); g.moveTo(-20, 0); g.quadraticCurveTo(0, -16, 20, 0); g.quadraticCurveTo(0, 16, -20, 0); g.fill(); g.fillStyle = c2; g.beginPath(); g.moveTo(18, 0); g.lineTo(34, -10); g.lineTo(30, 0); g.lineTo(34, 10); g.fill(); g.fillStyle = '#14213d'; g.beginPath(); g.arc(-11, -2, 2.6, 0, 7); g.fill(); g.restore(); };
+  fish(880, 640, 1.6, '#ffb347', '#ff8c42'); fish(950, 670, 1.2, '#ffb347', '#ff8c42'); fish(830, 690, 1, '#ffb347', '#ff8c42'); fish(540, 780, 1.3, '#7ee0c6', '#2fb59a', true);
+  // stat badges
+  const badge = (x, y, w, big, small, col) => { g.fillStyle = col; slant(x, y, w, 130, 18); g.fill(); g.fillStyle = '#ffffff22'; slant(x, y, w, 8, 1); g.fill();
+    g.fillStyle = '#fff'; g.font = `italic 64px ${FN}`; fit(big, x + w / 2, y + 74, w - 40, 64, `italic # ${FN}`, 'center'); g.font = `900 22px ${NU}`; g.fillStyle = '#eaf4ff'; fit(small.toUpperCase(), x + w / 2, y + 110, w - 40, 22, `900 # ${NU}`, 'center'); };
+  const pb = Math.round(cur.pBest * 100), must = cur.rows.filter(r => r.hit && r.x.must).length;
+  badge(60, 596, 330, `~${n0(cur.tot / 1000)}K`, 'V-Bucks of loot', 'rgba(255,170,40,.92)');
+  badge(375, 596, 300, `${M.dur} days`, must ? `${must} must-have${must > 1 ? 's' : ''} inside` : 'free Item Shop', 'rgba(140,70,230,.9)');
+  badge(660, 596, 300, `${pb}%`, 'top-day chance', 'rgba(30,140,240,.92)');
+  // top loot tiles, coloured by rarity
+  const RC = { legendary: ['#ffb84d', '#b8510a'], epic: ['#d27bff', '#6a1fb5'], rare: ['#4fd2ff', '#1559c9'], uncommon: ['#87e339', '#319236'], icon: ['#5ff2ff', '#127a8f'], marvel: ['#ff5a5a', '#8e1010'], gaming: ['#8a7bff', '#2b1e8f'], dark: ['#c04bff', '#2a0a3d'], music: ['#ff7ad9', '#7a1a8c'], common: ['#b0bccf', '#4b5566'] };
+  g.font = `italic 34px ${FN}`; g.fillStyle = '#fff'; g.fillText('TOP LOOT', 60, 806);
+  top.forEach((r, k) => { const x = 60 + k * 182, y = 826, w = 168, h = 210, [c1, c2] = RC[rarityOf(r.x.e)] || RC.common;
+    const rg = g.createRadialGradient(x + w / 2, y + 40, 10, x + w / 2, y + h / 2, h); rg.addColorStop(0, c1); rg.addColorStop(1, c2);
+    g.fillStyle = rg; g.beginPath(); g.roundRect(x, y, w, h, 12); g.fill(); g.fillStyle = '#0b1f4acc'; g.beginPath(); g.roundRect(x, y + h - 58, w, 58, [0, 0, 12, 12]); g.fill();
+    g.fillStyle = '#fff'; g.font = `italic 22px ${FN}`; let nm = r.x.e.name.toUpperCase(); while (g.measureText(nm).width > w - 20 && nm.length > 4) nm = nm.slice(0, -2).trimEnd() + '…'; g.textAlign = 'center'; g.fillText(nm, x + w / 2, y + h - 22); g.textAlign = 'left';
+    const im = pics[k];
+    if (im) { g.save(); g.beginPath(); g.roundRect(x, y, w, h - 58, [12, 12, 0, 0]); g.clip(); const sc = Math.max(w / im.width, (h - 58) / im.height) * 1.05, iw = im.width * sc, ih = im.height * sc; g.drawImage(im, x + (w - iw) / 2, y + (h - 58 - ih) * .35, iw, ih); g.restore(); }
+    else { g.fillStyle = '#ffffff55'; g.font = `italic 64px ${FN}`; g.textAlign = 'center'; g.fillText(String(k + 1), x + w / 2, y + 82); g.textAlign = 'left'; }
+    g.fillStyle = '#ffe23d'; g.beginPath(); g.moveTo(x, y); g.lineTo(x + 40, y); g.lineTo(x + 30, y + 30); g.lineTo(x, y + 30); g.closePath(); g.fill(); g.fillStyle = '#1a1300'; g.font = `italic 24px ${FN}`; g.fillText(String(k + 1), x + 9, y + 25);
+    g.fillStyle = '#0b1f4acc'; g.beginPath(); g.roundRect(x, y + h - 58, w, 58, [0, 0, 12, 12]); g.fill(); g.fillStyle = '#fff'; g.font = `italic 22px ${FN}`; g.textAlign = 'center'; g.fillText(nm, x + w / 2, y + h - 22); g.textAlign = 'left'; });
+  // seabed with treasure
+  g.fillStyle = '#d9b26c'; g.beginPath(); g.moveTo(0, H); g.lineTo(0, 1262); g.quadraticCurveTo(270, 1232, 540, 1258); g.quadraticCurveTo(810, 1282, W, 1250); g.lineTo(W, H); g.fill();
+  g.fillStyle = '#e8c98a'; g.beginPath(); g.moveTo(0, H); g.lineTo(0, 1282); g.quadraticCurveTo(300, 1262, 620, 1286); g.quadraticCurveTo(860, 1300, W, 1276); g.lineTo(W, H); g.fill();
+  g.fillStyle = '#ff8c69'; g.beginPath(); for (let k = 0; k < 10; k++) { const a = k * Math.PI / 5 - Math.PI / 2, rr = k % 2 ? 7 : 16; g.lineTo(560 + Math.cos(a) * rr, 1300 + Math.sin(a) * rr); } g.fill();
+  g.fillStyle = '#2fa36b'; for (const [x, h2] of [[40, 90], [70, 120], [600, 70], [1040, 100]]) { g.beginPath(); g.ellipse(x, 1250 - h2 / 2, 8, h2 / 2, .1, 0, 7); g.fill(); }
+  g.fillStyle = '#8a4a1f'; g.fillRect(330, 1222, 120, 70); g.fillStyle = '#ffd65c'; g.beginPath(); g.ellipse(390, 1224, 56, 14, 0, 0, 7); g.fill(); g.fillStyle = '#ffc83d'; g.fillRect(330, 1222, 8, 70); g.fillRect(442, 1222, 8, 70); g.fillRect(382, 1240, 16, 22);
+  coin(360, 1212, 13); coin(390, 1206, 15); coin(420, 1214, 13);
+  g.fillStyle = '#fff'; g.font = `900 30px ${NU}`; g.fillText('Find your best day:', 60, 1092);
+  g.fillStyle = '#ffe23d'; fit('piratetokenplanner.github.io', 60, 1134, 520, 34, `900 # ${NU}`); fit('/pirate-token-planner', 60, 1170, 520, 30, `800 # ${NU}`);
+  g.fillStyle = '#6b4a1f'; g.font = `800 20px ${NU}`; g.fillText('Fan-made · not affiliated with Epic Games', 60, 1332); g.textAlign = 'right'; g.fillText('scan to plan with me or compare plans', W - 60, 1332); g.textAlign = 'left';
+  // the big QR code, with the token in the middle
+  if (window.qrcode) {
+    const qs = 360, qx = W - 70 - qs, qy = 846;
+    g.fillStyle = '#ffe23d'; slant(qx - 26, qy - 70, qs + 52, 54, 12); g.fill(); g.fillStyle = '#1a1300'; fit('SCAN TO PLAN WITH ME', qx + qs / 2, qy - 32, qs, 28, `italic # ${FN}`, 'center');
+    drawQR(g, shareUrl(render.cardName), qx, qy, qs); g.fillStyle = '#fff'; g.beginPath(); g.arc(qx + qs / 2, qy + qs / 2, 30, 0, 7); g.fill(); token(qx + qs / 2, qy + qs / 2, 22);
+     g.textAlign = 'left';
+  }
   $('cardDl').href = cv.toDataURL('image/png');
+}
+const shareUrl = name => location.href.split('#')[0] + '#c=' + shareCode(name);
+function loadQR() { return window.qrcode ? Promise.resolve() : new Promise((ok, bad) => { const sc = document.createElement('script'); sc.src = 'vendor/qrcode.js'; sc.onload = ok; sc.onerror = bad; document.head.appendChild(sc); }); }
+function drawQR(g, text, x, y, size) {
+  const qr = qrcode(0, 'H'); qr.addData(text); qr.make(); // high error correction, so the coin in the middle doesn't break it
+  const n = qr.getModuleCount(), q = 4, cell = size / (n + q * 2); // 4-module quiet zone for reliable scanning
+  g.fillStyle = '#fff'; g.beginPath(); g.roundRect(x - 14, y - 14, size + 28, size + 28, 20); g.fill();
+  g.fillStyle = '#0b1f4a';
+  for (let r = 0; r < n; r++) for (let c = 0; c < n; c++) if (qr.isDark(r, c)) g.fillRect(x + (c + q) * cell, y + (r + q) * cell, Math.ceil(cell), Math.ceil(cell));
+}
+// someone opened a shared card: their settings are applied, with a way back to your own
+function sharedBanner() {
+  if (!shared) return;
+  // must-haves travel as id endings: match them against today's shop
+  const tails = new Set(shared.mustTail), mustIds = D.shop.entries.filter(e => tails.has(String(e.id).slice(-10))).map(e => e.id);
+  if (mustIds.length) P.must = [...new Set([...(P.must || []), ...mustIds])];
+  const who = shared.name ? esc(shared.name) : 'a fellow pirate';
+  const bar = document.createElement('div'); bar.className = 'sharedbar';
+  bar.innerHTML = `<span>You're sailing with <b>${who}</b>'s settings${mustIds.length ? ` (${mustIds.length} must-have${mustIds.length > 1 ? 's' : ''})` : ''}.</span><button class="btn gold" type="button" data-k="keep">Keep them</button><button class="btn ghost" type="button" data-k="mine">Use my own</button><button class="btn ghost" type="button" data-k="cmp">Compare with mine</button>`;
+  document.body.prepend(bar);
+  bar.addEventListener('click', e => {
+    const k = e.target.closest('[data-k]'); if (!k) return;
+    if (k.dataset.k === 'cmp') { const d = $('cmpsec'); d.open = true; compare(shared.prev, shared); d.scrollIntoView({ behavior: 'smooth' }); return; }
+    if (k.dataset.k === 'mine') { const prev = shared.prev; for (const key of Object.keys(prev)) P[key] = prev[key]; controls(); render(); }
+    save(); history.replaceState(null, '', location.pathname + location.search); bar.remove();
+  });
+}
+// ---------- compare your plan with a friend's ----------
+function planWith(settings) {
+  const keep = P; P = { ...structuredClone(P), ...settings }; const M = model(); P = keep; return M;
+}
+function friendFrom(input) {
+  const t = String(input || '').trim(); const m = t.match(/#c=([A-Za-z0-9_-]+)/); const code = m ? m[1] : t;
+  const f = readCode(code); const tails = new Set(f.mustTail);
+  f.must = D.shop.entries.filter(e => tails.has(String(e.id).slice(-10))).map(e => e.id);
+  return f;
+}
+function compare(mine, friend) {
+  const A = planWith(mine), B = planWith(friend);
+  const bestOf = M => M.all.reduce((x, y) => y.tot > x.tot ? y : x);
+  const a = bestOf(A), b = bestOf(B);
+  // together: the start day where both get the highest share of their own best (the weaker one counts most)
+  let tog = null;
+  for (const x of A.all) { const y = B.all.find(z => z.s === x.s); const pa = x.tot / a.tot, pb = y.tot / b.tot, sc = Math.min(pa, pb) * 2 + pa + pb; if (!tog || sc > tog.sc) tog = { s: x.s, pa, pb, sc }; }
+  const same = new Set((mine.must || []).filter(id => (friend.must || []).includes(id)));
+  const name = friend.name || 'Your friend';
+  const pct = v => Math.round(v * 100) + '%';
+  const both = new Set(A.all.find(z => z.s === tog.s).rows.filter(r => r.hit && r.x.value > 0).map(r => r.x.e.id));
+  const sharedLoot = B.all.find(z => z.s === tog.s).rows.filter(r => r.hit && r.x.value > 0 && both.has(r.x.e.id)).sort((p, q) => q.x.e.price - p.x.e.price).slice(0, 6).map(r => esc(r.x.e.name));
+  $('cmpRes').innerHTML = `
+    <div class="cmpgrid">
+      <div class="cmpc you"><small>You</small><b>${fmtL(a.s)}</b><span>~${n0(a.tot / 1000)}k V-Bucks</span></div>
+      <div class="cmpc fr"><small>${esc(name)}</small><b>${fmtL(b.s)}</b><span>~${n0(b.tot / 1000)}k V-Bucks</span></div>
+      <div class="cmpc tog"><small>Sail together</small><b>${fmtL(tog.s)}</b><span>you get ${pct(tog.pa)} · ${esc(name.split(' ')[0])} gets ${pct(tog.pb)} of your best</span></div>
+    </div>
+    <p>${a.s === b.s ? 'Same best day! Activate together and plunder side by side.' : `Your best days are ${Math.abs(a.s - b.s)} day${Math.abs(a.s - b.s) === 1 ? '' : 's'} apart.`}${same.size ? ` You share ${same.size} must-have${same.size > 1 ? 's' : ''}.` : ''}</p>
+    ${sharedLoot.length ? `<p class="hint">Loot you'd both grab on ${fmt(tog.s)}: ${sharedLoot.join(', ')}.</p>` : ''}
+    <div class="acts"><button class="btn gold" type="button" data-pick-day="${tog.s}">Show ${fmt(tog.s)} in my plan</button></div>`;
+}
+function compareUI() {
+  const run = () => { try { compare(shared ? shared.prev : P, friendFrom($('cmpIn').value)); } catch { $('cmpRes').innerHTML = '<p class="hint">That does not look like a pirate card link or code.</p>'; } };
+  $('cmpGo').addEventListener('click', run);
+  $('cmpIn').addEventListener('keydown', e => { if (e.key === 'Enter') { e.preventDefault(); run(); } });
+  $('cmpRes').addEventListener('click', e => { const b = e.target.closest('[data-pick-day]'); if (!b) return; sel = +b.dataset.pickDay; render(false); document.querySelector('.result').scrollIntoView({ behavior: 'smooth' }); });
+  if (shared) $('cmpIn').value = location.href;
 }
 function cardUI() {
   const dlg = $('cardDlg');
   render.cardSeed = render.cardSeed ?? (Date.now() & 0xffff);
-  const open = async () => { render.cardName = pirateName(render.cardSeed); await drawCard(); $('cardMsg').textContent = ''; dlg.showModal ? dlg.showModal() : dlg.setAttribute('open', ''); };
+  try { render.cardName = localStorage.getItem('ptp-name') || ''; } catch {}
+  const setName = n => { render.cardName = n.slice(0, 32); $('cardName').value = render.cardName; try { localStorage.setItem('ptp-name', render.cardName); } catch {} };
+  const open = async () => { if (!render.cardName) setName(pirateName(render.cardSeed)); $('cardName').value = render.cardName; await loadQR().catch(() => {}); await drawCard(); $('cardMsg').textContent = ''; dlg.showModal ? dlg.showModal() : dlg.setAttribute('open', ''); };
+  let typing; $('cardName').addEventListener('input', e => { render.cardName = e.target.value.slice(0, 32) || 'Nameless Pirate'; clearTimeout(typing); typing = setTimeout(() => { try { localStorage.setItem('ptp-name', e.target.value); } catch {} drawCard(); }, 150); });
+  $('cardCopy').addEventListener('click', async () => { try { await navigator.clipboard.writeText(shareUrl(render.cardName)); $('cardMsg').textContent = 'Link with your settings copied.'; } catch { $('cardMsg').textContent = shareUrl(render.cardName); } });
   $('share').addEventListener('click', open);
-  $('cardNew').addEventListener('click', async () => { render.cardSeed += 7919; render.cardName = pirateName(render.cardSeed); await drawCard(); });
+  $('cardNew').addEventListener('click', async () => { render.cardSeed += 7919; setName(pirateName(render.cardSeed)); await drawCard(); });
   $('cardClose').addEventListener('click', () => dlg.close());
   dlg.addEventListener('click', e => { if (e.target === dlg) dlg.close(); });
   $('cardShare').addEventListener('click', async () => {
-    const url = location.href.split('#')[0], text = `${render.cardName} sets sail on ${fmt(sel, { weekday: 'short', day: 'numeric', month: 'short' })}! Find your best Pirate Token day:`;
+    const url = shareUrl(render.cardName), text = `${render.cardName} sets sail on ${fmt(sel, { weekday: 'short', day: 'numeric', month: 'short' })}! Find your best Pirate Token day:`;
     try {
       const blob = await new Promise(r => $('cardCv').toBlob(r, 'image/png')), file = new File([blob], 'my-pirate-card.png', { type: 'image/png' });
       if (navigator.canShare && navigator.canShare({ files: [file] })) { await navigator.share({ files: [file], text, url }); return; }
@@ -659,7 +811,7 @@ async function init() {
   // installable app: offline copy via a service worker, and an install button where the browser offers one
   if ('serviceWorker' in navigator && location.protocol === 'https:') navigator.serviceWorker.register('sw.js').catch(() => {});
   addEventListener('beforeinstallprompt', e => { e.preventDefault(); const b = $('installBtn'); b.hidden = false; b.onclick = async () => { b.hidden = true; e.prompt(); }; });
-  controls(); bind(); render(); sources(); cardUI(); crew();
+  sharedBanner(); controls(); bind(); render(); sources(); cardUI(); compareUI(); crew();
   // scroll drives the scene: the title floats away, the surface scrolls off and we dive towards the seabed
   const root = document.documentElement; let ticking = false;
   const scene = () => {
