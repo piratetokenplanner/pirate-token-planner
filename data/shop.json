@@ -1,0 +1,556 @@
+{
+ "shopDate": "2026-11-14",
+ "entries": [
+  {
+   "id": "v2:/sample0",
+   "name": "Corsair Captain",
+   "kind": "outfit",
+   "price": 1500,
+   "regular": 1500,
+   "inDate": "2026-11-12",
+   "outDate": "2026-12-05",
+   "section": "Sample Section 1",
+   "image": null,
+   "gap": 1370,
+   "items": [
+    {
+     "id": "Sample_0",
+     "name": "Corsair Captain",
+     "type": "outfit",
+     "rarity": "Epic",
+     "series": null,
+     "set": "Pirate Cove",
+     "appearances": 3
+    }
+   ]
+  },
+  {
+   "id": "v2:/sample1",
+   "name": "Reef Runner",
+   "kind": "outfit",
+   "price": 1200,
+   "regular": 1200,
+   "inDate": "2026-11-08",
+   "outDate": "2026-11-18",
+   "section": "Sample Section 2",
+   "image": null,
+   "gap": 910,
+   "items": [
+    {
+     "id": "Sample_1",
+     "name": "Reef Runner",
+     "type": "outfit",
+     "rarity": "Rare",
+     "series": null,
+     "set": null,
+     "appearances": 5
+    }
+   ]
+  },
+  {
+   "id": "v2:/sample2",
+   "name": "Tidecaller",
+   "kind": "outfit",
+   "price": 2000,
+   "regular": 2000,
+   "inDate": "2026-11-12",
+   "outDate": "2026-11-16",
+   "section": "Sample Section 3",
+   "image": null,
+   "gap": 847,
+   "items": [
+    {
+     "id": "Sample_2",
+     "name": "Tidecaller",
+     "type": "outfit",
+     "rarity": "Legendary",
+     "series": null,
+     "set": null,
+     "appearances": 3
+    }
+   ]
+  },
+  {
+   "id": "v2:/sample3",
+   "name": "Barnacle Brawler",
+   "kind": "emote",
+   "price": 500,
+   "regular": 500,
+   "inDate": "2026-11-12",
+   "outDate": "2026-11-16",
+   "section": "Sample Section 4",
+   "image": null,
+   "gap": 550,
+   "items": [
+    {
+     "id": "Sample_3",
+     "name": "Barnacle Brawler",
+     "type": "emote",
+     "rarity": "Rare",
+     "series": null,
+     "set": "Pirate Cove",
+     "appearances": 2
+    }
+   ]
+  },
+  {
+   "id": "v2:/sample4",
+   "name": "Shanty Sway",
+   "kind": "emote",
+   "price": 300,
+   "regular": 300,
+   "inDate": "2026-11-13",
+   "outDate": "2026-11-15",
+   "section": "Sample Section 1",
+   "image": null,
+   "gap": 482,
+   "items": [
+    {
+     "id": "Sample_4",
+     "name": "Shanty Sway",
+     "type": "emote",
+     "rarity": "Uncommon",
+     "series": null,
+     "set": null,
+     "appearances": 3
+    }
+   ]
+  },
+  {
+   "id": "v2:/sample5",
+   "name": "Anchor Axe",
+   "kind": "pickaxe",
+   "price": 800,
+   "regular": 800,
+   "inDate": "2026-11-13",
+   "outDate": "2026-11-18",
+   "section": "Sample Section 2",
+   "image": null,
+   "gap": 1037,
+   "items": [
+    {
+     "id": "Sample_5",
+     "name": "Anchor Axe",
+     "type": "pickaxe",
+     "rarity": "Epic",
+     "series": null,
+     "set": null,
+     "appearances": 4
+    }
+   ]
+  },
+  {
+   "id": "v2:/sample6",
+   "name": "Gull Glider",
+   "kind": "glider",
+   "price": 800,
+   "regular": 800,
+   "inDate": "2026-11-14",
+   "outDate": "2026-11-22",
+   "section": "Sample Section 3",
+   "image": null,
+   "gap": 576,
+   "items": [
+    {
+     "id": "Sample_6",
+     "name": "Gull Glider",
+     "type": "glider",
+     "rarity": "Rare",
+     "series": null,
+     "set": "Pirate Cove",
+     "appearances": 3
+    }
+   ]
+  },
+  {
+   "id": "v2:/sample7",
+   "name": "Treasure Pack",
+   "kind": "backpack",
+   "price": 400,
+   "regular": 400,
+   "inDate": "2026-11-13",
+   "outDate": "2026-12-05",
+   "section": "Sample Section 4",
+   "image": null,
+   "gap": 847,
+   "items": [
+    {
+     "id": "Sample_7",
+     "name": "Treasure Pack",
+     "type": "backpack",
+     "rarity": "Uncommon",
+     "series": null,
+     "set": null,
+     "appearances": 2
+    }
+   ]
+  },
+  {
+   "id": "v2:/sample8",
+   "name": "Kraken Wrap",
+   "kind": "wrap",
+   "price": 300,
+   "regular": 300,
+   "inDate": "2026-11-14",
+   "outDate": "2026-11-22",
+   "section": "Sample Section 1",
+   "image": null,
+   "gap": 1252,
+   "items": [
+    {
+     "id": "Sample_8",
+     "name": "Kraken Wrap",
+     "type": "wrap",
+     "rarity": "Rare",
+     "series": null,
+     "set": null,
+     "appearances": 5
+    }
+   ]
+  },
+  {
+   "id": "v2:/sample9",
+   "name": "Parrot Pal",
+   "kind": "sidekick",
+   "price": 1200,
+   "regular": 1200,
+   "inDate": "2026-11-08",
+   "outDate": "2026-11-15",
+   "section": "Sample Section 2",
+   "image": null,
+   "gap": 1608,
+   "items": [
+    {
+     "id": "Sample_9",
+     "name": "Parrot Pal",
+     "type": "sidekick",
+     "rarity": "Epic",
+     "series": null,
+     "set": "Pirate Cove",
+     "appearances": 3
+    }
+   ]
+  },
+  {
+   "id": "v2:/sample10",
+   "name": "Salt Siren",
+   "kind": "outfit",
+   "price": 1500,
+   "regular": 1500,
+   "inDate": "2026-11-14",
+   "outDate": "2026-11-16",
+   "section": "Sample Section 3",
+   "image": null,
+   "gap": 1188,
+   "items": [
+    {
+     "id": "Sample_10",
+     "name": "Salt Siren",
+     "type": "outfit",
+     "rarity": "Epic",
+     "series": null,
+     "set": null,
+     "appearances": 4
+    }
+   ]
+  },
+  {
+   "id": "v2:/sample11",
+   "name": "Harbor Hex",
+   "kind": "outfit",
+   "price": 1200,
+   "regular": 1200,
+   "inDate": "2026-11-11",
+   "outDate": "2026-11-17",
+   "section": "Sample Section 4",
+   "image": null,
+   "gap": 606,
+   "items": [
+    {
+     "id": "Sample_11",
+     "name": "Harbor Hex",
+     "type": "outfit",
+     "rarity": "Rare",
+     "series": null,
+     "set": null,
+     "appearances": 5
+    }
+   ]
+  },
+  {
+   "id": "v2:/sample12",
+   "name": "Plank Walker",
+   "kind": "outfit",
+   "price": 2000,
+   "regular": 2000,
+   "inDate": "2026-11-14",
+   "outDate": "2026-11-16",
+   "section": "Sample Section 1",
+   "image": null,
+   "gap": "first",
+   "items": [
+    {
+     "id": "Sample_12",
+     "name": "Plank Walker",
+     "type": "outfit",
+     "rarity": "Legendary",
+     "series": null,
+     "set": "Pirate Cove",
+     "appearances": 1
+    }
+   ]
+  },
+  {
+   "id": "v2:/sample13",
+   "name": "Compass Rose",
+   "kind": "emote",
+   "price": 500,
+   "regular": 500,
+   "inDate": "2026-11-08",
+   "outDate": "2026-11-15",
+   "section": "Sample Section 2",
+   "image": null,
+   "gap": "first",
+   "items": [
+    {
+     "id": "Sample_13",
+     "name": "Compass Rose",
+     "type": "emote",
+     "rarity": "Rare",
+     "series": null,
+     "set": null,
+     "appearances": 1
+    }
+   ]
+  },
+  {
+   "id": "v2:/sample14",
+   "name": "Lantern Swing",
+   "kind": "emote",
+   "price": 300,
+   "regular": 300,
+   "inDate": "2026-11-11",
+   "outDate": "2026-12-05",
+   "section": "Sample Section 3",
+   "image": null,
+   "gap": 575,
+   "items": [
+    {
+     "id": "Sample_14",
+     "name": "Lantern Swing",
+     "type": "emote",
+     "rarity": "Uncommon",
+     "series": null,
+     "set": null,
+     "appearances": 5
+    }
+   ]
+  },
+  {
+   "id": "v2:/sample15",
+   "name": "Cutlass Crack",
+   "kind": "pickaxe",
+   "price": 800,
+   "regular": 800,
+   "inDate": "2026-11-14",
+   "outDate": "2026-11-16",
+   "section": "Sample Section 4",
+   "image": null,
+   "gap": 485,
+   "items": [
+    {
+     "id": "Sample_15",
+     "name": "Cutlass Crack",
+     "type": "pickaxe",
+     "rarity": "Epic",
+     "series": null,
+     "set": "Pirate Cove",
+     "appearances": 2
+    }
+   ]
+  },
+  {
+   "id": "v2:/sample16",
+   "name": "Spyglass Sail",
+   "kind": "glider",
+   "price": 800,
+   "regular": 800,
+   "inDate": "2026-11-08",
+   "outDate": "2026-11-16",
+   "section": "Sample Section 1",
+   "image": null,
+   "gap": 571,
+   "items": [
+    {
+     "id": "Sample_16",
+     "name": "Spyglass Sail",
+     "type": "glider",
+     "rarity": "Rare",
+     "series": null,
+     "set": null,
+     "appearances": 4
+    }
+   ]
+  },
+  {
+   "id": "v2:/sample17",
+   "name": "Coin Satchel",
+   "kind": "backpack",
+   "price": 400,
+   "regular": 400,
+   "inDate": "2026-11-13",
+   "outDate": "2026-11-16",
+   "section": "Sample Section 2",
+   "image": null,
+   "gap": 973,
+   "items": [
+    {
+     "id": "Sample_17",
+     "name": "Coin Satchel",
+     "type": "backpack",
+     "rarity": "Uncommon",
+     "series": null,
+     "set": null,
+     "appearances": 5
+    }
+   ]
+  },
+  {
+   "id": "v2:/sample18",
+   "name": "Foam Wrap",
+   "kind": "wrap",
+   "price": 300,
+   "regular": 300,
+   "inDate": "2026-11-14",
+   "outDate": "2026-11-18",
+   "section": "Sample Section 3",
+   "image": null,
+   "gap": "first",
+   "items": [
+    {
+     "id": "Sample_18",
+     "name": "Foam Wrap",
+     "type": "wrap",
+     "rarity": "Rare",
+     "series": null,
+     "set": "Pirate Cove",
+     "appearances": 1
+    }
+   ]
+  },
+  {
+   "id": "v2:/sample19",
+   "name": "Crab Companion",
+   "kind": "sidekick",
+   "price": 1200,
+   "regular": 1200,
+   "inDate": "2026-11-14",
+   "outDate": "2026-11-16",
+   "section": "Sample Section 4",
+   "image": null,
+   "gap": 460,
+   "items": [
+    {
+     "id": "Sample_19",
+     "name": "Crab Companion",
+     "type": "sidekick",
+     "rarity": "Epic",
+     "series": null,
+     "set": null,
+     "appearances": 5
+    }
+   ]
+  },
+  {
+   "id": "v2:/sample20",
+   "name": "Storm Bosun",
+   "kind": "outfit",
+   "price": 1500,
+   "regular": 1500,
+   "inDate": "2026-11-13",
+   "outDate": "2026-11-22",
+   "section": "Sample Section 1",
+   "image": null,
+   "gap": 1578,
+   "items": [
+    {
+     "id": "Sample_20",
+     "name": "Storm Bosun",
+     "type": "outfit",
+     "rarity": "Epic",
+     "series": null,
+     "set": null,
+     "appearances": 2
+    }
+   ]
+  },
+  {
+   "id": "v2:/sample21",
+   "name": "Lagoon Lass",
+   "kind": "outfit",
+   "price": 1200,
+   "regular": 1200,
+   "inDate": "2026-11-11",
+   "outDate": "2026-12-05",
+   "section": "Sample Section 2",
+   "image": null,
+   "gap": 483,
+   "items": [
+    {
+     "id": "Sample_21",
+     "name": "Lagoon Lass",
+     "type": "outfit",
+     "rarity": "Rare",
+     "series": null,
+     "set": "Pirate Cove",
+     "appearances": 3
+    }
+   ]
+  },
+  {
+   "id": "v2:/samplebundle",
+   "name": "Sample Crew Bundle",
+   "kind": "bundle",
+   "price": 2200,
+   "regular": 2800,
+   "inDate": "2026-11-14",
+   "outDate": "2026-11-21",
+   "section": null,
+   "image": null,
+   "gap": "first",
+   "items": [
+    {
+     "id": "x",
+     "name": "Crew member",
+     "type": "outfit",
+     "series": null,
+     "set": null,
+     "appearances": 1
+    }
+   ]
+  },
+  {
+   "id": "v2:/sampletrack",
+   "name": "Sample Sea Shanty",
+   "kind": "jamtrack",
+   "price": 500,
+   "regular": 500,
+   "inDate": "2026-11-13",
+   "outDate": "2026-11-27",
+   "section": null,
+   "image": null,
+   "gap": null,
+   "items": [
+    {
+     "id": "t1",
+     "name": "Sample Sea Shanty",
+     "type": "jamtrack",
+     "series": null,
+     "set": "Sample Artist"
+    }
+   ]
+  }
+ ],
+ "fetchedAt": "2026-11-13T23:47:21.585Z",
+ "source": "https://fortnite-api.com/v2/shop?language=en"
+}

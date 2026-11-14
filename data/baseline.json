@@ -1,0 +1,61 @@
+{
+ "method": "arrivals of items still in the shop, last 14 days (biased low until 5+ days of snapshots exist)",
+ "windowFrom": "2026-10-31",
+ "windowTo": "2026-11-14",
+ "snapshots": 1,
+ "firstSnapshot": "2026-11-14",
+ "lastSnapshot": "2026-11-14",
+ "days": [
+  {
+   "date": "2026-11-08",
+   "count": 4,
+   "byKind": {
+    "outfit": 1200,
+    "sidekick": 1200,
+    "emote": 500,
+    "glider": 800
+   }
+  },
+  {
+   "date": "2026-11-11",
+   "count": 3,
+   "byKind": {
+    "outfit": 2400,
+    "emote": 300
+   }
+  },
+  {
+   "date": "2026-11-12",
+   "count": 3,
+   "byKind": {
+    "outfit": 3500,
+    "emote": 500
+   }
+  },
+  {
+   "date": "2026-11-13",
+   "count": 6,
+   "byKind": {
+    "emote": 300,
+    "pickaxe": 800,
+    "backpack": 800,
+    "outfit": 1500,
+    "jamtrack": 500
+   }
+  },
+  {
+   "date": "2026-11-14",
+   "count": 8,
+   "byKind": {
+    "glider": 800,
+    "wrap": 600,
+    "outfit": 3500,
+    "pickaxe": 800,
+    "sidekick": 1200,
+    "bundle": 2200
+   }
+  }
+ ],
+ "medianStayDays": 7,
+ "staySamples": 24
+}

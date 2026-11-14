@@ -1,0 +1,83 @@
+{
+ "generatedAt": "2026-11-13T23:47:21.606Z",
+ "fixture": true,
+ "shopOk": true,
+ "newsOk": true,
+ "shopEntries": 24,
+ "fetches": [
+  {
+   "url": "https://fortnite-api.com/v2/shop?language=en",
+   "at": "2026-11-13T23:47:21.577Z",
+   "fixture": true,
+   "status": 200,
+   "ok": true,
+   "bytes": 11802,
+   "sha256": "a6f87fa29284ca45",
+   "ms": 7
+  },
+  {
+   "url": "https://fortnite-api.com/v2/news/br?language=en",
+   "at": "2026-11-13T23:47:21.601Z",
+   "fixture": true,
+   "status": 200,
+   "ok": true,
+   "bytes": 144,
+   "sha256": "fb375c1924e91c9f",
+   "ms": 1
+  },
+  {
+   "url": "https://ggseason.com/fortnite/",
+   "at": "2026-11-13T23:47:21.603Z",
+   "fixture": true,
+   "status": 200,
+   "ok": true,
+   "bytes": 49,
+   "sha256": "9fd78b89a41d2ec5",
+   "ms": 1
+  },
+  {
+   "url": "https://lootrundown.com/fortnite/event-calendar",
+   "at": "2026-11-13T23:47:21.604Z",
+   "ok": false,
+   "error": "ENOENT: no such file or directory, open 'fixtures/undefined.json'",
+   "ms": 0
+  },
+  {
+   "url": "https://en.wikipedia.org/wiki/Fortnite_seasonal_events",
+   "at": "2026-11-13T23:47:21.604Z",
+   "fixture": true,
+   "status": 200,
+   "ok": true,
+   "bytes": 38,
+   "sha256": "354656064d20c55a",
+   "ms": 0
+  },
+  {
+   "url": "https://www.gamesradar.com/games/fortnite/fortnite-pirate-shop-token/",
+   "at": "2026-11-13T23:47:21.605Z",
+   "fixture": true,
+   "status": 200,
+   "ok": true,
+   "bytes": 116,
+   "sha256": "a25f32785ac32e87",
+   "ms": 0
+  },
+  {
+   "url": "https://beebom.com/fortnite-pirate-shop-guide/",
+   "at": "2026-11-13T23:47:21.605Z",
+   "fixture": true,
+   "status": 200,
+   "ok": true,
+   "bytes": 62,
+   "sha256": "6fdb16ce9ae548b1",
+   "ms": 0
+  },
+  {
+   "url": "https://piratetoken.net/pirate-token-activation",
+   "at": "2026-11-13T23:47:21.605Z",
+   "ok": false,
+   "error": "ENOENT: no such file or directory, open 'fixtures/undefined.json'",
+   "ms": 0
+  }
+ ]
+}

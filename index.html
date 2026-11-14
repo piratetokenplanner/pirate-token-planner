@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Pirate Token Planner</title>
+<meta name="description" content="Pick the best day to activate Fortnite Pirate Shop Access, scored on the live Item Shop and your own taste. Every number is explained.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Luckiest+Guy&family=Nunito:wght@400;600;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header class="band top"><div class="wrap">
+  <nav class="nav"><b>Pirate Token Planner</b><span><a href="#math">How it's scored</a><a href="#shop">Today's shop</a><a href="#limits">Limits</a><a href="#sources">Sources and data</a></span></nav>
+  <h1>When to plunder the Item Shop</h1>
+  <p class="lede">Pirate Shop Access gives you 14 days of free V-Bucks items from the moment you press Activate. This page reads the live Item Shop every day, adds what's expected later, and scores every possible activation day against your taste. Nothing is hidden: the math and every source are below.</p>
+  <p class="fresh" id="fresh">Loading shop data…</p>
+
+  <div class="verdict" aria-live="polite">
+    <div class="xmark" aria-hidden="true">X</div>
+    <div>
+      <div class="big" id="vDay">…</div>
+      <div class="when" id="vWhen"></div>
+      <div class="sure" id="vSure"></div>
+      <div class="alts" id="alts"></div>
+    </div>
+  </div>
+
+  <div class="panel">
+    <div class="bars" id="bars" role="group" aria-label="Score for each activation day"></div>
+    <div class="ticks" id="ticks"></div>
+    <p class="legend">Each bar is one activation day: the expected V-Bucks of things you want. The white line on each bar is the likely range (10th to 90th percentile of simulated futures). Grey bars run past the deadline. Tap a bar to inspect it. <a href="#limits">What these numbers can't tell you</a></p>
+  </div>
+
+  <div class="panel">
+    <div class="vh"><span id="vTitle">Voyage</span><span id="vScore"></span></div>
+    <div class="track" id="track"></div>
+    <div class="axis" id="axis"></div>
+  </div>
+</div></header>
+
+<main>
+<section class="band lower"><div class="wrap grid">
+  <div>
+    <h2>Your taste</h2>
+    <div class="presets" id="presets"></div>
+    <div class="card">
+      <h3>How much you want each type</h3>
+      <p class="fine">0 means worthless to you, 10 means worth its full V-Bucks price.</p>
+      <div id="types"></div>
+    </div>
+    <div class="card">
+      <h3>Favourites</h3>
+      <label class="field">Words to look for in names, sets and artists<input id="kw" placeholder="e.g. pirate, One Piece, Miku" autocomplete="off"></label>
+      <div id="boosts"></div>
+    </div>
+    <div class="card">
+      <h3>Expected events</h3>
+      <p class="fine">How interested you are in each. 5 is neutral.</p>
+      <div id="evw"></div>
+    </div>
+    <div class="card">
+      <h3>Days you play</h3>
+      <div class="days" id="days"></div>
+      <label class="tog"><input type="checkbox" id="late"><span>Count the days after the deadline when I activate late (reported, not confirmed by Epic)</span></label>
+    </div>
+  </div>
+
+  <div id="math">
+    <h2 id="mathTitle">The math for this day</h2>
+    <div class="sum" id="sum"></div>
+    <div class="scroll"><table class="tbl stack" id="mtab"><thead><tr><th>What</th><th>Inputs</th><th>Calculation</th><th class="num">V-Bucks</th></tr></thead><tbody></tbody></table></div>
+    <div class="acts">
+      <a class="btn" id="gcal" href="#" target="_blank" rel="noopener">Add reminder to Google Calendar</a>
+      <button class="btn alt" id="copy" type="button">Copy plan</button>
+      <button class="btn alt" id="share" type="button">Copy link with my settings</button>
+    </div>
+    <p class="fine" id="copyMsg"></p>
+  </div>
+</div></section>
+
+<section class="band" id="shop"><div class="wrap">
+  <h2>Today's shop</h2>
+  <p class="fine" id="shopNote"></p>
+  <div class="shopgrid" id="shopgrid"></div>
+</div></section>
+
+<section class="band lower" id="how"><div class="wrap">
+  <h2>How the score is computed</h2>
+  <div class="formula" id="formula"></div>
+</div></section>
+
+<section class="band" id="limitsec"><div class="wrap">
+  <h2 id="limits-h">What this can't tell you</h2>
+  <p class="fine">The recommendation is an estimate built on partial information. Here is everything that could make it wrong, as of the data loaded now.</p>
+  <div class="formula" id="limits"></div>
+</div></section>
+
+<section class="band lower" id="others"><div class="wrap">
+  <h2>Other tools</h2>
+  <p>Other fan sites tackle the same question. Try them if you'd rather tick a wishlist by hand:</p>
+  <ul>
+    <li><a href="https://fortnitepirateshoptoken.org/tools/activation-planner/">fortnitepirateshoptoken.org Activation Planner</a>: you tick items and it ranks start dates by coverage. It cites sources and lists assumptions, but uses a fixed shop snapshot.</li>
+    <li><a href="https://pirateshoptoken.org/">pirateshoptoken.org</a>: today's total free value, with its method explained, plus a countdown and a haul list.</li>
+    <li><a href="https://pirateshoptoken.com/best-time-to-activate-pirate-shop/">pirateshoptoken.com</a>: an activation guide with a date picker and a labelled drop calendar.</li>
+  </ul>
+  <p class="fine">What this page adds: a daily automatic refresh, scoring by type preferences instead of only a wishlist, automatic source checks, and uncertainty ranges. Descriptions checked Nov 14, 2026.</p>
+</div></section>
+
+<section class="band" id="sources"><div class="wrap">
+  <h2>Sources and data</h2>
+  <div id="health"></div>
+  <h3>Token rules</h3>
+  <div class="scroll"><table class="tbl stack" id="facts"><thead><tr><th>Rule</th><th>Status</th><th>Sources checked</th></tr></thead><tbody></tbody></table></div>
+  <p class="fine" id="statusRules"></p>
+  <h3>Expected events</h3>
+  <div class="scroll"><table class="tbl stack" id="evtab"><thead><tr><th>Event</th><th>Dates</th><th>Status</th><th class="num">Extra V-Bucks</th><th>Basis and sources</th></tr></thead><tbody></tbody></table></div>
+  <h3>Last data run</h3>
+  <div class="scroll"><table class="tbl stack" id="fetches"><thead><tr><th>URL</th><th>Result</th><th>Fingerprint</th><th class="num">Time</th></tr></thead><tbody></tbody></table></div>
+  <p class="fine">Raw files: <a href="data/shop.json">shop.json</a> · <a href="data/baseline.json">baseline.json</a> · <a href="data/events.json">events.json</a> · <a href="data/rules.json">rules.json</a> · <a href="data/news.json">news.json</a> · <a href="data/meta.json">meta.json</a>. Code: <a href="app.js">app.js</a> (scoring) · <a href="shared/normalize.js">normalize.js</a> (shop parsing) · <a href="scripts/update.mjs">update.mjs</a> (daily refresh). Shop data from <a href="https://fortnite-api.com">fortnite-api.com</a>, an unofficial fan API. Not affiliated with Epic Games.</p>
+</div></section>
+</main>
+<script type="module" src="app.js"></script>
+</body>
+</html>

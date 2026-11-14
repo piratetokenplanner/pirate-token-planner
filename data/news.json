@@ -1,0 +1,10 @@
+{
+ "fetchedAt": "2026-11-13T23:47:21.602Z",
+ "source": "https://fortnite-api.com/v2/news/br?language=en",
+ "items": [
+  {
+   "title": "Sample news",
+   "body": "Sample in-game news text. Treasure Hours this weekend."
+  }
+ ]
+}

@@ -1,0 +1,143 @@
+{
+ "about": "Token rules and planner constants. Edit this file, not data/rules.json (which is generated with verification results).",
+ "durationDays": 14,
+ "windows": [
+  {
+   "label": "2026",
+   "opens": "2026-11-01",
+   "deadline": "2026-12-16T00:00:00Z",
+   "deadlineText": "Dec 15, 2026, 7 PM ET (00:00 UTC Dec 16)"
+  },
+  {
+   "label": "2027",
+   "opens": "2027-01-01",
+   "deadline": "2027-12-16T00:00:00Z",
+   "deadlineText": "Dec 15, 2027 (reported, exact time unknown)"
+  }
+ ],
+ "lateWindowRunsPastDeadline": "assumed: activating before the deadline gives the full 14 days. Not confirmed by Epic; you can switch it off on the page.",
+ "confidence": {
+  "announced": 1.0,
+  "confirmed": 1.0,
+  "reported": 0.7,
+  "pattern": 0.5,
+  "unverified": 0.2
+ },
+ "statusRules": [
+  "announced: one of the event's keywords appears in Epic's in-game news (fortnite-api.com /v2/news/br) on the latest run.",
+  "confirmed / reported: at least one listed source page was reachable and still contains every required phrase; the claim level is the curator's label for that source.",
+  "pattern: the date is projected from past years; it keeps this label whether or not its reference page verifies.",
+  "unverified: a confirmed/reported claim whose sources could not be reached or no longer contain the required phrases."
+ ],
+ "fallbacks": {
+  "baselinePerDayByKind": {
+   "outfit": 2400,
+   "bundle": 2000,
+   "emote": 900,
+   "pickaxe": 500,
+   "glider": 400,
+   "backpack": 300,
+   "wrap": 300,
+   "jamtrack": 500,
+   "other": 300
+  },
+  "baselineNote": "Used only until the site has collected its own snapshots. Rough author estimate of V-Bucks of brand-new offers per normal shop day, by type.",
+  "stayDays": 3
+ },
+ "facts": [
+  {
+   "id": "duration",
+   "text": "Access lasts 14 days from the moment you press Activate.",
+   "claim": "reported",
+   "sources": [
+    {
+     "url": "https://www.gamesradar.com/games/fortnite/fortnite-pirate-shop-token/",
+     "mustContain": [
+      "14 days"
+     ]
+    },
+    {
+     "url": "https://beebom.com/fortnite-pirate-shop-guide/",
+     "mustContain": [
+      "14 days"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "deadline2026",
+   "text": "The 2026 access must be activated by Dec 15, 2026.",
+   "claim": "reported",
+   "sources": [
+    {
+     "url": "https://www.gamesradar.com/games/fortnite/fortnite-pirate-shop-token/",
+     "mustContain": [
+      "December 15"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "exclusions",
+   "text": "Real-money offers, gifting and Battle Pass levels are not included.",
+   "claim": "reported",
+   "sources": [
+    {
+     "url": "https://www.gamesradar.com/games/fortnite/fortnite-pirate-shop-token/",
+     "mustContain": [
+      "gift",
+      "Battle Pass"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "sidekick",
+   "text": "Only one Sidekick you don't already own can be claimed.",
+   "claim": "reported",
+   "sources": [
+    {
+     "url": "https://www.gamesradar.com/games/fortnite/fortnite-pirate-shop-token/",
+     "mustContain": [
+      "sidekick"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "reset",
+   "text": "The Item Shop resets at 00:00 UTC.",
+   "claim": "reported",
+   "sources": [
+    {
+     "url": "https://piratetoken.net/pirate-token-activation",
+     "mustContain": [
+      "00:00 UTC"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "window2027",
+   "text": "A second activation can be used from Jan 1, 2027.",
+   "claim": "reported",
+   "sources": [
+    {
+     "url": "https://beebom.com/fortnite-pirate-shop-guide/",
+     "mustContain": [
+      "2027"
+     ]
+    }
+   ]
+  }
+ ],
+ "uncertainty": {
+  "about": "Settings for the simulated futures behind the ranges. These are the author's choices, not measured values.",
+  "runs": 400,
+  "seed": 42,
+  "patternShiftDays": 3,
+  "estimateSpread": 0.6,
+  "observedSpread": 0.2,
+  "fallbackSpread": 0.5
+ }
+}

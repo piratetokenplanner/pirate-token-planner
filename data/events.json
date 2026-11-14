@@ -1,0 +1,124 @@
+[
+ {
+  "id": "ch7-end",
+  "name": "Chapter 7 end event",
+  "from": "2026-12-05",
+  "to": "2026-12-05",
+  "claim": "confirmed",
+  "extraVbucks": 0,
+  "basis": "Live event, no shop value. Shown as a landmark.",
+  "newsKeywords": [
+   "end event"
+  ],
+  "sources": [
+   {
+    "url": "https://ggseason.com/fortnite/",
+    "mustContain": [
+     "December 5"
+    ],
+    "checkedAt": "2026-11-13T23:47:21.604Z",
+    "reachable": true,
+    "found": [
+     {
+      "text": "December 5",
+      "ok": true
+     }
+    ],
+    "verified": true,
+    "hash": "9fd78b89a41d2ec5",
+    "changedSinceLastCheck": false
+   },
+   {
+    "url": "https://lootrundown.com/fortnite/event-calendar",
+    "mustContain": [
+     "Dec 5"
+    ],
+    "checkedAt": "2026-11-13T23:47:21.604Z",
+    "reachable": false,
+    "verified": false,
+    "hash": null
+   }
+  ],
+  "newsHits": [],
+  "status": "confirmed"
+ },
+ {
+  "id": "ch8-launch",
+  "name": "Chapter 8 launch shop wave",
+  "from": "2026-12-06",
+  "to": "2026-12-12",
+  "claim": "pattern",
+  "extraVbucks": 8000,
+  "basis": "Author assumption: a new chapter brings a large wave of new outfits on top of a normal day. Replaced by observed numbers once the snapshots cover these dates.",
+  "newsKeywords": [
+   "chapter 8"
+  ],
+  "sources": [
+   {
+    "url": "https://ggseason.com/fortnite/",
+    "mustContain": [
+     "Chapter 8"
+    ],
+    "checkedAt": "2026-11-13T23:47:21.604Z",
+    "reachable": true,
+    "found": [
+     {
+      "text": "Chapter 8",
+      "ok": true
+     }
+    ],
+    "verified": true,
+    "hash": "9fd78b89a41d2ec5",
+    "changedSinceLastCheck": false
+   }
+  ],
+  "newsHits": [],
+  "status": "pattern"
+ },
+ {
+  "id": "winterfest",
+  "name": "Winterfest",
+  "from": "2026-12-17",
+  "to": "2026-12-31",
+  "claim": "pattern",
+  "extraVbucks": 6000,
+  "basis": "Author assumption from past years: Winterfest starts mid to late December with holiday outfits and returning winter items.",
+  "newsKeywords": [
+   "winterfest"
+  ],
+  "sources": [
+   {
+    "url": "https://en.wikipedia.org/wiki/Fortnite_seasonal_events",
+    "mustContain": [
+     "Winterfest"
+    ],
+    "checkedAt": "2026-11-13T23:47:21.604Z",
+    "reachable": true,
+    "found": [
+     {
+      "text": "Winterfest",
+      "ok": true
+     }
+    ],
+    "verified": true,
+    "hash": "354656064d20c55a",
+    "changedSinceLastCheck": false
+   }
+  ],
+  "newsHits": [],
+  "status": "pattern"
+ },
+ {
+  "id": "holiday-og",
+  "name": "Holiday returns of old skins",
+  "from": "2026-12-20",
+  "to": "2026-12-27",
+  "claim": "pattern",
+  "extraVbucks": 3000,
+  "basis": "Author assumption, no source: rare holiday skins often return around Christmas.",
+  "newsKeywords": [],
+  "sources": [],
+  "newsHits": [],
+  "status": "pattern"
+ }
+]
