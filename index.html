@@ -320,7 +320,7 @@
     <p class="lede">Pirate Shop Access = 14 days of free Item Shop. We find your best start day.</p>
     <p class="fresh" id="fresh">Loading today's shop…</p>
     <button class="install" id="installBtn" type="button" hidden>Install as app</button>
-    <a class="cue" href="#plan">Start planning <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg></a>
+    <div class="cues"><a class="cue" href="#plan">Start planning <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg></a><button class="howbtn" type="button" data-how><span aria-hidden="true">?</span>How it works</button></div>
   </div>
 
 </header>
@@ -332,7 +332,7 @@
     <span class="stepnum">1</span>
     <div>
       <h2>What do you want?</h2>
-      <p class="hint">Tap to switch: Love, Maybe, Nope. Love counts an item's full price, Maybe about a third.</p>
+      <p class="hint">Tap to switch between <span class="term" tabindex="0" role="button" data-gl="love">Love, Maybe and Nope</span>.</p>
       <div class="loves" id="loves"></div>
     </div>
   </div>
@@ -367,16 +367,17 @@
   </details>
 
   <details class="fold pnl" id="shop">
-    <summary><span class="ico"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 8h14l-1 12H6L5 8z"/><path d="M9 8V6a3 3 0 0 1 6 0v2"/></svg></span><span class="sumt"><b>Favourites from today's shop</b><small>Tap the heart on items you must have: they count 3× and shape your best day</small></span></summary>
+    <summary><span class="ico"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 8h14l-1 12H6L5 8z"/><path d="M9 8V6a3 3 0 0 1 6 0v2"/></svg></span><span class="sumt"><b>Today's shop</b><small>Heart what you must have, tick what you already own</small></span></summary>
     <div class="foldbody">
-      <div class="filters">
-        <input id="shopQ" type="search" placeholder="Search today's shop" autocomplete="off" aria-label="Search today's shop">
-        <label class="tog mini"><input type="checkbox" id="shopMine"><span>Only in my 14 days</span></label>
+      <div class="favtray" id="favTray"></div>
+      <div class="stools">
+        <label class="srch"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="6.5"/><path d="M16 16l4.5 4.5"/></svg><input id="shopQ" type="search" placeholder="Search today's shop" autocomplete="off" aria-label="Search today's shop"></label>
+        <div class="seg" id="shopSort" role="group" aria-label="Sort"><button type="button" data-sort="value" aria-pressed="true">Best for me</button><button type="button" data-sort="leave" aria-pressed="false">Leaving soon</button><button type="button" data-sort="price" aria-pressed="false">Price</button></div>
       </div>
       <div class="fchips" id="shopKinds"></div>
-      <p class="hint" id="shopNote"></p>
-      <div class="shopgrid" id="shopgrid"></div>
-      <div class="acts"><button class="btn ghost" id="shopMore" type="button" hidden>Show all</button></div>
+      <div class="snote"><span id="shopNote"></span><label class="tog mini"><input type="checkbox" id="shopMine"><span>Only <span class="term" tabindex="0" role="button" data-gl="window">in my 14 days</span></span></label></div>
+      <div class="sgrid" id="shopgrid"></div>
+      <div class="acts"><button class="btn ghost" id="shopMore" type="button" hidden>Show more</button></div>
     </div>
   </details>
 </div></section>
@@ -412,14 +413,14 @@
     <div class="barsbox"><div class="bars" id="bars" role="group" aria-label="Expected loot for each activation day"></div><div class="dl barsdl" id="barsDl"><b>Deadline</b></div></div>
     <div class="ticks axis" id="ticks"></div>
     <div class="tip" id="tip" hidden></div>
-    <div class="lg"><span><i class="sw sw-best"></i>Best day</span><span><i class="sw sw-day"></i>Other days</span><span><i class="sw sw-late"></i>Runs past the deadline</span><span><i class="sw sw-range"></i>Likely range</span><span class="lgh">Tap a bar to pick it</span></div>
+    <div class="lg"><span><i class="sw sw-best"></i><span class="term" tabindex="0" role="button" data-gl="top">Best day</span></span><span><i class="sw sw-day"></i>Other days</span><span><i class="sw sw-late"></i>Runs past the <span class="term" tabindex="0" role="button" data-gl="deadline">deadline</span></span><span><i class="sw sw-range"></i><span class="term" tabindex="0" role="button" data-gl="range">Likely range</span></span><span class="lgh">Tap a bar to pick it</span></div>
   </div>
   <div class="panel pnl">
     <div class="ph"><b id="vTitle">Your 14 days</b><span id="vScore"></span></div>
     <div class="track" id="track" tabindex="0" role="slider" aria-label="Start day: drag the box, or use the arrow keys"></div>
     <div class="axis" id="axis"></div>
     <ul class="evlist" id="evlist"></ul>
-    <div class="lg"><span><i class="sw sw-win"></i>Your 14 days (drag it)</span><span><i class="sw sw-dl"></i>Last day to activate</span><span><i class="sw sw-tick">3</i>Items you want that leave the shop that day</span><span><i class="sw sw-ev"></i>Expected event (gold edge = inside your days)</span></div>
+    <div class="lg"><span><i class="sw sw-win"></i>Your 14 days (drag it)</span><span><i class="sw sw-dl"></i>Last day to activate</span><span><i class="sw sw-tick">3</i>Items you want that <span class="term" tabindex="0" role="button" data-gl="leaves">leave the shop</span> that day</span><span><i class="sw sw-ev"></i><span class="term" tabindex="0" role="button" data-gl="event">Expected event</span> (gold edge = inside your days)</span></div>
   </div>
 </div></section>
 
@@ -524,6 +525,29 @@
     <button class="btn ghost" id="cardClose" type="button">Close</button>
   </div>
   <p class="hint" id="cardMsg"></p>
+</dialog>
+<div class="gloss" id="gloss" role="tooltip" hidden></div>
+<dialog class="howdlg" id="howDlg" aria-labelledby="howT">
+  <button class="hclose" type="button" data-close aria-label="Close">×</button>
+  <p class="hkick">The sleepy pirate's treasure map</p>
+  <h2 id="howT">How it works</h2>
+  <ol class="hmap">
+    <li style="--i:0"><span class="hico"><svg viewBox="0 0 48 48" aria-hidden="true"><path d="M24 40s-14-8.6-14-19a8 8 0 0 1 14-5.3A8 8 0 0 1 38 21c0 10.4-14 19-14 19z" fill="#ff5fa2" stroke="#8a1f55" stroke-width="2.5"/><path d="M17 19a4 4 0 0 1 4-4" stroke="#fff" stroke-width="2.5" fill="none" stroke-linecap="round"/></svg></span>
+      <b>You say what you like</b><span>Love counts the full price, Maybe about a third, Nope nothing. A heart makes an item count 3×.</span></li>
+    <li style="--i:1"><span class="hico"><svg viewBox="0 0 48 48" aria-hidden="true"><path d="M10 16h28l-2 24H12z" fill="#ffd65c" stroke="#7a4d00" stroke-width="2.5" stroke-linejoin="round"/><path d="M18 16v-3a6 6 0 0 1 12 0v3" stroke="#7a4d00" stroke-width="2.5" fill="none"/><circle cx="24" cy="28" r="5" fill="#4d8dff" stroke="#123a8a" stroke-width="2"/></svg></span>
+      <b>We read the shop</b><span>What is in today's shop, when each item leaves, and what new stuff usually shows up on each weekday.</span></li>
+    <li style="--i:2"><span class="hico"><svg viewBox="0 0 48 48" aria-hidden="true"><rect x="9" y="9" width="30" height="30" rx="7" fill="#fff" stroke="#1d4fc0" stroke-width="2.5" transform="rotate(-10 24 24)"/><g fill="#1d4fc0"><circle cx="17" cy="19" r="2.6"/><circle cx="24" cy="24" r="2.6"/><circle cx="31" cy="29" r="2.6"/><circle cx="30" cy="17" r="2.6"/><circle cx="18" cy="31" r="2.6"/></g></svg></span>
+      <b>We roll the dice</b><span>Nobody knows tomorrow's shop. So we play <b id="howN">400</b> pretend futures and see which start day grabs the most of what you like.</span></li>
+    <li style="--i:3"><span class="hico"><svg viewBox="0 0 48 48" aria-hidden="true"><path d="M13 13l22 22M35 13L13 35" stroke="#e63946" stroke-width="7" stroke-linecap="round"/></svg></span>
+      <b>X marks your day</b><span>The day with the most loot is your top day. "<span id="howEx">45</span>% sure" means it won <span id="howEx2">45</span> of every 100 pretend futures.</span></li>
+  </ol>
+  <div class="hgame">
+    <div class="hgh"><b>Try it: roll 20 pretend futures</b><button class="btn gold" id="howRoll" type="button">Roll</button></div>
+    <div class="hcols" id="howCols"></div>
+    <p class="hint" id="howMsg">Each coin is one pretend future. It lands on the start day that won it.</p>
+  </div>
+  <p class="hfine">It is a smart guess from past shops, not a promise: Epic can change the shop at any time.</p>
+  <div class="acts"><button class="btn gold" type="button" data-close>Got it, let's plan</button><a class="btn ghost" href="#how" data-close data-open-how>Show me the math</a></div>
 </dialog>
 <footer class="foot"><div class="wrap footcard">
   <div class="fbrand">

@@ -223,7 +223,7 @@ const GLOSS = {
   gone: () => ['Gone before your days', 'This item leaves the shop before the start day you picked, so you could not claim it. Pick an earlier day or heart it.'],
 };
 function glossUI() {
-  const g = $('gloss'); let cur = null, hideT = 0;
+  const g = $('gloss'); if (!g) return; let cur = null, hideT = 0;
   const show = el => {
     clearTimeout(hideT); const d = GLOSS[el.dataset.gl]; if (!d) return;
     const [t, x, more] = d(render.gctx || {});
@@ -295,7 +295,7 @@ function shopView(M, cur) {
 
 // ---------- "How it works": a treasure map plus a tiny dice game ----------
 function howUI() {
-  const dlg = $('howDlg'); let cols = [], rolling = 0;
+  const dlg = $('howDlg'); if (!dlg) return; let cols = [], rolling = 0;
   const setup = () => {
     const M = render.M; if (!M) return;
     const top = [...M.all].sort((a, b) => b.tot - a.tot)[0];
@@ -417,7 +417,7 @@ function render(recompute = true) {
   render.plan = `Pirate Shop plan: activate ${fmtL(sel)} after the 00:00 UTC reset (${resetLocal} my time). Access ends ${fmtL(sel + dur)}. Expected haul ~${n0(cur.tot)} V-Bucks of wanted items: ` + cur.rows.filter(r => r.hit).map(r => r.x.e.name).join(', ') + '.';
 
   // today's shop + must-have tray (only while open)
-  if ($('shop').open) shopView(M, cur);
+  if ($('shop').open && $('favTray')) shopView(M, cur);
   if ($('how').open) formula(M); if ($('limitsec').open) limits(M); if ($('pastsec').open) pastShops(M);
   activeMode(M); if (render.back && $('backsec').open) backSearch();
 }
@@ -599,7 +599,7 @@ function bind() {
     if (m) { const id = m.dataset.must; P.must = (P.must || []).includes(id) ? P.must.filter(x => x !== id) : [...(P.must || []), id]; save(); render(); }
     else if (o) { const id = o.dataset.own; P.owned = P.owned.includes(id) ? P.owned.filter(x => x !== id) : [...new Set([...P.owned, id])]; save(); render(); }
   });
-  $('shopSort').addEventListener('click', e => { const b = e.target.closest('[data-sort]'); if (!b) return; (render.filter ||= { q: '', kind: 'all', mine: false }).sort = b.dataset.sort; render.shopN = 0; render(false); });
+  $('shopSort')?.addEventListener('click', e => { const b = e.target.closest('[data-sort]'); if (!b) return; (render.filter ||= { q: '', kind: 'all', mine: false }).sort = b.dataset.sort; render.shopN = 0; render(false); });
   // past shops: hover the line, tap a weekday to mark its days
   $('spark').addEventListener('pointermove', ev => {
     const S = render.spark, svg = $('spark').querySelector('svg'); if (!S || !svg) return;
