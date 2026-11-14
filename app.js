@@ -4,7 +4,7 @@ import { normalizeShop, SHOP_URL } from './shared/normalize.js';
 const DAY = 864e5;
 const $ = id => document.getElementById(id);
 const esc = s => String(s ?? '').replace(/[&<>"']/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
-const n0 = x => Math.round(x).toLocaleString('en-US');
+const NF = new Intl.NumberFormat('en-US'), n0 = x => NF.format(Math.round(x));
 const load = p => fetch(p, { cache: 'no-cache' }).then(r => r.ok ? r.json() : null).catch(() => null);
 
 // ---------- clock: the shop day is the UTC date ----------
@@ -13,7 +13,10 @@ const now = q.get('today') ? Date.parse(q.get('today') + 'T12:00:00Z') : Date.no
 const T0 = Math.floor(now / DAY) * DAY;               // today 00:00 UTC
 const idx = s => Math.round((Date.parse(s.slice(0, 10) + 'T00:00:00Z') - T0) / DAY);
 const dt = i => new Date(T0 + i * DAY);
-const fmt = (i, o = { day: 'numeric', month: 'short' }) => dt(i).toLocaleDateString('en-GB', { timeZone: 'UTC', ...o });
+// date formatting is slow, and the same few dates are formatted thousands of times: remember them
+const fmtCache = new Map();
+const fmt = (i, o) => { const k = i + (o ? JSON.stringify(o) : ''); let v = fmtCache.get(k); if (v === undefined) { v = dt(i).toLocaleDateString('en-GB', { timeZone: 'UTC', ...(o || { day: 'numeric', month: 'short' }) }); fmtCache.set(k, v); } return v; };
+const WD = i => (Math.floor((T0 + i * DAY) / DAY) + 3) % 7; // Mon = 0, without creating Date objects
 const fmtL = i => fmt(i, { weekday: 'short', day: 'numeric', month: 'short' });
 const resetLocal = new Date(T0).toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
 
@@ -80,7 +83,7 @@ function model() {
   const startMax = Math.min(deadIdx - 1, startMin + 59);
   const dur = R.durationDays;
   const valid = i => P.late || i < deadIdx;
-  const plays = i => P.days[(dt(i).getUTCDay() + 6) % 7];
+  const plays = i => P.days[WD(i)];
   const w = k => (P.types[k] ?? 2) / 10;
   const kws = P.kw.split(',').map(s => s.trim().toLowerCase()).filter(Boolean);
   const kwHit = txt => kws.find(k => txt.toLowerCase().includes(k));
@@ -118,7 +121,7 @@ function model() {
     const f = vs.length >= 8 && poolMean ? Math.min(1.6, Math.max(0.6, 1 + 0.5 * (vs.reduce((a, b) => a + b, 0) / vs.length / poolMean - 1))) : 1;
     return (seasonCache[i] = { f, n: vs.length });
   };
-  const wdOf = i => (dt(i).getUTCDay() + 6) % 7;
+  const wdOf = WD;
 
   const events = D.events.filter(e => e.extraVbucks > 0 || e.fromHistory).map(e => {
     const conf = R.confidence[e.status] ?? 0.2;
@@ -137,8 +140,7 @@ function model() {
     // 1) today's shop
     let sidekick = null;
     for (const x of items) {
-      const claim = ok.filter(i => i < x.out);
-      const hit = claim.length > 0 && x.value > 0;
+      const hit = x.value > 0 && ok.length > 0 && ok[0] < x.out, claim = hit ? ok.filter(i => i < x.out) : [];
       const r = { type: 'item', x, hit, claim, v: hit ? x.value : 0 };
       if (hit && x.e.kind === 'sidekick') { if (!sidekick || sidekick.v < r.v) { if (sidekick) { sidekick.hit = false; sidekick.why = 'Only one new Sidekick counts'; sidekick.v = 0; } sidekick = r; } else { r.hit = false; r.v = 0; r.why = 'Only one new Sidekick counts'; } }
       if (!r.hit && !r.why) r.why = x.own ? 'You own it' : x.share === 0 ? 'All its items are also sold separately' : x.value === 0 ? 'Worth 0 to you' : s >= x.out ? `Leaves ${fmt(x.out)}, before your window` : 'No play day while it is in the shop';
@@ -165,11 +167,16 @@ function model() {
   // ---- uncertainty: replay the window totals under many simulated futures ----
   const U = R.uncertainty, rnd = rng(U.seed), N = U.runs;
   const allVals = poolVals.flat();
-  const plays2 = i => valid(i) && plays(i);
-  const sims = all.map(() => []), wins = all.map(() => 0);
+  // prefix sums: how many valid days / play days lie in any range, in constant time
+  const SPAN = startMax + dur + 8, preV = new Int32Array(SPAN + 2), preP = new Int32Array(SPAN + 2);
+  for (let d = 0; d <= SPAN; d++) { const v = d >= 0 && valid(d) ? 1 : 0; preV[d + 1] = preV[d] + v; preP[d + 1] = preP[d] + (v && plays(d) ? 1 : 0); }
+  const cl = d => Math.max(0, Math.min(SPAN, d));
+  const cntV = (lo, hi) => preV[cl(hi) + 1] - preV[cl(lo)], cntP = (lo, hi) => preP[cl(hi) + 1] - preP[cl(lo)];
+  const sims = all.map(() => new Float64Array(N)), wins = all.map(() => 0);
+  const dayPools = []; for (let d = 0; d <= startMax + dur; d++) { const v = poolVals[wdOf(d)].length >= 6 ? poolVals[wdOf(d)] : allVals; dayPools.push([v, season(d).f]); }
   for (let r = 0; r < N; r++) {
     const scale = D.base.fallback ? Math.exp(gauss(rnd) * U.fallbackSpread) : 1;
-    const day = []; for (let d = 0; d <= startMax + dur; d++) { const v = poolVals[wdOf(d)].length >= 6 ? poolVals[wdOf(d)] : allVals; day.push((v.length ? v[Math.floor(rnd() * v.length)] : B * scale) * season(d).f); }
+    const day = new Float64Array(startMax + dur + 1); for (let d = 0; d < day.length; d++) { const [v, f] = dayPools[d]; day[d] = (v.length ? v[Math.floor(rnd() * v.length)] : B * scale) * f; }
     const evs = events.map(x => {
       const happens = rnd() < x.conf;
       const sh = x.e.status === 'pattern' ? Math.round((rnd() * 2 - 1) * U.patternShiftDays) : 0;
@@ -177,16 +184,18 @@ function model() {
       return { a: x.a + sh, b: x.b + sh, v: happens ? x.val * mult * x.interest : 0 };
     });
     let bestI = 0, bestV = -1;
-    all.forEach((a, i) => {
+    for (let i = 0; i < all.length; i++) {
+      const a = all[i], s0 = a.s, s1 = a.s + dur - 1;
       let t = a.shop;
       for (const d of a.freshDays) t += day[d];
       for (const x of evs) {
         if (!x.v) continue;
-        const inside = a.W.filter(d => d >= x.a && d <= x.b && valid(d));
-        if (inside.some(plays2)) t += x.v * inside.length / (x.b - x.a + 1);
+        const lo = Math.max(x.a, s0), hi = Math.min(x.b, s1);
+        if (hi < lo) continue;
+        if (cntP(lo, hi) > 0) t += x.v * cntV(lo, hi) / (x.b - x.a + 1);
       }
-      sims[i].push(t); if (t > bestV) { bestV = t; bestI = i; }
-    });
+      sims[i][r] = t; if (t > bestV) { bestV = t; bestI = i; }
+    }
     wins[bestI]++;
   }
   all.forEach((a, i) => { const v = sims[i].sort((x, y) => x - y); a.p10 = v[Math.floor(N * .1)]; a.p50 = v[Math.floor(N * .5)]; a.p90 = v[Math.floor(N * .9)]; a.pBest = wins[i] / N; });
@@ -195,6 +204,9 @@ function model() {
 
 // ---------- rendering ----------
 // render(false) = only the selected day changed: reuse the last model (fast enough for dragging)
+// coalesce rapid changes (dragging a slider, typing) into one recompute per animation frame
+let soonId = 0;
+function soon() { if (!soonId) soonId = requestAnimationFrame(() => { soonId = 0; render(); }); }
 function render(recompute = true) {
   const M = recompute || !render.M ? (render.M = model()) : render.M;
   if (!M) { $('vDay').textContent = 'No open activation window'; return; }
@@ -251,7 +263,8 @@ function render(recompute = true) {
   const ax = []; for (let i = 0; i < H; i += 7) ax.push(i);
   $('axis').innerHTML = ax.map(i => `<span style="left:${tp(i)}%">${fmt(i)}</span>`).join('');
 
-  // the math for the selected day
+  // the math for the selected day (only built while its section is open)
+  if ($('math').open) {
   $('mathTitle').textContent = `The math for ${fmt(sel)}`;
   $('sum').innerHTML = [[cur.tot, `Expected total (likely ${n0(cur.p10)}–${n0(cur.p90)} V-Bucks)`], [cur.shop, "From today's shop"], [cur.fresh, 'From new items on later days'], [cur.ev, 'From expected events']].map(([v, l]) => `<div><b>${n0(v)}<small>V-Bucks</small></b><span>${l}</span></div>`).join('');
   const rows = [];
@@ -268,12 +281,14 @@ function render(recompute = true) {
   $('mtab').tBodies[0].innerHTML = keep.join('');
   $('mathMore').hidden = render.allMath || itemRows <= 12;
 
+  }
   // reminder + plan
   const d = dt(sel), ds = d.toISOString().slice(0, 10).replace(/-/g, '');
   render.cal = { title: 'Activate Fortnite Pirate Shop Access', start: T0 + sel * DAY + 5 * 60e3, mins: 30, details: 'Item Shop > Plunder the Item Shop > Activate Now. Claim every day you play for 14 days. ' + location.href.split('#')[0] };
   render.plan = `Pirate Shop plan: activate ${fmtL(sel)} after the 00:00 UTC reset (${resetLocal} my time). Access ends ${fmtL(sel + dur)}. Expected haul ~${n0(cur.tot)} V-Bucks of wanted items: ` + cur.rows.filter(r => r.hit).map(r => r.x.e.name).join(', ') + '.';
 
-  // shop grid
+  // shop grid (only while open)
+  if ($('shop').open) {
   const hitIds = new Set(cur.rows.filter(r => r.hit).map(r => r.x.e.id));
   const F = render.filter || (render.filter = { q: '', kind: 'all', mine: false });
   const kindsHere = [...new Set(M.items.map(x => x.e.kind))].sort((a, b) => M.items.filter(x => x.e.kind === b).length - M.items.filter(x => x.e.kind === a).length);
@@ -284,9 +299,11 @@ function render(recompute = true) {
   const shown = render.allShop ? filtered : filtered.slice(0, 20);
   $('shopMore').hidden = render.allShop || filtered.length <= 20; $('shopMore').textContent = `Show all ${filtered.length}`;
   $('shopgrid').innerHTML = shown.length ? shown.map(x => `<article data-r="${esc(rarityOf(x.e))}" class="item${x.own ? ' own' : ''}${x.must ? ' must' : ''}${hitIds.has(x.e.id) ? ' hit' : ''}"><div class="img">${x.e.image ? `<img loading="lazy" src="${esc(x.e.image)}" alt="" onerror="this.remove()">` : esc(x.e.name)}<button type="button" class="heart" data-must="${esc(x.e.id)}" aria-pressed="${x.must}" aria-label="Must have ${esc(x.e.name)}"><svg viewBox="0 0 24 24"><path d="M12 20s-7-4.4-7-10a4 4 0 0 1 7-2.6A4 4 0 0 1 19 10c0 5.6-7 10-7 10z"/></svg></button></div><div class="bd"><span class="nm">${esc(x.e.name)}</span><span class="mt">${KINDS[x.e.kind] || x.e.kind} · last day ${fmt(x.out - 1)}${x.e.gap === 'unseen' ? ' · not seen since ' + fmt(idx(D.shop.historyFrom || '2026-05-02')) : typeof x.e.gap === 'number' && x.e.gap > 1 ? ` · back after ${x.e.gap} days` : ''}</span><span class="vb">${n0(x.e.price)} V-Bucks · worth ${n0(x.value)} to you${x.must ? ' (must-have)' : ''}</span></div><label><input type="checkbox" data-own="${esc(x.e.id)}" ${x.own ? 'checked' : ''}>I already own this</label></article>`).join('') : '<p class="hint">Nothing matches.</p>';
-  $('shopNote').textContent = `${filtered.length} of ${M.items.length} offers · gold border = in your 14 days · heart = must-have`;
+  $('shopNote').textContent = `${filtered.length} of ${M.items.length} offers · ${M.items.filter(x => x.must).length} favourite${M.items.filter(x => x.must).length === 1 ? '' : 's'} · gold border = claimable in your 14 days`;
 
-  formula(M); limits(M); pastShops(M); activeMode(M); if (render.back) backSearch();
+  }
+  if ($('how').open) formula(M); if ($('limitsec').open) limits(M); if ($('pastsec').open) pastShops(M);
+  activeMode(M); if (render.back && $('backsec').open) backSearch();
 }
 
 function formula(M) {
@@ -408,11 +425,13 @@ function bind() {
       if (id.startsWith('t_')) { P.types[id.slice(2)] = v; loves(); } else if (id.startsWith('e_')) P.ev[id.slice(2)] = v; else P[id] = v;
     } else if (id === 'kw') P.kw = t.value;
     else return;
-    save(); render();
+    save(); soon();
   });
   const pir = document.getElementById('pirate');
   const wake = () => { pir.classList.add('awake'); clearTimeout(wake.t); wake.t = setTimeout(() => pir.classList.remove('awake'), 1800); };
-  pir.addEventListener('click', wake); pir.addEventListener('keydown', e => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); wake(); } });
+  pir.addEventListener('click', wake);
+  const octo = document.getElementById('octo');
+  if (octo) { const nudge = () => { octo.classList.add('awake'); clearTimeout(nudge.t); nudge.t = setTimeout(() => octo.classList.remove('awake'), 2200); }; octo.addEventListener('click', nudge); } pir.addEventListener('keydown', e => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); wake(); } });
   const tip = $('tip'), chart = tip.parentElement;
   const showTip = e => { const c = e.target.closest('.col'); if (!c || !render.tipFor) return; tip.innerHTML = render.tipFor(+c.dataset.s); tip.hidden = false;
     const r = c.getBoundingClientRect(), p = chart.getBoundingClientRect(); const x = Math.min(Math.max(r.left + r.width / 2 - p.left, 70), p.width - 70); tip.style.left = x + 'px'; };
@@ -421,7 +440,7 @@ function bind() {
   $('shopMore').addEventListener('click', () => { render.allShop = true; render(); });
   $('mathMore').addEventListener('click', () => { render.allMath = true; render(); });
   // charts inside a fold are drawn at their real width when the fold opens
-  document.querySelectorAll('details.fold').forEach(d => d.addEventListener('toggle', () => { if (d.open) render(); }));
+  document.querySelectorAll('details.fold').forEach(d => d.addEventListener('toggle', () => { if (d.open) render(false); }));
   $('loves').addEventListener('click', e => {
     const b = e.target.closest('[data-g]'); if (!b) return;
     const g = GROUPS.find(x => x.id === b.dataset.g), next = (levelOf(g) + 2) % 3; // Love > Maybe > Nope > Love

@@ -19,6 +19,8 @@
 <link rel="preload" href="fonts/anton-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="fonts/nunito-latin-800-normal.woff2" as="font" type="font/woff2" crossorigin>
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebApplication","name":"Fortnite Pirate Shop Token Planner","url":"https://piratetokenplanner.github.io/pirate-token-planner/","applicationCategory":"GameApplication","operatingSystem":"Any","offers":{"@type":"Offer","price":"0","priceCurrency":"EUR"},"description":"Fan-made, free tool that finds the best day to activate Fortnite Pirate Shop Access (14 days of free Item Shop), from the live shop and your own taste. Not affiliated with Epic Games."}</script>
+<link rel="preconnect" href="https://fortnite-api.com" crossorigin>
+<link rel="dns-prefetch" href="https://abacus.jasoncameron.dev">
 <link rel="canonical" href="https://piratetokenplanner.github.io/pirate-token-planner/">
 <link rel="stylesheet" href="style.css">
 </head>
@@ -41,6 +43,21 @@
   <ellipse cx="300" cy="226" rx="46" ry="20" fill="#8a96a8"/><ellipse cx="330" cy="230" rx="30" ry="14" fill="#6f7b8e"/>
   <g transform="translate(205 160) rotate(-14)"><path d="M0 0 V62 M-18 46 Q0 70 18 46" stroke="#5c6878" stroke-width="7" fill="none" stroke-linecap="round"/><circle cy="-6" r="7" stroke="#5c6878" stroke-width="5" fill="none"/><path d="M-12 10 H12" stroke="#5c6878" stroke-width="6" stroke-linecap="round"/></g>
   <path d="M470 222 l6 -14 6 14 15 1 -12 9 4 15 -13 -8 -13 8 4 -15 -12 -9z" fill="#ff8c69"/>
+  <g class="octo" id="octo" transform="translate(640 176)">
+   <g class="tent"><path d="M-26 34 q-10 14 -24 10 M-14 38 q-4 16 -16 20 M0 40 q2 16 -6 22 M14 38 q8 14 18 16 M26 34 q14 10 24 4" stroke="#b06cd8" stroke-width="9" fill="none" stroke-linecap="round"/></g>
+   <ellipse cx="0" cy="14" rx="32" ry="28" fill="#c482e8"/>
+   <ellipse cx="-10" cy="4" rx="10" ry="6" fill="#ffffff33"/>
+   <path class="olids" d="M-15 18 q5 4 10 0 M5 18 q5 4 10 0" stroke="#3a1a48" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+   <g class="oeyes" opacity="0"><circle cx="-10" cy="17" r="3.4" fill="#3a1a48"/><circle cx="10" cy="17" r="3.4" fill="#3a1a48"/></g>
+   <ellipse cx="-19" cy="26" rx="5" ry="3" fill="#ff9fc8" opacity=".7"/><ellipse cx="19" cy="26" rx="5" ry="3" fill="#ff9fc8" opacity=".7"/>
+   <path d="M-30 4 Q-22 -26 6 -26 Q30 -24 32 4 Q22 -8 4 -4 Z" fill="#3f4aa8"/>
+   <path d="M-30 4 Q-2 -6 32 4" stroke="#2c3480" stroke-width="4" fill="none" stroke-linecap="round"/>
+   <path d="M-10 -14 l1.2 2.6 2.6 1.2 -2.6 1.2 -1.2 2.6 -1.2 -2.6 -2.6 -1.2 2.6 -1.2z M10 -18 l1 2 2 1 -2 1 -1 2 -1 -2 -2 -1 2 -1z" fill="#ffc83d"/>
+   <path d="M30 2 q14 -4 18 10" stroke="#3f4aa8" stroke-width="4" fill="none" stroke-linecap="round"/><circle cx="49" cy="14" r="4" fill="#ffc83d"/>
+   <g class="ozz" fill="none" stroke="#ffffffcc" stroke-width="1.6"><circle cx="34" cy="-30" r="5"/><circle cx="44" cy="-50" r="7"/><circle cx="56" cy="-74" r="9"/></g>
+   <g class="ozt" font-family="Luckiest Guy, Impact" font-size="9" fill="#fff"><text x="31" y="-27">z</text><text x="40" y="-46">z</text><text x="51" y="-70">Z</text></g>
+   <text class="osay" x="-72" y="-36" font-family="Luckiest Guy, Impact" font-size="15" fill="#ffc83d" opacity="0">5 more minutes…</text>
+  </g>
   <g class="crab"><ellipse cx="760" cy="226" rx="18" ry="11" fill="#ff6b57"/><path d="M744 224 l-10 -8 M776 224 l10 -8 M746 232 l-8 6 M774 232 l8 6" stroke="#e04e3a" stroke-width="3" stroke-linecap="round"/><circle cx="754" cy="214" r="3" fill="#14213d"/><circle cx="766" cy="214" r="3" fill="#14213d"/></g>
   <ellipse cx="1040" cy="190" rx="120" ry="70" fill="url(#glw)" class="pulse"/>
   <g transform="translate(980 150)"><rect x="0" y="30" width="120" height="58" rx="8" fill="#8a4a1f"/><rect x="0" y="30" width="120" height="10" fill="#6b3613"/><rect x="52" y="44" width="16" height="20" rx="3" fill="#ffc83d"/>
@@ -225,6 +242,20 @@
       </div>
     </div>
   </details>
+
+  <details class="fold pnl" id="shop">
+    <summary><span class="ico"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 8h14l-1 12H6L5 8z"/><path d="M9 8V6a3 3 0 0 1 6 0v2"/></svg></span><span class="sumt"><b>Favourites from today's shop</b><small>Tap the heart on items you must have: they count 3× and shape your best day</small></span></summary>
+    <div class="foldbody">
+      <div class="filters">
+        <input id="shopQ" type="search" placeholder="Search today's shop" autocomplete="off" aria-label="Search today's shop">
+        <label class="tog mini"><input type="checkbox" id="shopMine"><span>Only in my 14 days</span></label>
+      </div>
+      <div class="fchips" id="shopKinds"></div>
+      <p class="hint" id="shopNote"></p>
+      <div class="shopgrid" id="shopgrid"></div>
+      <div class="acts"><button class="btn ghost" id="shopMore" type="button" hidden>Show all</button></div>
+    </div>
+  </details>
 </div></section>
 
 <section class="deck info result" aria-label="Your result"><div class="wrap">
@@ -303,19 +334,7 @@
     </div>
   </details>
 
-  <details class="fold pnl" id="shop">
-    <summary><span class="ico"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 8h14l-1 12H6L5 8z"/><path d="M9 8V6a3 3 0 0 1 6 0v2"/></svg></span><span class="sumt"><b>Today's shop</b><small>Every offer and what it is worth to you</small></span></summary>
-    <div class="foldbody">
-      <div class="filters">
-        <input id="shopQ" type="search" placeholder="Search today's shop" autocomplete="off" aria-label="Search today's shop">
-        <label class="tog mini"><input type="checkbox" id="shopMine"><span>Only in my 14 days</span></label>
-      </div>
-      <div class="fchips" id="shopKinds"></div>
-      <p class="hint" id="shopNote"></p>
-      <div class="shopgrid" id="shopgrid"></div>
-      <div class="acts"><button class="btn ghost" id="shopMore" type="button" hidden>Show all</button></div>
-    </div>
-  </details>
+
 
 </div></section>
 

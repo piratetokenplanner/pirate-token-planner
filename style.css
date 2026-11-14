@@ -3986,3 +3986,26 @@ h2 {
   font-weight: 800;
   font-size: 14px;
 }
+
+/* responsive polish */
+.days{display:grid;grid-template-columns:repeat(7,minmax(0,1fr));gap:6px;max-width:520px}
+.days label{width:auto;min-width:0}
+main a,.foot a,.tbl td{overflow-wrap:anywhere}
+@media(max-width:360px){.days label{font-size:13px;height:44px}.hero h1{font-size:34px}.btn{padding:10px 14px;font-size:14px}}
+
+/* waves: durations must come after the animation shorthand */
+.wave.w1{animation-duration:42s;animation-direction:reverse}
+.wave.w2{animation-duration:30s}
+.wave.w3{animation-duration:22s}
+/* second sleepyhead: a sleepy octopus on the seabed (tap it) */
+.octo{pointer-events:auto;cursor:pointer}
+.octo .tent{animation:tentsway 3s ease-in-out infinite;transform-box:fill-box;transform-origin:50% 0}
+@keyframes tentsway{50%{transform:skewX(6deg)}}
+.octo .ozz>*,.octo .ozt>*{animation:obubble 3.6s ease-in infinite;opacity:0}
+.octo .ozz>:nth-child(2),.octo .ozt>:nth-child(2){animation-delay:1.2s}.octo .ozz>:nth-child(3),.octo .ozt>:nth-child(3){animation-delay:2.4s}
+@keyframes obubble{0%{opacity:0;transform:translateY(10px)}25%{opacity:1}100%{opacity:0;transform:translateY(-14px)}}
+.octo.awake .olids,.octo.awake .ozz,.octo.awake .ozt{opacity:0}
+.octo.awake .oeyes,.octo.awake .osay{opacity:1}
+.octo.awake .tent{animation-duration:.5s}
+@media(prefers-reduced-motion:reduce){.octo .tent,.octo .ozz>*,.octo .ozt>*{animation:none}.octo .ozz>*,.octo .ozt>*{opacity:1}}
+.foot{pointer-events:none}.foot .wrap{pointer-events:auto}
