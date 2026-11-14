@@ -16,7 +16,7 @@
     "mustContain": [
      "December 5"
     ],
-    "checkedAt": "2026-11-14T20:45:34.914Z",
+    "checkedAt": "2026-11-14T21:51:41.274Z",
     "reachable": true,
     "found": [
      {
@@ -33,7 +33,7 @@
     "mustContain": [
      "December 5"
     ],
-    "checkedAt": "2026-11-14T20:45:35.191Z",
+    "checkedAt": "2026-11-14T21:51:41.546Z",
     "reachable": true,
     "found": [
      {
@@ -42,7 +42,7 @@
      }
     ],
     "verified": true,
-    "hash": "10f0d97a05b74742",
+    "hash": "898dc23d2a1ae6f7",
     "changedSinceLastCheck": true
    }
   ],
@@ -56,7 +56,7 @@
   "to": "2026-12-12",
   "claim": "pattern",
   "extraVbucks": 8000,
-  "basis": "Sized from every past season-launch week in the shop history: what each brought above an average day, per item type, averaged. Launch weeks were not reliably bigger (back-test: June 2026 was below average, August and November above), so this can be small or even negative.",
+  "basis": "Sized from every past season-launch week: the archive (May 2026 on) for the ones it covers, the long cosmetics history for older ones. What each brought above an average day, per item type, averaged. Launch weeks were not reliably bigger (June 2026 was below average, August and November above), so this can be small or even negative.",
   "newsKeywords": [
    "chapter 8"
   ],
@@ -66,7 +66,7 @@
     "mustContain": [
      "Chapter 8"
     ],
-    "checkedAt": "2026-11-14T20:45:35.191Z",
+    "checkedAt": "2026-11-14T21:51:41.546Z",
     "reachable": true,
     "found": [
      {
@@ -84,6 +84,11 @@
     "from": "2025-11-30",
     "to": "2025-12-06",
     "label": "Chapter 7 launch week"
+   },
+   {
+    "from": "2026-03-19",
+    "to": "2026-03-25",
+    "label": "Chapter 7 Season 2 launch week"
    },
    {
     "from": "2026-06-06",
@@ -193,7 +198,7 @@
   "to": "2026-12-31",
   "claim": "pattern",
   "extraVbucks": 6000,
-  "basis": "Sized from Winterfest 2025 (Dec 18, 2025 to Jan 5, 2026) once the shop history reaches back that far; until then an author estimate.",
+  "basis": "Sized from Winterfest 2025 in the long cosmetics history (fortnite-api.com shop dates, typical prices): how much more arrived than in the weeks around it, applied to an average shop day. Until that history loads, an author estimate.",
   "newsKeywords": [
    "winterfest"
   ],
@@ -203,7 +208,7 @@
     "mustContain": [
      "Winterfest"
     ],
-    "checkedAt": "2026-11-14T20:45:35.385Z",
+    "checkedAt": "2026-11-14T21:51:41.674Z",
     "reachable": true,
     "found": [
      {
@@ -220,7 +225,7 @@
     "mustContain": [
      "Winterfest"
     ],
-    "checkedAt": "2026-11-14T20:45:35.597Z",
+    "checkedAt": "2026-11-14T21:51:41.871Z",
     "reachable": true,
     "found": [
      {
@@ -249,17 +254,10 @@
   "from": "2026-12-20",
   "to": "2026-12-27",
   "claim": "pattern",
-  "extraVbucks": 3000,
-  "basis": "Sized from Christmas week 2025 once the shop history reaches back that far; until then an author estimate.",
+  "extraVbucks": 0,
+  "basis": "Shown as a landmark. Its shop value is already part of Winterfest, which is measured over the whole holiday period (counting it twice would overrate the end of December).",
   "newsKeywords": [],
   "sources": [],
-  "calibrateFrom": [
-   {
-    "from": "2025-12-20",
-    "to": "2025-12-27",
-    "label": "Christmas week 2025"
-   }
-  ],
   "newsHits": [],
   "status": "pattern"
  },
@@ -275,7 +273,7 @@
   "fromNews": {
    "title": "Cursed Sprite Variants - November 14",
    "body": "Beware the cursed tide from 2-4 PM ET and 9-11 PM ET! Drop in with Lil Uzi Vert's Lil' SMG and a Self Revive, and track down more Cursed Sprite variants across the Island.",
-   "fetchedAt": "2026-11-14T20:45:34.766Z"
+   "fetchedAt": "2026-11-14T21:51:41.141Z"
   },
   "fromHistory": {
    "byKind": {
