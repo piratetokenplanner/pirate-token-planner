@@ -16,7 +16,7 @@
     "mustContain": [
      "December 5"
     ],
-    "checkedAt": "2026-11-14T19:32:13.419Z",
+    "checkedAt": "2026-11-14T20:45:34.914Z",
     "reachable": true,
     "found": [
      {
@@ -33,7 +33,7 @@
     "mustContain": [
      "December 5"
     ],
-    "checkedAt": "2026-11-14T19:32:13.747Z",
+    "checkedAt": "2026-11-14T20:45:35.191Z",
     "reachable": true,
     "found": [
      {
@@ -42,7 +42,7 @@
      }
     ],
     "verified": true,
-    "hash": "e3dcde70f898e211",
+    "hash": "10f0d97a05b74742",
     "changedSinceLastCheck": true
    }
   ],
@@ -56,7 +56,7 @@
   "to": "2026-12-12",
   "claim": "pattern",
   "extraVbucks": 8000,
-  "basis": "Sized from past season-launch weeks in the shop history (Chapter 7, Nov 30 to Dec 6, 2025, and Treasure Hunters, Nov 1 to 7, 2026): what they brought above a median day, per item type.",
+  "basis": "Sized from every past season-launch week in the shop history: what each brought above an average day, per item type, averaged. Launch weeks were not reliably bigger (back-test: June 2026 was below average, August and November above), so this can be small or even negative.",
   "newsKeywords": [
    "chapter 8"
   ],
@@ -66,7 +66,7 @@
     "mustContain": [
      "Chapter 8"
     ],
-    "checkedAt": "2026-11-14T19:32:13.747Z",
+    "checkedAt": "2026-11-14T20:45:35.191Z",
     "reachable": true,
     "found": [
      {
@@ -86,6 +86,16 @@
     "label": "Chapter 7 launch week"
    },
    {
+    "from": "2026-06-06",
+    "to": "2026-06-12",
+    "label": "Chapter 7 Season 3 launch week"
+   },
+   {
+    "from": "2026-08-20",
+    "to": "2026-08-26",
+    "label": "Chapter 7 Season 4 launch week"
+   },
+   {
     "from": "2026-11-01",
     "to": "2026-11-07",
     "label": "Treasure Hunters launch week"
@@ -95,40 +105,82 @@
   "status": "pattern",
   "fromHistory": {
    "byKind": {
-    "glider": 2100,
-    "bundle": 35400,
-    "pickaxe": 13600,
-    "outfit": 18400,
-    "backpack": 9900,
-    "wrap": 2100,
-    "emote": 3800,
-    "car": 1200,
-    "kicks": 9400,
-    "jamtrack": 105100,
-    "sidekick": 6600,
-    "lego": 0,
-    "contrail": 0
+    "glider": -217,
+    "bundle": 3299.666666666668,
+    "pickaxe": -1211,
+    "outfit": 101,
+    "backpack": 1887.0000000000002,
+    "wrap": -258.6666666666667,
+    "emote": -289,
+    "car": 775.6666666666666,
+    "kicks": 2406.6666666666665,
+    "jamtrack": 37708.333333333336,
+    "sidekick": -459.99999999999983,
+    "lego": -298,
+    "contrail": -355
    },
    "from": [
+    {
+     "from": "2026-06-06",
+     "to": "2026-06-12",
+     "label": "Chapter 7 Season 3 launch week",
+     "days": 7,
+     "byKind": {
+      "glider": -3017,
+      "bundle": -31467,
+      "pickaxe": -12711,
+      "outfit": -19599,
+      "backpack": -2813,
+      "wrap": -2792,
+      "emote": 11,
+      "car": 1809,
+      "kicks": -1860,
+      "jamtrack": 26175,
+      "sidekick": -3760,
+      "lego": -298,
+      "contrail": -455
+     }
+    },
+    {
+     "from": "2026-08-20",
+     "to": "2026-08-26",
+     "label": "Chapter 7 Season 4 launch week",
+     "days": 7,
+     "byKind": {
+      "glider": 383,
+      "bundle": 12133,
+      "pickaxe": -1911,
+      "outfit": 7701,
+      "backpack": 187,
+      "wrap": 608,
+      "emote": -4589,
+      "car": 1209,
+      "kicks": 1740,
+      "jamtrack": 10675,
+      "sidekick": 3440,
+      "lego": -298,
+      "contrail": -155
+     }
+    },
     {
      "from": "2026-11-01",
      "to": "2026-11-07",
      "label": "Treasure Hunters launch week",
      "days": 7,
      "byKind": {
-      "glider": 2100,
-      "bundle": 35400,
-      "pickaxe": 13600,
-      "outfit": 18400,
-      "backpack": 9900,
-      "wrap": 2100,
-      "emote": 3800,
-      "car": 1200,
-      "kicks": 9400,
-      "jamtrack": 105100,
-      "sidekick": 6600,
-      "lego": 0,
-      "contrail": 0
+      "glider": 1983,
+      "bundle": 29233,
+      "pickaxe": 10989,
+      "outfit": 12201,
+      "backpack": 8287,
+      "wrap": 1408,
+      "emote": 3711,
+      "car": -691,
+      "kicks": 7340,
+      "jamtrack": 76275,
+      "sidekick": -1060,
+      "lego": -298,
+      "contrail": -455
      }
     }
    ]
@@ -151,7 +203,7 @@
     "mustContain": [
      "Winterfest"
     ],
-    "checkedAt": "2026-11-14T19:32:14.240Z",
+    "checkedAt": "2026-11-14T20:45:35.385Z",
     "reachable": true,
     "found": [
      {
@@ -168,7 +220,7 @@
     "mustContain": [
      "Winterfest"
     ],
-    "checkedAt": "2026-11-14T19:32:14.369Z",
+    "checkedAt": "2026-11-14T20:45:35.597Z",
     "reachable": true,
     "found": [
      {
@@ -177,7 +229,7 @@
      }
     ],
     "verified": true,
-    "hash": "cdb1d3cf7e5609c9",
+    "hash": "66e626365f6c350d",
     "changedSinceLastCheck": false
    }
   ],
@@ -210,5 +262,51 @@
   ],
   "newsHits": [],
   "status": "pattern"
+ },
+ {
+  "id": "news-d6159806",
+  "name": "From the news: Cursed Sprite Variants - November 14",
+  "from": "2026-11-14",
+  "to": "2026-11-16",
+  "claim": "reported",
+  "status": "reported",
+  "extraVbucks": 0,
+  "basis": "Detected automatically in the in-game news. Sized like a good shop day (average of the best quarter of past days), because announced drops have no past data of their own.",
+  "fromNews": {
+   "title": "Cursed Sprite Variants - November 14",
+   "body": "Beware the cursed tide from 2-4 PM ET and 9-11 PM ET! Drop in with Lil Uzi Vert's Lil' SMG and a Self Revive, and track down more Cursed Sprite variants across the Island.",
+   "fetchedAt": "2026-11-14T20:45:34.766Z"
+  },
+  "fromHistory": {
+   "byKind": {
+    "glider": 1812,
+    "bundle": 19209,
+    "pickaxe": 6381,
+    "outfit": 17409,
+    "backpack": 4395,
+    "wrap": 1488,
+    "emote": 2475,
+    "car": 669,
+    "kicks": 723,
+    "jamtrack": 28287,
+    "sidekick": 1392,
+    "lego": 390,
+    "contrail": 99
+   },
+   "from": [
+    {
+     "label": "a good shop day (best quarter of past days), × 3 days"
+    }
+   ]
+  },
+  "sources": [
+   {
+    "url": "https://fortnite-api.com/v2/news/br?language=en",
+    "verified": true
+   }
+  ],
+  "newsHits": [
+   "Cursed Sprite Variants - November 14"
+  ]
  }
 ]

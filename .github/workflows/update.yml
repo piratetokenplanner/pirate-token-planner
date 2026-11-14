@@ -27,6 +27,27 @@ jobs:
           node-version: 20
       - name: Fetch shop, news and verify sources
         run: node scripts/update.mjs
+        env:
+          ITEMSHOP_KEY: ${{ secrets.ITEMSHOP_KEY }}
+      # once a day (first run after the reset, or when started by hand): back-test the forecast on the
+      # past-shop archive and save/score the daily track record -> data/backtest.json, data/track.json
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - uses: actions/cache@v4
+        with:
+          path: ${{ runner.temp }}/archive
+          key: archive-${{ github.run_id }}
+          restore-keys: archive-
+      - name: Back-test and track record (daily)
+        continue-on-error: true
+        env:
+          ARCHIVE_CACHE: ${{ runner.temp }}/archive
+        run: |
+          if [ "$(date -u +%H)" = "00" ] || [ "${{ github.event_name }}" = "workflow_dispatch" ] || [ ! -f data/backtest.json ]; then
+            pip install --quiet numpy
+            python3 scripts/backtest.py --json data/backtest.json --record data/track.json
+          fi
       - name: Commit data (keeps the snapshot history in git)
         run: |
           git config user.name "planner-bot"
