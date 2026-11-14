@@ -105,7 +105,7 @@
 <main>
 <section class="band steps"><div class="wrap">
   <div class="step">
-    <span class="num">1</span>
+    <span class="stepnum">1</span>
     <div>
       <h2>What do you want?</h2>
       <p class="hint">Tap to switch: Love, Maybe, Nope.</p>
@@ -113,7 +113,7 @@
     </div>
   </div>
   <div class="step">
-    <span class="num">2</span>
+    <span class="stepnum">2</span>
     <div>
       <h2>When do you play?</h2>
       <div class="days" id="days"></div>
@@ -122,7 +122,7 @@
 </div></section>
 
 <section class="band result"><div class="wrap">
-  <div class="step"><span class="num">3</span><h2>Your best day</h2></div>
+  <div class="step"><span class="stepnum">3</span><h2>Your best day</h2></div>
   <div class="verdict" aria-live="polite">
     <div class="xmark" aria-hidden="true">X</div>
     <div>
@@ -148,36 +148,57 @@
   </div>
   <div class="panel">
     <div class="ph"><b id="vTitle">Your 14 days</b><span id="vScore"></span></div>
-    <div class="track" id="track"></div>
+    <div class="track" id="track" tabindex="0" role="slider" aria-label="Start day: drag the box, or use the arrow keys"></div>
     <div class="axis" id="axis"></div>
     <ul class="evlist" id="evlist"></ul>
-    <div class="lg"><span><i class="sw sw-win"></i>Your 14 days</span><span><i class="sw sw-dl"></i>Last day to activate</span><span><i class="sw sw-tick">3</i>Items you want that leave the shop that day</span><span><i class="sw sw-ev"></i>Expected event (gold edge = inside your days)</span></div>
+    <div class="lg"><span><i class="sw sw-win"></i>Your 14 days (drag it)</span><span><i class="sw sw-dl"></i>Last day to activate</span><span><i class="sw sw-tick">3</i>Items you want that leave the shop that day</span><span><i class="sw sw-ev"></i>Expected event (gold edge = inside your days)</span></div>
   </div>
 </div></section>
 
 <section class="band more"><div class="wrap">
   <details class="fold">
-    <summary>Fine-tune</summary>
+    <summary><span class="ico"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 7h10M18 7h2M4 17h4M12 17h8"/><circle cx="16" cy="7" r="2.2"/><circle cx="10" cy="17" r="2.2"/></svg></span><span class="sumt"><b>Fine-tune</b><small>Exact weights, presets, favourite words</small></span></summary>
     <div class="foldbody grid2">
       <div>
-        <h3>Quick presets</h3>
-        <div class="presets" id="presets"></div>
-        <label class="field">Favourite words<input id="kw" placeholder="e.g. pirate, One Piece, Miku" autocomplete="off"></label>
-        <div id="boosts"></div>
-        <h3>Expected events</h3>
-        <div id="evw"></div>
-        <label class="tog"><input type="checkbox" id="late"><span>Count days after Dec 15 (unconfirmed)</span></label>
+        <div class="subcard">
+          <h3>Quick presets</h3>
+          <div class="presets" id="presets"></div>
+          <label class="field">Favourite words<input id="kw" placeholder="e.g. pirate, One Piece, Miku" autocomplete="off"></label>
+          <div id="boosts"></div>
+        </div>
+        <div class="subcard">
+          <h3>Expected events</h3>
+          <div id="evw"></div>
+          <label class="tog"><input type="checkbox" id="late"><span>Count days after Dec 15 (unconfirmed)</span></label>
+        </div>
       </div>
-      <div>
+      <div class="subcard">
         <h3>Per item type (0–10)</h3>
-        <div id="types"></div>
+        <div class="typegrid" id="types"></div>
       </div>
     </div>
   </details>
 
-  <details class="fold" id="shop">
-    <summary>Today's shop</summary>
+  <details class="fold" id="pastsec">
+    <summary><span class="ico"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 19V5M4 19h16"/><path d="M7 15l4-5 3 3 5-7"/></svg></span><span class="sumt"><b>Past shops</b><small>What a normal shop day brings</small></span></summary>
     <div class="foldbody">
+      <p class="lead" id="pastLead"></p>
+      <div class="pastgrid">
+        <div class="pcard"><h3>Average new loot per weekday</h3><p class="hint sparkinfo">Tap a day to mark it in the chart</p><div class="wdbars" id="wdbars"></div></div>
+        <div class="pcard"><h3>New loot per day, for your taste</h3><p class="hint sparkinfo" id="sparkInfo">Move over the line to see a day</p><div class="spark" id="spark"></div><div class="lg dark"><span><i class="sw sw-line"></i>Each day</span><span><i class="sw sw-avg"></i>Average</span><span><i class="sw sw-launch"></i>Season launch week</span></div></div>
+      </div>
+      <p class="hint" id="pastSrc"></p>
+    </div>
+  </details>
+
+  <details class="fold" id="shop">
+    <summary><span class="ico"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 8h14l-1 12H6L5 8z"/><path d="M9 8V6a3 3 0 0 1 6 0v2"/></svg></span><span class="sumt"><b>Today's shop</b><small>Every offer and what it is worth to you</small></span></summary>
+    <div class="foldbody">
+      <div class="filters">
+        <input id="shopQ" type="search" placeholder="Search today's shop" autocomplete="off" aria-label="Search today's shop">
+        <label class="tog mini"><input type="checkbox" id="shopMine"><span>Only in my 14 days</span></label>
+      </div>
+      <div class="fchips" id="shopKinds"></div>
       <p class="hint" id="shopNote"></p>
       <div class="shopgrid" id="shopgrid"></div>
       <div class="acts"><button class="btn ghost" id="shopMore" type="button" hidden>Show all</button></div>
@@ -185,28 +206,28 @@
   </details>
 
   <details class="fold" id="math">
-    <summary id="mathTitle">The math</summary>
+    <summary><span class="ico"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="5" y="3" width="14" height="18" rx="2"/><path d="M8 7h8M8 12h2M14 12h2M8 16h2M14 16h2"/></svg></span><span class="sumt"><b id="mathTitle">The math</b><small>Every number behind your result</small></span></summary>
     <div class="foldbody">
       <div class="sum" id="sum"></div>
       <div class="scroll"><table class="tbl stack" id="mtab"><thead><tr><th>What</th><th>Inputs</th><th>Calculation</th><th class="num">V-Bucks</th></tr></thead><tbody></tbody></table></div>
-      <div class="acts"><button class="btn ghost" id="share" type="button">Copy link with my settings</button></div>
+      <div class="acts"><button class="btn ghost" id="mathMore" type="button" hidden>Show all rows</button><button class="btn ghost" id="share" type="button">Copy link with my settings</button></div>
     </div>
   </details>
 
   <details class="fold" id="how">
-    <summary>How it works</summary>
+    <summary><span class="ico"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="8.5"/><path d="M15.5 8.5l-2 5-5 2 2-5z"/></svg></span><span class="sumt"><b>How it works</b><small>The scoring, step by step</small></span></summary>
     <div class="foldbody"><div class="formula" id="formula"></div></div>
   </details>
 
   <details class="fold" id="limitsec">
-    <summary>Limits</summary>
+    <summary><span class="ico"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 4l9 16H3z"/><path d="M12 10v4M12 17v.5"/></svg></span><span class="sumt"><b>Limits</b><small>What this cannot know</small></span></summary>
     <div class="foldbody">
       <div class="formula" id="limits"></div>
     </div>
   </details>
 
   <details class="fold" id="sources">
-    <summary>Sources</summary>
+    <summary><span class="ico"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 4h9a3 3 0 0 1 3 3v13H8a3 3 0 0 1-3-3z"/><path d="M5 17a3 3 0 0 1 3-3h9"/></svg></span><span class="sumt"><b>Sources</b><small>Data, checks and raw files</small></span></summary>
     <div class="foldbody">
       <div id="health"></div>
       <h3>Token rules</h3>
@@ -221,7 +242,7 @@
   </details>
 
   <details class="fold" id="others">
-    <summary>Similar tools</summary>
+    <summary><span class="ico"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M10 14a4 4 0 0 0 5.6 0l3-3a4 4 0 0 0-5.6-5.6l-1 1"/><path d="M14 10a4 4 0 0 0-5.6 0l-3 3a4 4 0 0 0 5.6 5.6l1-1"/></svg></span><span class="sumt"><b>Similar tools</b><small>Other fan-made helpers</small></span></summary>
     <div class="foldbody">
       <ul>
         <li><a href="https://fortnitepirateshoptoken.org/tools/activation-planner/">fortnitepirateshoptoken.org</a>: wishlist planner</li>

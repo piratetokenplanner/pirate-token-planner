@@ -32,7 +32,7 @@
   "to": "2026-12-12",
   "claim": "pattern",
   "extraVbucks": 8000,
-  "basis": "Author assumption: a new chapter brings a large wave of new outfits on top of a normal day. Replaced by observed numbers once the snapshots cover these dates.",
+  "basis": "Sized from the last season launch in the shop archive (Treasure Hunters, Nov 1 to 7, 2026): what that week brought above a median day, per item type. The author estimate is used only if the archive is missing.",
   "newsKeywords": [
    "chapter 8"
   ],
@@ -42,6 +42,13 @@
     "mustContain": [
      "Chapter 8"
     ]
+   }
+  ],
+  "calibrateFrom": [
+   {
+    "from": "2026-11-01",
+    "to": "2026-11-07",
+    "label": "Treasure Hunters launch week"
    }
   ]
  },

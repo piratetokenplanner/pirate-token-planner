@@ -39,7 +39,7 @@ const PRESETS = {
   'Music lover': { ...base, jamtrack: 10, music: 10, instrument: 10, outfit: 3, bundle: 3 },
   'Hoarder': Object.fromEntries(Object.keys(base).map(k => [k, 10]))
 };
-const DEF = { types: { ...base }, kw: '', kwBoost: 2, rare: 3, ev: {}, days: [1, 1, 1, 1, 1, 1, 1], late: true, owned: [] };
+const DEF = { types: { ...base }, kw: '', kwBoost: 2, rare: 3, ev: {}, days: [1, 1, 1, 1, 1, 1, 1], late: true, owned: [], must: [] };
 let P = structuredClone(DEF), sel = null;
 try { Object.assign(P, JSON.parse(localStorage.getItem('ptp3') || '{}')); } catch (e) {}
 if (location.hash.startsWith('#s=')) { try { Object.assign(P, JSON.parse(decodeURIComponent(atob(location.hash.slice(3))))); } catch (e) {} }
@@ -73,21 +73,29 @@ function model() {
     const out = e.outDate ? idx(e.outDate) : (e.inDate ? idx(e.inDate) : 0) + (D.base.stay);
     const hay = [e.name, ...e.items.flatMap(i => [i.name, i.set, i.series])].filter(Boolean).join(' ');
     const fav = kwHit(hay);
-    const rare = e.gap === 'first' || (typeof e.gap === 'number' && e.gap >= 365);
-    const own = P.owned.includes(e.id);
+    const rare = e.gap === 'unseen' || (typeof e.gap === 'number' && e.gap >= 180);
+    const own = P.owned.includes(e.id), must = (P.must || []).includes(e.id);
     const share = e.kind === 'bundle' && e.items.length ? e.items.filter(i => !solo.has(i.id)).length / e.items.length : 1;
-    const value = own ? 0 : e.price * w(e.kind) * (fav ? P.kwBoost : 1) * (rare ? rareMul : 1) * share;
-    return { e, out, fav, rare, own, value, share };
+    // a must-have is worth 3x its full price, whatever the sliders say
+    const value = own ? 0 : must ? e.price * 3 : e.price * w(e.kind) * (fav ? P.kwBoost : 1) * (rare ? rareMul : 1) * share;
+    return { e, out, fav, rare, own, must, value, share };
   }).filter(x => x.out > 0);
 
   // a normal future day: average new arrivals by type, weighted by your taste
   const B = Object.entries(D.base.mean).reduce((s, [k, v]) => s + v * w(k), 0);
+  // weekday-specific average for your taste (falls back to the overall average with < 6 samples)
+  const taste = byKind => Object.entries(byKind).reduce((t, [k, v]) => t + v * w(k), 0);
+  const poolVals = D.base.byWd.map(list => list.map(taste));
+  const Bwd = poolVals.map(v => v.length >= 6 ? v.reduce((a, b) => a + b, 0) / v.length : B);
+  const wdOf = i => (dt(i).getUTCDay() + 6) % 7;
 
-  const events = D.events.filter(e => e.extraVbucks > 0 || e.observed).map(e => {
+  const events = D.events.filter(e => e.extraVbucks > 0 || e.fromHistory).map(e => {
     const conf = R.confidence[e.status] ?? 0.2;
     const interest = (P.ev[e.id] ?? 5) / 5;
-    const extra = e.observed ?? e.extraVbucks;
-    return { e, a: idx(e.from), b: idx(e.to), conf, interest, extra, full: extra * conf * interest * w('outfit') };
+    // value for your taste: from past shops by item type when available, else the author estimate valued like outfits
+    const val = e.fromHistory ? taste(e.fromHistory.byKind) : e.extraVbucks * w('outfit');
+    const raw = e.fromHistory ? Object.values(e.fromHistory.byKind).reduce((a, b) => a + b, 0) : e.extraVbucks;
+    return { e, a: idx(e.from), b: idx(e.to), conf, interest, val, raw, full: val * conf * interest };
   });
 
   function score(s) {
@@ -109,7 +117,7 @@ function model() {
     // 2) future normal days (today's arrivals are already in the shop)
     const st = Math.max(1, D.base.stay);
     const freshDays = W.filter(d => d >= 1 && valid(d)).filter(d => { for (let j = d; j < d + st; j++) if (okSet.has(j)) return true; return false; });
-    fresh = freshDays.length * B;
+    fresh = freshDays.reduce((t, d) => t + Bwd[wdOf(d)], 0);
     // 3) expected events, scaled by how much of each falls inside your window
     const evRows = events.map(x => {
       const len = x.b - x.a + 1;
@@ -125,17 +133,17 @@ function model() {
 
   // ---- uncertainty: replay the window totals under many simulated futures ----
   const U = R.uncertainty, rnd = rng(U.seed), N = U.runs;
-  const dayVals = D.base.fallback ? null : D.base.dayTotals.map(byKind => Object.entries(byKind).reduce((t, [k, v]) => t + v * w(k), 0));
+  const allVals = poolVals.flat();
   const plays2 = i => valid(i) && plays(i);
   const sims = all.map(() => []), wins = all.map(() => 0);
   for (let r = 0; r < N; r++) {
     const scale = D.base.fallback ? Math.exp(gauss(rnd) * U.fallbackSpread) : 1;
-    const day = []; for (let d = 0; d <= startMax + dur; d++) day.push(dayVals ? dayVals[Math.floor(rnd() * dayVals.length)] : B * scale);
+    const day = []; for (let d = 0; d <= startMax + dur; d++) { const v = poolVals[wdOf(d)].length >= 6 ? poolVals[wdOf(d)] : allVals; day.push(v.length ? v[Math.floor(rnd() * v.length)] : B * scale); }
     const evs = events.map(x => {
       const happens = rnd() < x.conf;
       const sh = x.e.status === 'pattern' ? Math.round((rnd() * 2 - 1) * U.patternShiftDays) : 0;
-      const mult = Math.exp(gauss(rnd) * (x.e.observed ? U.observedSpread : U.estimateSpread));
-      return { a: x.a + sh, b: x.b + sh, v: happens ? x.extra * mult * x.interest * w('outfit') : 0 };
+      const mult = Math.exp(gauss(rnd) * (x.e.fromHistory ? U.observedSpread : U.estimateSpread));
+      return { a: x.a + sh, b: x.b + sh, v: happens ? x.val * mult * x.interest : 0 };
     });
     let bestI = 0, bestV = -1;
     all.forEach((a, i) => {
@@ -151,12 +159,13 @@ function model() {
     wins[bestI]++;
   }
   all.forEach((a, i) => { const v = sims[i].sort((x, y) => x - y); a.p10 = v[Math.floor(N * .1)]; a.p50 = v[Math.floor(N * .5)]; a.p90 = v[Math.floor(N * .9)]; a.pBest = wins[i] / N; });
-  return { win, startMin, startMax, deadIdx, dur, all, items, B, events, kws, rareMul, U };
+  return { win, startMin, startMax, deadIdx, dur, all, items, B, Bwd, poolVals, taste, events, kws, rareMul, U };
 }
 
 // ---------- rendering ----------
-function render() {
-  const M = model();
+// render(false) = only the selected day changed: reuse the last model (fast enough for dragging)
+function render(recompute = true) {
+  const M = recompute || !render.M ? (render.M = model()) : render.M;
   if (!M) { $('vDay').textContent = 'No open activation window'; return; }
   const { all, win, deadIdx, dur } = M;
   const max = Math.max(...all.map(a => Math.max(a.tot, a.p90)), 1);
@@ -169,11 +178,16 @@ function render() {
   const every = all.length > 40 ? 10 : 5;
   $('ticks').innerHTML = all.map((a, i) => `<span>${i % every === 0 ? fmt(a.s) : ''}</span>`).join('');
   $('vDay').textContent = best === 0 ? 'Activate today' : 'Activate ' + fmtL(best);
+  if (render.lastBest !== undefined && render.lastBest !== best) { const v = document.querySelector('.verdict'); v.classList.remove('pop'); void v.offsetWidth; v.classList.add('pop'); }
+  render.lastBest = best;
   $('vWhen').textContent = (best === 0 ? 'Now' : `At ${resetLocal}, after the shop reset`) + ` · ends ${fmtL(best + dur)}` + (best + dur > deadIdx ? ' (past the deadline, unconfirmed)' : '');
   const pb = Math.round(rank[0].pBest * 100), close = rank.slice(1, 4).filter(a => a.p90 >= rank[0].p10).length;
   $('vSure').innerHTML = `~${n0(rank[0].tot)} V-Bucks of loot · <b>${pb}% sure</b>` + (pb < 30 ? ' · close race, any top day is fine' : '');
   const often = [...all].sort((a, b) => b.pBest - a.pBest)[0];
   if (often.s !== best) $('vSure').innerHTML += ` · safer: ${fmtL(often.s)}`;
+  const bestRow = all.find(a => a.s === best), missed = bestRow.rows.filter(r => r.x.must && !r.hit);
+  const mustN = M.items.filter(x => x.must).length;
+  if (mustN) $('vSure').innerHTML += missed.length ? `<br><span class="warn">Misses must-have: ${missed.map(r => esc(r.x.e.name)).join(', ')}</span>` : `<br><span class="good">Gets all ${mustN} must-have${mustN > 1 ? 's' : ''}</span>`;
   $('alts').innerHTML = '<small>Close calls:</small>' + rank.slice(1, 4).map(a => `<button class="chip" data-s="${a.s}">${fmtL(a.s)} · ${pct(a.tot)}%</button>`).join('');
 
   // voyage
@@ -182,7 +196,7 @@ function render() {
   // merge bubbles that would overlap on narrow screens (each needs ~24px)
   const tw = $('track').clientWidth || 600, gapDays = Math.ceil(24 / (tw / H));
   const groups = []; for (const d of Object.keys(leave).map(Number).sort((a, b) => a - b)) { const g = groups.at(-1); if (g && d - g.d < gapDays && (g.d > sel) === (d > sel)) g.xs.push(...leave[d]); else groups.push({ d, xs: [...leave[d]] }); }
-  const shownEv = D.events.filter(e => e.extraVbucks > 0 || e.observed);
+  const shownEv = D.events.filter(e => e.extraVbucks > 0 || e.fromHistory);
   $('vTitle').textContent = `Your 14 days: ${fmt(sel)} – ${fmt(sel + dur - 1)}`;
   $('vScore').textContent = `~${n0(cur.tot)} V-Bucks`;
   $('selInfo').textContent = sel === best ? `Showing the best day, ${fmtL(sel)}` : `Showing ${fmtL(sel)} · ${pct(cur.tot)}% of the best day`;
@@ -195,7 +209,7 @@ function render() {
   $('axis').innerHTML = ax.map(i => `<span style="left:${tp(i)}%">${fmt(i)}</span>`).join('');
 
   // the math for the selected day
-  $('mathTitle').textContent = `The math (${fmt(sel)})`;
+  $('mathTitle').textContent = `The math for ${fmt(sel)}`;
   $('sum').innerHTML = [[cur.tot, `Expected total (likely ${n0(cur.p10)} to ${n0(cur.p90)})`], [cur.shop, "From today's shop"], [cur.fresh, 'From new items later'], [cur.ev, 'From expected events']].map(([v, l]) => `<div><b>${n0(v)}</b><span>${l}</span></div>`).join('');
   const rows = [];
   const zero = cur.rows.filter(r => !r.hit && r.x.value === 0);
@@ -205,8 +219,11 @@ function render() {
   }
   if (zero.length) rows.push(`<tr class="miss"><td data-l="What">${zero.length} items worth 0 to you</td><td data-l="Inputs">${esc(zero.slice(0, 6).map(r => r.x.e.name).join(', '))}${zero.length > 6 ? '…' : ''}</td><td data-l="Calculation">Type weight 0 or marked as owned</td><td class="num" data-l="V-Bucks">0</td></tr>`);
   rows.push(`<tr><td data-l="What">New items on later days</td><td data-l="Inputs">${cur.freshDays.length} shop days you can reach · ${n0(M.B)} per day for your taste</td><td data-l="Calculation"><code>${cur.freshDays.length} × ${n0(M.B)}</code></td><td class="num" data-l="V-Bucks">${n0(cur.fresh)}</td></tr>`);
-  for (const r of cur.evRows) rows.push(`<tr class="${r.v > 0 ? '' : 'miss'}"><td data-l="What">${esc(r.x.e.name)}</td><td data-l="Inputs">${n0(r.x.extra)} extra${r.x.e.observed ? ' (observed)' : ' (estimate)'} · ${r.x.e.status} ×${r.x.conf} · interest ×${r.x.interest.toFixed(1)} · outfit weight ${P.types.outfit}/10 · ${r.inside.length} of ${r.x.b - r.x.a + 1} days inside</td><td data-l="Calculation"><code>${n0(r.x.extra)} × ${r.x.conf} × ${r.x.interest.toFixed(1)} × ${(P.types.outfit / 10).toFixed(1)} × ${r.cov.toFixed(2)}</code></td><td class="num" data-l="V-Bucks">${n0(r.v)}</td></tr>`);
-  $('mtab').tBodies[0].innerHTML = rows.join('');
+  for (const r of cur.evRows) rows.push(`<tr class="${r.v > 0 ? '' : 'miss'}"><td data-l="What">${esc(r.x.e.name)}</td><td data-l="Inputs">${n0(r.x.val)} for your taste${r.x.e.fromHistory ? ' (from past shops)' : ' (estimate)'} · ${r.x.e.status} ×${r.x.conf} · interest ×${r.x.interest.toFixed(1)} · ${r.inside.length} of ${r.x.b - r.x.a + 1} days inside</td><td data-l="Calculation"><code>${n0(r.x.val)} × ${r.x.conf} × ${r.x.interest.toFixed(1)} × ${r.cov.toFixed(2)}</code></td><td class="num" data-l="V-Bucks">${n0(r.v)}</td></tr>`);
+  const itemRows = rows.length - 1 - cur.evRows.length; // item rows come first, then later days, then events
+  const keep = render.allMath ? rows : [...rows.slice(0, Math.min(12, itemRows)), ...(itemRows > 12 ? [`<tr class="miss"><td colspan="4">${itemRows - 12} more items…</td></tr>`] : []), ...rows.slice(itemRows)];
+  $('mtab').tBodies[0].innerHTML = keep.join('');
+  $('mathMore').hidden = render.allMath || itemRows <= 12;
 
   // reminder + plan
   const d = dt(sel), ds = d.toISOString().slice(0, 10).replace(/-/g, '');
@@ -215,38 +232,72 @@ function render() {
 
   // shop grid
   const hitIds = new Set(cur.rows.filter(r => r.hit).map(r => r.x.e.id));
-  const sorted = [...M.items].sort((a, b) => b.value - a.value), shown = render.allShop ? sorted : sorted.slice(0, 20);
-  $('shopMore').hidden = render.allShop || sorted.length <= 20; $('shopMore').textContent = `Show all ${sorted.length}`;
-  $('shopgrid').innerHTML = shown.map(x => `<article class="item${x.own ? ' own' : ''}${hitIds.has(x.e.id) ? ' hit' : ''}"><div class="img">${x.e.image ? `<img loading="lazy" src="${esc(x.e.image)}" alt="" onerror="this.remove()">` : esc(x.e.name)}</div><div class="bd"><span class="nm">${esc(x.e.name)}</span><span class="mt">${KINDS[x.e.kind] || x.e.kind} · last day ${fmt(x.out - 1)}${x.e.gap === 'first' ? ' · first time in shop' : typeof x.e.gap === 'number' ? ` · back after ${x.e.gap} days` : ''}</span><span class="vb">${n0(x.e.price)} V-Bucks · worth ${n0(x.value)} to you</span></div><label><input type="checkbox" data-own="${esc(x.e.id)}" ${x.own ? 'checked' : ''}>I already own this</label></article>`).join('');
-  $('shopNote').textContent = `${M.items.length} offers · gold border = in your 14 days`;
+  const F = render.filter || (render.filter = { q: '', kind: 'all', mine: false });
+  const kindsHere = [...new Set(M.items.map(x => x.e.kind))].sort((a, b) => M.items.filter(x => x.e.kind === b).length - M.items.filter(x => x.e.kind === a).length);
+  $('shopKinds').innerHTML = ['all', ...kindsHere].map(k => `<button type="button" class="fchip${F.kind === k ? ' on' : ''}" data-k="${k}">${k === 'all' ? 'All' : KINDS[k] || k}</button>`).join('');
+  const q = F.q.trim().toLowerCase();
+  const filtered = [...M.items].filter(x => (F.kind === 'all' || x.e.kind === F.kind) && (!F.mine || hitIds.has(x.e.id)) && (!q || x.e.name.toLowerCase().includes(q)))
+    .sort((a, b) => b.must - a.must || b.value - a.value);
+  const shown = render.allShop ? filtered : filtered.slice(0, 20);
+  $('shopMore').hidden = render.allShop || filtered.length <= 20; $('shopMore').textContent = `Show all ${filtered.length}`;
+  $('shopgrid').innerHTML = shown.length ? shown.map(x => `<article class="item${x.own ? ' own' : ''}${x.must ? ' must' : ''}${hitIds.has(x.e.id) ? ' hit' : ''}"><div class="img">${x.e.image ? `<img loading="lazy" src="${esc(x.e.image)}" alt="" onerror="this.remove()">` : esc(x.e.name)}<button type="button" class="heart" data-must="${esc(x.e.id)}" aria-pressed="${x.must}" aria-label="Must have ${esc(x.e.name)}"><svg viewBox="0 0 24 24"><path d="M12 20s-7-4.4-7-10a4 4 0 0 1 7-2.6A4 4 0 0 1 19 10c0 5.6-7 10-7 10z"/></svg></button></div><div class="bd"><span class="nm">${esc(x.e.name)}</span><span class="mt">${KINDS[x.e.kind] || x.e.kind} · last day ${fmt(x.out - 1)}${x.e.gap === 'unseen' ? ' · not seen since ' + fmt(idx(D.shop.historyFrom || '2026-05-02')) : typeof x.e.gap === 'number' && x.e.gap > 1 ? ` · back after ${x.e.gap} days` : ''}</span><span class="vb">${n0(x.e.price)} V-Bucks · worth ${n0(x.value)} to you${x.must ? ' (must-have)' : ''}</span></div><label><input type="checkbox" data-own="${esc(x.e.id)}" ${x.own ? 'checked' : ''}>I already own this</label></article>`).join('') : '<p class="hint">Nothing matches.</p>';
+  $('shopNote').textContent = `${filtered.length} of ${M.items.length} offers · gold border = in your 14 days · heart = must-have`;
 
-  formula(M); limits(M);
+  formula(M); limits(M); pastShops(M);
 }
 
 function formula(M) {
   const b = D.base, fb = b.fallback;
   const kindRows = Object.entries(b.mean).filter(([, v]) => v > 0).map(([k, v]) => `<code>${KINDS[k] || k}: ${n0(v)} × ${P.types[k] ?? 2}/10</code>`).join(' ');
+  const wdN = ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'];
   $('formula').innerHTML = `
-  <div class="card"><h3>1. What an item is worth to you</h3><p><code>price × weight/10 × favourite boost × rare boost</code></p><p>Favourite boost is ×${P.kwBoost} when any word in your favourites list appears in the item's name, set, series or artist${M.kws.length ? ` (now: ${M.kws.map(esc).join(', ')})` : ' (list is empty)'}. Rare boost is ×${M.rareMul.toFixed(1)} for items that are in the shop for the first time or back after 365+ days, from the item's shop history. Items you mark as owned are worth 0.</p></div>
-  <div class="card"><h3>2. Today's shop</h3><p>An item counts if at least one day you play falls inside your window <em>and</em> before its leave date (from the shop data). Only the most valuable new Sidekick counts, because the token allows one.</p></div>
-  <div class="card"><h3>3. New items on later days</h3><p>Each day in the window after today brings <code>${n0(M.B)}</code> V-Bucks for your taste: ${kindRows || 'no data'}.</p><p>Averages come from ${fb ? 'a fallback estimate in config/rules.json, because the site has no snapshots yet' : `${esc(b.method)}, ${b.snapshots} snapshot${b.snapshots === 1 ? '' : 's'}, ${b.calDays} days (${fmt(idx(b.windowFrom))} to ${fmt(idx(b.windowTo))})`}. A day counts if you play within ${b.stay} day${b.stay === 1 ? '' : 's'} of it (${b.stayFrom}).</p></div>
-  <div class="card"><h3>4. Expected events</h3><p><code>extra V-Bucks × confidence × interest/5 × outfit weight/10 × share of event days in window</code></p><p>Confidence by status: ${Object.entries(D.rules.confidence).map(([k, v]) => `${k} ${v}`).join(', ')}. Once the daily snapshots cover an event's dates, the estimate is replaced by what was actually observed above a normal day.</p></div>
-  <div class="card"><h3>5. Window and deadline</h3><p>Window: ${M.dur} days from activation. Activation must happen before ${esc(M.win.deadlineText)}. Days after the deadline count only with the switch on (${P.late ? 'on' : 'off'}). Play days: ${['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'].filter((_, i) => P.days[i]).join(', ') || 'none'}.</p></div>
-  <div class="card"><h3>6. Uncertainty ranges</h3><p>The page replays every window in ${M.U.runs} simulated futures (fixed seed ${M.U.seed}, so the same data always gives the same result). In each one:</p><p>${D.base.fallback ? `every later day is the fallback average × a random factor (spread ${M.U.fallbackSpread}), since there are no snapshots yet` : `every later day is a randomly drawn real day from the ${D.base.calDays} observed days`}; each event happens with its confidence as probability; pattern events shift by up to ±${M.U.patternShiftDays} days; event sizes vary by a random factor (spread ${M.U.estimateSpread} for estimates, ${M.U.observedSpread} for observed). The whiskers show the 10th to 90th percentile, and "top in X%" is how often that day had the highest total.</p></div>
-  <div class="card"><h3>7. The pick</h3><p>Every possible activation day from ${fmt(M.startMin)} to ${fmt(M.startMax)} gets a total from steps 2 to 4. The highest wins; ties go to the earlier day. The score is an estimate of value to you, not a promise of what Epic will sell.</p></div>`;
+  <div class="card"><h3>1. Item value</h3><p><code>price × weight/10 × favourite ×${P.kwBoost} × rare ×${M.rareMul.toFixed(1)}</code></p><p>Favourite = a word from your list is in the name, set or artist. Rare = not in the shop for 6+ months (checked against the archive since ${fmt(idx(D.shop.historyFrom || '2026-05-02'))}). Owned items count 0.</p></div>
+  <div class="card"><h3>2. Today's shop</h3><p>An item counts if you play at least once inside your 14 days and before it leaves. Only the best new Sidekick counts.</p></div>
+  <div class="card"><h3>3. Later days</h3><p>Each later day adds the average new loot of that weekday in past shops, for your taste: ${M.Bwd.map((v, i) => `<code>${wdN[i]} ${n0(v)}</code>`).join(' ')}</p><p>${b.fallback ? 'No archive yet: a fallback guess from config/rules.json.' : `${b.n} past days (${fmt(idx(b.windowFrom))} to ${fmt(idx(b.windowTo))}). Items stay about ${b.stay} days (${b.stayFrom}), so a day counts if you play within that time.`}</p></div>
+  <div class="card"><h3>4. Events</h3><p><code>value for your taste × confidence × interest/5 × share of event days inside</code></p><p>Chapter 8 is sized from the last season launch week in the archive. Other events are author estimates. Confidence: ${Object.entries(D.rules.confidence).map(([k, v]) => `${k} ${v}`).join(', ')}.</p></div>
+  <div class="card"><h3>5. Window</h3><p>${M.dur} days from activation, activation before ${esc(M.win.deadlineText)}. Days after the deadline count: ${P.late ? 'yes' : 'no'}. Play days: ${wdN.filter((_, i) => P.days[i]).join(', ') || 'none'}.</p></div>
+  <div class="card"><h3>6. Uncertainty</h3><p>${M.U.runs} simulated futures (seed ${M.U.seed}). In each: later days are random real past days of the same weekday, events happen with their confidence as probability, pattern events shift ±${M.U.patternShiftDays} days, event sizes vary. Whiskers = 10th to 90th percentile.</p></div>
+  <div class="card"><h3>7. The pick</h3><p>The start day with the highest expected total wins; ties go to the earlier day. An estimate of value to you, not a promise of what Epic will sell.</p></div>`;
+}
+
+function pastShops(M) {
+  const b = D.base, wdN = ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'];
+  if (b.fallback) { $('pastLead').textContent = 'No past shops loaded yet.'; return; }
+  const avg = M.Bwd.reduce((a, c) => a + c, 0) / 7, top = M.Bwd.indexOf(Math.max(...M.Bwd)), low = M.Bwd.indexOf(Math.min(...M.Bwd));
+  $('pastLead').innerHTML = `A normal day adds about <b>${n0(avg)} V-Bucks</b> of new loot for your taste. <b>${wdN[top]}</b> is usually the richest day, <b>${wdN[low]}</b> the leanest.`;
+  const mx = Math.max(...M.Bwd, 1);
+  $('wdbars').innerHTML = M.Bwd.map((v, i) => `<div class="wdrow${i === top ? ' top' : ''}${render.wdHl === i ? ' hl' : ''}" data-wd="${i}" role="button" tabindex="0" aria-pressed="${render.wdHl === i}"><span>${wdN[i]}</span><div class="wdtrack"><div class="wdfill" style="width:${v / mx * 100}%"></div></div><b>${n0(v)}</b></div>`).join('');
+  const days = (b.days || []), vals = days.map(d => M.taste(d.byKind));
+  const el = $('spark'), W = el.clientWidth || 500, H = 160, pad = 4, vmax = Math.max(...vals, 1);
+  const x = i => pad + i / Math.max(1, days.length - 1) * (W - 2 * pad), y = v => H - 18 - v / vmax * (H - 30);
+  const pts = vals.map((v, i) => `${x(i).toFixed(1)},${y(v).toFixed(1)}`).join(' ');
+  const res = days.map((d, i) => d.reserved ? i : -1).filter(i => i >= 0);
+  const months = days.map((d, i) => d.date.endsWith('-01') ? i : -1).filter(i => i >= 0);
+  const hl = render.wdHl;
+  const dots = hl === undefined ? '' : days.map((d, i) => (new Date(d.date + 'T00:00:00Z').getUTCDay() + 6) % 7 === hl ? `<circle cx="${x(i).toFixed(1)}" cy="${y(vals[i]).toFixed(1)}" r="3.5" fill="#e39b00"/>` : '').join('');
+  render.spark = { days, vals, x, y, W, H };
+  el.innerHTML = `<svg viewBox="0 0 ${W} ${H}" width="100%" height="${H}" role="img" aria-label="New loot per past day">
+    ${res.length ? `<rect x="${x(res[0]) - 2}" y="4" width="${x(res.at(-1)) - x(res[0]) + 4}" height="${H - 22}" fill="#ffc83d44" rx="4"/>` : ''}
+    <line x1="0" x2="${W}" y1="${y(avg)}" y2="${y(avg)}" stroke="#ff6b57" stroke-dasharray="5 4" stroke-width="1.5"/>
+ <text x="${pad}" y="12" font-size="11" fill="currentColor">${n0(vmax)}</text>
+    <polyline points="${pts}" fill="none" stroke="#0f6b6f" stroke-width="1.6" stroke-linejoin="round"/>${dots}
+    <g class="cross" visibility="hidden"><line y1="4" y2="${H - 18}" stroke="currentColor" stroke-width="1"/><circle r="4.5" fill="#ffc83d" stroke="#fff" stroke-width="2"/></g>
+    ${months.map(i => `<text x="${x(i)}" y="${H - 3}" font-size="11" fill="currentColor" text-anchor="middle">${new Date(days[i].date + 'T00:00:00Z').toLocaleDateString('en-GB', { month: 'short', timeZone: 'UTC' })}</text>`).join('')}
+  </svg>`;
+  $('pastSrc').innerHTML = `${b.n} days, ${fmt(idx(b.windowFrom))} to ${fmt(idx(b.windowTo))}, from the <a href="${esc(b.source)}">Fortnite-Datamining shop archive</a>. Updated daily.`;
 }
 
 function limits(M) {
-  const b = D.base, est = D.events.filter(e => e.extraVbucks > 0 && !e.observed);
+  const b = D.base, est = D.events.filter(e => e.extraVbucks > 0 && !e.fromHistory);
   const L = [
-    ['Nobody knows the future shop', `Epic doesn't publish the Item Shop ahead of time. Everything after today is an average of ${b.fallback ? 'a rough guess (no snapshots collected yet)' : `${b.calDays} days of arrivals from ${b.snapshots} snapshot${b.snapshots === 1 ? '' : 's'}${b.snapshots < 5 ? ', which undercounts until 5+ snapshots exist (items that already left are missing)' : ''}`}, not real items. A day you see as "best" can lose if Epic drops something you love on another day.`],
-    ['Event values are guesses', est.length ? `${est.map(e => `${esc(e.name)}: ${n0(e.extraVbucks)} V-Bucks`).join(', ')}. These are the author's assumptions, not data. They are replaced automatically once the snapshots cover those dates.` : 'All event values are now observed from snapshots.'],
-    ['Event dates may be wrong', 'Events marked "pattern" are dated from past years. The simulation moves them by a few days, but an event could also be cancelled or moved further.'],
-    ['Token rules come from news reports', 'The 14 days, the deadline, the exclusions and the one-Sidekick limit come from gaming sites, not an Epic rules page. Check the text on your own token in-game.'],
-    ['Late activation is uncertain', 'Whether access keeps running after the Dec 15 deadline is not confirmed. With the switch on, those days count fully; with it off, they count zero. The truth may be either.'],
-    ['Shop data is unofficial', 'fortnite-api.com is a fan service. Leave dates can change when Epic extends or pulls items; prices can change.'],
-    ['Value is not money', '"V-Bucks of things you want" is list price scaled by your sliders. It is a way to compare days, not what the items are worth or what you would have spent.'],
-    ['The ranges are not complete', 'The whiskers only cover what is modelled (later days, events, their dates and sizes). They do not cover rule changes, wrong source data, or your taste changing. The spread settings themselves are the author\'s choices, listed in config/rules.json.']
+    ['The future shop is unknown', `Epic doesn't publish it. Later days are averages of ${b.fallback ? 'a rough guess' : `${b.n} past days`}, not real items. A surprise drop can change the best day.`],
+    ['Past is not future', 'The archive covers only about six months. Patterns like weekday swings may not hold, and one season launch is a small sample.'],
+    ['Some event values are guesses', est.length ? `${est.map(e => `${esc(e.name)} ${n0(e.extraVbucks)} V-Bucks`).join(', ')}: author assumptions with no past data behind them.` : 'All event values come from past shops.'],
+    ['Event dates may move', 'Pattern events are dated from past years. The simulation shifts them a few days; real events can move further or not happen.'],
+    ['Token rules come from news reports', 'The 14 days, the deadline and the exclusions come from gaming sites, not Epic. Check your own token in-game.'],
+    ['Late activation is unconfirmed', 'Nobody knows for sure whether days after Dec 15 count.'],
+    ['Data is unofficial', 'fortnite-api.com and the shop archive are fan projects. Leave dates and prices can change.'],
+    ['Value is not money', 'Loot is list price scaled by your taste, to compare days. The ranges only cover what is modelled.']
   ];
   $('limits').innerHTML = L.map(([h, t]) => `<div class="card"><h3>${h}</h3><p>${t}</p></div>`).join('');
 }
@@ -256,12 +307,12 @@ function sources() {
   $('health').innerHTML = `<div class="health">
     <div><b>${m.generatedAt ? new Date(m.generatedAt).toLocaleString() : 'unknown'}</b><span class="fine">Last scheduled data run${m.fixture ? ' (offline test data)' : ''}</span></div>
     <div><b>${D.shop.shopDate || '?'} ${D.live ? '· live' : ''}</b><span class="fine">${D.liveNote}</span></div>
-    <div><b>${D.base.snapshots} snapshots</b><span class="fine">Daily shop history collected by this site</span></div>
+    <div><b>${D.base.n || 0} past shop days</b><span class="fine">From the shop archive</span></div>
     <div><b class="${fail ? 'bad' : 'okc'}">${fail ? fail + ' failed' : 'All OK'}</b><span class="fine">${(m.fetches || []).length} requests on the last run</span></div></div>`;
   const srcList = ss => ss.length ? ss.map(s => `<div><a href="${esc(s.url)}" rel="noopener">${esc(new URL(s.url).hostname)}</a> ${s.reachable === false ? '<span class="bad">unreachable</span>' : (s.found || []).map(f => `<span class="${f.ok ? 'okc' : 'bad'}">${f.ok ? '✓' : '✗'} "${esc(f.text)}"</span>`).join(' ')}${s.changedSinceLastCheck ? ' <span class="fine">page changed since previous check</span>' : ''}${s.checkedAt ? ` <span class="fine">checked ${new Date(s.checkedAt).toLocaleDateString()}</span>` : ''}</div>`).join('') : '<span class="fine">No source: author assumption</span>';
   $('facts').tBodies[0].innerHTML = (D.rules.facts || []).map(f => `<tr><td data-l="Rule">${esc(f.text)}</td><td data-l="Status"><span class="st ${f.status}">${f.status}</span></td><td data-l="Sources">${srcList(f.sources || [])}</td></tr>`).join('');
   $('statusRules').innerHTML = (D.rules.statusRules || []).map(esc).join('<br>');
-  $('evtab').tBodies[0].innerHTML = D.events.map(e => `<tr><td data-l="Event">${esc(e.name)}</td><td data-l="Dates">${fmt(idx(e.from))}${e.to !== e.from ? ' to ' + fmt(idx(e.to)) : ''}</td><td data-l="Status"><span class="st ${e.status}">${e.status}</span>${e.newsHits && e.newsHits.length ? `<div class="fine">in Epic news: ${e.newsHits.map(esc).join(', ')}</div>` : ''}</td><td class="num" data-l="Extra">${e.observed ? n0(e.observed) + ' observed' : n0(e.extraVbucks)}</td><td data-l="Basis"><div>${esc(e.basis)}</div>${srcList(e.sources || [])}</td></tr>`).join('');
+  $('evtab').tBodies[0].innerHTML = D.events.map(e => `<tr><td data-l="Event">${esc(e.name)}</td><td data-l="Dates">${fmt(idx(e.from))}${e.to !== e.from ? ' to ' + fmt(idx(e.to)) : ''}</td><td data-l="Status"><span class="st ${e.status}">${e.status}</span>${e.newsHits && e.newsHits.length ? `<div class="fine">in Epic news: ${e.newsHits.map(esc).join(', ')}</div>` : ''}</td><td class="num" data-l="Extra">${e.fromHistory ? n0(Object.values(e.fromHistory.byKind).reduce((a, b) => a + b, 0)) + ' (past shops)' : n0(e.extraVbucks) + ' (estimate)'}</td><td data-l="Basis"><div>${esc(e.basis)}</div>${srcList(e.sources || [])}</td></tr>`).join('');
   $('fetches').tBodies[0].innerHTML = (m.fetches || []).map(f => `<tr><td data-l="URL">${esc(f.url)}</td><td data-l="Result" class="${f.ok ? 'okc' : 'bad'}">${f.ok ? f.status : esc(f.error || f.status)}</td><td data-l="Fingerprint"><code>${esc(f.sha256 || '–')}</code></td><td class="num" data-l="Time">${f.ms ?? '–'} ms</td></tr>`).join('');
 }
 
@@ -273,7 +324,7 @@ function controls() {
   $('presets').innerHTML = Object.keys(PRESETS).map(k => `<button class="pre" type="button" data-p="${k}">${k}</button>`).join('');
   const sl = (id, label, val, min, max, step = 1, hint = '') => `<div class="sl"><label for="${id}">${label}</label><output id="o_${id}">${val}</output><input type="range" id="${id}" min="${min}" max="${max}" step="${step}" value="${val}">${hint ? `<small>${hint}</small>` : ''}</div>`;
   $('types').innerHTML = Object.entries(KINDS).map(([k, l]) => sl('t_' + k, l, P.types[k] ?? 2, 0, 10)).join('');
-  $('boosts').innerHTML = sl('kwBoost', 'Favourite boost', P.kwBoost, 1, 3, .5, 'Multiplier for items matching a favourite word') + sl('rare', 'Rare return bonus', P.rare, 0, 10, 1, 'Adds 10% per step for first-time items or items back after a year');
+  $('boosts').innerHTML = sl('kwBoost', 'Favourite boost', P.kwBoost, 1, 3, .5, 'Multiplier for items matching a favourite word') + sl('rare', 'Rare return bonus', P.rare, 0, 10, 1, 'Adds 10% per step for items not in the shop for 6+ months');
   $('evw').innerHTML = D.events.filter(e => e.extraVbucks > 0).map(e => sl('e_' + e.id, esc(e.name), P.ev[e.id] ?? 5, 0, 10)).join('');
   $('days').innerHTML = ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'].map((d, i) => `<label><input type="checkbox" data-d="${i}" ${P.days[i] ? 'checked' : ''}><span>${d}</span></label>`).join('');
   $('kw').value = P.kw; $('late').checked = P.late;
@@ -298,6 +349,9 @@ function bind() {
   $('bars').addEventListener('pointerover', showTip); $('bars').addEventListener('focusin', showTip);
   $('bars').addEventListener('pointerleave', () => { tip.hidden = true; }); $('bars').addEventListener('focusout', () => { tip.hidden = true; });
   $('shopMore').addEventListener('click', () => { render.allShop = true; render(); });
+  $('mathMore').addEventListener('click', () => { render.allMath = true; render(); });
+  // charts inside a fold are drawn at their real width when the fold opens
+  document.querySelectorAll('details.fold').forEach(d => d.addEventListener('toggle', () => { if (d.open) render(); }));
   $('loves').addEventListener('click', e => {
     const b = e.target.closest('[data-g]'); if (!b) return;
     const g = GROUPS.find(x => x.id === b.dataset.g), next = (levelOf(g) + 2) % 3; // Love > Maybe > Nope > Love
@@ -309,7 +363,44 @@ function bind() {
   $('days').addEventListener('change', e => { P.days[+e.target.dataset.d] = e.target.checked ? 1 : 0; save(); render(); });
   $('late').addEventListener('change', e => { P.late = e.target.checked; save(); render(); });
   $('shopgrid').addEventListener('change', e => { const id = e.target.dataset.own; if (id == null) return; P.owned = e.target.checked ? [...new Set([...P.owned, id])] : P.owned.filter(x => x !== id); save(); render(); });
-  const pick = e => { const b = e.target.closest('[data-s]'); if (!b) return; sel = +b.dataset.s; render(); };
+  const pick = e => { const b = e.target.closest('[data-s]'); if (!b) return; sel = +b.dataset.s; render(false); };
+  // arrow keys move the selected start day
+  $('bars').addEventListener('keydown', e => {
+    if (e.key !== 'ArrowLeft' && e.key !== 'ArrowRight') return; e.preventDefault();
+    const M = render.M; sel = Math.max(M.startMin, Math.min(M.startMax, sel + (e.key === 'ArrowRight' ? 1 : -1))); render(false);
+    const c = document.querySelector(`.col[data-s="${sel}"]`); if (c) c.focus();
+  });
+  // drag the 14-day box along the timeline
+  const track = $('track');
+  const dayAt = ev => { const r = track.getBoundingClientRect(), M = render.M; return (ev.clientX - r.left) / r.width * (M.startMax + M.dur + 1); };
+  let grab = null;
+  track.addEventListener('pointerdown', ev => {
+    const d = dayAt(ev); grab = d >= sel && d < sel + render.M.dur ? d - sel : render.M.dur / 2;
+    track.setPointerCapture(ev.pointerId); track.classList.add('dragging'); move(ev);
+  });
+  const move = ev => { if (grab === null) return; const M = render.M, s = Math.round(dayAt(ev) - grab); const n = Math.max(M.startMin, Math.min(M.startMax, s)); if (n !== sel) { sel = n; render(false); } };
+  track.addEventListener('pointermove', move);
+  const drop = () => { grab = null; track.classList.remove('dragging'); };
+  track.addEventListener('pointerup', drop); track.addEventListener('pointercancel', drop);
+  track.addEventListener('keydown', e => { if (e.key !== 'ArrowLeft' && e.key !== 'ArrowRight') return; e.preventDefault(); const M = render.M; sel = Math.max(M.startMin, Math.min(M.startMax, sel + (e.key === 'ArrowRight' ? 1 : -1))); render(false); });
+  // shop filters and must-haves
+  $('shopQ').addEventListener('input', e => { render.filter.q = e.target.value; render(false); });
+  $('shopKinds').addEventListener('click', e => { const b = e.target.closest('[data-k]'); if (!b) return; render.filter.kind = b.dataset.k; render(false); });
+  $('shopMine').addEventListener('change', e => { render.filter.mine = e.target.checked; render(false); });
+  $('shopgrid').addEventListener('click', e => { const b = e.target.closest('[data-must]'); if (!b) return; const id = b.dataset.must; P.must = (P.must || []).includes(id) ? P.must.filter(x => x !== id) : [...(P.must || []), id]; save(); render(); });
+  // past shops: hover the line, tap a weekday to mark its days
+  $('spark').addEventListener('pointermove', ev => {
+    const S = render.spark, svg = $('spark').querySelector('svg'); if (!S || !svg) return;
+    const r = svg.getBoundingClientRect(), px = (ev.clientX - r.left) / r.width * S.W;
+    const i = Math.max(0, Math.min(S.days.length - 1, Math.round((px - 4) / (S.W - 8) * (S.days.length - 1))));
+    const g = svg.querySelector('.cross'); g.setAttribute('visibility', 'visible');
+    g.querySelector('line').setAttribute('x1', S.x(i)); g.querySelector('line').setAttribute('x2', S.x(i));
+    g.querySelector('circle').setAttribute('cx', S.x(i)); g.querySelector('circle').setAttribute('cy', S.y(S.vals[i]));
+    $('sparkInfo').textContent = `${new Date(S.days[i].date + 'T00:00:00Z').toLocaleDateString('en-GB', { weekday: 'short', day: 'numeric', month: 'short', timeZone: 'UTC' })}: ${n0(S.vals[i])} V-Bucks of new loot for you`;
+  });
+  $('spark').addEventListener('pointerleave', () => { const g = $('spark').querySelector('.cross'); if (g) g.setAttribute('visibility', 'hidden'); $('sparkInfo').textContent = 'Move over the line to see a day'; });
+  const wdPick = e => { const r = e.target.closest('[data-wd]'); if (!r) return; const i = +r.dataset.wd; render.wdHl = render.wdHl === i ? undefined : i; render(false); };
+  $('wdbars').addEventListener('click', wdPick); $('wdbars').addEventListener('keydown', e => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); wdPick(e); } });
   $('bars').addEventListener('click', pick); $('alts').addEventListener('click', pick);
   const copy = async (txt, msg) => { try { await navigator.clipboard.writeText(txt); $('copyMsg').textContent = msg; } catch (e) { $('copyMsg').textContent = txt; } };
   $('copy').addEventListener('click', () => copy(render.plan, 'Plan copied.'));
@@ -329,30 +420,16 @@ async function init() {
       if (r.ok) { const s = normalizeShop(await r.json()); if (s.entries.length) { D.shop = s; D.live = true; D.liveNote = 'Read live from fortnite-api.com in your browser just now'; } }
     } catch (e) { D.liveNote = 'Snapshot is from an earlier shop day; the live read was blocked, so some items may have changed'; }
   }
-  // baseline: mean V-Bucks of new arrivals per calendar day, by type
+  // baseline: past shop days (from the archive), grouped by weekday
   const b = base || {}, fb = rules.fallbacks;
-  const calDays = b.windowFrom && b.windowTo ? Math.round((Date.parse(b.windowTo) - Date.parse(b.windowFrom)) / DAY) + 1 : 0;
+  const pool = (b.days || []).filter(d => !d.reserved);
+  const byWd = [[], [], [], [], [], [], []]; // Mon..Sun
+  for (const d of pool) byWd[(new Date(d.date + 'T00:00:00Z').getUTCDay() + 6) % 7].push(d.byKind);
   const mean = {};
-  if (calDays && (b.days || []).length) { for (const d of b.days) for (const [k, v] of Object.entries(d.byKind)) mean[k] = (mean[k] || 0) + v / calDays; }
+  if (pool.length) { for (const d of pool) for (const [k, v] of Object.entries(d.byKind)) mean[k] = (mean[k] || 0) + v / pool.length; }
   else Object.assign(mean, fb.baselinePerDayByKind);
-  const dayTotals = [];
-  if (calDays) { for (let t = Date.parse(b.windowFrom); t <= Date.parse(b.windowTo); t += DAY) { const s = new Date(t).toISOString().slice(0, 10); const d = (b.days || []).find(x => x.date === s); dayTotals.push(d ? d.byKind : {}); } }
   const stay = Math.max(1, Math.round(b.medianStayDays || fb.stayDays));
-  D.base = { ...b, mean, calDays, dayTotals, stay, fallback: !(calDays && (b.days || []).length), snapshots: b.snapshots || 0, stayFrom: b.medianStayDays ? `median stay of ${b.staySamples} offers` : 'fallback value' };
-  // replace event estimates by observation once 5+ snapshots cover the event days
-  if ((b.snapshots || 0) >= 5) {
-    const tot = d => Object.values(d.byKind).reduce((s, v) => s + v, 0);
-    const avg = (b.days || []).reduce((s, d) => s + tot(d), 0) / calDays;
-    for (const e of D.events) {
-      const covered = [];
-      for (let t = Date.parse(e.from); t <= Date.parse(e.to); t += DAY) { const s = new Date(t).toISOString().slice(0, 10); if (s >= b.firstSnapshot && s <= b.windowTo) covered.push(s); }
-      if (covered.length >= 2) {
-        const len = Math.round((Date.parse(e.to) - Date.parse(e.from)) / DAY) + 1;
-        const ex = covered.reduce((s, c) => { const d = b.days.find(x => x.date === c); return s + (d ? tot(d) : 0) - avg; }, 0);
-        e.observed = Math.max(0, ex * len / covered.length);
-      }
-    }
-  }
+  D.base = { ...b, pool, byWd, mean, stay, fallback: !pool.length, n: pool.length, stayFrom: b.medianStayDays ? `the median planned stay of new offers in the archive` : 'a fallback value' };
   const age = meta && meta.generatedAt ? Math.round((Date.now() - Date.parse(meta.generatedAt)) / 36e5) : null;
   $('fresh').innerHTML = `Shop of <b>${fmt(idx(D.shop.shopDate))}</b>${age !== null ? ` · updated ${age < 1 ? 'just now' : age + ' h ago'}` : ''}${D.live ? ' · live' : ''}${meta && meta.fixture ? ' · <b>test data</b>' : ''}`;
   if (meta && meta.fixture) document.body.insertAdjacentHTML('afterbegin', '<div class="banner">Test data: this copy was built from sample files, not the real shop.</div>');
