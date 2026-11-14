@@ -25,6 +25,18 @@ A free, fan-made web tool. Pirate Shop Access gives you 14 days of free V-Bucks 
 ## How it stays current
 A GitHub Action (`.github/workflows/update.yml`) runs every 6 hours: it reads the Item Shop and in-game news from [fortnite-api.com](https://fortnite-api.com), imports past shops from the [Fortnite-Datamining](https://github.com/Fortnite-Datamining/Fortnite-Datamining) archive, re-checks every token rule and event against its sources, commits the data and redeploys GitHub Pages.
 
+## How accurate is it
+
+`scripts/backtest.py` replays the planner on the past-shop archive: from every day with 8+ weeks of history, it predicts the next 21 start days and compares with what really was in the shop. Results (May–Nov 2026, 105 start points):
+
+| | Loot lost vs the truly best day |
+|---|---|
+| Current model | ~6% |
+| Previous model | ~9–10% |
+| Always activate on day 1 | ~9–10% |
+
+The 10–90% range holds about 8 of 10 real outcomes; "% sure" (chance to land within 5% of the best start day) is a little optimistic. Events like a season launch are not part of the test, since the archive holds only one of each.
+
 ## Files
 | Path | What |
 |---|---|

@@ -50,6 +50,17 @@ const readJSON = async (p, d = null) => { try { return JSON.parse(await readFile
 const write = (p, o) => writeFile(p, JSON.stringify(o, null, 1) + '\n');
 const iso = t => new Date(t).toISOString().slice(0, 10);
 const median = a => { const s = [...a].sort((x, y) => x - y); return s.length ? s[Math.floor(s.length / 2)] : null; };
+// V-Bucks of offers that arrived on day d (inDate = d), by planned days in the shop (d .. outDate, inclusive).
+// Feeds the survival curve: how much of a day's new loot is still in the shop j days later.
+const stayHist = (entries, d) => {
+  const h = {};
+  for (const e of entries) {
+    if (e.kind === 'jamtrack' || !e.outDate || !e.inDate || e.inDate.slice(0, 10) !== d) continue;
+    const len = Math.max(1, Math.min(60, Math.round((Date.parse(e.outDate.slice(0, 10)) - Date.parse(d)) / DAY) + 1));
+    h[len] = (h[len] || 0) + e.price;
+  }
+  return h;
+};
 
 const cache = new Map(); // each URL is fetched at most once per run
 function get(url, fixtureName) {
@@ -118,13 +129,21 @@ if (!FIX) {
           if (prevItems.has(id) && list.length && contiguous) list.at(-1)[1] = d; else list.push([d, d]);
         }
       }
-      past.days.push(contiguous ? { date: d, offers: s.entries.length, count, byKind, stay: median(stays) } : { date: d, offers: s.entries.length, gapBefore: true });
+      past.days.push(contiguous ? { date: d, offers: s.entries.length, count, byKind, stay: median(stays), stayV: stayHist(s.entries, d) } : { date: d, offers: s.entries.length, gapBefore: true, stayV: stayHist(s.entries, d) });
       prevOffers = new Set(s.entries.map(e => e.id));
       prevItems = new Set(s.entries.flatMap(e => e.items.filter(i => i.type !== 'jamtrack').map(i => String(i.id).toLowerCase())));
       prevDate = d; pastLog.imported++;
     });
   }
   past.lastOffers = prevOffers ? [...prevOffers] : []; past.lastItems = [...prevItems];
+
+  // ---- 1a. Backfill planned stays for archive days imported before this was recorded (up to 250 per run) ----
+  const noStay = past.days.filter(d => !d.src && !d.stayV && d.date >= PAST_FIRST).slice(0, 250);
+  for (let i = 0; i < noStay.length; i += 8) {
+    const batch = noStay.slice(i, i + 8);
+    const texts = await Promise.all(batch.map(d => fetchOnce(PAST_BASE + d.date + '.json', null, true)));
+    batch.forEach((d, k) => { try { if (texts[k]) d.stayV = stayHist(normalizeShop(JSON.parse(texts[k])).entries, d.date); } catch { /* try again next run */ } });
+  }
 
   // ---- 1b. Older days (before the archive starts) from itemshop.gg -------
   // Needs a free API key in the GitHub secret ITEMSHOP_KEY. Goes back PAST_TARGET_DAYS from today,
@@ -260,6 +279,12 @@ await write('data/baseline.json', {
   days: usable.map(({ date, count, byKind }) => ({ date, count, byKind, reserved: reserved.has(date) || undefined })),
   medianDayVbucks: median(usable.map(total)), medianByKind: medByKind,
   medianStayDays: median(usable.map(d => d.stay).filter(x => x > 0 && x < 60)), staySamples: usable.filter(d => d.stay).length,
+  ...(() => {
+    // survival[j] = share of new-offer V-Bucks still in the shop j days after arriving (j = 0 is the arrival day)
+    const tot = new Array(30).fill(0); let n = 0;
+    for (const d of past.days) { if (!d.stayV) continue; n++; for (const [len, v] of Object.entries(d.stayV)) for (let j = 0; j < Math.min(+len, 30); j++) tot[j] += v; }
+    return n >= 14 && tot[0] > 0 ? { survival: tot.map(v => +(v / tot[0]).toFixed(3)), survivalDays: n } : {};
+  })(),
   snapshots: past.days.length
 });
 

@@ -93,7 +93,8 @@ function model() {
   // items also sold on their own: a bundle only counts for the part you can't get separately
   const solo = new Set(D.shop.entries.filter(e => e.kind !== 'bundle').flatMap(e => e.items.map(i => i.id)));
   const items = D.shop.entries.map(e => {
-    const out = e.outDate ? idx(e.outDate) : (e.inDate ? idx(e.inDate) : 0) + (D.base.stay);
+    // outDate is the last day an offer is in the shop (…T23:59:59Z), so it is gone from the next day on
+    const out = e.outDate ? idx(e.outDate) + 1 : (e.inDate ? idx(e.inDate) : 0) + (D.base.stay);
     const hay = [e.name, ...e.items.flatMap(i => [i.name, i.set, i.series])].filter(Boolean).join(' ');
     const fav = kwHit(hay);
     const rare = e.gap === 'unseen' || (typeof e.gap === 'number' && e.gap >= 180);
@@ -110,6 +111,12 @@ function model() {
   const taste = byKind => Object.entries(byKind).reduce((t, [k, v]) => t + v * w(k), 0);
   const poolVals = D.base.byWd.map(list => list.map(taste));
   const Bwd = poolVals.map(v => v.length >= 6 ? v.reduce((a, b) => a + b, 0) / v.length : B);
+  // the forecast uses one average day for all weekdays: in back-tests on the archive, weekday averages
+  // picked worse days than a flat average (weekdayWeight 0 = flat, 1 = full weekday average)
+  const ww = R.uncertainty.weekdayWeight ?? 0, Bday = Bwd.map(v => B + ww * (v - B));
+  // survival: share of a day's new loot (V-Bucks) still in the shop j days later, from planned leave dates
+  const surv = D.base.survival && D.base.survival.length ? D.base.survival : (R.fallbacks && R.fallbacks.survival) || [1, .87, .84, .64, .4, .25, .25, .08, .07, .06, .03, .02, .02, .02, .02]; // measured on the archive, May-Nov 2026
+  const S = j => j < surv.length ? surv[j] : 0;
   // season: how the same weeks went a year earlier (same weekday, ±10 days), relative to the average day.
   // Shrunk halfway to 1, because one past year is a small sample. Needs data from a year back.
   const byDate = new Map(D.base.pool.map(d => [d.date, taste(d.byKind)]));
@@ -148,9 +155,16 @@ function model() {
     }
     for (const r of rows) shop += r.v;
     // 2) future normal days (today's arrivals are already in the shop)
-    const st = Math.max(1, D.base.stay);
-    const freshDays = W.filter(d => d >= 1 && valid(d)).filter(d => { for (let j = d; j < d + st; j++) if (okSet.has(j)) return true; return false; });
-    fresh = freshDays.reduce((t, d) => t + Bwd[wdOf(d)] * season(d).f, 0);
+    // every later day d brings new loot; it counts with the chance it is still in the shop on your first play day p >= d
+    // (this includes days before your start: items that arrived then and are still there when you activate)
+    const freshW = [];
+    for (let d = 1; d < s + dur; d++) {
+      if (!valid(d)) continue;
+      const p = ok.find(i => i >= d); if (p === undefined) continue;
+      const sv = S(p - d); if (sv > 0.005) freshW.push([d, sv]);
+    }
+    const freshDays = freshW.filter(([d]) => d >= s).map(([d]) => d);
+    fresh = freshW.reduce((t, [d, sv]) => t + Bday[wdOf(d)] * season(d).f * sv, 0);
     // 3) expected events, scaled by how much of each falls inside your window
     const evRows = events.map(x => {
       const len = x.b - x.a + 1;
@@ -160,7 +174,7 @@ function model() {
       return { x, cov, inside, v: x.full * cov };
     });
     for (const r of evRows) ev += r.v;
-    return { s, W, ok, rows, freshDays, evRows, shop, fresh, ev, tot: shop + fresh + ev };
+    return { s, W, ok, rows, freshDays, freshW, evRows, shop, fresh, ev, tot: shop + fresh + ev };
   }
   const all = []; for (let s = startMin; s <= startMax; s++) all.push(score(s));
 
@@ -173,10 +187,12 @@ function model() {
   const cl = d => Math.max(0, Math.min(SPAN, d));
   const cntV = (lo, hi) => preV[cl(hi) + 1] - preV[cl(lo)], cntP = (lo, hi) => preP[cl(hi) + 1] - preP[cl(lo)];
   const sims = all.map(() => new Float64Array(N)), wins = all.map(() => 0);
-  const dayPools = []; for (let d = 0; d <= startMax + dur; d++) { const v = poolVals[wdOf(d)].length >= 6 ? poolVals[wdOf(d)] : allVals; dayPools.push([v, season(d).f]); }
+  const K = U.daySpread ?? 1.25, mu = allVals.length ? allVals.reduce((a, b) => a + b, 0) / allVals.length : B;
+  const dayPools = []; for (let d = 0; d <= startMax + dur; d++) dayPools.push([allVals, season(d).f]);
+  const bestRun = new Float64Array(N);
   for (let r = 0; r < N; r++) {
     const scale = D.base.fallback ? Math.exp(gauss(rnd) * U.fallbackSpread) : 1;
-    const day = new Float64Array(startMax + dur + 1); for (let d = 0; d < day.length; d++) { const [v, f] = dayPools[d]; day[d] = (v.length ? v[Math.floor(rnd() * v.length)] : B * scale) * f; }
+    const day = new Float64Array(startMax + dur + 1); for (let d = 0; d < day.length; d++) { const [v, f] = dayPools[d]; day[d] = (v.length ? Math.max(0, mu + K * (v[Math.floor(rnd() * v.length)] - mu)) * (B / (mu || 1)) : B * scale) * f; }
     const evs = events.map(x => {
       const happens = rnd() < x.conf;
       const sh = x.e.status === 'pattern' ? Math.round((rnd() * 2 - 1) * U.patternShiftDays) : 0;
@@ -187,7 +203,7 @@ function model() {
     for (let i = 0; i < all.length; i++) {
       const a = all[i], s0 = a.s, s1 = a.s + dur - 1;
       let t = a.shop;
-      for (const d of a.freshDays) t += day[d];
+      for (const [d, sv] of a.freshW) t += day[d] * sv;
       for (const x of evs) {
         if (!x.v) continue;
         const lo = Math.max(x.a, s0), hi = Math.min(x.b, s1);
@@ -196,21 +212,25 @@ function model() {
       }
       sims[i][r] = t; if (t > bestV) { bestV = t; bestI = i; }
     }
-    wins[bestI]++;
+    wins[bestI]++; bestRun[r] = bestV;
   }
+  // "sure" = share of futures where this day gets within nearTol (5%) of that future's best start day.
+  // Back-tested on the archive: this number matched how often it really happened (the exact-winner share did not).
+  const tol = U.nearTol ?? 0.05;
+  all.forEach((a, i) => { let n = 0; for (let r = 0; r < N; r++) if (sims[i][r] >= bestRun[r] * (1 - tol)) n++; a.pNear = n / N; });
   all.forEach((a, i) => { const v = sims[i].sort((x, y) => x - y); a.p10 = v[Math.floor(N * .1)]; a.p50 = v[Math.floor(N * .5)]; a.p90 = v[Math.floor(N * .9)]; a.pBest = wins[i] / N; });
-  return { win, startMin, startMax, deadIdx, dur, all, items, B, Bwd, poolVals, taste, events, kws, rareMul, U, season, byDate, poolMean };
+  return { win, startMin, startMax, deadIdx, dur, all, items, B, Bwd, Bday, surv, poolVals, taste, events, kws, rareMul, U, season, byDate, poolMean };
 }
 
 // ---------- explained words: hover (or tap) any dotted word ----------
 const T = (k, txt) => `<span class="term" tabindex="0" role="button" data-gl="${k}">${txt}</span>`;
 const GLOSS = {
   top: () => ['Top day', 'The start day that grabs the most of what you like, on average. It gets the big X.', 1],
-  sure: c => ['How sure is it?', `We played ${c.N || 400} pretend futures of the shop. ${c.day || 'This day'} came out on top in ${c.pb ?? '?'} of every 100. ` + ((c.pb ?? 0) < 30 ? 'A low number is normal: several days are almost equally good, so they share the wins.' : 'The rest went to the close calls.'), 1],
+  sure: c => ['How sure is it?', `We played ${c.N || 400} pretend futures of the shop. In ${c.pb ?? '?'} of every 100, ${c.day || 'this day'} got within 5% of the best possible start day. Tested on 6 months of real shops, it came true a little less often than it says (about 45–55% when it says ~60%).`, 1],
   loot: () => ['V-Bucks of loot', 'All the items you could claim for free in your 14 days, added up at shop prices and weighted by what you like. An average over all pretend futures.', 1],
   close: () => ['Close race', 'Several start days are almost equally good. Any of them is a fine pick, so choose the one that fits your week.'],
   calls: () => ['Close calls', 'The next-best start days. The % is how much loot they get compared with your top day. Tap one to look at it.'],
-  safer: () => ['Safer day', 'This day wins most often in the pretend futures, even if its average is a little lower. Good if you hate surprises.', 1],
+  safer: () => ['Safer day', 'This day lands close to the best more often in the pretend futures, even if its average is a little lower. Good if you hate surprises.', 1],
   range: () => ['Likely range', 'The thin line on each bar. In 8 of 10 pretend futures, the loot lands inside it. A long line means more guesswork.', 1],
   must: () => ['Must-have', "Items you hearted in today's shop. They count 3× their price, so the planner tries hard to catch them before they leave."],
   reset: () => ['Shop reset', `The Item Shop changes every day at 00:00 UTC (${resetLocal} your time). Activate right after it, so your first day is a full day.`],
@@ -303,7 +323,7 @@ function howUI() {
     const rest = Math.max(0, 1 - top.pBest - others.reduce((s, a) => s + a.pBest, 0));
     cols = [{ s: top.s, p: top.pBest, best: 1 }, ...others.map(a => ({ s: a.s, p: a.pBest })), ...(rest > .005 ? [{ p: rest }] : [])];
     $('howN').textContent = M.U.runs;
-    $('howEx').textContent = $('howEx2').textContent = Math.round(top.pBest * 100);
+    $('howEx').textContent = $('howEx2').textContent = Math.round(top.pNear * 100);
     $('howCols').innerHTML = cols.map((c, i) => `<div class="hcol${c.best ? ' best' : ''}" data-i="${i}"><div class="hstack"></div><b>0</b><span>${c.s == null ? 'Other days' : fmt(c.s, { weekday: 'short', day: 'numeric' })}${c.best ? ' <em>X</em>' : ''}</span></div>`).join('');
     $('howMsg').textContent = 'Each coin is one pretend future. It lands on the start day that won it.';
   };
@@ -323,8 +343,9 @@ function howUI() {
       got[i]++; const st = stacks[i]; st.querySelector('.hstack').insertAdjacentHTML('beforeend', '<i></i>'); st.querySelector('b').textContent = got[i];
       if (k === n - 1) {
         rolling = 0; $('howRoll').disabled = false; $('howRoll').textContent = 'Roll again';
-        const M = render.M, pb = Math.round(cols[0].p * 100);
-        $('howMsg').innerHTML = `Your top day won <b>${got[0]} of ${n}</b> this time. Over all ${M.U.runs} rolls it wins about <b>${pb}%</b>: that is the "${pb}% sure" in your result.`;
+        const M = render.M;
+        const near = Math.round(render.M.all.find(a => a.s === cols[0].s).pNear * 100);
+        $('howMsg').innerHTML = `Your top day won <b>${got[0]} of ${n}</b> this time: the exact winner jumps around between close days. So "% sure" counts how often your top day lands <b>within 5% of the winner</b>: ${near}% of all ${M.U.runs} rolls.`;
       }
     }, k * 110);
   });
@@ -345,7 +366,7 @@ function render(recompute = true) {
   const cur = all.find(a => a.s === sel);
   const pct = x => Math.round(x / rank[0].tot * 100);
 
-  $('bars').innerHTML = all.map(a => `<button class="col" data-s="${a.s}" aria-label="${fmtL(a.s)}: about ${n0(a.tot)} V-Bucks, likely ${n0(a.p10)} to ${n0(a.p90)}, best in ${Math.round(a.pBest * 100)}% of simulations"><span class="bar${a.s === best ? ' best' : ''}${a.s === sel ? ' sel' : ''}${a.s + dur > deadIdx ? ' late' : ''}" style="height:${Math.max(3, a.tot / max * 100)}%"></span><span class="wh" style="bottom:${a.p10 / max * 100}%;height:${Math.max(1, (a.p90 - a.p10) / max * 100)}%"></span>${a.s === best ? `<span class="x" style="bottom:calc(${Math.max(a.tot, a.p90) / max * 100}% + 2px)">X</span>` : ''}</button>`).join('');
+  $('bars').innerHTML = all.map(a => `<button class="col" data-s="${a.s}" aria-label="${fmtL(a.s)}: about ${n0(a.tot)} V-Bucks, likely ${n0(a.p10)} to ${n0(a.p90)}, near-best in ${Math.round(a.pNear * 100)}% of simulated futures"><span class="bar${a.s === best ? ' best' : ''}${a.s === sel ? ' sel' : ''}${a.s + dur > deadIdx ? ' late' : ''}" style="height:${Math.max(3, a.tot / max * 100)}%"></span><span class="wh" style="bottom:${a.p10 / max * 100}%;height:${Math.max(1, (a.p90 - a.p10) / max * 100)}%"></span>${a.s === best ? `<span class="x" style="bottom:calc(${Math.max(a.tot, a.p90) / max * 100}% + 2px)">X</span>` : ''}</button>`).join('');
   // both charts share one time axis (today .. last day of the latest window), so a start day sits at the same x in both
   const XH = M.startMax + dur + 1, xp = i => Math.max(0, Math.min(100, i / XH * 100));
   const bb = $('bars'); bb.style.marginLeft = xp(M.startMin) + '%'; bb.style.width = xp(M.startMax + 1 - M.startMin) + '%';
@@ -364,10 +385,11 @@ function render(recompute = true) {
   if (render.lastBest !== undefined && render.lastBest !== best) { const v = document.querySelector('.verdict'); v.classList.remove('pop'); void v.offsetWidth; v.classList.add('pop'); coins(); }
   render.lastBest = best;
   $('vWhen').innerHTML = (best === 0 ? 'Now' : `At ${resetLocal}, after the ${T('reset', 'shop reset')}`) + ` · ${T('window', 'your 14 days')} end ${fmtL(best + dur)}` + (best + dur > deadIdx ? ` (past the ${T('deadline', 'deadline')}, unconfirmed)` : '');
-  const pb = Math.round(rank[0].pBest * 100), close = rank.slice(1, 4).filter(a => a.p90 >= rank[0].p10).length;
+  const pb = Math.round(rank[0].pNear * 100), close = rank.slice(1, 4).filter(a => a.tot >= rank[0].tot * 0.97).length;
   render.gctx = { pb, N: M.U.runs, day: fmtL(best) };
-  $('vSure').innerHTML = `~${n0(rank[0].tot)} ${T('loot', 'V-Bucks of loot')} · <b>${T('sure', pb + '% sure')}</b>` + (pb < 30 ? ` · ${T('close', 'close race')}, any ${T('top', 'top day')} is fine` : '');
-  const often = [...all].sort((a, b) => b.pBest - a.pBest)[0];
+  $('vSure').innerHTML = `~${n0(rank[0].tot)} ${T('loot', 'V-Bucks of loot')} · <b>${T('sure', pb + '% sure')}</b>` + (close >= 2 ? ` · ${T('close', 'close race')}, any ${T('top', 'top day')} is fine` : '');
+  const often0 = [...all].sort((a, b) => b.pNear - a.pNear || b.tot - a.tot)[0];
+  const often = often0.pNear - rank[0].pNear >= 0.05 ? often0 : rank[0]; // only suggest a safer day if it is clearly safer
   if (often.s !== best) $('vSure').innerHTML += ` · ${T('safer', 'safer')}: ${fmtL(often.s)}`;
   const bestRow = all.find(a => a.s === best), missed = bestRow.rows.filter(r => r.x.must && !r.hit);
   const mustN = M.items.filter(x => x.must).length;
@@ -403,7 +425,7 @@ function render(recompute = true) {
     rows.push(`<tr class="${r.hit ? '' : 'miss'}"><td data-l="What">${esc(x.e.name)} <span class="fine">${KINDS[x.e.kind] || x.e.kind}</span></td><td data-l="Inputs">${n0(x.e.price)} V-Bucks · weight ${P.types[x.e.kind] ?? 2}${x.fav ? ` · favourite "${esc(x.fav)}" ×${P.kwBoost}` : ''}${x.rare ? ` · rare return ×${M.rareMul.toFixed(1)}` : ''}${x.share < 1 ? ` · ${Math.round(x.share * 100)}% of items not sold separately` : ''} · in shop until ${fmt(x.out - 1)}</td><td data-l="Calculation">${r.hit ? `<code>${parts.join(' × ')}</code>` : esc(r.why)}</td><td class="num" data-l="V-Bucks">${r.hit ? n0(r.v) : '0'}</td></tr>`);
   }
   if (zero.length) rows.push(`<tr class="miss"><td data-l="What">${zero.length} items worth 0 to you</td><td data-l="Inputs">${esc(zero.slice(0, 6).map(r => r.x.e.name).join(', '))}${zero.length > 6 ? '…' : ''}</td><td data-l="Calculation">Type weight 0 or marked as owned</td><td class="num" data-l="V-Bucks">0</td></tr>`);
-  rows.push(`<tr><td data-l="What">New items on later days</td><td data-l="Inputs">${cur.freshDays.length} shop days you can reach · weekday average for your taste${M.season(sel + 7).n ? ' × season factor from a year ago' : ''}</td><td data-l="Calculation"><code>sum of ${cur.freshDays.length} days ≈ ${n0(cur.fresh / Math.max(1, cur.freshDays.length))}/day</code></td><td class="num" data-l="V-Bucks">${n0(cur.fresh)}</td></tr>`);
+  rows.push(`<tr><td data-l="What">New items on later days</td><td data-l="Inputs">${cur.freshW.length} later shop days · average day for your taste × chance its items are still there on your first play day${M.season(sel + 7).n ? ' × season factor from a year ago' : ''}</td><td data-l="Calculation"><code>${n0(M.Bday[0])} × (${cur.freshW.map(([, v]) => v.toFixed(2)).slice(0, 6).join(' + ')}${cur.freshW.length > 6 ? ' + …' : ''})</code></td><td class="num" data-l="V-Bucks">${n0(cur.fresh)}</td></tr>`);
   for (const r of cur.evRows) rows.push(`<tr class="${r.v > 0 ? '' : 'miss'}"><td data-l="What">${esc(r.x.e.name)}</td><td data-l="Inputs">${n0(r.x.val)} for your taste${r.x.e.fromHistory ? ' (from past shops)' : ' (estimate)'} · ${r.x.e.status} ×${r.x.conf} · interest ×${r.x.interest.toFixed(1)} · ${r.inside.length} of ${r.x.b - r.x.a + 1} days inside</td><td data-l="Calculation"><code>${n0(r.x.val)} × ${r.x.conf} × ${r.x.interest.toFixed(1)} × ${r.cov.toFixed(2)}</code></td><td class="num" data-l="V-Bucks">${n0(r.v)}</td></tr>`);
   const itemRows = rows.length - 1 - cur.evRows.length; // item rows come first, then later days, then events
   const keep = render.allMath ? rows : [...rows.slice(0, Math.min(12, itemRows)), ...(itemRows > 12 ? [`<tr class="miss"><td colspan="4">${itemRows - 12} more items…</td></tr>`] : []), ...rows.slice(itemRows)];
@@ -429,11 +451,12 @@ function formula(M) {
   $('formula').innerHTML = `
   <div class="card"><h3>1. Item value</h3><p><code>price × weight/10 × favourite ×${P.kwBoost} × rare ×${M.rareMul.toFixed(1)}</code></p><p>Favourite = a word from your list is in the name, set or artist. Rare = not in the shop for 6+ months (checked against the archive since ${fmt(idx(D.shop.historyFrom || '2026-05-02'))}). Owned items count 0.</p></div>
   <div class="card"><h3>2. Today's shop</h3><p>An item counts if you play at least once inside your 14 days and before it leaves. Only the best new Sidekick counts.</p></div>
-  <div class="card"><h3>3. Later days</h3><p>Each later day adds the average new loot of that weekday in past shops, for your taste: ${M.Bwd.map((v, i) => `<code>${wdN[i]} ${n0(v)}</code>`).join(' ')}</p><p>${b.fallback ? 'No archive yet: a fallback guess from config/rules.json.' : `${b.n} past days (${fmt(idx(b.windowFrom))} to ${fmt(idx(b.windowTo))}). Items stay about ${b.stay} days (${b.stayFrom}), so a day counts if you play within that time.`}</p></div>
+  <div class="card"><h3>3. Later days</h3><p>Each later day adds the average new loot of a past shop day, for your taste: <code>${n0(M.Bday[0])} V-Bucks</code>. It counts with the chance its items are still in the shop on your first play day: ${M.surv.slice(0, 8).map((v, j) => `<code>${j} d: ${Math.round(v * 100)}%</code>`).join(' ')}</p><p>This includes days <i>before</i> your start: items that arrive then and are still there when you activate. ${b.fallback ? 'No archive yet: a fallback guess from config/rules.json.' : `${b.n} past days (${fmt(idx(b.windowFrom))} to ${fmt(idx(b.windowTo))}).`} Weekday averages are shown under Past shops but not used: in back-tests they picked worse days than one average day.</p></div>
   <div class="card"><h3>4. Events</h3><p><code>value for your taste × confidence × interest/5 × share of event days inside</code></p><p>Chapter 8 is sized from the last season launch week in the archive. Other events are author estimates. Confidence: ${Object.entries(D.rules.confidence).map(([k, v]) => `${k} ${v}`).join(', ')}.</p></div>
   <div class="card"><h3>5. Window</h3><p>${M.dur} days from activation, activation before ${esc(M.win.deadlineText)}. Days after the deadline count: ${P.late ? 'yes' : 'no'}. Play days: ${wdN.filter((_, i) => P.days[i]).join(', ') || 'none'}.</p></div>
-  <div class="card"><h3>6. Uncertainty</h3><p>${M.U.runs} simulated futures (seed ${M.U.seed}). In each: later days are random real past days of the same weekday, events happen with their confidence as probability, pattern events shift ±${M.U.patternShiftDays} days, event sizes vary. Whiskers = 10th to 90th percentile.</p></div>
-  <div class="card"><h3>7. The pick</h3><p>The start day with the highest expected total wins; ties go to the earlier day. An estimate of value to you, not a promise of what Epic will sell.</p></div>`;
+  <div class="card"><h3>6. Uncertainty</h3><p>${M.U.runs} simulated futures (seed ${M.U.seed}). In each: later days are random real past days, with their spread widened ×${M.U.daySpread ?? 1.25} so the 10–90% range held 8 of 10 real outcomes in back-tests; events happen with their confidence as probability, pattern events shift ±${M.U.patternShiftDays} days, event sizes vary. Whiskers = 10th to 90th percentile. "% sure" = share of futures where the day gets within ${Math.round((M.U.nearTol ?? 0.05) * 100)}% of that future's best start day.</p></div>
+  <div class="card"><h3>7. The pick</h3><p>The start day with the highest expected total wins; ties go to the earlier day. An estimate of value to you, not a promise of what Epic will sell.</p></div>
+  <div class="card"><h3>8. How well it works</h3><p>Back-test on the archive (May–Nov 2026, 105 start points, scripts/backtest.py): the pick lost about <b>6%</b> of loot compared with the day that turned out best, versus 9–10% for the previous model and for always activating on day 1. The 10–90% range held 79–80% of real outcomes. "% sure" was a little optimistic (stated ~60%, came true 44–56%). Events were not part of the test.</p></div>`;
 }
 
 function pastShops(M) {
@@ -478,7 +501,7 @@ function limits(M) {
   const b = D.base, est = D.events.filter(e => e.extraVbucks > 0 && !e.fromHistory);
   const L = [
     ['The future shop is unknown', `Epic doesn't publish it. Later days are averages of ${b.fallback ? 'a rough guess' : `${b.n} past days`}, not real items. A surprise drop can change the best day.`],
-    ['Past is not future', 'The archive covers only about six months. Patterns like weekday swings may not hold, and one season launch is a small sample.'],
+    ['Past is not future', 'The archive covers only about six months, and one season launch is a small sample. In back-tests on those months, the pick lost about 6% of loot on average compared with the day that turned out best (always activating on day 1 lost about 9%).'],
     ['Some event values are guesses', est.length ? `${est.map(e => `${esc(e.name)} ${n0(e.extraVbucks)} V-Bucks`).join(', ')}: author assumptions with no past data behind them.` : 'All event values come from past shops.'],
     ['Event dates may move', 'Pattern events are dated from past years. The simulation shifts them a few days; real events can move further or not happen.'],
     ['Token rules come from news reports', 'The 14 days, the deadline and the exclusions come from gaming sites, not Epic. Check your own token in-game.'],
@@ -811,10 +834,10 @@ async function drawCard() {
   // stat badges
   const badge = (x, y, w, big, small, col) => { g.fillStyle = col; slant(x, y, w, 130, 18); g.fill(); g.fillStyle = '#ffffff22'; slant(x, y, w, 8, 1); g.fill();
     g.fillStyle = '#fff'; g.font = `italic 64px ${FN}`; fit(big, x + w / 2, y + 74, w - 40, 64, `italic # ${FN}`, 'center'); g.font = `900 22px ${NU}`; g.fillStyle = '#eaf4ff'; fit(small.toUpperCase(), x + w / 2, y + 110, w - 40, 22, `900 # ${NU}`, 'center'); };
-  const pb = Math.round(cur.pBest * 100), must = cur.rows.filter(r => r.hit && r.x.must).length;
+  const pb = Math.round(cur.pNear * 100), must = cur.rows.filter(r => r.hit && r.x.must).length;
   badge(60, 596, 330, `~${n0(cur.tot / 1000)}K`, 'V-Bucks of loot', 'rgba(255,170,40,.92)');
   badge(375, 596, 300, `${M.dur} days`, must ? `${must} must-have${must > 1 ? 's' : ''} inside` : 'free Item Shop', 'rgba(140,70,230,.9)');
-  badge(660, 596, 300, `${pb}%`, 'top-day chance', 'rgba(30,140,240,.92)');
+  badge(660, 596, 300, `${pb}%`, 'near-best chance', 'rgba(30,140,240,.92)');
   // top loot tiles, coloured by rarity
   const RC = { legendary: ['#ffb84d', '#b8510a'], epic: ['#d27bff', '#6a1fb5'], rare: ['#4fd2ff', '#1559c9'], uncommon: ['#87e339', '#319236'], icon: ['#5ff2ff', '#127a8f'], marvel: ['#ff5a5a', '#8e1010'], gaming: ['#8a7bff', '#2b1e8f'], dark: ['#c04bff', '#2a0a3d'], music: ['#ff7ad9', '#7a1a8c'], common: ['#b0bccf', '#4b5566'] };
   g.font = `italic 34px ${FN}`; g.fillStyle = '#fff'; g.fillText('TOP LOOT', 60, 806);

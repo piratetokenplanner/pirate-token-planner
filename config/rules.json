@@ -42,7 +42,25 @@
    "other": 300
   },
   "baselineNote": "Used only until the site has collected its own snapshots. Rough author estimate of V-Bucks of brand-new offers per normal shop day, by type.",
-  "stayDays": 3
+  "stayDays": 3,
+  "survival": [
+   1,
+   0.87,
+   0.84,
+   0.64,
+   0.4,
+   0.25,
+   0.25,
+   0.08,
+   0.07,
+   0.06,
+   0.03,
+   0.02,
+   0.02,
+   0.02,
+   0.02
+  ],
+  "survivalAbout": "Share of new-offer V-Bucks still in the shop j days after arriving, measured on the archive May-Nov 2026. Used until data/baseline.json has its own curve."
  },
  "facts": [
   {
@@ -133,12 +151,15 @@
   }
  ],
  "uncertainty": {
-  "about": "Settings for the simulated futures behind the ranges. These are the author's choices, not measured values.",
+  "about": "Settings for the simulated futures behind the ranges. runs/seed/eventsSpreads are the author's choices. daySpread, weekdayWeight and nearTol were chosen by back-testing on the past-shop archive (May-Nov 2026): with daySpread 1.25 the 10-90% range held about 8 of 10 real outcomes, weekday averages picked worse days than one flat average (weekdayWeight 0), and the share of futures within nearTol (5%) of the best start day matched how often that really happened.",
   "runs": 400,
   "seed": 42,
   "patternShiftDays": 3,
   "estimateSpread": 0.6,
   "observedSpread": 0.2,
-  "fallbackSpread": 0.5
+  "fallbackSpread": 0.5,
+  "daySpread": 1.25,
+  "weekdayWeight": 0,
+  "nearTol": 0.05
  }
 }
