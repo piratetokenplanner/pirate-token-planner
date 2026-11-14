@@ -18,19 +18,32 @@ const fmtL = i => fmt(i, { weekday: 'short', day: 'numeric', month: 'short' });
 const resetLocal = new Date(T0).toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
 
 const KINDS = { outfit: 'Outfits', bundle: 'Bundles', emote: 'Emotes', pickaxe: 'Pickaxes', glider: 'Gliders', backpack: 'Back blings', wrap: 'Wraps', sidekick: 'Sidekicks', jamtrack: 'Jam Tracks', music: 'Lobby music', kicks: 'Kicks', car: 'Cars', contrail: 'Contrails', loadingscreen: 'Loading screens', lego: 'LEGO kits', instrument: 'Instruments', other: 'Everything else' };
-const base = { outfit: 10, bundle: 10, emote: 6, pickaxe: 5, glider: 5, backpack: 3, wrap: 2, sidekick: 6, jamtrack: 1, contrail: 1, loadingscreen: 0, music: 2, kicks: 3, car: 3, lego: 2, instrument: 3, other: 2 };
+// The cards in step 1. Love / Maybe / Nope set every type in the group to 10 / 3 / 0.
+const GROUPS = [
+  { id: 'outfits', label: 'Outfits & bundles', ex: 'Skins and skin sets', kinds: ['outfit', 'bundle'] },
+  { id: 'emotes', label: 'Emotes', ex: 'Dances and moves', kinds: ['emote'] },
+  { id: 'gear', label: 'Pickaxes, gliders & back blings', ex: 'Your gear', kinds: ['pickaxe', 'glider', 'backpack'] },
+  { id: 'sidekick', label: 'Sidekicks', ex: 'Pets that follow you (only 1 free)', kinds: ['sidekick'] },
+  { id: 'kicks', label: 'Kicks', ex: 'Shoes', kinds: ['kicks'] },
+  { id: 'wraps', label: 'Wraps & contrails', ex: 'Weapon skins and trails', kinds: ['wrap', 'contrail', 'loadingscreen'] },
+  { id: 'music', label: 'Jam Tracks & music', ex: 'Songs, lobby music, instruments', kinds: ['jamtrack', 'music', 'instrument'] },
+  { id: 'rides', label: 'Cars & LEGO', ex: 'Rocket Racing and LEGO kits', kinds: ['car', 'lego', 'other'] }
+];
+const LEVELS = [['Nope', 0], ['Maybe', 3], ['Love', 10]];
+const levelOf = g => { const v = P.types[g.kinds[0]] ?? 0; return v >= 7 ? 2 : v >= 1 ? 1 : 0; };
+const base = { outfit: 10, bundle: 10, emote: 3, pickaxe: 3, glider: 3, backpack: 3, wrap: 0, sidekick: 3, jamtrack: 0, contrail: 0, loadingscreen: 0, music: 0, kicks: 3, car: 0, lego: 0, instrument: 0, other: 0 };
 const PRESETS = {
   'Balanced': { ...base },
   'Skins only': Object.fromEntries(Object.keys(base).map(k => [k, k === 'outfit' || k === 'bundle' ? 10 : 0])),
-  'Emote collector': { ...base, emote: 10, outfit: 5, bundle: 5 },
-  'Music lover': { ...base, jamtrack: 10, music: 8, instrument: 8, outfit: 5 },
+  'Emote collector': { ...base, emote: 10, outfit: 3, bundle: 3 },
+  'Music lover': { ...base, jamtrack: 10, music: 10, instrument: 10, outfit: 3, bundle: 3 },
   'Hoarder': Object.fromEntries(Object.keys(base).map(k => [k, 10]))
 };
 const DEF = { types: { ...base }, kw: '', kwBoost: 2, rare: 3, ev: {}, days: [1, 1, 1, 1, 1, 1, 1], late: true, owned: [] };
 let P = structuredClone(DEF), sel = null;
-try { Object.assign(P, JSON.parse(localStorage.getItem('ptp2') || '{}')); } catch (e) {}
+try { Object.assign(P, JSON.parse(localStorage.getItem('ptp3') || '{}')); } catch (e) {}
 if (location.hash.startsWith('#s=')) { try { Object.assign(P, JSON.parse(decodeURIComponent(atob(location.hash.slice(3))))); } catch (e) {} }
-const save = () => { try { localStorage.setItem('ptp2', JSON.stringify(P)); } catch (e) {} };
+const save = () => { try { localStorage.setItem('ptp3', JSON.stringify(P)); } catch (e) {} };
 
 let D = {}; // loaded data
 
@@ -156,21 +169,17 @@ function render() {
   const every = all.length > 40 ? 10 : 5;
   $('ticks').innerHTML = all.map((a, i) => `<span>${i % every === 0 ? fmt(a.s) : ''}</span>`).join('');
   $('vDay').textContent = best === 0 ? 'Activate today' : 'Activate ' + fmtL(best);
-  $('vWhen').textContent = (best === 0 ? 'As soon as you can. ' : `Right after the shop reset: ${resetLocal} your time (00:00 UTC). `) +
-    `Your access then runs until ${fmtL(best + dur)}, ${resetLocal}. Expected haul: about ${n0(rank[0].tot)} V-Bucks of things you want.` +
-    (best + dur > deadIdx ? ' This window runs past the deadline, which is reported to work but not confirmed.' : '');
+  $('vWhen').textContent = (best === 0 ? 'Now' : `At ${resetLocal}, after the shop reset`) + ` · ends ${fmtL(best + dur)}` + (best + dur > deadIdx ? ' (past the deadline, unconfirmed)' : '');
   const pb = Math.round(rank[0].pBest * 100), close = rank.slice(1, 4).filter(a => a.p90 >= rank[0].p10).length;
-  $('vSure').innerHTML = `<b>How sure:</b> this day came out on top in ${pb}% of ${M.U.runs} simulated futures. ` +
-    (pb >= 60 ? 'A fairly clear pick.' : pb >= 30 ? 'A reasonable pick, but other days win often too.' : 'Low certainty: several days are close, so pick whichever suits you.') +
-    ` Likely haul: ${n0(rank[0].p10)} to ${n0(rank[0].p90)} V-Bucks (10th to 90th percentile).` + (close ? ` ${close > 1 ? close + ' runners-up overlap' : '1 runner-up overlaps'} with that range.` : '');
+  $('vSure').innerHTML = `~${n0(rank[0].tot)} V-Bucks of loot · <b>${pb}% sure</b>` + (pb < 30 ? ' · close race, any top day is fine' : '');
   const often = [...all].sort((a, b) => b.pBest - a.pBest)[0];
-  if (often.s !== best) $('vSure').innerHTML += ` Note: ${fmtL(often.s)} wins more often (${Math.round(often.pBest * 100)}%) but has a lower average. Pick it if you care more about the chance of hitting the best day than about the average haul.`;
-  $('alts').innerHTML = '<small>Runners-up:</small>' + rank.slice(1, 4).map(a => `<button class="chip" data-s="${a.s}">${fmtL(a.s)} · ${pct(a.tot)}% · top in ${Math.round(a.pBest * 100)}%</button>`).join('');
+  if (often.s !== best) $('vSure').innerHTML += ` · safer: ${fmtL(often.s)}`;
+  $('alts').innerHTML = '<small>Close calls:</small>' + rank.slice(1, 4).map(a => `<button class="chip" data-s="${a.s}">${fmtL(a.s)} · ${pct(a.tot)}%</button>`).join('');
 
   // voyage
   const H = M.startMax + dur + 1, tp = i => Math.max(0, Math.min(100, i / H * 100));
   const leave = {}; for (const x of M.items) if (x.value > 0 && x.out < H) (leave[x.out] ||= []).push(x);
-  $('vTitle').textContent = `${sel === best ? 'Best voyage' : 'Your pick'}: ${fmt(sel)} to ${fmt(sel + dur - 1)}`;
+  $('vTitle').textContent = `${fmt(sel)} – ${fmt(sel + dur - 1)}`;
   $('vScore').textContent = `${n0(cur.tot)} V-Bucks` + (sel !== best ? ` (${pct(cur.tot)}% of best)` : '');
   $('track').innerHTML = `<div class="win" style="left:${tp(sel)}%;width:${tp(dur)}%"></div><div class="dl" style="left:${tp(deadIdx)}%"><b>Deadline</b></div>` +
     `<div class="row">${Object.entries(leave).map(([d, xs]) => `<span class="tick ${d > sel ? '' : 'out'}" style="left:${tp(+d)}%" title="${xs.length} wanted items leave ${fmt(+d)}">${xs.length}</span>`).join('')}</div>` +
@@ -179,7 +188,7 @@ function render() {
   $('axis').innerHTML = ax.map(i => `<span style="left:${tp(i)}%">${fmt(i)}</span>`).join('');
 
   // the math for the selected day
-  $('mathTitle').textContent = `The math for ${fmtL(sel)}`;
+  $('mathTitle').textContent = `The math (${fmt(sel)})`;
   $('sum').innerHTML = [[cur.tot, `Expected total (likely ${n0(cur.p10)} to ${n0(cur.p90)})`], [cur.shop, "From today's shop"], [cur.fresh, 'From new items later'], [cur.ev, 'From expected events']].map(([v, l]) => `<div><b>${n0(v)}</b><span>${l}</span></div>`).join('');
   const rows = [];
   const zero = cur.rows.filter(r => !r.hit && r.x.value === 0);
@@ -247,7 +256,11 @@ function sources() {
   $('fetches').tBodies[0].innerHTML = (m.fetches || []).map(f => `<tr><td data-l="URL">${esc(f.url)}</td><td data-l="Result" class="${f.ok ? 'okc' : 'bad'}">${f.ok ? f.status : esc(f.error || f.status)}</td><td data-l="Fingerprint"><code>${esc(f.sha256 || '–')}</code></td><td class="num" data-l="Time">${f.ms ?? '–'} ms</td></tr>`).join('');
 }
 
+function loves() {
+  $('loves').innerHTML = GROUPS.map(g => { const l = levelOf(g); return `<button type="button" class="love s${l}" data-g="${g.id}" aria-label="${g.label}: ${LEVELS[l][0]}. Tap to change."><span class="lv">${LEVELS[l][0]}</span><span>${g.label}</span></button>`; }).join('');
+}
 function controls() {
+  loves();
   $('presets').innerHTML = Object.keys(PRESETS).map(k => `<button class="pre" type="button" data-p="${k}">${k}</button>`).join('');
   const sl = (id, label, val, min, max, step = 1, hint = '') => `<div class="sl"><label for="${id}">${label}</label><output id="o_${id}">${val}</output><input type="range" id="${id}" min="${min}" max="${max}" step="${step}" value="${val}">${hint ? `<small>${hint}</small>` : ''}</div>`;
   $('types').innerHTML = Object.entries(KINDS).map(([k, l]) => sl('t_' + k, l, P.types[k] ?? 2, 0, 10)).join('');
@@ -262,10 +275,20 @@ function bind() {
     const t = e.target, id = t.id;
     if (t.type === 'range') {
       const v = +t.value; $('o_' + id).textContent = v;
-      if (id.startsWith('t_')) P.types[id.slice(2)] = v; else if (id.startsWith('e_')) P.ev[id.slice(2)] = v; else P[id] = v;
+      if (id.startsWith('t_')) { P.types[id.slice(2)] = v; loves(); } else if (id.startsWith('e_')) P.ev[id.slice(2)] = v; else P[id] = v;
     } else if (id === 'kw') P.kw = t.value;
     else return;
     save(); render();
+  });
+  const pir = document.getElementById('pirate');
+  const wake = () => { pir.classList.add('awake'); clearTimeout(wake.t); wake.t = setTimeout(() => pir.classList.remove('awake'), 1800); };
+  pir.addEventListener('click', wake); pir.addEventListener('keydown', e => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); wake(); } });
+  $('loves').addEventListener('click', e => {
+    const b = e.target.closest('[data-g]'); if (!b) return;
+    const g = GROUPS.find(x => x.id === b.dataset.g), next = (levelOf(g) + 2) % 3; // Love > Maybe > Nope > Love
+    for (const k of g.kinds) P.types[k] = LEVELS[next][1];
+    save(); controls(); render();
+    const nb = document.querySelector(`[data-g="${g.id}"]`); if (nb) nb.focus();
   });
   $('presets').addEventListener('click', e => { const p = e.target.dataset.p; if (!p) return; P.types = { ...PRESETS[p] }; save(); controls(); render(); });
   $('days').addEventListener('change', e => { P.days[+e.target.dataset.d] = e.target.checked ? 1 : 0; save(); render(); });
@@ -316,7 +339,7 @@ async function init() {
     }
   }
   const age = meta && meta.generatedAt ? Math.round((Date.now() - Date.parse(meta.generatedAt)) / 36e5) : null;
-  $('fresh').innerHTML = `Shop of <b>${esc(D.shop.shopDate)}</b> · ${esc(D.liveNote)}${age !== null ? ` · data run ${age < 1 ? 'under an hour' : age + ' h'} ago` : ''}${meta && meta.fixture ? ' · <b>offline test data</b>' : ''}`;
+  $('fresh').innerHTML = `Shop of <b>${fmt(idx(D.shop.shopDate))}</b>${age !== null ? ` · updated ${age < 1 ? 'just now' : age + ' h ago'}` : ''}${D.live ? ' · live' : ''}${meta && meta.fixture ? ' · <b>test data</b>' : ''}`;
   if (meta && meta.fixture) document.body.insertAdjacentHTML('afterbegin', '<div class="banner">Test data: this copy was built from sample files, not the real shop.</div>');
   controls(); bind(); render(); sources();
 }

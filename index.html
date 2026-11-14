@@ -4,122 +4,181 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Pirate Token Planner</title>
-<meta name="description" content="Pick the best day to activate Fortnite Pirate Shop Access, scored on the live Item Shop and your own taste. Every number is explained.">
+<meta name="description" content="Fan-made helper: pick the best day to activate Fortnite Pirate Shop Access, based on the live Item Shop and what you like.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Luckiest+Guy&family=Nunito:wght@400;600;800&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Luckiest+Guy&family=Nunito:wght@400;600;800;900&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="style.css">
 </head>
 <body>
-<header class="band top"><div class="wrap">
-  <nav class="nav"><b>Pirate Token Planner</b><span><a href="#math">How it's scored</a><a href="#shop">Today's shop</a><a href="#limits">Limits</a><a href="#sources">Sources and data</a></span></nav>
-  <h1>When to plunder the Item Shop</h1>
-  <p class="lede">Pirate Shop Access gives you 14 days of free V-Bucks items from the moment you press Activate. This page reads the live Item Shop every day, adds what's expected later, and scores every possible activation day against your taste. Nothing is hidden: the math and every source are below.</p>
-  <p class="fresh" id="fresh">Loading shop data…</p>
+<header class="hero">
+  <div class="wrap herogrid">
+    <div>
+      <p class="fanmade">Fan-made · not by Epic Games</p>
+      <h1>Pick your plunder day</h1>
+      <p class="lede">14 days of free shop. When should yours start?</p>
+      <p class="fresh" id="fresh">Loading today's shop…</p>
+    </div>
+    <svg class="ship" viewBox="0 0 320 240" aria-hidden="true">
+      <defs>
+        <linearGradient id="hull" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#a0522d"/><stop offset="1" stop-color="#5c2c12"/></linearGradient>
+        <linearGradient id="sail" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#fffdf4"/><stop offset="1" stop-color="#e8dcc0"/></linearGradient>
+      </defs>
+      <g class="bob">
+        <rect x="156" y="30" width="7" height="140" rx="3" fill="#4a2410"/>
+        <path d="M165 40 Q228 70 222 128 L165 128 Z" fill="url(#sail)"/>
+        <path d="M154 56 Q104 84 110 132 L154 132 Z" fill="url(#sail)"/>
+        <path d="M163 30 L203 38 L163 48 Z" fill="#ff6b57"/>
+        <text x="189" y="104" text-anchor="middle" font-family="Luckiest Guy, Impact" font-size="40" fill="#ffc83d" stroke="#b07c00" stroke-width="2">X</text>
+        <g class="pirate" id="pirate" role="button" tabindex="0" aria-label="A sleepy pirate">
+          <ellipse cx="226" cy="150" rx="15" ry="13" fill="#3b6cb7"/>
+          <circle cx="226" cy="132" r="12" fill="#f2c7a0"/>
+          <path class="lids" d="M219 132 q3 3 6 0 M228 132 q3 3 6 0" stroke="#3a1a08" stroke-width="2" fill="none" stroke-linecap="round"/>
+          <g class="eyes" opacity="0"><circle cx="222" cy="131" r="2" fill="#3a1a08"/><circle cx="231" cy="131" r="2" fill="#3a1a08"/></g>
+          <path d="M214 127 Q222 104 246 112 Q238 116 236 126 Z" fill="#ff6b57"/>
+          <path d="M213 128 Q226 122 239 128" stroke="#fff" stroke-width="4" fill="none" stroke-linecap="round"/>
+          <circle cx="248" cy="113" r="5" fill="#fff"/>
+          <g class="zzz" font-family="Luckiest Guy, Impact" fill="#fff"><text x="250" y="100" font-size="14">z</text><text x="260" y="86" font-size="18">z</text><text x="272" y="70" font-size="22">Z</text></g>
+          <text class="arr" x="246" y="100" font-family="Luckiest Guy, Impact" font-size="18" fill="#ffc83d" opacity="0">Arr?</text>
+        </g>
+        <path d="M60 160 L262 160 Q250 200 214 206 L104 206 Q72 200 60 160 Z" fill="url(#hull)"/>
+        <path d="M60 160 L262 160 L258 170 L64 170 Z" fill="#ffc83d"/>
+        <circle cx="110" cy="186" r="6" fill="#3a1a08"/><circle cx="160" cy="188" r="6" fill="#3a1a08"/><circle cx="210" cy="186" r="6" fill="#3a1a08"/>
+      </g>
+      <path d="M0 210 Q20 198 40 210 T80 210 T120 210 T160 210 T200 210 T240 210 T280 210 T320 210 V240 H0 Z" fill="#7fd8d0" opacity=".9"/>
+      <path d="M0 222 Q25 212 50 222 T100 222 T150 222 T200 222 T250 222 T300 222 T350 222 V240 H0 Z" fill="#2ea39d"/>
+    </svg>
+  </div>
+</header>
 
+<main>
+<section class="band steps"><div class="wrap">
+  <div class="step">
+    <span class="num">1</span>
+    <div>
+      <h2>What do you want?</h2>
+      <p class="hint">Tap to switch: Love, Maybe, Nope.</p>
+      <div class="loves" id="loves"></div>
+    </div>
+  </div>
+  <div class="step">
+    <span class="num">2</span>
+    <div>
+      <h2>When do you play?</h2>
+      <div class="days" id="days"></div>
+    </div>
+  </div>
+</div></section>
+
+<section class="band result"><div class="wrap">
+  <div class="step"><span class="num">3</span><h2>Your best day</h2></div>
   <div class="verdict" aria-live="polite">
     <div class="xmark" aria-hidden="true">X</div>
     <div>
       <div class="big" id="vDay">…</div>
       <div class="when" id="vWhen"></div>
       <div class="sure" id="vSure"></div>
-      <div class="alts" id="alts"></div>
+      <div class="acts">
+        <a class="btn gold" id="gcal" href="#" target="_blank" rel="noopener">Remind me in Google Calendar</a>
+        <button class="btn ghost" id="copy" type="button">Copy plan</button>
+      </div>
+      <p class="msg" id="copyMsg"></p>
     </div>
   </div>
+  <div class="alts" id="alts"></div>
 
   <div class="panel">
+    <div class="ph"><b>All start days</b><span>Tap a bar</span></div>
     <div class="bars" id="bars" role="group" aria-label="Score for each activation day"></div>
     <div class="ticks" id="ticks"></div>
-    <p class="legend">Each bar is one activation day: the expected V-Bucks of things you want. The white line on each bar is the likely range (10th to 90th percentile of simulated futures). Grey bars run past the deadline. Tap a bar to inspect it. <a href="#limits">What these numbers can't tell you</a></p>
   </div>
-
   <div class="panel">
-    <div class="vh"><span id="vTitle">Voyage</span><span id="vScore"></span></div>
+    <div class="ph"><b id="vTitle">Your 14 days</b><span id="vScore"></span></div>
     <div class="track" id="track"></div>
     <div class="axis" id="axis"></div>
   </div>
-</div></header>
+</div></section>
 
-<main>
-<section class="band lower"><div class="wrap grid">
-  <div>
-    <h2>Your taste</h2>
-    <div class="presets" id="presets"></div>
-    <div class="card">
-      <h3>How much you want each type</h3>
-      <p class="fine">0 means worthless to you, 10 means worth its full V-Bucks price.</p>
-      <div id="types"></div>
+<section class="band more"><div class="wrap">
+  <details class="fold">
+    <summary>Fine-tune</summary>
+    <div class="foldbody grid2">
+      <div>
+        <h3>Quick presets</h3>
+        <div class="presets" id="presets"></div>
+        <label class="field">Favourite words<input id="kw" placeholder="e.g. pirate, One Piece, Miku" autocomplete="off"></label>
+        <div id="boosts"></div>
+        <h3>Expected events</h3>
+        <div id="evw"></div>
+        <label class="tog"><input type="checkbox" id="late"><span>Count days after Dec 15 (unconfirmed)</span></label>
+      </div>
+      <div>
+        <h3>Per item type (0–10)</h3>
+        <div id="types"></div>
+      </div>
     </div>
-    <div class="card">
-      <h3>Favourites</h3>
-      <label class="field">Words to look for in names, sets and artists<input id="kw" placeholder="e.g. pirate, One Piece, Miku" autocomplete="off"></label>
-      <div id="boosts"></div>
+  </details>
+
+  <details class="fold" id="shop">
+    <summary>Today's shop</summary>
+    <div class="foldbody">
+      <p class="hint" id="shopNote"></p>
+      <div class="shopgrid" id="shopgrid"></div>
     </div>
-    <div class="card">
+  </details>
+
+  <details class="fold" id="math">
+    <summary id="mathTitle">The math</summary>
+    <div class="foldbody">
+      <div class="sum" id="sum"></div>
+      <div class="scroll"><table class="tbl stack" id="mtab"><thead><tr><th>What</th><th>Inputs</th><th>Calculation</th><th class="num">V-Bucks</th></tr></thead><tbody></tbody></table></div>
+      <div class="acts"><button class="btn ghost" id="share" type="button">Copy link with my settings</button></div>
+    </div>
+  </details>
+
+  <details class="fold" id="how">
+    <summary>How it works</summary>
+    <div class="foldbody"><div class="formula" id="formula"></div></div>
+  </details>
+
+  <details class="fold" id="limitsec">
+    <summary>Limits</summary>
+    <div class="foldbody">
+      <div class="formula" id="limits"></div>
+    </div>
+  </details>
+
+  <details class="fold" id="sources">
+    <summary>Sources</summary>
+    <div class="foldbody">
+      <div id="health"></div>
+      <h3>Token rules</h3>
+      <div class="scroll"><table class="tbl stack" id="facts"><thead><tr><th>Rule</th><th>Status</th><th>Sources checked</th></tr></thead><tbody></tbody></table></div>
+      <p class="hint" id="statusRules"></p>
       <h3>Expected events</h3>
-      <p class="fine">How interested you are in each. 5 is neutral.</p>
-      <div id="evw"></div>
+      <div class="scroll"><table class="tbl stack" id="evtab"><thead><tr><th>Event</th><th>Dates</th><th>Status</th><th class="num">Extra V-Bucks</th><th>Basis and sources</th></tr></thead><tbody></tbody></table></div>
+      <h3>Last data run</h3>
+      <div class="scroll"><table class="tbl stack" id="fetches"><thead><tr><th>URL</th><th>Result</th><th>Fingerprint</th><th class="num">Time</th></tr></thead><tbody></tbody></table></div>
+      <p class="hint">Raw files: <a href="data/shop.json">shop.json</a> · <a href="data/baseline.json">baseline.json</a> · <a href="data/events.json">events.json</a> · <a href="data/rules.json">rules.json</a> · <a href="data/news.json">news.json</a> · <a href="data/meta.json">meta.json</a>. Code: <a href="https://github.com/piratetokenplanner/pirate-token-planner">GitHub repository</a> (scoring in app.js, shop parsing in shared/normalize.js, daily refresh in scripts/update.mjs).</p>
     </div>
-    <div class="card">
-      <h3>Days you play</h3>
-      <div class="days" id="days"></div>
-      <label class="tog"><input type="checkbox" id="late"><span>Count the days after the deadline when I activate late (reported, not confirmed by Epic)</span></label>
+  </details>
+
+  <details class="fold" id="others">
+    <summary>Similar tools</summary>
+    <div class="foldbody">
+      <ul>
+        <li><a href="https://fortnitepirateshoptoken.org/tools/activation-planner/">fortnitepirateshoptoken.org</a>: wishlist planner</li>
+        <li><a href="https://pirateshoptoken.org/">pirateshoptoken.org</a>: today's shop value</li>
+        <li><a href="https://pirateshoptoken.com/best-time-to-activate-pirate-shop/">pirateshoptoken.com</a>: drop calendar</li>
+      </ul>
     </div>
-  </div>
-
-  <div id="math">
-    <h2 id="mathTitle">The math for this day</h2>
-    <div class="sum" id="sum"></div>
-    <div class="scroll"><table class="tbl stack" id="mtab"><thead><tr><th>What</th><th>Inputs</th><th>Calculation</th><th class="num">V-Bucks</th></tr></thead><tbody></tbody></table></div>
-    <div class="acts">
-      <a class="btn" id="gcal" href="#" target="_blank" rel="noopener">Add reminder to Google Calendar</a>
-      <button class="btn alt" id="copy" type="button">Copy plan</button>
-      <button class="btn alt" id="share" type="button">Copy link with my settings</button>
-    </div>
-    <p class="fine" id="copyMsg"></p>
-  </div>
-</div></section>
-
-<section class="band" id="shop"><div class="wrap">
-  <h2>Today's shop</h2>
-  <p class="fine" id="shopNote"></p>
-  <div class="shopgrid" id="shopgrid"></div>
-</div></section>
-
-<section class="band lower" id="how"><div class="wrap">
-  <h2>How the score is computed</h2>
-  <div class="formula" id="formula"></div>
-</div></section>
-
-<section class="band" id="limitsec"><div class="wrap">
-  <h2 id="limits-h">What this can't tell you</h2>
-  <p class="fine">The recommendation is an estimate built on partial information. Here is everything that could make it wrong, as of the data loaded now.</p>
-  <div class="formula" id="limits"></div>
-</div></section>
-
-<section class="band lower" id="others"><div class="wrap">
-  <h2>Other tools</h2>
-  <p>Other fan sites tackle the same question. Try them if you'd rather tick a wishlist by hand:</p>
-  <ul>
-    <li><a href="https://fortnitepirateshoptoken.org/tools/activation-planner/">fortnitepirateshoptoken.org Activation Planner</a>: you tick items and it ranks start dates by coverage. It cites sources and lists assumptions, but uses a fixed shop snapshot.</li>
-    <li><a href="https://pirateshoptoken.org/">pirateshoptoken.org</a>: today's total free value, with its method explained, plus a countdown and a haul list.</li>
-    <li><a href="https://pirateshoptoken.com/best-time-to-activate-pirate-shop/">pirateshoptoken.com</a>: an activation guide with a date picker and a labelled drop calendar.</li>
-  </ul>
-  <p class="fine">What this page adds: a daily automatic refresh, scoring by type preferences instead of only a wishlist, automatic source checks, and uncertainty ranges. Descriptions checked Nov 14, 2026.</p>
-</div></section>
-
-<section class="band" id="sources"><div class="wrap">
-  <h2>Sources and data</h2>
-  <div id="health"></div>
-  <h3>Token rules</h3>
-  <div class="scroll"><table class="tbl stack" id="facts"><thead><tr><th>Rule</th><th>Status</th><th>Sources checked</th></tr></thead><tbody></tbody></table></div>
-  <p class="fine" id="statusRules"></p>
-  <h3>Expected events</h3>
-  <div class="scroll"><table class="tbl stack" id="evtab"><thead><tr><th>Event</th><th>Dates</th><th>Status</th><th class="num">Extra V-Bucks</th><th>Basis and sources</th></tr></thead><tbody></tbody></table></div>
-  <h3>Last data run</h3>
-  <div class="scroll"><table class="tbl stack" id="fetches"><thead><tr><th>URL</th><th>Result</th><th>Fingerprint</th><th class="num">Time</th></tr></thead><tbody></tbody></table></div>
-  <p class="fine">Raw files: <a href="data/shop.json">shop.json</a> · <a href="data/baseline.json">baseline.json</a> · <a href="data/events.json">events.json</a> · <a href="data/rules.json">rules.json</a> · <a href="data/news.json">news.json</a> · <a href="data/meta.json">meta.json</a>. Code: <a href="app.js">app.js</a> (scoring) · <a href="shared/normalize.js">normalize.js</a> (shop parsing) · <a href="scripts/update.mjs">update.mjs</a> (daily refresh). Shop data from <a href="https://fortnite-api.com">fortnite-api.com</a>, an unofficial fan API. Not affiliated with Epic Games.</p>
+  </details>
 </div></section>
 </main>
+
+<footer class="foot"><div class="wrap">
+  <p><b>Fan-made. No warranty.</b> Not affiliated with Epic Games. Fortnite is a trademark of Epic Games, Inc. Estimates may be wrong: check your token in-game. Use at your own risk.</p>
+  <p>No tracking. Data: <a href="https://fortnite-api.com">fortnite-api.com</a> (unofficial).</p>
+</div></footer>
 <script type="module" src="app.js"></script>
 </body>
 </html>
