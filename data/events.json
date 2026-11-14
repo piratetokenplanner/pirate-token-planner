@@ -16,7 +16,7 @@
     "mustContain": [
      "December 5"
     ],
-    "checkedAt": "2026-11-14T02:51:50.022Z",
+    "checkedAt": "2026-11-14T03:06:46.799Z",
     "reachable": true,
     "found": [
      {
@@ -33,7 +33,7 @@
     "mustContain": [
      "December 5"
     ],
-    "checkedAt": "2026-11-14T02:51:50.152Z",
+    "checkedAt": "2026-11-14T03:06:47.258Z",
     "reachable": true,
     "found": [
      {
@@ -42,7 +42,7 @@
      }
     ],
     "verified": true,
-    "hash": "2365f62664937cca",
+    "hash": "7590a5fe66db412c",
     "changedSinceLastCheck": true
    }
   ],
@@ -66,7 +66,7 @@
     "mustContain": [
      "Chapter 8"
     ],
-    "checkedAt": "2026-11-14T02:51:50.153Z",
+    "checkedAt": "2026-11-14T03:06:47.258Z",
     "reachable": true,
     "found": [
      {
@@ -151,7 +151,7 @@
     "mustContain": [
      "Winterfest"
     ],
-    "checkedAt": "2026-11-14T02:51:50.403Z",
+    "checkedAt": "2026-11-14T03:06:47.626Z",
     "reachable": true,
     "found": [
      {
@@ -168,7 +168,7 @@
     "mustContain": [
      "Winterfest"
     ],
-    "checkedAt": "2026-11-14T02:51:50.515Z",
+    "checkedAt": "2026-11-14T03:06:47.789Z",
     "reachable": true,
     "found": [
      {
