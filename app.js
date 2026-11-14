@@ -198,6 +198,8 @@ function model() {
     }
     const freshDays = freshW.filter(([d]) => d >= s).map(([d]) => d);
     fresh = freshW.reduce((t, [d, sv]) => t + Bday[wdOf(d)] * season(d).f * sv, 0);
+    // split for the explanation: items that arrived before your start and are still there vs new on your days
+    const carry = freshW.filter(([d]) => d < s).reduce((t, [d, sv]) => t + Bday[wdOf(d)] * season(d).f * sv, 0);
     // 3) expected events, scaled by how much of each falls inside your window
     const evRows = events.map(x => {
       const len = x.b - x.a + 1;
@@ -207,7 +209,7 @@ function model() {
       return { x, cov, inside, v: x.full * cov };
     });
     for (const r of evRows) ev += r.v;
-    return { s, W, ok, rows, freshDays, freshW, evRows, shop, fresh, ev, tot: shop + fresh + ev };
+    return { s, W, ok, rows, freshDays, freshW, evRows, shop, fresh, carry, ev, tot: shop + fresh + ev };
   }
   // wishlist: items NOT in today's shop that you want (from "Will it come back?"). Each counts 3x a typical
   // price for its type, times the chance it returns in time to be claimed in your 14 days.
@@ -399,6 +401,37 @@ function shopView(M, cur) {
   }).join('') : '<p class="hint">Nothing matches. Try another word or category.</p>';
 }
 
+// ---------- "Why it works": the planner's own numbers, explained in three pictures ----------
+function howWhy(M) {
+  const all = M.all, top = [...all].sort((a, b) => b.tot - a.tot)[0], first = all[0];
+  const parts = a => [['hkn', 'Already in the shop', a.shop], ['hca', 'Arrived before your start, still there', a.carry], ['hnw', 'New on your 14 days', a.fresh - a.carry], ['hev', 'Events & wishlist', a.ev + (a.wish || 0)]];
+  const mx = Math.max(first.tot, top.tot);
+  const bar = (a, label) => `<div class="hbrow"><span class="hbl">${label}</span><div class="hbar">${parts(a).map(([c, l, v]) => v > 0 ? `<i class="${c}" style="width:${v / mx * 100}%" title="${l}: ${n0(v)} V-Bucks"></i>` : '').join('')}</div><b>${n0(a.tot / 1000)}k</b></div>`;
+  // one shop day vs fourteen: real past days for your taste, and sums of 14 random ones
+  const pool = M.poolVals.flat().filter(v => v >= 0).sort((a, b) => a - b), q = (arr, p) => arr[Math.floor(p * (arr.length - 1))];
+  let r1 = '', r14 = '', spread1 = 0, spread14 = 0;
+  if (pool.length > 20) {
+    const r = rng(7), sums = []; for (let k = 0; k < 400; k++) { let t = 0; for (let j = 0; j < 14; j++) t += pool[Math.floor(r() * pool.length)]; sums.push(t / 14); } sums.sort((a, b) => a - b);
+    const mean = pool.reduce((a, b) => a + b, 0) / pool.length, lo1 = q(pool, .1), hi1 = q(pool, .9), lo14 = q(sums, .1), hi14 = q(sums, .9), mxv = q(pool, .97);
+    spread1 = Math.round((hi1 - lo1) / 2 / mean * 100); spread14 = Math.round((hi14 - lo14) / 2 / mean * 100);
+    const rb = (lo, hi, cls) => `<div class="hrng"><i class="${cls}" style="left:${lo / mxv * 100}%;width:${(hi - lo) / mxv * 100}%"></i><em style="left:${mean / mxv * 100}%"></em></div>`;
+    r1 = rb(lo1, hi1, 'one'); r14 = rb(lo14, hi14, 'two');
+  }
+  const b = D.backtest && (D.backtest.tastes.Balanced || Object.values(D.backtest.tastes)[0]);
+  const tests = b ? [['This planner', b.regretNew, 'us'], ['Always day 1', b.regretDay1, 'd1'], ['Old version', b.regretOld, 'old']] : [['This planner', .061, 'us'], ['Always day 1', .091, 'd1'], ['Old version', .093, 'old']];
+  const tmx = Math.max(...tests.map(t => t[1]));
+  $('howWhy').innerHTML = `
+    <div class="hwcard"><h3>Your numbers, step by step</h3><p>The shop is a conveyor belt. Your 14 days are the time you stand next to it: everything that passes is free.</p>
+      ${bar(first, first.s === 0 ? 'Start today' : 'Start ' + fmt(first.s))}${top.s !== first.s ? bar(top, 'Start ' + fmt(top.s, { weekday: 'short', day: 'numeric', month: 'short' }) + ' <em>X</em>') : ''}
+      <div class="hleg"><span><i class="hkn"></i>Already in the shop (known)</span><span><i class="hca"></i>Arrived before, still there</span><span><i class="hnw"></i>New on your days</span><span><i class="hev"></i>Events &amp; wishlist</span></div>
+      <p class="hsmall">${top.s === first.s ? 'Starting today wins: today\'s shop is worth more than what the next days usually bring.' : `Starting later gives up most of today's shop, but gains new days at the end. ${(d => d < .03 ? 'The difference is tiny: a close race.' : d < .08 ? `Here that gains about ${Math.round(d * 100)}%: a modest edge, not a sure thing.` : `Here that gains about ${Math.round(d * 100)}%.`)(Math.abs(top.tot - first.tot) / top.tot)}`}</p></div>
+    <div class="hwcard"><h3>Why an average is enough</h3><p>One shop day is a lottery. Fourteen days added together are steady, because good and bad days cancel out.</p>
+      ${r1 ? `<div class="hrrow"><span>1 day</span>${r1}<b>±${spread1}%</b></div><div class="hrrow"><span>14 days</span>${r14}<b>±${spread14}%</b></div><p class="hsmall">Bars: 8 of 10 real past days (top) vs. 8 of 10 random 14-day mixes (bottom). The line is the average.</p>` : ''}</div>
+    <div class="hwcard"><h3>Tested on real shops</h3><p>We replayed the planner on ${b ? b.origins : 106} past days, using only what it knew then, and checked which start day really was best.</p>
+      ${tests.map(([l, v, c]) => `<div class="htrow"><span>${l}</span><div class="htbar"><i class="${c}" style="width:${v / tmx * 100}%"></i></div><b>−${(v * 100).toFixed(1)}%</b></div>`).join('')}
+      <p class="hsmall">Loot lost compared with the day that turned out best. Lower is better. It can't see surprise collabs, but it picks better than guessing.</p></div>`;
+}
+
 // ---------- "How it works": a treasure map plus a tiny dice game ----------
 function howUI() {
   const dlg = $('howDlg'); if (!dlg) return; let cols = [], rolling = 0;
@@ -408,7 +441,7 @@ function howUI() {
     const others = [...M.all].filter(a => a !== top && a.pBest > 0).sort((a, b) => b.pBest - a.pBest).slice(0, 3);
     const rest = Math.max(0, 1 - top.pBest - others.reduce((s, a) => s + a.pBest, 0));
     cols = [{ s: top.s, p: top.pBest, best: 1 }, ...others.map(a => ({ s: a.s, p: a.pBest })), ...(rest > .005 ? [{ p: rest }] : [])];
-    $('howN').textContent = M.U.runs;
+    $('howN').textContent = M.U.runs; howWhy(M);
     $('howEx').textContent = $('howEx2').textContent = Math.round(top.pNear * 100);
     $('howCols').innerHTML = cols.map((c, i) => `<div class="hcol${c.best ? ' best' : ''}" data-i="${i}"><div class="hstack"></div><b>0</b><span>${c.s == null ? 'Other days' : fmt(c.s, { weekday: 'short', day: 'numeric' })}${c.best ? ' <em>X</em>' : ''}</span></div>`).join('');
     $('howMsg').textContent = 'Each coin is one pretend future. It lands on the start day that won it.';
