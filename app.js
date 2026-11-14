@@ -219,7 +219,7 @@ function render(recompute = true) {
   const bestRow = all.find(a => a.s === best), missed = bestRow.rows.filter(r => r.x.must && !r.hit);
   const mustN = M.items.filter(x => x.must).length;
   if (mustN) $('vSure').innerHTML += missed.length ? `<br><span class="warn">Misses must-have: ${missed.map(r => esc(r.x.e.name)).join(', ')}</span>` : `<br><span class="good">Gets all ${mustN} must-have${mustN > 1 ? 's' : ''}</span>`;
-  $('alts').innerHTML = '<small>Close calls:</small>' + rank.slice(1, 4).map(a => `<button class="chip" data-s="${a.s}">${fmtL(a.s)} · ${pct(a.tot)}%</button>`).join('');
+  $('alts').innerHTML = '<small>Close calls:</small>' + rank.slice(1, 4).map(a => `<button class="chip" data-s="${a.s}">${fmtL(a.s)} · ${(a.tot / rank[0].tot * 100).toFixed(1)}%</button>`).join('');
 
   // voyage
   const H = M.startMax + dur + 1, tp = i => Math.max(0, Math.min(100, i / H * 100));
@@ -812,16 +812,28 @@ async function init() {
   if ('serviceWorker' in navigator && location.protocol === 'https:') navigator.serviceWorker.register('sw.js').catch(() => {});
   addEventListener('beforeinstallprompt', e => { e.preventDefault(); const b = $('installBtn'); b.hidden = false; b.onclick = async () => { b.hidden = true; e.prompt(); }; });
   sharedBanner(); controls(); bind(); render(); sources(); cardUI(); compareUI(); crew();
-  // scroll drives the scene: the title floats away, the surface scrolls off and we dive towards the seabed
-  const root = document.documentElement; let ticking = false;
+  // scroll drives the scene: the title floats away, the surface scrolls off and we dive towards the seabed.
+  // The values are set only on the scene and the title (not the whole page), so the browser restyles just those.
+  const root = document.documentElement, sceneEl = document.querySelector('.scene'), heroEl = document.querySelector('.hero');
+  const still = matchMedia('(prefers-reduced-motion: reduce)').matches;
+  let ticking = false, lastP = -1, lastSurf = null;
   const scene = () => {
-    const max = root.scrollHeight - innerHeight;
-    root.style.setProperty('--p', max > 0 ? Math.min(1, scrollY / max).toFixed(4) : 0);
-    root.style.setProperty('--h', Math.min(1, scrollY / (innerHeight * 0.45)).toFixed(4));
-    root.style.setProperty('--sy', Math.round(scrollY));
     ticking = false;
+    const max = root.scrollHeight - innerHeight, y = scrollY;
+    const p = max > 0 ? Math.min(1, y / max) : 0, h = Math.min(1, y / (innerHeight * 0.45));
+    if (!still && Math.abs(p - lastP) > 0.0005) {
+      lastP = p;
+      sceneEl.style.setProperty('--p', p.toFixed(4)); sceneEl.style.setProperty('--h', h.toFixed(3)); sceneEl.style.setProperty('--sy', Math.round(y));
+      heroEl.style.setProperty('--h', h.toFixed(3));
+    }
+    // the surface (waves, ship, clouds) stops animating once it has scrolled out of view
+    const surf = y < innerHeight * 1.1;
+    if (surf !== lastSurf) { lastSurf = surf; sceneEl.classList.toggle('below', !surf); }
+    heroEl.classList.toggle('gone', h >= 1);
   };
   addEventListener('scroll', () => { if (!ticking) { ticking = true; requestAnimationFrame(scene); } }, { passive: true });
+  // pause every scene animation while the tab is hidden
+  document.addEventListener('visibilitychange', () => sceneEl.classList.toggle('paused', document.hidden));
   addEventListener('resize', scene); scene();
   // the scene follows the visitor's real clock: dawn, day, dusk or night, with the sun on its arc
   const daytime = () => {

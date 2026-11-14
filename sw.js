@@ -1,7 +1,7 @@
 // Offline support: always try the network first (so updates show up right away),
 // fall back to the last copy when offline. Bump VERSION to drop old caches.
-const VERSION = 'ptp-3';
-const SHELL = ['./', 'index.html', 'style.css', 'app.js', 'shared/normalize.js', 'vendor/qrcode.js', 'manifest.webmanifest', 'icons/icon-192.png', 'icons/token.svg',
+const VERSION = 'ptp-4';
+const SHELL = ['./', 'index.html', 'style.css', 'app.js', 'shared/normalize.js', 'vendor/qrcode.js', 'manifest.webmanifest', 'icons/icon-192.png', 'icons/token.svg', 'fonts/anton-latin-400-normal.woff2', 'fonts/nunito-latin-800-normal.woff2', 'fonts/nunito-latin-400-normal.woff2',
   'data/shop.json', 'data/baseline.json', 'data/events.json', 'data/rules.json', 'data/meta.json'];
 self.addEventListener('install', e => { e.waitUntil(caches.open(VERSION).then(c => c.addAll(SHELL)).then(() => self.skipWaiting())); });
 self.addEventListener('activate', e => { e.waitUntil(caches.keys().then(ks => Promise.all(ks.filter(k => k !== VERSION).map(k => caches.delete(k)))).then(() => self.clients.claim())); });

@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Fortnite Pirate Shop Token Planner</title>
+<title>Fortnite Pirate Shop Token Planner: best day to activate (fan-made)</title>
 <meta name="description" content="Fan-made Fortnite helper: pick the best day to activate Fortnite Pirate Shop Access, based on the live Item Shop and what you like.">
 <meta name="theme-color" content="#2160d8">
 <link rel="manifest" href="manifest.webmanifest">
@@ -16,8 +16,10 @@
 <meta property="og:image" content="https://piratetokenplanner.github.io/pirate-token-planner/og.png">
 <meta property="og:image:width" content="1200"><meta property="og:image:height" content="630">
 <meta name="twitter:card" content="summary_large_image">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Anton&family=Luckiest+Guy&family=Nunito:wght@400;600;800;900&display=swap" rel="stylesheet">
+<link rel="preload" href="fonts/anton-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="fonts/nunito-latin-800-normal.woff2" as="font" type="font/woff2" crossorigin>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"WebApplication","name":"Fortnite Pirate Shop Token Planner","url":"https://piratetokenplanner.github.io/pirate-token-planner/","applicationCategory":"GameApplication","operatingSystem":"Any","offers":{"@type":"Offer","price":"0","priceCurrency":"EUR"},"description":"Fan-made, free tool that finds the best day to activate Fortnite Pirate Shop Access (14 days of free Item Shop), from the live shop and your own taste. Not affiliated with Epic Games."}</script>
+<link rel="canonical" href="https://piratetokenplanner.github.io/pirate-token-planner/">
 <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -58,7 +60,7 @@
   </div>
   <div class="sea">
     <div class="wave w1" aria-hidden="true"></div>
-    <svg class="ship" viewBox="0 0 360 300">
+    <div class="shipwrap"><svg class="ship" viewBox="0 0 360 300">
       <defs>
         <linearGradient id="hull" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#a0522d"/><stop offset="1" stop-color="#4f240e"/></linearGradient>
         <linearGradient id="sail" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#fffdf4"/><stop offset="1" stop-color="#e3d4b2"/></linearGradient>
@@ -131,7 +133,7 @@
         <!-- anchor -->
         <g stroke="#2a3a3c" stroke-width="3" fill="none" stroke-linecap="round"><path d="M44 202 L36 236"/><path d="M28 230 Q36 246 44 238"/><circle cx="44" cy="200" r="3"/></g>
       </g>
-    </svg>
+    </svg></div>
     <svg class="fish" viewBox="0 0 40 20" aria-hidden="true"><path d="M2 10 Q14 0 28 10 Q14 20 2 10 Z" fill="#ffb347"/><path d="M27 10 L38 3 L36 10 L38 17 Z" fill="#ff8c42"/><circle cx="9" cy="8.5" r="1.6" fill="#1b1b1b"/></svg>
     <div class="wave w2" aria-hidden="true"></div>
     <div class="wave w3" aria-hidden="true"></div>
@@ -148,7 +150,7 @@
       <span id="crewTxt"></span>
     </div>
     <div class="brand">
-      <svg class="coin" viewBox="0 0 120 120" aria-hidden="true"><g class="spin"><defs>
+      <div class="coinwrap"><svg class="coin" viewBox="0 0 120 120" aria-hidden="true"><g class="spin"><defs>
  <radialGradient id="hkG" cx="35%" cy="28%" r="80%"><stop offset="0" stop-color="#fff6c2"/><stop offset=".4" stop-color="#ffcf3f"/><stop offset="1" stop-color="#b87800"/></radialGradient>
  <linearGradient id="hkH" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#ffd65c"/><stop offset="1" stop-color="#a86a00"/></linearGradient>
  <radialGradient id="hkE" cx="40%" cy="30%" r="80%"><stop offset="0" stop-color="#4f8ff7"/><stop offset=".6" stop-color="#1c4fc0"/><stop offset="1" stop-color="#0b2466"/></radialGradient>
@@ -170,7 +172,7 @@
  </g>
  <path d="M0 -27 l2.8 5.8 6.3 .9 -4.6 4.4 1.1 6.3 -5.6 -3 -5.6 3 1.1 -6.3 -4.6 -4.4 6.3 -.9z" fill="#ffcf3f" stroke="#7a4d00" stroke-width=".8"/>
  <path d="M-36 -18 Q-26 -36 -6 -41" stroke="#fff" stroke-width="3.5" stroke-linecap="round" fill="none" opacity=".75"/>
-</g></g></svg>
+</g></g></svg></div>
       <div>
         <h1>When should you use your Pirate Token?</h1>
       </div>
@@ -236,7 +238,7 @@
       <div class="sure" id="vSure"></div>
       <div class="acts">
         <span class="calwrap"><button class="btn gold" id="calBtn" type="button" aria-haspopup="true" aria-expanded="false">Add to my calendar</button><span class="calmenu" id="calMenu" role="menu" hidden></span></span>
-        <button class="btn ghost" id="share" type="button">Share my pirate card</button>
+        <button class="btn gold sharebtn" id="share" type="button">Share my pirate card</button>
         <button class="btn ghost" id="actBtn" type="button">I've activated</button>
       </div>
       <form class="actform" id="actForm" hidden>
