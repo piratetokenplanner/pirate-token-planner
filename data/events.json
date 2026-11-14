@@ -16,7 +16,7 @@
     "mustContain": [
      "December 5"
     ],
-    "checkedAt": "2026-11-14T21:51:41.274Z",
+    "checkedAt": "2026-11-14T22:23:22.944Z",
     "reachable": true,
     "found": [
      {
@@ -33,7 +33,7 @@
     "mustContain": [
      "December 5"
     ],
-    "checkedAt": "2026-11-14T21:51:41.546Z",
+    "checkedAt": "2026-11-14T22:23:23.307Z",
     "reachable": true,
     "found": [
      {
@@ -42,7 +42,7 @@
      }
     ],
     "verified": true,
-    "hash": "898dc23d2a1ae6f7",
+    "hash": "a4d7d8f130e1dc4c",
     "changedSinceLastCheck": true
    }
   ],
@@ -66,7 +66,7 @@
     "mustContain": [
      "Chapter 8"
     ],
-    "checkedAt": "2026-11-14T21:51:41.546Z",
+    "checkedAt": "2026-11-14T22:23:23.308Z",
     "reachable": true,
     "found": [
      {
@@ -208,7 +208,7 @@
     "mustContain": [
      "Winterfest"
     ],
-    "checkedAt": "2026-11-14T21:51:41.674Z",
+    "checkedAt": "2026-11-14T22:23:23.702Z",
     "reachable": true,
     "found": [
      {
@@ -225,7 +225,7 @@
     "mustContain": [
      "Winterfest"
     ],
-    "checkedAt": "2026-11-14T21:51:41.871Z",
+    "checkedAt": "2026-11-14T22:23:24.076Z",
     "reachable": true,
     "found": [
      {
@@ -273,7 +273,7 @@
   "fromNews": {
    "title": "Cursed Sprite Variants - November 14",
    "body": "Beware the cursed tide from 2-4 PM ET and 9-11 PM ET! Drop in with Lil Uzi Vert's Lil' SMG and a Self Revive, and track down more Cursed Sprite variants across the Island.",
-   "fetchedAt": "2026-11-14T21:51:41.141Z"
+   "fetchedAt": "2026-11-14T22:23:22.669Z"
   },
   "fromHistory": {
    "byKind": {
