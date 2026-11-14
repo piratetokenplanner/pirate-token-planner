@@ -40,12 +40,40 @@ async function fetchOnce(url, fixtureName) {
   }
 }
 
+// The shop response carries no shopHistory, so look items up in batches on the cosmetics endpoint.
+// gap = days since the item was last sold before this appearance; 'first' = never sold before.
+async function addShopHistory(shop) {
+  const ids = [...new Set(shop.entries.flatMap(e => e.items.filter(i => i.type !== 'jamtrack').map(i => i.id)))];
+  const hist = {};
+  for (let k = 0; k < ids.length; k += 50) {
+    const url = 'https://fortnite-api.com/v2/cosmetics/br/search/ids?' + ids.slice(k, k + 50).map(i => 'id=' + encodeURIComponent(i)).join('&');
+    const t = await get(url, 'cosmetics' + k / 50);
+    if (!t) continue;
+    for (const c of JSON.parse(t).data || []) hist[c.id.toLowerCase()] = c.shopHistory || [];
+  }
+  shop.historyLookup = { requested: ids.length, found: Object.keys(hist).length };
+  for (const e of shop.entries) {
+    let gap = null;
+    const cur = Date.parse(e.inDate || shop.shopDate);
+    for (const i of e.items) {
+      const h = hist[String(i.id).toLowerCase()];
+      if (!h) continue;
+      i.appearances = h.length;
+      const before = h.map(Date.parse).filter(t => t < cur - DAY);
+      const g = before.length ? Math.round((cur - Math.max(...before)) / DAY) : 'first';
+      gap = gap === null ? g : g === 'first' ? gap : gap === 'first' ? g : Math.min(gap, g);
+    }
+    e.gap = gap;
+  }
+}
+
 // ---- 1. Item Shop -------------------------------------------------------
 const prevShop = await readJSON('data/shop.json');
 const shopText = await get(SHOP_URL, 'shop');
 let shop = prevShop;
 if (shopText) {
   shop = normalizeShop(JSON.parse(shopText));
+  await addShopHistory(shop);
   shop.fetchedAt = new Date().toISOString();
   shop.source = SHOP_URL;
   await write('data/shop.json', shop);

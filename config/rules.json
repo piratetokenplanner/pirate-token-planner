@@ -85,8 +85,9 @@
     {
      "url": "https://www.gamesradar.com/games/fortnite/fortnite-pirate-shop-token/",
      "mustContain": [
-      "gift",
-      "Battle Pass"
+      "passes levels",
+      "gifting",
+      "real money bundles"
      ]
     }
    ]

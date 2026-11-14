@@ -17,8 +17,8 @@ const fmt = (i, o = { day: 'numeric', month: 'short' }) => dt(i).toLocaleDateStr
 const fmtL = i => fmt(i, { weekday: 'short', day: 'numeric', month: 'short' });
 const resetLocal = new Date(T0).toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
 
-const KINDS = { outfit: 'Outfits', bundle: 'Bundles', emote: 'Emotes', pickaxe: 'Pickaxes', glider: 'Gliders', backpack: 'Back blings', wrap: 'Wraps', sidekick: 'Sidekicks', jamtrack: 'Jam Tracks', music: 'Lobby music', kicks: 'Kicks', car: 'Cars', lego: 'LEGO kits', instrument: 'Instruments', other: 'Everything else' };
-const base = { outfit: 10, bundle: 10, emote: 6, pickaxe: 5, glider: 5, backpack: 3, wrap: 2, sidekick: 6, jamtrack: 4, music: 2, kicks: 3, car: 3, lego: 2, instrument: 3, other: 2 };
+const KINDS = { outfit: 'Outfits', bundle: 'Bundles', emote: 'Emotes', pickaxe: 'Pickaxes', glider: 'Gliders', backpack: 'Back blings', wrap: 'Wraps', sidekick: 'Sidekicks', jamtrack: 'Jam Tracks', music: 'Lobby music', kicks: 'Kicks', car: 'Cars', contrail: 'Contrails', loadingscreen: 'Loading screens', lego: 'LEGO kits', instrument: 'Instruments', other: 'Everything else' };
+const base = { outfit: 10, bundle: 10, emote: 6, pickaxe: 5, glider: 5, backpack: 3, wrap: 2, sidekick: 6, jamtrack: 1, contrail: 1, loadingscreen: 0, music: 2, kicks: 3, car: 3, lego: 2, instrument: 3, other: 2 };
 const PRESETS = {
   'Balanced': { ...base },
   'Skins only': Object.fromEntries(Object.keys(base).map(k => [k, k === 'outfit' || k === 'bundle' ? 10 : 0])),

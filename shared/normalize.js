@@ -22,6 +22,8 @@ export function kindOf(entry) {
     if (t === 'sidekick' || t === 'pet' || t === 'petcarrier') return 'sidekick';
     if (t === 'music') return 'music';
     if (t === 'shoe' || t === 'shoes' || t === 'kicks') return 'kicks';
+    if (t === 'contrail') return 'contrail';
+    if (t === 'loadingscreen') return 'loadingscreen';
     return 'other';
   }
   if ((entry.tracks || []).length) return 'jamtrack';
