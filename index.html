@@ -3,50 +3,102 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Pirate Token Planner</title>
-<meta name="description" content="Fan-made helper: pick the best day to activate Fortnite Pirate Shop Access, based on the live Item Shop and what you like.">
+<title>Fortnite Pirate Shop Token Planner</title>
+<meta name="description" content="Fan-made Fortnite helper: pick the best day to activate Fortnite Pirate Shop Access, based on the live Item Shop and what you like.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Luckiest+Guy&family=Nunito:wght@400;600;800;900&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="style.css">
 </head>
 <body>
 <header class="hero">
-  <div class="wrap herogrid">
-    <div>
-      <p class="fanmade">Fan-made · not by Epic Games</p>
-      <h1>Pick your plunder day</h1>
-      <p class="lede">14 days of free shop. When should yours start?</p>
-      <p class="fresh" id="fresh">Loading today's shop…</p>
+  <div class="sky" aria-hidden="true">
+    <div class="sun"></div>
+    <svg class="cloud c1" viewBox="0 0 200 70"><path d="M20 60 Q0 60 6 44 Q12 30 30 34 Q36 12 62 16 Q78 0 100 12 Q122 4 132 24 Q160 18 166 40 Q190 40 186 60 Z"/></svg>
+    <svg class="cloud c2" viewBox="0 0 200 70"><path d="M20 60 Q0 60 6 44 Q12 30 30 34 Q36 12 62 16 Q78 0 100 12 Q122 4 132 24 Q160 18 166 40 Q190 40 186 60 Z"/></svg>
+    <svg class="cloud c3" viewBox="0 0 200 70"><path d="M20 60 Q0 60 6 44 Q12 30 30 34 Q36 12 62 16 Q78 0 100 12 Q122 4 132 24 Q160 18 166 40 Q190 40 186 60 Z"/></svg>
+    <svg class="gulls" viewBox="0 0 120 50"><path class="g g1" d="M10 30 q8 -10 16 0 q8 -10 16 0"/><path class="g g2" d="M60 14 q6 -8 12 0 q6 -8 12 0"/><path class="g g3" d="M92 34 q5 -6 10 0 q5 -6 10 0"/></svg>
+  </div>
+
+  <div class="wrap herotext">
+    <p class="fanmade"><b>Fortnite</b> · Pirate Shop Token · fan-made</p>
+    <div class="brand">
+      <svg class="coin" viewBox="0 0 120 120" aria-hidden="true">
+        <defs>
+          <radialGradient id="cg" cx="38%" cy="32%" r="75%"><stop offset="0" stop-color="#fff2a8"/><stop offset=".45" stop-color="#ffc83d"/><stop offset="1" stop-color="#c98a00"/></radialGradient>
+          <path id="ring" d="M60 60 m-38 0 a38 38 0 1 1 76 0 a38 38 0 1 1 -76 0"/>
+        </defs>
+        <g class="spin">
+          <circle cx="60" cy="62" r="56" fill="#8a5a00"/>
+          <circle cx="60" cy="58" r="56" fill="url(#cg)"/>
+          <circle cx="60" cy="58" r="47" fill="none" stroke="#b07c00" stroke-width="3" stroke-dasharray="2 5"/>
+          <circle cx="60" cy="58" r="30" fill="#ffd65c" stroke="#b07c00" stroke-width="3"/>
+          <g stroke="#6b4300" stroke-width="6" stroke-linecap="round"><path d="M46 44 L74 72"/><path d="M74 44 L46 72"/></g>
+          <g fill="#6b4300"><circle cx="45" cy="43" r="4"/><circle cx="75" cy="43" r="4"/></g>
+          <text font-family="Luckiest Guy, Impact" font-size="11" fill="#6b4300" letter-spacing="1.5"><textPath href="#ring" startOffset="4%">PIRATE SHOP · 14 DAYS · PIRATE SHOP · 14 DAYS ·</textPath></text>
+          <path class="shine" d="M24 40 Q40 14 70 10" stroke="#fff" stroke-width="5" stroke-linecap="round" fill="none" opacity=".7"/>
+        </g>
+      </svg>
+      <div>
+        <h1>When should you use your Pirate Token?</h1>
+      </div>
     </div>
-    <svg class="ship" viewBox="0 0 320 240" aria-hidden="true">
+    <p class="lede">Pirate Shop Access = 14 days of free Item Shop. We find your best start day.</p>
+    <p class="fresh" id="fresh">Loading today's shop…</p>
+  </div>
+
+  <div class="sea" aria-hidden="false">
+    <div class="wave w1" aria-hidden="true"></div>
+    <svg class="ship" viewBox="0 0 360 300" aria-hidden="false">
       <defs>
-        <linearGradient id="hull" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#a0522d"/><stop offset="1" stop-color="#5c2c12"/></linearGradient>
-        <linearGradient id="sail" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#fffdf4"/><stop offset="1" stop-color="#e8dcc0"/></linearGradient>
+        <linearGradient id="hull" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#a0522d"/><stop offset="1" stop-color="#4f240e"/></linearGradient>
+        <linearGradient id="sail" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#fffdf4"/><stop offset="1" stop-color="#e3d4b2"/></linearGradient>
+        <linearGradient id="deck" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#c47a3a"/><stop offset="1" stop-color="#8a4a1f"/></linearGradient>
       </defs>
       <g class="bob">
-        <rect x="156" y="30" width="7" height="140" rx="3" fill="#4a2410"/>
-        <path d="M165 40 Q228 70 222 128 L165 128 Z" fill="url(#sail)"/>
-        <path d="M154 56 Q104 84 110 132 L154 132 Z" fill="url(#sail)"/>
-        <path d="M163 30 L203 38 L163 48 Z" fill="#ff6b57"/>
-        <text x="189" y="104" text-anchor="middle" font-family="Luckiest Guy, Impact" font-size="40" fill="#ffc83d" stroke="#b07c00" stroke-width="2">X</text>
-        <g class="pirate" id="pirate" role="button" tabindex="0" aria-label="A sleepy pirate">
-          <ellipse cx="226" cy="150" rx="15" ry="13" fill="#3b6cb7"/>
-          <circle cx="226" cy="132" r="12" fill="#f2c7a0"/>
-          <path class="lids" d="M219 132 q3 3 6 0 M228 132 q3 3 6 0" stroke="#3a1a08" stroke-width="2" fill="none" stroke-linecap="round"/>
-          <g class="eyes" opacity="0"><circle cx="222" cy="131" r="2" fill="#3a1a08"/><circle cx="231" cy="131" r="2" fill="#3a1a08"/></g>
-          <path d="M214 127 Q222 104 246 112 Q238 116 236 126 Z" fill="#ff6b57"/>
-          <path d="M213 128 Q226 122 239 128" stroke="#fff" stroke-width="4" fill="none" stroke-linecap="round"/>
-          <circle cx="248" cy="113" r="5" fill="#fff"/>
-          <g class="zzz" font-family="Luckiest Guy, Impact" fill="#fff"><text x="250" y="100" font-size="14">z</text><text x="260" y="86" font-size="18">z</text><text x="272" y="70" font-size="22">Z</text></g>
-          <text class="arr" x="246" y="100" font-family="Luckiest Guy, Impact" font-size="18" fill="#ffc83d" opacity="0">Arr?</text>
+        <!-- rigging -->
+        <g stroke="#3a1a08" stroke-width="1.4" opacity=".7" fill="none">
+          <path d="M178 22 L62 196"/><path d="M178 22 L300 196"/><path d="M178 60 L96 196"/><path d="M178 60 L268 196"/>
         </g>
-        <path d="M60 160 L262 160 Q250 200 214 206 L104 206 Q72 200 60 160 Z" fill="url(#hull)"/>
-        <path d="M60 160 L262 160 L258 170 L64 170 Z" fill="#ffc83d"/>
-        <circle cx="110" cy="186" r="6" fill="#3a1a08"/><circle cx="160" cy="188" r="6" fill="#3a1a08"/><circle cx="210" cy="186" r="6" fill="#3a1a08"/>
+        <!-- mast, yard and crow's nest -->
+        <rect x="174" y="20" width="8" height="182" rx="3" fill="#4a2410"/>
+        <rect x="120" y="76" width="118" height="6" rx="3" fill="#5c2c12"/>
+        <path d="M164 46 h28 l-4 12 h-20 Z" fill="#7a3b17"/><rect x="164" y="44" width="28" height="4" rx="2" fill="#c47a3a"/>
+        <!-- flag -->
+        <path class="flag" d="M182 18 Q204 14 226 22 Q206 26 226 34 Q204 30 182 34 Z" fill="#1d2b2d"/>
+        <text x="204" y="31" text-anchor="middle" font-family="Luckiest Guy, Impact" font-size="12" fill="#ffc83d">X</text>
+        <!-- sails -->
+        <path d="M126 82 Q178 92 232 82 Q244 128 232 170 Q178 178 126 170 Q114 128 126 82 Z" fill="url(#sail)"/>
+        <path d="M128 110 Q178 118 230 110 M126 140 Q178 148 232 140" stroke="#d8c7a0" stroke-width="1.2" fill="none"/>
+        <text x="179" y="142" text-anchor="middle" font-family="Luckiest Guy, Impact" font-size="44" fill="#ffc83d" stroke="#b07c00" stroke-width="2">X</text>
+        <path d="M244 92 L304 190 L244 190 Z" fill="url(#sail)"/>
+        <path d="M246 140 L276 140" stroke="#d8c7a0" stroke-width="1.2"/>
+        <!-- pirate (easter egg) -->
+        <g class="pirate" id="pirate" role="button" tabindex="0" aria-label="A sleepy pirate">
+          <ellipse cx="96" cy="190" rx="14" ry="12" fill="#3b6cb7"/>
+          <circle cx="96" cy="172" r="11" fill="#f2c7a0"/>
+          <path class="lids" d="M89 172 q3 3 6 0 M98 172 q3 3 6 0" stroke="#3a1a08" stroke-width="2" fill="none" stroke-linecap="round"/>
+          <g class="eyes" opacity="0"><circle cx="92" cy="171" r="2" fill="#3a1a08"/><circle cx="101" cy="171" r="2" fill="#3a1a08"/></g>
+          <path d="M84 168 Q92 146 116 152 Q108 156 106 166 Z" fill="#ff6b57"/>
+          <path d="M84 169 Q96 163 108 169" stroke="#fff" stroke-width="4" fill="none" stroke-linecap="round"/>
+          <circle cx="118" cy="153" r="5" fill="#fff"/>
+          <g class="zzz" font-family="Luckiest Guy, Impact" fill="#fff"><text x="66" y="150" font-size="13">z</text><text x="54" y="134" font-size="17">z</text><text x="40" y="116" font-size="21">Z</text></g>
+          <text class="arr" x="44" y="146" font-family="Luckiest Guy, Impact" font-size="18" fill="#ffc83d" opacity="0">Arr?</text>
+        </g>
+        <!-- hull -->
+        <path d="M40 196 L322 196 Q314 250 268 260 L98 260 Q52 250 40 196 Z" fill="url(#hull)"/>
+        <path d="M48 216 Q180 222 316 216 M58 236 Q180 242 304 236" stroke="#3a1a08" stroke-width="1.4" opacity=".5" fill="none"/>
+        <path d="M36 190 L326 190 L322 202 L40 202 Z" fill="#ffc83d"/>
+        <path d="M36 190 L326 190" stroke="#fff3c4" stroke-width="2"/>
+        <path d="M274 160 L322 160 L326 190 L270 190 Z" fill="url(#deck)"/>
+        <rect x="286" y="168" width="12" height="12" rx="2" fill="#ffe08a" class="lamp"/><rect x="304" y="168" width="10" height="12" rx="2" fill="#ffe08a" class="lamp"/>
+        <g fill="#2a1206"><circle cx="110" cy="226" r="7"/><circle cx="160" cy="229" r="7"/><circle cx="210" cy="229" r="7"/><circle cx="260" cy="226" r="7"/></g>
+        <g fill="#ffffff55"><circle cx="108" cy="224" r="2"/><circle cx="158" cy="227" r="2"/><circle cx="208" cy="227" r="2"/><circle cx="258" cy="224" r="2"/></g>
+        <!-- anchor -->
+        <g stroke="#2a3a3c" stroke-width="3" fill="none" stroke-linecap="round"><path d="M44 202 L36 236"/><path d="M28 230 Q36 246 44 238"/><circle cx="44" cy="200" r="3"/></g>
       </g>
-      <path d="M0 210 Q20 198 40 210 T80 210 T120 210 T160 210 T200 210 T240 210 T280 210 T320 210 V240 H0 Z" fill="#7fd8d0" opacity=".9"/>
-      <path d="M0 222 Q25 212 50 222 T100 222 T150 222 T200 222 T250 222 T300 222 T350 222 V240 H0 Z" fill="#2ea39d"/>
     </svg>
+    <div class="wave w2" aria-hidden="true"></div>
+    <div class="wave w3" aria-hidden="true"></div>
   </div>
 </header>
 
@@ -123,6 +175,7 @@
     <div class="foldbody">
       <p class="hint" id="shopNote"></p>
       <div class="shopgrid" id="shopgrid"></div>
+      <div class="acts"><button class="btn ghost" id="shopMore" type="button" hidden>Show all</button></div>
     </div>
   </details>
 

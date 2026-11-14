@@ -51,13 +51,13 @@ async function addShopHistory(shop) {
     if (!t) continue;
     for (const c of JSON.parse(t).data || []) hist[c.id.toLowerCase()] = c.shopHistory || [];
   }
-  shop.historyLookup = { requested: ids.length, found: Object.keys(hist).length };
+  shop.historyLookup = { requested: ids.length, found: Object.keys(hist).length, withHistory: Object.values(hist).filter(h => h.length).length };
   for (const e of shop.entries) {
     let gap = null;
     const cur = Date.parse(e.inDate || shop.shopDate);
     for (const i of e.items) {
       const h = hist[String(i.id).toLowerCase()];
-      if (!h) continue;
+      if (!h || !h.length) continue; // empty history = unknown, not 'first time'
       i.appearances = h.length;
       const before = h.map(Date.parse).filter(t => t < cur - DAY);
       const g = before.length ? Math.round((cur - Math.max(...before)) / DAY) : 'first';

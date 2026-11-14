@@ -183,7 +183,7 @@ function render() {
   $('vScore').textContent = `${n0(cur.tot)} V-Bucks` + (sel !== best ? ` (${pct(cur.tot)}% of best)` : '');
   $('track').innerHTML = `<div class="win" style="left:${tp(sel)}%;width:${tp(dur)}%"></div><div class="dl" style="left:${tp(deadIdx)}%"><b>Deadline</b></div>` +
     `<div class="row">${Object.entries(leave).map(([d, xs]) => `<span class="tick ${d > sel ? '' : 'out'}" style="left:${tp(+d)}%" title="${xs.length} wanted items leave ${fmt(+d)}">${xs.length}</span>`).join('')}</div>` +
-    D.events.map(e => { const a = idx(e.from), b = idx(e.to), r = cur.evRows.find(r => r.x.e.id === e.id); return `<div class="row"><div class="ev ${r && r.v > 0 ? 'in' : 'out'}" style="left:${tp(a)}%;width:max(${tp(b - a + 1)}%,28px);background:${e.extraVbucks ? '#7fe3c6' : '#cfe3ff'}" title="${esc(e.name)}">${esc(e.name)}</div></div>`; }).join('');
+    D.events.map(e => { const a = idx(e.from), b = idx(e.to), r = cur.evRows.find(r => r.x.e.id === e.id); return `<div class="row"><div class="ev ${r && r.v > 0 ? 'in' : 'out'}" style="left:${tp(a)}%;width:max(${Math.min(tp(b - a + 1), 100 - tp(a))}%,28px);background:${e.extraVbucks ? '#7fe3c6' : '#cfe3ff'}" title="${esc(e.name)}">${esc(e.name)}</div></div>`; }).join('');
   const ax = []; for (let i = 0; i < H; i += 7) ax.push(i);
   $('axis').innerHTML = ax.map(i => `<span style="left:${tp(i)}%">${fmt(i)}</span>`).join('');
 
@@ -208,8 +208,10 @@ function render() {
 
   // shop grid
   const hitIds = new Set(cur.rows.filter(r => r.hit).map(r => r.x.e.id));
-  $('shopgrid').innerHTML = [...M.items].sort((a, b) => b.value - a.value).map(x => `<article class="item${x.own ? ' own' : ''}${hitIds.has(x.e.id) ? ' hit' : ''}"><div class="img">${x.e.image ? `<img loading="lazy" src="${esc(x.e.image)}" alt="">` : esc(x.e.name)}</div><div class="bd"><span class="nm">${esc(x.e.name)}</span><span class="mt">${KINDS[x.e.kind] || x.e.kind} · last day ${fmt(x.out - 1)}${x.e.gap === 'first' ? ' · first time in shop' : typeof x.e.gap === 'number' ? ` · back after ${x.e.gap} days` : ''}</span><span class="vb">${n0(x.e.price)} V-Bucks · worth ${n0(x.value)} to you</span></div><label><input type="checkbox" data-own="${esc(x.e.id)}" ${x.own ? 'checked' : ''}>I already own this</label></article>`).join('');
-  $('shopNote').textContent = `${M.items.length} V-Bucks offers in the shop for ${fmt(0, { weekday: 'long', day: 'numeric', month: 'long' })}. Gold border: claimable in the window you're inspecting. Sorted by what they're worth to you.`;
+  const sorted = [...M.items].sort((a, b) => b.value - a.value), shown = render.allShop ? sorted : sorted.slice(0, 20);
+  $('shopMore').hidden = render.allShop || sorted.length <= 20; $('shopMore').textContent = `Show all ${sorted.length}`;
+  $('shopgrid').innerHTML = shown.map(x => `<article class="item${x.own ? ' own' : ''}${hitIds.has(x.e.id) ? ' hit' : ''}"><div class="img">${x.e.image ? `<img loading="lazy" src="${esc(x.e.image)}" alt="" onerror="this.remove()">` : esc(x.e.name)}</div><div class="bd"><span class="nm">${esc(x.e.name)}</span><span class="mt">${KINDS[x.e.kind] || x.e.kind} · last day ${fmt(x.out - 1)}${x.e.gap === 'first' ? ' · first time in shop' : typeof x.e.gap === 'number' ? ` · back after ${x.e.gap} days` : ''}</span><span class="vb">${n0(x.e.price)} V-Bucks · worth ${n0(x.value)} to you</span></div><label><input type="checkbox" data-own="${esc(x.e.id)}" ${x.own ? 'checked' : ''}>I already own this</label></article>`).join('');
+  $('shopNote').textContent = `${M.items.length} offers · gold border = in your 14 days`;
 
   formula(M); limits(M);
 }
@@ -283,6 +285,7 @@ function bind() {
   const pir = document.getElementById('pirate');
   const wake = () => { pir.classList.add('awake'); clearTimeout(wake.t); wake.t = setTimeout(() => pir.classList.remove('awake'), 1800); };
   pir.addEventListener('click', wake); pir.addEventListener('keydown', e => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); wake(); } });
+  $('shopMore').addEventListener('click', () => { render.allShop = true; render(); });
   $('loves').addEventListener('click', e => {
     const b = e.target.closest('[data-g]'); if (!b) return;
     const g = GROUPS.find(x => x.id === b.dataset.g), next = (levelOf(g) + 2) % 3; // Love > Maybe > Nope > Love
