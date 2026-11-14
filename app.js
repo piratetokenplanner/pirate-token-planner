@@ -595,16 +595,28 @@ async function init() {
   if ('serviceWorker' in navigator && location.protocol === 'https:') navigator.serviceWorker.register('sw.js').catch(() => {});
   addEventListener('beforeinstallprompt', e => { e.preventDefault(); const b = $('installBtn'); b.hidden = false; b.onclick = async () => { b.hidden = true; e.prompt(); }; });
   controls(); bind(); render(); sources();
-  // scroll drives the scene: the title floats away, the ship sails right and the sun sets
+  // scroll drives the scene: the title floats away, the surface scrolls off and we dive towards the seabed
   const root = document.documentElement; let ticking = false;
   const scene = () => {
     const max = root.scrollHeight - innerHeight;
     root.style.setProperty('--p', max > 0 ? Math.min(1, scrollY / max).toFixed(4) : 0);
     root.style.setProperty('--h', Math.min(1, scrollY / (innerHeight * 0.45)).toFixed(4));
+    root.style.setProperty('--sy', Math.round(scrollY));
     ticking = false;
   };
   addEventListener('scroll', () => { if (!ticking) { ticking = true; requestAnimationFrame(scene); } }, { passive: true });
   addEventListener('resize', scene); scene();
+  // the scene follows the visitor's real clock: dawn, day, dusk or night, with the sun on its arc
+  const daytime = () => {
+    const d = new Date(), h = d.getHours() + d.getMinutes() / 60;
+    const t = q.get('time') || (h >= 21 || h < 5.5 ? 'night' : h < 7.5 ? 'dawn' : h < 18.5 ? 'day' : 'dusk');
+    root.dataset.time = t;
+    // sun: rises on the left at 6, highest at 13, sets on the right at 20; the moon crosses at night
+    const f = t === 'night' ? ((h + 24 - 21) % 24) / 8.5 : Math.min(1, Math.max(0, (h - 6) / 14));
+    root.style.setProperty('--sun-x', (46 + f * 44).toFixed(1) + '%');
+    root.style.setProperty('--sun-y', (8 + Math.pow(2 * f - 1, 2) * 34).toFixed(1) + '%');
+  };
+  daytime(); setInterval(daytime, 5 * 60e3);
 }
 init();
 }

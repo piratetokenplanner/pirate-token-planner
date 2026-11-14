@@ -293,34 +293,18 @@ input:focus-visible{outline:2px solid var(--main)}
 .scalebar b{font-size:15px}
 .cov{display:grid;grid-template-columns:minmax(0,180px) minmax(0,1fr);gap:12px;align-items:center;font-size:14px;color:var(--soft);margin:-4px 0 14px}
 .covbar{height:10px;border-radius:5px;background:light-dark(#efe7cf,#1b2e55);overflow:hidden}.covbar div{height:100%;background:linear-gradient(90deg,var(--main),#5a91f2);border-radius:5px}
-@media(max-width:760px){.pastgrid,.typegrid{grid-template-columns:minmax(0,1fr)}.grid2{grid-template-columns:minmax(0,1fr)}.ship{--sw:min(240px,64vw);right:50%;transform:translateX(50%)}.sun{right:8%;top:auto;bottom:30%;width:56px}.coin{width:58px}.hero h1{font-size:30px}.fanmade{font-size:13px}.gulls{right:8%;top:30%}}
+@media(max-width:760px){.pastgrid,.typegrid{grid-template-columns:minmax(0,1fr)}.grid2{grid-template-columns:minmax(0,1fr)}.ship{--sw:min(240px,64vw);right:50%;transform:translateX(50%)}.sun{right:8%;top:22%;bottom:auto;width:56px}.coin{width:58px}.hero h1{font-size:30px}.fanmade{font-size:13px}.gulls{right:8%;top:30%}}
 @media(max-width:600px){.verdict{grid-template-columns:minmax(0,1fr);padding:18px}.xmark{font-size:56px}.bars{height:150px;gap:2px}.ticks span:nth-child(even){visibility:hidden}
  .step{grid-template-columns:minmax(0,1fr)}.loves{grid-template-columns:repeat(2,minmax(0,1fr))}.days label{width:calc((100% - 48px)/7);min-width:40px}
  .tbl{font-size:13px}.stack thead{display:none}.stack tr{display:grid;padding-block:10px;border-bottom:1px solid var(--line)}.stack td{display:flex;justify-content:space-between;gap:12px;border:0;padding:4px 8px;text-align:right}.stack td::before{content:attr(data-l);font-weight:700;color:var(--soft);text-align:left}}
 @media(prefers-reduced-motion:reduce){.fish,.stars i{animation:none}.fish{display:none}.verdict.pop .xmark,.verdict.pop .big{animation:none}.item,.love,.heart{transition:none}.foldbody,.ico{animation:none;transition:none}.spin,.bob,.zzz text,.wave,.cloud,.gulls,.g,.flag,.lamp{animation:none}.zzz text{opacity:1}.hero{position:relative}.bar,.win,.love,.btn{transition:none}}
 
-/* ===== Sailing into the sunset: a fixed scene behind floating cards =====
-   --p = how far down the page (0 to 1), --h = how far past the title (0 to 1); set by app.js on scroll */
+/* ===== Dive into the ocean: a fixed scene behind floating cards =====
+   --p = how far down the page (0 to 1), --h = how far past the title (0 to 1), --sy = pixels scrolled; set by app.js */
 :root{--p:0;--h:0}
 body{background:#2f7ee0}
 .scene{position:fixed;inset:0;z-index:0;overflow:hidden;pointer-events:none}
-.skyl{position:absolute;inset:0}
-.skyl.day{background:linear-gradient(180deg,light-dark(#8cc8ff,#0c1d45) 0%,light-dark(#4a8cf2,#0d2a63) 55%,light-dark(#2160d8,#0b1f4a) 100%)}
-.skyl.dusk{opacity:min(1,calc(var(--p) * 1.7));background:linear-gradient(180deg,light-dark(#3b5fb8,#1a2350) 0%,light-dark(#f08a6a,#7a3a5a) 45%,light-dark(#ffcf7a,#e0805a) 72%,light-dark(#ff9f5a,#c0603a) 100%)}
-.skyl.night{opacity:max(0,calc((var(--p) - .72) * 3.6));background:linear-gradient(180deg,#081633 0%,#0d2350 60%,#1b2f66 100%)}
-.scene .sky{position:absolute;inset:0}
-.scene .sun{right:auto;left:calc(74% + var(--p) * 6%);top:calc(10% + var(--p) * 52%);transform:scale(calc(1 + var(--p) * .35));background:radial-gradient(circle,light-dark(#fff2b0,#e9f0ff) 0 45%,light-dark(#ffd76a,#bccbe8) 46% 62%,transparent 63%)}
-.scene .sun::after{content:"";position:absolute;inset:0;border-radius:50%;opacity:min(1,calc(var(--p) * 1.6));background:radial-gradient(circle,#ffe0a0 0 40%,#ff9a4a 45% 62%,transparent 63%)}
-.glow{position:absolute;left:0;right:0;bottom:0;height:45%;opacity:min(.8,calc(var(--p) * 1.4));background:radial-gradient(60% 70% at 80% 100%,#ffb46a99,transparent 70%)}
-.scene .stars{inset:0 0 35% 0;opacity:max(var(--night-on,0),calc((var(--p) - .7) * 3.3));transition:none}
-.scene .cloud{translate:0 calc(var(--p) * -80px)}
-.scene .sea{position:absolute;left:0;right:0;bottom:calc((1 - var(--h)) * var(--lift,160px));height:260px;filter:brightness(calc(1 - max(0,(var(--p) - .6)) * .9)) saturate(calc(1 - var(--p) * .25))}
-.scene .w3::after{background:light-dark(#3d7fe6,#1a4fb8)}
-.scene .ship{--sw:clamp(200px,24vw,330px);right:auto;left:calc(58vw + var(--p) * 52vw);bottom:calc(66px - var(--sw) * .14);transform:scale(calc(1 - var(--p) * .25));transform-origin:50% 100%}
 .scene .pirate{pointer-events:auto;cursor:pointer}
-.scene .fish{left:calc(20% + var(--p) * 30%)}
-:root[data-theme=dark]{--night-on:1}
-@media (prefers-color-scheme:dark){:root:not([data-theme=light]){--night-on:1}}
 /* the title floats up and fades as you scroll */
 .hero{position:relative;z-index:1;height:auto;min-height:clamp(420px,calc(100svh - 170px),820px);overflow:visible;background:none;pointer-events:none;padding-bottom:20px}
 .hero .herotext{opacity:calc(1 - var(--h));transform:translateY(calc(var(--h) * -60px)) scale(calc(1 - var(--h) * .06));transform-origin:0 0}
@@ -355,7 +339,7 @@ main{background:none;box-shadow:none;border-radius:0;overflow:visible;padding:0 
 .calmenu p{margin:4px 10px 6px;font-size:13px;color:#4d5c78;font-weight:700}
 .calmenu a{display:block;padding:10px 12px;border-radius:10px;text-decoration:none;font-weight:800;color:#152238}
 .calmenu a:hover,.calmenu a:focus-visible{background:#eaf1ff;outline:none}
-@media(max-width:760px){.scene .ship{--sw:min(200px,52vw);left:calc(40vw + var(--p) * 70vw)}.hero{min-height:clamp(420px,calc(100svh - 150px),760px)}.deck{border-radius:22px;margin-bottom:22px}.foot .wrap{margin-bottom:200px}.scene .sea{height:200px;--lift:140px}}
+@media(max-width:760px){.scene .ship{--sw:min(200px,52vw);left:28vw}.school svg{width:70%}.hero{min-height:clamp(420px,calc(100svh - 150px),760px)}.deck{border-radius:22px;margin-bottom:22px}.foot .wrap{margin-bottom:200px}.scene .sea{height:200px;--lift:140px}}
 @media(prefers-reduced-motion:reduce){:root{--p:0!important;--h:0!important}}
 
 .cue{display:inline-flex;align-items:center;gap:6px;margin-top:22px;background:var(--gold);color:#3a2a00;text-decoration:none;font:900 16px Nunito,sans-serif;border-radius:999px;padding:12px 20px;box-shadow:0 4px 0 var(--goldd)}
@@ -363,3 +347,130 @@ main{background:none;box-shadow:none;border-radius:0;overflow:visible;padding:0 
 @keyframes nudge{50%{transform:translateY(3px)}}
 html{scroll-behavior:smooth;scroll-padding-top:16px}
 @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}.cue svg{animation:none}}
+
+/* ===== the dive ===== */
+:root{--sy:0}
+.scene{background:#1d5fc8}
+.water{position:absolute;inset:0;background:linear-gradient(180deg,light-dark(#3d7fe6,#1a4fb8) 0%,light-dark(#2a6ad8,#123c94) 50%,light-dark(#1d55bd,#0d2e78) 100%)}
+.water .deep{position:absolute;inset:0;opacity:min(1,calc(var(--p) * 1.5));background:linear-gradient(180deg,light-dark(#1d55bd,#0d2e78),light-dark(#0f3a8f,#081d52))}
+.water .abyss{position:absolute;inset:0;opacity:max(0,calc((var(--p) - .55) * 2.2));background:linear-gradient(180deg,light-dark(#0b2a6e,#06153d),light-dark(#071c4d,#030b24))}
+/* sun shafts through the water, fading with depth */
+.rays{position:absolute;inset:0;opacity:calc(.55 - var(--p) * .7);mix-blend-mode:screen}
+.rays i{position:absolute;top:-10%;width:12vw;height:120%;background:linear-gradient(180deg,#ffffff55,transparent 70%);transform-origin:top;transform:skewX(-14deg);animation:ray 9s ease-in-out infinite alternate;filter:blur(6px)}
+.rays i:nth-child(1){left:8%}.rays i:nth-child(2){left:30%;width:6vw;animation-delay:-3s}.rays i:nth-child(3){left:52%;width:9vw;animation-delay:-5s}.rays i:nth-child(4){left:70%;width:5vw;animation-delay:-2s}.rays i:nth-child(5){left:88%;width:8vw;animation-delay:-7s}
+@keyframes ray{to{opacity:.4;transform:skewX(-6deg)}}
+.bubbles{position:absolute;inset:0;opacity:min(1,calc(var(--p) * 4))}
+.bubbles i{position:absolute;bottom:-20px;width:var(--s);height:var(--s);border-radius:50%;border:1.5px solid #ffffffaa;background:radial-gradient(circle at 30% 30%,#ffffffaa,#ffffff10 60%);animation:rise var(--d) linear infinite}
+@keyframes rise{0%{transform:translate(0,0)}50%{transform:translate(12px,-55vh)}100%{transform:translate(-6px,-110vh)}}
+/* fish schools appear at their depth: --dep is where on the page (0 to 1) they cross mid-screen */
+.school{position:absolute;left:0;top:calc(var(--y) + (var(--dep) - var(--p)) * 320vh);display:flex;align-items:center;animation:swim var(--dur) linear infinite}
+.school span{display:block;scale:1.4;animation:wiggle 1.2s ease-in-out infinite alternate}
+.school.r{animation-name:swimr}.school.r svg{transform:scaleX(-1)}
+@keyframes swim{from{transform:translateX(110vw)}to{transform:translateX(-40vw)}}
+@keyframes swimr{from{transform:translateX(-40vw)}to{transform:translateX(110vw)}}
+@keyframes wiggle{to{translate:0 -5px}}
+.jelly{position:absolute;left:var(--x);top:calc(45vh + (var(--dep) - var(--p)) * 320vh);animation:jelly 4s ease-in-out infinite;animation-delay:var(--jd,0s);filter:drop-shadow(0 0 12px #ffb3e6aa)}
+@keyframes jelly{50%{translate:0 -26px}}
+/* the seabed with the loot rises into view at the end of the page */
+.seabed{position:absolute;left:0;right:0;bottom:0;height:260px;transform:translateY(calc((1 - min(1, var(--p) * 1.15)) * 300px))}
+.seabed svg{width:100%;height:100%}
+.weed{animation:sway 4s ease-in-out infinite alternate;animation-delay:var(--o);transform-box:fill-box;transform-origin:bottom}
+@keyframes sway{from{transform:rotate(-5deg)}to{transform:rotate(5deg)}}
+.crab{animation:crab 9s ease-in-out infinite alternate}@keyframes crab{to{transform:translateX(120px)}}
+.tw{animation:tw 2.6s ease-in-out infinite}@keyframes tw{50%{opacity:.55}}
+.pulse{animation:pulse 3s ease-in-out infinite}@keyframes pulse{50%{opacity:.6}}
+/* the surface (sky, waves and ship) scrolls away upward, a bit slower than the page */
+.surface{position:absolute;left:0;right:0;top:0;height:100svh;transform:translateY(calc(var(--sy) * -1px))}
+.skyl.day{position:absolute;inset:0;background:linear-gradient(180deg,light-dark(#8cc8ff,#0c1d45) 0%,light-dark(#4a8cf2,#0d2a63) 60%,light-dark(#3d7fe6,#1a4fb8) 100%)}
+.surface .sky{position:absolute;inset:0}
+.surface .sea{position:absolute;left:0;right:0;bottom:var(--lift,160px);height:260px}
+.surface .w3::after{height:110vh;background:light-dark(#3d7fe6,#1a4fb8)}
+.surface .ship{--sw:clamp(200px,24vw,330px);right:auto;left:58vw;bottom:calc(66px - var(--sw) * .14);transform:translateX(calc(var(--h) * 6vw))}
+.surface .fish{left:22%}
+.scene .pirate{pointer-events:auto;cursor:pointer}
+@media (prefers-color-scheme:dark){:root:not([data-theme=light]) .surface .stars{opacity:1}}
+.foot .wrap{background:color-mix(in srgb,#04102e 72%,transparent)}
+@media(max-width:760px){.surface .ship{--sw:min(200px,52vw);left:30vw}.surface .sea{--lift:140px;height:200px}.seabed{height:180px}}
+@media(prefers-reduced-motion:reduce){.school,.school span,.jelly,.bubbles i,.rays i,.weed,.crab,.tw,.pulse{animation:none}.school{display:none}}
+
+/* ===== see-through cards: no fill, clear edges, light text over the water ===== */
+.deck,.deck.ctrl,.deck.info.result,.deck.info.more{background:transparent;color:#fff;box-shadow:none;outline:none;text-shadow:0 1px 3px rgba(4,16,46,.55)}
+.deck.ctrl{border:3px dashed #ffd27a}
+.deck.info{border:3px solid #ffffffd9}
+.deck.info.result{border-color:var(--gold)}
+.deck h2,.deck h3,.deck .step h2,.result .step h2{color:#fff}
+.deck .hint,.deck .zhint,.result .zhint{color:#e3ecff}
+.deck .ztag{text-shadow:none}
+/* things inside the cards keep their own solid look, so they stay readable */
+.deck .love,.deck .fold,.deck .days label,.deck .btn,.deck .chip,.deck .calmenu,.deck .tip,.deck .runbox,.deck .verdict,.deck .panel{text-shadow:none}
+.deck.info.result .verdict{background:rgba(6,22,64,.55);border-color:#ffc83d88}
+.deck.info.result .panel,.deck .runbox{background:rgba(6,22,64,.5)}
+.alts small{color:#fff}
+
+.deck .fold,.deck .love,.deck .bcard,.deck .pcard,.deck .subcard,.deck .card,.deck .item,.deck .tbl,.deck .sum div,.deck .health div{color:var(--ink);text-shadow:none}
+.deck .fold .hint,.deck .fold .zhint{color:var(--soft)}
+.deck .love.s0{background:color-mix(in srgb,var(--paper) 88%,transparent)}
+
+/* ===== decluttered: no big cards, just one kind of panel per part ===== */
+.deck,.deck.ctrl,.deck.info,.deck.info.result,.deck.info.more{border:0;outline:0;padding:0;background:none;border-radius:0;box-shadow:none;margin:0 auto 40px}
+.deck .wrap{display:grid;gap:14px}
+.steps .wrap{gap:14px}
+.zone{margin:0 0 2px;padding-left:4px}
+.ztag{box-shadow:0 3px 10px rgba(0,0,0,.25);font-size:14px;padding:7px 16px 7px 10px}
+.ztag.tr{background:#2b3550;color:#e3ecff}
+/* the one panel style: rounded glass in the colour of its group */
+.pnl{--pbg:rgba(7,24,66,.66);background:var(--pbg);border:0;border-radius:22px;padding:20px 22px;color:#fff;box-shadow:0 10px 30px rgba(3,12,36,.22);text-shadow:none}
+.deck.ctrl .pnl{--pbg:rgba(96,54,16,.8)}
+.deck.info.trans .pnl{--pbg:rgba(30,38,60,.7)}
+.pnl .hint,.pnl .zhint,.pnl small,.pnl .lede{color:#d8e3fa}
+.pnl h2,.pnl h3{color:#fff}
+.step.pnl{grid-template-columns:auto minmax(0,1fr)}
+.step.pnl h2{margin-bottom:6px}
+/* folds as panels */
+.fold.pnl{padding:0;box-shadow:0 10px 30px rgba(3,12,36,.22)}
+.deck .fold.pnl{color:#fff;background:var(--pbg);border:0}
+.fold.pnl[open]{box-shadow:0 10px 30px rgba(3,12,36,.22)}
+.fold.pnl summary{padding:14px 20px}
+.fold.pnl .sumt small{color:#c8d6f2}
+.fold.pnl summary::after{border-color:#ffc83d}
+.deck.ctrl .fold.pnl .ico{background:#7a4a1f}
+.fold.pnl .foldbody{padding:4px 20px 22px}
+.fold.pnl .lead{color:#fff}
+.fold.pnl .tbl{border-radius:12px;overflow:hidden}
+.fold.pnl .lg.dark,.fold.pnl .spark{color:#d8e3fa}
+.fold.pnl .filters .tog{color:#fff}
+.fold.pnl .wdtrack,.fold.pnl .covbar,.fold.pnl .pbar{background:#ffffff26}
+.fold.pnl .cov{color:#d8e3fa}
+.fold.pnl a{color:#ffe08a}
+.fold.pnl .pcard a,.fold.pnl .tbl a,.fold.pnl .card a{color:var(--main)}
+.fold.pnl #others ul,.fold.pnl ul{color:#fff}
+.fold.pnl .months .mo small{color:#d8e3fa}.fold.pnl .months .mo b{color:#fff}
+.fold.pnl .mbar{background:#ffffff1f}
+.fold.pnl .presets .pre{background:#fffaf0}
+.fold.pnl .field,.fold.pnl .tog,.fold.pnl .sl label,.fold.pnl .sl output{color:inherit}
+.fold.pnl .subcard{background:#fffaf0;color:var(--ink)}
+.fold.pnl .subcard h3{color:var(--ink)}
+.fold.pnl .subcard small,.fold.pnl .subcard .hint{color:var(--soft)}
+.verdict.pnl,.runbox.pnl{background:var(--pbg);border:0;box-shadow:0 10px 30px rgba(3,12,36,.22)}
+.result .panel.pnl{background:var(--pbg);margin:0}
+.verdict .alts{margin-top:14px}
+.deck .love{box-shadow:0 4px 0 rgba(0,0,0,.18)}
+/* ===== the scene follows the real time of day ===== */
+:root{--sky1:#8cc8ff;--sky2:#4a8cf2;--sky3:#3d7fe6;--wat1:#3d7fe6;--wat2:#2a6ad8;--wat3:#1d55bd;--seaf:none;--stars:0}
+:root[data-time=dawn]{--sky1:#5b7fd0;--sky2:#f2a7a0;--sky3:#ffd9a0;--wat1:#4f7fd8;--wat2:#3366c4;--wat3:#2252a8;--seaf:brightness(.95) saturate(.9);--stars:.15}
+:root[data-time=dusk]{--sky1:#3b5fb8;--sky2:#f08a6a;--sky3:#ffcf7a;--wat1:#3a6cc8;--wat2:#2a58ae;--wat3:#1d4592;--seaf:brightness(.88) saturate(.9);--stars:.25}
+:root[data-time=night]{--sky1:#061430;--sky2:#0c2350;--sky3:#173a7a;--wat1:#173a7a;--wat2:#11306a;--wat3:#0b2454;--seaf:brightness(.55) saturate(.85);--stars:1}
+.skyl.day{background:linear-gradient(180deg,var(--sky1) 0%,var(--sky2) 60%,var(--sky3) 100%);transition:background 2s}
+.water{background:linear-gradient(180deg,var(--wat1) 0%,var(--wat2) 50%,var(--wat3) 100%)}
+.surface .w3::after{background:var(--wat1)}
+.surface .sea{filter:var(--seaf)}
+.surface .stars{opacity:var(--stars)!important}
+.surface .sun{left:var(--sun-x,74%);right:auto;top:var(--sun-y,12%);transition:top 2s,left 2s}
+:root[data-time=day] .surface .sun{background:radial-gradient(circle,#fff2b0 0 45%,#ffd76a 46% 62%,transparent 63%);box-shadow:0 0 80px 30px #ffe9a055}
+:root[data-time=dawn] .surface .sun,:root[data-time=dusk] .surface .sun{background:radial-gradient(circle,#ffe0a0 0 40%,#ff9a4a 45% 62%,transparent 63%);box-shadow:0 0 90px 40px #ffb46a66}
+:root[data-time=night] .surface .sun{background:radial-gradient(circle at 40% 40%,#f4f7ff 0 44%,#cfd8f0 46% 60%,transparent 62%);box-shadow:0 0 60px 20px #bcd0ff33}
+:root[data-time=night] .cloud{fill:#ffffff1c}
+:root[data-time=dusk] .cloud,:root[data-time=dawn] .cloud{fill:#ffd8c4aa}
+:root[data-time=night] .rays{opacity:0}
+.timechip{display:inline-block;margin-left:6px}
+@media(max-width:600px){.pnl{padding:16px;border-radius:18px}.step.pnl{grid-template-columns:minmax(0,1fr)}}
