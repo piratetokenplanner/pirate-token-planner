@@ -138,15 +138,20 @@
   </div>
   <div class="alts" id="alts"></div>
 
-  <div class="panel">
-    <div class="ph"><b>All start days</b><span>Tap a bar</span></div>
-    <div class="bars" id="bars" role="group" aria-label="Score for each activation day"></div>
+  <div class="panel chartp">
+    <div class="ph"><b>Loot for each possible start day</b><span id="selInfo"></span></div>
+    <div class="ylab">more loot ↑</div>
+    <div class="bars" id="bars" role="group" aria-label="Expected loot for each activation day"></div>
     <div class="ticks" id="ticks"></div>
+    <div class="tip" id="tip" hidden></div>
+    <div class="lg"><span><i class="sw sw-best"></i>Best day</span><span><i class="sw sw-day"></i>Other days</span><span><i class="sw sw-late"></i>Runs past the deadline</span><span><i class="sw sw-range"></i>Likely range</span><span class="lgh">Tap a bar to pick it</span></div>
   </div>
   <div class="panel">
     <div class="ph"><b id="vTitle">Your 14 days</b><span id="vScore"></span></div>
     <div class="track" id="track"></div>
     <div class="axis" id="axis"></div>
+    <ul class="evlist" id="evlist"></ul>
+    <div class="lg"><span><i class="sw sw-win"></i>Your 14 days</span><span><i class="sw sw-dl"></i>Last day to activate</span><span><i class="sw sw-tick">3</i>Items you want that leave the shop that day</span><span><i class="sw sw-ev"></i>Expected event (gold edge = inside your days)</span></div>
   </div>
 </div></section>
 

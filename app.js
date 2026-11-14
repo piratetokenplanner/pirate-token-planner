@@ -179,11 +179,18 @@ function render() {
   // voyage
   const H = M.startMax + dur + 1, tp = i => Math.max(0, Math.min(100, i / H * 100));
   const leave = {}; for (const x of M.items) if (x.value > 0 && x.out < H) (leave[x.out] ||= []).push(x);
-  $('vTitle').textContent = `${fmt(sel)} – ${fmt(sel + dur - 1)}`;
-  $('vScore').textContent = `${n0(cur.tot)} V-Bucks` + (sel !== best ? ` (${pct(cur.tot)}% of best)` : '');
-  $('track').innerHTML = `<div class="win" style="left:${tp(sel)}%;width:${tp(dur)}%"></div><div class="dl" style="left:${tp(deadIdx)}%"><b>Deadline</b></div>` +
-    `<div class="row">${Object.entries(leave).map(([d, xs]) => `<span class="tick ${d > sel ? '' : 'out'}" style="left:${tp(+d)}%" title="${xs.length} wanted items leave ${fmt(+d)}">${xs.length}</span>`).join('')}</div>` +
-    D.events.map(e => { const a = idx(e.from), b = idx(e.to), r = cur.evRows.find(r => r.x.e.id === e.id); return `<div class="row"><div class="ev ${r && r.v > 0 ? 'in' : 'out'}" style="left:${tp(a)}%;width:max(${Math.min(tp(b - a + 1), 100 - tp(a))}%,28px);background:${e.extraVbucks ? '#7fe3c6' : '#cfe3ff'}" title="${esc(e.name)}">${esc(e.name)}</div></div>`; }).join('');
+  // merge bubbles that would overlap on narrow screens (each needs ~24px)
+  const tw = $('track').clientWidth || 600, gapDays = Math.ceil(24 / (tw / H));
+  const groups = []; for (const d of Object.keys(leave).map(Number).sort((a, b) => a - b)) { const g = groups.at(-1); if (g && d - g.d < gapDays && (g.d > sel) === (d > sel)) g.xs.push(...leave[d]); else groups.push({ d, xs: [...leave[d]] }); }
+  const shownEv = D.events.filter(e => e.extraVbucks > 0 || e.observed);
+  $('vTitle').textContent = `Your 14 days: ${fmt(sel)} – ${fmt(sel + dur - 1)}`;
+  $('vScore').textContent = `~${n0(cur.tot)} V-Bucks`;
+  $('selInfo').textContent = sel === best ? `Showing the best day, ${fmtL(sel)}` : `Showing ${fmtL(sel)} · ${pct(cur.tot)}% of the best day`;
+  render.tipFor = s => { const a = all.find(x => x.s === s); return `<b>${fmtL(s)}</b><br>~${n0(a.tot)} V-Bucks<br>likely ${n0(a.p10)}–${n0(a.p90)}<br>${a.s === best ? 'best day' : pct(a.tot) + '% of best'}`; };
+  $('track').innerHTML = `<div class="win" style="left:${tp(sel)}%;width:${tp(dur)}%"></div><div class="dl" style="left:${tp(deadIdx)}%"><b>Deadline</b></div><div class="today" style="left:0"><b>Today</b></div>` +
+    `<div class="row">${groups.map(({ d, xs }) => `<span class="tick ${d > sel ? '' : 'out'}" style="left:${tp(d)}%" title="${xs.length} item${xs.length > 1 ? 's' : ''} you want leave from ${fmt(d)}: ${esc(xs.slice(0, 5).map(x => x.e.name).join(', '))}${xs.length > 5 ? '…' : ''}">${xs.length}</span>`).join('')}</div>` +
+    shownEv.map(e => { const a = idx(e.from), b = idx(e.to), r = cur.evRows.find(r => r.x.e.id === e.id); return `<div class="row"><div class="ev ${r && r.v > 0 ? 'in' : 'out'}" style="left:${tp(a)}%;width:max(${Math.min(tp(b - a + 1), 100 - tp(a))}%,28px);background:${e.extraVbucks ? '#7fe3c6' : '#cfe3ff'}" title="${esc(e.name)}">${esc(e.name)}</div></div>`; }).join('');
+  $('evlist').innerHTML = shownEv.map(e => { const r = cur.evRows.find(r => r.x.e.id === e.id); return `<li class="${r && r.v > 0 ? 'in' : ''}"><b>${esc(e.name)}</b> ${fmt(idx(e.from))}–${fmt(idx(e.to))}${r && r.v > 0 ? ' · in your days' : ''}</li>`; }).join('');
   const ax = []; for (let i = 0; i < H; i += 7) ax.push(i);
   $('axis').innerHTML = ax.map(i => `<span style="left:${tp(i)}%">${fmt(i)}</span>`).join('');
 
@@ -285,6 +292,11 @@ function bind() {
   const pir = document.getElementById('pirate');
   const wake = () => { pir.classList.add('awake'); clearTimeout(wake.t); wake.t = setTimeout(() => pir.classList.remove('awake'), 1800); };
   pir.addEventListener('click', wake); pir.addEventListener('keydown', e => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); wake(); } });
+  const tip = $('tip'), chart = tip.parentElement;
+  const showTip = e => { const c = e.target.closest('.col'); if (!c || !render.tipFor) return; tip.innerHTML = render.tipFor(+c.dataset.s); tip.hidden = false;
+    const r = c.getBoundingClientRect(), p = chart.getBoundingClientRect(); const x = Math.min(Math.max(r.left + r.width / 2 - p.left, 70), p.width - 70); tip.style.left = x + 'px'; };
+  $('bars').addEventListener('pointerover', showTip); $('bars').addEventListener('focusin', showTip);
+  $('bars').addEventListener('pointerleave', () => { tip.hidden = true; }); $('bars').addEventListener('focusout', () => { tip.hidden = true; });
   $('shopMore').addEventListener('click', () => { render.allShop = true; render(); });
   $('loves').addEventListener('click', e => {
     const b = e.target.closest('[data-g]'); if (!b) return;
