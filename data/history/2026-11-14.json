@@ -642,7 +642,7 @@
  {
   "id": "v2:/1b108072ff45b722fa818c9c5d84f5d83819b025d5fa2abd7267577f09d9be0f",
   "name": "Loose Links",
-  "kind": "other",
+  "kind": "contrail",
   "price": 300,
   "inDate": "2026-11-13",
   "outDate": "2026-11-15"

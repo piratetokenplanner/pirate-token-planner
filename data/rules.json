@@ -55,7 +55,7 @@
      "mustContain": [
       "14 days"
      ],
-     "checkedAt": "2026-11-14T00:13:23.680Z",
+     "checkedAt": "2026-11-14T00:40:47.780Z",
      "reachable": true,
      "found": [
       {
@@ -64,7 +64,7 @@
       }
      ],
      "verified": true,
-     "hash": "890be73d0ff98ea4",
+     "hash": "0cebc6b7e872bfdf",
      "changedSinceLastCheck": true
     },
     {
@@ -72,7 +72,7 @@
      "mustContain": [
       "14 days"
      ],
-     "checkedAt": "2026-11-14T00:13:23.813Z",
+     "checkedAt": "2026-11-14T00:40:48.421Z",
      "reachable": true,
      "found": [
       {
@@ -81,7 +81,7 @@
       }
      ],
      "verified": true,
-     "hash": "1996e01b9e4f7eb4",
+     "hash": "ba959a342e0f3d01",
      "changedSinceLastCheck": true
     }
    ],
@@ -98,7 +98,7 @@
      "mustContain": [
       "December 15"
      ],
-     "checkedAt": "2026-11-14T00:13:23.814Z",
+     "checkedAt": "2026-11-14T00:40:48.421Z",
      "reachable": true,
      "found": [
       {
@@ -107,7 +107,7 @@
       }
      ],
      "verified": true,
-     "hash": "890be73d0ff98ea4",
+     "hash": "0cebc6b7e872bfdf",
      "changedSinceLastCheck": true
     }
    ],
@@ -122,28 +122,33 @@
     {
      "url": "https://www.gamesradar.com/games/fortnite/fortnite-pirate-shop-token/",
      "mustContain": [
-      "gift",
-      "Battle Pass"
+      "passes levels",
+      "gifting",
+      "real money bundles"
      ],
-     "checkedAt": "2026-11-14T00:13:23.821Z",
+     "checkedAt": "2026-11-14T00:40:48.429Z",
      "reachable": true,
      "found": [
       {
-       "text": "gift",
+       "text": "passes levels",
        "ok": true
       },
       {
-       "text": "Battle Pass",
-       "ok": false
+       "text": "gifting",
+       "ok": true
+      },
+      {
+       "text": "real money bundles",
+       "ok": true
       }
      ],
-     "verified": false,
-     "hash": "890be73d0ff98ea4",
+     "verified": true,
+     "hash": "0cebc6b7e872bfdf",
      "changedSinceLastCheck": true
     }
    ],
    "newsHits": [],
-   "status": "unverified"
+   "status": "reported"
   },
   {
    "id": "sidekick",
@@ -155,7 +160,7 @@
      "mustContain": [
       "sidekick"
      ],
-     "checkedAt": "2026-11-14T00:13:23.830Z",
+     "checkedAt": "2026-11-14T00:40:48.439Z",
      "reachable": true,
      "found": [
       {
@@ -164,7 +169,7 @@
       }
      ],
      "verified": true,
-     "hash": "890be73d0ff98ea4",
+     "hash": "0cebc6b7e872bfdf",
      "changedSinceLastCheck": true
     }
    ],
@@ -181,7 +186,7 @@
      "mustContain": [
       "00:00 UTC"
      ],
-     "checkedAt": "2026-11-14T00:13:23.963Z",
+     "checkedAt": "2026-11-14T00:40:48.593Z",
      "reachable": true,
      "found": [
       {
@@ -207,7 +212,7 @@
      "mustContain": [
       "2027"
      ],
-     "checkedAt": "2026-11-14T00:13:23.963Z",
+     "checkedAt": "2026-11-14T00:40:48.593Z",
      "reachable": true,
      "found": [
       {
@@ -216,7 +221,7 @@
       }
      ],
      "verified": true,
-     "hash": "1996e01b9e4f7eb4",
+     "hash": "ba959a342e0f3d01",
      "changedSinceLastCheck": true
     }
    ],

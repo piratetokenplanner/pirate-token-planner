@@ -16,7 +16,7 @@
     "mustContain": [
      "December 5"
     ],
-    "checkedAt": "2026-11-14T00:13:21.923Z",
+    "checkedAt": "2026-11-14T00:40:43.189Z",
     "reachable": true,
     "found": [
      {
@@ -26,24 +26,24 @@
     ],
     "verified": true,
     "hash": "b2ca2efbd43e9666",
-    "changedSinceLastCheck": true
+    "changedSinceLastCheck": false
    },
    {
     "url": "https://lootrundown.com/fortnite/event-calendar",
     "mustContain": [
-     "Dec 5"
+     "December 5"
     ],
-    "checkedAt": "2026-11-14T00:13:22.228Z",
+    "checkedAt": "2026-11-14T00:40:43.801Z",
     "reachable": true,
     "found": [
      {
-      "text": "Dec 5",
-      "ok": false
+      "text": "December 5",
+      "ok": true
      }
     ],
-    "verified": false,
-    "hash": "46321af8ba503463",
-    "changedSinceLastCheck": false
+    "verified": true,
+    "hash": "d56e5241d22557cc",
+    "changedSinceLastCheck": true
    }
   ],
   "newsHits": [],
@@ -66,7 +66,7 @@
     "mustContain": [
      "Chapter 8"
     ],
-    "checkedAt": "2026-11-14T00:13:22.228Z",
+    "checkedAt": "2026-11-14T00:40:43.801Z",
     "reachable": true,
     "found": [
      {
@@ -76,7 +76,7 @@
     ],
     "verified": true,
     "hash": "b2ca2efbd43e9666",
-    "changedSinceLastCheck": true
+    "changedSinceLastCheck": false
    }
   ],
   "newsHits": [],
@@ -95,21 +95,21 @@
   ],
   "sources": [
    {
-    "url": "https://en.wikipedia.org/wiki/Fortnite_seasonal_events",
+    "url": "https://arenatrek.com/when-does-fortnite-winterfest-start-your-complete-2026-guide-to-dates-rewards-and-exclusive-content/",
     "mustContain": [
      "Winterfest"
     ],
-    "checkedAt": "2026-11-14T00:13:22.512Z",
+    "checkedAt": "2026-11-14T00:40:46.388Z",
     "reachable": true,
     "found": [
      {
       "text": "Winterfest",
-      "ok": false
+      "ok": true
      }
     ],
-    "verified": false,
-    "hash": "54dd798856475973",
-    "changedSinceLastCheck": true
+    "verified": true,
+    "hash": "6f061a4d11f88776",
+    "changedSinceLastCheck": false
    }
   ],
   "newsHits": [],
