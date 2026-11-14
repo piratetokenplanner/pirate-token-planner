@@ -4108,3 +4108,143 @@ main a,.foot a,.tbl td{overflow-wrap:anywhere}
 .lede{text-shadow:0 2px 0 #0b2a6e88,0 0 14px #0b2a6e55}
 .fresh{text-shadow:0 1px 0 #0b2a6e88}
 @media(max-width:760px){.sky .cloud.c2{display:none}.gulls{top:48%!important;right:auto!important;left:8%}}
+
+/* ===== explained words (hover / tap) ===== */
+.term{cursor:help;text-decoration:underline dotted 2px;text-decoration-color:color-mix(in srgb,currentColor 55%,transparent);text-underline-offset:3px;border-radius:4px;outline-offset:2px}
+.term:hover,.term:focus-visible{text-decoration-color:var(--gold);color:inherit;background:#ffffff14}
+.term:focus-visible{outline:2px solid var(--gold)}
+.gloss{position:fixed;z-index:80;max-width:min(300px,calc(100vw - 16px));padding:12px 14px 12px;border-radius:14px;background:#fffdf5;color:#152238;box-shadow:0 14px 36px #0007,0 0 0 2px #ffc83d;font-size:14px;line-height:1.45;animation:glossin .14s ease-out;pointer-events:auto}
+.gloss[hidden]{display:none}
+.gloss b{display:block;font:400 17px/1.1 "Luckiest Guy",Impact,sans-serif;letter-spacing:.3px;color:#1d4fc0;margin-bottom:4px}
+.gloss span{display:block}
+.gloss::after{content:"";position:absolute;left:var(--ax,50%);bottom:-7px;width:14px;height:14px;margin-left:-7px;background:#fffdf5;transform:rotate(45deg);box-shadow:2px 2px 0 #ffc83d}
+.gloss.below::after{bottom:auto;top:-7px;box-shadow:-2px -2px 0 #ffc83d}
+.glink{margin-top:8px;border:0;background:none;padding:0;font:800 13px Nunito,sans-serif;color:#d1477a;cursor:pointer}
+.glink:hover{text-decoration:underline}
+@keyframes glossin{from{opacity:0;transform:translateY(4px)}}
+
+/* ===== hero: second, friendly "how it works" button ===== */
+.cues{display:flex;flex-wrap:wrap;align-items:center;gap:12px 18px;margin-top:22px}
+.cues .cue{margin-top:0}
+.howbtn{display:inline-flex;align-items:center;gap:8px;border:0;background:none;padding:6px 2px;color:#fff;font:800 16px Nunito,sans-serif;cursor:pointer;text-shadow:0 2px 0 #0b2a6e88}
+.howbtn span{display:grid;place-items:center;width:28px;height:28px;border-radius:50%;background:#fff;color:#1d4fc0;font:400 17px "Luckiest Guy",Impact,sans-serif;box-shadow:0 3px 0 #0b2a6e66;transition:transform .2s}
+.howbtn:hover span{transform:rotate(-12deg) scale(1.1)}
+.howbtn:hover{text-decoration:underline;text-underline-offset:4px}
+.howbtn:focus-visible{outline:3px solid var(--gold);outline-offset:3px;border-radius:8px}
+
+/* ===== how-it-works dialog: a treasure map ===== */
+.howdlg{border:0;padding:26px clamp(18px,4vw,34px) 22px;border-radius:24px;width:min(94vw,860px);max-height:92vh;overflow:auto;color:#3b2a12;
+ background:radial-gradient(120% 90% at 50% 0%,#fff8e3,#f6e3b4 70%,#ecd29a);box-shadow:0 30px 80px #000a,inset 0 0 0 3px #d9b26c,inset 0 0 40px #c9984a55}
+.howdlg::backdrop{background:#04102ecc}
+.howdlg h2{margin:0 0 14px;font:400 clamp(30px,5vw,44px)/1 var(--fnt,"Anton",Impact);font-style:italic;text-transform:uppercase;color:#1d4fc0;text-shadow:0 3px 0 #ffd65c}
+.hkick{margin:0 0 4px;font:800 13px Nunito,sans-serif;letter-spacing:.6px;text-transform:uppercase;color:#a0592a}
+.hclose{position:absolute;top:12px;right:14px;width:38px;height:38px;border-radius:50%;border:0;background:#3b2a1222;color:#3b2a12;font:700 24px/1 Nunito,sans-serif;cursor:pointer}
+.hclose:hover{background:#3b2a1238}
+.hmap{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:18px;position:relative}
+.hmap::before{content:"";position:absolute;left:10%;right:10%;top:34px;border-top:4px dashed #c0392b88;z-index:0}
+.hmap li{position:relative;z-index:1;display:flex;flex-direction:column;align-items:center;text-align:center;gap:6px}
+.hico{display:grid;place-items:center;width:72px;height:72px;border-radius:50%;background:#fffdf5;box-shadow:0 0 0 4px #d9b26c,0 6px 0 #c9a05c;position:relative}
+.hico svg{width:44px;height:44px}
+.hmap{counter-reset:st}.hmap li{counter-increment:st}.hico::before{content:counter(st);position:absolute;top:-6px;left:-6px;width:26px;height:26px;border-radius:50%;background:#1d4fc0;color:#fff;font:400 14px/26px "Luckiest Guy",Impact,sans-serif;text-align:center}
+.hmap li:last-child .hico{box-shadow:0 0 0 4px #e63946,0 6px 0 #a4232f}
+.hmap b{font:800 17px/1.2 Nunito,sans-serif;color:#1d2b4a}
+.hmap span{font-size:14.5px;line-height:1.45;color:#5a4320}
+.howdlg.play .hmap li{animation:hstep .5s cubic-bezier(.3,1.4,.5,1) both;animation-delay:calc(var(--i)*.18s)}
+@keyframes hstep{from{opacity:0;transform:translateY(14px) scale(.9)}}
+.hgame{margin-top:22px;padding:14px 16px 10px;border-radius:16px;background:#fffdf5cc;box-shadow:inset 0 0 0 2px #e2c88f}
+.hgh{display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap}
+.hgh b{font:800 16px Nunito,sans-serif;color:#1d2b4a}
+.hgh .btn{padding:8px 18px}
+.hcols{display:grid;grid-auto-flow:column;grid-auto-columns:minmax(0,1fr);gap:10px;align-items:end;margin-top:10px;height:150px}
+.hcol{display:flex;flex-direction:column;align-items:center;justify-content:flex-end;height:100%;gap:2px;border-bottom:3px solid #c9a05c}
+.hstack{display:flex;flex-direction:column-reverse;align-items:center;gap:1px;max-height:100px;overflow:hidden}
+.hstack i{display:block;width:26px;height:6px;border-radius:50%;background:radial-gradient(circle at 40% 30%,#fff2a8,#ffc83d 60%,#b07c00);box-shadow:0 1px 0 #8a5a00;animation:hcoin .35s cubic-bezier(.3,1.5,.6,1) both}
+@keyframes hcoin{from{transform:translateY(-60px);opacity:0}}
+.hcol b{font:400 18px "Luckiest Guy",Impact,sans-serif;color:#1d2b4a}
+.hcol span{font:700 12.5px Nunito,sans-serif;color:#5a4320;white-space:nowrap}
+.hcol.best span{color:#c0392b}
+.hcol em{font-style:normal;font:400 14px "Luckiest Guy",Impact,sans-serif;color:#e63946}
+.howdlg .hint{color:#5a4320;margin:8px 0 0;min-height:2.6em}
+.hfine{margin:14px 0 0;font-size:13px;color:#7a6240}
+.howdlg .acts{display:flex;flex-wrap:wrap;gap:10px;margin-top:16px}
+.howdlg .btn.ghost{color:#1d4fc0;border-color:#1d4fc0}
+@media(max-width:700px){
+ .hmap{grid-template-columns:minmax(0,1fr);gap:14px}
+ .hmap::before{left:35px;right:auto;top:20px;bottom:20px;border-top:0;border-left:4px dashed #c0392b88}
+ .hmap li{display:grid;grid-template-columns:72px 1fr;grid-template-rows:auto auto;column-gap:14px;text-align:left;align-items:start}
+ .hico{grid-row:1/3;width:64px;height:64px;margin-left:4px}
+ .hmap b{align-self:end}
+ .hcols{height:130px;gap:6px}.hcol span{font-size:11px}
+}
+@media(prefers-reduced-motion:reduce){.howdlg.play .hmap li,.hstack i,.gloss{animation:none}}
+
+/* ===== today's shop, redesigned ===== */
+.favtray{margin-bottom:14px}
+.fempty{display:flex;align-items:center;gap:12px;padding:12px 16px;border-radius:14px;border:2px dashed #ffffff33;color:#d6e3fb;font-size:15px}
+.fempty svg{flex:none;width:30px;height:30px;fill:#ff6b9f;animation:hbeat 1.6s ease-in-out infinite}
+@keyframes hbeat{0%,60%,100%{transform:scale(1)}30%{transform:scale(1.18)}}
+.fth{display:flex;align-items:baseline;gap:12px;flex-wrap:wrap;margin-bottom:8px}
+.fth b{font:400 18px "Luckiest Guy",Impact,sans-serif;letter-spacing:.3px;color:#fff}
+.fth span{font-size:14px;color:#c3d5f7}
+.favs{display:flex;gap:8px;overflow-x:auto;padding:2px 2px 6px;scrollbar-width:thin}
+.favchip{flex:none;display:flex;align-items:center;gap:8px;padding:4px 10px 4px 4px;border-radius:999px;border:2px solid #ff6b9f;background:#ffffff12;color:#fff;font:800 14px Nunito,sans-serif;cursor:pointer;max-width:240px}
+.favchip img{width:34px;height:34px;border-radius:50%;object-fit:cover;background:var(--rb,#2a3f6e)}
+.favchip span{white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.favchip i{font-style:normal;opacity:.7}
+.favchip.ok::before{content:"✓";display:grid;place-items:center;flex:none;width:20px;height:20px;border-radius:50%;background:#3ddc97;color:#08321f;font-size:12px;margin-left:4px}
+.favchip.no{border-color:#ffb35c}
+.favchip.no::before{content:"!";display:grid;place-items:center;flex:none;width:20px;height:20px;border-radius:50%;background:#ffb35c;color:#3b1a06;font-size:13px;margin-left:4px}
+.favchip:hover{background:#ffffff22}.favchip:hover i{opacity:1}
+.stools{display:flex;flex-wrap:wrap;gap:10px;align-items:center}
+.srch{flex:1 1 240px;display:flex;align-items:center;gap:8px;padding:0 14px;border-radius:12px;background:#fff;color:#152238;box-shadow:inset 0 0 0 2px #ffffff44}
+.srch svg{flex:none;width:20px;height:20px;fill:none;stroke:#5a6b8c;stroke-width:2.4;stroke-linecap:round}
+.srch input{flex:1;min-width:0;border:0!important;outline:0;background:none!important;padding:12px 0!important;font:700 16px Nunito,sans-serif;color:#152238!important;box-shadow:none!important}
+.srch:focus-within{box-shadow:0 0 0 3px var(--gold)}
+.seg{display:inline-flex;padding:4px;border-radius:12px;background:#0b1a40;gap:2px}
+.seg button{border:0;border-radius:9px;background:none;color:#c3d5f7;font:800 14px Nunito,sans-serif;padding:8px 12px;cursor:pointer;white-space:nowrap}
+.seg button[aria-pressed="true"]{background:var(--gold);color:#3b2a00;box-shadow:0 2px 0 #b07c00}
+.seg button:focus-visible{outline:2px solid #fff}
+#shop .fchips{flex-wrap:nowrap;overflow-x:auto;padding:12px 2px 6px;margin:0;scrollbar-width:thin}
+#shop .fchip{flex:none;display:inline-flex;align-items:center;gap:6px}
+#shop .fchip small{font-size:11px;opacity:.75;font-weight:800}
+.snote{display:flex;justify-content:space-between;align-items:center;gap:10px;flex-wrap:wrap;margin:6px 0 12px;font-size:14px;color:#c3d5f7}
+.snote .tog{margin:0;color:#fff}
+.sgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(158px,1fr));gap:12px}
+.stile{--rb:radial-gradient(120% 100% at 50% 20%,#9aa7bd,#4a5872);position:relative;display:flex;flex-direction:column;border-radius:14px;overflow:hidden;background:#0b1636;box-shadow:0 4px 0 #050c22;transition:transform .15s,box-shadow .15s;content-visibility:auto;contain-intrinsic-size:auto 250px}
+.stile[data-r="uncommon"]{--rb:radial-gradient(120% 100% at 50% 20%,#87e339,#319236)}
+.stile[data-r="rare"]{--rb:radial-gradient(120% 100% at 50% 20%,#4fd2ff,#1559c9)}
+.stile[data-r="epic"]{--rb:radial-gradient(120% 100% at 50% 20%,#d27bff,#6a1fb5)}
+.stile[data-r="legendary"]{--rb:radial-gradient(120% 100% at 50% 20%,#ffb84d,#b8510a)}
+.stile[data-r="icon"]{--rb:radial-gradient(120% 100% at 50% 20%,#5ff2ff,#127a8f)}
+.stile[data-r="marvel"]{--rb:radial-gradient(120% 100% at 50% 20%,#ff5a5a,#8e1010)}
+.stile[data-r="gaming"]{--rb:radial-gradient(120% 100% at 50% 20%,#8a7bff,#2b1e8f)}
+.stile[data-r="dark"]{--rb:radial-gradient(120% 100% at 50% 20%,#c04bff,#2a0a3d)}
+.stile[data-r="music"]{--rb:radial-gradient(120% 100% at 50% 20%,#ff7ad9,#7a1a8c)}
+.favchip[data-r="rare"]{--rb:#1559c9}.favchip[data-r="epic"]{--rb:#6a1fb5}.favchip[data-r="legendary"]{--rb:#b8510a}.favchip[data-r="icon"]{--rb:#127a8f}
+.stile:hover{transform:translateY(-3px);box-shadow:0 7px 0 #050c22}
+.stile.must{box-shadow:0 0 0 3px #ff6b9f,0 4px 0 #050c22}
+.sart{position:relative;aspect-ratio:1;background:var(--rb);overflow:hidden}
+.sart img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.sart::after{content:"";position:absolute;inset:auto 0 0;height:55%;background:linear-gradient(180deg,transparent,#000b);pointer-events:none}
+.snm{position:absolute;z-index:1;left:10px;right:10px;bottom:8px;font:400 17px/1.05 var(--fnt,"Anton",Impact);font-style:italic;text-transform:uppercase;color:#fff;text-shadow:0 2px 0 #0008;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+.sleave{position:absolute;z-index:1;top:8px;left:8px;padding:3px 8px;border-radius:999px;background:#0b1636cc;color:#fff;font:800 11.5px Nunito,sans-serif}
+.sleave.soon{background:#ffb35c;color:#3b1a06}
+.stile .heart{top:6px;right:6px;width:36px;height:36px;z-index:2}
+.stile .heart svg{width:20px;height:20px}
+.stile .heart[aria-pressed="true"]{background:#ff6b9f}.stile .heart[aria-pressed="true"] svg{fill:#fff;stroke:#fff}
+.sown{position:absolute;z-index:2;top:46px;right:6px;display:flex;align-items:center;gap:4px;height:28px;padding:0 8px 0 6px;border-radius:999px;border:0;background:#0b1636aa;color:#fff;font:800 11.5px Nunito,sans-serif;cursor:pointer;opacity:0;transition:opacity .15s}
+.sown svg{width:15px;height:15px;fill:none;stroke:currentColor;stroke-width:3;stroke-linecap:round;stroke-linejoin:round}
+.stile:hover .sown,.sown:focus-visible,.sown[aria-pressed="true"]{opacity:1}
+.sown[aria-pressed="true"]{background:#3ddc97;color:#08321f}
+@media(hover:none){.sown{opacity:1}.sown span{display:none}.sown{padding:0 6px}}
+.sbd{display:flex;flex-wrap:wrap;align-items:center;gap:4px 8px;padding:8px 10px 10px}
+.vb{display:inline-flex;align-items:center;gap:5px;font:900 15px Nunito,sans-serif;color:#fff}
+.vbi{display:inline-block;width:15px;height:15px;border-radius:50%;background:radial-gradient(circle at 35% 30%,#e8fbff,#7fd6ff 45%,#2a7fd8);box-shadow:inset 0 0 0 2px #ffffff55}
+.skind{font-size:12.5px;color:#9fb4dc}
+.scnt{flex-basis:100%;font:800 12.5px Nunito,sans-serif;color:#ffd65c}
+.scnt.must{color:#ff9cc4}.scnt.nope{color:#8ea3c8}.scnt.gone{color:#ffb35c}
+.stile.dim .sart{filter:saturate(.35) brightness(.75)}
+.stile.own .sart{filter:grayscale(1) brightness(.6)}
+.stile.own .snm::before{content:"Owned · ";color:#3ddc97}
+@media(max-width:520px){.sgrid{grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}.seg{width:100%}.seg button{flex:1;padding:8px 6px}.snm{font-size:15px}}
+#shop .fchip small{color:#6b7da3;opacity:1}#shop .fchip.on small{color:#cfe0ff}

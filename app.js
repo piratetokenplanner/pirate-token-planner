@@ -202,6 +202,134 @@ function model() {
   return { win, startMin, startMax, deadIdx, dur, all, items, B, Bwd, poolVals, taste, events, kws, rareMul, U, season, byDate, poolMean };
 }
 
+// ---------- explained words: hover (or tap) any dotted word ----------
+const T = (k, txt) => `<span class="term" tabindex="0" role="button" data-gl="${k}">${txt}</span>`;
+const GLOSS = {
+  top: () => ['Top day', 'The start day that grabs the most of what you like, on average. It gets the big X.', 1],
+  sure: c => ['How sure is it?', `We played ${c.N || 400} pretend futures of the shop. ${c.day || 'This day'} came out on top in ${c.pb ?? '?'} of every 100. ` + ((c.pb ?? 0) < 30 ? 'A low number is normal: several days are almost equally good, so they share the wins.' : 'The rest went to the close calls.'), 1],
+  loot: () => ['V-Bucks of loot', 'All the items you could claim for free in your 14 days, added up at shop prices and weighted by what you like. An average over all pretend futures.', 1],
+  close: () => ['Close race', 'Several start days are almost equally good. Any of them is a fine pick, so choose the one that fits your week.'],
+  calls: () => ['Close calls', 'The next-best start days. The % is how much loot they get compared with your top day. Tap one to look at it.'],
+  safer: () => ['Safer day', 'This day wins most often in the pretend futures, even if its average is a little lower. Good if you hate surprises.', 1],
+  range: () => ['Likely range', 'The thin line on each bar. In 8 of 10 pretend futures, the loot lands inside it. A long line means more guesswork.', 1],
+  must: () => ['Must-have', "Items you hearted in today's shop. They count 3× their price, so the planner tries hard to catch them before they leave."],
+  reset: () => ['Shop reset', `The Item Shop changes every day at 00:00 UTC (${resetLocal} your time). Activate right after it, so your first day is a full day.`],
+  deadline: () => ['Deadline', "The last moment you can activate the token, from Epic's rules for this season."],
+  window: () => ['Your 14 days', 'After you activate, everything in the Item Shop is free to claim for 14 days. Log in and claim each item while it is in the shop.'],
+  love: () => ['Love, Maybe, Nope', 'How much you want each kind of item. Love counts its full V-Bucks price, Maybe about a third, Nope nothing. Exact numbers live in More settings.'],
+  worth: () => ['Counts for you', 'Price × how much you want this kind of item. Hearted items count 3×, items you own count 0.'],
+  leaves: () => ['Leaves the shop', "The last day an item is in the shop, as far as the data says. Your 14 days must start before then to claim it."],
+  event: () => ['Expected event', 'Big shop moments like a season launch or Winterfest. Dates and extra loot are estimates from past years until Epic confirms them.'],
+  gone: () => ['Gone before your days', 'This item leaves the shop before the start day you picked, so you could not claim it. Pick an earlier day or heart it.'],
+};
+function glossUI() {
+  const g = $('gloss'); let cur = null, hideT = 0;
+  const show = el => {
+    clearTimeout(hideT); const d = GLOSS[el.dataset.gl]; if (!d) return;
+    const [t, x, more] = d(render.gctx || {});
+    g.innerHTML = `<b>${t}</b><span>${x}</span>${more ? '<button type="button" class="glink" data-how>How it works →</button>' : ''}`;
+    g.hidden = false; cur = el; el.setAttribute('aria-describedby', 'gloss');
+    const r = el.getBoundingClientRect(), w = g.offsetWidth, h = g.offsetHeight;
+    const left = Math.min(Math.max(8, r.left + r.width / 2 - w / 2), innerWidth - w - 8);
+    let top = r.top - h - 12; const below = top < 8; if (below) top = r.bottom + 12;
+    g.style.left = left + 'px'; g.style.top = top + 'px'; g.classList.toggle('below', below);
+    g.style.setProperty('--ax', Math.max(14, Math.min(w - 14, r.left + r.width / 2 - left)) + 'px');
+  };
+  const hide = now => { clearTimeout(hideT); hideT = setTimeout(() => { g.hidden = true; if (cur) cur.removeAttribute('aria-describedby'); cur = null; }, now ? 0 : 180); };
+  document.addEventListener('pointerover', e => { if (e.pointerType !== 'mouse') return; const t = e.target.closest('.term'); if (t) show(t); else if (e.target.closest('#gloss')) clearTimeout(hideT); });
+  document.addEventListener('pointerout', e => { if (e.pointerType === 'mouse' && e.target.closest('.term, #gloss')) hide(); });
+  document.addEventListener('click', e => {
+    const t = e.target.closest('.term');
+    if (t) { e.preventDefault(); e.stopPropagation(); show(t); return; }
+    if (!e.target.closest('#gloss') || e.target.closest('[data-how]')) hide(true);
+  }, true);
+  document.addEventListener('focusin', e => { const t = e.target.closest && e.target.closest('.term'); if (t) show(t); });
+  document.addEventListener('focusout', e => { if (e.target.closest && e.target.closest('.term')) hide(); });
+  document.addEventListener('keydown', e => {
+    if (e.key === 'Escape') hide(true);
+    else if ((e.key === 'Enter' || e.key === ' ') && e.target.classList && e.target.classList.contains('term')) { e.preventDefault(); show(e.target); }
+  });
+  addEventListener('scroll', () => { if (!g.hidden) hide(true); }, { passive: true });
+}
+
+// ---------- today's shop: tiles, must-have tray, sorting ----------
+const KIND1 = k => (KINDS[k] || k).replace(/s$/, '');
+function shopView(M, cur) {
+  const hitIds = new Set(cur.rows.filter(r => r.hit).map(r => r.x.e.id));
+  const F = render.filter || (render.filter = { q: '', kind: 'all', mine: false });
+  F.sort = F.sort || 'value';
+  const N = render.shopN || (innerWidth < 600 ? 12 : 24);
+  const img = (x, cls = '') => x.e.image ? `<img${cls} loading="lazy" decoding="async" src="${esc(x.e.image)}" alt="" onerror="this.remove()">` : '';
+  // must-have tray
+  const favs = M.items.filter(x => x.must);
+  $('favTray').innerHTML = favs.length
+    ? `<div class="fth"><b>Your ${T('must', 'must-haves')}</b><span>${favs.filter(x => hitIds.has(x.e.id)).length} of ${favs.length} caught in your 14 days</span></div><div class="favs">${favs.map(x => `<button type="button" class="favchip${hitIds.has(x.e.id) ? ' ok' : ' no'}" data-must="${esc(x.e.id)}" data-r="${esc(rarityOf(x.e))}" title="Remove ${esc(x.e.name)} from must-haves">${img(x)}<span>${esc(x.e.name)}</span><i aria-hidden="true">×</i></button>`).join('')}</div>`
+    : `<div class="fempty"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 20s-7-4.4-7-10a4 4 0 0 1 7-2.6A4 4 0 0 1 19 10c0 5.6-7 10-7 10z"/></svg><span>Tap the heart on anything you ${T('must', 'must have')}. It counts 3× and pulls your top day towards it.</span></div>`;
+  // category chips with counts
+  const count = {}; for (const x of M.items) count[x.e.kind] = (count[x.e.kind] || 0) + 1;
+  const kindsHere = Object.keys(count).sort((a, b) => count[b] - count[a]);
+  $('shopKinds').innerHTML = ['all', ...kindsHere].map(k => `<button type="button" class="fchip${F.kind === k ? ' on' : ''}" data-k="${k}">${k === 'all' ? 'All' : KINDS[k] || k}<small>${k === 'all' ? M.items.length : count[k]}</small></button>`).join('');
+  $('shopSort').querySelectorAll('[data-sort]').forEach(b => b.setAttribute('aria-pressed', b.dataset.sort === F.sort));
+  const q = F.q.trim().toLowerCase();
+  const sorters = { value: (a, b) => b.must - a.must || b.value - a.value || a.out - b.out, leave: (a, b) => a.out - b.out || b.value - a.value, price: (a, b) => b.e.price - a.e.price || b.value - a.value };
+  const filtered = M.items.filter(x => (F.kind === 'all' || x.e.kind === F.kind) && (!F.mine || hitIds.has(x.e.id)) && (!q || x.e.name.toLowerCase().includes(q))).sort(sorters[F.sort]);
+  const shown = filtered.slice(0, N);
+  $('shopMore').hidden = filtered.length <= N; $('shopMore').textContent = `Show more (${filtered.length - N} left)`;
+  $('shopNote').textContent = `${filtered.length} item${filtered.length === 1 ? '' : 's'}`;
+  $('shopgrid').innerHTML = shown.length ? shown.map(x => {
+    const last = x.out - 1, hit = hitIds.has(x.e.id), want = x.value > 0;
+    const until = last <= 0 ? 'Last day today' : last === 1 ? 'Until tomorrow' : 'Until ' + fmt(last);
+    const note = x.own ? '' : x.must ? '<span class="scnt must">♥ counts 3×</span>'
+      : !want ? '<span class="scnt nope">Nope for you</span>'
+      : !hit ? `<span class="scnt gone">${T('gone', 'Gone before your days')}</span>`
+      : Math.round(x.value) !== x.e.price ? `<span class="scnt">${T('worth', 'counts ' + n0(x.value))}</span>` : '';
+    return `<article class="stile${x.must ? ' must' : ''}${x.own ? ' own' : ''}${!x.own && (!want || !hit) ? ' dim' : ''}" data-r="${esc(rarityOf(x.e))}">
+      <div class="sart">${img(x)}<span class="sleave${last <= 2 ? ' soon' : ''}">${until}</span>
+        <button type="button" class="heart" data-must="${esc(x.e.id)}" aria-pressed="${x.must}" aria-label="Must have ${esc(x.e.name)}"><svg viewBox="0 0 24 24"><path d="M12 20s-7-4.4-7-10a4 4 0 0 1 7-2.6A4 4 0 0 1 19 10c0 5.6-7 10-7 10z"/></svg></button>
+        <button type="button" class="sown" data-own="${esc(x.e.id)}" aria-pressed="${x.own}" aria-label="I already own ${esc(x.e.name)}" title="${x.own ? 'You own this' : 'Tick if you already own it'}"><svg viewBox="0 0 24 24"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg><span>${x.own ? 'Owned' : 'Own it?'}</span></button>
+        <b class="snm">${esc(x.e.name)}</b></div>
+      <div class="sbd"><span class="vb"><i class="vbi" aria-hidden="true"></i>${n0(x.e.price)}</span><span class="skind">${KIND1(x.e.kind)}</span>${note}</div>
+    </article>`;
+  }).join('') : '<p class="hint">Nothing matches. Try another word or category.</p>';
+}
+
+// ---------- "How it works": a treasure map plus a tiny dice game ----------
+function howUI() {
+  const dlg = $('howDlg'); let cols = [], rolling = 0;
+  const setup = () => {
+    const M = render.M; if (!M) return;
+    const top = [...M.all].sort((a, b) => b.tot - a.tot)[0];
+    const others = [...M.all].filter(a => a !== top && a.pBest > 0).sort((a, b) => b.pBest - a.pBest).slice(0, 3);
+    const rest = Math.max(0, 1 - top.pBest - others.reduce((s, a) => s + a.pBest, 0));
+    cols = [{ s: top.s, p: top.pBest, best: 1 }, ...others.map(a => ({ s: a.s, p: a.pBest })), ...(rest > .005 ? [{ p: rest }] : [])];
+    $('howN').textContent = M.U.runs;
+    $('howEx').textContent = $('howEx2').textContent = Math.round(top.pBest * 100);
+    $('howCols').innerHTML = cols.map((c, i) => `<div class="hcol${c.best ? ' best' : ''}" data-i="${i}"><div class="hstack"></div><b>0</b><span>${c.s == null ? 'Other days' : fmt(c.s, { weekday: 'short', day: 'numeric' })}${c.best ? ' <em>X</em>' : ''}</span></div>`).join('');
+    $('howMsg').textContent = 'Each coin is one pretend future. It lands on the start day that won it.';
+  };
+  const open = () => { $('gloss').hidden = true; setup(); if (dlg.showModal) dlg.showModal(); else dlg.setAttribute('open', ''); dlg.classList.remove('play'); void dlg.offsetWidth; dlg.classList.add('play'); };
+  document.addEventListener('click', e => { if (e.target.closest('[data-how]') && !e.target.closest('#howDlg')) { e.preventDefault(); open(); } });
+  dlg.addEventListener('click', e => {
+    const c = e.target.closest('[data-close]');
+    if (c) { e.preventDefault(); dlg.close(); if (c.hasAttribute('data-open-how')) { const h = $('how'); h.open = true; setTimeout(() => h.scrollIntoView({ behavior: 'smooth', block: 'start' }), 50); } }
+    else if (e.target === dlg) dlg.close();
+  });
+  $('howRoll').addEventListener('click', () => {
+    if (rolling) return; setup(); if (!cols.length) return;
+    const n = 20, got = cols.map(() => 0), stacks = [...$('howCols').children], tot = cols.reduce((s, c) => s + c.p, 0);
+    rolling = 1; $('howRoll').disabled = true;
+    for (let k = 0; k < n; k++) setTimeout(() => {
+      let r = Math.random() * tot, i = 0; while (i < cols.length - 1 && (r -= cols[i].p) > 0) i++;
+      got[i]++; const st = stacks[i]; st.querySelector('.hstack').insertAdjacentHTML('beforeend', '<i></i>'); st.querySelector('b').textContent = got[i];
+      if (k === n - 1) {
+        rolling = 0; $('howRoll').disabled = false; $('howRoll').textContent = 'Roll again';
+        const M = render.M, pb = Math.round(cols[0].p * 100);
+        $('howMsg').innerHTML = `Your top day won <b>${got[0]} of ${n}</b> this time. Over all ${M.U.runs} rolls it wins about <b>${pb}%</b>: that is the "${pb}% sure" in your result.`;
+      }
+    }, k * 110);
+  });
+}
+
 // ---------- rendering ----------
 // render(false) = only the selected day changed: reuse the last model (fast enough for dragging)
 // coalesce rapid changes (dragging a slider, typing) into one recompute per animation frame
@@ -235,15 +363,16 @@ function render(recompute = true) {
   if (prev && opensIn > 0) $('vDay').textContent = 'Activate ' + fmtL(best) + ` ${dt(best).getUTCFullYear()}`;
   if (render.lastBest !== undefined && render.lastBest !== best) { const v = document.querySelector('.verdict'); v.classList.remove('pop'); void v.offsetWidth; v.classList.add('pop'); coins(); }
   render.lastBest = best;
-  $('vWhen').textContent = (best === 0 ? 'Now' : `At ${resetLocal}, after the shop reset`) + ` · ends ${fmtL(best + dur)}` + (best + dur > deadIdx ? ' (past the deadline, unconfirmed)' : '');
+  $('vWhen').innerHTML = (best === 0 ? 'Now' : `At ${resetLocal}, after the ${T('reset', 'shop reset')}`) + ` · ${T('window', 'your 14 days')} end ${fmtL(best + dur)}` + (best + dur > deadIdx ? ` (past the ${T('deadline', 'deadline')}, unconfirmed)` : '');
   const pb = Math.round(rank[0].pBest * 100), close = rank.slice(1, 4).filter(a => a.p90 >= rank[0].p10).length;
-  $('vSure').innerHTML = `~${n0(rank[0].tot)} V-Bucks of loot · <b>${pb}% sure</b>` + (pb < 30 ? ' · close race, any top day is fine' : '');
+  render.gctx = { pb, N: M.U.runs, day: fmtL(best) };
+  $('vSure').innerHTML = `~${n0(rank[0].tot)} ${T('loot', 'V-Bucks of loot')} · <b>${T('sure', pb + '% sure')}</b>` + (pb < 30 ? ` · ${T('close', 'close race')}, any ${T('top', 'top day')} is fine` : '');
   const often = [...all].sort((a, b) => b.pBest - a.pBest)[0];
-  if (often.s !== best) $('vSure').innerHTML += ` · safer: ${fmtL(often.s)}`;
+  if (often.s !== best) $('vSure').innerHTML += ` · ${T('safer', 'safer')}: ${fmtL(often.s)}`;
   const bestRow = all.find(a => a.s === best), missed = bestRow.rows.filter(r => r.x.must && !r.hit);
   const mustN = M.items.filter(x => x.must).length;
-  if (mustN) $('vSure').innerHTML += missed.length ? `<br><span class="warn">Misses must-have: ${missed.map(r => esc(r.x.e.name)).join(', ')}</span>` : `<br><span class="good">Gets all ${mustN} must-have${mustN > 1 ? 's' : ''}</span>`;
-  $('alts').innerHTML = '<small>Close calls:</small>' + rank.slice(1, 4).map(a => `<button class="chip" data-s="${a.s}">${fmtL(a.s)} · ${(a.tot / rank[0].tot * 100).toFixed(1)}%</button>`).join('');
+  if (mustN) $('vSure').innerHTML += missed.length ? `<br><span class="warn">Misses ${T('must', 'must-have')}: ${missed.map(r => esc(r.x.e.name)).join(', ')}</span>` : `<br><span class="good">Gets all ${mustN} ${T('must', 'must-have' + (mustN > 1 ? 's' : ''))}</span>`;
+  $('alts').innerHTML = `<small>${T('calls', 'Close calls')}:</small>` + rank.slice(1, 4).map(a => `<button class="chip" data-s="${a.s}">${fmtL(a.s)} · ${(a.tot / rank[0].tot * 100).toFixed(1)}%</button>`).join('');
 
   // voyage
   const H = M.startMax + dur + 1, tp = i => Math.max(0, Math.min(100, i / H * 100));
@@ -287,21 +416,8 @@ function render(recompute = true) {
   render.cal = { title: 'Activate Fortnite Pirate Shop Access', start: T0 + sel * DAY + 5 * 60e3, mins: 30, details: 'Item Shop > Plunder the Item Shop > Activate Now. Claim every day you play for 14 days. ' + location.href.split('#')[0] };
   render.plan = `Pirate Shop plan: activate ${fmtL(sel)} after the 00:00 UTC reset (${resetLocal} my time). Access ends ${fmtL(sel + dur)}. Expected haul ~${n0(cur.tot)} V-Bucks of wanted items: ` + cur.rows.filter(r => r.hit).map(r => r.x.e.name).join(', ') + '.';
 
-  // shop grid (only while open)
-  if ($('shop').open) {
-  const hitIds = new Set(cur.rows.filter(r => r.hit).map(r => r.x.e.id));
-  const F = render.filter || (render.filter = { q: '', kind: 'all', mine: false });
-  const kindsHere = [...new Set(M.items.map(x => x.e.kind))].sort((a, b) => M.items.filter(x => x.e.kind === b).length - M.items.filter(x => x.e.kind === a).length);
-  $('shopKinds').innerHTML = ['all', ...kindsHere].map(k => `<button type="button" class="fchip${F.kind === k ? ' on' : ''}" data-k="${k}">${k === 'all' ? 'All' : KINDS[k] || k}</button>`).join('');
-  const q = F.q.trim().toLowerCase();
-  const filtered = [...M.items].filter(x => (F.kind === 'all' || x.e.kind === F.kind) && (!F.mine || hitIds.has(x.e.id)) && (!q || x.e.name.toLowerCase().includes(q)))
-    .sort((a, b) => b.must - a.must || b.value - a.value);
-  const shown = render.allShop ? filtered : filtered.slice(0, 20);
-  $('shopMore').hidden = render.allShop || filtered.length <= 20; $('shopMore').textContent = `Show all ${filtered.length}`;
-  $('shopgrid').innerHTML = shown.length ? shown.map(x => `<article data-r="${esc(rarityOf(x.e))}" class="item${x.own ? ' own' : ''}${x.must ? ' must' : ''}${hitIds.has(x.e.id) ? ' hit' : ''}"><div class="img">${x.e.image ? `<img loading="lazy" src="${esc(x.e.image)}" alt="" onerror="this.remove()">` : esc(x.e.name)}<button type="button" class="heart" data-must="${esc(x.e.id)}" aria-pressed="${x.must}" aria-label="Must have ${esc(x.e.name)}"><svg viewBox="0 0 24 24"><path d="M12 20s-7-4.4-7-10a4 4 0 0 1 7-2.6A4 4 0 0 1 19 10c0 5.6-7 10-7 10z"/></svg></button></div><div class="bd"><span class="nm">${esc(x.e.name)}</span><span class="mt">${KINDS[x.e.kind] || x.e.kind} · last day ${fmt(x.out - 1)}${x.e.gap === 'unseen' ? ' · not seen since ' + fmt(idx(D.shop.historyFrom || '2026-05-02')) : typeof x.e.gap === 'number' && x.e.gap > 1 ? ` · back after ${x.e.gap} days` : ''}</span><span class="vb">${n0(x.e.price)} V-Bucks · worth ${n0(x.value)} to you${x.must ? ' (must-have)' : ''}</span></div><label><input type="checkbox" data-own="${esc(x.e.id)}" ${x.own ? 'checked' : ''}>I already own this</label></article>`).join('') : '<p class="hint">Nothing matches.</p>';
-  $('shopNote').textContent = `${filtered.length} of ${M.items.length} offers · ${M.items.filter(x => x.must).length} favourite${M.items.filter(x => x.must).length === 1 ? '' : 's'} · gold border = claimable in your 14 days`;
-
-  }
+  // today's shop + must-have tray (only while open)
+  if ($('shop').open) shopView(M, cur);
   if ($('how').open) formula(M); if ($('limitsec').open) limits(M); if ($('pastsec').open) pastShops(M);
   activeMode(M); if (render.back && $('backsec').open) backSearch();
 }
@@ -439,7 +555,7 @@ function bind() {
     const r = c.getBoundingClientRect(), p = chart.getBoundingClientRect(); const x = Math.min(Math.max(r.left + r.width / 2 - p.left, 70), p.width - 70); tip.style.left = x + 'px'; };
   $('bars').addEventListener('pointerover', showTip); $('bars').addEventListener('focusin', showTip);
   $('bars').addEventListener('pointerleave', () => { tip.hidden = true; }); $('bars').addEventListener('focusout', () => { tip.hidden = true; });
-  $('shopMore').addEventListener('click', () => { render.allShop = true; render(); });
+  $('shopMore').addEventListener('click', () => { render.shopN = (render.shopN || (innerWidth < 600 ? 12 : 24)) + 24; render(false); });
   $('mathMore').addEventListener('click', () => { render.allMath = true; render(); });
   // charts inside a fold are drawn at their real width when the fold opens
   document.querySelectorAll('details.fold').forEach(d => d.addEventListener('toggle', () => { if (d.open) render(false); }));
@@ -453,7 +569,7 @@ function bind() {
   $('presets').addEventListener('click', e => { const p = e.target.dataset.p; if (!p) return; P.types = { ...PRESETS[p] }; save(); controls(); render(); });
   $('days').addEventListener('change', e => { P.days[+e.target.dataset.d] = e.target.checked ? 1 : 0; save(); render(); });
   $('late').addEventListener('change', e => { P.late = e.target.checked; save(); render(); });
-  $('shopgrid').addEventListener('change', e => { const id = e.target.dataset.own; if (id == null) return; P.owned = e.target.checked ? [...new Set([...P.owned, id])] : P.owned.filter(x => x !== id); save(); render(); });
+
   const pick = e => { const b = e.target.closest('[data-s]'); if (!b) return; sel = +b.dataset.s; render(false); };
   // arrow keys move the selected start day
   $('bars').addEventListener('keydown', e => {
@@ -475,10 +591,15 @@ function bind() {
   track.addEventListener('pointerup', drop); track.addEventListener('pointercancel', drop);
   track.addEventListener('keydown', e => { if (e.key !== 'ArrowLeft' && e.key !== 'ArrowRight') return; e.preventDefault(); const M = render.M; sel = Math.max(M.startMin, Math.min(M.startMax, sel + (e.key === 'ArrowRight' ? 1 : -1))); render(false); });
   // shop filters and must-haves
-  $('shopQ').addEventListener('input', e => { render.filter.q = e.target.value; render(false); });
-  $('shopKinds').addEventListener('click', e => { const b = e.target.closest('[data-k]'); if (!b) return; render.filter.kind = b.dataset.k; render(false); });
+  $('shopQ').addEventListener('input', e => { (render.filter ||= { q: '', kind: 'all', mine: false }).q = e.target.value; render.shopN = 0; render(false); });
+  $('shopKinds').addEventListener('click', e => { const b = e.target.closest('[data-k]'); if (!b) return; render.filter.kind = b.dataset.k; render.shopN = 0; render(false); });
   $('shopMine').addEventListener('change', e => { render.filter.mine = e.target.checked; render(false); });
-  $('shopgrid').addEventListener('click', e => { const b = e.target.closest('[data-must]'); if (!b) return; const id = b.dataset.must; P.must = (P.must || []).includes(id) ? P.must.filter(x => x !== id) : [...(P.must || []), id]; save(); render(); });
+  $('shop').addEventListener('click', e => {
+    const m = e.target.closest('[data-must]'), o = e.target.closest('[data-own]');
+    if (m) { const id = m.dataset.must; P.must = (P.must || []).includes(id) ? P.must.filter(x => x !== id) : [...(P.must || []), id]; save(); render(); }
+    else if (o) { const id = o.dataset.own; P.owned = P.owned.includes(id) ? P.owned.filter(x => x !== id) : [...new Set([...P.owned, id])]; save(); render(); }
+  });
+  $('shopSort').addEventListener('click', e => { const b = e.target.closest('[data-sort]'); if (!b) return; (render.filter ||= { q: '', kind: 'all', mine: false }).sort = b.dataset.sort; render.shopN = 0; render(false); });
   // past shops: hover the line, tap a weekday to mark its days
   $('spark').addEventListener('pointermove', ev => {
     const S = render.spark, svg = $('spark').querySelector('svg'); if (!S || !svg) return;
@@ -844,7 +965,7 @@ async function init() {
   // installable app: offline copy via a service worker, and an install button where the browser offers one
   if ('serviceWorker' in navigator && location.protocol === 'https:') navigator.serviceWorker.register('sw.js').catch(() => {});
   addEventListener('beforeinstallprompt', e => { e.preventDefault(); const b = $('installBtn'); b.hidden = false; b.onclick = async () => { b.hidden = true; e.prompt(); }; });
-  sharedBanner(); controls(); bind(); render(); sources(); cardUI(); compareUI(); crew();
+  sharedBanner(); controls(); bind(); glossUI(); howUI(); render(); sources(); cardUI(); compareUI(); crew();
   $('pastAttr').innerHTML = (D.pastSources || []).length ? ', past shops: ' + D.pastSources.map(x => `<a href="${esc(x.url)}">${esc(x.name)}</a>`).join(', ') : '';
   // scroll drives the scene: the title floats away, the surface scrolls off and we dive towards the seabed.
   // The values are set only on the scene and the title (not the whole page), so the browser restyles just those.
