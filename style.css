@@ -273,8 +273,6 @@ input:focus-visible{outline:2px solid var(--main)}
 :root[data-theme=dark] .stars{opacity:1}
 .fish{position:absolute;z-index:3;left:22%;bottom:40px;width:34px;opacity:0;animation:jump 11s ease-in-out infinite;animation-delay:3s}
 @keyframes jump{0%,82%{opacity:0;transform:translate(0,0) rotate(-40deg)}84%{opacity:1}88%{transform:translate(30px,-60px) rotate(0)}92%{transform:translate(60px,0) rotate(40deg);opacity:1}93%,100%{opacity:0}}
-.result{position:relative}
-.result::before{content:"";position:absolute;left:0;right:0;top:-22px;height:24px;background:var(--bg);-webkit-mask:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 120 24' preserveAspectRatio='none'%3E%3Cpath d='M0 24V14Q15 2 30 14T60 14T90 14T120 14V24Z'/%3E%3C/svg%3E") repeat-x 0 0/120px 24px;mask:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 120 24' preserveAspectRatio='none'%3E%3Cpath d='M0 24V14Q15 2 30 14T60 14T90 14T120 14V24Z'/%3E%3C/svg%3E") repeat-x 0 0/120px 24px}
 .lvrow{display:flex;justify-content:space-between;align-items:center;gap:8px}
 .gi{width:26px;height:26px;fill:none;stroke:currentColor;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round;opacity:.75}
 .love.s2 .gi{color:#b07c00;opacity:1}
@@ -295,58 +293,73 @@ input:focus-visible{outline:2px solid var(--main)}
 .scalebar b{font-size:15px}
 .cov{display:grid;grid-template-columns:minmax(0,180px) minmax(0,1fr);gap:12px;align-items:center;font-size:14px;color:var(--soft);margin:-4px 0 14px}
 .covbar{height:10px;border-radius:5px;background:light-dark(#efe7cf,#1b2e55);overflow:hidden}.covbar div{height:100%;background:linear-gradient(90deg,var(--main),#5a91f2);border-radius:5px}
-/* the sea scene stays visible behind the page, softened */
-body{background:linear-gradient(180deg,light-dark(#3d7fe6,#0b1f4a),light-dark(#163f96,#06122e)) fixed}
-main{background:transparent}
-.steps{background:color-mix(in srgb,var(--sand) 90%,transparent)}
-.result{background:color-mix(in srgb,var(--bg) 78%,transparent)}
-.result::before{background:color-mix(in srgb,var(--bg) 78%,transparent)}
-.more{background:color-mix(in srgb,var(--paper) 84%,transparent)}
-.foot{background:color-mix(in srgb,var(--sea2) 88%,transparent)}
-.steps,.result,.more,.foot{-webkit-backdrop-filter:blur(18px) saturate(1.1);backdrop-filter:blur(18px) saturate(1.1)}
-@supports not ((backdrop-filter:blur(1px)) or (-webkit-backdrop-filter:blur(1px))){.steps{background:var(--sand)}.result,.result::before{background:var(--bg)}.more{background:var(--paper)}.foot{background:var(--sea2)}}
-@media (prefers-reduced-transparency:reduce){.steps{background:var(--sand)}.result,.result::before{background:var(--bg)}.more{background:var(--paper)}.foot{background:var(--sea2)}}
-/* activated mode */
-.actform{display:flex;flex-wrap:wrap;gap:10px;align-items:end;margin-top:12px}
-.actform label{display:grid;gap:4px;font-weight:800;font-size:14px;color:#eaf1ff}
-.actform input{min-width:180px}
-.runbox{background:var(--sea2);border-radius:22px;padding:22px 26px;border:3px solid #ffc83d55;box-shadow:0 8px 0 rgba(0,0,0,.18);color:var(--hi)}
-.runhead{display:grid;grid-template-columns:auto minmax(0,1fr);gap:18px 26px;align-items:center}
-.countdown{display:grid;place-items:center;width:clamp(96px,14vw,130px);aspect-ratio:1;border-radius:50%;background:radial-gradient(circle at 35% 30%,#fff2a8,#ffc83d 55%,#c98a00);color:#3a2a00;box-shadow:0 6px 0 #8a5a00;text-align:center;line-height:1}
-.countdown b{font-family:"Luckiest Guy",Impact;font-size:clamp(40px,6vw,56px);font-weight:400}.countdown span{font-weight:900;font-size:13px;margin-top:-18px}
-.runbar{height:12px;border-radius:6px;background:#ffffff26;overflow:hidden;margin-top:10px}.runbar div{height:100%;background:var(--gold);border-radius:6px}
-.leave{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px;margin-top:18px}
-.leave h3,.clh{color:#fff;margin:0 0 8px;font-size:16px}
-.leave .hint,.runbox .hint{color:#c3d5f7}
-.lchip{display:inline-flex;gap:6px;align-items:baseline;background:#ffffff1f;border-radius:999px;padding:6px 12px;margin:0 6px 6px 0;font-weight:800;font-size:14px}.lchip small{color:#c3d5f7;font-weight:600}
-.lchip.must{background:#ff6b5755;box-shadow:inset 0 0 0 2px #ff6b57}.lchip.more{background:transparent;box-shadow:inset 0 0 0 2px #ffffff33;color:#c3d5f7}
-.clh{display:flex;justify-content:space-between;gap:8px;margin-top:20px}.clh span{font:700 14px Nunito,sans-serif;color:#c3d5f7}
-.claims{list-style:none;margin:0 0 10px;padding:0;display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:6px 18px}
-.claims li{display:grid;gap:0;padding:6px 10px;border-radius:12px;background:#ffffff12}
-.claims label{display:flex;gap:10px;align-items:center;font-weight:800;cursor:pointer;min-height:32px}
-.claims input{width:20px;height:20px;min-height:0;accent-color:var(--gold)}
-.claims small{color:#c3d5f7;padding-left:30px}
-.claims li.done{opacity:.55}.claims li.done span{text-decoration:line-through}
-.install{margin-top:10px;border:2px solid #ffffffaa;background:#ffffff22;color:#fff;border-radius:999px;padding:6px 14px;font:800 14px Nunito,sans-serif;cursor:pointer;min-height:40px}
-/* will it come back */
-.backres{display:grid;gap:10px;margin-top:12px}
-.bcard{border:2px solid var(--line);border-radius:16px;padding:12px 16px;background:var(--paper);display:grid;gap:8px}
-.bcard>div:first-child{display:grid;gap:2px}.bcard small{color:var(--soft);font-size:13px}
-.pc{display:grid;grid-template-columns:minmax(0,200px) minmax(0,1fr) 48px;gap:10px;align-items:center;font-size:14px}
-.pc em{grid-column:2/-1;color:var(--soft);font-size:13px}
-.pbar{height:12px;border-radius:6px;background:light-dark(#efe7cf,#1b2e55);overflow:hidden}.pbar div{height:100%;border-radius:6px;background:linear-gradient(90deg,var(--main),#5a91f2)}
-.pc b{text-align:right;font-variant-numeric:tabular-nums}
-.good2{margin:0;color:var(--ok);font-weight:800}
-#backQ{width:100%}
-/* 2027 months */
-.months{display:grid;grid-template-columns:repeat(12,minmax(0,1fr));gap:6px;align-items:end}
-.mo{display:grid;gap:4px;text-align:center;font-size:13px}.mo small{color:var(--soft);font-size:12px}
-.mbar{height:140px;display:flex;align-items:flex-end;background:light-dark(#f4ecd6,#13284d);border-radius:10px;overflow:hidden}
-.mbar div{width:100%;border-radius:10px 10px 0 0;background:linear-gradient(180deg,#5a91f2,var(--main))}
-.mo.top .mbar div{background:linear-gradient(180deg,var(--gold),#e39b00)}.mo.top b{color:#b07c00}
-.mo.none .mbar{background:repeating-linear-gradient(45deg,light-dark(#f4ecd6,#13284d) 0 6px,light-dark(#ece2c6,#18315c) 6px 12px)}
 @media(max-width:760px){.pastgrid,.typegrid{grid-template-columns:minmax(0,1fr)}.grid2{grid-template-columns:minmax(0,1fr)}.ship{--sw:min(240px,64vw);right:50%;transform:translateX(50%)}.sun{right:8%;top:auto;bottom:30%;width:56px}.coin{width:58px}.hero h1{font-size:30px}.fanmade{font-size:13px}.gulls{right:8%;top:30%}}
 @media(max-width:600px){.verdict{grid-template-columns:minmax(0,1fr);padding:18px}.xmark{font-size:56px}.bars{height:150px;gap:2px}.ticks span:nth-child(even){visibility:hidden}
  .step{grid-template-columns:minmax(0,1fr)}.loves{grid-template-columns:repeat(2,minmax(0,1fr))}.days label{width:calc((100% - 48px)/7);min-width:40px}
  .tbl{font-size:13px}.stack thead{display:none}.stack tr{display:grid;padding-block:10px;border-bottom:1px solid var(--line)}.stack td{display:flex;justify-content:space-between;gap:12px;border:0;padding:4px 8px;text-align:right}.stack td::before{content:attr(data-l);font-weight:700;color:var(--soft);text-align:left}}
 @media(prefers-reduced-motion:reduce){.fish,.stars i{animation:none}.fish{display:none}.verdict.pop .xmark,.verdict.pop .big{animation:none}.item,.love,.heart{transition:none}.foldbody,.ico{animation:none;transition:none}.spin,.bob,.zzz text,.wave,.cloud,.gulls,.g,.flag,.lamp{animation:none}.zzz text{opacity:1}.hero{position:relative}.bar,.win,.love,.btn{transition:none}}
+
+/* ===== Sailing into the sunset: a fixed scene behind floating cards =====
+   --p = how far down the page (0 to 1), --h = how far past the title (0 to 1); set by app.js on scroll */
+:root{--p:0;--h:0}
+body{background:#2f7ee0}
+.scene{position:fixed;inset:0;z-index:0;overflow:hidden;pointer-events:none}
+.skyl{position:absolute;inset:0}
+.skyl.day{background:linear-gradient(180deg,light-dark(#8cc8ff,#0c1d45) 0%,light-dark(#4a8cf2,#0d2a63) 55%,light-dark(#2160d8,#0b1f4a) 100%)}
+.skyl.dusk{opacity:min(1,calc(var(--p) * 1.7));background:linear-gradient(180deg,light-dark(#3b5fb8,#1a2350) 0%,light-dark(#f08a6a,#7a3a5a) 45%,light-dark(#ffcf7a,#e0805a) 72%,light-dark(#ff9f5a,#c0603a) 100%)}
+.skyl.night{opacity:max(0,calc((var(--p) - .72) * 3.6));background:linear-gradient(180deg,#081633 0%,#0d2350 60%,#1b2f66 100%)}
+.scene .sky{position:absolute;inset:0}
+.scene .sun{right:auto;left:calc(74% + var(--p) * 6%);top:calc(10% + var(--p) * 52%);transform:scale(calc(1 + var(--p) * .35));background:radial-gradient(circle,light-dark(#fff2b0,#e9f0ff) 0 45%,light-dark(#ffd76a,#bccbe8) 46% 62%,transparent 63%)}
+.scene .sun::after{content:"";position:absolute;inset:0;border-radius:50%;opacity:min(1,calc(var(--p) * 1.6));background:radial-gradient(circle,#ffe0a0 0 40%,#ff9a4a 45% 62%,transparent 63%)}
+.glow{position:absolute;left:0;right:0;bottom:0;height:45%;opacity:min(.8,calc(var(--p) * 1.4));background:radial-gradient(60% 70% at 80% 100%,#ffb46a99,transparent 70%)}
+.scene .stars{inset:0 0 35% 0;opacity:max(var(--night-on,0),calc((var(--p) - .7) * 3.3));transition:none}
+.scene .cloud{translate:0 calc(var(--p) * -80px)}
+.scene .sea{position:absolute;left:0;right:0;bottom:calc((1 - var(--h)) * var(--lift,160px));height:260px;filter:brightness(calc(1 - max(0,(var(--p) - .6)) * .9)) saturate(calc(1 - var(--p) * .25))}
+.scene .w3::after{background:light-dark(#3d7fe6,#1a4fb8)}
+.scene .ship{--sw:clamp(200px,24vw,330px);right:auto;left:calc(58vw + var(--p) * 52vw);bottom:calc(66px - var(--sw) * .14);transform:scale(calc(1 - var(--p) * .25));transform-origin:50% 100%}
+.scene .pirate{pointer-events:auto;cursor:pointer}
+.scene .fish{left:calc(20% + var(--p) * 30%)}
+:root[data-theme=dark]{--night-on:1}
+@media (prefers-color-scheme:dark){:root:not([data-theme=light]){--night-on:1}}
+/* the title floats up and fades as you scroll */
+.hero{position:relative;z-index:1;height:auto;min-height:clamp(420px,calc(100svh - 170px),820px);overflow:visible;background:none;pointer-events:none;padding-bottom:20px}
+.hero .herotext{opacity:calc(1 - var(--h));transform:translateY(calc(var(--h) * -60px)) scale(calc(1 - var(--h) * .06));transform-origin:0 0}
+.hero a,.hero button{pointer-events:auto}
+main,.foot{position:relative;z-index:1}
+main{background:none;box-shadow:none;border-radius:0;overflow:visible;padding:0 max(3vw,10px) 40px}
+/* cards that float over the sea */
+.deck{max-width:1160px;margin:0 auto 34px;border-radius:30px;padding:clamp(22px,3.4vw,44px) clamp(16px,3vw,40px);box-shadow:0 18px 50px rgba(8,22,60,.28)}
+.deck .wrap{max-width:none}
+/* settings (things you change): warm deck planks with a rope edge */
+.deck.ctrl{background:var(--sand);border:3px dashed light-dark(#d9b878,#5a4a2a);outline:6px solid var(--sand);outline-offset:0}
+/* information: clean chart paper / deep sea */
+.deck.info.result{background:var(--bg);color:var(--hi)}
+.deck.info.more{background:var(--paper)}
+.zone{display:flex;flex-wrap:wrap;align-items:center;gap:6px 14px;margin:0 0 22px}
+.ztag{display:inline-flex;align-items:center;gap:8px;border-radius:999px;padding:6px 14px 6px 8px;font:900 13px Nunito,sans-serif;letter-spacing:.3px}
+.ztag svg{width:20px;height:20px;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+.ztag.set{background:#7a4a1f;color:#ffe9b8}
+.ztag.res{background:var(--gold);color:#3a2a00}
+.ztag.info{background:var(--main);color:#fff}
+.zhint{font-size:14px;color:var(--soft)}
+.result .zhint{color:#c3d5f7}
+.steps .wrap{gap:30px}
+.deck.ctrl .fold{background:light-dark(#fffaf0,#0e1a33);border-style:dashed;border-color:light-dark(#d9b878,#5a4a2a);box-shadow:none}
+.deck.ctrl .fold .ico{background:#7a4a1f;box-shadow:0 3px 0 #4f2e12}
+.foot{background:none;color:#eaf1ff;text-shadow:0 1px 2px #0008}
+.foot .wrap{max-width:1160px;background:color-mix(in srgb,#081633 70%,transparent);border-radius:24px;padding:22px 26px;margin:0 auto 260px}
+/* calendar menu */
+.calwrap{position:relative;display:inline-flex}
+.calmenu{position:absolute;left:0;top:calc(100% + 8px);z-index:20;min-width:280px;background:#fff;color:#152238;border-radius:16px;padding:8px;box-shadow:0 14px 40px rgba(0,0,0,.3);display:grid}
+.calmenu[hidden]{display:none}
+.calmenu p{margin:4px 10px 6px;font-size:13px;color:#4d5c78;font-weight:700}
+.calmenu a{display:block;padding:10px 12px;border-radius:10px;text-decoration:none;font-weight:800;color:#152238}
+.calmenu a:hover,.calmenu a:focus-visible{background:#eaf1ff;outline:none}
+@media(max-width:760px){.scene .ship{--sw:min(200px,52vw);left:calc(40vw + var(--p) * 70vw)}.hero{min-height:clamp(420px,calc(100svh - 150px),760px)}.deck{border-radius:22px;margin-bottom:22px}.foot .wrap{margin-bottom:200px}.scene .sea{height:200px;--lift:140px}}
+@media(prefers-reduced-motion:reduce){:root{--p:0!important;--h:0!important}}
+
+.cue{display:inline-flex;align-items:center;gap:6px;margin-top:22px;background:var(--gold);color:#3a2a00;text-decoration:none;font:900 16px Nunito,sans-serif;border-radius:999px;padding:12px 20px;box-shadow:0 4px 0 var(--goldd)}
+.cue svg{width:20px;height:20px;fill:none;stroke:currentColor;stroke-width:3;stroke-linecap:round;animation:nudge 1.6s ease-in-out infinite}
+@keyframes nudge{50%{transform:translateY(3px)}}
+html{scroll-behavior:smooth;scroll-padding-top:16px}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}.cue svg{animation:none}}

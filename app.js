@@ -238,7 +238,7 @@ function render(recompute = true) {
 
   // reminder + plan
   const d = dt(sel), ds = d.toISOString().slice(0, 10).replace(/-/g, '');
-  $('gcal').href = `https://calendar.google.com/calendar/render?action=TEMPLATE&text=${encodeURIComponent('Activate Fortnite Pirate Shop Access')}&dates=${ds}T000500Z/${ds}T003500Z&details=${encodeURIComponent('Item Shop > Plunder the Item Shop > Activate Now. Claim every day you play for 14 days.\n' + location.href.split('#')[0])}`;
+  render.cal = { title: 'Activate Fortnite Pirate Shop Access', start: T0 + sel * DAY + 5 * 60e3, mins: 30, details: 'Item Shop > Plunder the Item Shop > Activate Now. Claim every day you play for 14 days. ' + location.href.split('#')[0] };
   render.plan = `Pirate Shop plan: activate ${fmtL(sel)} after the 00:00 UTC reset (${resetLocal} my time). Access ends ${fmtL(sel + dur)}. Expected haul ~${n0(cur.tot)} V-Bucks of wanted items: ` + cur.rows.filter(r => r.hit).map(r => r.x.e.name).join(', ') + '.';
 
   // shop grid
@@ -445,6 +445,9 @@ function bind() {
     try { if (navigator.share) { await navigator.share({ title: 'Pirate Token Planner', text, url }); return; } } catch (e) { if (e.name === 'AbortError') return; }
     copy(`${text} ${url}`, 'Copied, paste it anywhere.');
   });
+  $('calBtn').addEventListener('click', () => openCal($('calBtn'), $('calMenu'), render.cal));
+  document.addEventListener('click', e => { if (!e.target.closest('.calwrap')) document.querySelectorAll('.calmenu').forEach(m => { m.hidden = true; }); });
+  document.addEventListener('keydown', e => { if (e.key === 'Escape') document.querySelectorAll('.calmenu').forEach(m => { m.hidden = true; }); });
   // "I've activated" mode
   $('actBtn').addEventListener('click', () => { $('actForm').hidden = false; $('actDate').value = dt(0).toISOString().slice(0, 10); $('actDate').max = dt(0).toISOString().slice(0, 10); $('actDate').min = dt(-13).toISOString().slice(0, 10); $('actDate').focus(); });
   $('actCancel').addEventListener('click', () => { $('actForm').hidden = true; });
@@ -454,12 +457,37 @@ function bind() {
     if (a.dataset.act === 'clear') { P.activated = null; P.claimed = []; save(); render(false); }
     if (a.dataset.act === 'change') { P.activated = null; save(); render(false); $('actBtn').click(); }
     if (a.dataset.act === 'more') { render.allClaim = true; render(false); }
+    if (a.dataset.act === 'cal') { const end = T0 + (idx(P.activated) + render.M.dur - 1) * DAY + 18 * 36e5; openCal(a, $('runCal'), { title: 'Last day of your Pirate Shop Access', start: end, mins: 30, details: 'Claim anything left before your 14 days end.' }); }
   });
   $('runbox').addEventListener('change', e => { const id = e.target.dataset.claim; if (id == null) return; P.claimed = e.target.checked ? [...new Set([...P.claimed, id])] : P.claimed.filter(x => x !== id); save(); render(false); });
   // will it come back?
   $('backsec').addEventListener('toggle', async () => { if (!$('backsec').open || render.back) return; $('backRes').innerHTML = '<p class="hint">Loading the shop history…</p>'; render.back = await load('data/past/returns.json'); backSearch(); });
   $('backQ').addEventListener('input', () => backSearch());
   $('backRes').addEventListener('click', e => { const b = e.target.closest('[data-pick]'); if (!b) return; $('backQ').value = b.dataset.pick; backSearch(); });
+}
+
+// ---------- calendar reminders for every common calendar ----------
+function calLinks(c) {
+  const z = t => new Date(t).toISOString().replace(/[-:]/g, '').replace(/\.\d{3}/, ''), end = c.start + c.mins * 60e3;
+  const isoL = t => new Date(t).toISOString().slice(0, 19) + 'Z';
+  const e = encodeURIComponent, T = e(c.title), Dd = e(c.details);
+  const ics = ['BEGIN:VCALENDAR', 'VERSION:2.0', 'PRODID:-//Pirate Token Planner//EN', 'BEGIN:VEVENT', `UID:${c.start}-ptp@piratetokenplanner`, `DTSTAMP:${z(Date.now())}`, `DTSTART:${z(c.start)}`, `DTEND:${z(end)}`,
+    `SUMMARY:${c.title}`, `DESCRIPTION:${c.details.replace(/[,;]/g, m => '\\' + m)}`, 'BEGIN:VALARM', 'TRIGGER:-PT10M', 'ACTION:DISPLAY', `DESCRIPTION:${c.title}`, 'END:VALARM', 'END:VEVENT', 'END:VCALENDAR'].join('\r\n');
+  return [
+    ['Google Calendar', `https://calendar.google.com/calendar/render?action=TEMPLATE&text=${T}&dates=${z(c.start)}/${z(end)}&details=${Dd}`],
+    ['Outlook.com', `https://outlook.live.com/calendar/0/deeplink/compose?path=/calendar/action/compose&rru=addevent&subject=${T}&startdt=${isoL(c.start)}&enddt=${isoL(end)}&body=${Dd}`],
+    ['Outlook (work or school)', `https://outlook.office.com/calendar/0/deeplink/compose?path=/calendar/action/compose&rru=addevent&subject=${T}&startdt=${isoL(c.start)}&enddt=${isoL(end)}&body=${Dd}`],
+    ['Yahoo Calendar', `https://calendar.yahoo.com/?v=60&title=${T}&st=${z(c.start)}&et=${z(end)}&desc=${Dd}`],
+    ['Apple, Thunderbird & others (.ics file)', URL.createObjectURL(new Blob([ics], { type: 'text/calendar' })), 'pirate-token-reminder.ics']
+  ];
+}
+function openCal(btn, menu, c) {
+  const open = menu.hidden;
+  document.querySelectorAll('.calmenu').forEach(m => { m.hidden = true; });
+  if (!open) { btn.setAttribute('aria-expanded', 'false'); return; }
+  menu.innerHTML = `<p>${esc(new Date(c.start).toLocaleString([], { weekday: 'short', day: 'numeric', month: 'short', hour: '2-digit', minute: '2-digit' }))}</p>` +
+    calLinks(c).map(([n, u, f]) => `<a role="menuitem" href="${u}" ${f ? `download="${f}"` : 'target="_blank" rel="noopener"'}>${n}</a>`).join('');
+  menu.hidden = false; btn.setAttribute('aria-expanded', 'true'); menu.querySelector('a').focus();
 }
 
 // ---------- "I've activated": countdown and claim list ----------
@@ -493,7 +521,7 @@ function activeMode(M) {
     <ul class="claims">${list.map(x => `<li class="${claimed.has(x.e.id) ? 'done' : ''}"><label><input type="checkbox" data-claim="${esc(x.e.id)}" ${claimed.has(x.e.id) ? 'checked' : ''}><span>${esc(x.e.name)}</span></label><small>${KINDS[x.e.kind] || x.e.kind} · ${x.out - 1 <= 0 ? 'last day today' : 'until ' + fmt(x.out - 1)}${x.must ? ' · must-have' : ''}</small></li>`).join('')}</ul>
     ${!render.allClaim && want.length > 16 ? `<button class="btn ghost" type="button" data-act="more">Show all ${want.length}</button>` : ''}
     <p class="hint">Only today's shop is known. New items appear every day after the reset at ${resetLocal}.</p>
-    <div class="acts"><button class="btn ghost" type="button" data-act="change">Change date</button><button class="btn ghost" type="button" data-act="clear">I haven't activated</button></div>`;
+    <div class="acts"><span class="calwrap"><button class="btn gold" type="button" data-act="cal" aria-haspopup="true" aria-expanded="false">Remind me of the last day</button><span class="calmenu" id="runCal" role="menu" hidden></span></span><button class="btn ghost" type="button" data-act="change">Change date</button><button class="btn ghost" type="button" data-act="clear">I haven't activated</button></div>`;
 }
 
 // ---------- will it come back? ----------
@@ -567,6 +595,16 @@ async function init() {
   if ('serviceWorker' in navigator && location.protocol === 'https:') navigator.serviceWorker.register('sw.js').catch(() => {});
   addEventListener('beforeinstallprompt', e => { e.preventDefault(); const b = $('installBtn'); b.hidden = false; b.onclick = async () => { b.hidden = true; e.prompt(); }; });
   controls(); bind(); render(); sources();
+  // scroll drives the scene: the title floats away, the ship sails right and the sun sets
+  const root = document.documentElement; let ticking = false;
+  const scene = () => {
+    const max = root.scrollHeight - innerHeight;
+    root.style.setProperty('--p', max > 0 ? Math.min(1, scrollY / max).toFixed(4) : 0);
+    root.style.setProperty('--h', Math.min(1, scrollY / (innerHeight * 0.45)).toFixed(4));
+    ticking = false;
+  };
+  addEventListener('scroll', () => { if (!ticking) { ticking = true; requestAnimationFrame(scene); } }, { passive: true });
+  addEventListener('resize', scene); scene();
 }
 init();
 }
