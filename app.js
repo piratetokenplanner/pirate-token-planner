@@ -213,6 +213,14 @@ function render(recompute = true) {
   const ax7 = []; for (let i = 0; i < XH; i += 7) ax7.push(i);
   $('ticks').innerHTML = ax7.map(i => `<span style="left:${xp(i)}%">${fmt(i)}</span>`).join('');
   $('vDay').textContent = best === 0 ? 'Activate today' : 'Activate ' + fmtL(best);
+  // deadline notices: last week before the deadline, and the gap between the 2026 deadline and the 2027 window
+  const W = D.rules.windows, wi = W.indexOf(win), prev = wi > 0 ? W[wi - 1] : null, opensIn = idx(win.opens), left = deadIdx;
+  const dlLocal = new Date(win.deadline).toLocaleString([], { weekday: 'short', day: 'numeric', month: 'short', hour: '2-digit', minute: '2-digit' });
+  let note = '';
+  if (prev && opensIn > 0) note = `The ${esc(prev.label)} window closed (${esc(prev.deadlineText)}). Your ${esc(win.label)} token can be used from ${fmtL(opensIn)}: this is a first plan for it, based on past shops.`;
+  else if (left <= 7) note = left <= 1 ? `Last chance: activate before ${esc(dlLocal)} (your time).` : `Only ${left} days left to activate. Deadline: ${esc(dlLocal)} (your time).`;
+  $('vNote').hidden = !note; $('vNote').innerHTML = note;
+  if (prev && opensIn > 0) $('vDay').textContent = 'Activate ' + fmtL(best) + ` ${dt(best).getUTCFullYear()}`;
   if (render.lastBest !== undefined && render.lastBest !== best) { const v = document.querySelector('.verdict'); v.classList.remove('pop'); void v.offsetWidth; v.classList.add('pop'); coins(); }
   render.lastBest = best;
   $('vWhen').textContent = (best === 0 ? 'Now' : `At ${resetLocal}, after the shop reset`) + ` · ends ${fmtL(best + dur)}` + (best + dur > deadIdx ? ' (past the deadline, unconfirmed)' : '');

@@ -233,6 +233,7 @@
   <div class="verdict pnl" id="verdict" aria-live="polite">
     <div class="xmark" aria-hidden="true">X</div>
     <div>
+      <p class="vnote" id="vNote" hidden></p>
       <div class="big" id="vDay">…</div>
       <div class="when" id="vWhen"></div>
       <div class="sure" id="vSure"></div>
@@ -254,8 +255,8 @@
   <div class="panel pnl chartp">
     <div class="ph"><b>Loot for each possible start day</b><span id="selInfo"></span></div>
     <div class="ylab">more loot ↑</div>
-    <div class="bars" id="bars" role="group" aria-label="Expected loot for each activation day"></div>
-    <div class="ticks" id="ticks"></div>
+    <div class="barsbox"><div class="bars" id="bars" role="group" aria-label="Expected loot for each activation day"></div><div class="dl barsdl" id="barsDl"><b>Deadline</b></div></div>
+    <div class="ticks axis" id="ticks"></div>
     <div class="tip" id="tip" hidden></div>
     <div class="lg"><span><i class="sw sw-best"></i>Best day</span><span><i class="sw sw-day"></i>Other days</span><span><i class="sw sw-late"></i>Runs past the deadline</span><span><i class="sw sw-range"></i>Likely range</span><span class="lgh">Tap a bar to pick it</span></div>
   </div>
