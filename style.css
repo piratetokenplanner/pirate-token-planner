@@ -295,6 +295,17 @@ input:focus-visible{outline:2px solid var(--main)}
 .scalebar b{font-size:15px}
 .cov{display:grid;grid-template-columns:minmax(0,180px) minmax(0,1fr);gap:12px;align-items:center;font-size:14px;color:var(--soft);margin:-4px 0 14px}
 .covbar{height:10px;border-radius:5px;background:light-dark(#efe7cf,#1b2e55);overflow:hidden}.covbar div{height:100%;background:linear-gradient(90deg,var(--main),#5a91f2);border-radius:5px}
+/* the sea scene stays visible behind the page, softened */
+body{background:linear-gradient(180deg,light-dark(#3d7fe6,#0b1f4a),light-dark(#163f96,#06122e)) fixed}
+main{background:transparent}
+.steps{background:color-mix(in srgb,var(--sand) 90%,transparent)}
+.result{background:color-mix(in srgb,var(--bg) 78%,transparent)}
+.result::before{background:color-mix(in srgb,var(--bg) 78%,transparent)}
+.more{background:color-mix(in srgb,var(--paper) 84%,transparent)}
+.foot{background:color-mix(in srgb,var(--sea2) 88%,transparent)}
+.steps,.result,.more,.foot{-webkit-backdrop-filter:blur(18px) saturate(1.1);backdrop-filter:blur(18px) saturate(1.1)}
+@supports not ((backdrop-filter:blur(1px)) or (-webkit-backdrop-filter:blur(1px))){.steps{background:var(--sand)}.result,.result::before{background:var(--bg)}.more{background:var(--paper)}.foot{background:var(--sea2)}}
+@media (prefers-reduced-transparency:reduce){.steps{background:var(--sand)}.result,.result::before{background:var(--bg)}.more{background:var(--paper)}.foot{background:var(--sea2)}}
 @media(max-width:760px){.pastgrid,.typegrid{grid-template-columns:minmax(0,1fr)}.grid2{grid-template-columns:minmax(0,1fr)}.ship{--sw:min(240px,64vw);right:50%;transform:translateX(50%)}.sun{right:8%;top:auto;bottom:30%;width:56px}.coin{width:58px}.hero h1{font-size:30px}.fanmade{font-size:13px}.gulls{right:8%;top:30%}}
 @media(max-width:600px){.verdict{grid-template-columns:minmax(0,1fr);padding:18px}.xmark{font-size:56px}.bars{height:150px;gap:2px}.ticks span:nth-child(even){visibility:hidden}
  .step{grid-template-columns:minmax(0,1fr)}.loves{grid-template-columns:repeat(2,minmax(0,1fr))}.days label{width:calc((100% - 48px)/7);min-width:40px}

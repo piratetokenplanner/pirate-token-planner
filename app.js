@@ -355,14 +355,8 @@ function coins() {
 // what a 0-10 weight means, in words
 const WORD = v => v <= 0 ? 'skip' : v <= 2 ? 'barely' : v <= 4 ? 'maybe' : v <= 6 ? 'like' : v <= 8 ? 'want' : 'love';
 const EVWORD = v => v <= 0 ? 'ignore' : v < 5 ? 'less' : v === 5 ? 'neutral' : v < 10 ? 'more' : 'double';
-function scaleEx() {
-  const o = P.types.outfit ?? 10, ex = 1500;
-  $('scaleEx').innerHTML = `<div class="scalebar">${[[0, 'skip'], [2, 'barely'], [4, 'maybe'], [6, 'like'], [8, 'want'], [10, 'love']].map(([v, w]) => `<span style="--a:${v / 10}"><b>${v}</b>${w}</span>`).join('')}</div>
-    <p>The number is how much of an item's price counts as loot for you. <b>10</b> = worth its full price, <b>5</b> = half, <b>0</b> = ignored.</p>
-    <p class="exrow">Your outfits are at <b>${o}</b> (${WORD(o)}), so a ${n0(ex)} V-Bucks outfit counts as <b>${n0(ex * o / 10)}</b>.</p>`;
-}
 function controls() {
-  loves(); scaleEx();
+  loves();
   $('presets').innerHTML = Object.keys(PRESETS).map(k => `<button class="pre" type="button" data-p="${k}">${k}</button>`).join('');
   const sl = (id, label, val, min, max, step = 1, hint = '') => `<div class="sl"><label for="${id}">${label}</label><output id="o_${id}">${val}</output><input type="range" id="${id}" min="${min}" max="${max}" step="${step}" value="${val}">${hint ? `<small>${hint}</small>` : ''}</div>`;
   $('types').innerHTML = Object.entries(KINDS).map(([k, l]) => sl('t_' + k, l, P.types[k] ?? 2, 0, 10)).join('');
@@ -379,7 +373,7 @@ function bind() {
     const t = e.target, id = t.id;
     if (t.type === 'range') {
       const v = +t.value; $('o_' + id).textContent = id.startsWith('t_') ? `${v} · ${WORD(v)}` : id.startsWith('e_') ? `${v} · ${EVWORD(v)}` : v;
-      if (id.startsWith('t_')) { P.types[id.slice(2)] = v; loves(); scaleEx(); } else if (id.startsWith('e_')) P.ev[id.slice(2)] = v; else P[id] = v;
+      if (id.startsWith('t_')) { P.types[id.slice(2)] = v; loves(); } else if (id.startsWith('e_')) P.ev[id.slice(2)] = v; else P[id] = v;
     } else if (id === 'kw') P.kw = t.value;
     else return;
     save(); render();
