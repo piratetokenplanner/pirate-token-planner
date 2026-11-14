@@ -206,8 +206,12 @@ function render(recompute = true) {
   const pct = x => Math.round(x / rank[0].tot * 100);
 
   $('bars').innerHTML = all.map(a => `<button class="col" data-s="${a.s}" aria-label="${fmtL(a.s)}: about ${n0(a.tot)} V-Bucks, likely ${n0(a.p10)} to ${n0(a.p90)}, best in ${Math.round(a.pBest * 100)}% of simulations"><span class="bar${a.s === best ? ' best' : ''}${a.s === sel ? ' sel' : ''}${a.s + dur > deadIdx ? ' late' : ''}" style="height:${Math.max(3, a.tot / max * 100)}%"></span><span class="wh" style="bottom:${a.p10 / max * 100}%;height:${Math.max(1, (a.p90 - a.p10) / max * 100)}%"></span>${a.s === best ? `<span class="x" style="bottom:calc(${Math.max(a.tot, a.p90) / max * 100}% + 2px)">X</span>` : ''}</button>`).join('');
-  const every = all.length > 40 ? 10 : 5;
-  $('ticks').innerHTML = all.map((a, i) => `<span>${i % every === 0 ? fmt(a.s) : ''}</span>`).join('');
+  // both charts share one time axis (today .. last day of the latest window), so a start day sits at the same x in both
+  const XH = M.startMax + dur + 1, xp = i => Math.max(0, Math.min(100, i / XH * 100));
+  const bb = $('bars'); bb.style.marginLeft = xp(M.startMin) + '%'; bb.style.width = xp(M.startMax + 1 - M.startMin) + '%';
+  $('barsDl').style.left = xp(deadIdx) + '%';
+  const ax7 = []; for (let i = 0; i < XH; i += 7) ax7.push(i);
+  $('ticks').innerHTML = ax7.map(i => `<span style="left:${xp(i)}%">${fmt(i)}</span>`).join('');
   $('vDay').textContent = best === 0 ? 'Activate today' : 'Activate ' + fmtL(best);
   if (render.lastBest !== undefined && render.lastBest !== best) { const v = document.querySelector('.verdict'); v.classList.remove('pop'); void v.offsetWidth; v.classList.add('pop'); coins(); }
   render.lastBest = best;
@@ -241,7 +245,7 @@ function render(recompute = true) {
 
   // the math for the selected day
   $('mathTitle').textContent = `The math for ${fmt(sel)}`;
-  $('sum').innerHTML = [[cur.tot, `Expected total (likely ${n0(cur.p10)} to ${n0(cur.p90)})`], [cur.shop, "From today's shop"], [cur.fresh, 'From new items later'], [cur.ev, 'From expected events']].map(([v, l]) => `<div><b>${n0(v)}</b><span>${l}</span></div>`).join('');
+  $('sum').innerHTML = [[cur.tot, `Expected total (likely ${n0(cur.p10)}–${n0(cur.p90)} V-Bucks)`], [cur.shop, "From today's shop"], [cur.fresh, 'From new items on later days'], [cur.ev, 'From expected events']].map(([v, l]) => `<div><b>${n0(v)}<small>V-Bucks</small></b><span>${l}</span></div>`).join('');
   const rows = [];
   const zero = cur.rows.filter(r => !r.hit && r.x.value === 0);
   for (const r of [...cur.rows].filter(r => !zero.includes(r)).sort((a, b) => b.hit - a.hit || b.x.value - a.x.value)) {
@@ -842,8 +846,8 @@ async function init() {
     root.dataset.time = t;
     // sun: rises on the left at 6, highest at 13, sets on the right at 20; the moon crosses at night
     const f = t === 'night' ? ((h + 24 - 21) % 24) / 8.5 : Math.min(1, Math.max(0, (h - 6) / 14));
-    root.style.setProperty('--sun-x', (46 + f * 44).toFixed(1) + '%');
-    root.style.setProperty('--sun-y', (8 + Math.pow(2 * f - 1, 2) * 34).toFixed(1) + '%');
+    root.style.setProperty('--sun-x', (innerWidth < 760 ? 74 + f * 14 : 62 + f * 28).toFixed(1) + '%');
+    root.style.setProperty('--sun-y', (innerWidth < 760 ? 50 + Math.pow(2 * f - 1, 2) * 8 : 6 + Math.pow(2 * f - 1, 2) * 26).toFixed(1) + '%'); // on phones the sun sits low, beside the ship, away from the title
   };
   daytime(); setInterval(daytime, 5 * 60e3);
 }

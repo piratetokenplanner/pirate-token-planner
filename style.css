@@ -647,3 +647,83 @@ h2{font-size:clamp(28px,3.6vw,40px)}
 .hero.gone .coinwrap{animation-play-state:paused}
 @keyframes coinflip{0%,80%{scale:1 1}88%{scale:.08 1}96%,100%{scale:1 1}}
 @media(prefers-reduced-motion:reduce){.shipwrap,.coinwrap{animation:none}}
+
+/* ===== review fixes ===== */
+/* activate form: one tidy row */
+.actform{display:flex;flex-wrap:wrap;gap:10px 12px;align-items:flex-end;margin-top:14px;padding:12px 14px;border-radius:12px;background:#ffffff14}
+.actform label{display:grid;gap:4px;font-weight:800;font-size:13px;color:#eaf1ff;text-transform:uppercase;letter-spacing:.3px}
+.actform input{min-width:190px;height:46px;font-weight:800}
+.install{margin-top:10px;border:2px solid #ffffffaa;background:#ffffff22;color:#fff;border-radius:6px;padding:6px 14px;font:800 14px Nunito,sans-serif;cursor:pointer;min-height:40px}
+/* calendar menu above everything, never clipped */
+.verdict,.runbox,.result .wrap{overflow:visible}
+.calwrap{z-index:40}.calmenu{z-index:50}
+/* countdown mode */
+.runbox{color:#fff}
+.runhead{display:grid;grid-template-columns:auto minmax(0,1fr);gap:16px 24px;align-items:center}
+.countdown{display:grid;place-content:center;justify-items:center;width:clamp(100px,13vw,128px);aspect-ratio:1;border-radius:50%;background:radial-gradient(circle at 35% 30%,#fff2a8,#ffc83d 55%,#c98a00);color:#3a2a00;box-shadow:0 6px 0 #8a5a00;line-height:1}
+.countdown b{font-size:clamp(44px,6vw,60px)}
+.countdown span{font:900 12px Nunito,sans-serif;text-transform:uppercase;letter-spacing:.4px;margin-top:2px}
+.runbar{height:12px;border-radius:6px;background:#ffffff26;overflow:hidden;margin-top:10px}.runbar div{height:100%;background:var(--yel);border-radius:6px}
+.leave{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px;margin-top:20px}
+.leave>div{background:#ffffff10;border-radius:12px;padding:12px 14px}
+.leave h3,.clh{color:#fff;margin:0 0 10px;font-size:16px}
+.runbox .hint{color:#c3d5f7}
+.lchip{display:inline-flex;gap:6px;align-items:baseline;background:#ffffff1f;border-radius:6px;padding:5px 10px;margin:0 6px 6px 0;font-weight:800;font-size:14px}
+.lchip small{color:#c3d5f7;font-weight:600;font-size:12px}
+.lchip.must{background:#ff6b5755;box-shadow:inset 0 0 0 2px #ff6b57}
+.lchip.more{background:transparent;box-shadow:inset 0 0 0 2px #ffffff33;color:#c3d5f7}
+.clh{display:flex;justify-content:space-between;gap:8px;margin-top:20px}.clh span{font:700 14px Nunito,sans-serif;color:#c3d5f7}
+.claims{list-style:none;margin:0 0 12px;padding:0;display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:6px 12px}
+.claims li{display:grid;padding:8px 12px;border-radius:10px;background:#ffffff12}
+.claims label{display:flex;gap:10px;align-items:center;font-weight:800;cursor:pointer;min-height:30px}
+.claims input{width:20px;height:20px;min-height:0;accent-color:var(--yel);flex:none}
+.claims small{color:#c3d5f7;padding-left:30px;font-size:12px}
+.claims li.done{opacity:.55}.claims li.done span{text-decoration:line-through}
+/* will it come back */
+.backres{display:grid;gap:10px;margin-top:12px}
+.bcard{border-radius:12px;padding:12px 16px;background:var(--paper);color:var(--ink);display:grid;gap:8px}
+.bcard>div:first-child{display:grid;gap:2px}.bcard b{font-size:16px}.bcard small{color:var(--soft);font-size:13px}
+.pc{display:grid;grid-template-columns:minmax(0,220px) minmax(0,1fr) 52px;gap:10px;align-items:center;font-size:14px}
+.pc em{grid-column:2/-1;color:var(--soft);font-size:13px}
+.pc b{text-align:right;font-variant-numeric:tabular-nums}
+.pbar{height:12px;border-radius:6px;background:light-dark(#e6ecf7,#1b2e55);overflow:hidden}.pbar div{height:100%;border-radius:6px;background:linear-gradient(90deg,var(--main),#5a91f2)}
+.good2{margin:0;color:var(--ok);font-weight:800}
+#backQ{width:100%}
+/* text inside white cards must be dark (headings were white-on-white) */
+.deck .pcard,.deck .card,.deck .subcard{color:var(--ink)}
+.deck .pcard h3,.deck .card h3,.deck .subcard h3{color:var(--ink)}
+.deck .pcard .hint,.deck .pcard .lg,.deck .pcard .spark,.deck .card p{color:var(--soft)}
+.deck .card p{color:var(--ink)}
+.deck .card code,.deck .pcard code{color:var(--ink)}
+/* hints and notes on the dark panels: readable light text */
+.fold.pnl .foldbody>.hint,.fold.pnl #statusRules,.fold.pnl .foldbody>p.hint,#cmpRes>.hint,#cmpRes>p,.fold.pnl #shopNote,.fold.pnl #pastSrc,.fold.pnl #backSrc{color:#d8e3fa}
+.fold.pnl .foldbody>p.hint a,.fold.pnl #pastSrc a{color:#ffe08a}
+/* the math: unit labels under the big numbers */
+.sum div{display:grid;gap:2px}
+.sum b{font-size:24px}.sum b small{font-size:13px;font-weight:800;color:var(--soft);margin-left:4px}
+/* charts: first and last axis labels stay inside */
+.axis span:first-child{transform:none}
+/* hero: sun keeps clear of the title */
+@media(max-width:760px){.crew{font-size:13px}.crew span{white-space:normal}}
+@media(max-width:600px){.footgrid{grid-template-columns:minmax(0,1fr)}.island{width:84px}.runhead,.leave{grid-template-columns:minmax(0,1fr)}.countdown{width:96px}.pc{grid-template-columns:minmax(0,1fr) 48px}.pc .pbar{grid-column:1/-1;grid-row:2}.actform input{min-width:0;width:100%}.actform label{flex:1 1 100%}}
+.deck .fold.pnl .pcard .spark,.deck .fold.pnl .pcard .lg,.deck .fold.pnl .pcard .hint{color:var(--soft)}
+.fold.pnl .backres>.hint{color:#d8e3fa}
+@media(max-width:600px){.pc em{grid-column:1/-1}}
+.sum b small{white-space:nowrap}
+@media(max-width:600px){
+ .sum div{flex:1 1 calc(50% - 10px)}.sum b{font-size:20px}.sum b small{display:block;margin:0;font-size:11px}
+ .shopgrid{grid-template-columns:repeat(2,minmax(0,1fr))}.item .nm{font-size:15px}.item .img{aspect-ratio:1/1}.item .bd{padding:8px 10px}.item label{font-size:12px;padding:6px 10px}
+ .cov{grid-template-columns:minmax(0,1fr)!important;gap:6px}
+}
+
+/* shared time axis for the two charts */
+.barsbox{position:relative}
+.bars{gap:0}
+.bar{left:1px;right:1px}
+.wh{margin-left:-1.5px}
+.barsdl{top:0;bottom:0}
+.barsdl b{top:2px}
+.ticks.axis{display:block;position:relative;height:22px;margin-top:6px}
+.ticks.axis span{position:absolute;transform:translateX(-50%);flex:none;visibility:visible}
+.ticks.axis span:first-child{transform:none}
+@media(max-width:600px){.ticks.axis span:nth-child(even){visibility:hidden}.axis span:nth-child(even){visibility:hidden}}
