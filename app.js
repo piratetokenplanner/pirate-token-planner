@@ -42,7 +42,7 @@ const PRESETS = {
   'Music lover': { ...base, jamtrack: 10, music: 10, instrument: 10, outfit: 3, bundle: 3 },
   'Hoarder': Object.fromEntries(Object.keys(base).map(k => [k, 10]))
 };
-const DEF = { types: { ...base }, kw: '', kwBoost: 2, rare: 3, ev: {}, days: [1, 1, 1, 1, 1, 1, 1], late: true, owned: [], must: [], claimed: [], activated: null };
+const DEF = { types: { ...base }, kw: '', kwBoost: 2, rare: 3, ev: {}, days: [1, 1, 1, 1, 1, 1, 1], late: true, owned: [], must: [], claimed: [], activated: null, off: [], wish: [] };
 let P = structuredClone(DEF), sel = null;
 try { Object.assign(P, JSON.parse(localStorage.getItem('ptp3') || '{}')); } catch (e) {}
 if (location.hash.startsWith('#s=')) { try { Object.assign(P, JSON.parse(decodeURIComponent(atob(location.hash.slice(3))))); } catch (e) {} }
@@ -83,7 +83,8 @@ function model() {
   const startMax = Math.min(deadIdx - 1, startMin + 59);
   const dur = R.durationDays;
   const valid = i => P.late || i < deadIdx;
-  const plays = i => P.days[WD(i)];
+  const offSet = new Set(P.off || []);
+  const plays = i => P.days[WD(i)] && !offSet.has(dt(i).toISOString().slice(0, 10));
   const w = k => (P.types[k] ?? 2) / 10;
   const kws = P.kw.split(',').map(s => s.trim().toLowerCase()).filter(Boolean);
   const kwHit = txt => kws.find(k => txt.toLowerCase().includes(k));
@@ -106,9 +107,14 @@ function model() {
   }).filter(x => x.out > 0);
 
   // a normal future day: average new arrivals by type, weighted by your taste
-  const B = Object.entries(D.base.mean).reduce((s, [k, v]) => s + v * w(k), 0);
+  // bundles: today's shop only counts the part of a bundle you can't get separately. Future days must use the
+  // same rule, or later start days look better than they are: share of bundle V-Bucks that is "extra" today.
+  const bAll = items.filter(x => x.e.kind === 'bundle').reduce((t, x) => t + x.e.price, 0);
+  const bShare = bAll ? items.filter(x => x.e.kind === 'bundle').reduce((t, x) => t + x.e.price * x.share, 0) / bAll : 1;
+  const wF = k => w(k) * (k === 'bundle' ? bShare : 1);
+  const B = Object.entries(D.base.mean).reduce((s, [k, v]) => s + v * wF(k), 0);
   // weekday-specific average for your taste (falls back to the overall average with < 6 samples)
-  const taste = byKind => Object.entries(byKind).reduce((t, [k, v]) => t + v * w(k), 0);
+  const taste = byKind => Object.entries(byKind).reduce((t, [k, v]) => t + v * wF(k), 0);
   const poolVals = D.base.byWd.map(list => list.map(taste));
   const Bwd = poolVals.map(v => v.length >= 6 ? v.reduce((a, b) => a + b, 0) / v.length : B);
   // the forecast uses one average day for all weekdays: in back-tests on the archive, weekday averages
@@ -136,7 +142,9 @@ function model() {
     // value for your taste: from past shops by item type when available, else the author estimate valued like outfits
     const val = e.fromHistory ? taste(e.fromHistory.byKind) : e.extraVbucks * w('outfit');
     const raw = e.fromHistory ? Object.values(e.fromHistory.byKind).reduce((a, b) => a + b, 0) : e.extraVbucks;
-    return { e, a: idx(e.from), b: idx(e.to), conf, interest, val, raw, full: val * conf * interest };
+    // each past week it was sized from, valued for your taste (the simulation picks one of them at random)
+    const samples = e.fromHistory && (e.fromHistory.from || []).filter(r => r.byKind).map(r => taste(r.byKind));
+    return { e, a: idx(e.from), b: idx(e.to), conf, interest, val, raw, samples: samples && samples.length ? samples : null, full: val * conf * interest };
   });
 
   function score(s) {
@@ -176,7 +184,19 @@ function model() {
     for (const r of evRows) ev += r.v;
     return { s, W, ok, rows, freshDays, freshW, evRows, shop, fresh, ev, tot: shop + fresh + ev };
   }
+  // wishlist: items NOT in today's shop that you want (from "Will it come back?"). Each counts 3x a typical
+  // price for its type, times the chance it returns in time to be claimed in your 14 days.
+  const inShopIds = new Set(D.shop.entries.flatMap(e => e.items.map(i => String(i.id).toLowerCase())));
+  const backById = render.back ? (render.backById ||= new Map(render.back.items.map(x => [x.i, x]))) : null;
+  const wish = (P.wish || []).filter(x => !inShopIds.has(x.i) && backById).map(w => {
+    const x = backById.get(w.i) || w, F = returnCdf(x, render.back, startMax + dur + 3);
+    const value = 3 * typicalPrice(x.t);
+    return { x, F, value };
+  });
+  // P(returns on a day r with s-2 <= r <= last day of the window): it is then in the shop on a play day
+  const pWish = (wi, s) => { if (!wi.F) return 0; const lo = Math.max(0, s - 2), hi = s + dur - 1; return Math.max(0, wi.F[Math.min(hi, wi.F.length - 1)] - (lo > 0 ? wi.F[lo - 1] : 0)); };
   const all = []; for (let s = startMin; s <= startMax; s++) all.push(score(s));
+  for (const a of all) { a.wishRows = wish.map(wi => ({ wi, p: pWish(wi, a.s), v: wi.value * pWish(wi, a.s) })); a.wish = a.wishRows.reduce((t, r) => t + r.v, 0); a.tot += a.wish; }
 
   // ---- uncertainty: replay the window totals under many simulated futures ----
   const U = R.uncertainty, rnd = rng(U.seed), N = U.runs;
@@ -193,17 +213,20 @@ function model() {
   for (let r = 0; r < N; r++) {
     const scale = D.base.fallback ? Math.exp(gauss(rnd) * U.fallbackSpread) : 1;
     const day = new Float64Array(startMax + dur + 1); for (let d = 0; d < day.length; d++) { const [v, f] = dayPools[d]; day[d] = (v.length ? Math.max(0, mu + K * (v[Math.floor(rnd() * v.length)] - mu)) * (B / (mu || 1)) : B * scale) * f; }
+    const wr = wish.map(wi => { if (!wi.F) return -99; const u = rnd(); const k = wi.F.findIndex(f => f >= u); return k < 0 ? -99 : k; });
     const evs = events.map(x => {
       const happens = rnd() < x.conf;
       const sh = x.e.status === 'pattern' ? Math.round((rnd() * 2 - 1) * U.patternShiftDays) : 0;
       const mult = Math.exp(gauss(rnd) * (x.e.fromHistory ? U.observedSpread : U.estimateSpread));
-      return { a: x.a + sh, b: x.b + sh, v: happens ? x.val * mult * x.interest : 0 };
+      const size = x.samples ? x.samples[Math.floor(rnd() * x.samples.length)] : x.val * mult;
+      return { a: x.a + sh, b: x.b + sh, v: happens ? size * x.interest : 0 };
     });
     let bestI = 0, bestV = -1;
     for (let i = 0; i < all.length; i++) {
       const a = all[i], s0 = a.s, s1 = a.s + dur - 1;
       let t = a.shop;
       for (const [d, sv] of a.freshW) t += day[d] * sv;
+      for (let k = 0; k < wish.length; k++) if (wr[k] >= a.s - 2 && wr[k] <= a.s + dur - 1) t += wish[k].value;
       for (const x of evs) {
         if (!x.v) continue;
         const lo = Math.max(x.a, s0), hi = Math.min(x.b, s1);
@@ -217,16 +240,48 @@ function model() {
   // "sure" = share of futures where this day gets within nearTol (5%) of that future's best start day.
   // Back-tested on the archive: this number matched how often it really happened (the exact-winner share did not).
   const tol = U.nearTol ?? 0.05;
-  all.forEach((a, i) => { let n = 0; for (let r = 0; r < N; r++) if (sims[i][r] >= bestRun[r] * (1 - tol)) n++; a.pNear = n / N; });
+  const sureScale = (D.backtest && D.backtest.sureScale) || U.sureScale || 0.85; // back-test: the raw share was too optimistic
+  all.forEach((a, i) => { let n = 0; for (let r = 0; r < N; r++) if (sims[i][r] >= bestRun[r] * (1 - tol)) n++; a.pNearRaw = n / N; a.pNear = Math.min(1, a.pNearRaw * sureScale); });
   all.forEach((a, i) => { const v = sims[i].sort((x, y) => x - y); a.p10 = v[Math.floor(N * .1)]; a.p50 = v[Math.floor(N * .5)]; a.p90 = v[Math.floor(N * .9)]; a.pBest = wins[i] / N; });
-  return { win, startMin, startMax, deadIdx, dur, all, items, B, Bwd, Bday, surv, poolVals, taste, events, kws, rareMul, U, season, byDate, poolMean };
+  return { win, startMin, startMax, deadIdx, dur, all, items, wish, bShare, B, Bwd, Bday, surv, poolVals, taste, events, kws, rareMul, U, season, byDate, poolMean };
+}
+
+// ---------- days you can't play: a small calendar ----------
+function offCal(M) {
+  const off = new Set(P.off || []), last = M ? M.startMax + M.dur : 45;
+  const first = -((WD(0)) % 7); // back to Monday
+  const cells = ['Mo', 'Tu', 'We', 'Th', 'Fr', 'Sa', 'Su'].map(d => `<span class="cw">${d}</span>`);
+  for (let i = first; i <= last; i++) {
+    if (i < 0) { cells.push('<span class="cd past"></span>'); continue; }
+    const iso = dt(i).toISOString().slice(0, 10), d = dt(i).getUTCDate(), inWin = M && sel !== null && i >= sel && i < sel + M.dur;
+    const wdOff = !P.days[WD(i)], isOff = off.has(iso);
+    cells.push(`<button type="button" class="cd${isOff ? ' off' : ''}${wdOff ? ' wdoff' : ''}${inWin ? ' win' : ''}${i === 0 ? ' tdy' : ''}" data-off="${iso}" aria-pressed="${isOff}" aria-label="${fmtL(i)}${isOff ? ', away' : wdOff ? ', not a play day' : ''}">${d === 1 || i === 0 ? `<small>${fmt(i, { month: 'short' })}</small>` : ''}${d}</button>`);
+  }
+  $('offGrid').innerHTML = cells.join('');
+  const n = [...off].filter(x => idx(x) >= 0).length;
+  $('offN').textContent = n ? `${n} day${n === 1 ? '' : 's'} away` : '';
+}
+// ---------- "I own these": match pasted names against today's shop ----------
+function lockerImport(text) {
+  const norm = t => t.toLowerCase().replace(/[’']/g, "'").replace(/[^a-z0-9' ]+/g, ' ').replace(/\s+/g, ' ').trim();
+  const names = [...new Set(text.split(/[\n,;]+/).map(norm).filter(t => t.length >= 3))];
+  const got = new Set(P.owned), found = new Set();
+  for (const e of D.shop.entries) {
+    const own = [e.name, ...e.items.map(i => i.name)].filter(Boolean).map(norm);
+    // a bundle counts as owned only if every item in it is on the list
+    const hit = e.kind === 'bundle' && e.items.length > 1 ? e.items.every(i => names.includes(norm(i.name || ''))) : own.some(n => names.includes(n));
+    if (hit) { got.add(e.id); for (const n of own) if (names.includes(n)) found.add(n); }
+  }
+  const added = got.size - P.owned.length;
+  P.owned = [...got];
+  return { added, missing: names.filter(n => !found.has(n)) };
 }
 
 // ---------- explained words: hover (or tap) any dotted word ----------
 const T = (k, txt) => `<span class="term" tabindex="0" role="button" data-gl="${k}">${txt}</span>`;
 const GLOSS = {
   top: () => ['Top day', 'The start day that grabs the most of what you like, on average. It gets the big X.', 1],
-  sure: c => ['How sure is it?', `We played ${c.N || 400} pretend futures of the shop. In ${c.pb ?? '?'} of every 100, ${c.day || 'this day'} got within 5% of the best possible start day. Tested on 6 months of real shops, it came true a little less often than it says (about 45–55% when it says ~60%).`, 1],
+  sure: c => ['How sure is it?', `We played ${c.N || 400} pretend futures of the shop. In ${c.pb ?? '?'} of every 100, ${c.day || 'this day'} got within 5% of the best possible start day. The raw share is scaled down by the back-test on real shops, where it came true less often than it said.`, 1],
   loot: () => ['V-Bucks of loot', 'All the items you could claim for free in your 14 days, added up at shop prices and weighted by what you like. An average over all pretend futures.', 1],
   close: () => ['Close race', 'Several start days are almost equally good. Any of them is a fine pick, so choose the one that fits your week.'],
   calls: () => ['Close calls', 'The next-best start days. The % is how much loot they get compared with your top day. Tap one to look at it.'],
@@ -240,6 +295,7 @@ const GLOSS = {
   worth: () => ['Counts for you', 'Price × how much you want this kind of item. Hearted items count 3×, items you own count 0.'],
   leaves: () => ['Leaves the shop', "The last day an item is in the shop, as far as the data says. Your 14 days must start before then to claim it."],
   event: () => ['Expected event', 'Big shop moments like a season launch or Winterfest. Dates and extra loot are estimates from past years until Epic confirms them.'],
+  wish: () => ['Wishlist', 'Items you hearted in "Will it come back?" that are not in the shop now. Each counts 3× a typical price, times the chance it returns while your 14 days are running (from how long items stayed away in the past).', 1],
   gone: () => ['Gone before your days', 'This item leaves the shop before the start day you picked, so you could not claim it. Pick an earlier day or heart it.'],
 };
 function glossUI() {
@@ -285,6 +341,8 @@ function shopView(M, cur) {
   $('favTray').innerHTML = favs.length
     ? `<div class="fth"><b>Your ${T('must', 'must-haves')}</b><span>${favs.filter(x => hitIds.has(x.e.id)).length} of ${favs.length} caught in your 14 days</span></div><div class="favs">${favs.map(x => `<button type="button" class="favchip${hitIds.has(x.e.id) ? ' ok' : ' no'}" data-must="${esc(x.e.id)}" data-r="${esc(rarityOf(x.e))}" title="Remove ${esc(x.e.name)} from must-haves">${img(x)}<span>${esc(x.e.name)}</span><i aria-hidden="true">×</i></button>`).join('')}</div>`
     : `<div class="fempty"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 20s-7-4.4-7-10a4 4 0 0 1 7-2.6A4 4 0 0 1 19 10c0 5.6-7 10-7 10z"/></svg><span>Tap the heart on anything you ${T('must', 'must have')}. It counts 3× and pulls your top day towards it.</span></div>`;
+  const wr = (cur.wishRows || []);
+  if (wr.length) $('favTray').insertAdjacentHTML('beforeend', `<div class="fth wish"><b>Waiting for</b><span>wishlist items that are not in the shop now</span></div><div class="favs">${wr.map(r => `<span class="favchip wishc"><span>${esc(r.wi.x.n)}</span><em>${r.wi.F ? Math.round(r.p * 100) + '% back in time' : 'too rare to judge'}</em><button type="button" class="wx" data-unwish="${esc(r.wi.x.i)}" aria-label="Remove ${esc(r.wi.x.n)} from wishlist">×</button></span>`).join('')}</div>`);
   // category chips with counts
   const count = {}; for (const x of M.items) count[x.e.kind] = (count[x.e.kind] || 0) + 1;
   const kindsHere = Object.keys(count).sort((a, b) => count[b] - count[a]);
@@ -394,6 +452,7 @@ function render(recompute = true) {
   const bestRow = all.find(a => a.s === best), missed = bestRow.rows.filter(r => r.x.must && !r.hit);
   const mustN = M.items.filter(x => x.must).length;
   if (mustN) $('vSure').innerHTML += missed.length ? `<br><span class="warn">Misses ${T('must', 'must-have')}: ${missed.map(r => esc(r.x.e.name)).join(', ')}</span>` : `<br><span class="good">Gets all ${mustN} ${T('must', 'must-have' + (mustN > 1 ? 's' : ''))}</span>`;
+  if (bestRow.wishRows && bestRow.wishRows.length) $('vSure').innerHTML += `<br><span class="${bestRow.wishRows.some(r => r.p >= .5) ? 'good' : 'warn'}">${T('wish', 'Wishlist')}: ${bestRow.wishRows.map(r => `${esc(r.wi.x.n)} ${Math.round(r.p * 100)}%`).join(', ')} chance to be back in time</span>`;
   $('alts').innerHTML = `<small>${T('calls', 'Close calls')}:</small>` + rank.slice(1, 4).map(a => `<button class="chip" data-s="${a.s}">${fmtL(a.s)} · ${(a.tot / rank[0].tot * 100).toFixed(1)}%</button>`).join('');
 
   // voyage
@@ -426,8 +485,9 @@ function render(recompute = true) {
   }
   if (zero.length) rows.push(`<tr class="miss"><td data-l="What">${zero.length} items worth 0 to you</td><td data-l="Inputs">${esc(zero.slice(0, 6).map(r => r.x.e.name).join(', '))}${zero.length > 6 ? '…' : ''}</td><td data-l="Calculation">Type weight 0 or marked as owned</td><td class="num" data-l="V-Bucks">0</td></tr>`);
   rows.push(`<tr><td data-l="What">New items on later days</td><td data-l="Inputs">${cur.freshW.length} later shop days · average day for your taste × chance its items are still there on your first play day${M.season(sel + 7).n ? ' × season factor from a year ago' : ''}</td><td data-l="Calculation"><code>${n0(M.Bday[0])} × (${cur.freshW.map(([, v]) => v.toFixed(2)).slice(0, 6).join(' + ')}${cur.freshW.length > 6 ? ' + …' : ''})</code></td><td class="num" data-l="V-Bucks">${n0(cur.fresh)}</td></tr>`);
+  for (const r of cur.wishRows || []) rows.push(`<tr class="${r.v > 0 ? '' : 'miss'}"><td data-l="What">${esc(r.wi.x.n)} <span class="fine">wishlist · ${KINDS[r.wi.x.t] || r.wi.x.t}</span></td><td data-l="Inputs">3 × typical ${KINDS[r.wi.x.t] || r.wi.x.t} price ${n0(r.wi.value / 3)} V-Bucks · chance it returns by your last day: ${Math.round(r.p * 100)}%</td><td data-l="Calculation"><code>${n0(r.wi.value)} × ${r.p.toFixed(2)}</code></td><td class="num" data-l="V-Bucks">${n0(r.v)}</td></tr>`);
   for (const r of cur.evRows) rows.push(`<tr class="${r.v > 0 ? '' : 'miss'}"><td data-l="What">${esc(r.x.e.name)}</td><td data-l="Inputs">${n0(r.x.val)} for your taste${r.x.e.fromHistory ? ' (from past shops)' : ' (estimate)'} · ${r.x.e.status} ×${r.x.conf} · interest ×${r.x.interest.toFixed(1)} · ${r.inside.length} of ${r.x.b - r.x.a + 1} days inside</td><td data-l="Calculation"><code>${n0(r.x.val)} × ${r.x.conf} × ${r.x.interest.toFixed(1)} × ${r.cov.toFixed(2)}</code></td><td class="num" data-l="V-Bucks">${n0(r.v)}</td></tr>`);
-  const itemRows = rows.length - 1 - cur.evRows.length; // item rows come first, then later days, then events
+  const itemRows = rows.length - 1 - cur.evRows.length - (cur.wishRows || []).length; // item rows first, then later days, wishlist, events
   const keep = render.allMath ? rows : [...rows.slice(0, Math.min(12, itemRows)), ...(itemRows > 12 ? [`<tr class="miss"><td colspan="4">${itemRows - 12} more items…</td></tr>`] : []), ...rows.slice(itemRows)];
   $('mtab').tBodies[0].innerHTML = keep.join('');
   $('mathMore').hidden = render.allMath || itemRows <= 12;
@@ -438,12 +498,26 @@ function render(recompute = true) {
   render.cal = { title: 'Activate Fortnite Pirate Shop Access', start: T0 + sel * DAY + 5 * 60e3, mins: 30, details: 'Item Shop > Plunder the Item Shop > Activate Now. Claim every day you play for 14 days. ' + location.href.split('#')[0] };
   render.plan = `Pirate Shop plan: activate ${fmtL(sel)} after the 00:00 UTC reset (${resetLocal} my time). Access ends ${fmtL(sel + dur)}. Expected haul ~${n0(cur.tot)} V-Bucks of wanted items: ` + cur.rows.filter(r => r.hit).map(r => r.x.e.name).join(', ') + '.';
 
+  if (!$('offCal').hidden) offCal(M);
   // today's shop + must-have tray (only while open)
   if ($('shop').open && $('favTray')) shopView(M, cur);
   if ($('how').open) formula(M); if ($('limitsec').open) limits(M); if ($('pastsec').open) pastShops(M);
   activeMode(M); if (render.back && $('backsec').open) backSearch();
 }
 
+// live results of scripts/backtest.py (data/backtest.json) and the daily track record (data/track.json)
+function accuracyCard() {
+  const b = D.backtest, t = D.track && D.track.summary, pc = x => Math.round(x * 1000) / 10 + '%';
+  if (!b) return `<div class="card"><h3>8. How well it works</h3><p>Back-test on the archive (May–Nov 2026, scripts/backtest.py): the pick lost about <b>6%</b> of loot compared with the day that turned out best, versus 9–10% for the previous model and for always activating on day 1.</p></div>`;
+  const T = b.tastes, bal = T.Balanced || Object.values(T)[0], names = Object.keys(T);
+  const lw = bal.launches;
+  return `<div class="card wide"><h3>8. How well it works</h3>
+    <p>Back-test on ${bal.origins} past start points (${fmt(idx(bal.from))} to ${fmt(idx(bal.to))}, updated ${fmt(idx(b.generatedAt.slice(0, 10)))}): loot lost compared with the day that turned out best.</p>
+    <table class="tbl acc"><thead><tr><th>Taste</th><th class="num">This planner</th><th class="num">Last 30 days</th><th class="num">Always day 1</th><th class="num">Range held</th></tr></thead><tbody>
+    ${names.map(n => `<tr><td>${n}</td><td class="num"><b>${pc(T[n].regretNew)}</b></td><td class="num">${pc(T[n].regretNewLast30)}</td><td class="num">${pc(T[n].regretDay1)}</td><td class="num">${Math.round(T[n].cover * 100)}%</td></tr>`).join('')}</tbody></table>
+    <p>"% sure" is scaled by ${b.sureScale.toFixed(2)}: before that it came true less often than it said.${lw ? ` Season-launch weeks were not reliably bigger (${Object.entries(lw.uplift).map(([k, v]) => `${esc(k.replace(' launch week', ''))} ${v >= 0 ? '+' : ''}${n0(v)}`).join(', ')} V-Bucks vs an average week), so the next launch is sized from all of them together.` : ''}</p>
+    <p>${t && t.scoredDays ? `<b>Track record:</b> ${t.scoredDays} daily picks scored so far lost ${pc(t.regret)} vs the best day (always day 1: ${pc(t.regretDay1)}).` : `<b>Track record:</b> every day's pick is saved${t ? ` (${t.recordedDays} so far, since ${fmt(idx(t.firstRecord))})` : ''} and scored 35 days later against the real shop.`}</p></div>`;
+}
 function formula(M) {
   const b = D.base, fb = b.fallback;
   const kindRows = Object.entries(b.mean).filter(([, v]) => v > 0).map(([k, v]) => `<code>${KINDS[k] || k}: ${n0(v)} × ${P.types[k] ?? 2}/10</code>`).join(' ');
@@ -456,7 +530,7 @@ function formula(M) {
   <div class="card"><h3>5. Window</h3><p>${M.dur} days from activation, activation before ${esc(M.win.deadlineText)}. Days after the deadline count: ${P.late ? 'yes' : 'no'}. Play days: ${wdN.filter((_, i) => P.days[i]).join(', ') || 'none'}.</p></div>
   <div class="card"><h3>6. Uncertainty</h3><p>${M.U.runs} simulated futures (seed ${M.U.seed}). In each: later days are random real past days, with their spread widened ×${M.U.daySpread ?? 1.25} so the 10–90% range held 8 of 10 real outcomes in back-tests; events happen with their confidence as probability, pattern events shift ±${M.U.patternShiftDays} days, event sizes vary. Whiskers = 10th to 90th percentile. "% sure" = share of futures where the day gets within ${Math.round((M.U.nearTol ?? 0.05) * 100)}% of that future's best start day.</p></div>
   <div class="card"><h3>7. The pick</h3><p>The start day with the highest expected total wins; ties go to the earlier day. An estimate of value to you, not a promise of what Epic will sell.</p></div>
-  <div class="card"><h3>8. How well it works</h3><p>Back-test on the archive (May–Nov 2026, 105 start points, scripts/backtest.py): the pick lost about <b>6%</b> of loot compared with the day that turned out best, versus 9–10% for the previous model and for always activating on day 1. The 10–90% range held 79–80% of real outcomes. "% sure" was a little optimistic (stated ~60%, came true 44–56%). Events were not part of the test.</p></div>`;
+  ${accuracyCard()}`;
 }
 
 function pastShops(M) {
@@ -501,7 +575,8 @@ function limits(M) {
   const b = D.base, est = D.events.filter(e => e.extraVbucks > 0 && !e.fromHistory);
   const L = [
     ['The future shop is unknown', `Epic doesn't publish it. Later days are averages of ${b.fallback ? 'a rough guess' : `${b.n} past days`}, not real items. A surprise drop can change the best day.`],
-    ['Past is not future', 'The archive covers only about six months, and one season launch is a small sample. In back-tests on those months, the pick lost about 6% of loot on average compared with the day that turned out best (always activating on day 1 lost about 9%).'],
+    ['Past is not future', 'The archive covers only about six months. In back-tests on those months, the pick lost about 6% of loot on average compared with the day that turned out best (always activating on day 1 lost about 9%). Around season launches it was harder: about 12%.'],
+    ['Events are the weakest part', 'Season-launch weeks ranged from well below to well above a normal week, so they are sized from all past launches together. Winterfest and holiday events have no past data yet (the archive starts in May 2026): their values are author estimates.'],
     ['Some event values are guesses', est.length ? `${est.map(e => `${esc(e.name)} ${n0(e.extraVbucks)} V-Bucks`).join(', ')}: author assumptions with no past data behind them.` : 'All event values come from past shops.'],
     ['Event dates may move', 'Pattern events are dated from past years. The simulation shifts them a few days; real events can move further or not happen.'],
     ['Token rules come from news reports', 'The 14 days, the deadline and the exclusions come from gaming sites, not Epic. Check your own token in-game.'],
@@ -591,6 +666,14 @@ function bind() {
   });
   $('presets').addEventListener('click', e => { const p = e.target.dataset.p; if (!p) return; P.types = { ...PRESETS[p] }; save(); controls(); render(); });
   $('days').addEventListener('change', e => { P.days[+e.target.dataset.d] = e.target.checked ? 1 : 0; save(); render(); });
+  $('offTog').addEventListener('click', () => { const c = $('offCal'), open = c.hidden; c.hidden = !open; $('offTog').setAttribute('aria-expanded', open); if (open) offCal(render.M); });
+  $('offGrid').addEventListener('click', e => { const b = e.target.closest('[data-off]'); if (!b) return; const d = b.dataset.off; P.off = (P.off || []).includes(d) ? P.off.filter(x => x !== d) : [...(P.off || []), d].filter(x => idx(x) >= -1); save(); render(); });
+  $('lockerGo').addEventListener('click', () => {
+    const { added, missing } = lockerImport($('lockerIn').value);
+    save(); render();
+    $('lockerMsg').textContent = `${added} item${added === 1 ? '' : 's'} in today's shop marked as owned.` + (missing.length ? ` Not in today's shop: ${missing.slice(0, 6).join(', ')}${missing.length > 6 ? '…' : ''}.` : '');
+  });
+  $('lockerClear').addEventListener('click', () => { const n = P.owned.length; P.owned = []; save(); render(); $('lockerMsg').textContent = `${n} owned mark${n === 1 ? '' : 's'} removed.`; });
   $('late').addEventListener('change', e => { P.late = e.target.checked; save(); render(); });
 
   const pick = e => { const b = e.target.closest('[data-s]'); if (!b) return; sel = +b.dataset.s; render(false); };
@@ -619,6 +702,8 @@ function bind() {
   $('shopMine').addEventListener('change', e => { render.filter.mine = e.target.checked; render(false); });
   $('shop').addEventListener('click', e => {
     const m = e.target.closest('[data-must]'), o = e.target.closest('[data-own]');
+    const uw = e.target.closest('[data-unwish]');
+    if (uw) { P.wish = (P.wish || []).filter(w => w.i !== uw.dataset.unwish); save(); render(); return; }
     if (m) { const id = m.dataset.must; P.must = (P.must || []).includes(id) ? P.must.filter(x => x !== id) : [...(P.must || []), id]; save(); render(); }
     else if (o) { const id = o.dataset.own; P.owned = P.owned.includes(id) ? P.owned.filter(x => x !== id) : [...new Set([...P.owned, id])]; save(); render(); }
   });
@@ -653,8 +738,14 @@ function bind() {
   });
   $('runbox').addEventListener('change', e => { const id = e.target.dataset.claim; if (id == null) return; P.claimed = e.target.checked ? [...new Set([...P.claimed, id])] : P.claimed.filter(x => x !== id); save(); render(false); });
   // will it come back?
-  $('backsec').addEventListener('toggle', async () => { if (!$('backsec').open || render.back) return; $('backRes').innerHTML = '<p class="hint">Loading the shop history…</p>'; render.back = await load('data/past/returns.json'); backSearch(); });
+  $('backsec').addEventListener('toggle', async () => { if (!$('backsec').open || render.back) return; $('backRes').innerHTML = '<p class="hint">Loading the shop history…</p>'; render.back = render.back || await load('data/past/returns.json'); backSearch(); });
   $('backQ').addEventListener('input', () => backSearch());
+  $('backRes').addEventListener('click', e => {
+    const b = e.target.closest('[data-wish]'); if (!b) return;
+    const x = render.back.items.find(y => y.i === b.dataset.wish); if (!x) return;
+    P.wish = (P.wish || []).some(w => w.i === x.i) ? P.wish.filter(w => w.i !== x.i) : [...(P.wish || []), { i: x.i, n: x.n, t: x.t }];
+    save(); render(); backSearch();
+  });
   $('backRes').addEventListener('click', e => { const b = e.target.closest('[data-pick]'); if (!b) return; $('backQ').value = b.dataset.pick; backSearch(); });
 }
 
@@ -717,6 +808,23 @@ function activeMode(M) {
 }
 
 // ---------- will it come back? ----------
+// chance that an item that is away from the shop has come back by day d (d = 0 is today), from the pooled
+// Kaplan-Meier survival of past absences, sped up or slowed down by the item's own usual gap
+function returnCdf(x, R, days) {
+  if (!R || !R.S || !x.l) return null;
+  const T = R.S.length - 1, S = t => t < 0 ? 1 : R.S[Math.min(T, t)];
+  const away = Math.round((T0 - Date.parse(x.l)) / DAY) - 1;
+  const f = x.k >= 3 && x.g ? Math.min(4, Math.max(0.25, R.medianGap / Math.max(1, x.g))) : 1;
+  const Si = t => S(Math.floor(t * f)), base = Si(away - 1);
+  if (base < 0.03) return null;
+  const F = []; for (let d = 0; d <= days; d++) F.push((away + d) * f > T ? (F.at(-1) ?? 0) : Math.max(0, Math.min(1, (base - Si(away + d)) / base)));
+  return F;
+}
+// a typical price for an item type, from today's shop (median), for wishlist items without a price
+function typicalPrice(kind) {
+  const ps = D.shop.entries.filter(e => e.kind === kind && e.items.length === 1).map(e => e.price).sort((a, b) => a - b);
+  return ps.length ? ps[Math.floor(ps.length / 2)] : ({ outfit: 1500, emote: 500, pickaxe: 800, glider: 800, backpack: 400, wrap: 500, kicks: 600, sidekick: 800 }[kind] || 500);
+}
 function backSearch() {
   const R = render.back, q = ($('backQ').value || '').trim().toLowerCase();
   if (!R) { $('backRes').innerHTML = '<p class="hint">The shop history could not be loaded.</p>'; return; }
@@ -729,7 +837,7 @@ function backSearch() {
   const s0 = render.M ? sel : 0;
   const card = x => {
     const e = inShop.get(x.i);
-    if (e) return `<div class="bcard"><div><b>${esc(x.n)}</b><small>${KINDS[x.t] || x.t}</small></div><p class="good2">In the shop right now, until ${fmt(idx(e.outDate || D.shop.shopDate) - 1)}.</p></div>`;
+    if (e) return `<div class="bcard"><div><b>${esc(x.n)}</b><small>${KINDS[x.t] || x.t}</small></div><p class="good2">In the shop right now, until ${fmt(idx(e.outDate || D.shop.shopDate))}. Heart it in Today's shop to make it a must-have.</p></div>`;
     const away = Math.round((T0 - Date.parse(x.l)) / DAY) - 1;
     // item-specific pace: items that came back quickly before are assumed to come back faster again
     const f = x.k >= 3 && x.g ? Math.min(4, Math.max(0.25, R.medianGap / Math.max(1, x.g))) : 1;
@@ -737,10 +845,11 @@ function backSearch() {
     const chance = (a, b) => { const base = Si(away + a - 1); if (base < 0.03 || (away + b) * f > T) return null; return Math.max(0, Math.min(1, (base - Si(away + b)) / base)); };
     const pWin = chance(Math.max(0, s0), s0 + 13), p30 = chance(0, 29);
     const bar = (p, label) => p === null ? `<div class="pc"><span>${label}</span><em>beyond what the history can judge</em></div>` : `<div class="pc"><span>${label}</span><div class="pbar"><div style="width:${Math.round(p * 100)}%"></div></div><b>${Math.round(p * 100)}%</b></div>`;
-    return `<div class="bcard"><div><b>${esc(x.n)}</b><small>${KINDS[x.t] || x.t} · in the shop ${x.k} time${x.k === 1 ? '' : 's'} since ${fmt(idx(R.from), { month: 'short' })} · last seen ${fmt(idx(x.l))} (${away} days ago)${x.g ? ` · usually away ${x.g} days` : ''}</small></div>
+    const wished = (P.wish || []).some(w => w.i === x.i);
+    return `<div class="bcard"><button type="button" class="wishbtn" data-wish="${esc(x.i)}" aria-pressed="${wished}"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 20s-7-4.4-7-10a4 4 0 0 1 7-2.6A4 4 0 0 1 19 10c0 5.6-7 10-7 10z"/></svg>${wished ? 'On my wishlist' : 'Add to wishlist'}</button><div><b>${esc(x.n)}</b><small>${KINDS[x.t] || x.t} · in the shop ${x.k} time${x.k === 1 ? '' : 's'} since ${fmt(idx(R.from), { month: 'short' })} · last seen ${fmt(idx(x.l))} (${away} days ago)${x.g ? ` · usually away ${x.g} days` : ''}</small></div>
       ${bar(pWin, `In your 14 days (${fmt(s0)}–${fmt(s0 + 13)})`)}${bar(p30, 'In the next 30 days')}</div>`;
   };
-  $('backRes').innerHTML = hits.map(card).join('') + '<p class="hint">A rough estimate from how long items stayed away in the past. Epic does not follow a schedule, so treat it as a hint, not a promise.</p>';
+  $('backRes').innerHTML = hits.map(card).join('') + '<p class="hint">Wishlist items count 3× in your plan, times the chance they come back in your 14 days. A rough estimate from how long items stayed away in the past. Epic does not follow a schedule, so treat it as a hint, not a promise.</p>';
 }
 
 // item rarity as a short class name, for the Item Shop style tile colours
@@ -988,7 +1097,11 @@ async function init() {
   // installable app: offline copy via a service worker, and an install button where the browser offers one
   if ('serviceWorker' in navigator && location.protocol === 'https:') navigator.serviceWorker.register('sw.js').catch(() => {});
   addEventListener('beforeinstallprompt', e => { e.preventDefault(); const b = $('installBtn'); b.hidden = false; b.onclick = async () => { b.hidden = true; e.prompt(); }; });
+  [D.backtest, D.track] = await Promise.all([load('data/backtest.json'), load('data/track.json')]);
   sharedBanner(); controls(); bind(); glossUI(); howUI(); render(); sources(); cardUI(); compareUI(); crew();
+  { const n = (P.off || []).filter(x => idx(x) >= 0).length; $('offN').textContent = n ? `${n} day${n === 1 ? '' : 's'} away` : ''; }
+  // wishlist items need the return history: load it after the first paint, then re-plan
+  if ((P.wish || []).length) load('data/past/returns.json').then(r => { if (r) { render.back = r; render(); } });
   $('pastAttr').innerHTML = (D.pastSources || []).length ? ', past shops: ' + D.pastSources.map(x => `<a href="${esc(x.url)}">${esc(x.name)}</a>`).join(', ') : '';
   // scroll drives the scene: the title floats away, the surface scrolls off and we dive towards the seabed.
   // The values are set only on the scene and the title (not the whole page), so the browser restyles just those.

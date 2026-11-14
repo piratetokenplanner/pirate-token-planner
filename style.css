@@ -4248,3 +4248,51 @@ main a,.foot a,.tbl td{overflow-wrap:anywhere}
 .stile.own .snm::before{content:"Owned · ";color:#3ddc97}
 @media(max-width:520px){.sgrid{grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}.seg{width:100%}.seg button{flex:1;padding:8px 6px}.snm{font-size:15px}}
 #shop .fchip small{color:#6b7da3;opacity:1}#shop .fchip.on small{color:#cfe0ff}
+
+/* ===== days you can't play ===== */
+.offbox{margin-top:12px}
+.offtog{display:inline-flex;align-items:center;gap:8px;border:0;border-radius:10px;background:#ffffff14;color:#fff;font:800 14px Nunito,sans-serif;padding:8px 12px;cursor:pointer}
+.offtog svg{width:20px;height:20px;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round}
+.offtog b{padding:2px 8px;border-radius:999px;background:#ff8a65;color:#3b1006;font-size:12px}
+.offtog b:empty{display:none}
+.offtog:hover{background:#ffffff24}.offtog[aria-expanded="true"]{background:#ffffff26}
+.offcal{margin-top:10px;max-width:460px}
+.offcal .hint{margin:0 0 8px}
+.calgrid{display:grid;grid-template-columns:repeat(7,minmax(0,1fr));gap:4px}
+.cw{font:800 11px Nunito,sans-serif;color:#9fb4dc;text-align:center;padding-bottom:2px}
+.cd{position:relative;aspect-ratio:1;border:0;border-radius:9px;background:#ffffff14;color:#fff;font:800 14px Nunito,sans-serif;cursor:pointer;display:flex;flex-direction:column;align-items:center;justify-content:center;line-height:1}
+.cd small{font-size:9.5px;color:#ffd65c;text-transform:uppercase;margin-bottom:1px}
+.cd.past{background:none;cursor:default}
+.cd.wdoff{opacity:.45}
+.cd.win{box-shadow:inset 0 0 0 2px #ffc83d}
+.cd.tdy{background:#ffffff2e;box-shadow:inset 0 0 0 2px #fff8}
+.cd.off{background:#ff8a65;color:#3b1006}
+.cd.off::after{content:"";position:absolute;inset:22%;background:linear-gradient(45deg,transparent 46%,#3b100699 46% 54%,transparent 54%),linear-gradient(-45deg,transparent 46%,#3b100699 46% 54%,transparent 54%);border-radius:4px}
+.cd.off small{color:#3b1006}
+.cd:hover:not(.past){background:#ffffff30}.cd.off:hover{background:#ff9f80}
+.cd:focus-visible{outline:2px solid #fff}
+
+/* ===== wishlist ===== */
+.bcard{position:relative}
+.wishbtn{float:right;display:inline-flex;align-items:center;gap:6px;margin:0 0 6px 10px;border:2px solid #ff6b9f;border-radius:999px;background:none;color:inherit;font:800 13px Nunito,sans-serif;padding:5px 12px 5px 8px;cursor:pointer}
+.wishbtn svg{width:18px;height:18px;fill:none;stroke:#ff6b9f;stroke-width:2.2}
+.wishbtn[aria-pressed="true"]{background:#ff6b9f;color:#fff}.wishbtn[aria-pressed="true"] svg{fill:#fff;stroke:#fff}
+.fth.wish{margin-top:10px}
+.favchip.wishc{cursor:default;border-style:dashed;border-color:#9fc4ff;padding:4px 6px 4px 12px}
+.favchip.wishc em{font-style:normal;font-size:12px;color:#9fc4ff;white-space:nowrap}
+.favchip .wx{border:0;background:#ffffff1c;color:#fff;width:22px;height:22px;border-radius:50%;cursor:pointer;font:700 14px/1 Nunito,sans-serif}
+
+/* ===== locker import ===== */
+#lockerIn{width:100%;box-sizing:border-box;border-radius:10px;border:2px solid #c9d6ea;padding:10px 12px;font:600 15px Nunito,sans-serif;resize:vertical;background:#fff;color:#152238}
+#lockerIn:focus{outline:0;border-color:var(--gold)}
+
+/* ===== accuracy card ===== */
+.formula .card.wide{grid-column:1/-1}
+.tbl.acc{width:100%;margin:6px 0 10px;font-size:14px}
+.tbl.acc th,.tbl.acc td{padding:6px 8px}
+.bcard .wishbtn{float:none;justify-self:start;align-self:start;width:auto;margin:0 0 4px}
+.bcard > div > small{display:block;margin-top:2px}
+.favchip.wishc{max-width:none}
+.favchip.wishc span{max-width:200px}
+.tbl.acc th.num{text-align:right}
+.offcal{max-width:400px}

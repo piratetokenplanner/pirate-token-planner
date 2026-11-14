@@ -1,0 +1,76 @@
+name: Refresh shop data and deploy
+
+on:
+  schedule:
+    - cron: '7 */6 * * *'  # 00:07, 06:07, 12:07, 18:07 UTC: right after the daily reset, then every 6 hours
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: write
+  pages: write
+  issues: write
+  id-token: write
+
+concurrency:
+  group: pages
+  cancel-in-progress: false
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+      - name: Fetch shop, news and verify sources
+        run: node scripts/update.mjs
+        env:
+          ITEMSHOP_KEY: ${{ secrets.ITEMSHOP_KEY }}
+      # once a day (first run after the reset, or when started by hand): back-test the forecast on the
+      # past-shop archive and save/score the daily track record -> data/backtest.json, data/track.json
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - uses: actions/cache@v4
+        with:
+          path: ${{ runner.temp }}/archive
+          key: archive-${{ github.run_id }}
+          restore-keys: archive-
+      - name: Back-test and track record (daily)
+        continue-on-error: true
+        env:
+          ARCHIVE_CACHE: ${{ runner.temp }}/archive
+        run: |
+          if [ "$(date -u +%H)" = "00" ] || [ "${{ github.event_name }}" = "workflow_dispatch" ] || [ ! -f data/backtest.json ]; then
+            pip install --quiet numpy
+            python3 scripts/backtest.py --json data/backtest.json --record data/track.json
+          fi
+      - name: Commit data (keeps the snapshot history in git)
+        run: |
+          git config user.name "planner-bot"
+          git config user.email "planner-bot@users.noreply.github.com"
+          git add data
+          git diff --cached --quiet || git commit -m "data: refresh $(date -u +%F' '%H:%M) UTC"
+          git push
+      - uses: actions/configure-pages@v5
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: .
+      - id: deploy
+        uses: actions/deploy-pages@v4
+      - name: Open an issue when a source stops confirming a claim
+        if: always()
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          BAD=$(node -e "const r=require('./data/rules.json'),e=require('./data/events.json');const b=[...r.facts,...e].filter(x=>x.status==='unverified').map(x=>'- '+(x.text||x.name)).join('\n');process.stdout.write(b)")
+          if [ -n "$BAD" ] && ! gh issue list --label source-check --state open | grep -q .; then
+            gh label create source-check --force >/dev/null 2>&1 || true
+            gh issue create --label source-check --title "Source check: claims could not be verified" --body "These claims failed their automatic source check on the latest run:
+          $BAD
+
+          See the Sources and data section of the site, then update config/rules.json or config/events.json."
+          fi

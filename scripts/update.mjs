@@ -256,10 +256,14 @@ const usable = past.days.filter(d => d.byKind);
 const total = d => Object.values(d.byKind).reduce((s, v) => s + v, 0);
 const kinds = [...new Set(usable.flatMap(d => Object.keys(d.byKind)))];
 const medByKind = Object.fromEntries(kinds.map(k => [k, median(usable.map(d => d.byKind[k] || 0))]));
-// Events with "calibrateFrom" (e.g. a past season-launch week) are sized from what those past
-// days brought above a median day, per item type. Those days are then left out of the normal-day pool.
+// Events with "calibrateFrom" (e.g. past season-launch weeks) are sized from what those past days brought
+// above an AVERAGE normal day, per item type. Weeks below average count as negative: back-tests showed that
+// launch weeks are not reliably bigger, and dropping the weak ones made the estimate too optimistic.
 const cfgEventsRaw = await readJSON('config/events.json', []);
 const calib = {}, reserved = new Set();
+const inRanges = date => cfgEventsRaw.some(ev => [{ from: ev.from, to: ev.to }, ...(ev.calibrateFrom || [])].some(r => date >= r.from && date <= r.to));
+const normalDays = usable.filter(d => !inRanges(d.date));
+const meanByKind = Object.fromEntries(kinds.map(k => [k, normalDays.reduce((s, d) => s + (d.byKind[k] || 0), 0) / Math.max(1, normalDays.length)]));
 for (const ev of cfgEventsRaw) {
   // once the archive covers an event's own dates, measure the event itself instead of a past stand-in
   const own = usable.filter(d => d.date >= ev.from && d.date <= ev.to).length >= 2;
@@ -268,12 +272,19 @@ for (const ev of cfgEventsRaw) {
   if (!ds.length) continue;
   const len = Math.round((Date.parse(ev.to) - Date.parse(ev.from)) / DAY) + 1;
   const byKind = {};
-  for (const k of kinds) byKind[k] = Math.max(0, ds.reduce((s, d) => s + (d.byKind[k] || 0) - medByKind[k], 0) * len / ds.length);
+  for (const k of kinds) byKind[k] = Math.round(ds.reduce((s, d) => s + (d.byKind[k] || 0) - meanByKind[k], 0) * len / ds.length);
   (calib[ev.id] ||= []).push({ ...r, days: ds.length, byKind });
   ds.forEach(d => reserved.add(d.date));
   }
 }
+// "A good shop day": the average of the best quarter of normal days, minus an average day, per type.
+// Used to size shop drops announced in the news, which have no past data of their own.
+const goodDayExtra = (() => {
+  const sorted = [...normalDays].sort((a, b) => total(b) - total(a)), top = sorted.slice(0, Math.max(1, Math.floor(sorted.length / 4)));
+  return Object.fromEntries(kinds.map(k => [k, Math.round(top.reduce((s, d) => s + (d.byKind[k] || 0), 0) / top.length - meanByKind[k])]));
+})();
 await write('data/baseline.json', {
+  goodDayExtra, meanDayByKind: Object.fromEntries(Object.entries(meanByKind).map(([k, v]) => [k, Math.round(v)])),
   method: usable.length ? `past shops ${past.first} to ${past.last}` : 'none yet',
   source: PAST_REPO, sources: past.sources || [{ name: 'Fortnite-Datamining archive', url: PAST_REPO, from: PAST_FIRST }], windowFrom: usable[0] && usable[0].date, windowTo: usable.at(-1) && usable.at(-1).date,
   days: usable.map(({ date, count, byKind }) => ({ date, count, byKind, reserved: reserved.has(date) || undefined })),
@@ -328,6 +339,36 @@ async function verify(claims, prev) {
 const cfgEvents = await readJSON('config/events.json', []);
 const cfgRules = await readJSON('config/rules.json', {});
 const events = await verify(cfgEvents, await readJSON('data/events.json', []));
+// ---- 5b. Shop drops announced in the in-game news ("… arrive in the Item Shop on November 20") ----
+// Only news that mentions the shop or cosmetics AND a date in the next 30 days. Sized like a good shop day,
+// with "reported" confidence. Shown with the original news text, so a wrong match is easy to spot.
+{
+  const MON = ['jan', 'feb', 'mar', 'apr', 'may', 'jun', 'jul', 'aug', 'sep', 'oct', 'nov', 'dec'];
+  const WDS = ['sunday', 'monday', 'tuesday', 'wednesday', 'thursday', 'friday', 'saturday'];
+  const now = Date.parse((news && news.fetchedAt) || new Date().toISOString()), today = Date.parse(iso(now));
+  const SHOPWORD = /item shop|in the shop|outfits?\b|bundles?\b|skins?\b|emotes?\b|pickaxes?\b|cosmetics?|kicks\b|arriv|available|drops?\b|coming/i;
+  const dateIn = text => {
+    const t = text.toLowerCase(); let m;
+    const pick = (mo, d) => { for (const y of [new Date(today).getUTCFullYear(), new Date(today).getUTCFullYear() + 1]) { const x = Date.UTC(y, mo, d); if (x >= today - DAY && x <= today + 30 * DAY) return x; } return null; };
+    if ((m = t.match(/\b(jan|feb|mar|apr|may|jun|jul|aug|sep|oct|nov|dec)[a-z]*\.?\s+(\d{1,2})(?:st|nd|rd|th)?\b/))) return pick(MON.indexOf(m[1]), +m[2]);
+    if ((m = t.match(/\b(\d{1,2})(?:st|nd|rd|th)?\s+(?:of\s+)?(jan|feb|mar|apr|may|jun|jul|aug|sep|oct|nov|dec)[a-z]*\b/))) return pick(MON.indexOf(m[2]), +m[1]);
+    if (/\btomorrow\b/.test(t)) return today + DAY;
+    if ((m = t.match(/\b(?:this|next|on|starting|from)\s+(sunday|monday|tuesday|wednesday|thursday|friday|saturday)\b/))) { const w = WDS.indexOf(m[1]); let d = (w - new Date(today).getUTCDay() + 7) % 7 || 7; return today + d * DAY; }
+    return null;
+  };
+  for (const it of (news && news.items) || []) {
+    const text = `${it.title || ''}. ${it.body || ''}`;
+    if (!SHOPWORD.test(text)) continue;
+    const at = dateIn(text); if (at === null) continue;
+    const day = iso(at), id = 'news-' + sha(it.title + day).slice(0, 8);
+    if (events.some(e => e.id === id || (e.from <= day && e.to >= day && e.newsHits && e.newsHits.length))) continue;
+    events.push({ id, name: `From the news: ${it.title}`, from: day, to: iso(at + 2 * DAY), claim: 'reported', status: 'reported', extraVbucks: 0,
+      basis: 'Detected automatically in the in-game news. Sized like a good shop day (average of the best quarter of past days), because announced drops have no past data of their own.',
+      fromNews: { title: it.title, body: it.body, fetchedAt: news.fetchedAt },
+      fromHistory: { byKind: Object.fromEntries(Object.entries(goodDayExtra).map(([k, v]) => [k, v * 3])), from: [{ label: 'a good shop day (best quarter of past days), × 3 days' }] },
+      sources: [{ url: NEWS_URL, verified: true }], newsHits: [it.title] });
+  }
+}
 cfgRules.facts = await verify(cfgRules.facts || [], (await readJSON('data/rules.json', {})).facts);
 await write('data/events.json', events);
 await write('data/rules.json', cfgRules);

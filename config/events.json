@@ -32,7 +32,7 @@
   "to": "2026-12-12",
   "claim": "pattern",
   "extraVbucks": 8000,
-  "basis": "Sized from past season-launch weeks in the shop history (Chapter 7, Nov 30 to Dec 6, 2025, and Treasure Hunters, Nov 1 to 7, 2026): what they brought above a median day, per item type.",
+  "basis": "Sized from every past season-launch week in the shop history: what each brought above an average day, per item type, averaged. Launch weeks were not reliably bigger (back-test: June 2026 was below average, August and November above), so this can be small or even negative.",
   "newsKeywords": [
    "chapter 8"
   ],
@@ -49,6 +49,16 @@
     "from": "2025-11-30",
     "to": "2025-12-06",
     "label": "Chapter 7 launch week"
+   },
+   {
+    "from": "2026-06-06",
+    "to": "2026-06-12",
+    "label": "Chapter 7 Season 3 launch week"
+   },
+   {
+    "from": "2026-08-20",
+    "to": "2026-08-26",
+    "label": "Chapter 7 Season 4 launch week"
    },
    {
     "from": "2026-11-01",

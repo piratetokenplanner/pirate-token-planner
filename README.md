@@ -27,15 +27,18 @@ A GitHub Action (`.github/workflows/update.yml`) runs every 6 hours: it reads th
 
 ## How accurate is it
 
-`scripts/backtest.py` replays the planner on the past-shop archive: from every day with 8+ weeks of history, it predicts the next 21 start days and compares with what really was in the shop. Results (May–Nov 2026, 105 start points):
+`scripts/backtest.py` replays the planner on the past-shop archive: from every day with 8+ weeks of history, it predicts the next 21 start days and compares with what really was in the shop. The GitHub Action runs it once a day and writes `data/backtest.json`; the site shows the latest numbers under "How it works". Results (May–Nov 2026, 106 start points):
 
 | | Loot lost vs the truly best day |
 |---|---|
-| Current model | ~6% |
+| This planner | ~6% |
 | Previous model | ~9–10% |
 | Always activate on day 1 | ~9–10% |
 
-The 10–90% range holds about 8 of 10 real outcomes; "% sure" (chance to land within 5% of the best start day) is a little optimistic. Events like a season launch are not part of the test, since the archive holds only one of each.
+- The 10–90% range holds about 8 of 10 real outcomes. "% sure" is scaled down by the back-test (it was too optimistic).
+- Season-launch weeks were not reliably bigger (June 2026 below an average week, August and November above), so the next launch is sized from all of them together. Winterfest and holiday events have no past data yet.
+- Track record: every day the Action saves the pick for three tastes (`data/track.json`) and scores it 35 days later against the real shop.
+- Older shops: a free [itemshop.gg](https://itemshop.gg) API key in the repository secret `ITEMSHOP_KEY` adds about a year of older shops (last Winterfest and more season launches), so events can be measured instead of estimated.
 
 ## Files
 | Path | What |
