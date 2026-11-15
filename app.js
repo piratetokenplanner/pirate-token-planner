@@ -301,7 +301,7 @@ function offCal(M) {
     if (i < 0) { cells.push('<span class="cd past"></span>'); continue; }
     const iso = dt(i).toISOString().slice(0, 10), d = dt(i).getUTCDate(), inWin = M && sel !== null && i >= sel && i < sel + M.dur;
     const wdOff = !P.days[WD(i)], isOff = off.has(iso);
-    cells.push(`<button type="button" class="cd${isOff ? ' off' : ''}${wdOff ? ' wdoff' : ''}${inWin ? ' win' : ''}${i === 0 ? ' tdy' : ''}" data-off="${iso}" aria-pressed="${isOff}" >${d === 1 || i === 0 ? `<small>${fmt(i, { month: 'short' })} </small>` : ''}${d}<span class="sr">, ${fmt(i, { weekday: 'long' })}${isOff ? ', away' : wdOff ? ', not a play day' : ''}</span></button>`);
+    cells.push(`<button type="button" class="cd${isOff ? ' off' : ''}${wdOff ? ' wdoff' : ''}${inWin ? ' inwin' : ''}${i === 0 ? ' tdy' : ''}" data-off="${iso}" aria-pressed="${isOff}" >${d === 1 || i === 0 ? `<small>${fmt(i, { month: 'short' })} </small>` : ''}${d}<span class="sr">, ${fmt(i, { weekday: 'long' })}${isOff ? ', away' : wdOff ? ', not a play day' : ''}</span></button>`);
   }
   $('offGrid').innerHTML = cells.join('');
   const n = [...off].filter(x => idx(x) >= 0).length;
