@@ -118,7 +118,7 @@
    "outDate": "2026-11-15",
    "section": "Marvel",
    "image": "https://fortnite-api.com/images/cosmetics/br/newdisplayassets/d96a5173989911f6/renderimage_0.png",
-   "gap": "unseen",
+   "gap": 213,
    "items": [
     {
      "id": "EID_SpectacleWeb",
@@ -127,7 +127,7 @@
      "rarity": "MARVEL SERIES",
      "series": "MARVEL SERIES",
      "set": "Zero War",
-     "appearances": 2
+     "appearances": 5
     }
    ]
   },
@@ -183,7 +183,7 @@
    "outDate": "2026-11-18",
    "section": "Get Your Kicks",
    "image": "https://fortnite-api.com/images/cosmetics/br/newdisplayassets/6b7287987f15e809/renderimage_0.png",
-   "gap": "unseen",
+   "gap": 216,
    "items": [
     {
      "id": "Shoes_HintLimpFries",
@@ -192,7 +192,7 @@
      "rarity": "Uncommon",
      "series": null,
      "set": "NIKE Shoes",
-     "appearances": 0
+     "appearances": 2
     }
    ]
   },
@@ -286,7 +286,7 @@
      "rarity": "Icon Series",
      "series": "Icon Series",
      "set": null,
-     "appearances": 3
+     "appearances": 7
     }
    ]
   },
@@ -359,7 +359,7 @@
    "outDate": "2026-11-16",
    "section": "Main Character Energy ",
    "image": "https://fortnite-api.com/images/cosmetics/br/newdisplayassets/0702ef0acd6471b7/renderimage_0.png",
-   "gap": "unseen",
+   "gap": 373,
    "items": [
     {
      "id": "CID_582_Athena_Commando_F_DarkDino",
@@ -368,7 +368,7 @@
      "rarity": "DARK SERIES",
      "series": "DARK SERIES",
      "set": "Dino Guard",
-     "appearances": 1
+     "appearances": 4
     },
     {
      "id": "BID_383_DarkDinoFemale",
@@ -828,7 +828,7 @@
      "rarity": "Uncommon",
      "series": null,
      "set": "Jason Universe: Revenge",
-     "appearances": 6
+     "appearances": 9
     }
    ]
   },
@@ -886,7 +886,7 @@
    "outDate": "2026-11-20",
    "section": "Victory Party",
    "image": "https://fortnite-api.com/images/cosmetics/br/newdisplayassets/8cf0bbe00056eccb/renderimage_0.png",
-   "gap": "unseen",
+   "gap": 413,
    "items": [
     {
      "id": "EID_BigHugs",
@@ -895,7 +895,7 @@
      "rarity": "Icon Series",
      "series": "Icon Series",
      "set": null,
-     "appearances": 0
+     "appearances": 2
     }
    ]
   },
@@ -1072,7 +1072,7 @@
      "rarity": "Uncommon",
      "series": null,
      "set": null,
-     "appearances": 2
+     "appearances": 5
     }
    ]
   },
@@ -1095,7 +1095,7 @@
      "rarity": "Epic",
      "series": null,
      "set": "Good Luck Gunslinger",
-     "appearances": 2
+     "appearances": 4
     }
    ]
   },
@@ -1109,7 +1109,7 @@
    "outDate": "2026-11-16",
    "section": "No Sweat",
    "image": "https://fortnite-api.com/images/cosmetics/br/newdisplayassets/b2bdf3368802f93f/renderimage_0.png",
-   "gap": "unseen",
+   "gap": 226,
    "items": [
     {
      "id": "CID_775_Athena_Commando_F_StreetRacerCobraGold",
@@ -1118,7 +1118,7 @@
      "rarity": "Rare",
      "series": null,
      "set": "Hard Road",
-     "appearances": 1
+     "appearances": 6
     },
     {
      "id": "BID_538_StreetRacerCobraGold",
@@ -1208,7 +1208,7 @@
    "outDate": "2026-11-15",
    "section": "Marvel",
    "image": "https://fortnite-api.com/images/cosmetics/br/newdisplayassets/4911500241a13f52/renderimage_0.png",
-   "gap": "unseen",
+   "gap": 213,
    "items": [
     {
      "id": "Pickaxe_ID_820_SpectacleWebMale",
@@ -1217,7 +1217,7 @@
      "rarity": "MARVEL SERIES",
      "series": "MARVEL SERIES",
      "set": "Zero War",
-     "appearances": 2
+     "appearances": 5
     }
    ]
   },
@@ -1412,7 +1412,7 @@
      "rarity": "Rare",
      "series": null,
      "set": "Jason Universe: Revenge",
-     "appearances": 6
+     "appearances": 9
     }
    ]
   },
@@ -1493,7 +1493,7 @@
    "outDate": "2026-11-15",
    "section": "Main Stage Moment",
    "image": "https://fortnite-api.com/images/cosmetics/br/newdisplayassets/311452ba95a7c9f5/renderimage_0.png",
-   "gap": "unseen",
+   "gap": 276,
    "items": [
     {
      "id": "EID_ElegantLily",
@@ -1502,7 +1502,7 @@
      "rarity": "Icon Series",
      "series": "Icon Series",
      "set": "Karol G",
-     "appearances": 1
+     "appearances": 2
     }
    ]
   },
@@ -1665,7 +1665,7 @@
    "outDate": "2026-11-15",
    "section": "Main Stage Moment",
    "image": "https://fortnite-api.com/images/cosmetics/br/newdisplayassets/c9f8deb5ec961c6e/renderimage_0.png",
-   "gap": "unseen",
+   "gap": 276,
    "items": [
     {
      "id": "EID_ElegantLilyCharm",
@@ -1674,7 +1674,7 @@
      "rarity": "Icon Series",
      "series": "Icon Series",
      "set": "Karol G",
-     "appearances": 1
+     "appearances": 2
     }
    ]
   },
@@ -1846,7 +1846,7 @@
      "rarity": "Rare",
      "series": null,
      "set": null,
-     "appearances": 1
+     "appearances": 3
     }
    ]
   },
@@ -1869,7 +1869,7 @@
      "rarity": "Rare",
      "series": null,
      "set": "Rally Rocketeer",
-     "appearances": 2
+     "appearances": 6
     },
     {
      "id": "Backpack_Firework",
@@ -1892,7 +1892,7 @@
    "outDate": "2026-11-15",
    "section": "Main Character Energy ",
    "image": "https://fortnite-api.com/images/cosmetics/br/newdisplayassets/ceffaf0a6062bd36/renderimage_0.png",
-   "gap": "unseen",
+   "gap": 484,
    "items": [
     {
      "id": "EID_HeelClick",
@@ -1901,7 +1901,7 @@
      "rarity": "Uncommon",
      "series": null,
      "set": null,
-     "appearances": 0
+     "appearances": 2
     }
    ]
   },
@@ -2097,7 +2097,7 @@
      "rarity": "Rare",
      "series": null,
      "set": "Missing Link",
-     "appearances": 6
+     "appearances": 7
     }
    ]
   },
@@ -2185,7 +2185,7 @@
      "rarity": "Epic",
      "series": null,
      "set": "Good Luck Gunslinger",
-     "appearances": 2
+     "appearances": 4
     },
     {
      "id": "Pickaxe_NeonGlow",
@@ -2194,7 +2194,7 @@
      "rarity": "Rare",
      "series": null,
      "set": "Good Luck Gunslinger",
-     "appearances": 2
+     "appearances": 3
     }
    ]
   },
@@ -2281,7 +2281,7 @@
    "outDate": "2026-11-18",
    "section": "Get Your Kicks",
    "image": "https://fortnite-api.com/images/cosmetics/br/newdisplayassets/1654495c263d3a95/renderimage_0.png",
-   "gap": "unseen",
+   "gap": 450,
    "items": [
     {
      "id": "Shoes_QuoteSlipJalopy",
@@ -2290,7 +2290,7 @@
      "rarity": "Uncommon",
      "series": null,
      "set": "Jordan Shoes",
-     "appearances": 0
+     "appearances": 3
     }
    ]
   },
@@ -2313,7 +2313,7 @@
      "rarity": "Epic",
      "series": null,
      "set": "Jason Universe: Revenge",
-     "appearances": 6
+     "appearances": 9
     },
     {
      "id": "Pickaxe_GnatGala",
@@ -2322,7 +2322,7 @@
      "rarity": "Rare",
      "series": null,
      "set": "Jason Universe: Revenge",
-     "appearances": 6
+     "appearances": 9
     },
     {
      "id": "Backpack_GnatGala",
@@ -2331,7 +2331,7 @@
      "rarity": "Rare",
      "series": null,
      "set": "Jason Universe: Revenge",
-     "appearances": 6
+     "appearances": 7
     },
     {
      "id": "EID_GnatGala",
@@ -2340,7 +2340,7 @@
      "rarity": "Uncommon",
      "series": null,
      "set": "Jason Universe: Revenge",
-     "appearances": 6
+     "appearances": 9
     },
     {
      "id": "EID_GnatGala_Pancake",
@@ -2349,7 +2349,7 @@
      "rarity": "Uncommon",
      "series": null,
      "set": "Jason Universe: Revenge",
-     "appearances": 6
+     "appearances": 9
     },
     {
      "id": "Wrap_GnatGala",
@@ -2358,7 +2358,7 @@
      "rarity": "Rare",
      "series": null,
      "set": "Jason Universe: Revenge",
-     "appearances": 6
+     "appearances": 9
     }
    ]
   },
@@ -2395,7 +2395,7 @@
    "outDate": "2026-11-17",
    "section": "Hype Circuit",
    "image": "https://fortnite-api.com/images/cosmetics/br/newdisplayassets/d8bf7d4450a20ef0/renderimage_0.png",
-   "gap": "unseen",
+   "gap": 251,
    "items": [
     {
      "id": "EID_FireDance",
@@ -2404,7 +2404,7 @@
      "rarity": "Epic",
      "series": null,
      "set": null,
-     "appearances": 1
+     "appearances": 6
     }
    ]
   },
@@ -2538,7 +2538,7 @@
      "rarity": "Rare",
      "series": null,
      "set": "Seaward Guardian",
-     "appearances": 3
+     "appearances": 5
     },
     {
      "id": "Backpack_VioletFare",
@@ -2815,7 +2815,7 @@
      "rarity": "Icon Series",
      "series": "Icon Series",
      "set": null,
-     "appearances": 2
+     "appearances": 7
     }
    ]
   },
@@ -2946,7 +2946,7 @@
      "rarity": "Rare",
      "series": null,
      "set": "Renegade Robotics",
-     "appearances": 2
+     "appearances": 5
     },
     {
      "id": "Backpack_HeadHunterStar",
@@ -3139,7 +3139,7 @@
      "rarity": "Rare",
      "series": null,
      "set": "Seaward Guardian",
-     "appearances": 3
+     "appearances": 6
     }
    ]
   },
@@ -3289,7 +3289,7 @@
      "rarity": "DARK SERIES",
      "series": "DARK SERIES",
      "set": "Dino Guard",
-     "appearances": 2
+     "appearances": 7
     },
     {
      "id": "BID_382_DarkDinoMale",
@@ -3298,7 +3298,7 @@
      "rarity": "DARK SERIES",
      "series": "DARK SERIES",
      "set": "Dino Guard",
-     "appearances": 4
+     "appearances": 5
     }
    ]
   },
@@ -3500,7 +3500,7 @@
    "outDate": "2026-11-16",
    "section": "Get Your Kicks",
    "image": "https://fortnite-api.com/images/cosmetics/br/newdisplayassets/6fd7d7b00ab4cb0d/renderimage_0.png",
-   "gap": "unseen",
+   "gap": 312,
    "items": [
     {
      "id": "Shoes_BarnCourt",
@@ -3509,7 +3509,7 @@
      "rarity": "Uncommon",
      "series": null,
      "set": null,
-     "appearances": 1
+     "appearances": 3
     }
    ]
   },
@@ -3853,7 +3853,7 @@
      "rarity": "MARVEL SERIES",
      "series": "MARVEL SERIES",
      "set": "Black Cat",
-     "appearances": 4
+     "appearances": 8
     },
     {
      "id": "Backpack_SweetLetter",
@@ -3871,7 +3871,7 @@
      "rarity": "MARVEL SERIES",
      "series": "MARVEL SERIES",
      "set": "Black Cat",
-     "appearances": 4
+     "appearances": 8
     },
     {
      "id": "Wrap_SweetLetter",
@@ -3880,7 +3880,7 @@
      "rarity": "MARVEL SERIES",
      "series": "MARVEL SERIES",
      "set": "Black Cat",
-     "appearances": 4
+     "appearances": 8
     },
     {
      "id": "Backpack_SweetLetter_Guitar",
@@ -3912,7 +3912,7 @@
    "outDate": "2026-11-15",
    "section": null,
    "image": "https://fortnite-api.com/images/cosmetics/br/backpack_sourwire_bass/featured.png",
-   "gap": "unseen",
+   "gap": 210,
    "items": [
     {
      "id": "Backpack_SourWire_Bass",
@@ -3921,7 +3921,7 @@
      "rarity": "Icon Series",
      "series": "Icon Series",
      "set": "Karol G",
-     "appearances": 2
+     "appearances": 4
     },
     {
      "id": "Pickaxe_SourWire_Bass",
@@ -3930,7 +3930,7 @@
      "rarity": "Icon Series",
      "series": "Icon Series",
      "set": "Karol G",
-     "appearances": 2
+     "appearances": 4
     }
    ]
   },
@@ -4071,7 +4071,7 @@
    "outDate": "2026-11-16",
    "section": "No Sweat",
    "image": "https://fortnite-api.com/images/cosmetics/br/newdisplayassets/327511e9cf452da0/renderimage_0.png",
-   "gap": "unseen",
+   "gap": 225,
    "items": [
     {
      "id": "Character_TacticMushroom_D",
@@ -4080,7 +4080,7 @@
      "rarity": "Rare",
      "series": null,
      "set": "Skratch Company",
-     "appearances": 1
+     "appearances": 5
     }
    ]
   },
@@ -4103,7 +4103,7 @@
      "rarity": "Uncommon",
      "series": null,
      "set": "Crocs Shoes",
-     "appearances": 2
+     "appearances": 8
     }
    ]
   },
@@ -4256,7 +4256,7 @@
      "rarity": "Icon Series",
      "series": "Icon Series",
      "set": null,
-     "appearances": 3
+     "appearances": 5
     }
    ]
   },
@@ -4442,7 +4442,7 @@
      "rarity": "Uncommon",
      "series": null,
      "set": null,
-     "appearances": 5
+     "appearances": 8
     }
    ]
   },
@@ -4546,7 +4546,7 @@
    "outDate": "2026-11-16",
    "section": null,
    "image": "https://fortnite-api.com/images/cosmetics/br/bid_090_streetracerwhitemale/featured.png",
-   "gap": "unseen",
+   "gap": 202,
    "items": [
     {
      "id": "BID_090_StreetRacerWhiteMale",
@@ -4555,7 +4555,7 @@
      "rarity": "Epic",
      "series": null,
      "set": "Vanishing Point",
-     "appearances": 2
+     "appearances": 3
     }
    ]
   },
@@ -4569,7 +4569,7 @@
    "outDate": "2026-11-18",
    "section": "Get Your Kicks",
    "image": "https://fortnite-api.com/images/cosmetics/br/newdisplayassets/66694e307ea976b9/renderimage_0.png",
-   "gap": "unseen",
+   "gap": 264,
    "items": [
     {
      "id": "Shoes_VisionHorseBaron",
@@ -4578,7 +4578,7 @@
      "rarity": "Uncommon",
      "series": null,
      "set": "Jordan Shoes",
-     "appearances": 0
+     "appearances": 2
     }
    ]
   },
@@ -4613,7 +4613,7 @@
    "outDate": "2026-11-16",
    "section": "Hype Circuit",
    "image": "https://fortnite-api.com/images/cosmetics/br/newdisplayassets/029229768ec4abdc/renderimage_0.png",
-   "gap": "unseen",
+   "gap": 344,
    "items": [
     {
      "id": "Pickaxe_IonVial",
@@ -4622,7 +4622,7 @@
      "rarity": "Rare",
      "series": null,
      "set": null,
-     "appearances": 1
+     "appearances": 3
     }
    ]
   },
@@ -4666,7 +4666,7 @@
      "rarity": "Legendary",
      "series": null,
      "set": "Arachnid",
-     "appearances": 3
+     "appearances": 9
     },
     {
      "id": "BID_131_BlackWidowfemale",
@@ -4762,7 +4762,7 @@
      "rarity": "MARVEL SERIES",
      "series": "MARVEL SERIES",
      "set": "Black Cat",
-     "appearances": 4
+     "appearances": 8
     }
    ]
   },
@@ -4820,7 +4820,7 @@
    "outDate": "2026-11-16",
    "section": "Hype Circuit",
    "image": "https://fortnite-api.com/images/cosmetics/br/newdisplayassets/7ccd2ae98e75250e/renderimage_0.png",
-   "gap": "unseen",
+   "gap": 202,
    "items": [
     {
      "id": "CID_190_Athena_Commando_M_StreetRacerWhite",
@@ -4829,7 +4829,7 @@
      "rarity": "Epic",
      "series": null,
      "set": "Vanishing Point",
-     "appearances": 1
+     "appearances": 11
     },
     {
      "id": "BID_090_StreetRacerWhiteMale",
@@ -4838,7 +4838,7 @@
      "rarity": "Epic",
      "series": null,
      "set": "Vanishing Point",
-     "appearances": 2
+     "appearances": 3
     }
    ]
   },
@@ -4884,7 +4884,7 @@
      "rarity": "Icon Series",
      "series": "Icon Series",
      "set": null,
-     "appearances": 2
+     "appearances": 6
     }
    ]
   },
@@ -4949,7 +4949,7 @@
      "rarity": "Rare",
      "series": null,
      "set": null,
-     "appearances": 1
+     "appearances": 3
     }
    ]
   },
@@ -5014,7 +5014,7 @@
      "rarity": "Rare",
      "series": null,
      "set": null,
-     "appearances": 2
+     "appearances": 8
     }
    ]
   },
@@ -5078,7 +5078,7 @@
      "rarity": "Uncommon",
      "series": null,
      "set": "Jordan Shoes",
-     "appearances": 1
+     "appearances": 4
     }
    ]
   },
@@ -5122,7 +5122,7 @@
      "rarity": "Icon Series",
      "series": "Icon Series",
      "set": null,
-     "appearances": 2
+     "appearances": 5
     }
    ]
   },
@@ -5145,7 +5145,7 @@
      "rarity": "Epic",
      "series": null,
      "set": "Jason Universe: Revenge",
-     "appearances": 6
+     "appearances": 9
     }
    ]
   },
@@ -5168,7 +5168,7 @@
      "rarity": "MARVEL SERIES",
      "series": "MARVEL SERIES",
      "set": "Black Cat",
-     "appearances": 4
+     "appearances": 8
     },
     {
      "id": "Backpack_SweetLetter",
@@ -5200,7 +5200,7 @@
      "rarity": "DARK SERIES",
      "series": "DARK SERIES",
      "set": "Dino Guard",
-     "appearances": 4
+     "appearances": 5
     }
    ]
   },
@@ -5214,7 +5214,7 @@
    "outDate": "2026-11-15",
    "section": "Main Character Energy ",
    "image": "https://fortnite-api.com/images/cosmetics/br/newdisplayassets/ce38a1573f4944b0/renderimage_0.png",
-   "gap": "unseen",
+   "gap": 352,
    "items": [
     {
      "id": "CID_447_Athena_Commando_M_BannerB",
@@ -5223,7 +5223,7 @@
      "rarity": "Uncommon",
      "series": null,
      "set": "Banner Brigade",
-     "appearances": 1
+     "appearances": 2
     }
    ]
   },
@@ -5499,7 +5499,7 @@
      "rarity": "Rare",
      "series": null,
      "set": "Jason Universe: Revenge",
-     "appearances": 6
+     "appearances": 9
     },
     {
      "id": "Backpack_GnatGala",
@@ -5508,7 +5508,7 @@
      "rarity": "Rare",
      "series": null,
      "set": "Jason Universe: Revenge",
-     "appearances": 6
+     "appearances": 7
     }
    ]
   },
@@ -5522,7 +5522,7 @@
    "outDate": "2026-11-16",
    "section": null,
    "image": "https://fortnite-api.com/images/cosmetics/br/bid_746_armoredengineer/featured.png",
-   "gap": "unseen",
+   "gap": 200,
    "items": [
     {
      "id": "BID_746_ArmoredEngineer",
@@ -5531,7 +5531,7 @@
      "rarity": "Rare",
      "series": null,
      "set": "Intrepid Engines",
-     "appearances": 2
+     "appearances": 3
     }
    ]
   },
@@ -5735,7 +5735,7 @@
    "outDate": "2026-11-15",
    "section": "Main Stage Moment",
    "image": "https://fortnite-api.com/images/cosmetics/br/newdisplayassets/cf8f17908eae4afc/renderimage_0.png",
-   "gap": "unseen",
+   "gap": 210,
    "items": [
     {
      "id": "Character_SourWire",
@@ -5744,7 +5744,7 @@
      "rarity": "Icon Series",
      "series": "Icon Series",
      "set": "Karol G",
-     "appearances": 1
+     "appearances": 5
     },
     {
      "id": "Backpack_SourWire_Bass",
@@ -5753,7 +5753,7 @@
      "rarity": "Icon Series",
      "series": "Icon Series",
      "set": "Karol G",
-     "appearances": 2
+     "appearances": 4
     },
     {
      "id": "Pickaxe_SourWire_Bass",
@@ -5762,7 +5762,7 @@
      "rarity": "Icon Series",
      "series": "Icon Series",
      "set": "Karol G",
-     "appearances": 2
+     "appearances": 4
     }
    ]
   },
@@ -5808,7 +5808,7 @@
      "rarity": "Uncommon",
      "series": null,
      "set": "Jordan Shoes",
-     "appearances": 2
+     "appearances": 5
     }
    ]
   },
@@ -6125,7 +6125,7 @@
      "rarity": "Icon Series",
      "series": "Icon Series",
      "set": "Sabrina Carpenter",
-     "appearances": 2
+     "appearances": 6
     }
    ]
   },
@@ -6148,7 +6148,7 @@
      "rarity": "Uncommon",
      "series": null,
      "set": "Jason Universe: Revenge",
-     "appearances": 6
+     "appearances": 9
     }
    ]
   },
@@ -6192,7 +6192,7 @@
      "rarity": "Epic",
      "series": null,
      "set": "Seaward Guardian",
-     "appearances": 4
+     "appearances": 8
     }
    ]
   },
@@ -6215,7 +6215,7 @@
      "rarity": "Icon Series",
      "series": "Icon Series",
      "set": null,
-     "appearances": 2
+     "appearances": 4
     }
    ]
   },
@@ -6387,7 +6387,7 @@
    "outDate": "2026-11-16",
    "section": "No Sweat",
    "image": "https://fortnite-api.com/images/cosmetics/br/newdisplayassets/40b9ad9c5bfe9834/renderimage_0.png",
-   "gap": "unseen",
+   "gap": 194,
    "items": [
     {
      "id": "CID_A_442_Athena_Commando_F_PennantSeasOne_B",
@@ -6396,7 +6396,7 @@
      "rarity": "Rare",
      "series": null,
      "set": "Squad Origins",
-     "appearances": 1
+     "appearances": 4
     }
    ]
   },
@@ -6461,7 +6461,7 @@
      "rarity": "Rare",
      "series": null,
      "set": null,
-     "appearances": 1
+     "appearances": 3
     },
     {
      "id": "Shoes_SaltFin",
@@ -6470,7 +6470,7 @@
      "rarity": "Uncommon",
      "series": null,
      "set": null,
-     "appearances": 0
+     "appearances": 2
     }
    ]
   },
@@ -6694,7 +6694,7 @@
    "outDate": "2026-11-15",
    "section": "Marvel",
    "image": "https://fortnite-api.com/images/cosmetics/br/newdisplayassets/0fc2b6e3994dbd59/renderimage_0.png",
-   "gap": "unseen",
+   "gap": 213,
    "items": [
     {
      "id": "CID_A_430_Athena_Commando_M_SpectacleWeb",
@@ -6703,7 +6703,7 @@
      "rarity": "MARVEL SERIES",
      "series": "MARVEL SERIES",
      "set": "Zero War",
-     "appearances": 2
+     "appearances": 5
     },
     {
      "id": "BID_A_027_SpectacleWebMale",
@@ -6712,7 +6712,7 @@
      "rarity": "MARVEL SERIES",
      "series": "MARVEL SERIES",
      "set": "Zero War",
-     "appearances": 3
+     "appearances": 4
     },
     {
      "id": "Pickaxe_ID_820_SpectacleWebMale",
@@ -6721,7 +6721,7 @@
      "rarity": "MARVEL SERIES",
      "series": "MARVEL SERIES",
      "set": "Zero War",
-     "appearances": 2
+     "appearances": 5
     },
     {
      "id": "EID_SpectacleWeb",
@@ -6730,7 +6730,7 @@
      "rarity": "MARVEL SERIES",
      "series": "MARVEL SERIES",
      "set": "Zero War",
-     "appearances": 2
+     "appearances": 5
     }
    ]
   },
@@ -6809,7 +6809,7 @@
    "outDate": "2026-11-16",
    "section": "No Sweat",
    "image": "https://fortnite-api.com/images/cosmetics/br/newdisplayassets/bbcad8de963d0496/renderimage_0.png",
-   "gap": "unseen",
+   "gap": 200,
    "items": [
     {
      "id": "CID_A_077_Athena_Commando_F_ArmoredEngineer",
@@ -6818,7 +6818,7 @@
      "rarity": "Rare",
      "series": null,
      "set": "Intrepid Engines",
-     "appearances": 1
+     "appearances": 6
     },
     {
      "id": "BID_746_ArmoredEngineer",
@@ -6827,7 +6827,7 @@
      "rarity": "Rare",
      "series": null,
      "set": "Intrepid Engines",
-     "appearances": 2
+     "appearances": 3
     }
    ]
   },
@@ -6876,7 +6876,7 @@
    "outDate": "2026-11-20",
    "section": "Victory Party",
    "image": "https://fortnite-api.com/images/cosmetics/br/newdisplayassets/c9195b9b1ef533d4/renderimage_0.png",
-   "gap": "unseen",
+   "gap": 413,
    "items": [
     {
      "id": "EID_Vegas",
@@ -6885,7 +6885,7 @@
      "rarity": "Icon Series",
      "series": "Icon Series",
      "set": null,
-     "appearances": 0
+     "appearances": 2
     }
    ]
   },
@@ -6976,7 +6976,7 @@
    "outDate": "2026-11-15",
    "section": null,
    "image": "https://fortnite-api.com/images/cosmetics/br/bid_a_027_spectaclewebmale/featured.png",
-   "gap": "unseen",
+   "gap": 213,
    "items": [
     {
      "id": "BID_A_027_SpectacleWebMale",
@@ -6985,7 +6985,7 @@
      "rarity": "MARVEL SERIES",
      "series": "MARVEL SERIES",
      "set": "Zero War",
-     "appearances": 3
+     "appearances": 4
     }
    ]
   },
@@ -7086,7 +7086,7 @@
      "rarity": "Icon Series",
      "series": "Icon Series",
      "set": null,
-     "appearances": 3
+     "appearances": 4
     }
    ]
   },
@@ -7162,7 +7162,7 @@
      "rarity": "Epic",
      "series": null,
      "set": "Seaward Guardian",
-     "appearances": 4
+     "appearances": 8
     },
     {
      "id": "Backpack_VioletFare",
@@ -7180,7 +7180,7 @@
      "rarity": "Rare",
      "series": null,
      "set": "Seaward Guardian",
-     "appearances": 3
+     "appearances": 5
     },
     {
      "id": "Wrap_VioletFare",
@@ -7189,7 +7189,7 @@
      "rarity": "Rare",
      "series": null,
      "set": "Seaward Guardian",
-     "appearances": 3
+     "appearances": 6
     }
    ]
   },
@@ -7267,7 +7267,7 @@
    "outDate": "2026-11-15",
    "section": "Main Character Energy ",
    "image": "https://fortnite-api.com/images/cosmetics/br/newdisplayassets/f5fa0ef4e67cfd9a/renderimage_0.png",
-   "gap": "unseen",
+   "gap": 200,
    "items": [
     {
      "id": "CID_A_168_Athena_Commando_F_Stands",
@@ -7276,7 +7276,7 @@
      "rarity": "Rare",
      "series": null,
      "set": "Press Play",
-     "appearances": 1
+     "appearances": 6
     }
    ]
   },
@@ -7334,7 +7334,7 @@
    "outDate": "2026-11-15",
    "section": "Main Stage Moment",
    "image": "https://fortnite-api.com/images/cosmetics/br/newdisplayassets/6cdfcd0bfe7ba0ce/renderimage_0.png",
-   "gap": "unseen",
+   "gap": 234,
    "items": [
     {
      "id": "EID_Matador",
@@ -7343,7 +7343,7 @@
      "rarity": "Icon Series",
      "series": "Icon Series",
      "set": null,
-     "appearances": 1
+     "appearances": 3
     }
    ]
   },
@@ -7366,7 +7366,7 @@
      "rarity": "Rare",
      "series": null,
      "set": "Missing Link",
-     "appearances": 3
+     "appearances": 7
     },
     {
      "id": "Trails_ID_081_MissingLink",
@@ -7375,7 +7375,7 @@
      "rarity": "Rare",
      "series": null,
      "set": "Missing Link",
-     "appearances": 6
+     "appearances": 7
     }
    ]
   },
@@ -7421,7 +7421,7 @@
    "outDate": "2026-11-16",
    "section": "Main Character Energy ",
    "image": "https://fortnite-api.com/images/cosmetics/br/newdisplayassets/915441bd2a67c459/renderimage_0.png",
-   "gap": "unseen",
+   "gap": 310,
    "items": [
     {
      "id": "Shoes_SaltFin",
@@ -7430,7 +7430,7 @@
      "rarity": "Uncommon",
      "series": null,
      "set": null,
-     "appearances": 0
+     "appearances": 2
     }
    ]
   },
@@ -7488,7 +7488,7 @@
    "outDate": "2026-11-16",
    "section": "Get Your Kicks",
    "image": "https://fortnite-api.com/images/cosmetics/br/newdisplayassets/768cad8b2f5c21c0/renderimage_0.png",
-   "gap": "unseen",
+   "gap": 420,
    "items": [
     {
      "id": "Shoes_GoblinPennyDemure",
@@ -7497,7 +7497,7 @@
      "rarity": "Uncommon",
      "series": null,
      "set": "Jordan Shoes",
-     "appearances": 1
+     "appearances": 2
     }
    ]
   },
@@ -7541,7 +7541,7 @@
      "rarity": "Rare",
      "series": null,
      "set": "Underground Ace",
-     "appearances": 2
+     "appearances": 5
     },
     {
      "id": "Backpack_SparkArcher",
@@ -7712,7 +7712,7 @@
      "rarity": "Epic",
      "series": null,
      "set": "Horizon's Flight",
-     "appearances": 2
+     "appearances": 5
     }
    ]
   },
@@ -7768,7 +7768,7 @@
    "outDate": "2026-11-16",
    "section": "No Sweat",
    "image": "https://fortnite-api.com/images/cosmetics/br/newdisplayassets/48dac6581229dff0/renderimage_0.png",
-   "gap": "unseen",
+   "gap": 233,
    "items": [
     {
      "id": "Character_AzureBlade",
@@ -7777,7 +7777,7 @@
      "rarity": "Epic",
      "series": null,
      "set": "Shining Sentinel",
-     "appearances": 1
+     "appearances": 3
     }
    ]
   },
@@ -7953,7 +7953,7 @@
    "outDate": "2026-11-15",
    "section": "Marvel",
    "image": "https://fortnite-api.com/images/cosmetics/br/newdisplayassets/03b848865ff3bef0/renderimage_0.png",
-   "gap": "unseen",
+   "gap": 213,
    "items": [
     {
      "id": "CID_A_430_Athena_Commando_M_SpectacleWeb",
@@ -7962,7 +7962,7 @@
      "rarity": "MARVEL SERIES",
      "series": "MARVEL SERIES",
      "set": "Zero War",
-     "appearances": 2
+     "appearances": 5
     },
     {
      "id": "BID_A_027_SpectacleWebMale",
@@ -7971,7 +7971,7 @@
      "rarity": "MARVEL SERIES",
      "series": "MARVEL SERIES",
      "set": "Zero War",
-     "appearances": 3
+     "appearances": 4
     }
    ]
   },
@@ -7985,7 +7985,7 @@
    "outDate": "2026-11-16",
    "section": "Get Your Kicks",
    "image": "https://fortnite-api.com/images/cosmetics/br/newdisplayassets/471e2eb2163ab391/renderimage_0.png",
-   "gap": "unseen",
+   "gap": 245,
    "items": [
     {
      "id": "Shoes_GraniteEmberlyStone",
@@ -7994,7 +7994,7 @@
      "rarity": "Uncommon",
      "series": null,
      "set": "Vans Shoes",
-     "appearances": 1
+     "appearances": 2
     }
    ]
   },
@@ -8008,7 +8008,7 @@
    "outDate": "2026-11-16",
    "section": "No Sweat",
    "image": "https://fortnite-api.com/images/cosmetics/br/newdisplayassets/fe0560d938307337/renderimage_0.png",
-   "gap": "unseen",
+   "gap": 241,
    "items": [
     {
      "id": "Character_MeekCrow",
@@ -8017,7 +8017,7 @@
      "rarity": "Epic",
      "series": null,
      "set": "Moon Wolf",
-     "appearances": 1
+     "appearances": 5
     }
    ]
   },
@@ -8076,7 +8076,7 @@
      "rarity": "MARVEL SERIES",
      "series": "MARVEL SERIES",
      "set": "Black Cat",
-     "appearances": 4
+     "appearances": 8
     }
    ]
   },
@@ -8099,7 +8099,7 @@
      "rarity": "Rare",
      "series": null,
      "set": "Good Luck Gunslinger",
-     "appearances": 2
+     "appearances": 3
     }
    ]
   },
@@ -8192,7 +8192,7 @@
    ]
   }
  ],
- "fetchedAt": "2026-11-15T02:19:38.644Z",
+ "fetchedAt": "2026-11-15T02:28:03.745Z",
  "source": "https://fortnite-api.com/v2/shop?language=en",
- "historyFrom": "2026-05-02"
+ "historyFrom": "2025-05-04"
 }
