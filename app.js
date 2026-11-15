@@ -301,6 +301,30 @@ function offCal(M) {
   $('offN').textContent = n ? `${n} day${n === 1 ? '' : 's'} away` : '';
 }
 // ---------- "My locker": search every known cosmetic and mark what you own ----------
+// "I already own" on a shop offer puts its items into My locker (and takes them out again), so both stay in step.
+// Offers without lockable items (e.g. Jam Tracks) are remembered by offer id instead.
+const lockItemsOf = e => e.items.filter(it => it.type !== 'jamtrack' && it.name).map(it => ({ i: String(it.id).toLowerCase(), n: it.name, t: KIND_OF_TYPE[String(it.type).toLowerCase()] || e.kind }));
+function toggleOwn(id) {
+  const e = D.shop.entries.find(x => x.id === id); if (!e) return;
+  const its = lockItemsOf(e), have = new Set((P.locker || []).map(x => x.i));
+  const owned = P.owned.includes(id) || (its.length > 0 && its.every(x => have.has(x.i)));
+  if (owned) {
+    const drop = new Set(its.map(x => x.i));
+    P.locker = (P.locker || []).filter(x => !drop.has(x.i)); P.owned = P.owned.filter(x => x !== id);
+  } else if (its.length) P.locker = [...(P.locker || []), ...its.filter(x => !have.has(x.i))];
+  else P.owned = [...new Set([...P.owned, id])];
+}
+// older saves ticked offers only: move those still in today's shop into My locker
+function ownedToLocker() {
+  if (!D.shop || !P.owned.length) return;
+  let moved = false;
+  for (const id of [...P.owned]) {
+    const e = D.shop.entries.find(x => x.id === id), its = e ? lockItemsOf(e) : []; if (!its.length) continue;
+    const have = new Set((P.locker || []).map(x => x.i));
+    P.locker = [...(P.locker || []), ...its.filter(x => !have.has(x.i))]; P.owned = P.owned.filter(x => x !== id); moved = true;
+  }
+  if (moved) save();
+}
 function lockerList() {
   const L = P.locker || [];
   $('lockerList').innerHTML = L.length ? L.map(x => `<span class="lchip">${esc(x.n)}<small>${KINDS[x.t] || x.t}</small><button type="button" data-unlock="${esc(x.i)}" aria-label="Remove ${esc(x.n)}">×</button></span>`).join('') + (L.length > 1 ? '<button type="button" class="lclear" id="lockerClear">Clear all</button>' : '') : '<p class="hint">Nothing in your locker yet.</p>';
@@ -840,7 +864,7 @@ function bind() {
     const uw = e.target.closest('[data-unwish]');
     if (uw) { P.wish = (P.wish || []).filter(w => w.i !== uw.dataset.unwish); save(); render(); return; }
     if (m) { const id = m.dataset.must; P.must = (P.must || []).includes(id) ? P.must.filter(x => x !== id) : [...(P.must || []), id]; save(); render(); }
-    else if (o) { const id = o.dataset.own; P.owned = P.owned.includes(id) ? P.owned.filter(x => x !== id) : [...new Set([...P.owned, id])]; save(); render(); }
+    else if (o) { toggleOwn(o.dataset.own); save(); lockerList(); render(); }
   });
   $('shopSort')?.addEventListener('click', e => { const b = e.target.closest('[data-sort]'); if (!b) return; (render.filter ||= { q: '', kind: 'all', mine: false }).sort = b.dataset.sort; render.shopN = 0; render(false); });
   // past shops: hover the line, tap a weekday to mark its days
@@ -1232,7 +1256,7 @@ async function init() {
   // installable app: offline copy via a service worker, and an install button where the browser offers one
   if ('serviceWorker' in navigator && location.protocol === 'https:') navigator.serviceWorker.register('sw.js').catch(() => {});
   addEventListener('beforeinstallprompt', e => { e.preventDefault(); const b = $('installBtn'); b.hidden = false; b.onclick = async () => { b.hidden = true; e.prompt(); }; });
-  sharedBanner(); controls(); bind(); glossUI(); howUI(); render(); sbarUI(); lockerList(); cardUI(); compareUI();
+  ownedToLocker(); sharedBanner(); controls(); bind(); glossUI(); howUI(); render(); sbarUI(); lockerList(); cardUI(); compareUI();
   // not needed for the first paint: run when the browser is idle
   const later = f => (window.requestIdleCallback ? requestIdleCallback(f, { timeout: 3000 }) : setTimeout(f, 1500));
   later(sources); later(crew);
