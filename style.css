@@ -275,75 +275,22 @@
 @font-face {
   font-family: "Nunito";
   font-style: normal;
-  font-weight: 400;
+  font-weight: 200 1000;
   font-display: swap;
-  src: url(fonts/nunito-latin-400-normal.woff2) format("woff2");
+  src: url(fonts/nunito-latin-variable.woff2) format("woff2-variations"), url(fonts/nunito-latin-variable.woff2) format("woff2");
   unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122,
     U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
 }
 @font-face {
   font-family: "Nunito";
   font-style: normal;
-  font-weight: 400;
+  font-weight: 200 1000;
   font-display: swap;
-  src: url(fonts/nunito-latin-ext-400-normal.woff2) format("woff2");
+  src: url(fonts/nunito-latin-ext-variable.woff2) format("woff2-variations"), url(fonts/nunito-latin-ext-variable.woff2) format("woff2");
   unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F,
     U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
 }
-@font-face {
-  font-family: "Nunito";
-  font-style: normal;
-  font-weight: 600;
-  font-display: swap;
-  src: url(fonts/nunito-latin-600-normal.woff2) format("woff2");
-  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122,
-    U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
-}
-@font-face {
-  font-family: "Nunito";
-  font-style: normal;
-  font-weight: 600;
-  font-display: swap;
-  src: url(fonts/nunito-latin-ext-600-normal.woff2) format("woff2");
-  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F,
-    U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
-}
-@font-face {
-  font-family: "Nunito";
-  font-style: normal;
-  font-weight: 800;
-  font-display: swap;
-  src: url(fonts/nunito-latin-800-normal.woff2) format("woff2");
-  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122,
-    U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
-}
-@font-face {
-  font-family: "Nunito";
-  font-style: normal;
-  font-weight: 800;
-  font-display: swap;
-  src: url(fonts/nunito-latin-ext-800-normal.woff2) format("woff2");
-  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F,
-    U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
-}
-@font-face {
-  font-family: "Nunito";
-  font-style: normal;
-  font-weight: 900;
-  font-display: swap;
-  src: url(fonts/nunito-latin-900-normal.woff2) format("woff2");
-  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122,
-    U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
-}
-@font-face {
-  font-family: "Nunito";
-  font-style: normal;
-  font-weight: 900;
-  font-display: swap;
-  src: url(fonts/nunito-latin-ext-900-normal.woff2) format("woff2");
-  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F,
-    U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
-}
+
 @font-face {
   font-family: "Anton";
   font-style: normal;
@@ -2414,7 +2361,7 @@ main {
   stroke: currentColor;
   stroke-width: 3;
   stroke-linecap: round;
-  animation: nudge 1.6s ease-in-out infinite;
+  animation: nudge 1.6s ease-in-out 4;
 }
 html {
   scroll-behavior: smooth;
@@ -3460,7 +3407,7 @@ h2 {
   inset: 0;
   background: linear-gradient(110deg, transparent 30%, #ffffff99 45%, transparent 60%);
   transform: translateX(-120%);
-  animation: shine 3.2s ease-in-out infinite;
+  animation: shine 3.2s ease-in-out 3;
 }
 @media (prefers-reduced-motion: reduce) {
   .sharebtn::after {
@@ -4035,7 +3982,6 @@ main a,.foot a,.tbl td{overflow-wrap:anywhere}
 .foot .sig{max-width:none;justify-self:center}
 .foot{padding-top:0}
 
-
 /* ===== performance pass: fewer layers, fewer running animations ===== */
 /* no permanent will-change: the browser promotes moving things itself */
 .hero .herotext,.jelly,.school,.seabed,.surface{will-change:auto}
@@ -4059,7 +4005,6 @@ main a,.foot a,.tbl td{overflow-wrap:anywhere}
 /* lighter shadows (blurred shadows over moving water are costly) */
 .pnl,.fold.pnl,.fold.pnl[open],.verdict.pnl,.runbox.pnl{box-shadow:0 6px 14px rgba(3,12,36,.22)}
 .ztag{box-shadow:0 2px 6px rgba(0,0,0,.25)}
-
 
 /* ===== performance pass 2: fewer layers, no inherited scroll variables, pause what is off screen ===== */
 .school,.jelly,.hero .herotext{will-change:auto}
@@ -4371,3 +4316,17 @@ main a,.foot a,.tbl td{overflow-wrap:anywhere}
 .howdlg.play .hwcard{animation:hstep .5s cubic-bezier(.3,1.4,.5,1) both}
 .howdlg.play .hwcard:nth-child(2){animation-delay:.1s}.howdlg.play .hwcard:nth-child(3){animation-delay:.2s}
 .hrrow{grid-template-columns:58px 1fr auto}
+.defs{position:absolute;width:0;height:0;overflow:hidden}
+
+/* ===== energy saving ===== */
+/* nothing moves while the visitor is away (30 s without input) */
+html.idle *,html.idle *::before,html.idle *::after{animation-play-state:paused!important}
+/* at the top the water is hidden behind the surface: no fish, bubbles or jellies need to swim */
+.scene.attop .bubbles i,.scene.attop .school,.scene.attop .school span,.scene.attop .jelly svg{animation-play-state:paused}
+/* calm sea: a still picture */
+html.lite .scene *,html.lite .hero *,html.lite .sharebtn::after,html.lite .cue svg,html.lite .fempty svg{animation:none!important}
+html.lite .bubbles{display:none}
+/* clouds: no filter on a moving layer */
+.cloud{filter:none!important}
+.calmbtn{border:0;background:none;color:inherit;font:800 13px Nunito,sans-serif;text-decoration:underline;text-underline-offset:3px;opacity:.85;cursor:pointer;padding:0}
+.calmbtn:hover{opacity:1}

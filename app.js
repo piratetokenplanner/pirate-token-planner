@@ -5,6 +5,9 @@ const DAY = 864e5;
 const $ = id => document.getElementById(id);
 const esc = s => String(s ?? '').replace(/[&<>"']/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
 const NF = new Intl.NumberFormat('en-US'), n0 = x => NF.format(Math.round(x));
+// item pictures from fortnite-api are 60-170 KB PNG/JPG each. The free open-source image CDN wsrv.nl
+// (images.weserv.nl) shrinks them to WebP at the size shown: ~5x smaller. Falls back to the original.
+const thumb = (url, w) => url ? `https://wsrv.nl/?url=${encodeURIComponent(url)}&w=${w}&h=${w}&fit=contain&we&output=webp&q=78` : '';
 const load = p => fetch(p, { cache: 'no-cache' }).then(r => r.ok ? r.json() : null).catch(() => null);
 
 // ---------- clock: the shop day is the UTC date ----------
@@ -49,9 +52,10 @@ const GENRES = [
 const genreHay = e => [e.name, ...e.items.flatMap(i => [i.name, i.set, i.series])].filter(Boolean).join(' | ').toLowerCase();
 // ids of the themes an offer belongs to; "originals" = no series and no collab theme
 function genresOf(e) {
+  if (e._g) return e._g; // data does not change while the page is open
   const hay = genreHay(e), hit = GENRES.filter(g => g.words && g.words.some(w => hay.includes(w))).map(g => g.id);
   if (!hit.length && !e.items.some(i => i.series) && e.kind !== 'jamtrack') hit.push('originals');
-  return hit;
+  return (e._g = hit);
 }
 const levelOf = g => { const v = P.types[g.kinds[0]] ?? 0; return v >= 7 ? 2 : v >= 1 ? 1 : 0; };
 const base = { outfit: 10, bundle: 10, emote: 3, pickaxe: 3, glider: 3, backpack: 3, wrap: 0, sidekick: 3, jamtrack: 0, contrail: 0, loadingscreen: 0, music: 0, kicks: 3, car: 0, lego: 0, instrument: 0, other: 0 };
@@ -176,8 +180,14 @@ function model() {
     const W = []; for (let i = s; i < s + dur; i++) W.push(i);
     const ok = W.filter(i => valid(i) && plays(i));
     const okSet = new Set(ok);
-    const rows = []; let shop = 0, fresh = 0, ev = 0;
-    // 1) today's shop
+    let shop = 0, fresh = 0, ev = 0;
+    // 1) today's shop: the total is computed directly; the per-item rows (with reasons) are only built when
+    // a view needs them (math table, shop tiles, card), which saves thousands of objects per recompute
+    { let side = 0; const first = ok.length ? ok[0] : Infinity;
+      for (const x of items) if (x.value > 0 && first < x.out) { if (x.e.kind === 'sidekick') { if (x.value > side) side = x.value; } else shop += x.value; }
+      shop += side; }
+    const buildRows = () => {
+    const rows = [];
     let sidekick = null;
     for (const x of items) {
       const hit = x.value > 0 && ok.length > 0 && ok[0] < x.out, claim = hit ? ok.filter(i => i < x.out) : [];
@@ -186,7 +196,8 @@ function model() {
       if (!r.hit && !r.why) r.why = x.own ? 'You own it' : x.share === 0 ? 'All its items are also sold separately' : x.value === 0 ? 'Worth 0 to you' : s >= x.out ? `Leaves ${fmt(x.out)}, before your window` : 'No play day while it is in the shop';
       rows.push(r);
     }
-    for (const r of rows) shop += r.v;
+    return rows;
+    };
     // 2) future normal days (today's arrivals are already in the shop)
     // every later day d brings new loot; it counts with the chance it is still in the shop on your first play day p >= d
     // (this includes days before your start: items that arrived then and are still there when you activate)
@@ -209,7 +220,9 @@ function model() {
       return { x, cov, inside, v: x.full * cov };
     });
     for (const r of evRows) ev += r.v;
-    return { s, W, ok, rows, freshDays, freshW, evRows, shop, fresh, carry, ev, tot: shop + fresh + ev };
+    const res = { s, W, ok, freshDays, freshW, evRows, shop, fresh, carry, ev, tot: shop + fresh + ev };
+    let rowsCache = null; Object.defineProperty(res, 'rows', { get: () => rowsCache || (rowsCache = buildRows()), enumerable: true });
+    return res;
   }
   // wishlist: items NOT in today's shop that you want (from "Will it come back?"). Each counts 3x a typical
   // price for its type, times the chance it returns in time to be claimed in your 14 days.
@@ -235,11 +248,16 @@ function model() {
   const cntV = (lo, hi) => preV[cl(hi) + 1] - preV[cl(lo)], cntP = (lo, hi) => preP[cl(hi) + 1] - preP[cl(lo)];
   const sims = all.map(() => new Float64Array(N)), wins = all.map(() => 0);
   const K = U.daySpread ?? 1.25, mu = allVals.length ? allVals.reduce((a, b) => a + b, 0) / allVals.length : B;
-  const dayPools = []; for (let d = 0; d <= startMax + dur; d++) dayPools.push([allVals, season(d).f]);
-  const bestRun = new Float64Array(N);
+  // flat typed arrays for the hot loop (400 futures x every start day): no allocations, no destructuring
+  const nD = startMax + dur + 1, seasonF = new Float64Array(nD); for (let d = 0; d < nD; d++) seasonF[d] = season(d).f;
+  const AV = Float64Array.from(allVals), nV = AV.length, toB = B / (mu || 1);
+  let nF = 0; for (const a of all) nF += a.freshW.length;
+  const FD = new Int32Array(nF), FW = new Float64Array(nF), FO = new Int32Array(all.length + 1), SH = new Float64Array(all.length);
+  { let o = 0; all.forEach((a, i) => { FO[i] = o; SH[i] = a.shop; for (const [d, sv] of a.freshW) { FD[o] = d; FW[o] = sv; o++; } }); FO[all.length] = o; }
+  const day = new Float64Array(nD), bestRun = new Float64Array(N), nA = all.length;
   for (let r = 0; r < N; r++) {
     const scale = D.base.fallback ? Math.exp(gauss(rnd) * U.fallbackSpread) : 1;
-    const day = new Float64Array(startMax + dur + 1); for (let d = 0; d < day.length; d++) { const [v, f] = dayPools[d]; day[d] = (v.length ? Math.max(0, mu + K * (v[Math.floor(rnd() * v.length)] - mu)) * (B / (mu || 1)) : B * scale) * f; }
+    for (let d = 0; d < nD; d++) day[d] = (nV ? Math.max(0, mu + K * (AV[(rnd() * nV) | 0] - mu)) * toB : B * scale) * seasonF[d];
     const wr = wish.map(wi => { if (!wi.F) return -99; const u = rnd(); const k = wi.F.findIndex(f => f >= u); return k < 0 ? -99 : k; });
     const evs = events.map(x => {
       const happens = rnd() < x.conf;
@@ -248,14 +266,14 @@ function model() {
       const size = x.samples ? x.samples[Math.floor(rnd() * x.samples.length)] : x.val * mult;
       return { a: x.a + sh, b: x.b + sh, v: happens ? size * x.interest : 0 };
     });
+    const evOn = evs.filter(x => x.v);
     let bestI = 0, bestV = -1;
-    for (let i = 0; i < all.length; i++) {
-      const a = all[i], s0 = a.s, s1 = a.s + dur - 1;
-      let t = a.shop;
-      for (const [d, sv] of a.freshW) t += day[d] * sv;
-      for (let k = 0; k < wish.length; k++) if (wr[k] >= a.s - 2 && wr[k] <= a.s + dur - 1) t += wish[k].value;
-      for (const x of evs) {
-        if (!x.v) continue;
+    for (let i = 0; i < nA; i++) {
+      const s0 = all[i].s, s1 = s0 + dur - 1;
+      let t = SH[i];
+      for (let j = FO[i], e = FO[i + 1]; j < e; j++) t += day[FD[j]] * FW[j];
+      for (let k = 0; k < wr.length; k++) if (wr[k] >= s0 - 2 && wr[k] <= s1) t += wish[k].value;
+      for (const x of evOn) {
         const lo = Math.max(x.a, s0), hi = Math.min(x.b, s1);
         if (hi < lo) continue;
         if (cntP(lo, hi) > 0) t += x.v * cntV(lo, hi) / (x.b - x.a + 1);
@@ -269,7 +287,8 @@ function model() {
   const tol = U.nearTol ?? 0.05;
   const sureScale = (D.backtest && D.backtest.sureScale) || U.sureScale || 0.85; // back-test: the raw share was too optimistic
   all.forEach((a, i) => { let n = 0; for (let r = 0; r < N; r++) if (sims[i][r] >= bestRun[r] * (1 - tol)) n++; a.pNearRaw = n / N; a.pNear = Math.min(1, a.pNearRaw * sureScale); });
-  all.forEach((a, i) => { const v = sims[i].sort((x, y) => x - y); a.p10 = v[Math.floor(N * .1)]; a.p50 = v[Math.floor(N * .5)]; a.p90 = v[Math.floor(N * .9)]; a.pBest = wins[i] / N; });
+  // typed arrays sort numerically without a comparator (much faster)
+  all.forEach((a, i) => { const v = sims[i].sort(); a.p10 = v[Math.floor(N * .1)]; a.p50 = v[Math.floor(N * .5)]; a.p90 = v[Math.floor(N * .9)]; a.pBest = wins[i] / N; });
   return { win, startMin, startMax, deadIdx, dur, all, items, wish, bShare, B, Bwd, Bday, surv, poolVals, taste, events, kws, rareMul, U, season, byDate, poolMean };
 }
 
@@ -365,11 +384,11 @@ function shopView(M, cur) {
   const F = render.filter || (render.filter = { q: '', kind: 'all', mine: false });
   F.sort = F.sort || 'value';
   const N = render.shopN || (innerWidth < 600 ? 12 : 24);
-  const img = (x, cls = '') => x.e.image ? `<img${cls} loading="lazy" decoding="async" src="${esc(x.e.image)}" alt="" onerror="this.remove()">` : '';
+  const img = (x, cls = '', w = 320) => x.e.image ? `<img${cls} loading="lazy" decoding="async" src="${esc(thumb(x.e.image, w))}" data-orig="${esc(x.e.image)}" alt="" onerror="if(this.dataset.orig&&this.src!==this.dataset.orig){this.src=this.dataset.orig;this.dataset.orig=''}else this.remove()">` : '';
   // must-have tray
   const favs = M.items.filter(x => x.must);
   $('favTray').innerHTML = favs.length
-    ? `<div class="fth"><b>Your ${T('must', 'must-haves')}</b><span>${favs.filter(x => hitIds.has(x.e.id)).length} of ${favs.length} caught in your 14 days</span></div><div class="favs">${favs.map(x => `<button type="button" class="favchip${hitIds.has(x.e.id) ? ' ok' : ' no'}" data-must="${esc(x.e.id)}" data-r="${esc(rarityOf(x.e))}" title="Remove ${esc(x.e.name)} from must-haves">${img(x)}<span>${esc(x.e.name)}</span><i aria-hidden="true">×</i></button>`).join('')}</div>`
+    ? `<div class="fth"><b>Your ${T('must', 'must-haves')}</b><span>${favs.filter(x => hitIds.has(x.e.id)).length} of ${favs.length} caught in your 14 days</span></div><div class="favs">${favs.map(x => `<button type="button" class="favchip${hitIds.has(x.e.id) ? ' ok' : ' no'}" data-must="${esc(x.e.id)}" data-r="${esc(rarityOf(x.e))}" title="Remove ${esc(x.e.name)} from must-haves">${img(x, '', 80)}<span>${esc(x.e.name)}</span><i aria-hidden="true">×</i></button>`).join('')}</div>`
     : `<div class="fempty"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 20s-7-4.4-7-10a4 4 0 0 1 7-2.6A4 4 0 0 1 19 10c0 5.6-7 10-7 10z"/></svg><span>Tap the heart on anything you ${T('must', 'must have')}. It counts 3× and pulls your top day towards it.</span></div>`;
   const wr = (cur.wishRows || []);
   if (wr.length) $('favTray').insertAdjacentHTML('beforeend', `<div class="fth wish"><b>Waiting for</b><span>wishlist items that are not in the shop now</span></div><div class="favs">${wr.map(r => `<span class="favchip wishc"><span>${esc(r.wi.x.n)}</span><em>${r.wi.F ? Math.round(r.p * 100) + '% back in time' : 'too rare to judge'}</em><button type="button" class="wx" data-unwish="${esc(r.wi.x.i)}" aria-label="Remove ${esc(r.wi.x.n)} from wishlist">×</button></span>`).join('')}</div>`);
@@ -637,9 +656,7 @@ function limits(M) {
   const L = [
     ['The future shop is unknown', `Epic doesn't publish it. Later days are averages of ${b.fallback ? 'a rough guess' : `${b.n} past days`}, not real items. A surprise drop can change the best day.`],
     ['Past is not future', 'The archive covers only about six months. In back-tests on those months, the pick lost about 6% of loot on average compared with the day that turned out best (always activating on day 1 lost about 9%). Around season launches it was harder: about 12%.'],
-    ['Events are the weakest part', 'Season-launch weeks ranged from well below to well above a normal week, so they are sized from all past launches together. ' + (D.events.some(e => e.id === 'winterfest' && e.fromHistory)
-      ? 'Winterfest is sized from Winterfest 2025 in the long cosmetics history (shop dates from fortnite-api.com at typical prices, no bundles): rougher than the daily archive.'
-      : 'Winterfest has no past data yet: its value is an author estimate until the long cosmetics history loads.')],
+    ['Events are the weakest part', 'Season-launch weeks ranged from well below to well above a normal week, so they are sized from all past launches together. Winterfest has no past data yet (the archive starts in May 2026): its value is an author estimate.'],
     ['Some event values are guesses', est.length ? `${est.map(e => `${esc(e.name)} ${n0(e.extraVbucks)} V-Bucks`).join(', ')}: author assumptions with no past data behind them.` : 'All event values come from past shops.'],
     ['Event dates may move', 'Pattern events are dated from past years. The simulation shifts them a few days; real events can move further or not happen.'],
     ['Token rules come from news reports', 'The 14 days, the deadline and the exclusions come from gaming sites, not Epic. Check your own token in-game.'],
@@ -967,7 +984,7 @@ async function drawCard() {
   await document.fonts.ready;
   const FN = '"Anton", "Luckiest Guy", Impact, sans-serif', NU = 'Nunito, sans-serif';
   const top = cur.rows.filter(r => r.hit).sort((a, b) => b.v - a.v).slice(0, 3);
-  const [tok, ...pics] = await Promise.all([loadImg('icons/token.svg'), ...top.map(r => loadImg(r.x.e.image, true))]);
+  const [tok, ...pics] = await Promise.all([loadImg('icons/token.svg'), ...top.map(r => loadImg(thumb(r.x.e.image, 400), true).then(im => im || loadImg(r.x.e.image, true)))]);
   const token = (x, y, r) => { if (tok) g.drawImage(tok, x - r * 1.25, y - r * 1.25, r * 2.5, r * 2.5); else coin(x, y, r); };
   const fit = (txt, x, y, max, size, font, align = 'left') => { let z = size; do { g.font = font.replace('#', z + 'px'); z -= 2; } while (g.measureText(txt).width > max && z > 14); g.textAlign = align; g.fillText(txt, x, y); g.textAlign = 'left'; };
   const lin = (y0, y1, stops) => { const l = g.createLinearGradient(0, y0, 0, y1); stops.forEach(([o, c]) => l.addColorStop(o, c)); return l; };
@@ -1139,9 +1156,9 @@ function cardUI() {
 
 // ---------- data loading ----------
 async function init() {
-  const [shop, base, events, rules, meta] = await Promise.all(['shop', 'baseline', 'events', 'rules', 'meta'].map(n => load(`data/${n}.json`)));
+  const [shop, base, events, rules, meta, backtest] = await Promise.all(['shop', 'baseline', 'events', 'rules', 'meta', 'backtest'].map(n => load(`data/${n}.json`)));
   if (!shop || !rules) { $('fresh').textContent = 'Could not load the shop data. Try again in a minute.'; return; }
-  D = { shop, events: events || [], rules, meta, live: false, liveNote: 'Daily snapshot from the scheduled run' };
+  D = { shop, events: events || [], rules, meta, backtest, live: false, liveNote: 'Daily snapshot from the scheduled run' };
   const todayStr = dt(0).toISOString().slice(0, 10);
   // try a live read if the snapshot is from an older shop day
   if (!q.get('today') && shop.shopDate < todayStr) {
@@ -1168,8 +1185,12 @@ async function init() {
   // installable app: offline copy via a service worker, and an install button where the browser offers one
   if ('serviceWorker' in navigator && location.protocol === 'https:') navigator.serviceWorker.register('sw.js').catch(() => {});
   addEventListener('beforeinstallprompt', e => { e.preventDefault(); const b = $('installBtn'); b.hidden = false; b.onclick = async () => { b.hidden = true; e.prompt(); }; });
-  [D.backtest, D.track] = await Promise.all([load('data/backtest.json'), load('data/track.json')]);
-  sharedBanner(); controls(); bind(); glossUI(); howUI(); render(); lockerList(); sources(); cardUI(); compareUI(); crew();
+  sharedBanner(); controls(); bind(); glossUI(); howUI(); render(); lockerList(); cardUI(); compareUI();
+  // not needed for the first paint: run when the browser is idle
+  const later = f => (window.requestIdleCallback ? requestIdleCallback(f, { timeout: 3000 }) : setTimeout(f, 1500));
+  later(sources); later(crew);
+  // the track record only shows inside "How it works"
+  $('how').addEventListener('toggle', () => { if ($('how').open && !D.track) load('data/track.json').then(t => { D.track = t || { summary: null }; if ($('how').open) formula(render.M); }); });
   { const n = (P.off || []).filter(x => idx(x) >= 0).length; $('offN').textContent = n ? `${n} day${n === 1 ? '' : 's'} away` : ''; }
   // wishlist items need the return history: load it after the first paint, then re-plan
   if ((P.wish || []).length) load('data/past/returns.json').then(r => { if (r) { render.back = r; render(); } });
@@ -1201,13 +1222,31 @@ async function init() {
       for (const j of jellies) j.style.transform = `translate3d(0,${(bedY * 1.6).toFixed(1)}px,0)`;
     }
     // pause what cannot be seen: the surface once scrolled away, the seabed until you get there
-    const flags = (surfOn ? 1 : 0) + (bottom ? 2 : 0) + (h >= 1 ? 4 : 0);
+    const atTop = y < vh * 0.15; // water hidden behind the surface: fish and bubbles can rest
+    const flags = (surfOn ? 1 : 0) + (bottom ? 2 : 0) + (h >= 1 ? 4 : 0) + (atTop ? 8 : 0);
     if (flags !== scene.flags) { scene.flags = flags;
       sceneEl.classList.toggle('below', !surfOn); surfEl.style.visibility = surfOn ? '' : 'hidden';
-      sceneEl.classList.toggle('deepend', bottom); heroEl.classList.toggle('gone', h >= 1); }
+      sceneEl.classList.toggle('deepend', bottom); heroEl.classList.toggle('gone', h >= 1); sceneEl.classList.toggle('attop', atTop); }
   };
   addEventListener('scroll', () => { if (!ticking) { ticking = true; requestAnimationFrame(scene); } }, { passive: true });
   document.addEventListener('visibilitychange', () => sceneEl.classList.toggle('paused', document.hidden));
+  // save energy: after 30 s without any input the ambient animations pause; the next touch, key or scroll resumes them
+  let lastInput = Date.now();
+  const wake = () => { lastInput = Date.now(); if (root.classList.contains('idle')) root.classList.remove('idle'); };
+  for (const ev of ['pointerdown', 'pointermove', 'keydown', 'wheel', 'touchstart', 'scroll']) addEventListener(ev, wake, { passive: true });
+  setInterval(() => { if (!root.classList.contains('idle') && Date.now() - lastInput > 30e3) root.classList.add('idle'); }, 5e3);
+  // calm sea: no ambient animation at all. On by choice, or automatically on slow devices and data saver
+  const calmPref = (() => { try { return localStorage.getItem('ptp-calm'); } catch { return null; } })();
+  const setCalm = on => { root.classList.toggle('lite', on); $('calmBtn').setAttribute('aria-pressed', on); $('calmBtn').textContent = on ? 'Calm sea is on: tap for animations' : 'Calm sea: fewer animations'; };
+  const slowDevice = (navigator.connection && navigator.connection.saveData) || (navigator.hardwareConcurrency || 8) <= 2 || (navigator.deviceMemory || 8) <= 2;
+  setCalm(calmPref === '1' || (calmPref === null && slowDevice));
+  $('calmBtn').addEventListener('click', () => { const on = !root.classList.contains('lite'); setCalm(on); try { localStorage.setItem('ptp-calm', on ? '1' : '0'); } catch {} });
+  // if the first seconds show dropped frames, calm down automatically (unless the visitor chose otherwise)
+  if (calmPref === null && !slowDevice) {
+    const gaps = []; let prev = 0;
+    const tick = t => { if (prev) gaps.push(t - prev); prev = t; if (gaps.length < 90) requestAnimationFrame(tick); else { gaps.sort((a, b) => a - b); if (!document.hidden && gaps[Math.floor(gaps.length * .75)] > 50) setCalm(true); } };
+    setTimeout(() => requestAnimationFrame(tick), 1500);
+  }
   addEventListener('resize', () => { last = ''; scene(); }); scene();
   // the scene follows the visitor's real clock: dawn, day, dusk or night, with the sun on its arc
   const daytime = () => {

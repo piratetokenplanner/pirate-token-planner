@@ -32,7 +32,7 @@
   "to": "2026-12-12",
   "claim": "pattern",
   "extraVbucks": 8000,
-  "basis": "Sized from every past season-launch week: the archive (May 2026 on) for the ones it covers, the long cosmetics history for older ones. What each brought above an average day, per item type, averaged. Launch weeks were not reliably bigger (June 2026 was below average, August and November above), so this can be small or even negative.",
+  "basis": "Sized from every past season-launch week in the shop archive: what each brought above an average day, per item type, averaged. Launch weeks were not reliably bigger (June 2026 was below average, August and November above), so this can be small or even negative.",
   "newsKeywords": [
    "chapter 8"
   ],
@@ -79,7 +79,7 @@
   "to": "2026-12-31",
   "claim": "pattern",
   "extraVbucks": 6000,
-  "basis": "Sized from Winterfest 2025 in the long cosmetics history (fortnite-api.com shop dates, typical prices): how much more arrived than in the weeks around it, applied to an average shop day. Until that history loads, an author estimate.",
+  "basis": "Sized from Winterfest 2025 (Dec 18, 2025 to Jan 1, 2026) once the shop history reaches back that far (an itemshop.gg key would add it); until then an author estimate.",
   "newsKeywords": [
    "winterfest"
   ],

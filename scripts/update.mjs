@@ -6,9 +6,6 @@ import { createHash } from 'node:crypto';
 import { normalizeShop, SHOP_URL } from '../shared/normalize.js';
 
 const NEWS_URL = 'https://fortnite-api.com/v2/news/br?language=en';
-// Every BR cosmetic with the dates it was in the shop (no key needed). Used for a long shop history.
-const COSMETICS_URL = process.env.COSMETICS_URL || 'https://fortnite-api.com/v2/cosmetics/br?language=en'; // env override for tests
-const HISTORY_DAYS = 800;
 // Past shops: daily snapshots of the same fortnite-api.com response, archived by the
 // Fortnite-Datamining project (ISC license) at github.com/Fortnite-Datamining/Fortnite-Datamining
 const PAST_BASE = 'https://raw.githubusercontent.com/Fortnite-Datamining/Fortnite-Datamining/history/shop/';
@@ -255,43 +252,6 @@ if (past.last) {
 }
 
 // ---- 3. Baseline: what a normal shop day brings, from past shops ---------
-// ---- 2c. Long shop history from fortnite-api.com cosmetics (shopHistory dates, no key) ----------
-// For every cosmetic we know the days it was in the shop, but not its price on that day and not the
-// bundles it was part of. So each new arrival is valued at the typical price of its type and rarity
-// (median of today's single-item offers). Good for comparing weeks (was Winterfest bigger than a normal
-// week?), not for exact V-Bucks. Refreshed about once a day.
-let hist = await readJSON('data/past/history.json', null);
-if (!FIX && (!hist || Date.now() - Date.parse(hist.fetchedAt || 0) > 20 * 36e5)) {
-  const text = await fetchOnce(COSMETICS_URL, null, false, 120000); // large list: allow 2 minutes
-  let list = null; try { list = text && JSON.parse(text).data; } catch { list = null; }
-  if (Array.isArray(list) && list.length > 1000) {
-    const rar = it => String((it.rarity && it.rarity.displayValue) || (it.series && it.series.value) || '').toLowerCase();
-    // typical price per type + rarity, from today's single-item offers
-    const pr = {}, prK = {};
-    for (const e of (shop && shop.entries) || []) {
-      if (e.kind === 'bundle' || e.items.length !== 1) continue;
-      const k = e.kind, r = String(e.items[0].rarity || '').toLowerCase();
-      (pr[k + '|' + r] ||= []).push(e.price); (prK[k] ||= []).push(e.price);
-    }
-    const FALLBACK = { outfit: 1500, emote: 500, pickaxe: 800, glider: 800, backpack: 400, wrap: 500, kicks: 600, sidekick: 800, contrail: 300, loadingscreen: 200, music: 200 };
-    const price = (k, r) => (pr[k + '|' + r] && median(pr[k + '|' + r])) || (prK[k] && median(prK[k])) || FALLBACK[k] || 300;
-    const from = iso(Date.now() - HISTORY_DAYS * DAY), byDay = {};
-    for (const it of list) {
-      const k = TYPE[String(it.type && it.type.value || '').toLowerCase()]; if (!k) continue;
-      const dates = [...new Set((it.shopHistory || []).map(x => String(x).slice(0, 10)))].sort();
-      const set = new Set(dates), p = price(k, rar(it));
-      for (const d of dates) {
-        if (d < from || set.has(iso(Date.parse(d) - DAY))) continue; // an arrival: not in the shop the day before
-        const o = (byDay[d] ||= { date: d, n: 0, byKind: {} }); o.n++; o.byKind[k] = (o.byKind[k] || 0) + p;
-      }
-    }
-    const days = Object.values(byDay).sort((a, b) => a.date.localeCompare(b.date));
-    hist = { source: COSMETICS_URL, fetchedAt: new Date().toISOString(), note: 'New arrivals per day from shopHistory dates of every BR cosmetic, valued at the typical price of their type and rarity. No bundles, no Jam Tracks. For comparing weeks, not exact V-Bucks.',
-      from: days[0] && days[0].date, to: days.at(-1) && days.at(-1).date, priceTable: Object.fromEntries(Object.entries(pr).map(([k, v]) => [k, median(v)])), days };
-    await write('data/past/history.json', hist);
-  }
-}
-const histDays = hist && hist.days ? hist.days : [];
 
 const usable = past.days.filter(d => d.byKind);
 const total = d => Object.values(d.byKind).reduce((s, v) => s + v, 0);
@@ -310,30 +270,7 @@ for (const ev of cfgEventsRaw) {
   const own = usable.filter(d => d.date >= ev.from && d.date <= ev.to).length >= 2;
   for (const r of own ? [{ from: ev.from, to: ev.to, label: 'this event, measured' }] : (ev.calibrateFrom || [])) {
   const ds = usable.filter(d => d.date >= r.from && d.date <= r.to);
-  if (!ds.length) {
-    // not in the archive: use the long cosmetics history. Compare the range with the 90 days around it
-    // (same source, same pricing), then scale per type to the archive's average day.
-    const hmap = new Map(histDays.map(d => [d.date, d]));
-    const dayList = (f, t) => { const o = []; for (let x = Date.parse(f); iso(x) <= t; x += DAY) o.push(iso(x)); return o; };
-    if (!hist || !hist.from || r.from < hist.from || r.to > hist.to) continue;
-    const inside = dayList(r.from, r.to);
-    const lo = iso(Math.max(Date.parse(hist.from), Date.parse(r.from) - 45 * DAY)), hi = iso(Math.min(Date.parse(hist.to), Date.parse(r.to) + 45 * DAY));
-    const around = dayList(lo, hi).filter(d => (d < r.from || d > r.to) && !inRanges(d));
-    if (around.length < 20) continue;
-    const len = Math.round((Date.parse(ev.to) - Date.parse(ev.from)) / DAY) + 1;
-    // relative change of each type vs the days around it (history units cancel out), applied to the
-    // archive's average day. Types the cosmetics list does not have (bundles, Jam Tracks) use the overall change.
-    const avg = (ds, k) => ds.reduce((s, d) => s + (k ? (((hmap.get(d) || {}).byKind || {})[k] || 0) : Object.values((hmap.get(d) || {}).byKind || {}).reduce((x, y) => x + y, 0)), 0) / ds.length;
-    const relAll = avg(around) ? avg(inside) / avg(around) - 1 : 0;
-    const byKind = {};
-    for (const k of kinds) {
-      const base = avg(around, k), rel = base > 0 ? avg(inside, k) / base - 1 : relAll;
-      byKind[k] = Math.round(rel * meanByKind[k] * len);
-    }
-    const hs = inside;
-    (calib[ev.id] ||= []).push({ ...r, days: hs.length, byKind, source: 'cosmetics history (typical prices)' });
-    continue;
-  }
+  if (!ds.length) continue;
   const len = Math.round((Date.parse(ev.to) - Date.parse(ev.from)) / DAY) + 1;
   const byKind = {};
   for (const k of kinds) byKind[k] = Math.round(ds.reduce((s, d) => s + (d.byKind[k] || 0) - meanByKind[k], 0) * len / ds.length);
