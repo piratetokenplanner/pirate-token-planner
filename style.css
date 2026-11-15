@@ -4052,7 +4052,7 @@ main a,.foot a,.tbl td{overflow-wrap:anywhere}
 .surface .sea::before{content:"";position:absolute;left:0;right:0;bottom:0;height:78px;background:var(--wat1);z-index:0}
 .lede{text-shadow:0 2px 0 #0b2a6e88,0 0 14px #0b2a6e55}
 .fresh{text-shadow:0 1px 0 #0b2a6e88}
-@media(max-width:760px){.sky .cloud.c2{display:none}.gulls{top:48%!important;right:auto!important;left:8%}}
+@media(max-width:760px){.sky .cloud.c2{display:none}.gulls{top:44%!important;right:6%!important;left:auto}}
 
 /* ===== explained words (hover / tap) ===== */
 .term{cursor:help;text-decoration:underline dotted 2px;text-decoration-color:color-mix(in srgb,currentColor 55%,transparent);text-underline-offset:3px;border-radius:4px;outline-offset:2px}
@@ -4330,3 +4330,21 @@ html.lite .bubbles{display:none}
 .cloud{filter:none!important}
 .calmbtn{border:0;background:none;color:inherit;font:800 13px Nunito,sans-serif;text-decoration:underline;text-underline-offset:3px;opacity:.85;cursor:pointer;padding:0}
 .calmbtn:hover{opacity:1}
+/* calm sea: everything rests where it looks natural (without animation they would pile up at the left edge) */
+html.lite .cloud.c1{transform:translateX(84vw)}
+html.lite .cloud.c3{transform:translateX(30vw)}
+html.lite .cloud.c2{transform:translateX(74vw)}
+html.lite .fishes .school:nth-child(1){transform:translateX(64vw)}
+html.lite .fishes .school:nth-child(2){transform:translateX(10vw)}
+html.lite .fishes .school:nth-child(3){transform:translateX(70vw)}
+html.lite .fishes .school:nth-child(4){transform:translateX(26vw)}
+@media(max-width:760px){
+ html.lite .cloud.c1{display:none}
+ html.lite .cloud.c3{transform:translateX(62vw)}
+ html.lite .fishes .school:nth-child(1){transform:translateX(48vw)}
+ html.lite .fishes .school:nth-child(3){transform:translateX(40vw)}
+ html.lite .fishes .school:nth-child(4){transform:translateX(6vw)}
+}
+html.lite .school span:nth-child(2){translate:0 -7px}
+html.lite .school span:nth-child(3){translate:0 6px}
+html.lite .school span:nth-child(4){translate:0 -3px}
