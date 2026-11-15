@@ -2,6 +2,5812 @@
  "source": "https://github.com/Fortnite-Datamining/Fortnite-Datamining/tree/history/shop",
  "days": [
   {
+   "date": "2025-05-04",
+   "offers": 190,
+   "gapBefore": true,
+   "src": "itemshop.gg"
+  },
+  {
+   "date": "2025-05-05",
+   "offers": 224,
+   "count": 71,
+   "byKind": {
+    "bundle": 22200,
+    "outfit": 37000,
+    "pickaxe": 9900,
+    "emote": 3100,
+    "backpack": 1800,
+    "instrument": 2600,
+    "wrap": 500,
+    "glider": 800
+   },
+   "src": "itemshop.gg"
+  },
+  {
+   "date": "2025-05-06",
+   "offers": 212,
+   "count": 32,
+   "byKind": {
+    "emote": 5800,
+    "bundle": 7800,
+    "outfit": 13800,
+    "pickaxe": 2900,
+    "wrap": 500,
+    "backpack": 200,
+    "instrument": 500
+   },
+   "src": "itemshop.gg"
+  },
+  {
+   "date": "2025-05-07",
+   "offers": 178,
+   "count": 60,
+   "byKind": {
+    "outfit": 26900,
+    "bundle": 12500,
+    "pickaxe": 3900,
+    "glider": 2000,
+    "emote": 2300,
+    "instrument": 4100,
+    "wrap": 1500,
+    "kicks": 7200,
+    "jamtrack": 1000
+   },
+   "src": "itemshop.gg"
+  },
+  {
+   "date": "2025-05-08",
+   "offers": 154,
+   "count": 33,
+   "byKind": {
+    "bundle": 6600,
+    "outfit": 10900,
+    "pickaxe": 3000,
+    "glider": 1600,
+    "wrap": 1100,
+    "kicks": 3200,
+    "emote": 2000,
+    "backpack": 200,
+    "instrument": 500,
+    "jamtrack": 500
+   },
+   "src": "itemshop.gg"
+  },
+  {
+   "date": "2025-05-09",
+   "offers": 142,
+   "count": 49,
+   "byKind": {
+    "bundle": 10200,
+    "jamtrack": 7500,
+    "emote": 2900,
+    "outfit": 17400,
+    "wrap": 1000,
+    "backpack": 400,
+    "pickaxe": 2400,
+    "glider": 1600,
+    "instrument": 2000
+   },
+   "src": "itemshop.gg"
+  },
+  {
+   "date": "2025-05-10",
+   "offers": 149,
+   "count": 33,
+   "byKind": {
+    "bundle": 5900,
+    "outfit": 10100,
+    "emote": 1300,
+    "backpack": 700,
+    "pickaxe": 3300,
+    "wrap": 600,
+    "instrument": 1600,
+    "other": 1200,
+    "glider": 800,
+    "jamtrack": 2000
+   },
+   "src": "itemshop.gg"
+  },
+  {
+   "date": "2025-05-11",
+   "offers": 160,
+   "count": 51,
+   "byKind": {
+    "bundle": 10600,
+    "outfit": 34200,
+    "emote": 1700,
+    "pickaxe": 10500,
+    "other": 400,
+    "wrap": 500,
+    "backpack": 800,
+    "glider": 2000,
+    "instrument": 1300
+   },
+   "src": "itemshop.gg"
+  },
+  {
+   "date": "2025-05-12",
+   "offers": 159,
+   "count": 45,
+   "byKind": {
+    "bundle": 8200,
+    "outfit": 13000,
+    "glider": 4300,
+    "emote": 4800,
+    "pickaxe": 2700,
+    "wrap": 500,
+    "instrument": 1800,
+    "kicks": 7600
+   },
+   "src": "itemshop.gg"
+  },
+  {
+   "date": "2025-05-13",
+   "offers": 143,
+   "count": 28,
+   "byKind": {
+    "outfit": 14900,
+    "glider": 2400,
+    "emote": 1600,
+    "pickaxe": 3200,
+    "bundle": 2500,
+    "backpack": 200,
+    "instrument": 1000,
+    "jamtrack": 500
+   },
+   "src": "itemshop.gg"
+  },
+  {
+   "date": "2025-05-14",
+   "offers": 134,
+   "count": 26,
+   "byKind": {
+    "outfit": 17400,
+    "bundle": 3600,
+    "pickaxe": 1600,
+    "emote": 1600,
+    "glider": 800,
+    "instrument": 1000,
+    "jamtrack": 1000
+   },
+   "src": "itemshop.gg"
+  },
+  {
+   "date": "2025-05-15",
+   "offers": 129,
+   "count": 17,
+   "byKind": {
+    "glider": 2000,
+    "bundle": 1800,
+    "outfit": 8100,
+    "pickaxe": 2000,
+    "wrap": 300,
+    "backpack": 500,
+    "emote": 1300,
+    "instrument": 1300
+   },
+   "src": "itemshop.gg"
+  },
+  {
+   "date": "2025-05-16",
+   "offers": 99,
+   "count": 46,
+   "byKind": {
+    "bundle": 10900,
+    "outfit": 14500,
+    "glider": 3600,
+    "pickaxe": 3900,
+    "emote": 2300,
+    "wrap": 800,
+    "backpack": 800,
+    "instrument": 500,
+    "jamtrack": 5000
+   },
+   "src": "itemshop.gg"
+  },
+  {
+   "date": "2025-05-17",
+   "offers": 155,
+   "count": 86,
+   "byKind": {
+    "wrap": 2100,
+    "pickaxe": 6100,
+    "backpack": 1400,
+    "outfit": 30200,
+    "bundle": 23700,
+    "kicks": 9600,
+    "emote": 5100,
+    "jamtrack": 500,
+    "glider": 2000,
+    "instrument": 1600
+   },
+   "src": "itemshop.gg"
+  },
+  {
+   "date": "2025-05-18",
+   "offers": 201,
+   "count": 58,
+   "byKind": {
+    "bundle": 20800,
+    "outfit": 32100,
+    "glider": 2300,
+    "emote": 1600,
+    "pickaxe": 4900,
+    "wrap": 2500,
+    "instrument": 4000,
+    "kicks": 600,
+    "backpack": 600
+   },
+   "src": "itemshop.gg"
+  },
+  {
+   "date": "2025-05-19",
+   "offers": 202,
+   "count": 25,
+   "byKind": {
+    "bundle": 5700,
+    "outfit": 12500,
+    "emote": 1400,
+    "pickaxe": 2400,
+    "wrap": 1500,
+    "glider": 800,
+    "instrument": 1000,
+    "jamtrack": 1000
+   },
+   "src": "itemshop.gg"
+  },
+  {
+   "date": "2025-05-20",
+   "offers": 197,
+   "count": 31,
+   "byKind": {
+    "emote": 4500,
+    "bundle": 5900,
+    "jamtrack": 1000,
+    "outfit": 9700,
+    "pickaxe": 2100,
+    "glider": 3200,
+    "backpack": 400,
+    "wrap": 300,
+    "instrument": 800
+   },
+   "src": "itemshop.gg"
+  },
+  {
+   "date": "2025-05-21",
+   "offers": 137,
+   "count": 26,
+   "byKind": {
+    "outfit": 18500,
+    "bundle": 4300,
+    "backpack": 400,
+    "pickaxe": 1000,
+    "glider": 800,
+    "emote": 1300,
+    "instrument": 1800
+   },
+   "src": "itemshop.gg"
+  },
+  {
+   "date": "2025-05-22",
+   "offers": 135,
+   "count": 30,
+   "byKind": {
+    "outfit": 12900,
+    "pickaxe": 2400,
+    "wrap": 1300,
+    "kicks": 3000,
+    "emote": 1800,
+    "bundle": 4200,
+    "backpack": 300,
+    "glider": 1200,
+    "instrument": 500
+   },
+   "src": "itemshop.gg"
+  },
+  {
+   "date": "2025-05-23",
+   "offers": 127,
+   "count": 32,
+   "byKind": {
+    "bundle": 2500,
+    "outfit": 9700,
+    "pickaxe": 1600,
+    "backpack": 400,
+    "emote": 2300,
+    "kicks": 2800,
+    "glider": 800,
+    "instrument": 800,
+    "jamtrack": 5000
+   },
+   "src": "itemshop.gg"
+  },
+  {
+   "date": "2025-05-24",
+   "offers": 125,
+   "count": 47,
+   "byKind": {
+    "bundle": 7400,
+    "outfit": 13300,
+    "glider": 4400,
+    "pickaxe": 4000,
+    "emote": 7800,
+    "backpack": 400,
+    "instrument": 1500,
+    "jamtrack": 1000
+   },
+   "src": "itemshop.gg"
+  },
+  {
+   "date": "2025-05-25",
+   "offers": 140,
+   "count": 30,
+   "byKind": {
+    "bundle": 9500,
+    "outfit": 13800,
+    "pickaxe": 3800,
+    "wrap": 1000,
+    "backpack": 600,
+    "glider": 800,
+    "emote": 1400,
+    "instrument": 2600
+   },
+   "src": "itemshop.gg"
+  },
+  {
+   "date": "2025-05-26",
+   "offers": 156,
+   "count": 36,
+   "byKind": {
+    "bundle": 7100,
+    "outfit": 14600,
+    "pickaxe": 3600,
+    "glider": 2000,
+    "wrap": 2000,
+    "backpack": 400,
+    "emote": 700,
+    "instrument": 800,
+    "kicks": 7000
+   },
+   "src": "itemshop.gg"
+  },
+  {
+   "date": "2025-05-27",
+   "offers": 150,
+   "count": 36,
+   "byKind": {
+    "bundle": 6000,
+    "pickaxe": 4300,
+    "outfit": 12900,
+    "glider": 2000,
+    "emote": 3500,
+    "wrap": 4500,
+    "instrument": 500
+   },
+   "src": "itemshop.gg"
+  },
+  {
+   "date": "2025-05-28",
+   "offers": 136,
+   "count": 24,
+   "byKind": {
+    "bundle": 6300,
+    "outfit": 13000,
+    "glider": 2000,
+    "emote": 1400,
+    "instrument": 2000,
+    "wrap": 500,
+    "jamtrack": 1500
+   },
+   "src": "itemshop.gg"
+  },
+  {
+   "date": "2025-05-29",
+   "offers": 130,
+   "count": 29,
+   "byKind": {
+    "outfit": 19100,
+    "backpack": 400,
+    "pickaxe": 1800,
+    "bundle": 5000,
+    "glider": 1700,
+    "emote": 1600,
+    "contrail": 400,
+    "instrument": 1600
+   },
+   "src": "itemshop.gg"
+  },
+  {
+   "date": "2025-05-30",
+   "offers": 147,
+   "count": 59,
+   "byKind": {
+    "car": 2800,
+    "bundle": 8800,
+    "outfit": 16100,
+    "backpack": 400,
+    "kicks": 10200,
+    "emote": 3900,
+    "glider": 2700,
+    "instrument": 2400,
+    "jamtrack": 6500
+   },
+   "src": "itemshop.gg"
+  },
+  {
+   "date": "2025-05-31",
+   "offers": 142,
+   "count": 45,
+   "byKind": {
+    "bundle": 6100,
+    "outfit": 16400,
+    "backpack": 900,
+    "emote": 4900,
+    "glider": 3300,
+    "pickaxe": 1800,
+    "wrap": 1500,
+    "instrument": 800,
+    "jamtrack": 1500
+   },
+   "src": "itemshop.gg"
+  },
+  {
+   "date": "2025-06-01",
+   "offers": 160,
+   "count": 40,
+   "byKind": {
+    "outfit": 20000,
+    "pickaxe": 2800,
+    "emote": 2400,
+    "glider": 1000,
+    "instrument": 800,
+    "wrap": 1200,
+    "bundle": 5000,
+    "backpack": 800,
+    "jamtrack": 500
+   },
+   "src": "itemshop.gg"
+  },
+  {
+   "date": "2025-06-02",
+   "offers": 148,
+   "count": 35,
+   "byKind": {
+    "outfit": 31900,
+    "glider": 7600,
+    "pickaxe": 1200,
+    "emote": 200,
+    "wrap": 800,
+    "instrument": 800
+   },
+   "src": "itemshop.gg"
+  },
+  {
+   "date": "2025-06-03",
+   "offers": 152,
+   "count": 34,
+   "byKind": {
+    "outfit": 18900,
+    "emote": 5500,
+    "pickaxe": 2400,
+    "bundle": 1800,
+    "wrap": 500,
+    "glider": 800,
+    "instrument": 1600
+   },
+   "src": "itemshop.gg"
+  },
+  {
+   "date": "2025-06-04",
+   "offers": 147,
+   "count": 30,
+   "byKind": {
+    "emote": 2200,
+    "bundle": 6800,
+    "outfit": 8100,
+    "pickaxe": 1600,
+    "backpack": 200,
+    "wrap": 1500,
+    "glider": 1300,
+    "instrument": 1500,
+    "jamtrack": 2500
+   },
+   "src": "itemshop.gg"
+  },
+  {
+   "date": "2025-06-05",
+   "offers": 163,
+   "count": 40,
+   "byKind": {
+    "bundle": 7200,
+    "outfit": 15000,
+    "pickaxe": 3600,
+    "emote": 2300,
+    "other": 1200,
+    "glider": 1000,
+    "instrument": 1300,
+    "backpack": 1300,
+    "wrap": 500
+   },
+   "src": "itemshop.gg"
+  },
+  {
+   "date": "2025-06-06",
+   "offers": 173,
+   "count": 66,
+   "byKind": {
+    "outfit": 36800,
+    "wrap": 1000,
+    "bundle": 8500,
+    "backpack": 400,
+    "emote": 6400,
+    "pickaxe": 1800,
+    "glider": 3200,
+    "instrument": 800,
+    "jamtrack": 6000
+   },
+   "src": "itemshop.gg"
+  },
+  {
+   "date": "2025-06-07",
+   "offers": 175,
+   "count": 37,
+   "byKind": {
+    "outfit": 37700,
+    "backpack": 600,
+    "other": 1200,
+    "emote": 1800,
+    "glider": 1000,
+    "instrument": 1000,
+    "bundle": 1500,
+    "jamtrack": 500
+   },
+   "src": "itemshop.gg"
+  },
+  {
+   "date": "2025-06-08",
+   "offers": 185,
+   "count": 49,
+   "byKind": {
+    "bundle": 9300,
+    "outfit": 24700,
+    "pickaxe": 3700,
+    "emote": 1200,
+    "backpack": 800,
+    "wrap": 1100,
+    "kicks": 6600,
+    "glider": 1200,
+    "instrument": 1300
+   },
+   "src": "itemshop.gg"
+  },
+  {
+   "date": "2025-06-09",
+   "offers": 159,
+   "count": 49,
+   "byKind": {
+    "bundle": 11900,
+    "outfit": 17800,
+    "pickaxe": 5600,
+    "wrap": 500,
+    "backpack": 1900,
+    "emote": 6800,
+    "instrument": 3400,
+    "glider": 2400
+   },
+   "src": "itemshop.gg"
+  },
+  {
+   "date": "2025-06-10",
+   "offers": 168,
+   "count": 28,
+   "byKind": {
+    "bundle": 6200,
+    "outfit": 9400,
+    "pickaxe": 800,
+    "glider": 3900,
+    "emote": 2300,
+    "instrument": 2600,
+    "kicks": 2200,
+    "backpack": 400
+   },
+   "src": "itemshop.gg"
+  },
+  {
+   "date": "2025-06-11",
+   "offers": 128,
+   "count": 35,
+   "byKind": {
+    "outfit": 14100,
+    "pickaxe": 2400,
+    "glider": 3700,
+    "emote": 3800,
+    "bundle": 8300,
+    "contrail": 400,
+    "instrument": 800,
+    "jamtrack": 2000
+   },
+   "src": "itemshop.gg"
+  },
+  {
+   "date": "2025-06-12",
+   "offers": 148,
+   "count": 42,
+   "byKind": {
+    "bundle": 6400,
+    "outfit": 12200,
+    "pickaxe": 3900,
+    "backpack": 600,
+    "wrap": 1500,
+    "emote": 1200,
+    "glider": 2000,
+    "jamtrack": 5000
+   },
+   "src": "itemshop.gg"
+  },
+  {
+   "date": "2025-06-13",
+   "offers": 135,
+   "count": 20,
+   "byKind": {
+    "emote": 4800,
+    "outfit": 8400,
+    "glider": 3200,
+    "pickaxe": 1100
+   },
+   "src": "itemshop.gg"
+  },
+  {
+   "date": "2025-06-14",
+   "offers": 147,
+   "count": 33,
+   "byKind": {
+    "bundle": 7000,
+    "outfit": 10000,
+    "pickaxe": 4100,
+    "emote": 3500,
+    "backpack": 800,
+    "wrap": 1300,
+    "kicks": 800,
+    "glider": 500,
+    "other": 250
+   },
+   "src": "itemshop.gg"
+  },
+  {
+   "date": "2025-06-15",
+   "offers": 140,
+   "count": 41,
+   "byKind": {
+    "kicks": 10800,
+    "bundle": 6200,
+    "outfit": 18800,
+    "pickaxe": 2400,
+    "glider": 1600,
+    "emote": 700,
+    "wrap": 600,
+    "jamtrack": 2000
+   },
+   "src": "itemshop.gg"
+  },
+  {
+   "date": "2025-06-16",
+   "offers": 137,
+   "count": 62,
+   "byKind": {
+    "bundle": 12600,
+    "other": 1500,
+    "pickaxe": 7000,
+    "emote": 7400,
+    "outfit": 20100,
+    "wrap": 2300,
+    "instrument": 1600,
+    "backpack": 900,
+    "glider": 800,
+    "jamtrack": 500
+   },
+   "src": "itemshop.gg"
+  },
+  {
+   "date": "2025-06-17",
+   "offers": 145,
+   "count": 24,
+   "byKind": {
+    "outfit": 20100,
+    "wrap": 300,
+    "pickaxe": 2300,
+    "glider": 1300,
+    "emote": 700
+   },
+   "src": "itemshop.gg"
+  },
+  {
+   "date": "2025-06-18",
+   "offers": 148,
+   "count": 38,
+   "byKind": {
+    "wrap": 500,
+    "outfit": 10700,
+    "glider": 2300,
+    "other": 1200,
+    "emote": 2300,
+    "pickaxe": 800,
+    "instrument": 2600,
+    "jamtrack": 6000,
+    "bundle": 4700,
+    "contrail": 600,
+    "backpack": 400
+   },
+   "src": "itemshop.gg"
+  },
+  {
+   "date": "2025-06-19",
+   "offers": 164,
+   "count": 61,
+   "byKind": {
+    "outfit": 22000,
+    "emote": 4900,
+    "bundle": 9800,
+    "backpack": 800,
+    "pickaxe": 4100,
+    "wrap": 1000,
+    "glider": 3200,
+    "instrument": 500,
+    "jamtrack": 3500
+   },
+   "src": "itemshop.gg"
+  },
+  {
+   "date": "2025-06-20",
+   "offers": 146,
+   "count": 31,
+   "byKind": {
+    "emote": 5100,
+    "kicks": 2000,
+    "bundle": 5600,
+    "outfit": 9500,
+    "pickaxe": 3700,
+    "glider": 1700,
+    "other": 1200,
+    "instrument": 800
+   },
+   "src": "itemshop.gg"
+  },
+  {
+   "date": "2025-06-21",
+   "offers": 174,
+   "count": 47,
+   "byKind": {
+    "bundle": 18100,
+    "outfit": 21400,
+    "glider": 3300,
+    "pickaxe": 6400,
+    "emote": 1200,
+    "wrap": 500,
+    "instrument": 1000,
+    "jamtrack": 2500
+   },
+   "src": "itemshop.gg"
+  },
+  {
+   "date": "2025-06-22",
+   "offers": 176,
+   "count": 27,
+   "byKind": {
+    "bundle": 3500,
+    "outfit": 7400,
+    "glider": 1600,
+    "backpack": 200,
+    "pickaxe": 1600,
+    "emote": 2100,
+    "instrument": 800,
+    "kicks": 5200,
+    "jamtrack": 500
+   },
+   "src": "itemshop.gg"
+  },
+  {
+   "date": "2025-06-23",
+   "offers": 148,
+   "count": 31,
+   "byKind": {
+    "emote": 4900,
+    "bundle": 4300,
+    "outfit": 10300,
+    "glider": 2000,
+    "pickaxe": 1500,
+    "backpack": 400,
+    "wrap": 700,
+    "jamtrack": 500,
+    "instrument": 800
+   },
+   "src": "itemshop.gg"
+  },
+  {
+   "date": "2025-06-24",
+   "offers": 170,
+   "count": 52,
+   "byKind": {
+    "bundle": 35400,
+    "outfit": 19000,
+    "emote": 2500,
+    "pickaxe": 3900,
+    "glider": 3200,
+    "wrap": 800,
+    "backpack": 200,
+    "instrument": 800,
+    "jamtrack": 1000
+   },
+   "src": "itemshop.gg"
+  },
+  {
+   "date": "2025-06-25",
+   "offers": 158,
+   "count": 27,
+   "byKind": {
+    "outfit": 10100,
+    "bundle": 7000,
+    "emote": 1700,
+    "pickaxe": 2900,
+    "wrap": 800,
+    "glider": 1600,
+    "instrument": 800
+   },
+   "src": "itemshop.gg"
+  },
+  {
+   "date": "2025-06-26",
+   "offers": 169,
+   "count": 35,
+   "byKind": {
+    "bundle": 6600,
+    "outfit": 11400,
+    "backpack": 800,
+    "emote": 1700,
+    "pickaxe": 2100,
+    "wrap": 800,
+    "jamtrack": 4500,
+    "glider": 1700,
+    "instrument": 800
+   },
+   "src": "itemshop.gg"
+  },
+  {
+   "date": "2025-06-27",
+   "offers": 158,
+   "count": 58,
+   "byKind": {
+    "bundle": 9500,
+    "outfit": 29400,
+    "emote": 7800,
+    "backpack": 600,
+    "wrap": 500,
+    "kicks": 2800,
+    "pickaxe": 3100,
+    "glider": 2800,
+    "instrument": 800,
+    "jamtrack": 500
+   },
+   "src": "itemshop.gg"
+  },
+  {
+   "date": "2025-06-28",
+   "offers": 163,
+   "count": 34,
+   "byKind": {
+    "bundle": 5200,
+    "outfit": 12100,
+    "pickaxe": 2800,
+    "emote": 1300,
+    "wrap": 500,
+    "kicks": 8000,
+    "glider": 800,
+    "instrument": 500,
+    "jamtrack": 2000
+   },
+   "src": "itemshop.gg"
+  },
+  {
+   "date": "2025-06-29",
+   "offers": 149,
+   "count": 34,
+   "byKind": {
+    "bundle": 9700,
+    "outfit": 13300,
+    "wrap": 500,
+    "glider": 2000,
+    "pickaxe": 2600,
+    "emote": 1100,
+    "backpack": 600,
+    "instrument": 500,
+    "jamtrack": 1500
+   },
+   "src": "itemshop.gg"
+  },
+  {
+   "date": "2025-06-30",
+   "offers": 162,
+   "count": 54,
+   "byKind": {
+    "emote": 5100,
+    "bundle": 16600,
+    "outfit": 27100,
+    "backpack": 400,
+    "pickaxe": 4000,
+    "wrap": 800,
+    "glider": 2000,
+    "instrument": 1300,
+    "jamtrack": 500
+   },
+   "src": "itemshop.gg"
+  },
+  {
+   "date": "2025-07-01",
+   "offers": 161,
+   "count": 31,
+   "byKind": {
+    "outfit": 21800,
+    "bundle": 3400,
+    "pickaxe": 2400,
+    "wrap": 500,
+    "instrument": 1300,
+    "glider": 1200,
+    "emote": 800
+   },
+   "src": "itemshop.gg"
+  },
+  {
+   "date": "2025-07-02",
+   "offers": 150,
+   "count": 34,
+   "byKind": {
+    "bundle": 8900,
+    "outfit": 20200,
+    "emote": 1100,
+    "glider": 1700,
+    "pickaxe": 2400,
+    "wrap": 500,
+    "instrument": 1800,
+    "other": 800,
+    "jamtrack": 1500
+   },
+   "src": "itemshop.gg"
+  },
+  {
+   "date": "2025-07-03",
+   "offers": 131,
+   "count": 35,
+   "byKind": {
+    "bundle": 9800,
+    "outfit": 15700,
+    "jamtrack": 3000,
+    "backpack": 400,
+    "wrap": 500,
+    "kicks": 800,
+    "glider": 500,
+    "emote": 1700,
+    "pickaxe": 800,
+    "instrument": 1800
+   },
+   "src": "itemshop.gg"
+  },
+  {
+   "date": "2025-07-04",
+   "offers": 139,
+   "count": 33,
+   "byKind": {
+    "emote": 5500,
+    "bundle": 2600,
+    "outfit": 17200,
+    "wrap": 500,
+    "kicks": 600,
+    "pickaxe": 1300,
+    "glider": 1200,
+    "instrument": 1000,
+    "jamtrack": 1000
+   },
+   "src": "itemshop.gg"
+  },
+  {
+   "date": "2025-07-05",
+   "offers": 135,
+   "count": 38,
+   "byKind": {
+    "bundle": 3600,
+    "outfit": 29400,
+    "instrument": 3000,
+    "glider": 2400,
+    "wrap": 500,
+    "kicks": 6400,
+    "pickaxe": 800,
+    "emote": 700
+   },
+   "src": "itemshop.gg"
+  },
+  {
+   "date": "2025-07-06",
+   "offers": 150,
+   "count": 33,
+   "byKind": {
+    "bundle": 7500,
+    "outfit": 13400,
+    "backpack": 300,
+    "pickaxe": 2400,
+    "jamtrack": 2500,
+    "emote": 1800,
+    "glider": 2000,
+    "instrument": 500
+   },
+   "src": "itemshop.gg"
+  },
+  {
+   "date": "2025-07-07",
+   "offers": 130,
+   "count": 40,
+   "byKind": {
+    "emote": 4800,
+    "bundle": 7200,
+    "outfit": 12800,
+    "pickaxe": 3900,
+    "backpack": 500,
+    "wrap": 500,
+    "jamtrack": 500,
+    "glider": 1600,
+    "instrument": 800,
+    "car": 1500
+   },
+   "src": "itemshop.gg"
+  },
+  {
+   "date": "2025-07-08",
+   "offers": 138,
+   "count": 51,
+   "byKind": {
+    "bundle": 15500,
+    "outfit": 26800,
+    "instrument": 4800,
+    "backpack": 600,
+    "pickaxe": 4200,
+    "glider": 2100,
+    "emote": 2300,
+    "wrap": 300
+   },
+   "src": "itemshop.gg"
+  },
+  {
+   "date": "2025-07-09",
+   "offers": 129,
+   "count": 22,
+   "byKind": {
+    "bundle": 3600,
+    "outfit": 10900,
+    "jamtrack": 2500,
+    "glider": 500,
+    "pickaxe": 500,
+    "emote": 800,
+    "instrument": 800
+   },
+   "src": "itemshop.gg"
+  },
+  {
+   "date": "2025-07-10",
+   "offers": 133,
+   "count": 45,
+   "byKind": {
+    "bundle": 12900,
+    "outfit": 17000,
+    "pickaxe": 4400,
+    "wrap": 1300,
+    "glider": 4300,
+    "emote": 1700,
+    "kicks": 600,
+    "instrument": 1000,
+    "jamtrack": 3500
+   },
+   "src": "itemshop.gg"
+  },
+  {
+   "date": "2025-07-11",
+   "offers": 113,
+   "count": 33,
+   "byKind": {
+    "bundle": 2000,
+    "emote": 5200,
+    "outfit": 10200,
+    "pickaxe": 1800,
+    "backpack": 800,
+    "glider": 500,
+    "instrument": 800,
+    "jamtrack": 1000
+   },
+   "src": "itemshop.gg"
+  },
+  {
+   "date": "2025-07-12",
+   "offers": 122,
+   "count": 32,
+   "byKind": {
+    "bundle": 5200,
+    "outfit": 14300,
+    "emote": 2400,
+    "pickaxe": 800,
+    "instrument": 800,
+    "glider": 800,
+    "kicks": 6200,
+    "contrail": 600,
+    "jamtrack": 500
+   },
+   "src": "itemshop.gg"
+  },
+  {
+   "date": "2025-07-13",
+   "offers": 155,
+   "count": 51,
+   "byKind": {
+    "bundle": 9200,
+    "outfit": 19500,
+    "backpack": 700,
+    "emote": 2700,
+    "pickaxe": 9000,
+    "wrap": 1500,
+    "instrument": 500,
+    "glider": 1200,
+    "jamtrack": 2500
+   },
+   "src": "itemshop.gg"
+  },
+  {
+   "date": "2025-07-14",
+   "offers": 146,
+   "count": 22,
+   "byKind": {
+    "emote": 5300,
+    "outfit": 9000,
+    "pickaxe": 1300,
+    "glider": 500,
+    "instrument": 800
+   },
+   "src": "itemshop.gg"
+  },
+  {
+   "date": "2025-07-15",
+   "offers": 126,
+   "count": 23,
+   "byKind": {
+    "outfit": 16100,
+    "emote": 2700,
+    "bundle": 1500,
+    "jamtrack": 1000
+   },
+   "src": "itemshop.gg"
+  },
+  {
+   "date": "2025-07-16",
+   "offers": 126,
+   "count": 35,
+   "byKind": {
+    "bundle": 8000,
+    "outfit": 8900,
+    "backpack": 200,
+    "pickaxe": 2100,
+    "emote": 1500,
+    "glider": 2000,
+    "wrap": 800,
+    "kicks": 3600,
+    "jamtrack": 4000
+   },
+   "src": "itemshop.gg"
+  },
+  {
+   "date": "2025-07-17",
+   "offers": 150,
+   "count": 57,
+   "byKind": {
+    "bundle": 14200,
+    "outfit": 23000,
+    "instrument": 800,
+    "emote": 2600,
+    "backpack": 500,
+    "pickaxe": 5200,
+    "wrap": 2600,
+    "glider": 2600,
+    "jamtrack": 2500
+   },
+   "src": "itemshop.gg"
+  },
+  {
+   "date": "2025-07-18",
+   "offers": 153,
+   "count": 42,
+   "byKind": {
+    "emote": 5500,
+    "bundle": 4100,
+    "outfit": 9300,
+    "glider": 1000,
+    "pickaxe": 2900,
+    "backpack": 400,
+    "wrap": 2000,
+    "other": 1200,
+    "kicks": 5000,
+    "jamtrack": 1500
+   },
+   "src": "itemshop.gg"
+  },
+  {
+   "date": "2025-07-19",
+   "offers": 200,
+   "count": 73,
+   "byKind": {
+    "bundle": 21100,
+    "outfit": 28700,
+    "pickaxe": 6700,
+    "emote": 3100,
+    "wrap": 3600,
+    "instrument": 5200,
+    "kicks": 6800,
+    "backpack": 800
+   },
+   "src": "itemshop.gg"
+  },
+  {
+   "date": "2025-07-20",
+   "offers": 212,
+   "count": 35,
+   "byKind": {
+    "bundle": 7700,
+    "outfit": 12700,
+    "backpack": 300,
+    "emote": 2600,
+    "pickaxe": 2100,
+    "glider": 1200,
+    "wrap": 2200,
+    "jamtrack": 2000
+   },
+   "src": "itemshop.gg"
+  },
+  {
+   "date": "2025-07-21",
+   "offers": 164,
+   "count": 49,
+   "byKind": {
+    "emote": 6200,
+    "other": 500,
+    "bundle": 11500,
+    "outfit": 16700,
+    "backpack": 200,
+    "pickaxe": 5700,
+    "glider": 3600,
+    "wrap": 1500,
+    "jamtrack": 1500
+   },
+   "src": "itemshop.gg"
+  },
+  {
+   "date": "2025-07-22",
+   "offers": 169,
+   "count": 39,
+   "byKind": {
+    "outfit": 29400,
+    "bundle": 4300,
+    "pickaxe": 2600,
+    "backpack": 600,
+    "emote": 1300,
+    "wrap": 1500,
+    "instrument": 800
+   },
+   "src": "itemshop.gg"
+  },
+  {
+   "date": "2025-07-23",
+   "offers": 177,
+   "count": 62,
+   "byKind": {
+    "bundle": 15100,
+    "outfit": 30200,
+    "emote": 1800,
+    "pickaxe": 7700,
+    "backpack": 1000,
+    "kicks": 7200,
+    "car": 600,
+    "wrap": 500,
+    "jamtrack": 2500
+   },
+   "src": "itemshop.gg"
+  },
+  {
+   "date": "2025-07-24",
+   "offers": 180,
+   "count": 48,
+   "byKind": {
+    "bundle": 5500,
+    "outfit": 26100,
+    "backpack": 600,
+    "wrap": 1100,
+    "pickaxe": 4100,
+    "glider": 500,
+    "emote": 2400,
+    "kicks": 1000,
+    "jamtrack": 3000
+   },
+   "src": "itemshop.gg"
+  },
+  {
+   "date": "2025-07-25",
+   "offers": 127,
+   "count": 30,
+   "byKind": {
+    "emote": 5300,
+    "outfit": 8800,
+    "pickaxe": 5500,
+    "bundle": 5400,
+    "jamtrack": 500
+   },
+   "src": "itemshop.gg"
+  },
+  {
+   "date": "2025-07-26",
+   "offers": 143,
+   "count": 45,
+   "byKind": {
+    "bundle": 13400,
+    "outfit": 23100,
+    "emote": 1100,
+    "pickaxe": 1800,
+    "backpack": 1300,
+    "glider": 800,
+    "kicks": 3600,
+    "wrap": 3000
+   },
+   "src": "itemshop.gg"
+  },
+  {
+   "date": "2025-07-27",
+   "offers": 144,
+   "count": 43,
+   "byKind": {
+    "outfit": 16600,
+    "pickaxe": 6400,
+    "backpack": 900,
+    "emote": 1100,
+    "wrap": 3600,
+    "bundle": 7400,
+    "glider": 500,
+    "jamtrack": 1500
+   },
+   "src": "itemshop.gg"
+  },
+  {
+   "date": "2025-07-28",
+   "offers": 134,
+   "count": 44,
+   "byKind": {
+    "bundle": 5300,
+    "other": 400,
+    "outfit": 13300,
+    "emote": 4600,
+    "pickaxe": 6700,
+    "wrap": 1300,
+    "kicks": 7600,
+    "jamtrack": 500
+   },
+   "src": "itemshop.gg"
+  },
+  {
+   "date": "2025-07-29",
+   "offers": 132,
+   "count": 26,
+   "byKind": {
+    "bundle": 10000,
+    "outfit": 8100,
+    "glider": 2800,
+    "pickaxe": 5800,
+    "emote": 900,
+    "backpack": 200,
+    "wrap": 1500
+   },
+   "src": "itemshop.gg"
+  },
+  {
+   "date": "2025-07-30",
+   "offers": 137,
+   "count": 31,
+   "byKind": {
+    "bundle": 7400,
+    "outfit": 12900,
+    "glider": 2400,
+    "pickaxe": 3100,
+    "kicks": 800,
+    "emote": 1000,
+    "jamtrack": 3500
+   },
+   "src": "itemshop.gg"
+  },
+  {
+   "date": "2025-07-31",
+   "offers": 154,
+   "count": 37,
+   "byKind": {
+    "bundle": 7000,
+    "outfit": 13100,
+    "pickaxe": 4800,
+    "backpack": 1000,
+    "wrap": 1000,
+    "glider": 2500,
+    "emote": 700,
+    "jamtrack": 2500
+   },
+   "src": "itemshop.gg"
+  },
+  {
+   "date": "2025-08-01",
+   "offers": 177,
+   "count": 53,
+   "byKind": {
+    "bundle": 13200,
+    "outfit": 20400,
+    "pickaxe": 5600,
+    "backpack": 1100,
+    "wrap": 1000,
+    "jamtrack": 500,
+    "emote": 6800,
+    "other": 1000,
+    "instrument": 1800
+   },
+   "src": "itemshop.gg"
+  },
+  {
+   "date": "2025-08-02",
+   "offers": 196,
+   "count": 51,
+   "byKind": {
+    "bundle": 15000,
+    "outfit": 20300,
+    "pickaxe": 6700,
+    "backpack": 600,
+    "wrap": 1000,
+    "emote": 1300,
+    "glider": 3700,
+    "kicks": 3200,
+    "jamtrack": 1000
+   },
+   "src": "itemshop.gg"
+  },
+  {
+   "date": "2025-08-03",
+   "offers": 177,
+   "count": 16,
+   "byKind": {
+    "kicks": 600,
+    "emote": 2200,
+    "outfit": 8900,
+    "bundle": 2200,
+    "pickaxe": 1200,
+    "wrap": 500
+   },
+   "src": "itemshop.gg"
+  },
+  {
+   "date": "2025-08-04",
+   "offers": 187,
+   "count": 25,
+   "byKind": {
+    "emote": 4400,
+    "bundle": 1100,
+    "outfit": 9500,
+    "backpack": 200,
+    "pickaxe": 2600,
+    "wrap": 1000
+   },
+   "src": "itemshop.gg"
+  },
+  {
+   "date": "2025-08-05",
+   "offers": 154,
+   "count": 19,
+   "byKind": {
+    "bundle": 3600,
+    "outfit": 13100,
+    "pickaxe": 2100,
+    "emote": 1000,
+    "wrap": 500,
+    "jamtrack": 500
+   },
+   "src": "itemshop.gg"
+  },
+  {
+   "date": "2025-08-06",
+   "offers": 171,
+   "count": 46,
+   "byKind": {
+    "bundle": 5100,
+    "outfit": 13200,
+    "emote": 7000,
+    "backpack": 400,
+    "instrument": 1600,
+    "wrap": 800,
+    "jamtrack": 7000,
+    "pickaxe": 800
+   },
+   "src": "itemshop.gg"
+  },
+  {
+   "date": "2025-08-07",
+   "offers": 165,
+   "count": 28,
+   "byKind": {
+    "emote": 2400,
+    "kicks": 600,
+    "outfit": 11900,
+    "backpack": 1600,
+    "bundle": 4100,
+    "pickaxe": 500,
+    "wrap": 1500,
+    "instrument": 1000
+   },
+   "src": "itemshop.gg"
+  },
+  {
+   "date": "2025-08-08",
+   "offers": 155,
+   "count": 44,
+   "byKind": {
+    "bundle": 5300,
+    "outfit": 21500,
+    "pickaxe": 4300,
+    "wrap": 1000,
+    "emote": 5700,
+    "jamtrack": 2000,
+    "instrument": 800
+   },
+   "src": "itemshop.gg"
+  },
+  {
+   "date": "2025-08-09",
+   "offers": 180,
+   "count": 57,
+   "byKind": {
+    "bundle": 10800,
+    "outfit": 15000,
+    "backpack": 1500,
+    "pickaxe": 3300,
+    "emote": 3500,
+    "wrap": 1500,
+    "glider": 1200,
+    "kicks": 6000,
+    "jamtrack": 3500
+   },
+   "src": "itemshop.gg"
+  },
+  {
+   "date": "2025-08-10",
+   "offers": 148,
+   "count": 31,
+   "byKind": {
+    "bundle": 4200,
+    "outfit": 12000,
+    "pickaxe": 3200,
+    "glider": 2400,
+    "emote": 2400,
+    "jamtrack": 2500,
+    "kicks": 1000,
+    "backpack": 200,
+    "wrap": 500
+   },
+   "src": "itemshop.gg"
+  },
+  {
+   "date": "2025-08-11",
+   "offers": 164,
+   "count": 34,
+   "byKind": {
+    "bundle": 8500,
+    "outfit": 15500,
+    "emote": 1800,
+    "glider": 2400,
+    "pickaxe": 5500,
+    "kicks": 600,
+    "instrument": 500,
+    "wrap": 500
+   },
+   "src": "itemshop.gg"
+  },
+  {
+   "date": "2025-08-12",
+   "offers": 170,
+   "count": 35,
+   "byKind": {
+    "outfit": 16800,
+    "emote": 5600,
+    "bundle": 4200,
+    "pickaxe": 1600,
+    "backpack": 300,
+    "wrap": 500,
+    "instrument": 500,
+    "jamtrack": 500
+   },
+   "src": "itemshop.gg"
+  },
+  {
+   "date": "2025-08-13",
+   "offers": 168,
+   "count": 40,
+   "byKind": {
+    "outfit": 12500,
+    "glider": 1700,
+    "emote": 2100,
+    "pickaxe": 3100,
+    "bundle": 3300,
+    "backpack": 200,
+    "jamtrack": 6000,
+    "wrap": 600,
+    "instrument": 500
+   },
+   "src": "itemshop.gg"
+  },
+  {
+   "date": "2025-08-14",
+   "offers": 184,
+   "count": 47,
+   "byKind": {
+    "emote": 3800,
+    "outfit": 16500,
+    "pickaxe": 7300,
+    "backpack": 1700,
+    "bundle": 10600,
+    "wrap": 500,
+    "glider": 2400,
+    "instrument": 800,
+    "jamtrack": 1500
+   },
+   "src": "itemshop.gg"
+  },
+  {
+   "date": "2025-08-15",
+   "offers": 204,
+   "count": 45,
+   "byKind": {
+    "bundle": 8500,
+    "outfit": 28000,
+    "pickaxe": 3600,
+    "backpack": 1200,
+    "wrap": 1300,
+    "emote": 1900,
+    "glider": 500
+   },
+   "src": "itemshop.gg"
+  },
+  {
+   "date": "2025-08-16",
+   "offers": 215,
+   "count": 66,
+   "byKind": {
+    "emote": 6900,
+    "outfit": 34400,
+    "wrap": 800,
+    "bundle": 11700,
+    "kicks": 6000,
+    "glider": 500,
+    "pickaxe": 1300,
+    "instrument": 1600,
+    "jamtrack": 2500
+   },
+   "src": "itemshop.gg"
+  },
+  {
+   "date": "2025-08-17",
+   "offers": 204,
+   "count": 26,
+   "byKind": {
+    "bundle": 6200,
+    "outfit": 11900,
+    "emote": 2000,
+    "glider": 1300,
+    "pickaxe": 3100,
+    "backpack": 200
+   },
+   "src": "itemshop.gg"
+  },
+  {
+   "date": "2025-08-18",
+   "offers": 197,
+   "count": 29,
+   "byKind": {
+    "bundle": 6200,
+    "outfit": 10500,
+    "backpack": 800,
+    "pickaxe": 3400,
+    "wrap": 1100,
+    "jamtrack": 500,
+    "kicks": 600,
+    "glider": 800,
+    "emote": 1200,
+    "other": 800
+   },
+   "src": "itemshop.gg"
+  },
+  {
+   "date": "2025-08-19",
+   "offers": 157,
+   "count": 50,
+   "byKind": {
+    "emote": 6200,
+    "outfit": 24000,
+    "bundle": 18700,
+    "pickaxe": 4700,
+    "glider": 2000,
+    "wrap": 300,
+    "jamtrack": 500
+   },
+   "src": "itemshop.gg"
+  },
+  {
+   "date": "2025-08-20",
+   "offers": 161,
+   "count": 41,
+   "byKind": {
+    "bundle": 8400,
+    "outfit": 19100,
+    "backpack": 1000,
+    "glider": 3200,
+    "pickaxe": 2500,
+    "wrap": 1500,
+    "emote": 2000,
+    "jamtrack": 2500
+   },
+   "src": "itemshop.gg"
+  },
+  {
+   "date": "2025-08-21",
+   "offers": 166,
+   "count": 32,
+   "byKind": {
+    "bundle": 6800,
+    "outfit": 12500,
+    "pickaxe": 2900,
+    "emote": 2000,
+    "glider": 2000,
+    "backpack": 400,
+    "wrap": 500,
+    "instrument": 800,
+    "jamtrack": 3000
+   },
+   "src": "itemshop.gg"
+  },
+  {
+   "date": "2025-08-22",
+   "offers": 184,
+   "count": 65,
+   "byKind": {
+    "emote": 6700,
+    "bundle": 17300,
+    "outfit": 23100,
+    "pickaxe": 5300,
+    "backpack": 1200,
+    "wrap": 3000,
+    "jamtrack": 1000,
+    "glider": 1600,
+    "kicks": 800,
+    "instrument": 1300
+   },
+   "src": "itemshop.gg"
+  },
+  {
+   "date": "2025-08-23",
+   "offers": 169,
+   "count": 33,
+   "byKind": {
+    "bundle": 6000,
+    "outfit": 12900,
+    "backpack": 400,
+    "car": 2800,
+    "kicks": 7400,
+    "pickaxe": 2400,
+    "instrument": 1300,
+    "wrap": 500,
+    "emote": 600,
+    "glider": 1200
+   },
+   "src": "itemshop.gg"
+  },
+  {
+   "date": "2025-08-24",
+   "offers": 161,
+   "count": 26,
+   "byKind": {
+    "bundle": 3700,
+    "outfit": 10200,
+    "pickaxe": 1800,
+    "backpack": 800,
+    "emote": 2100,
+    "glider": 500,
+    "instrument": 500,
+    "jamtrack": 2000
+   },
+   "src": "itemshop.gg"
+  },
+  {
+   "date": "2025-08-25",
+   "offers": 141,
+   "count": 33,
+   "byKind": {
+    "emote": 5000,
+    "bundle": 5700,
+    "outfit": 12900,
+    "glider": 1300,
+    "pickaxe": 2000,
+    "backpack": 200,
+    "instrument": 500,
+    "jamtrack": 1000
+   },
+   "src": "itemshop.gg"
+  },
+  {
+   "date": "2025-08-26",
+   "offers": 142,
+   "count": 54,
+   "byKind": {
+    "bundle": 9900,
+    "pickaxe": 2000,
+    "outfit": 30900,
+    "wrap": 1300,
+    "jamtrack": 500,
+    "other": 1200,
+    "emote": 2400,
+    "instrument": 2400,
+    "backpack": 1500,
+    "contrail": 600
+   },
+   "src": "itemshop.gg"
+  },
+  {
+   "date": "2025-08-27",
+   "offers": 181,
+   "count": 83,
+   "byKind": {
+    "bundle": 16600,
+    "outfit": 41700,
+    "pickaxe": 7100,
+    "glider": 3700,
+    "wrap": 2200,
+    "emote": 2700,
+    "backpack": 800,
+    "instrument": 800,
+    "jamtrack": 6500
+   },
+   "src": "itemshop.gg"
+  },
+  {
+   "date": "2025-08-28",
+   "offers": 200,
+   "count": 50,
+   "byKind": {
+    "bundle": 12100,
+    "outfit": 19300,
+    "backpack": 1300,
+    "emote": 2300,
+    "instrument": 1600,
+    "pickaxe": 6900,
+    "glider": 1700,
+    "wrap": 1000,
+    "other": 400,
+    "jamtrack": 1000
+   },
+   "src": "itemshop.gg"
+  },
+  {
+   "date": "2025-08-29",
+   "offers": 200,
+   "count": 24,
+   "byKind": {
+    "emote": 4200,
+    "bundle": 3000,
+    "outfit": 8600,
+    "pickaxe": 2100,
+    "jamtrack": 500
+   },
+   "src": "itemshop.gg"
+  },
+  {
+   "date": "2025-08-30",
+   "offers": 187,
+   "count": 44,
+   "byKind": {
+    "bundle": 11400,
+    "outfit": 11700,
+    "emote": 3200,
+    "backpack": 1100,
+    "pickaxe": 4500,
+    "wrap": 1000,
+    "kicks": 5200,
+    "other": 1200,
+    "glider": 1500,
+    "jamtrack": 500
+   },
+   "src": "itemshop.gg"
+  },
+  {
+   "date": "2025-08-31",
+   "offers": 178,
+   "count": 35,
+   "byKind": {
+    "bundle": 8400,
+    "outfit": 9100,
+    "backpack": 400,
+    "pickaxe": 3300,
+    "emote": 2200,
+    "wrap": 500,
+    "jamtrack": 2000,
+    "glider": 1200,
+    "instrument": 2100,
+    "contrail": 600
+   },
+   "src": "itemshop.gg"
+  },
+  {
+   "date": "2025-09-01",
+   "offers": 171,
+   "count": 36,
+   "byKind": {
+    "emote": 6300,
+    "outfit": 13400,
+    "bundle": 7400,
+    "pickaxe": 1600,
+    "wrap": 1000,
+    "instrument": 1000,
+    "glider": 500
+   },
+   "src": "itemshop.gg"
+  },
+  {
+   "date": "2025-09-02",
+   "offers": 156,
+   "count": 36,
+   "byKind": {
+    "outfit": 17500,
+    "bundle": 5300,
+    "pickaxe": 4000,
+    "instrument": 1600,
+    "backpack": 1500,
+    "glider": 800,
+    "emote": 2600,
+    "jamtrack": 1500
+   },
+   "src": "itemshop.gg"
+  },
+  {
+   "date": "2025-09-03",
+   "offers": 139,
+   "count": 41,
+   "byKind": {
+    "bundle": 11200,
+    "outfit": 15600,
+    "emote": 2200,
+    "wrap": 2000,
+    "pickaxe": 4100,
+    "instrument": 800,
+    "jamtrack": 4000
+   },
+   "src": "itemshop.gg"
+  },
+  {
+   "date": "2025-09-04",
+   "offers": 159,
+   "count": 34,
+   "byKind": {
+    "bundle": 9500,
+    "outfit": 10200,
+    "backpack": 300,
+    "pickaxe": 4800,
+    "glider": 2000,
+    "emote": 900,
+    "instrument": 2400,
+    "wrap": 1000,
+    "other": 1500,
+    "jamtrack": 1000
+   },
+   "src": "itemshop.gg"
+  },
+  {
+   "date": "2025-09-05",
+   "offers": 158,
+   "count": 36,
+   "byKind": {
+    "pickaxe": 4600,
+    "bundle": 6000,
+    "outfit": 11400,
+    "backpack": 200,
+    "wrap": 500,
+    "emote": 4800,
+    "jamtrack": 1500,
+    "glider": 500,
+    "instrument": 500
+   },
+   "src": "itemshop.gg"
+  },
+  {
+   "date": "2025-09-06",
+   "offers": 137,
+   "count": 31,
+   "byKind": {
+    "bundle": 6300,
+    "outfit": 12000,
+    "pickaxe": 3600,
+    "backpack": 700,
+    "emote": 1100,
+    "kicks": 3400,
+    "jamtrack": 1500,
+    "glider": 800,
+    "wrap": 500,
+    "instrument": 800
+   },
+   "src": "itemshop.gg"
+  },
+  {
+   "date": "2025-09-07",
+   "offers": 120,
+   "count": 50,
+   "byKind": {
+    "bundle": 14400,
+    "outfit": 18700,
+    "pickaxe": 6200,
+    "emote": 3800,
+    "backpack": 1000,
+    "wrap": 2000,
+    "jamtrack": 500,
+    "glider": 3200
+   },
+   "src": "itemshop.gg"
+  },
+  {
+   "date": "2025-09-08",
+   "offers": 128,
+   "count": 38,
+   "byKind": {
+    "bundle": 9100,
+    "outfit": 11000,
+    "emote": 4600,
+    "glider": 1700,
+    "pickaxe": 4100,
+    "backpack": 300,
+    "wrap": 800,
+    "instrument": 500,
+    "other": 1500
+   },
+   "src": "itemshop.gg"
+  },
+  {
+   "date": "2025-09-09",
+   "offers": 118,
+   "count": 25,
+   "byKind": {
+    "bundle": 5300,
+    "outfit": 9900,
+    "pickaxe": 4200,
+    "glider": 1600,
+    "emote": 900,
+    "wrap": 500,
+    "jamtrack": 500
+   },
+   "src": "itemshop.gg"
+  },
+  {
+   "date": "2025-09-10",
+   "offers": 156,
+   "count": 66,
+   "byKind": {
+    "bundle": 12700,
+    "outfit": 21600,
+    "backpack": 1900,
+    "pickaxe": 5600,
+    "emote": 3300,
+    "wrap": 1500,
+    "glider": 1200,
+    "instrument": 800,
+    "jamtrack": 7000,
+    "contrail": 600
+   },
+   "src": "itemshop.gg"
+  },
+  {
+   "date": "2025-09-11",
+   "offers": 174,
+   "count": 59,
+   "byKind": {
+    "instrument": 2600,
+    "emote": 4200,
+    "bundle": 17300,
+    "outfit": 20100,
+    "pickaxe": 4900,
+    "glider": 3200,
+    "backpack": 800,
+    "wrap": 1300,
+    "jamtrack": 500,
+    "kicks": 3200
+   },
+   "src": "itemshop.gg"
+  },
+  {
+   "date": "2025-09-12",
+   "offers": 174,
+   "count": 46,
+   "byKind": {
+    "bundle": 8400,
+    "backpack": 2000,
+    "emote": 6800,
+    "pickaxe": 3100,
+    "outfit": 11500,
+    "instrument": 2600,
+    "wrap": 1500,
+    "glider": 500,
+    "jamtrack": 2000
+   },
+   "src": "itemshop.gg"
+  },
+  {
+   "date": "2025-09-13",
+   "offers": 185,
+   "count": 42,
+   "byKind": {
+    "bundle": 7500,
+    "outfit": 17300,
+    "kicks": 5800,
+    "pickaxe": 5800,
+    "emote": 3000,
+    "backpack": 1200,
+    "wrap": 800,
+    "glider": 500,
+    "instrument": 800
+   },
+   "src": "itemshop.gg"
+  },
+  {
+   "date": "2025-09-14",
+   "offers": 179,
+   "count": 44,
+   "byKind": {
+    "bundle": 10800,
+    "outfit": 15000,
+    "backpack": 400,
+    "pickaxe": 5400,
+    "emote": 4100,
+    "wrap": 1000,
+    "glider": 2000,
+    "instrument": 800,
+    "kicks": 3600
+   },
+   "src": "itemshop.gg"
+  },
+  {
+   "date": "2025-09-15",
+   "offers": 185,
+   "count": 37,
+   "byKind": {
+    "emote": 6200,
+    "bundle": 6800,
+    "outfit": 13100,
+    "glider": 2100,
+    "pickaxe": 4500,
+    "other": 1200,
+    "wrap": 300,
+    "instrument": 800
+   },
+   "src": "itemshop.gg"
+  },
+  {
+   "date": "2025-09-16",
+   "offers": 163,
+   "count": 40,
+   "byKind": {
+    "outfit": 22600,
+    "emote": 2300,
+    "kicks": 600,
+    "pickaxe": 2600,
+    "glider": 1700,
+    "wrap": 500,
+    "instrument": 1600,
+    "bundle": 2100,
+    "jamtrack": 3000
+   },
+   "src": "itemshop.gg"
+  },
+  {
+   "date": "2025-09-17",
+   "offers": 155,
+   "count": 28,
+   "byKind": {
+    "bundle": 2300,
+    "outfit": 14000,
+    "emote": 1400,
+    "wrap": 300,
+    "jamtrack": 5500
+   },
+   "src": "itemshop.gg"
+  },
+  {
+   "date": "2025-09-18",
+   "offers": 160,
+   "count": 23,
+   "byKind": {
+    "bundle": 10700,
+    "outfit": 16000,
+    "backpack": 400,
+    "pickaxe": 1600,
+    "emote": 1000
+   },
+   "src": "itemshop.gg"
+  },
+  {
+   "date": "2025-09-19",
+   "offers": 183,
+   "count": 82,
+   "byKind": {
+    "bundle": 20200,
+    "outfit": 25100,
+    "pickaxe": 9000,
+    "emote": 6100,
+    "backpack": 1400,
+    "wrap": 1500,
+    "instrument": 3400,
+    "other": 1500,
+    "glider": 2100,
+    "kicks": 600,
+    "jamtrack": 4500
+   },
+   "src": "itemshop.gg"
+  },
+  {
+   "date": "2025-09-20",
+   "offers": 222,
+   "count": 60,
+   "byKind": {
+    "bundle": 16800,
+    "outfit": 29200,
+    "pickaxe": 4200,
+    "glider": 3600,
+    "emote": 2100,
+    "backpack": 600,
+    "wrap": 1500,
+    "kicks": 6000,
+    "jamtrack": 1500
+   },
+   "src": "itemshop.gg"
+  },
+  {
+   "date": "2025-09-21",
+   "offers": 230,
+   "count": 44,
+   "byKind": {
+    "bundle": 10000,
+    "outfit": 22100,
+    "pickaxe": 5500,
+    "backpack": 500,
+    "wrap": 2500,
+    "emote": 2000,
+    "kicks": 600,
+    "glider": 1200
+   },
+   "src": "itemshop.gg"
+  },
+  {
+   "date": "2025-09-22",
+   "offers": 216,
+   "count": 47,
+   "byKind": {
+    "emote": 5100,
+    "outfit": 21400,
+    "bundle": 7500,
+    "pickaxe": 3200,
+    "glider": 800,
+    "backpack": 300,
+    "wrap": 1500,
+    "instrument": 1000,
+    "jamtrack": 2500
+   },
+   "src": "itemshop.gg"
+  },
+  {
+   "date": "2025-09-23",
+   "offers": 209,
+   "count": 54,
+   "byKind": {
+    "bundle": 28500,
+    "outfit": 26700,
+    "emote": 2600,
+    "pickaxe": 7200,
+    "glider": 3200,
+    "wrap": 300,
+    "other": 1200,
+    "instrument": 1600
+   },
+   "src": "itemshop.gg"
+  },
+  {
+   "date": "2025-09-24",
+   "offers": 220,
+   "count": 60,
+   "byKind": {
+    "bundle": 13900,
+    "outfit": 19900,
+    "emote": 2100,
+    "pickaxe": 6000,
+    "wrap": 1300,
+    "instrument": 1600,
+    "backpack": 700,
+    "kicks": 2800,
+    "glider": 3900,
+    "jamtrack": 4500
+   },
+   "src": "itemshop.gg"
+  },
+  {
+   "date": "2025-09-25",
+   "offers": 199,
+   "count": 35,
+   "byKind": {
+    "outfit": 28300,
+    "wrap": 800,
+    "bundle": 8600,
+    "pickaxe": 2100,
+    "glider": 3600,
+    "emote": 500,
+    "jamtrack": 1000
+   },
+   "src": "itemshop.gg"
+  },
+  {
+   "date": "2025-09-26",
+   "offers": 196,
+   "count": 56,
+   "byKind": {
+    "bundle": 8600,
+    "outfit": 34800,
+    "emote": 4900,
+    "backpack": 600,
+    "instrument": 1600,
+    "wrap": 1000,
+    "lego": 1800,
+    "pickaxe": 2400,
+    "glider": 800,
+    "jamtrack": 2500
+   },
+   "src": "itemshop.gg"
+  },
+  {
+   "date": "2025-09-27",
+   "offers": 201,
+   "count": 32,
+   "byKind": {
+    "bundle": 8400,
+    "outfit": 15600,
+    "pickaxe": 3000,
+    "backpack": 600,
+    "emote": 600,
+    "wrap": 1000,
+    "kicks": 2600,
+    "instrument": 2000,
+    "glider": 2100
+   },
+   "src": "itemshop.gg"
+  },
+  {
+   "date": "2025-09-28",
+   "offers": 158,
+   "count": 37,
+   "byKind": {
+    "bundle": 14400,
+    "outfit": 16400,
+    "backpack": 300,
+    "pickaxe": 4100,
+    "wrap": 1000,
+    "emote": 3000,
+    "glider": 4100
+   },
+   "src": "itemshop.gg"
+  },
+  {
+   "date": "2025-09-29",
+   "offers": 166,
+   "count": 38,
+   "byKind": {
+    "emote": 5100,
+    "bundle": 8400,
+    "outfit": 14200,
+    "pickaxe": 3600,
+    "wrap": 500,
+    "glider": 2000,
+    "instrument": 1600,
+    "jamtrack": 2500
+   },
+   "src": "itemshop.gg"
+  },
+  {
+   "date": "2025-09-30",
+   "offers": 167,
+   "count": 48,
+   "byKind": {
+    "emote": 3400,
+    "pickaxe": 7300,
+    "outfit": 21100,
+    "bundle": 13300,
+    "glider": 2700,
+    "wrap": 2000,
+    "backpack": 400,
+    "instrument": 800
+   },
+   "src": "itemshop.gg"
+  },
+  {
+   "date": "2025-10-01",
+   "offers": 168,
+   "count": 49,
+   "byKind": {
+    "bundle": 7700,
+    "outfit": 19100,
+    "pickaxe": 3900,
+    "backpack": 1400,
+    "wrap": 2000,
+    "kicks": 600,
+    "emote": 1100,
+    "glider": 1700,
+    "instrument": 800,
+    "jamtrack": 4000
+   },
+   "src": "itemshop.gg"
+  },
+  {
+   "date": "2025-10-02",
+   "offers": 161,
+   "count": 29,
+   "byKind": {
+    "kicks": 600,
+    "outfit": 16200,
+    "pickaxe": 2300,
+    "bundle": 5000,
+    "instrument": 800,
+    "emote": 700,
+    "glider": 500,
+    "jamtrack": 500,
+    "backpack": 900
+   },
+   "src": "itemshop.gg"
+  },
+  {
+   "date": "2025-10-03",
+   "offers": 146,
+   "count": 38,
+   "byKind": {
+    "emote": 4800,
+    "bundle": 3800,
+    "outfit": 12400,
+    "backpack": 200,
+    "pickaxe": 2300,
+    "wrap": 800,
+    "kicks": 1200,
+    "glider": 2800,
+    "instrument": 800,
+    "jamtrack": 1500
+   },
+   "src": "itemshop.gg"
+  },
+  {
+   "date": "2025-10-04",
+   "offers": 142,
+   "count": 31,
+   "byKind": {
+    "kicks": 3200,
+    "bundle": 5100,
+    "outfit": 22500,
+    "emote": 1200,
+    "pickaxe": 800,
+    "glider": 2000,
+    "instrument": 1600
+   },
+   "src": "itemshop.gg"
+  },
+  {
+   "date": "2025-10-05",
+   "offers": 127,
+   "count": 31,
+   "byKind": {
+    "bundle": 9400,
+    "outfit": 11900,
+    "jamtrack": 500,
+    "pickaxe": 3400,
+    "wrap": 500,
+    "glider": 800,
+    "emote": 2400,
+    "backpack": 400,
+    "contrail": 600,
+    "instrument": 800
+   },
+   "src": "itemshop.gg"
+  },
+  {
+   "date": "2025-10-06",
+   "offers": 150,
+   "count": 58,
+   "byKind": {
+    "emote": 5200,
+    "outfit": 25600,
+    "bundle": 6500,
+    "backpack": 400,
+    "pickaxe": 3600,
+    "wrap": 2300,
+    "glider": 800,
+    "other": 1200,
+    "jamtrack": 6500
+   },
+   "src": "itemshop.gg"
+  },
+  {
+   "date": "2025-10-07",
+   "offers": 131,
+   "count": 31,
+   "byKind": {
+    "kicks": 3400,
+    "outfit": 15500,
+    "pickaxe": 6000,
+    "backpack": 300,
+    "bundle": 3600,
+    "glider": 1200,
+    "emote": 1100,
+    "jamtrack": 500
+   },
+   "src": "itemshop.gg"
+  },
+  {
+   "date": "2025-10-08",
+   "offers": 150,
+   "count": 67,
+   "byKind": {
+    "outfit": 35700,
+    "emote": 1400,
+    "pickaxe": 8800,
+    "glider": 3200,
+    "wrap": 2000,
+    "bundle": 16800,
+    "backpack": 2400,
+    "jamtrack": 500
+   },
+   "src": "itemshop.gg"
+  },
+  {
+   "date": "2025-10-09",
+   "offers": 152,
+   "count": 41,
+   "byKind": {
+    "outfit": 15400,
+    "bundle": 11100,
+    "kicks": 600,
+    "backpack": 900,
+    "glider": 1600,
+    "pickaxe": 2900,
+    "emote": 2100,
+    "wrap": 1500,
+    "jamtrack": 2000,
+    "instrument": 800
+   },
+   "src": "itemshop.gg"
+  },
+  {
+   "date": "2025-10-10",
+   "offers": 163,
+   "count": 42,
+   "byKind": {
+    "outfit": 18300,
+    "pickaxe": 3100,
+    "emote": 5100,
+    "bundle": 6200,
+    "jamtrack": 1000,
+    "backpack": 200,
+    "wrap": 2200,
+    "glider": 2000
+   },
+   "src": "itemshop.gg"
+  },
+  {
+   "date": "2025-10-11",
+   "offers": 142,
+   "count": 32,
+   "byKind": {
+    "bundle": 3600,
+    "outfit": 14600,
+    "pickaxe": 3400,
+    "emote": 900,
+    "kicks": 8200,
+    "glider": 800
+   },
+   "src": "itemshop.gg"
+  },
+  {
+   "date": "2025-10-12",
+   "offers": 155,
+   "count": 33,
+   "byKind": {
+    "bundle": 8700,
+    "outfit": 11400,
+    "backpack": 1200,
+    "pickaxe": 4000,
+    "emote": 1700,
+    "glider": 2800,
+    "jamtrack": 500,
+    "wrap": 1000
+   },
+   "src": "itemshop.gg"
+  },
+  {
+   "date": "2025-10-13",
+   "offers": 129,
+   "count": 50,
+   "byKind": {
+    "outfit": 20400,
+    "pickaxe": 3400,
+    "bundle": 5600,
+    "emote": 4800,
+    "other": 500,
+    "glider": 1600,
+    "jamtrack": 6000
+   },
+   "src": "itemshop.gg"
+  },
+  {
+   "date": "2025-10-14",
+   "offers": 132,
+   "count": 32,
+   "byKind": {
+    "bundle": 4100,
+    "outfit": 18200,
+    "pickaxe": 1900,
+    "wrap": 500,
+    "kicks": 600,
+    "backpack": 1200,
+    "glider": 800,
+    "emote": 1200,
+    "jamtrack": 500
+   },
+   "src": "itemshop.gg"
+  },
+  {
+   "date": "2025-10-15",
+   "offers": 127,
+   "count": 19,
+   "byKind": {
+    "bundle": 3500,
+    "kicks": 600,
+    "outfit": 10900,
+    "pickaxe": 1800,
+    "emote": 1000,
+    "glider": 800,
+    "wrap": 500
+   },
+   "src": "itemshop.gg"
+  },
+  {
+   "date": "2025-10-16",
+   "offers": 132,
+   "count": 31,
+   "byKind": {
+    "outfit": 17500,
+    "bundle": 3900,
+    "pickaxe": 3200,
+    "backpack": 600,
+    "kicks": 600,
+    "glider": 500,
+    "emote": 800,
+    "jamtrack": 500
+   },
+   "src": "itemshop.gg"
+  },
+  {
+   "date": "2025-10-17",
+   "offers": 126,
+   "count": 39,
+   "byKind": {
+    "bundle": 6600,
+    "outfit": 12200,
+    "emote": 6100,
+    "backpack": 400,
+    "pickaxe": 3900,
+    "wrap": 1000,
+    "glider": 1700,
+    "other": 1200,
+    "jamtrack": 1000
+   },
+   "src": "itemshop.gg"
+  },
+  {
+   "date": "2025-10-18",
+   "offers": 130,
+   "count": 38,
+   "byKind": {
+    "bundle": 8600,
+    "outfit": 18100,
+    "pickaxe": 3700,
+    "emote": 2600,
+    "wrap": 1300,
+    "kicks": 3000,
+    "glider": 500,
+    "jamtrack": 500
+   },
+   "src": "itemshop.gg"
+  },
+  {
+   "date": "2025-10-19",
+   "offers": 151,
+   "count": 37,
+   "byKind": {
+    "bundle": 9700,
+    "outfit": 18200,
+    "backpack": 1400,
+    "emote": 2000,
+    "instrument": 800,
+    "pickaxe": 3700,
+    "kicks": 2000,
+    "glider": 2100
+   },
+   "src": "itemshop.gg"
+  },
+  {
+   "date": "2025-10-20",
+   "offers": 155,
+   "count": 51,
+   "byKind": {
+    "bundle": 5700,
+    "outfit": 12800,
+    "backpack": 400,
+    "pickaxe": 4200,
+    "emote": 5600,
+    "wrap": 500,
+    "glider": 1600,
+    "jamtrack": 8000
+   },
+   "src": "itemshop.gg"
+  },
+  {
+   "date": "2025-10-21",
+   "offers": 151,
+   "count": 20,
+   "byKind": {
+    "outfit": 19400,
+    "bundle": 3800,
+    "emote": 900,
+    "pickaxe": 1600,
+    "glider": 800
+   },
+   "src": "itemshop.gg"
+  },
+  {
+   "date": "2025-10-22",
+   "offers": 163,
+   "count": 26,
+   "byKind": {
+    "bundle": 6400,
+    "outfit": 13000,
+    "kicks": 1200,
+    "pickaxe": 2100,
+    "emote": 1000,
+    "glider": 1200
+   },
+   "src": "itemshop.gg"
+  },
+  {
+   "date": "2025-10-23",
+   "offers": 154,
+   "count": 36,
+   "byKind": {
+    "bundle": 10300,
+    "outfit": 12300,
+    "pickaxe": 5500,
+    "emote": 2400,
+    "wrap": 2000,
+    "backpack": 600,
+    "glider": 800,
+    "jamtrack": 1500
+   },
+   "src": "itemshop.gg"
+  },
+  {
+   "date": "2025-10-24",
+   "offers": 165,
+   "count": 48,
+   "byKind": {
+    "bundle": 11300,
+    "outfit": 21600,
+    "backpack": 1100,
+    "pickaxe": 5200,
+    "emote": 5900,
+    "glider": 1300,
+    "kicks": 600,
+    "jamtrack": 1000
+   },
+   "src": "itemshop.gg"
+  },
+  {
+   "date": "2025-10-25",
+   "offers": 165,
+   "count": 32,
+   "byKind": {
+    "bundle": 6500,
+    "outfit": 14100,
+    "backpack": 700,
+    "emote": 2700,
+    "pickaxe": 2900,
+    "instrument": 1600,
+    "kicks": 3800,
+    "glider": 1200,
+    "car": 2800
+   },
+   "src": "itemshop.gg"
+  },
+  {
+   "date": "2025-10-26",
+   "offers": 188,
+   "count": 43,
+   "byKind": {
+    "bundle": 13500,
+    "outfit": 24400,
+    "pickaxe": 5800,
+    "emote": 2800,
+    "backpack": 400,
+    "wrap": 500,
+    "glider": 2800
+   },
+   "src": "itemshop.gg"
+  },
+  {
+   "date": "2025-10-27",
+   "offers": 166,
+   "count": 46,
+   "byKind": {
+    "bundle": 6100,
+    "outfit": 10900,
+    "backpack": 900,
+    "pickaxe": 2600,
+    "emote": 5800,
+    "instrument": 1000,
+    "wrap": 500,
+    "glider": 500,
+    "jamtrack": 7000
+   },
+   "src": "itemshop.gg"
+  },
+  {
+   "date": "2025-10-28",
+   "offers": 171,
+   "count": 34,
+   "byKind": {
+    "bundle": 5800,
+    "outfit": 21700,
+    "pickaxe": 3800,
+    "emote": 2100,
+    "backpack": 400,
+    "wrap": 500,
+    "glider": 800
+   },
+   "src": "itemshop.gg"
+  },
+  {
+   "date": "2025-10-29",
+   "offers": 190,
+   "count": 35,
+   "byKind": {
+    "bundle": 5700,
+    "outfit": 30100,
+    "pickaxe": 3500,
+    "emote": 700,
+    "kicks": 600,
+    "glider": 2000,
+    "wrap": 500
+   },
+   "src": "itemshop.gg"
+  },
+  {
+   "date": "2025-10-30",
+   "offers": 204,
+   "count": 40,
+   "byKind": {
+    "outfit": 19100,
+    "backpack": 1200,
+    "pickaxe": 5200,
+    "bundle": 10800,
+    "emote": 1700,
+    "wrap": 800,
+    "kicks": 600,
+    "jamtrack": 500,
+    "glider": 800
+   },
+   "src": "itemshop.gg"
+  },
+  {
+   "date": "2025-10-31",
+   "offers": 196,
+   "count": 33,
+   "byKind": {
+    "backpack": 300,
+    "outfit": 11300,
+    "emote": 6700,
+    "pickaxe": 1000,
+    "glider": 2000,
+    "jamtrack": 3000
+   },
+   "src": "itemshop.gg"
+  },
+  {
+   "date": "2025-11-01",
+   "offers": 156,
+   "count": 22,
+   "byKind": {
+    "outfit": 12300,
+    "pickaxe": 1700,
+    "glider": 2200,
+    "bundle": 5300,
+    "instrument": 800,
+    "emote": 1700
+   },
+   "src": "itemshop.gg"
+  },
+  {
+   "date": "2025-11-02",
+   "offers": 135,
+   "count": 27,
+   "byKind": {
+    "bundle": 5300,
+    "outfit": 19600,
+    "backpack": 500,
+    "pickaxe": 1300,
+    "emote": 1400,
+    "kicks": 2400
+   },
+   "src": "itemshop.gg"
+  },
+  {
+   "date": "2025-11-03",
+   "offers": 105,
+   "count": 49,
+   "byKind": {
+    "emote": 5600,
+    "bundle": 3600,
+    "backpack": 700,
+    "outfit": 10900,
+    "pickaxe": 2800,
+    "instrument": 800,
+    "other": 2200,
+    "jamtrack": 9000
+   },
+   "src": "itemshop.gg"
+  },
+  {
+   "date": "2025-11-04",
+   "offers": 97,
+   "count": 35,
+   "byKind": {
+    "outfit": 18500,
+    "pickaxe": 3700,
+    "bundle": 5600,
+    "backpack": 600,
+    "kicks": 3600,
+    "emote": 2200,
+    "glider": 2000,
+    "contrail": 600,
+    "jamtrack": 1000
+   },
+   "src": "itemshop.gg"
+  },
+  {
+   "date": "2025-11-05",
+   "offers": 111,
+   "count": 33,
+   "byKind": {
+    "bundle": 9300,
+    "outfit": 21600,
+    "backpack": 300,
+    "emote": 1300,
+    "pickaxe": 3400,
+    "glider": 1600,
+    "kicks": 600
+   },
+   "src": "itemshop.gg"
+  },
+  {
+   "date": "2025-11-06",
+   "offers": 119,
+   "count": 26,
+   "byKind": {
+    "outfit": 18200,
+    "emote": 1300,
+    "pickaxe": 2300,
+    "kicks": 2000,
+    "glider": 2000,
+    "bundle": 1800
+   },
+   "src": "itemshop.gg"
+  },
+  {
+   "date": "2025-11-07",
+   "offers": 121,
+   "count": 50,
+   "byKind": {
+    "bundle": 6600,
+    "outfit": 18800,
+    "backpack": 400,
+    "pickaxe": 4000,
+    "emote": 6500,
+    "glider": 2000,
+    "kicks": 4600,
+    "jamtrack": 3500
+   },
+   "src": "itemshop.gg"
+  },
+  {
+   "date": "2025-11-08",
+   "offers": 119,
+   "count": 33,
+   "byKind": {
+    "sidekick": 6900,
+    "bundle": 2200,
+    "outfit": 13800,
+    "emote": 1900,
+    "pickaxe": 1300,
+    "backpack": 900,
+    "kicks": 1600,
+    "glider": 1200,
+    "wrap": 1000,
+    "car": 2500
+   },
+   "src": "itemshop.gg"
+  },
+  {
+   "date": "2025-11-09",
+   "offers": 148,
+   "count": 64,
+   "byKind": {
+    "bundle": 16900,
+    "outfit": 40200,
+    "pickaxe": 7700,
+    "instrument": 1600,
+    "backpack": 1500,
+    "glider": 4900,
+    "emote": 1900,
+    "wrap": 1000
+   },
+   "src": "itemshop.gg"
+  },
+  {
+   "date": "2025-11-10",
+   "offers": 160,
+   "count": 34,
+   "byKind": {
+    "emote": 5500,
+    "outfit": 19400,
+    "bundle": 6600,
+    "pickaxe": 1600,
+    "instrument": 1000,
+    "wrap": 500
+   },
+   "src": "itemshop.gg"
+  },
+  {
+   "date": "2025-11-11",
+   "offers": 173,
+   "count": 50,
+   "byKind": {
+    "bundle": 10000,
+    "outfit": 21400,
+    "backpack": 700,
+    "emote": 2500,
+    "pickaxe": 4000,
+    "wrap": 1000,
+    "instrument": 800,
+    "kicks": 3600,
+    "glider": 3200,
+    "jamtrack": 2500
+   },
+   "src": "itemshop.gg"
+  },
+  {
+   "date": "2025-11-12",
+   "offers": 155,
+   "count": 50,
+   "byKind": {
+    "bundle": 18300,
+    "outfit": 27000,
+    "pickaxe": 2800,
+    "backpack": 1600,
+    "wrap": 1500,
+    "emote": 1100,
+    "glider": 3500,
+    "instrument": 800,
+    "other": 1200
+   },
+   "src": "itemshop.gg"
+  },
+  {
+   "date": "2025-11-13",
+   "offers": 153,
+   "count": 17,
+   "byKind": {
+    "bundle": 7600,
+    "outfit": 6600,
+    "pickaxe": 1300,
+    "backpack": 600,
+    "emote": 700,
+    "wrap": 1000
+   },
+   "src": "itemshop.gg"
+  },
+  {
+   "date": "2025-11-14",
+   "offers": 148,
+   "count": 31,
+   "byKind": {
+    "bundle": 2000,
+    "outfit": 8600,
+    "pickaxe": 1600,
+    "emote": 6100,
+    "backpack": 300,
+    "sidekick": 1500,
+    "kicks": 2600,
+    "other": 1000,
+    "glider": 2000
+   },
+   "src": "itemshop.gg"
+  },
+  {
+   "date": "2025-11-15",
+   "offers": 169,
+   "count": 48,
+   "byKind": {
+    "bundle": 3200,
+    "outfit": 19900,
+    "backpack": 700,
+    "emote": 5900,
+    "wrap": 1000,
+    "instrument": 1600,
+    "contrail": 600,
+    "kicks": 2600,
+    "sidekick": 1200,
+    "jamtrack": 3500,
+    "glider": 1600
+   },
+   "src": "itemshop.gg"
+  },
+  {
+   "date": "2025-11-16",
+   "offers": 143,
+   "count": 28,
+   "byKind": {
+    "bundle": 3000,
+    "outfit": 11500,
+    "emote": 2000,
+    "pickaxe": 3500,
+    "kicks": 600,
+    "glider": 2400,
+    "wrap": 300,
+    "other": 250
+   },
+   "src": "itemshop.gg"
+  },
+  {
+   "date": "2025-11-17",
+   "offers": 159,
+   "count": 54,
+   "byKind": {
+    "bundle": 7900,
+    "outfit": 24000,
+    "emote": 5000,
+    "kicks": 1000,
+    "pickaxe": 2100,
+    "glider": 800,
+    "jamtrack": 9000
+   },
+   "src": "itemshop.gg"
+  },
+  {
+   "date": "2025-11-18",
+   "offers": 116,
+   "count": 17,
+   "byKind": {
+    "outfit": 8200,
+    "emote": 500,
+    "glider": 2300,
+    "pickaxe": 500,
+    "kicks": 3600,
+    "bundle": 2800
+   },
+   "src": "itemshop.gg"
+  },
+  {
+   "date": "2025-11-19",
+   "offers": 111,
+   "count": 24,
+   "byKind": {
+    "bundle": 5500,
+    "outfit": 8600,
+    "pickaxe": 3200,
+    "backpack": 300,
+    "wrap": 1500,
+    "emote": 1200,
+    "jamtrack": 1000
+   },
+   "src": "itemshop.gg"
+  },
+  {
+   "date": "2025-11-20",
+   "offers": 142,
+   "count": 55,
+   "byKind": {
+    "bundle": 16400,
+    "outfit": 18800,
+    "pickaxe": 7300,
+    "backpack": 1300,
+    "wrap": 1500,
+    "kicks": 600,
+    "glider": 3800,
+    "emote": 3200,
+    "jamtrack": 500
+   },
+   "src": "itemshop.gg"
+  },
+  {
+   "date": "2025-11-21",
+   "offers": 169,
+   "count": 50,
+   "byKind": {
+    "bundle": 8800,
+    "outfit": 26500,
+    "emote": 5800,
+    "glider": 6300,
+    "pickaxe": 3200,
+    "backpack": 400,
+    "wrap": 1000,
+    "kicks": 2400
+   },
+   "src": "itemshop.gg"
+  },
+  {
+   "date": "2025-11-22",
+   "offers": 194,
+   "count": 66,
+   "byKind": {
+    "bundle": 21600,
+    "outfit": 31000,
+    "pickaxe": 8700,
+    "backpack": 2600,
+    "emote": 5400,
+    "sidekick": 1200,
+    "kicks": 800,
+    "wrap": 500,
+    "other": 1500,
+    "jamtrack": 500,
+    "glider": 2500
+   },
+   "src": "itemshop.gg"
+  },
+  {
+   "date": "2025-11-23",
+   "offers": 188,
+   "count": 41,
+   "byKind": {
+    "outfit": 16500,
+    "pickaxe": 5900,
+    "sidekick": 1500,
+    "bundle": 7300,
+    "backpack": 400,
+    "wrap": 1200,
+    "emote": 1200,
+    "jamtrack": 3500
+   },
+   "src": "itemshop.gg"
+  },
+  {
+   "date": "2025-11-24",
+   "offers": 205,
+   "count": 63,
+   "byKind": {
+    "bundle": 7600,
+    "outfit": 18900,
+    "emote": 7200,
+    "pickaxe": 4100,
+    "backpack": 2100,
+    "wrap": 1500,
+    "contrail": 600,
+    "instrument": 800,
+    "glider": 1300,
+    "jamtrack": 5500
+   },
+   "src": "itemshop.gg"
+  },
+  {
+   "date": "2025-11-25",
+   "offers": 239,
+   "count": 61,
+   "byKind": {
+    "bundle": 14100,
+    "outfit": 38300,
+    "emote": 2300,
+    "backpack": 900,
+    "wrap": 2000,
+    "pickaxe": 2600,
+    "kicks": 3600
+   },
+   "src": "itemshop.gg"
+  },
+  {
+   "date": "2025-11-26",
+   "offers": 212,
+   "count": 46,
+   "byKind": {
+    "bundle": 12500,
+    "outfit": 14900,
+    "pickaxe": 3200,
+    "backpack": 1900,
+    "emote": 4100,
+    "contrail": 600,
+    "instrument": 1600,
+    "jamtrack": 3000,
+    "glider": 1600,
+    "kicks": 1000,
+    "wrap": 500
+   },
+   "src": "itemshop.gg"
+  },
+  {
+   "date": "2025-11-27",
+   "offers": 226,
+   "count": 26,
+   "byKind": {
+    "bundle": 5000,
+    "backpack": 900,
+    "pickaxe": 1500,
+    "outfit": 13900,
+    "emote": 3000
+   },
+   "src": "itemshop.gg"
+  },
+  {
+   "date": "2025-11-28",
+   "offers": 207,
+   "count": 32,
+   "byKind": {
+    "bundle": 3400,
+    "outfit": 13100,
+    "sidekick": 1500,
+    "backpack": 400,
+    "pickaxe": 800,
+    "emote": 5100,
+    "kicks": 2600,
+    "glider": 1300,
+    "jamtrack": 500
+   },
+   "src": "itemshop.gg"
+  },
+  {
+   "date": "2025-11-29",
+   "offers": 187,
+   "count": 37,
+   "byKind": {
+    "bundle": 7200,
+    "outfit": 11700,
+    "backpack": 800,
+    "pickaxe": 5500,
+    "emote": 1800,
+    "wrap": 1300,
+    "jamtrack": 3000
+   },
+   "src": "itemshop.gg"
+  },
+  {
+   "date": "2025-11-30",
+   "offers": 191,
+   "count": 64,
+   "byKind": {
+    "bundle": 21100,
+    "outfit": 33000,
+    "backpack": 400,
+    "emote": 3000,
+    "instrument": 500,
+    "pickaxe": 4000,
+    "jamtrack": 500,
+    "wrap": 1700,
+    "glider": 3000,
+    "car": 400
+   },
+   "src": "itemshop.gg"
+  },
+  {
+   "date": "2025-12-01",
+   "offers": 210,
+   "count": 66,
+   "byKind": {
+    "bundle": 16900,
+    "outfit": 23600,
+    "pickaxe": 5200,
+    "emote": 5800,
+    "glider": 4100,
+    "wrap": 1000,
+    "instrument": 1000,
+    "jamtrack": 6000
+   },
+   "src": "itemshop.gg"
+  },
+  {
+   "date": "2025-12-02",
+   "offers": 190,
+   "count": 38,
+   "byKind": {
+    "sidekick": 1000,
+    "outfit": 22700,
+    "pickaxe": 3200,
+    "kicks": 3200,
+    "glider": 2300,
+    "bundle": 7000,
+    "emote": 700,
+    "backpack": 400,
+    "jamtrack": 500
+   },
+   "src": "itemshop.gg"
+  },
+  {
+   "date": "2025-12-03",
+   "offers": 204,
+   "count": 40,
+   "byKind": {
+    "pickaxe": 4900,
+    "bundle": 8500,
+    "outfit": 18500,
+    "wrap": 1000,
+    "emote": 1400,
+    "backpack": 200,
+    "kicks": 1800,
+    "glider": 2000,
+    "jamtrack": 2000
+   },
+   "src": "itemshop.gg"
+  },
+  {
+   "date": "2025-12-04",
+   "offers": 200,
+   "count": 30,
+   "byKind": {
+    "sidekick": 1200,
+    "outfit": 12700,
+    "emote": 1900,
+    "bundle": 3500,
+    "backpack": 1000,
+    "pickaxe": 4200,
+    "jamtrack": 500,
+    "glider": 1200
+   },
+   "src": "itemshop.gg"
+  },
+  {
+   "date": "2025-12-05",
+   "offers": 150,
+   "count": 55,
+   "byKind": {
+    "bundle": 5100,
+    "outfit": 21200,
+    "backpack": 1800,
+    "pickaxe": 3800,
+    "emote": 7000,
+    "wrap": 1000,
+    "kicks": 3800,
+    "glider": 500
+   },
+   "src": "itemshop.gg"
+  },
+  {
+   "date": "2025-12-06",
+   "offers": 142,
+   "count": 36,
+   "byKind": {
+    "bundle": 11600,
+    "backpack": 1200,
+    "pickaxe": 5300,
+    "emote": 1100,
+    "outfit": 14400,
+    "kicks": 600,
+    "glider": 3700,
+    "wrap": 500,
+    "jamtrack": 500
+   },
+   "src": "itemshop.gg"
+  },
+  {
+   "date": "2025-12-07",
+   "offers": 141,
+   "count": 43,
+   "byKind": {
+    "bundle": 8100,
+    "outfit": 24000,
+    "pickaxe": 5500,
+    "glider": 3900,
+    "emote": 1400,
+    "backpack": 1500,
+    "kicks": 1800,
+    "jamtrack": 2000
+   },
+   "src": "itemshop.gg"
+  },
+  {
+   "date": "2025-12-08",
+   "offers": 156,
+   "count": 48,
+   "byKind": {
+    "emote": 4200,
+    "bundle": 6500,
+    "outfit": 11800,
+    "glider": 1300,
+    "pickaxe": 4300,
+    "wrap": 1000,
+    "backpack": 600,
+    "jamtrack": 6500
+   },
+   "src": "itemshop.gg"
+  },
+  {
+   "date": "2025-12-09",
+   "offers": 179,
+   "count": 56,
+   "byKind": {
+    "sidekick": 1200,
+    "outfit": 29200,
+    "pickaxe": 6300,
+    "kicks": 4600,
+    "bundle": 21200,
+    "emote": 1600,
+    "glider": 1700,
+    "wrap": 1300
+   },
+   "src": "itemshop.gg"
+  },
+  {
+   "date": "2025-12-10",
+   "offers": 181,
+   "count": 50,
+   "byKind": {
+    "outfit": 24800,
+    "backpack": 2600,
+    "pickaxe": 7300,
+    "kicks": 600,
+    "bundle": 12200,
+    "glider": 4400,
+    "emote": 2600,
+    "wrap": 500,
+    "jamtrack": 500,
+    "instrument": 800
+   },
+   "src": "itemshop.gg"
+  },
+  {
+   "date": "2025-12-11",
+   "offers": 190,
+   "count": 48,
+   "byKind": {
+    "bundle": 8800,
+    "outfit": 17300,
+    "backpack": 2500,
+    "emote": 2200,
+    "pickaxe": 5500,
+    "instrument": 1600,
+    "glider": 2000,
+    "wrap": 1700,
+    "jamtrack": 2000
+   },
+   "src": "itemshop.gg"
+  },
+  {
+   "date": "2025-12-12",
+   "offers": 198,
+   "count": 45,
+   "byKind": {
+    "bundle": 5400,
+    "outfit": 16100,
+    "backpack": 600,
+    "emote": 6600,
+    "instrument": 3200,
+    "wrap": 500,
+    "jamtrack": 500,
+    "sidekick": 1200,
+    "kicks": 5200,
+    "glider": 2000
+   },
+   "src": "itemshop.gg"
+  },
+  {
+   "date": "2025-12-13",
+   "offers": 195,
+   "count": 45,
+   "byKind": {
+    "bundle": 6200,
+    "outfit": 34900,
+    "backpack": 1200,
+    "pickaxe": 2100,
+    "instrument": 1600,
+    "emote": 2200,
+    "wrap": 1000,
+    "kicks": 2000,
+    "glider": 2700
+   },
+   "src": "itemshop.gg"
+  },
+  {
+   "date": "2025-12-14",
+   "offers": 151,
+   "count": 34,
+   "byKind": {
+    "bundle": 6400,
+    "outfit": 14100,
+    "backpack": 600,
+    "emote": 1000,
+    "pickaxe": 2100,
+    "glider": 2500,
+    "wrap": 300,
+    "kicks": 2000,
+    "instrument": 1600,
+    "jamtrack": 1500
+   },
+   "src": "itemshop.gg"
+  },
+  {
+   "date": "2025-12-15",
+   "offers": 169,
+   "count": 56,
+   "byKind": {
+    "outfit": 26700,
+    "glider": 2900,
+    "emote": 5600,
+    "pickaxe": 1000,
+    "sidekick": 1200,
+    "kicks": 1600,
+    "bundle": 6200,
+    "other": 1200,
+    "jamtrack": 4500
+   },
+   "src": "itemshop.gg"
+  },
+  {
+   "date": "2025-12-16",
+   "offers": 153,
+   "count": 43,
+   "byKind": {
+    "bundle": 7300,
+    "outfit": 18500,
+    "emote": 1900,
+    "backpack": 600,
+    "instrument": 2400,
+    "wrap": 1500,
+    "pickaxe": 3100,
+    "kicks": 1800,
+    "glider": 2800,
+    "jamtrack": 500
+   },
+   "src": "itemshop.gg"
+  },
+  {
+   "date": "2025-12-17",
+   "offers": 166,
+   "count": 37,
+   "byKind": {
+    "sidekick": 1200,
+    "pickaxe": 5700,
+    "outfit": 15700,
+    "bundle": 7900,
+    "glider": 2800,
+    "emote": 1600,
+    "wrap": 600,
+    "instrument": 1600,
+    "car": 1500
+   },
+   "src": "itemshop.gg"
+  },
+  {
+   "date": "2025-12-18",
+   "offers": 154,
+   "count": 26,
+   "byKind": {
+    "bundle": 3000,
+    "outfit": 11500,
+    "backpack": 600,
+    "sidekick": 1500,
+    "emote": 1800,
+    "pickaxe": 2900,
+    "wrap": 1000,
+    "glider": 2100,
+    "other": 1200
+   },
+   "src": "itemshop.gg"
+  },
+  {
+   "date": "2025-12-19",
+   "offers": 156,
+   "count": 37,
+   "byKind": {
+    "outfit": 23200,
+    "backpack": 500,
+    "emote": 800,
+    "pickaxe": 1600,
+    "bundle": 2800,
+    "glider": 1500,
+    "instrument": 1300,
+    "kicks": 3400,
+    "jamtrack": 1500
+   },
+   "src": "itemshop.gg"
+  },
+  {
+   "date": "2025-12-20",
+   "offers": 159,
+   "count": 46,
+   "byKind": {
+    "bundle": 7200,
+    "outfit": 11800,
+    "backpack": 800,
+    "emote": 6900,
+    "instrument": 3700,
+    "wrap": 300,
+    "sidekick": 1800,
+    "kicks": 4000,
+    "pickaxe": 2800,
+    "glider": 1700
+   },
+   "src": "itemshop.gg"
+  },
+  {
+   "date": "2025-12-21",
+   "offers": 159,
+   "count": 35,
+   "byKind": {
+    "bundle": 9600,
+    "outfit": 21200,
+    "pickaxe": 2600,
+    "backpack": 900,
+    "wrap": 500,
+    "kicks": 1600,
+    "instrument": 2600,
+    "emote": 1500,
+    "glider": 1600
+   },
+   "src": "itemshop.gg"
+  },
+  {
+   "date": "2025-12-22",
+   "offers": 175,
+   "count": 62,
+   "byKind": {
+    "bundle": 8600,
+    "outfit": 17900,
+    "glider": 2800,
+    "pickaxe": 2900,
+    "backpack": 500,
+    "emote": 5500,
+    "instrument": 1800,
+    "wrap": 2100,
+    "kicks": 2800,
+    "car": 2800,
+    "jamtrack": 4500
+   },
+   "src": "itemshop.gg"
+  },
+  {
+   "date": "2025-12-23",
+   "offers": 207,
+   "count": 52,
+   "byKind": {
+    "outfit": 30300,
+    "backpack": 1000,
+    "bundle": 7300,
+    "emote": 3500,
+    "jamtrack": 500,
+    "pickaxe": 4800,
+    "wrap": 500,
+    "kicks": 3400,
+    "glider": 500,
+    "instrument": 800
+   },
+   "src": "itemshop.gg"
+  },
+  {
+   "date": "2025-12-24",
+   "offers": 209,
+   "count": 32,
+   "byKind": {
+    "bundle": 8300,
+    "jamtrack": 500,
+    "outfit": 16800,
+    "backpack": 300,
+    "pickaxe": 2100,
+    "emote": 600,
+    "wrap": 1000,
+    "glider": 1600,
+    "kicks": 1200
+   },
+   "src": "itemshop.gg"
+  },
+  {
+   "date": "2025-12-25",
+   "offers": 215,
+   "count": 49,
+   "byKind": {
+    "bundle": 10600,
+    "outfit": 25800,
+    "backpack": 300,
+    "pickaxe": 5500,
+    "glider": 3800,
+    "wrap": 500,
+    "emote": 2100,
+    "jamtrack": 2500,
+    "kicks": 1200
+   },
+   "src": "itemshop.gg"
+  },
+  {
+   "date": "2025-12-26",
+   "offers": 246,
+   "count": 75,
+   "byKind": {
+    "pickaxe": 9600,
+    "outfit": 36000,
+    "wrap": 2100,
+    "bundle": 13200,
+    "backpack": 2200,
+    "emote": 6700,
+    "sidekick": 1500,
+    "kicks": 4600,
+    "glider": 1300
+   },
+   "src": "itemshop.gg"
+  },
+  {
+   "date": "2025-12-27",
+   "offers": 262,
+   "count": 40,
+   "byKind": {
+    "bundle": 13400,
+    "outfit": 25300,
+    "glider": 3600,
+    "pickaxe": 5300,
+    "wrap": 800,
+    "emote": 700
+   },
+   "src": "itemshop.gg"
+  },
+  {
+   "date": "2025-12-28",
+   "offers": 275,
+   "count": 51,
+   "byKind": {
+    "sidekick": 1500,
+    "bundle": 15400,
+    "outfit": 23600,
+    "glider": 2500,
+    "pickaxe": 6700,
+    "emote": 2900,
+    "backpack": 600,
+    "wrap": 1100
+   },
+   "src": "itemshop.gg"
+  },
+  {
+   "date": "2025-12-29",
+   "offers": 297,
+   "count": 77,
+   "byKind": {
+    "bundle": 17100,
+    "outfit": 35700,
+    "pickaxe": 6400,
+    "wrap": 2100,
+    "emote": 6600,
+    "glider": 1600,
+    "backpack": 1400,
+    "contrail": 400,
+    "instrument": 500,
+    "jamtrack": 1000
+   },
+   "src": "itemshop.gg"
+  },
+  {
+   "date": "2025-12-30",
+   "offers": 290,
+   "count": 57,
+   "byKind": {
+    "kicks": 2200,
+    "pickaxe": 8700,
+    "outfit": 18400,
+    "emote": 3500,
+    "bundle": 10100,
+    "wrap": 2000,
+    "other": 1200,
+    "glider": 800,
+    "instrument": 1800,
+    "backpack": 1800,
+    "jamtrack": 5000
+   },
+   "src": "itemshop.gg"
+  },
+  {
+   "date": "2025-12-31",
+   "offers": 268,
+   "count": 31,
+   "byKind": {
+    "bundle": 8300,
+    "outfit": 13000,
+    "pickaxe": 1600,
+    "emote": 2100,
+    "backpack": 300,
+    "jamtrack": 500,
+    "glider": 800,
+    "instrument": 500,
+    "kicks": 3200
+   },
+   "src": "itemshop.gg"
+  },
+  {
+   "date": "2026-01-01",
+   "offers": 277,
+   "count": 44,
+   "byKind": {
+    "bundle": 8500,
+    "outfit": 25900,
+    "emote": 2700,
+    "backpack": 1200,
+    "instrument": 4000,
+    "wrap": 1000,
+    "pickaxe": 2100,
+    "glider": 1200,
+    "other": 1200
+   },
+   "src": "itemshop.gg"
+  },
+  {
+   "date": "2026-01-02",
+   "offers": 196,
+   "count": 54,
+   "byKind": {
+    "bundle": 14100,
+    "outfit": 19100,
+    "wrap": 2300,
+    "pickaxe": 5000,
+    "emote": 5500,
+    "backpack": 1600,
+    "sidekick": 1200,
+    "kicks": 4200
+   },
+   "src": "itemshop.gg"
+  },
+  {
+   "date": "2026-01-03",
+   "offers": 183,
+   "count": 32,
+   "byKind": {
+    "bundle": 6600,
+    "outfit": 14600,
+    "pickaxe": 3100,
+    "glider": 2000,
+    "backpack": 300,
+    "emote": 1200,
+    "wrap": 600,
+    "kicks": 600,
+    "instrument": 800,
+    "jamtrack": 1000
+   },
+   "src": "itemshop.gg"
+  },
+  {
+   "date": "2026-01-04",
+   "offers": 141,
+   "count": 28,
+   "byKind": {
+    "outfit": 28600,
+    "bundle": 5000,
+    "wrap": 500,
+    "emote": 1100,
+    "glider": 800,
+    "instrument": 800
+   },
+   "src": "itemshop.gg"
+  },
+  {
+   "date": "2026-01-05",
+   "offers": 153,
+   "count": 38,
+   "byKind": {
+    "emote": 5500,
+    "bundle": 10800,
+    "outfit": 9500,
+    "backpack": 1000,
+    "pickaxe": 4100,
+    "wrap": 1200,
+    "glider": 1200,
+    "instrument": 800
+   },
+   "src": "itemshop.gg"
+  },
+  {
+   "date": "2026-01-06",
+   "offers": 143,
+   "count": 48,
+   "byKind": {
+    "kicks": 3600,
+    "bundle": 5700,
+    "outfit": 18900,
+    "pickaxe": 4200,
+    "emote": 1700,
+    "wrap": 800,
+    "other": 1200,
+    "jamtrack": 6000
+   },
+   "src": "itemshop.gg"
+  },
+  {
+   "date": "2026-01-07",
+   "offers": 132,
+   "count": 28,
+   "byKind": {
+    "bundle": 11200,
+    "instrument": 2400,
+    "outfit": 12600,
+    "backpack": 400,
+    "emote": 1700,
+    "kicks": 600,
+    "pickaxe": 2400,
+    "wrap": 500,
+    "glider": 1200
+   },
+   "src": "itemshop.gg"
+  },
+  {
+   "date": "2026-01-08",
+   "offers": 126,
+   "count": 24,
+   "byKind": {
+    "instrument": 800,
+    "emote": 2600,
+    "bundle": 5200,
+    "outfit": 12200,
+    "pickaxe": 1600,
+    "glider": 2000,
+    "kicks": 600
+   },
+   "src": "itemshop.gg"
+  },
+  {
+   "date": "2026-01-09",
+   "offers": 129,
+   "count": 37,
+   "byKind": {
+    "kicks": 3800,
+    "glider": 800,
+    "outfit": 17300,
+    "instrument": 800,
+    "emote": 1400,
+    "jamtrack": 1000,
+    "bundle": 4000,
+    "backpack": 1500,
+    "pickaxe": 2500,
+    "sidekick": 1500
+   },
+   "src": "itemshop.gg"
+  },
+  {
+   "date": "2026-01-10",
+   "offers": 123,
+   "count": 35,
+   "byKind": {
+    "emote": 4800,
+    "other": 500,
+    "sidekick": 1200,
+    "bundle": 2700,
+    "outfit": 17600,
+    "glider": 1300,
+    "wrap": 600,
+    "kicks": 1800,
+    "pickaxe": 500,
+    "jamtrack": 2000
+   },
+   "src": "itemshop.gg"
+  },
+  {
+   "date": "2026-01-11",
+   "offers": 101,
+   "count": 25,
+   "byKind": {
+    "bundle": 3800,
+    "outfit": 3500,
+    "backpack": 300,
+    "pickaxe": 2100,
+    "emote": 800,
+    "wrap": 500,
+    "instrument": 800,
+    "glider": 800,
+    "jamtrack": 5000
+   },
+   "src": "itemshop.gg"
+  },
+  {
+   "date": "2026-01-12",
+   "offers": 129,
+   "count": 32,
+   "byKind": {
+    "bundle": 10100,
+    "outfit": 13700,
+    "pickaxe": 4400,
+    "emote": 1300,
+    "wrap": 2000,
+    "backpack": 600,
+    "glider": 3200,
+    "kicks": 1400
+   },
+   "src": "itemshop.gg"
+  },
+  {
+   "date": "2026-01-13",
+   "offers": 131,
+   "count": 34,
+   "byKind": {
+    "bundle": 1800,
+    "backpack": 1100,
+    "pickaxe": 1600,
+    "emote": 5700,
+    "sidekick": 2700,
+    "outfit": 9700,
+    "kicks": 3400,
+    "instrument": 500,
+    "glider": 800
+   },
+   "src": "itemshop.gg"
+  },
+  {
+   "date": "2026-01-14",
+   "offers": 173,
+   "count": 59,
+   "byKind": {
+    "bundle": 23100,
+    "outfit": 34600,
+    "pickaxe": 2500,
+    "emote": 2100,
+    "glider": 500,
+    "contrail": 600,
+    "backpack": 400,
+    "instrument": 1600,
+    "jamtrack": 5000
+   },
+   "src": "itemshop.gg"
+  },
+  {
+   "date": "2026-01-15",
+   "offers": 161,
+   "count": 31,
+   "byKind": {
+    "bundle": 7200,
+    "outfit": 15500,
+    "pickaxe": 6600,
+    "wrap": 1300,
+    "kicks": 600,
+    "glider": 800,
+    "emote": 400
+   },
+   "src": "itemshop.gg"
+  },
+  {
+   "date": "2026-01-16",
+   "offers": 114,
+   "count": 32,
+   "byKind": {
+    "emote": 7700,
+    "glider": 500,
+    "outfit": 6800,
+    "pickaxe": 2600,
+    "kicks": 5800,
+    "other": 1200,
+    "backpack": 2100
+   },
+   "src": "itemshop.gg"
+  },
+  {
+   "date": "2026-01-17",
+   "offers": 132,
+   "count": 18,
+   "byKind": {
+    "emote": 1400,
+    "outfit": 6100,
+    "pickaxe": 6200,
+    "backpack": 4900
+   },
+   "src": "itemshop.gg"
+  },
+  {
+   "date": "2026-01-18",
+   "offers": 122,
+   "count": 29,
+   "byKind": {
+    "emote": 1000,
+    "outfit": 14100,
+    "pickaxe": 4000,
+    "glider": 500,
+    "other": 2000,
+    "kicks": 2000,
+    "wrap": 500,
+    "loadingscreen": 3200,
+    "backpack": 4600
+   },
+   "src": "itemshop.gg"
+  },
+  {
+   "date": "2026-01-19",
+   "offers": 156,
+   "count": 80,
+   "byKind": {
+    "pickaxe": 14100,
+    "emote": 6500,
+    "outfit": 42200,
+    "backpack": 5200,
+    "loadingscreen": 3000,
+    "kicks": 2000,
+    "wrap": 4100,
+    "glider": 1300
+   },
+   "src": "itemshop.gg"
+  },
+  {
+   "date": "2026-01-20",
+   "offers": 157,
+   "count": 1,
+   "byKind": {
+    "emote": 500
+   },
+   "src": "itemshop.gg"
+  },
+  {
+   "date": "2026-01-21",
+   "offers": 171,
+   "count": 36,
+   "byKind": {
+    "outfit": 19500,
+    "pickaxe": 3100,
+    "glider": 3300,
+    "kicks": 4000,
+    "emote": 1100,
+    "sidekick": 2700,
+    "backpack": 600
+   },
+   "src": "itemshop.gg"
+  },
+  {
+   "date": "2026-01-22",
+   "offers": 168,
+   "count": 26,
+   "byKind": {
+    "outfit": 12900,
+    "emote": 2000,
+    "pickaxe": 5200,
+    "backpack": 1100,
+    "wrap": 1000,
+    "kicks": 600
+   },
+   "src": "itemshop.gg"
+  },
+  {
+   "date": "2026-01-23",
+   "offers": 161,
+   "count": 28,
+   "byKind": {
+    "outfit": 12800,
+    "wrap": 2200,
+    "pickaxe": 5300,
+    "emote": 1500,
+    "glider": 2500,
+    "backpack": 1500,
+    "loadingscreen": 1200
+   },
+   "src": "itemshop.gg"
+  },
+  {
+   "date": "2026-01-24",
+   "offers": 119,
+   "count": 31,
+   "byKind": {
+    "wrap": 1700,
+    "outfit": 15700,
+    "kicks": 3200,
+    "emote": 4800,
+    "pickaxe": 1300,
+    "glider": 1200,
+    "loadingscreen": 2200
+   },
+   "src": "itemshop.gg"
+  },
+  {
+   "date": "2026-01-25",
+   "offers": 126,
+   "count": 29,
+   "byKind": {
+    "outfit": 14800,
+    "kicks": 3600,
+    "backpack": 3400,
+    "sidekick": 1200,
+    "emote": 1600,
+    "glider": 1600,
+    "pickaxe": 1800
+   },
+   "src": "itemshop.gg"
+  },
+  {
+   "date": "2026-01-26",
+   "offers": 116,
+   "count": 16,
+   "byKind": {
+    "pickaxe": 2500,
+    "outfit": 8500,
+    "kicks": 800,
+    "wrap": 500,
+    "emote": 700,
+    "backpack": 1500
+   },
+   "src": "itemshop.gg"
+  },
+  {
+   "date": "2026-01-27",
+   "offers": 152,
+   "count": 66,
+   "byKind": {
+    "outfit": 31200,
+    "pickaxe": 15600,
+    "wrap": 300,
+    "emote": 7400,
+    "loadingscreen": 10100,
+    "glider": 5400,
+    "backpack": 1700,
+    "kicks": 800
+   },
+   "src": "itemshop.gg"
+  },
+  {
+   "date": "2026-01-28",
+   "offers": 164,
+   "count": 52,
+   "byKind": {
+    "wrap": 1000,
+    "backpack": 4300,
+    "kicks": 8400,
+    "pickaxe": 5600,
+    "outfit": 17200,
+    "contrail": 600,
+    "emote": 3700,
+    "sidekick": 2400,
+    "glider": 800
+   },
+   "src": "itemshop.gg"
+  },
+  {
+   "date": "2026-01-29",
+   "offers": 144,
+   "count": 0,
+   "byKind": {},
+   "src": "itemshop.gg"
+  },
+  {
+   "date": "2026-01-30",
+   "offers": 149,
+   "count": 19,
+   "byKind": {
+    "emote": 1600,
+    "outfit": 12100,
+    "pickaxe": 2100,
+    "kicks": 800,
+    "wrap": 1000,
+    "backpack": 400
+   },
+   "src": "itemshop.gg"
+  },
+  {
+   "date": "2026-01-31",
+   "offers": 145,
+   "count": 30,
+   "byKind": {
+    "outfit": 17600,
+    "kicks": 3400,
+    "backpack": 300,
+    "pickaxe": 800,
+    "emote": 4800,
+    "other": 400
+   },
+   "src": "itemshop.gg"
+  },
+  {
+   "date": "2026-02-01",
+   "offers": 128,
+   "count": 27,
+   "byKind": {
+    "pickaxe": 3400,
+    "kicks": 600,
+    "outfit": 12700,
+    "emote": 3500,
+    "backpack": 800,
+    "sidekick": 1500
+   },
+   "src": "itemshop.gg"
+  },
+  {
+   "date": "2026-02-02",
+   "offers": 115,
+   "count": 61,
+   "byKind": {
+    "glider": 1700,
+    "wrap": 3500,
+    "kicks": 1400,
+    "outfit": 36900,
+    "pickaxe": 7300,
+    "backpack": 1200,
+    "emote": 5000
+   },
+   "src": "itemshop.gg"
+  },
+  {
+   "date": "2026-02-03",
+   "offers": 116,
+   "count": 1,
+   "byKind": {
+    "emote": 500
+   },
+   "src": "itemshop.gg"
+  },
+  {
+   "date": "2026-02-04",
+   "offers": 126,
+   "count": 30,
+   "byKind": {
+    "outfit": 17300,
+    "sidekick": 2700,
+    "pickaxe": 2100,
+    "glider": 2300,
+    "emote": 900,
+    "wrap": 300,
+    "kicks": 3800
+   },
+   "src": "itemshop.gg"
+  },
+  {
+   "date": "2026-02-05",
+   "offers": 111,
+   "count": 32,
+   "byKind": {
+    "outfit": 15300,
+    "kicks": 800,
+    "pickaxe": 3900,
+    "emote": 2600,
+    "wrap": 800,
+    "backpack": 800,
+    "other": 1500
+   },
+   "src": "itemshop.gg"
+  },
+  {
+   "date": "2026-02-06",
+   "offers": 162,
+   "count": 96,
+   "byKind": {
+    "bundle": 39700,
+    "outfit": 37000,
+    "pickaxe": 2100,
+    "sidekick": 1500,
+    "emote": 8100,
+    "contrail": 500,
+    "wrap": 1100,
+    "jamtrack": 7500,
+    "glider": 3400,
+    "kicks": 3600
+   },
+   "src": "itemshop.gg"
+  },
+  {
+   "date": "2026-02-07",
+   "offers": 162,
+   "count": 33,
+   "byKind": {
+    "bundle": 6500,
+    "outfit": 16500,
+    "backpack": 1500,
+    "pickaxe": 2500,
+    "emote": 1500,
+    "wrap": 300,
+    "kicks": 1000,
+    "other": 250
+   },
+   "src": "itemshop.gg"
+  },
+  {
+   "date": "2026-02-08",
+   "offers": 146,
+   "count": 29,
+   "byKind": {
+    "sidekick": 1200,
+    "outfit": 11300,
+    "kicks": 1800,
+    "jamtrack": 1000,
+    "bundle": 5000,
+    "wrap": 2000,
+    "emote": 1400,
+    "backpack": 400,
+    "pickaxe": 2900
+   },
+   "src": "itemshop.gg"
+  },
+  {
+   "date": "2026-02-09",
+   "offers": 160,
+   "count": 41,
+   "byKind": {
+    "bundle": 12000,
+    "emote": 4400,
+    "sidekick": 1800,
+    "backpack": 700,
+    "kicks": 2000,
+    "instrument": 1600,
+    "pickaxe": 2600,
+    "outfit": 13600,
+    "wrap": 500,
+    "jamtrack": 1500
+   },
+   "src": "itemshop.gg"
+  },
+  {
+   "date": "2026-02-10",
+   "offers": 130,
+   "count": 36,
+   "byKind": {
+    "bundle": 4700,
+    "outfit": 15800,
+    "pickaxe": 1800,
+    "emote": 2800,
+    "wrap": 1100,
+    "backpack": 300,
+    "instrument": 800,
+    "glider": 800,
+    "sidekick": 2400,
+    "kicks": 3600
+   },
+   "src": "itemshop.gg"
+  },
+  {
+   "date": "2026-02-11",
+   "offers": 144,
+   "count": 41,
+   "byKind": {
+    "bundle": 6200,
+    "outfit": 17200,
+    "backpack": 1600,
+    "pickaxe": 3000,
+    "kicks": 800,
+    "emote": 1400,
+    "wrap": 2000
+   },
+   "src": "itemshop.gg"
+  },
+  {
+   "date": "2026-02-12",
+   "offers": 161,
+   "count": 37,
+   "byKind": {
+    "bundle": 7100,
+    "outfit": 15900,
+    "emote": 2300,
+    "glider": 2000,
+    "pickaxe": 5200,
+    "wrap": 500,
+    "backpack": 400,
+    "instrument": 2600,
+    "kicks": 1400,
+    "other": 1000,
+    "car": 2800
+   },
+   "src": "itemshop.gg"
+  },
+  {
+   "date": "2026-02-13",
+   "offers": 166,
+   "count": 64,
+   "byKind": {
+    "bundle": 5000,
+    "wrap": 800,
+    "outfit": 20800,
+    "pickaxe": 3900,
+    "emote": 6000,
+    "glider": 500,
+    "backpack": 400,
+    "kicks": 3400,
+    "instrument": 800,
+    "jamtrack": 9000
+   },
+   "src": "itemshop.gg"
+  },
+  {
+   "date": "2026-02-14",
+   "offers": 172,
+   "count": 33,
+   "byKind": {
+    "bundle": 3600,
+    "loadingscreen": 1500,
+    "backpack": 1100,
+    "emote": 1600,
+    "pickaxe": 3300,
+    "kicks": 3000,
+    "outfit": 12000,
+    "wrap": 2000
+   },
+   "src": "itemshop.gg"
+  },
+  {
+   "date": "2026-02-15",
+   "offers": 139,
+   "count": 11,
+   "byKind": {
+    "backpack": 1500,
+    "pickaxe": 4200,
+    "kicks": 1000,
+    "outfit": 1500
+   },
+   "src": "itemshop.gg"
+  },
+  {
+   "date": "2026-02-16",
+   "offers": 171,
+   "count": 62,
+   "byKind": {
+    "outfit": 49600,
+    "pickaxe": 7800,
+    "emote": 2600,
+    "backpack": 1400,
+    "glider": 2500,
+    "wrap": 1000
+   },
+   "src": "itemshop.gg"
+  },
+  {
+   "date": "2026-02-17",
+   "offers": 157,
+   "count": 54,
+   "byKind": {
+    "emote": 5400,
+    "outfit": 24200,
+    "pickaxe": 9000,
+    "wrap": 1000,
+    "kicks": 1000,
+    "glider": 2800,
+    "backpack": 1400
+   },
+   "src": "itemshop.gg"
+  },
+  {
+   "date": "2026-02-18",
+   "offers": 153,
+   "count": 50,
+   "byKind": {
+    "outfit": 37000,
+    "kicks": 4400,
+    "pickaxe": 4700,
+    "emote": 2600,
+    "backpack": 1000,
+    "car": 400,
+    "glider": 1500,
+    "sidekick": 3000
+   },
+   "src": "itemshop.gg"
+  },
+  {
+   "date": "2026-02-19",
+   "offers": 171,
+   "count": 39,
+   "byKind": {
+    "pickaxe": 4500,
+    "glider": 3200,
+    "wrap": 1000,
+    "outfit": 24500,
+    "kicks": 800,
+    "backpack": 700,
+    "emote": 2600,
+    "contrail": 600
+   },
+   "src": "itemshop.gg"
+  },
+  {
+   "date": "2026-02-20",
+   "offers": 153,
+   "count": 20,
+   "byKind": {
+    "outfit": 15100,
+    "pickaxe": 1300,
+    "wrap": 300,
+    "emote": 1100,
+    "glider": 500
+   },
+   "src": "itemshop.gg"
+  },
+  {
+   "date": "2026-02-21",
+   "offers": 127,
+   "count": 38,
+   "byKind": {
+    "outfit": 13100,
+    "kicks": 3600,
+    "emote": 4900,
+    "pickaxe": 5900,
+    "wrap": 1700,
+    "other": 700,
+    "backpack": 1000
+   },
+   "src": "itemshop.gg"
+  },
+  {
+   "date": "2026-02-22",
+   "offers": 104,
+   "count": 23,
+   "byKind": {
+    "pickaxe": 3900,
+    "wrap": 1000,
+    "backpack": 900,
+    "outfit": 10900,
+    "emote": 1200,
+    "glider": 1200,
+    "kicks": 2000
+   },
+   "src": "itemshop.gg"
+  },
+  {
+   "date": "2026-02-23",
+   "offers": 135,
+   "count": 39,
+   "byKind": {
+    "outfit": 18900,
+    "kicks": 800,
+    "sidekick": 1200,
+    "pickaxe": 4500,
+    "wrap": 1500,
+    "car": 1100,
+    "emote": 1500,
+    "backpack": 1200,
+    "other": 700,
+    "glider": 1300
+   },
+   "src": "itemshop.gg"
+  },
+  {
+   "date": "2026-02-24",
+   "offers": 141,
+   "count": 41,
+   "byKind": {
+    "kicks": 600,
+    "outfit": 15100,
+    "backpack": 3000,
+    "pickaxe": 2500,
+    "wrap": 800,
+    "emote": 6100
+   },
+   "src": "itemshop.gg"
+  },
+  {
+   "date": "2026-02-25",
+   "offers": 160,
+   "count": 49,
+   "byKind": {
+    "other": 700,
+    "pickaxe": 6100,
+    "car": 800,
+    "backpack": 1400,
+    "wrap": 1700,
+    "kicks": 4000,
+    "outfit": 20400,
+    "glider": 3200,
+    "emote": 500,
+    "sidekick": 2400
+   },
+   "src": "itemshop.gg"
+  },
+  {
+   "date": "2026-02-26",
+   "offers": 172,
+   "count": 27,
+   "byKind": {
+    "outfit": 14500,
+    "emote": 800,
+    "glider": 1200,
+    "other": 1200,
+    "pickaxe": 4000,
+    "backpack": 1400,
+    "kicks": 600,
+    "wrap": 500
+   },
+   "src": "itemshop.gg"
+  },
+  {
+   "date": "2026-02-27",
+   "offers": 173,
+   "count": 25,
+   "byKind": {
+    "outfit": 19200,
+    "pickaxe": 3700,
+    "glider": 800,
+    "wrap": 800,
+    "emote": 200,
+    "kicks": 1000,
+    "backpack": 400
+   },
+   "src": "itemshop.gg"
+  },
+  {
+   "date": "2026-02-28",
+   "offers": 144,
+   "count": 50,
+   "byKind": {
+    "emote": 5600,
+    "outfit": 14600,
+    "pickaxe": 6600,
+    "backpack": 2500,
+    "sidekick": 1500,
+    "kicks": 5400
+   },
+   "src": "itemshop.gg"
+  },
+  {
+   "date": "2026-03-01",
+   "offers": 144,
+   "count": 0,
+   "byKind": {},
+   "src": "itemshop.gg"
+  },
+  {
+   "date": "2026-03-02",
+   "offers": 147,
+   "count": 46,
+   "byKind": {
+    "emote": 1900,
+    "backpack": 2700,
+    "pickaxe": 6000,
+    "outfit": 16500,
+    "wrap": 3000,
+    "kicks": 1600
+   },
+   "src": "itemshop.gg"
+  },
+  {
+   "date": "2026-03-03",
+   "offers": 133,
+   "count": 31,
+   "byKind": {
+    "kicks": 1600,
+    "outfit": 25200,
+    "wrap": 1500,
+    "emote": 4200
+   },
+   "src": "itemshop.gg"
+  },
+  {
+   "date": "2026-03-04",
+   "offers": 125,
+   "count": 25,
+   "byKind": {
+    "pickaxe": 1800,
+    "outfit": 16000,
+    "kicks": 3000,
+    "emote": 600,
+    "sidekick": 2400,
+    "backpack": 200
+   },
+   "src": "itemshop.gg"
+  },
+  {
+   "date": "2026-03-05",
+   "offers": 146,
+   "count": 26,
+   "byKind": {
+    "kicks": 2000,
+    "outfit": 13500,
+    "pickaxe": 4100,
+    "emote": 1100,
+    "wrap": 1000,
+    "backpack": 900,
+    "glider": 800
+   },
+   "src": "itemshop.gg"
+  },
+  {
+   "date": "2026-03-06",
+   "offers": 124,
+   "count": 25,
+   "byKind": {
+    "pickaxe": 2100,
+    "outfit": 21700,
+    "wrap": 600,
+    "glider": 1200,
+    "emote": 500,
+    "backpack": 400
+   },
+   "src": "itemshop.gg"
+  },
+  {
+   "date": "2026-03-07",
+   "offers": 140,
+   "count": 47,
+   "byKind": {
+    "emote": 5800,
+    "outfit": 13900,
+    "backpack": 2800,
+    "pickaxe": 5600,
+    "wrap": 1000,
+    "glider": 500,
+    "kicks": 4200,
+    "contrail": 600
+   },
+   "src": "itemshop.gg"
+  },
+  {
+   "date": "2026-03-08",
+   "offers": 123,
+   "count": 24,
+   "byKind": {
+    "pickaxe": 4200,
+    "outfit": 11200,
+    "wrap": 1000,
+    "emote": 800,
+    "kicks": 800,
+    "sidekick": 3000,
+    "backpack": 300
+   },
+   "src": "itemshop.gg"
+  },
+  {
+   "date": "2026-03-09",
+   "offers": 123,
+   "count": 38,
+   "byKind": {
+    "emote": 2700,
+    "outfit": 17000,
+    "wrap": 500,
+    "glider": 2100,
+    "pickaxe": 1000,
+    "backpack": 700,
+    "car": 5600,
+    "other": 19600,
+    "kicks": 1000
+   },
+   "src": "itemshop.gg"
+  },
+  {
+   "date": "2026-03-10",
+   "offers": 121,
+   "count": 30,
+   "byKind": {
+    "pickaxe": 4900,
+    "outfit": 9900,
+    "glider": 3100,
+    "wrap": 1600,
+    "emote": 1400,
+    "other": 1200,
+    "backpack": 1100,
+    "loadingscreen": 500
+   },
+   "src": "itemshop.gg"
+  },
+  {
+   "date": "2026-03-11",
+   "offers": 126,
+   "count": 41,
+   "byKind": {
+    "other": 1200,
+    "pickaxe": 4200,
+    "kicks": 4200,
+    "wrap": 300,
+    "outfit": 19500,
+    "emote": 3700,
+    "glider": 1700,
+    "sidekick": 2400
+   },
+   "src": "itemshop.gg"
+  },
+  {
+   "date": "2026-03-12",
+   "offers": 135,
+   "count": 27,
+   "byKind": {
+    "kicks": 1000,
+    "outfit": 15900,
+    "pickaxe": 3600,
+    "backpack": 300,
+    "wrap": 1500,
+    "emote": 1100,
+    "glider": 2900
+   },
+   "src": "itemshop.gg"
+  },
+  {
+   "date": "2026-03-13",
+   "offers": 120,
+   "count": 25,
+   "byKind": {
+    "emote": 2500,
+    "glider": 800,
+    "other": 1200,
+    "pickaxe": 3000,
+    "outfit": 9300,
+    "wrap": 300,
+    "backpack": 900
+   },
+   "src": "itemshop.gg"
+  },
+  {
+   "date": "2026-03-14",
+   "offers": 85,
+   "count": 22,
+   "byKind": {
+    "outfit": 9500,
+    "pickaxe": 2600,
+    "kicks": 3600,
+    "wrap": 1000,
+    "glider": 500,
+    "emote": 500,
+    "backpack": 700
+   },
+   "src": "itemshop.gg"
+  },
+  {
+   "date": "2026-03-15",
+   "offers": 86,
+   "count": 38,
+   "byKind": {
+    "outfit": 19500,
+    "glider": 2800,
+    "pickaxe": 5000,
+    "kicks": 2000,
+    "emote": 5300,
+    "wrap": 300
+   },
+   "src": "itemshop.gg"
+  },
+  {
+   "date": "2026-03-16",
+   "offers": 118,
+   "count": 47,
+   "byKind": {
+    "wrap": 1000,
+    "outfit": 31800,
+    "emote": 1800,
+    "backpack": 1500,
+    "pickaxe": 4500,
+    "kicks": 600
+   },
+   "src": "itemshop.gg"
+  },
+  {
+   "date": "2026-03-17",
+   "offers": 140,
+   "count": 34,
+   "byKind": {
+    "emote": 3700,
+    "outfit": 14700,
+    "pickaxe": 4200,
+    "backpack": 600,
+    "glider": 1300,
+    "wrap": 800
+   },
+   "src": "itemshop.gg"
+  },
+  {
+   "date": "2026-03-18",
+   "offers": 127,
+   "count": 43,
+   "byKind": {
+    "outfit": 29500,
+    "sidekick": 2400,
+    "kicks": 3600,
+    "pickaxe": 3700,
+    "emote": 2400,
+    "wrap": 500,
+    "glider": 500,
+    "backpack": 200,
+    "other": 800
+   },
+   "src": "itemshop.gg"
+  },
+  {
+   "date": "2026-03-19",
+   "offers": 130,
+   "count": 23,
+   "byKind": {
+    "outfit": 12500,
+    "glider": 1700,
+    "emote": 3300,
+    "pickaxe": 2100,
+    "backpack": 300
+   },
+   "src": "itemshop.gg"
+  },
+  {
+   "date": "2026-03-20",
+   "offers": 103,
+   "count": 27,
+   "byKind": {
+    "emote": 2400,
+    "glider": 500,
+    "outfit": 13200,
+    "wrap": 1500,
+    "pickaxe": 2400,
+    "backpack": 800
+   },
+   "src": "itemshop.gg"
+  },
+  {
+   "date": "2026-03-21",
+   "offers": 135,
+   "count": 55,
+   "byKind": {
+    "wrap": 1400,
+    "outfit": 33800,
+    "glider": 1600,
+    "pickaxe": 4000,
+    "kicks": 2800,
+    "emote": 4600,
+    "backpack": 1700
+   },
+   "src": "itemshop.gg"
+  },
+  {
+   "date": "2026-03-22",
+   "offers": 127,
+   "count": 44,
+   "byKind": {
+    "backpack": 1700,
+    "pickaxe": 6200,
+    "emote": 2500,
+    "outfit": 17400,
+    "wrap": 2000,
+    "glider": 1700,
+    "kicks": 2200
+   },
+   "src": "itemshop.gg"
+  },
+  {
+   "date": "2026-03-23",
+   "offers": 135,
+   "count": 37,
+   "byKind": {
+    "emote": 3300,
+    "outfit": 16100,
+    "pickaxe": 4400,
+    "wrap": 1500,
+    "backpack": 600,
+    "sidekick": 1200,
+    "glider": 800,
+    "kicks": 800
+   },
+   "src": "itemshop.gg"
+  },
+  {
+   "date": "2026-03-24",
+   "offers": 149,
+   "count": 26,
+   "byKind": {
+    "outfit": 17500,
+    "emote": 1800,
+    "glider": 2400,
+    "pickaxe": 1600,
+    "kicks": 2000,
+    "backpack": 400
+   },
+   "src": "itemshop.gg"
+  },
+  {
+   "date": "2026-03-25",
+   "offers": 129,
+   "count": 31,
+   "byKind": {
+    "kicks": 3600,
+    "pickaxe": 2600,
+    "outfit": 11000,
+    "emote": 2700,
+    "wrap": 2000,
+    "glider": 800,
+    "backpack": 300,
+    "sidekick": 2400
+   },
+   "src": "itemshop.gg"
+  },
+  {
+   "date": "2026-03-26",
+   "offers": 126,
+   "count": 37,
+   "byKind": {
+    "outfit": 17900,
+    "emote": 1700,
+    "pickaxe": 6100,
+    "glider": 4800,
+    "contrail": 1200,
+    "backpack": 300,
+    "wrap": 1000,
+    "kicks": 600
+   },
+   "src": "itemshop.gg"
+  },
+  {
+   "date": "2026-03-27",
+   "offers": 126,
+   "count": 0,
+   "byKind": {},
+   "src": "itemshop.gg"
+  },
+  {
+   "date": "2026-03-28",
+   "offers": 144,
+   "count": 75,
+   "byKind": {
+    "outfit": 42500,
+    "emote": 4500,
+    "kicks": 7000,
+    "wrap": 1000,
+    "glider": 4800,
+    "pickaxe": 11600,
+    "backpack": 2800,
+    "car": 400
+   },
+   "src": "itemshop.gg"
+  },
+  {
+   "date": "2026-03-29",
+   "offers": 147,
+   "count": 74,
+   "byKind": {
+    "backpack": 2200,
+    "pickaxe": 7300,
+    "bundle": 39700,
+    "emote": 2200,
+    "outfit": 26900,
+    "wrap": 2500,
+    "kicks": 3000,
+    "contrail": 2000,
+    "glider": 2000
+   },
+   "src": "itemshop.gg"
+  },
+  {
+   "date": "2026-03-30",
+   "offers": 226,
+   "count": 105,
+   "byKind": {
+    "jamtrack": 27500,
+    "bundle": 10000,
+    "outfit": 31800,
+    "glider": 2700,
+    "pickaxe": 4600,
+    "emote": 3700,
+    "sidekick": 1200,
+    "backpack": 1100,
+    "wrap": 500
+   },
+   "src": "itemshop.gg"
+  },
+  {
+   "date": "2026-03-31",
+   "offers": 197,
+   "count": 58,
+   "byKind": {
+    "outfit": 23300,
+    "glider": 2000,
+    "emote": 2100,
+    "wrap": 1000,
+    "bundle": 7500,
+    "pickaxe": 4500,
+    "sidekick": 3000,
+    "kicks": 3400,
+    "jamtrack": 6000
+   },
+   "src": "itemshop.gg"
+  },
+  {
+   "date": "2026-04-01",
+   "offers": 178,
+   "count": 22,
+   "byKind": {
+    "sidekick": 1500,
+    "emote": 3400,
+    "outfit": 5500,
+    "glider": 2000,
+    "pickaxe": 500,
+    "car": 3000,
+    "other": 6000
+   },
+   "src": "itemshop.gg"
+  },
+  {
+   "date": "2026-04-02",
+   "offers": 205,
+   "count": 61,
+   "byKind": {
+    "outfit": 29900,
+    "wrap": 2300,
+    "emote": 2000,
+    "kicks": 2400,
+    "bundle": 4300,
+    "sidekick": 1200,
+    "pickaxe": 1600,
+    "glider": 800,
+    "backpack": 5400,
+    "car": 800
+   },
+   "src": "itemshop.gg"
+  },
+  {
+   "date": "2026-04-03",
+   "offers": 239,
+   "count": 130,
+   "byKind": {
+    "outfit": 23100,
+    "pickaxe": 7600,
+    "sidekick": 3000,
+    "bundle": 22200,
+    "emote": 5300,
+    "glider": 2000,
+    "backpack": 5100,
+    "wrap": 1500,
+    "kicks": 4400,
+    "car": 1100,
+    "jamtrack": 24500
+   },
+   "src": "itemshop.gg"
+  },
+  {
+   "date": "2026-04-04",
+   "offers": 260,
+   "count": 34,
+   "byKind": {
+    "outfit": 15400,
+    "wrap": 3000,
+    "pickaxe": 2900,
+    "bundle": 9500,
+    "backpack": 1300,
+    "emote": 700,
+    "car": 800
+   },
+   "src": "itemshop.gg"
+  },
+  {
+   "date": "2026-04-05",
+   "offers": 267,
+   "count": 45,
+   "byKind": {
+    "bundle": 11200,
+    "pickaxe": 5600,
+    "emote": 2800,
+    "outfit": 12800,
+    "instrument": 2800,
+    "backpack": 2500,
+    "jamtrack": 500,
+    "glider": 2400,
+    "wrap": 1400
+   },
+   "src": "itemshop.gg"
+  },
+  {
+   "date": "2026-04-06",
+   "offers": 213,
+   "count": 20,
+   "byKind": {
+    "pickaxe": 2600,
+    "outfit": 5000,
+    "wrap": 800,
+    "jamtrack": 500,
+    "backpack": 1000,
+    "emote": 1300,
+    "bundle": 4300,
+    "glider": 500
+   },
+   "src": "itemshop.gg"
+  },
+  {
+   "date": "2026-04-07",
+   "offers": 197,
+   "count": 57,
+   "byKind": {
+    "bundle": 13300,
+    "emote": 2600,
+    "outfit": 12000,
+    "glider": 2800,
+    "pickaxe": 3700,
+    "sidekick": 2400,
+    "kicks": 3600,
+    "wrap": 300,
+    "backpack": 2100,
+    "car": 800,
+    "jamtrack": 6000
+   },
+   "src": "itemshop.gg"
+  },
+  {
+   "date": "2026-04-08",
+   "offers": 173,
+   "count": 26,
+   "byKind": {
+    "kicks": 1800,
+    "glider": 2000,
+    "emote": 900,
+    "pickaxe": 2900,
+    "outfit": 7200,
+    "bundle": 7900,
+    "backpack": 1000,
+    "wrap": 600
+   },
+   "src": "itemshop.gg"
+  },
+  {
+   "date": "2026-04-09",
+   "offers": 153,
+   "count": 21,
+   "byKind": {
+    "emote": 2300,
+    "outfit": 3800,
+    "wrap": 800,
+    "pickaxe": 1800,
+    "bundle": 3300,
+    "backpack": 1100,
+    "jamtrack": 500,
+    "glider": 800
+   },
+   "src": "itemshop.gg"
+  },
+  {
+   "date": "2026-04-10",
+   "offers": 194,
+   "count": 100,
+   "byKind": {
+    "jamtrack": 35600,
+    "backpack": 2800,
+    "emote": 3100,
+    "outfit": 12000,
+    "bundle": 12000,
+    "pickaxe": 5600,
+    "wrap": 2000,
+    "contrail": 600,
+    "kicks": 4000,
+    "glider": 500,
+    "car": 400
+   },
+   "src": "itemshop.gg"
+  },
+  {
+   "date": "2026-04-11",
+   "offers": 181,
+   "count": 37,
+   "byKind": {
+    "backpack": 1900,
+    "emote": 3100,
+    "sidekick": 1500,
+    "bundle": 13300,
+    "kicks": 1000,
+    "pickaxe": 2400,
+    "outfit": 12500,
+    "glider": 2400,
+    "car": 400
+   },
+   "src": "itemshop.gg"
+  },
+  {
+   "date": "2026-04-12",
+   "offers": 199,
+   "count": 44,
+   "byKind": {
+    "bundle": 16600,
+    "emote": 1300,
+    "pickaxe": 5800,
+    "outfit": 12200,
+    "wrap": 1500,
+    "glider": 2000,
+    "backpack": 3000,
+    "kicks": 600
+   },
+   "src": "itemshop.gg"
+  },
+  {
+   "date": "2026-04-13",
+   "offers": 199,
+   "count": 0,
+   "byKind": {},
+   "src": "itemshop.gg"
+  },
+  {
+   "date": "2026-04-14",
+   "offers": 236,
+   "count": 81,
+   "byKind": {
+    "emote": 4100,
+    "bundle": 11300,
+    "outfit": 24600,
+    "pickaxe": 6100,
+    "glider": 2100,
+    "wrap": 800,
+    "sidekick": 2400,
+    "kicks": 3400,
+    "backpack": 4500,
+    "car": 600,
+    "jamtrack": 5000
+   },
+   "src": "itemshop.gg"
+  },
+  {
+   "date": "2026-04-15",
+   "offers": 239,
+   "count": 46,
+   "byKind": {
+    "emote": 5500,
+    "bundle": 8600,
+    "outfit": 10800,
+    "glider": 4400,
+    "pickaxe": 4500,
+    "wrap": 1800,
+    "jamtrack": 500,
+    "backpack": 1400,
+    "kicks": 600
+   },
+   "src": "itemshop.gg"
+  },
+  {
+   "date": "2026-04-16",
+   "offers": 190,
+   "count": 24,
+   "byKind": {
+    "outfit": 7000,
+    "jamtrack": 1500,
+    "contrail": 600,
+    "emote": 1700,
+    "backpack": 1300,
+    "bundle": 3600,
+    "wrap": 300,
+    "pickaxe": 800,
+    "glider": 1300
+   },
+   "src": "itemshop.gg"
+  },
+  {
+   "date": "2026-04-17",
+   "offers": 245,
+   "count": 136,
+   "byKind": {
+    "bundle": 18700,
+    "emote": 5100,
+    "pickaxe": 8200,
+    "backpack": 7100,
+    "outfit": 30800,
+    "wrap": 500,
+    "jamtrack": 24500,
+    "glider": 500,
+    "kicks": 3800
+   },
+   "src": "itemshop.gg"
+  },
+  {
+   "date": "2026-04-18",
+   "offers": 244,
+   "count": 44,
+   "byKind": {
+    "outfit": 17000,
+    "wrap": 3500,
+    "pickaxe": 3400,
+    "bundle": 6600,
+    "emote": 1600,
+    "backpack": 2400,
+    "kicks": 1000,
+    "glider": 1600
+   },
+   "src": "itemshop.gg"
+  },
+  {
+   "date": "2026-04-19",
+   "offers": 206,
+   "count": 64,
+   "byKind": {
+    "emote": 4200,
+    "sidekick": 1200,
+    "outfit": 22500,
+    "glider": 6800,
+    "wrap": 3500,
+    "bundle": 16000,
+    "kicks": 2400,
+    "pickaxe": 5700,
+    "backpack": 900,
+    "instrument": 5200,
+    "jamtrack": 1000
+   },
+   "src": "itemshop.gg"
+  },
+  {
+   "date": "2026-04-20",
+   "offers": 206,
+   "count": 0,
+   "byKind": {},
+   "src": "itemshop.gg"
+  },
+  {
+   "date": "2026-04-21",
+   "offers": 259,
+   "count": 134,
+   "byKind": {
+    "emote": 4800,
+    "outfit": 20000,
+    "bundle": 19300,
+    "pickaxe": 12000,
+    "glider": 4400,
+    "wrap": 1700,
+    "backpack": 6800,
+    "jamtrack": 20500,
+    "sidekick": 2400,
+    "other": 1200,
+    "kicks": 3600,
+    "car": 400
+   },
+   "src": "itemshop.gg"
+  },
+  {
+   "date": "2026-04-22",
+   "offers": 270,
+   "count": 39,
+   "byKind": {
+    "outfit": 14900,
+    "bundle": 5700,
+    "pickaxe": 5300,
+    "glider": 2800,
+    "kicks": 1000,
+    "wrap": 1500,
+    "emote": 1100,
+    "backpack": 2100
+   },
+   "src": "itemshop.gg"
+  },
+  {
+   "date": "2026-04-23",
+   "offers": 243,
+   "count": 19,
+   "byKind": {
+    "emote": 2400,
+    "bundle": 3500,
+    "pickaxe": 1500,
+    "outfit": 5300,
+    "wrap": 500,
+    "backpack": 500
+   },
+   "src": "itemshop.gg"
+  },
+  {
+   "date": "2026-04-24",
+   "offers": 218,
+   "count": 80,
+   "byKind": {
+    "sidekick": 1500,
+    "outfit": 10400,
+    "kicks": 4000,
+    "glider": 800,
+    "wrap": 500,
+    "emote": 900,
+    "bundle": 3700,
+    "pickaxe": 3200,
+    "backpack": 2100,
+    "jamtrack": 24000
+   },
+   "src": "itemshop.gg"
+  },
+  {
+   "date": "2026-04-25",
+   "offers": 185,
+   "count": 50,
+   "byKind": {
+    "outfit": 20000,
+    "backpack": 3400,
+    "wrap": 1000,
+    "kicks": 1000,
+    "bundle": 11400,
+    "pickaxe": 5100,
+    "glider": 1600,
+    "emote": 2600,
+    "contrail": 2000
+   },
+   "src": "itemshop.gg"
+  },
+  {
+   "date": "2026-04-26",
+   "offers": 237,
+   "count": 89,
+   "byKind": {
+    "backpack": 5400,
+    "pickaxe": 9200,
+    "emote": 3800,
+    "bundle": 23200,
+    "glider": 5800,
+    "outfit": 28100,
+    "wrap": 1800,
+    "contrail": 600,
+    "kicks": 2600
+   },
+   "src": "itemshop.gg"
+  },
+  {
+   "date": "2026-04-27",
+   "offers": 255,
+   "count": 49,
+   "byKind": {
+    "emote": 3200,
+    "outfit": 26700,
+    "pickaxe": 2900,
+    "bundle": 7600,
+    "wrap": 1700,
+    "backpack": 2000,
+    "sidekick": 1200,
+    "kicks": 600,
+    "glider": 1600
+   },
+   "src": "itemshop.gg"
+  },
+  {
+   "date": "2026-04-28",
+   "offers": 302,
+   "count": 93,
+   "byKind": {
+    "pickaxe": 7700,
+    "wrap": 1800,
+    "bundle": 12600,
+    "outfit": 37200,
+    "emote": 3900,
+    "backpack": 6700,
+    "jamtrack": 4500,
+    "glider": 1600,
+    "sidekick": 2700,
+    "kicks": 3200
+   },
+   "src": "itemshop.gg"
+  },
+  {
+   "date": "2026-04-29",
+   "offers": 320,
+   "count": 52,
+   "byKind": {
+    "outfit": 17700,
+    "emote": 4500,
+    "bundle": 11200,
+    "glider": 3500,
+    "pickaxe": 5100,
+    "wrap": 500,
+    "backpack": 3000
+   },
+   "src": "itemshop.gg"
+  },
+  {
+   "date": "2026-04-30",
+   "offers": 276,
+   "count": 53,
+   "byKind": {
+    "outfit": 18600,
+    "backpack": 4400,
+    "bundle": 8700,
+    "pickaxe": 7900,
+    "emote": 2300,
+    "glider": 1200,
+    "wrap": 1500
+   },
+   "src": "itemshop.gg"
+  },
+  {
+   "date": "2026-05-01",
+   "offers": 378,
+   "count": 196,
+   "byKind": {
+    "outfit": 26400,
+    "pickaxe": 8800,
+    "bundle": 25200,
+    "backpack": 4700,
+    "emote": 3300,
+    "glider": 5600,
+    "wrap": 2100,
+    "kicks": 3800,
+    "jamtrack": 57000
+   },
+   "src": "itemshop.gg"
+  },
+  {
    "date": "2026-05-02",
    "offers": 381,
    "gapBefore": true,
@@ -5059,14 +10865,662 @@
   "eid_handslap",
   "eid_vitality"
  ],
- "first": "2026-05-02",
+ "first": "2025-05-04",
  "last": "2026-11-14",
  "sources": [
   {
    "name": "Fortnite-Datamining archive",
    "url": "https://github.com/Fortnite-Datamining/Fortnite-Datamining/tree/history/shop",
    "from": "2026-05-02"
+  },
+  {
+   "name": "itemshop.gg",
+   "url": "https://itemshop.gg/fortnite",
+   "attribution": "Data from itemshop.gg",
+   "from": "2025-05-04"
   }
  ],
- "oldTail": null
+ "oldTail": {
+  "offers": [
+   "Character_RankedTrooperNoble",
+   "Character_StrayManta",
+   "Pickaxe_StrayManta",
+   "StrayManta_Bundle",
+   "Backpack_StrayManta",
+   "EID_Obstruct",
+   "EID_GoldenGlory",
+   "EID_Perish",
+   "EID_Undead",
+   "EID_Macaroon_45LHE",
+   "EID_Socks_XA9HM",
+   "EID_SuperSalty",
+   "EID_Melody",
+   "ZedThirty_Bundle",
+   "SkirmishBundle",
+   "CID_A_023_Athena_Commando_M_Skirmish_W1N7H",
+   "CID_A_024_Athena_Commando_F_Skirmish_QW2BQ",
+   "Glider_ID_305_QuarrelMale_ZTHTQ",
+   "Glider_ID_365_RumbleFemale",
+   "QuarrelBundle",
+   "CID_A_162_Athena_Commando_F_Quarrel_E5D63",
+   "CID_A_161_Athena_Commando_M_Quarrel_SLXQG",
+   "Pickaxe_ID_791_RumbleFemale",
+   "Pickaxe_ID_646_QuarrelMale_PTOBI",
+   "Pickaxe_ID_792_RumbleMale",
+   "CID_A_384_Athena_Commando_M_Rumble",
+   "Pickaxe_ID_554_SkirmishMale_ML78Q",
+   "RumbleBundle",
+   "CID_A_385_Athena_Commando_F_Rumble",
+   "Pickaxe_ID_553_SkirmishFemale_J2JXX",
+   "QuarrelGear_Bundle",
+   "Pickaxe_ID_645_QuarrelFemale_W3B7A",
+   "RumbleGearBundle",
+   "Glider_ID_277_Skirmish_9KK2W",
+   "SkirmishGearBundle",
+   "Backpack_TwilightSpotSpell",
+   "Wrap_TwilightSpot",
+   "EID_TwilightSpot_Hand",
+   "Backpack_TwilightSpotShine",
+   "EID_TwilightSpot",
+   "Pickaxe_TwilightSpotSpell",
+   "Character_TwilightSpotSpell",
+   "Character_TwilightSpotShine",
+   "TwilightSpot_Bundle",
+   "Character_Troops",
+   "Backpack_TweakSmirk",
+   "Character_ChoiceCrave",
+   "Character_TweakSmirk",
+   "TweakSmirk_Bundle",
+   "Pickaxe_TweakSmirk",
+   "Backpack_ChoiceCrave",
+   "Pickaxe_ChoiceCrave",
+   "EID_IvyStub",
+   "Backpack_IvyStub",
+   "Character_ArmyFlour",
+   "Pickaxe_IvyStub",
+   "IgniteEgg_Bundle",
+   "Character_IgniteEgg",
+   "Character_IvyStub",
+   "Glider_IgniteEgg",
+   "Pickaxe_ArmyFlour",
+   "Pickaxe_IgniteEgg",
+   "EID_IgniteEgg",
+   "EID_IgniteEgg_Jab",
+   "Wrap_IgniteEgg",
+   "Pickaxe_IgniteEgg_DrumStick",
+   "Pickaxe_IvyStub_Mic",
+   "Backpack_IgniteEgg_DrumStick",
+   "Backpack_IvyStub_Mic",
+   "Backpack_IgniteEgg",
+   "Backpack_ArmyFlour",
+   "CID_745_Athena_Commando_M_RavenQuill",
+   "EID_Donut2",
+   "DonutAccessoriesBundle",
+   "Glider_ID_206_Donut",
+   "EID_Donut1",
+   "Pickaxe_ID_382_Donut1H",
+   "CID_746_Athena_Commando_F_FuzzyBear",
+   "DeadpoolMashupBundle",
+   "Character_SteakSting",
+   "Quartz_Bundle",
+   "Pickle_Bundle",
+   "Pickaxe_BirdNest",
+   "Wrap_BirdNest",
+   "Pickaxe_VectorSpark",
+   "PigeonChart_Bundle",
+   "Character_PigeonChart",
+   "Character_ApplePound",
+   "EID_PigeonChart",
+   "EID_WormChalk",
+   "Wrap_PigeonChart",
+   "Character_BirdNest",
+   "Character_FloodPlain",
+   "Pickaxe_RoosterMeltMouse",
+   "Character_BirdNestNavy",
+   "Character_RoosterMelt",
+   "EID_VectorSparkv3",
+   "VectorSpark_Bundle",
+   "Character_VectorSpark",
+   "Character_WormChalk",
+   "ApplePoundGear_Static_Bundle",
+   "Backpack_BirdNest",
+   "RoosterMelt_Bundle",
+   "BirdNest_Bundle",
+   "CID_802_Athena_Commando_F_HeartBreaker",
+   "CID_658_Athena_Commando_F_ToyMonkey",
+   "CID_A_069_Athena_Commando_M_Accumulate",
+   "Character_MechPilotSharkVelocity",
+   "CID_328_Athena_Commando_F_Tennis",
+   "CID_A_326_Athena_Commando_M_SharpDresserBlack",
+   "CID_A_229_Athena_Commando_F_DisguiseBlack",
+   "CID_397_Athena_Commando_F_TreasureHunterFashion",
+   "Backpack_MarchTreatCup",
+   "Backpack_MarchTreat_Mic",
+   "sid_placeholder_723",
+   "MarchTreat_Bundle",
+   "EID_MarchTreatCup",
+   "Pickaxe_MarchTreat_Guitar",
+   "Pickaxe_MarchTreat_Mic",
+   "Wrap_MarchTreatCup",
+   "Backpack_MarchTreatBay",
+   "Character_MarchTreatCup",
+   "Character_MarchTreatBay",
+   "BatterBoi_Bundle",
+   "Character_BatterBoi",
+   "Pickaxe_BatterBoi",
+   "Wrap_BatterBoi",
+   "Pickaxe_BatterBoi_Bass",
+   "EID_Flapper",
+   "Glider_ID_095_Witch",
+   "Pickaxe_ID_172_BandageNinja",
+   "Pickaxe_ID_138_Gnome",
+   "CID_740_Athena_Commando_F_CardboardCrew",
+   "Pickaxe_ID_025_Dragon",
+   "Architect_Constellation_Bundle",
+   "Glider_ID_229_Angler",
+   "Pickaxe_DyedDuelist",
+   "Wrap_112_ZeroPointEnergy",
+   "Wrap_139_Prismatic",
+   "Fruitcake_Bundle",
+   "CID_A_456_Athena_Commando_F_Fruitcake",
+   "Pickaxe_ID_830_FruitcakeFemale",
+   "Wrap_505_Fruitcake",
+   "Backpack_BatterBoi",
+   "Character_MochiWoof",
+   "Architect_WinterGhoul_Bundle",
+   "CID_317_Athena_Commando_M_WinterGhoul",
+   "Glider_ID_107_IceMaiden",
+   "EID_Doublesnap",
+   "Wrap_186_SnowGlobe",
+   "Pickaxe_ID_219_BandageNinja1H",
+   "EID_KpopDance04",
+   "CID_300_Athena_Commando_F_Angel",
+   "CID_362_Athena_Commando_F_BandageNinja",
+   "Architect_AngelGnome_Bundle",
+   "CID_361_Athena_Commando_M_BandageNinja",
+   "Pickaxe_MochiWoof",
+   "Companion_SesameWarp",
+   "Backpack_MochiWoof",
+   "Character_BiomeHose",
+   "Backpack_BiomeHose",
+   "Wrap_BiomeHose",
+   "Shoes_BiomeHoseWorry",
+   "Character_WordUnity",
+   "Pickaxe_WordUnity",
+   "BiomeHose_Bundle",
+   "Pickaxe_BiomeHose",
+   "Backpack_WordUnity",
+   "Backpack_SteelStomper",
+   "Pickaxe_SteelStomper",
+   "Character_Looper",
+   "Pickaxe_Looper",
+   "SteelStomper_Bundle",
+   "Character_SteelStomper",
+   "Looper_Bundle",
+   "Backpack_Looper",
+   "Contrail_IndoorLaceScore",
+   "Backpack_IndoorLaceScore",
+   "EID_IndoorLaceBeat",
+   "Wrap_IndoorLaceBeat",
+   "EID_LovelyCurse",
+   "Scrolls_Bundle",
+   "EID_Scrolls",
+   "Backpack_IndoorLace_Mic",
+   "Character_IndoorLaceScore",
+   "sid_placeholder_763",
+   "IndoorLace_Bundle",
+   "Pickaxe_IndoorLace_Mic",
+   "sid_placeholder_691",
+   "sid_placeholder_765",
+   "Backpack_RumbleBeat",
+   "Pickaxe_RampageDiva",
+   "Backpack_RampageDiva",
+   "Character_RampageDiva_Jade",
+   "Wrap_RimeSkate",
+   "Companion_BurrBaby",
+   "Shoes_DraughtWhetRazz",
+   "RampageDivaTools_Bundle",
+   "Pickaxe_RumbleBeat",
+   "Pickaxe_RimeSkate",
+   "Shoes_NorthStompers",
+   "Wrap_RampageDiva",
+   "Character_PlumedStare",
+   "Shoes_DraughtWhetReap",
+   "CID_266_Athena_Commando_F_LlamaRider",
+   "Character_RumbleBeat_Beach",
+   "Backpack_RimeSkate",
+   "Wrap_RumbleBeat",
+   "EID_RainbowRaid",
+   "Character_RimeSkate_Plow",
+   "RampageDiva_Bundle",
+   "CID_A_226_Athena_Commando_M_SweetTeriyakiRed",
+   "DraughtWhetRazz_Bundle",
+   "Companion_ShadowLap",
+   "Glider_ID_207_InformerMale",
+   "Character_FrostMystery",
+   "Shoes_KittenEmbarkEraser",
+   "Shoes_DripUrgeLobe",
+   "CID_460_Athena_Commando_F_BriteBomberSummer",
+   "CID_A_308_Athena_Commando_F_Sunshine",
+   "Character_CommandoSpy",
+   "CID_735_Athena_Commando_M_Informer",
+   "Shoes_BreathTaleYarrow",
+   "CID_553_Athena_Commando_M_BrightGunnerRemix",
+   "Shoes_KittenEmbarkPencil",
+   "Wrap_087_BriteBomberSummer",
+   "Backpack_WormChalk",
+   "BID_743_Accumulate",
+   "BID_225_BandageNinjaMale",
+   "BID_191_WinterGhoulMale",
+   "Backpack_SteakSting",
+   "BID_884_DisguiseFemale",
+   "BID_930_Sunshine",
+   "EID_VectorSparkv2",
+   "BID_702_SkirmishFemale_P9FE3",
+   "Backpack_PigeonChart",
+   "BID_525_RavenQuillDonut",
+   "BID_820_QuarrelFemale_7CW31",
+   "BID_880_SweetTeriyakiRed",
+   "BID_447_ToyMonkey",
+   "Pickaxe_ID_278_BrightGunnerRemix1H",
+   "Backpack_VectorSpark",
+   "BID_987_Rumble_Female",
+   "Backpack_Troops",
+   "BID_178_Angel",
+   "Backpack_MarchTreat_Guitar",
+   "BID_299_BriteBomberSummer",
+   "BID_A_045_FruitcakeFemale",
+   "BID_701_SkirmishMale_5LH4I",
+   "Backpack_BatterBoi_Bass",
+   "Backpack_PlumedStare",
+   "BID_505_Informer",
+   "Backpack_TroopsAlt",
+   "EID_Troops",
+   "BID_526_FuzzyBearDonut",
+   "BID_226_BandageNinjaFemale",
+   "BID_555_HeartBreaker",
+   "BID_821_QuarrelMale_IKIS8",
+   "BID_204_TennisFemale",
+   "BID_988_Rumble",
+   "Backpack_RoosterMelt",
+   "Backpack_FloodPlain",
+   "sid_placeholder_57",
+   "sid_placeholder_726",
+   "sid_placeholder_53",
+   "sid_placeholder_85",
+   "sid_placeholder_574",
+   "sid_placeholder_29",
+   "sid_placeholder_491",
+   "sid_placeholder_588",
+   "sid_placeholder_40",
+   "sid_placeholder_636",
+   "sid_placeholder_453",
+   "sid_placeholder_191",
+   "sid_placeholder_505",
+   "sid_placeholder_261",
+   "sid_placeholder_200",
+   "sid_placeholder_664",
+   "sid_placeholder_125",
+   "sid_placeholder_348",
+   "sid_placeholder_382",
+   "sid_placeholder_217",
+   "sid_placeholder_80",
+   "sid_placeholder_272",
+   "sid_placeholder_349",
+   "sid_placeholder_729",
+   "sid_placeholder_237",
+   "sid_placeholder_62",
+   "sid_placeholder_118",
+   "sid_placeholder_615",
+   "sid_placeholder_688",
+   "sid_placeholder_762",
+   "sid_placeholder_95",
+   "sid_placeholder_140",
+   "sid_placeholder_278",
+   "sid_placeholder_249",
+   "sid_placeholder_783",
+   "sid_placeholder_405",
+   "sid_placeholder_455",
+   "sid_placeholder_730",
+   "sid_placeholder_342",
+   "sid_placeholder_432",
+   "sid_placeholder_110",
+   "sid_placeholder_158",
+   "sid_placeholder_462",
+   "sid_placeholder_49",
+   "sid_placeholder_561",
+   "sid_placeholder_45",
+   "sid_placeholder_09",
+   "sid_placeholder_547",
+   "sid_placeholder_419",
+   "sid_placeholder_786",
+   "sid_placeholder_269",
+   "sid_placeholder_228",
+   "sid_placeholder_445",
+   "sid_placeholder_121",
+   "sid_placeholder_202",
+   "sid_placeholder_506",
+   "sid_placeholder_100",
+   "sid_placeholder_582",
+   "sid_placeholder_581",
+   "sid_placeholder_666",
+   "sid_placeholder_253",
+   "sid_placeholder_328",
+   "sid_placeholder_670",
+   "sid_placeholder_528",
+   "sid_placeholder_31",
+   "sid_placeholder_497",
+   "sid_placeholder_508",
+   "sid_placeholder_132",
+   "sid_placeholder_541",
+   "sid_placeholder_284",
+   "sid_placeholder_70",
+   "sid_placeholder_157",
+   "sid_placeholder_271",
+   "sid_placeholder_495",
+   "sid_placeholder_529",
+   "sid_placeholder_291",
+   "sid_placeholder_266",
+   "sid_placeholder_744",
+   "sid_placeholder_48",
+   "sid_placeholder_283",
+   "sid_placeholder_733",
+   "sid_placeholder_130",
+   "sid_placeholder_536",
+   "sid_placeholder_598",
+   "sid_placeholder_281",
+   "sid_placeholder_301",
+   "sid_placeholder_270",
+   "sid_placeholder_160",
+   "sid_placeholder_203",
+   "sid_placeholder_307",
+   "sid_placeholder_22",
+   "sid_placeholder_649",
+   "sid_placeholder_218",
+   "sid_placeholder_327",
+   "sid_placeholder_300",
+   "sid_placeholder_759",
+   "sid_placeholder_36",
+   "sid_placeholder_430",
+   "sid_placeholder_743",
+   "sid_placeholder_451",
+   "sid_placeholder_11",
+   "sid_placeholder_417",
+   "sid_placeholder_24",
+   "sid_placeholder_334",
+   "sid_placeholder_51",
+   "sid_placeholder_665",
+   "sid_placeholder_260",
+   "sid_placeholder_285",
+   "sid_placeholder_117",
+   "sid_placeholder_10",
+   "sid_placeholder_19",
+   "sid_placeholder_761",
+   "sid_placeholder_563",
+   "sid_placeholder_394",
+   "sid_placeholder_716",
+   "sid_placeholder_28"
+  ],
+  "items": [
+   "character_rankedtroopernoble",
+   "character_straymanta",
+   "pickaxe_straymanta",
+   "straymanta_bundle",
+   "backpack_straymanta",
+   "eid_obstruct",
+   "eid_goldenglory",
+   "eid_perish",
+   "eid_undead",
+   "eid_macaroon_45lhe",
+   "eid_socks_xa9hm",
+   "eid_supersalty",
+   "eid_melody",
+   "zedthirty_bundle",
+   "skirmishbundle",
+   "cid_a_023_athena_commando_m_skirmish_w1n7h",
+   "cid_a_024_athena_commando_f_skirmish_qw2bq",
+   "glider_id_305_quarrelmale_zthtq",
+   "glider_id_365_rumblefemale",
+   "quarrelbundle",
+   "cid_a_162_athena_commando_f_quarrel_e5d63",
+   "cid_a_161_athena_commando_m_quarrel_slxqg",
+   "pickaxe_id_791_rumblefemale",
+   "pickaxe_id_646_quarrelmale_ptobi",
+   "pickaxe_id_792_rumblemale",
+   "cid_a_384_athena_commando_m_rumble",
+   "pickaxe_id_554_skirmishmale_ml78q",
+   "rumblebundle",
+   "cid_a_385_athena_commando_f_rumble",
+   "pickaxe_id_553_skirmishfemale_j2jxx",
+   "quarrelgear_bundle",
+   "pickaxe_id_645_quarrelfemale_w3b7a",
+   "rumblegearbundle",
+   "glider_id_277_skirmish_9kk2w",
+   "skirmishgearbundle",
+   "backpack_twilightspotspell",
+   "wrap_twilightspot",
+   "eid_twilightspot_hand",
+   "backpack_twilightspotshine",
+   "eid_twilightspot",
+   "pickaxe_twilightspotspell",
+   "character_twilightspotspell",
+   "character_twilightspotshine",
+   "twilightspot_bundle",
+   "character_troops",
+   "backpack_tweaksmirk",
+   "character_choicecrave",
+   "character_tweaksmirk",
+   "tweaksmirk_bundle",
+   "pickaxe_tweaksmirk",
+   "backpack_choicecrave",
+   "pickaxe_choicecrave",
+   "eid_ivystub",
+   "backpack_ivystub",
+   "character_armyflour",
+   "pickaxe_ivystub",
+   "igniteegg_bundle",
+   "character_igniteegg",
+   "character_ivystub",
+   "glider_igniteegg",
+   "pickaxe_armyflour",
+   "pickaxe_igniteegg",
+   "eid_igniteegg",
+   "eid_igniteegg_jab",
+   "wrap_igniteegg",
+   "pickaxe_igniteegg_drumstick",
+   "pickaxe_ivystub_mic",
+   "backpack_igniteegg_drumstick",
+   "backpack_ivystub_mic",
+   "backpack_igniteegg",
+   "backpack_armyflour",
+   "cid_745_athena_commando_m_ravenquill",
+   "eid_donut2",
+   "donutaccessoriesbundle",
+   "glider_id_206_donut",
+   "eid_donut1",
+   "pickaxe_id_382_donut1h",
+   "cid_746_athena_commando_f_fuzzybear",
+   "deadpoolmashupbundle",
+   "character_steaksting",
+   "quartz_bundle",
+   "pickle_bundle",
+   "pickaxe_birdnest",
+   "wrap_birdnest",
+   "pickaxe_vectorspark",
+   "pigeonchart_bundle",
+   "character_pigeonchart",
+   "character_applepound",
+   "eid_pigeonchart",
+   "eid_wormchalk",
+   "wrap_pigeonchart",
+   "character_birdnest",
+   "character_floodplain",
+   "pickaxe_roostermeltmouse",
+   "character_birdnestnavy",
+   "character_roostermelt",
+   "eid_vectorsparkv3",
+   "vectorspark_bundle",
+   "character_vectorspark",
+   "character_wormchalk",
+   "applepoundgear_static_bundle",
+   "backpack_birdnest",
+   "roostermelt_bundle",
+   "birdnest_bundle",
+   "cid_802_athena_commando_f_heartbreaker",
+   "cid_658_athena_commando_f_toymonkey",
+   "cid_a_069_athena_commando_m_accumulate",
+   "character_mechpilotsharkvelocity",
+   "cid_328_athena_commando_f_tennis",
+   "cid_a_326_athena_commando_m_sharpdresserblack",
+   "cid_a_229_athena_commando_f_disguiseblack",
+   "cid_397_athena_commando_f_treasurehunterfashion",
+   "backpack_marchtreatcup",
+   "backpack_marchtreat_mic",
+   "marchtreat_bundle",
+   "eid_marchtreatcup",
+   "pickaxe_marchtreat_guitar",
+   "pickaxe_marchtreat_mic",
+   "wrap_marchtreatcup",
+   "backpack_marchtreatbay",
+   "character_marchtreatcup",
+   "character_marchtreatbay",
+   "batterboi_bundle",
+   "character_batterboi",
+   "pickaxe_batterboi",
+   "wrap_batterboi",
+   "pickaxe_batterboi_bass",
+   "eid_flapper",
+   "glider_id_095_witch",
+   "pickaxe_id_172_bandageninja",
+   "pickaxe_id_138_gnome",
+   "cid_740_athena_commando_f_cardboardcrew",
+   "pickaxe_id_025_dragon",
+   "architect_constellation_bundle",
+   "glider_id_229_angler",
+   "pickaxe_dyedduelist",
+   "wrap_112_zeropointenergy",
+   "wrap_139_prismatic",
+   "fruitcake_bundle",
+   "cid_a_456_athena_commando_f_fruitcake",
+   "pickaxe_id_830_fruitcakefemale",
+   "wrap_505_fruitcake",
+   "backpack_batterboi",
+   "character_mochiwoof",
+   "architect_winterghoul_bundle",
+   "cid_317_athena_commando_m_winterghoul",
+   "glider_id_107_icemaiden",
+   "eid_doublesnap",
+   "wrap_186_snowglobe",
+   "pickaxe_id_219_bandageninja1h",
+   "eid_kpopdance04",
+   "cid_300_athena_commando_f_angel",
+   "cid_362_athena_commando_f_bandageninja",
+   "architect_angelgnome_bundle",
+   "cid_361_athena_commando_m_bandageninja",
+   "pickaxe_mochiwoof",
+   "companion_sesamewarp",
+   "backpack_mochiwoof",
+   "character_biomehose",
+   "backpack_biomehose",
+   "wrap_biomehose",
+   "shoes_biomehoseworry",
+   "character_wordunity",
+   "pickaxe_wordunity",
+   "biomehose_bundle",
+   "pickaxe_biomehose",
+   "backpack_wordunity",
+   "backpack_steelstomper",
+   "pickaxe_steelstomper",
+   "character_looper",
+   "pickaxe_looper",
+   "steelstomper_bundle",
+   "character_steelstomper",
+   "looper_bundle",
+   "backpack_looper",
+   "contrail_indoorlacescore",
+   "backpack_indoorlacescore",
+   "eid_indoorlacebeat",
+   "wrap_indoorlacebeat",
+   "eid_lovelycurse",
+   "scrolls_bundle",
+   "eid_scrolls",
+   "backpack_indoorlace_mic",
+   "character_indoorlacescore",
+   "indoorlace_bundle",
+   "pickaxe_indoorlace_mic",
+   "backpack_rumblebeat",
+   "pickaxe_rampagediva",
+   "backpack_rampagediva",
+   "character_rampagediva_jade",
+   "wrap_rimeskate",
+   "companion_burrbaby",
+   "shoes_draughtwhetrazz",
+   "rampagedivatools_bundle",
+   "pickaxe_rumblebeat",
+   "pickaxe_rimeskate",
+   "shoes_northstompers",
+   "wrap_rampagediva",
+   "character_plumedstare",
+   "shoes_draughtwhetreap",
+   "cid_266_athena_commando_f_llamarider",
+   "character_rumblebeat_beach",
+   "backpack_rimeskate",
+   "wrap_rumblebeat",
+   "eid_rainbowraid",
+   "character_rimeskate_plow",
+   "rampagediva_bundle",
+   "cid_a_226_athena_commando_m_sweetteriyakired",
+   "draughtwhetrazz_bundle",
+   "companion_shadowlap",
+   "glider_id_207_informermale",
+   "character_frostmystery",
+   "shoes_kittenembarkeraser",
+   "shoes_dripurgelobe",
+   "cid_460_athena_commando_f_britebombersummer",
+   "cid_a_308_athena_commando_f_sunshine",
+   "character_commandospy",
+   "cid_735_athena_commando_m_informer",
+   "shoes_breathtaleyarrow",
+   "cid_553_athena_commando_m_brightgunnerremix",
+   "shoes_kittenembarkpencil",
+   "wrap_087_britebombersummer",
+   "backpack_wormchalk",
+   "bid_743_accumulate",
+   "bid_225_bandageninjamale",
+   "bid_191_winterghoulmale",
+   "backpack_steaksting",
+   "bid_884_disguisefemale",
+   "bid_930_sunshine",
+   "eid_vectorsparkv2",
+   "bid_702_skirmishfemale_p9fe3",
+   "backpack_pigeonchart",
+   "bid_525_ravenquilldonut",
+   "bid_820_quarrelfemale_7cw31",
+   "bid_880_sweetteriyakired",
+   "bid_447_toymonkey",
+   "pickaxe_id_278_brightgunnerremix1h",
+   "backpack_vectorspark",
+   "bid_987_rumble_female",
+   "backpack_troops",
+   "bid_178_angel",
+   "backpack_marchtreat_guitar",
+   "bid_299_britebombersummer",
+   "bid_a_045_fruitcakefemale",
+   "bid_701_skirmishmale_5lh4i",
+   "backpack_batterboi_bass",
+   "backpack_plumedstare",
+   "bid_505_informer",
+   "backpack_troopsalt",
+   "eid_troops",
+   "bid_526_fuzzybeardonut",
+   "bid_226_bandageninjafemale",
+   "bid_555_heartbreaker",
+   "bid_821_quarrelmale_ikis8",
+   "bid_204_tennisfemale",
+   "bid_988_rumble",
+   "backpack_roostermelt",
+   "backpack_floodplain"
+  ]
+ },
+ "isgAttribution": "https://itemshop.gg/fortnite"
 }
