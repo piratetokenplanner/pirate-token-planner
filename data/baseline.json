@@ -1,35 +1,35 @@
 {
  "goodDayExtra": {
   "glider": 604,
-  "bundle": 6403,
-  "pickaxe": 2127,
-  "outfit": 5803,
-  "backpack": 1465,
-  "wrap": 496,
-  "emote": 825,
-  "car": 223,
-  "kicks": 241,
-  "jamtrack": 9429,
-  "sidekick": 464,
+  "bundle": 6395,
+  "pickaxe": 2129,
+  "outfit": 5847,
+  "backpack": 1479,
+  "wrap": 500,
+  "emote": 836,
+  "car": 222,
+  "kicks": 247,
+  "jamtrack": 9449,
+  "sidekick": 462,
   "lego": 130,
   "contrail": 33
  },
  "meanDayByKind": {
   "glider": 1217,
-  "bundle": 11881,
-  "pickaxe": 3973,
-  "outfit": 15886,
-  "backpack": 3530,
-  "wrap": 1099,
-  "emote": 2713,
-  "car": 270,
-  "kicks": 1094,
-  "jamtrack": 4618,
-  "sidekick": 1094,
-  "lego": 43,
+  "bundle": 11889,
+  "pickaxe": 3971,
+  "outfit": 15842,
+  "backpack": 3517,
+  "wrap": 1095,
+  "emote": 2701,
+  "car": 271,
+  "kicks": 1088,
+  "jamtrack": 4597,
+  "sidekick": 1097,
+  "lego": 42,
   "contrail": 65
  },
- "method": "past shops 2026-05-02 to 2026-11-13",
+ "method": "past shops 2026-05-02 to 2026-11-14",
  "source": "https://github.com/Fortnite-Datamining/Fortnite-Datamining/tree/history/shop",
  "sources": [
   {
@@ -39,7 +39,7 @@
   }
  ],
  "windowFrom": "2026-05-03",
- "windowTo": "2026-11-13",
+ "windowTo": "2026-11-14",
  "days": [
   {
    "date": "2026-05-03",
@@ -2928,12 +2928,28 @@
     "glider": 500,
     "car": 400
    }
+  },
+  {
+   "date": "2026-11-14",
+   "count": 28,
+   "byKind": {
+    "pickaxe": 3700,
+    "bundle": 13300,
+    "backpack": 1100,
+    "sidekick": 1500,
+    "outfit": 8200,
+    "emote": 700,
+    "jamtrack": 1000,
+    "wrap": 500,
+    "glider": 1200,
+    "car": 400
+   }
   }
  ],
  "medianDayVbucks": 43700,
  "medianByKind": {
   "glider": 1200,
-  "bundle": 11000,
+  "bundle": 11100,
   "pickaxe": 3600,
   "outfit": 15000,
   "backpack": 3300,
@@ -2947,15 +2963,15 @@
   "contrail": 0
  },
  "medianStayDays": 3,
- "staySamples": 191,
+ "staySamples": 192,
  "survival": [
   1,
   0.87,
-  0.843,
+  0.842,
   0.645,
-  0.398,
-  0.251,
-  0.247,
+  0.399,
+  0.252,
+  0.248,
   0.073,
   0.068,
   0.064,
@@ -2963,14 +2979,14 @@
   0.023,
   0.023,
   0.023,
-  0.014,
+  0.015,
   0.012,
-  0.01,
-  0.01,
-  0.01,
-  0.01,
-  0.01,
-  0.01,
+  0.011,
+  0.011,
+  0.011,
+  0.011,
+  0.011,
+  0.011,
   0.01,
   0.01,
   0.01,
@@ -2980,6 +2996,6 @@
   0.007,
   0.007
  ],
- "survivalDays": 196,
- "snapshots": 196
+ "survivalDays": 197,
+ "snapshots": 197
 }

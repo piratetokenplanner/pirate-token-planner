@@ -16,7 +16,7 @@
     "mustContain": [
      "December 5"
     ],
-    "checkedAt": "2026-11-14T22:48:11.594Z",
+    "checkedAt": "2026-11-15T00:19:00.605Z",
     "reachable": true,
     "found": [
      {
@@ -33,7 +33,7 @@
     "mustContain": [
      "December 5"
     ],
-    "checkedAt": "2026-11-14T22:48:11.759Z",
+    "checkedAt": "2026-11-15T00:19:00.758Z",
     "reachable": true,
     "found": [
      {
@@ -42,7 +42,7 @@
      }
     ],
     "verified": true,
-    "hash": "ea82fd32f9419853",
+    "hash": "048f372254bf3dd1",
     "changedSinceLastCheck": true
    }
   ],
@@ -56,7 +56,7 @@
   "to": "2026-12-12",
   "claim": "pattern",
   "extraVbucks": 8000,
-  "basis": "Sized from every past season-launch week: the archive (May 2026 on) for the ones it covers, the long cosmetics history for older ones. What each brought above an average day, per item type, averaged. Launch weeks were not reliably bigger (June 2026 was below average, August and November above), so this can be small or even negative.",
+  "basis": "Sized from every past season-launch week in the shop archive: what each brought above an average day, per item type, averaged. Launch weeks were not reliably bigger (June 2026 was below average, August and November above), so this can be small or even negative.",
   "newsKeywords": [
    "chapter 8"
   ],
@@ -66,7 +66,7 @@
     "mustContain": [
      "Chapter 8"
     ],
-    "checkedAt": "2026-11-14T22:48:11.759Z",
+    "checkedAt": "2026-11-15T00:19:00.759Z",
     "reachable": true,
     "found": [
      {
@@ -110,19 +110,19 @@
   "status": "pattern",
   "fromHistory": {
    "byKind": {
-    "glider": -217,
-    "bundle": 3299.666666666668,
-    "pickaxe": -1211,
-    "outfit": 101,
-    "backpack": 1887.0000000000002,
-    "wrap": -258.6666666666667,
-    "emote": -289,
-    "car": 775.6666666666666,
-    "kicks": 2406.6666666666665,
-    "jamtrack": 37708.333333333336,
-    "sidekick": -459.99999999999983,
-    "lego": -298,
-    "contrail": -355
+    "glider": -216,
+    "bundle": 3242.666666666668,
+    "pickaxe": -1199.9999999999995,
+    "outfit": 407.99999999999955,
+    "backpack": 1983.9999999999998,
+    "wrap": -234.66666666666669,
+    "emote": -208,
+    "car": 770.6666666666667,
+    "kicks": 2450.666666666667,
+    "jamtrack": 37853.33333333333,
+    "sidekick": -476.00000000000017,
+    "lego": -296,
+    "contrail": -352
    },
    "from": [
     {
@@ -131,19 +131,19 @@
      "label": "Chapter 7 Season 3 launch week",
      "days": 7,
      "byKind": {
-      "glider": -3017,
-      "bundle": -31467,
-      "pickaxe": -12711,
-      "outfit": -19599,
-      "backpack": -2813,
-      "wrap": -2792,
-      "emote": 11,
-      "car": 1809,
-      "kicks": -1860,
-      "jamtrack": 26175,
-      "sidekick": -3760,
-      "lego": -298,
-      "contrail": -455
+      "glider": -3016,
+      "bundle": -31524,
+      "pickaxe": -12700,
+      "outfit": -19292,
+      "backpack": -2716,
+      "wrap": -2768,
+      "emote": 92,
+      "car": 1804,
+      "kicks": -1816,
+      "jamtrack": 26320,
+      "sidekick": -3776,
+      "lego": -296,
+      "contrail": -452
      }
     },
     {
@@ -152,19 +152,19 @@
      "label": "Chapter 7 Season 4 launch week",
      "days": 7,
      "byKind": {
-      "glider": 383,
-      "bundle": 12133,
-      "pickaxe": -1911,
-      "outfit": 7701,
-      "backpack": 187,
-      "wrap": 608,
-      "emote": -4589,
-      "car": 1209,
-      "kicks": 1740,
-      "jamtrack": 10675,
-      "sidekick": 3440,
-      "lego": -298,
-      "contrail": -155
+      "glider": 384,
+      "bundle": 12076,
+      "pickaxe": -1900,
+      "outfit": 8008,
+      "backpack": 284,
+      "wrap": 632,
+      "emote": -4508,
+      "car": 1204,
+      "kicks": 1784,
+      "jamtrack": 10820,
+      "sidekick": 3424,
+      "lego": -296,
+      "contrail": -152
      }
     },
     {
@@ -173,19 +173,19 @@
      "label": "Treasure Hunters launch week",
      "days": 7,
      "byKind": {
-      "glider": 1983,
-      "bundle": 29233,
-      "pickaxe": 10989,
-      "outfit": 12201,
-      "backpack": 8287,
-      "wrap": 1408,
-      "emote": 3711,
-      "car": -691,
-      "kicks": 7340,
-      "jamtrack": 76275,
-      "sidekick": -1060,
-      "lego": -298,
-      "contrail": -455
+      "glider": 1984,
+      "bundle": 29176,
+      "pickaxe": 11000,
+      "outfit": 12508,
+      "backpack": 8384,
+      "wrap": 1432,
+      "emote": 3792,
+      "car": -696,
+      "kicks": 7384,
+      "jamtrack": 76420,
+      "sidekick": -1076,
+      "lego": -296,
+      "contrail": -452
      }
     }
    ]
@@ -198,7 +198,7 @@
   "to": "2026-12-31",
   "claim": "pattern",
   "extraVbucks": 6000,
-  "basis": "Sized from Winterfest 2025 in the long cosmetics history (fortnite-api.com shop dates, typical prices): how much more arrived than in the weeks around it, applied to an average shop day. Until that history loads, an author estimate.",
+  "basis": "Sized from Winterfest 2025 (Dec 18, 2025 to Jan 1, 2026) once the shop history reaches back that far (an itemshop.gg key would add it); until then an author estimate.",
   "newsKeywords": [
    "winterfest"
   ],
@@ -208,7 +208,7 @@
     "mustContain": [
      "Winterfest"
     ],
-    "checkedAt": "2026-11-14T22:48:12.277Z",
+    "checkedAt": "2026-11-15T00:19:01.281Z",
     "reachable": true,
     "found": [
      {
@@ -225,7 +225,7 @@
     "mustContain": [
      "Winterfest"
     ],
-    "checkedAt": "2026-11-14T22:48:12.446Z",
+    "checkedAt": "2026-11-15T00:19:01.402Z",
     "reachable": true,
     "found": [
      {
@@ -260,51 +260,5 @@
   "sources": [],
   "newsHits": [],
   "status": "pattern"
- },
- {
-  "id": "news-d6159806",
-  "name": "From the news: Cursed Sprite Variants - November 14",
-  "from": "2026-11-14",
-  "to": "2026-11-16",
-  "claim": "reported",
-  "status": "reported",
-  "extraVbucks": 0,
-  "basis": "Detected automatically in the in-game news. Sized like a good shop day (average of the best quarter of past days), because announced drops have no past data of their own.",
-  "fromNews": {
-   "title": "Cursed Sprite Variants - November 14",
-   "body": "Beware the cursed tide from 2-4 PM ET and 9-11 PM ET! Drop in with Lil Uzi Vert's Lil' SMG and a Self Revive, and track down more Cursed Sprite variants across the Island.",
-   "fetchedAt": "2026-11-14T22:48:11.405Z"
-  },
-  "fromHistory": {
-   "byKind": {
-    "glider": 1812,
-    "bundle": 19209,
-    "pickaxe": 6381,
-    "outfit": 17409,
-    "backpack": 4395,
-    "wrap": 1488,
-    "emote": 2475,
-    "car": 669,
-    "kicks": 723,
-    "jamtrack": 28287,
-    "sidekick": 1392,
-    "lego": 390,
-    "contrail": 99
-   },
-   "from": [
-    {
-     "label": "a good shop day (best quarter of past days), × 3 days"
-    }
-   ]
-  },
-  "sources": [
-   {
-    "url": "https://fortnite-api.com/v2/news/br?language=en",
-    "verified": true
-   }
-  ],
-  "newsHits": [
-   "Cursed Sprite Variants - November 14"
-  ]
  }
 ]
