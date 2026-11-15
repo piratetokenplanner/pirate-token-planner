@@ -55,8 +55,8 @@
   "from": "2026-12-06",
   "to": "2026-12-12",
   "claim": "pattern",
-  "extraVbucks": 8000,
-  "basis": "Sized from every past season-launch week in the shop archive: what each brought above an average day, per item type, averaged. Launch weeks were not reliably bigger (June 2026 was below average, August and November above), so this can be small or even negative.",
+  "extraVbucks": 0,
+  "basis": "Shown as a landmark, with no extra loot. Past season-launch weeks ranged from far below to far above a normal week (June 2026 -64k, August +26k, November +53k V-Bucks for a balanced taste), and in leave-one-out back-tests adding their average made picks worse for every taste tested (e.g. 12.5% -> 13.1% loot lost). The back-test keeps checking this with calibrateFrom.",
   "newsKeywords": [
    "chapter 8"
   ],
@@ -108,148 +108,7 @@
   ],
   "newsHits": [],
   "status": "pattern",
-  "fromHistory": {
-   "byKind": {
-    "bundle": 5201.000000000003,
-    "outfit": 1953.0000000000011,
-    "pickaxe": 325,
-    "emote": -175,
-    "backpack": 5615,
-    "instrument": -2500,
-    "wrap": 520,
-    "glider": 38.99999999999987,
-    "kicks": 794,
-    "jamtrack": 24548,
-    "other": -1038,
-    "contrail": -326,
-    "car": 560,
-    "lego": -127,
-    "sidekick": 1649,
-    "loadingscreen": -299
-   },
-   "from": [
-    {
-     "from": "2025-11-30",
-     "to": "2025-12-06",
-     "label": "Chapter 7 launch week",
-     "days": 7,
-     "byKind": {
-      "bundle": 12281,
-      "outfit": 27753,
-      "pickaxe": 4185,
-      "emote": 1205,
-      "backpack": -7505,
-      "instrument": -1300,
-      "wrap": -1460,
-      "glider": 6599,
-      "kicks": -6,
-      "jamtrack": -9472,
-      "other": -1038,
-      "contrail": -386,
-      "car": -720,
-      "lego": -127,
-      "sidekick": -1631,
-      "loadingscreen": -299
-     }
-    },
-    {
-     "from": "2026-03-19",
-     "to": "2026-03-25",
-     "label": "Chapter 7 Season 2 launch week",
-     "days": 7,
-     "byKind": {
-      "bundle": -61419,
-      "outfit": 3153,
-      "pickaxe": -3115,
-      "emote": 905,
-      "backpack": -6705,
-      "instrument": -2800,
-      "wrap": 1740,
-      "glider": -701,
-      "kicks": 1994,
-      "jamtrack": -19472,
-      "other": -1038,
-      "contrail": -386,
-      "car": -1120,
-      "lego": -127,
-      "sidekick": -231,
-      "loadingscreen": -299
-     }
-    },
-    {
-     "from": "2026-06-06",
-     "to": "2026-06-12",
-     "label": "Chapter 7 Season 3 launch week",
-     "days": 7,
-     "byKind": {
-      "bundle": -9719,
-      "outfit": -26747,
-      "pickaxe": -11315,
-      "emote": -695,
-      "backpack": 9395,
-      "instrument": -2800,
-      "wrap": -1760,
-      "glider": -4701,
-      "kicks": -3606,
-      "jamtrack": 39028,
-      "other": -1038,
-      "contrail": -386,
-      "car": 2580,
-      "lego": -127,
-      "sidekick": 69,
-      "loadingscreen": -299
-     }
-    },
-    {
-     "from": "2026-08-20",
-     "to": "2026-08-26",
-     "label": "Chapter 7 Season 4 launch week",
-     "days": 7,
-     "byKind": {
-      "bundle": 33881,
-      "outfit": 553,
-      "pickaxe": -515,
-      "emote": -5295,
-      "backpack": 12395,
-      "instrument": -2800,
-      "wrap": 1640,
-      "glider": -1301,
-      "kicks": -6,
-      "jamtrack": 23528,
-      "other": -1038,
-      "contrail": -86,
-      "car": 1980,
-      "lego": -127,
-      "sidekick": 7269,
-      "loadingscreen": -299
-     }
-    },
-    {
-     "from": "2026-11-01",
-     "to": "2026-11-07",
-     "label": "Treasure Hunters launch week",
-     "days": 7,
-     "byKind": {
-      "bundle": 50981,
-      "outfit": 5053,
-      "pickaxe": 12385,
-      "emote": 3005,
-      "backpack": 20495,
-      "instrument": -2800,
-      "wrap": 2440,
-      "glider": 299,
-      "kicks": 5594,
-      "jamtrack": 89128,
-      "other": -1038,
-      "contrail": -386,
-      "car": 80,
-      "lego": -127,
-      "sidekick": 2769,
-      "loadingscreen": -299
-     }
-    }
-   ]
-  }
+  "landmark": true
  },
  {
   "id": "winterfest",

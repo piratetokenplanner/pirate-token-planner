@@ -187,6 +187,11 @@ def backtest(days, cfg_events):
     # calibration of "% sure": stated -> how often it came true, pooled over tastes
     st = np.array([p[0] for p in pairs]); ca = np.array([p[1] for p in pairs], float)
     res['sureScale'] = float(ca.sum() / st.sum()) if st.sum() else 1.0
+    # straight-line fit "came true = a + b x stated": the stated share was too steep (90% stated came true ~60%,
+    # 50% stated ~48%), which a single scale cannot fix
+    if len(st) >= 30 and st.std() > 0:
+        bb, aa = np.polyfit(st, ca, 1)
+        res['sureFit'] = {'a': round(float(aa), 3), 'b': round(float(bb), 3), 'n': int(len(st))}
     res['sureBins'] = [{'stated': [lo, round(lo + .2, 1)], 'n': int(((st >= lo) & (st < lo + .2)).sum()),
                         'came': float(ca[(st >= lo) & (st < lo + .2)].mean()) if ((st >= lo) & (st < lo + .2)).any() else None} for lo in (0, .2, .4, .6, .8)]
     return res

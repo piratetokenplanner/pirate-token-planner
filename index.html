@@ -328,11 +328,7 @@
 
 <main>
 <section class="deck ctrl steps" id="plan" aria-label="Your settings"><div class="wrap">
-  <div class="zone"><span class="ztag set"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 7h10M18 7h2M4 17h4M12 17h8"/><circle cx="16" cy="7" r="2.2"/><circle cx="10" cy="17" r="2.2"/></svg>Your settings</span><button class="qsopen" type="button" data-qs><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M13 3L5 14h6l-1 7 8-11h-6z"/></svg>Quick setup</button></div>
-  <div class="qsintro pnl" id="qsIntro" hidden>
-    <p><b>New here?</b> Answer 3 quick questions and we'll pick your day. You can fine-tune everything afterwards.</p>
-    <div class="acts"><button class="btn gold" type="button" data-qs>Start quick setup</button><button class="btn ghost" type="button" id="qsHide">No thanks</button></div>
-  </div>
+  <div class="zone"><span class="ztag set"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 7h10M18 7h2M4 17h4M12 17h8"/><circle cx="16" cy="7" r="2.2"/><circle cx="10" cy="17" r="2.2"/></svg>Your settings</span></div>
   <div class="step pnl">
     <span class="stepnum">1</span>
     <div>
@@ -492,21 +488,21 @@
   <details class="fold pnl" id="math">
     <summary><span class="ico"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="5" y="3" width="14" height="18" rx="2"/><path d="M8 7h8M8 12h2M14 12h2M8 16h2M14 16h2"/></svg></span><span class="sumt"><b id="mathTitle">The math</b><small>Every number behind your result</small></span></summary>
     <div class="foldbody">
-      <div class="sum" id="sum"></div>
-      <div class="scroll"><table class="tbl stack" id="mtab"><thead><tr><th>What</th><th>Inputs</th><th>Calculation</th><th class="num">V-Bucks</th></tr></thead><tbody></tbody></table></div>
+      <div class="msum" id="sum"></div>
+      <div class="scroll"><table class="tbl mtab" id="mtab"><caption class="sr">Every part of the expected loot for the selected start day</caption><thead><tr><th scope="col">What</th><th scope="col">How it counts</th><th scope="col" class="num">V-Bucks</th></tr></thead><tbody></tbody></table></div>
       <div class="acts"><button class="btn ghost" id="mathMore" type="button" hidden>Show all rows</button><button class="btn ghost" id="copy" type="button">Copy plan</button><button class="btn ghost" id="shareSet" type="button">Copy link with my settings</button></div>
     </div>
   </details>
 
   <details class="fold pnl" id="how">
     <summary><span class="ico"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="8.5"/><path d="M15.5 8.5l-2 5-5 2 2-5z"/></svg></span><span class="sumt"><b>How it works</b><small>The scoring, step by step</small></span></summary>
-    <div class="foldbody"><div class="formula" id="formula"></div></div>
+    <div class="foldbody"><div class="hw" id="formula"></div></div>
   </details>
 
   <details class="fold pnl" id="limitsec">
     <summary><span class="ico"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 4l9 16H3z"/><path d="M12 10v4M12 17v.5"/></svg></span><span class="sumt"><b>Limits</b><small>What this cannot know</small></span></summary>
     <div class="foldbody">
-      <div class="formula" id="limits"></div>
+      <div class="lm" id="limits"></div>
     </div>
   </details>
 
@@ -552,15 +548,6 @@
   <p class="hint" id="cardMsg"></p>
 </dialog>
 <div class="gloss" id="gloss" role="tooltip" hidden></div>
-<dialog class="howdlg qsdlg" id="qsDlg" aria-labelledby="qsT">
-  <button class="hclose" type="button" data-close aria-label="Close">×</button>
-  <p class="hkick">Quick setup · <span id="qsStep">1 of 3</span></p>
-  <h2 id="qsT">What do you buy?</h2>
-  <div class="qsdots" aria-hidden="true"><i></i><i></i><i></i></div>
-  <div class="qsbody" id="qsBody"></div>
-  <div class="acts"><button class="btn ghost" type="button" id="qsBack">Back</button><button class="btn gold" type="button" id="qsNext">Next</button></div>
-</dialog>
-
 <dialog class="howdlg" id="howDlg" aria-labelledby="howT">
   <button class="hclose" type="button" data-close aria-label="Close">×</button>
   <p class="hkick">The sleepy pirate's treasure map</p>
@@ -607,10 +594,11 @@
   <p class="sig">Fair winds! Made with care by a sleepy pirate.</p>
 </div></footer>
 <script type="module" src="app.js"></script>
-<aside class="sbar" id="sbar" aria-label="Your best day" inert>
-  <span class="sbx" aria-hidden="true">X</span>
-  <span class="sbt"><b id="sbDay"></b><small id="sbSub"></small></span>
-  <a class="btn gold sbgo" href="#verdict">See result</a>
+<aside class="sbar" id="sbar" aria-label="Best start day" inert>
+  <span class="sbcal" id="sbCal" aria-hidden="true"><small id="sbMon"></small><b id="sbNum"></b></span>
+  <span class="sbt"><small id="sbLbl">Best start day</small><b id="sbDay"></b></span>
+  <span class="sbsure" id="sbSure"></span>
+  <a class="sbgo" href="#verdict">See result<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg></a>
 </aside>
 </body>
 </html>

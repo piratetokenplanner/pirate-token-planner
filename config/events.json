@@ -31,8 +31,8 @@
   "from": "2026-12-06",
   "to": "2026-12-12",
   "claim": "pattern",
-  "extraVbucks": 8000,
-  "basis": "Sized from every past season-launch week in the shop archive: what each brought above an average day, per item type, averaged. Launch weeks were not reliably bigger (June 2026 was below average, August and November above), so this can be small or even negative.",
+  "extraVbucks": 0, "landmark": true,
+  "basis": "Shown as a landmark, with no extra loot. Past season-launch weeks ranged from far below to far above a normal week (June 2026 -64k, August +26k, November +53k V-Bucks for a balanced taste), and in leave-one-out back-tests adding their average made picks worse for every taste tested (e.g. 12.5% -> 13.1% loot lost). The back-test keeps checking this with calibrateFrom.",
   "newsKeywords": [
    "chapter 8"
   ],

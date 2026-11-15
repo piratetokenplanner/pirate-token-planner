@@ -4,6 +4,7 @@
 import { readFile, writeFile, mkdir, readdir } from 'node:fs/promises';
 import { createHash } from 'node:crypto';
 import { normalizeShop, SHOP_URL } from '../shared/normalize.js';
+import { themesOf } from '../shared/genres.js';
 
 const NEWS_URL = 'https://fortnite-api.com/v2/news/br?language=en';
 // Past shops: daily snapshots of the same fortnite-api.com response, archived by the
@@ -105,6 +106,8 @@ const names = await readJSON('data/past/names.json', {}); // item id -> { n: nam
 const TYPE = { outfit: 'outfit', emote: 'emote', pickaxe: 'pickaxe', glider: 'glider', backpack: 'backpack', wrap: 'wrap', shoe: 'kicks', shoes: 'kicks', kicks: 'kicks', contrail: 'contrail', loadingscreen: 'loadingscreen', music: 'music', sidekick: 'sidekick', pet: 'sidekick', petcarrier: 'sidekick' };
 const remember = it => { if (it.type !== 'jamtrack' && it.name) names[String(it.id).toLowerCase()] = { n: it.name, t: TYPE[String(it.type).toLowerCase()] || 'other' }; };
 const pastLog = { requested: 0, imported: 0, missing: [] };
+// V-Bucks of an arriving offer, by theme and type (an offer can belong to several themes)
+const addGenre = (byGenre, e) => { for (const g of themesOf(e)) { const t = (byGenre[g] ||= {}); t[e.kind] = (t[e.kind] || 0) + e.price; } };
 if (!FIX) {
   const have = new Set(past.days.map(d => d.date));
   const yesterday = iso(Date.now() - DAY);
@@ -123,10 +126,11 @@ if (!FIX) {
       if (!texts[k]) { pastLog.missing.push(d); prevOffers = null; return; }
       let s; try { s = normalizeShop(JSON.parse(texts[k])); } catch { pastLog.missing.push(d); prevOffers = null; return; }
       const contiguous = prevOffers && prevDate && Date.parse(d) - Date.parse(prevDate) === DAY;
-      const byKind = {}; let count = 0; const stays = [];
+      const byKind = {}, byGenre = {}; let count = 0; const stays = [];
       for (const e of s.entries) {
         if (contiguous && !prevOffers.has(e.id)) {
           byKind[e.kind] = (byKind[e.kind] || 0) + e.price; count++;
+          addGenre(byGenre, e);
           if (e.inDate && e.outDate) stays.push((Date.parse(e.outDate) - Date.parse(e.inDate)) / DAY);
         }
         for (const it of e.items) {
@@ -136,13 +140,30 @@ if (!FIX) {
           if (prevItems.has(id) && list.length && contiguous) list.at(-1)[1] = d; else list.push([d, d]);
         }
       }
-      past.days.push(contiguous ? { date: d, offers: s.entries.length, count, byKind, stay: median(stays), stayV: stayHist(s.entries, d) } : { date: d, offers: s.entries.length, gapBefore: true, stayV: stayHist(s.entries, d) });
+      past.days.push(contiguous ? { date: d, offers: s.entries.length, count, byKind, byGenre, stay: median(stays), stayV: stayHist(s.entries, d) } : { date: d, offers: s.entries.length, gapBefore: true, stayV: stayHist(s.entries, d) });
       prevOffers = new Set(s.entries.map(e => e.id));
       prevItems = new Set(s.entries.flatMap(e => e.items.filter(i => i.type !== 'jamtrack').map(i => String(i.id).toLowerCase())));
       prevDate = d; pastLog.imported++;
     });
   }
   past.lastOffers = prevOffers ? [...prevOffers] : []; past.lastItems = [...prevItems];
+
+  // ---- 1a'. Backfill arrivals by theme for archive days imported before this was recorded (up to 250 per run).
+  // An offer "arrived" when it wasn't in the day before, so each day is compared with the archive day before it.
+  const noGenre = past.days.filter(d => !d.src && d.byKind && !d.byGenre && d.date > PAST_FIRST).slice(0, 250);
+  for (let i = 0; i < noGenre.length; i += 4) {
+    const batch = noGenre.slice(i, i + 4);
+    const urls = batch.flatMap(d => [PAST_BASE + iso(Date.parse(d.date) - DAY) + '.json', PAST_BASE + d.date + '.json']);
+    const texts = await Promise.all(urls.map(u => fetchOnce(u, null, true)));
+    batch.forEach((d, k) => {
+      try {
+        if (!texts[2 * k] || !texts[2 * k + 1]) return;
+        const before = new Set(normalizeShop(JSON.parse(texts[2 * k])).entries.map(e => e.id)), byGenre = {};
+        for (const e of normalizeShop(JSON.parse(texts[2 * k + 1])).entries) if (!before.has(e.id)) addGenre(byGenre, e);
+        d.byGenre = byGenre;
+      } catch { /* try again next run */ }
+    });
+  }
 
   // ---- 1a. Backfill planned stays for archive days imported before this was recorded (up to 250 per run) ----
   const noStay = past.days.filter(d => !d.src && !d.stayV && d.date >= PAST_FIRST).slice(0, 250);
@@ -300,6 +321,17 @@ await write('data/baseline.json', {
   source: PAST_REPO, sources: past.sources || [{ name: 'Fortnite-Datamining archive', url: PAST_REPO, from: PAST_FIRST }], windowFrom: usable[0] && usable[0].date, windowTo: usable.at(-1) && usable.at(-1).date,
   days: usable.map(({ date, count, byKind }) => ({ date, count, byKind, reserved: reserved.has(date) || undefined })),
   medianDayVbucks: median(usable.map(total)), medianByKind: medByKind,
+  // share of each type's new-offer V-Bucks that belongs to a theme (normal days with theme data). The page
+  // uses it so a loved or skipped theme changes future days too, not only today's shop: in back-tests this
+  // cut the loot lost for themed tastes (e.g. Skip "Fortnite originals" 13.6% -> 9.3%, Love "Music & stars" 5.4% -> 4.8%).
+  ...(() => {
+    const ds = normalDays.filter(d => d.byGenre); if (ds.length < 28) return {};
+    const tot = {}, share = {};
+    for (const d of ds) for (const [k, v] of Object.entries(d.byKind)) tot[k] = (tot[k] || 0) + v;
+    for (const d of ds) for (const [g, byK] of Object.entries(d.byGenre)) for (const [k, v] of Object.entries(byK)) (share[g] ||= {})[k] = (share[g][k] || 0) + v;
+    for (const g of Object.keys(share)) for (const k of Object.keys(share[g])) share[g][k] = tot[k] ? +(share[g][k] / tot[k]).toFixed(3) : 0;
+    return { genreShare: share, genreDays: ds.length };
+  })(),
   medianStayDays: median(usable.map(d => d.stay).filter(x => x > 0 && x < 60)), staySamples: usable.filter(d => d.stay).length,
   ...(() => {
     // survival[j] = share of new-offer V-Bucks still in the shop j days after arriving (j = 0 is the arrival day)
@@ -343,7 +375,7 @@ async function verify(claims, prev) {
     c.newsHits = (c.newsKeywords || []).filter(k => newsBlob.includes(k.toLowerCase()));
     const anyVerified = (c.sources || []).some(s => s.verified);
     c.status = c.newsHits.length ? 'announced' : anyVerified ? c.claim : (c.claim === 'pattern' ? 'pattern' : 'unverified');
-    if (calib[c.id]) { const byKind = {}; for (const r of calib[c.id]) for (const [k, v] of Object.entries(r.byKind)) byKind[k] = (byKind[k] || 0) + v / calib[c.id].length; c.fromHistory = { byKind, from: calib[c.id] }; }
+    if (calib[c.id] && !c.landmark) { const byKind = {}; for (const r of calib[c.id]) for (const [k, v] of Object.entries(r.byKind)) byKind[k] = (byKind[k] || 0) + v / calib[c.id].length; c.fromHistory = { byKind, from: calib[c.id] }; }
   }
   return claims;
 }
