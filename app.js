@@ -500,7 +500,9 @@ function render(recompute = true) {
   const { all, win, deadIdx, dur } = M;
   const max = Math.max(...all.map(a => Math.max(a.tot, a.p90)), 1);
   const rank = [...all].sort((a, b) => b.tot - a.tot || a.s - b.s);
-  const best = rank[0].s; if (sel === null || sel < M.startMin || sel > M.startMax) sel = best;
+  // keep following the best day when settings change, unless you picked another day yourself
+  const best = rank[0].s; if (sel === null || sel === render.best || sel < M.startMin || sel > M.startMax) sel = best;
+  render.best = best;
   const cur = all.find(a => a.s === sel);
   const pct = x => Math.round(x / rank[0].tot * 100);
 
