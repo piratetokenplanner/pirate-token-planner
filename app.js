@@ -68,6 +68,8 @@ const PRESETS = {
 };
 const DEF = { types: { ...base }, kw: '', kwBoost: 2, rare: 3, ev: {}, days: [1, 1, 1, 1, 1, 1, 1], late: true, owned: [], must: [], claimed: [], activated: null, off: [], wish: [], genres: {}, locker: [] };
 let P = structuredClone(DEF), sel = null;
+// first visit: nothing saved yet, no quick setup seen, and not opened from a shared link
+const firstVisit = (() => { try { return !localStorage.getItem('ptp3') && !localStorage.getItem('ptp-qs') && !/^#[sc]=/.test(location.hash); } catch { return false; } })();
 try { Object.assign(P, JSON.parse(localStorage.getItem('ptp3') || '{}')); } catch (e) {}
 if (location.hash.startsWith('#s=')) { try { Object.assign(P, JSON.parse(decodeURIComponent(atob(location.hash.slice(3))))); } catch (e) {} }
 // ---------- compact share codes: #c=… carries someone's taste (and their pirate name) ----------
@@ -153,14 +155,16 @@ function model() {
   const surv = D.base.survival && D.base.survival.length ? D.base.survival : (R.fallbacks && R.fallbacks.survival) || [1, .87, .84, .64, .4, .25, .25, .08, .07, .06, .03, .02, .02, .02, .02]; // measured on the archive, May-Nov 2026
   const S = j => j < surv.length ? surv[j] : 0;
   // season: how the same weeks went a year earlier (same weekday, ±10 days), relative to the average day.
-  // Shrunk halfway to 1, because one past year is a small sample. Needs data from a year back.
+  // Shrunk to a quarter of the difference, because one past year is a small sample: in back-tests on
+  // May-Nov 2026 (with the year before from itemshop.gg) 0.25 beat both no season factor and 0.5. Needs data from a year back.
+  const shrink = R.uncertainty.seasonShrink ?? 0.25;
   const byDate = new Map(D.base.pool.map(d => [d.date, taste(d.byKind)]));
   const poolMean = byDate.size ? [...byDate.values()].reduce((a, b) => a + b, 0) / byDate.size : 0;
   const seasonCache = {};
   const season = i => {
     if (i in seasonCache) return seasonCache[i];
     const vs = []; for (let k = -10; k <= 10; k++) { const v = byDate.get(dt(i - 364 + k).toISOString().slice(0, 10)); if (v !== undefined) vs.push(v); }
-    const f = vs.length >= 8 && poolMean ? Math.min(1.6, Math.max(0.6, 1 + 0.5 * (vs.reduce((a, b) => a + b, 0) / vs.length / poolMean - 1))) : 1;
+    const f = vs.length >= 8 && poolMean ? Math.min(1.6, Math.max(0.6, 1 + shrink * (vs.reduce((a, b) => a + b, 0) / vs.length / poolMean - 1))) : 1;
     return (seasonCache[i] = { f, n: vs.length });
   };
   const wdOf = WD;
@@ -233,10 +237,12 @@ function model() {
     const value = 3 * typicalPrice(x.t);
     return { x, F, value };
   });
-  // P(returns on a day r with s-2 <= r <= last day of the window): it is then in the shop on a play day
-  const pWish = (wi, s) => { if (!wi.F) return 0; const lo = Math.max(0, s - 2), hi = s + dur - 1; return Math.max(0, wi.F[Math.min(hi, wi.F.length - 1)] - (lo > 0 ? wi.F[lo - 1] : 0)); };
+  // chance to claim it: it returns on day r and is still in the shop on your first play day p >= r inside your
+  // 14 days (same survival curve as other new loot). Days you're away or don't play don't count.
   const all = []; for (let s = startMin; s <= startMax; s++) all.push(score(s));
-  for (const a of all) { a.wishRows = wish.map(wi => ({ wi, p: pWish(wi, a.s), v: wi.value * pWish(wi, a.s) })); a.wish = a.wishRows.reduce((t, r) => t + r.v, 0); a.tot += a.wish; }
+  for (const a of all) { const hi = a.s + dur - 1, nx = new Int32Array(hi + 2).fill(-1); for (let d = hi, p = -1; d >= 0; d--) { if (a.ok.includes(d)) p = d; nx[d] = p; } a.nextOk = nx; }
+  const pWish = (wi, a) => { if (!wi.F) return 0; let p = 0; for (let r = 0; r < a.nextOk.length - 1 && r < wi.F.length; r++) { const q = a.nextOk[r]; if (q < 0) continue; p += (wi.F[r] - (r ? wi.F[r - 1] : 0)) * S(q - r); } return Math.max(0, Math.min(1, p)); };
+  for (const a of all) { a.wishRows = wish.map(wi => { const p = pWish(wi, a); return { wi, p, v: wi.value * p }; }); a.wish = a.wishRows.reduce((t, r) => t + r.v, 0); a.tot += a.wish; }
 
   // ---- uncertainty: replay the window totals under many simulated futures ----
   const U = R.uncertainty, rnd = rng(U.seed), N = U.runs;
@@ -272,7 +278,7 @@ function model() {
       const s0 = all[i].s, s1 = s0 + dur - 1;
       let t = SH[i];
       for (let j = FO[i], e = FO[i + 1]; j < e; j++) t += day[FD[j]] * FW[j];
-      for (let k = 0; k < wr.length; k++) if (wr[k] >= s0 - 2 && wr[k] <= s1) t += wish[k].value;
+      for (let k = 0; k < wr.length; k++) { const r = wr[k]; if (r < 0 || r > s1) continue; const q = all[i].nextOk[r]; if (q >= 0) t += wish[k].value * S(q - r); }
       for (const x of evOn) {
         const lo = Math.max(x.a, s0), hi = Math.min(x.b, s1);
         if (hi < lo) continue;
@@ -289,7 +295,7 @@ function model() {
   all.forEach((a, i) => { let n = 0; for (let r = 0; r < N; r++) if (sims[i][r] >= bestRun[r] * (1 - tol)) n++; a.pNearRaw = n / N; a.pNear = Math.min(1, a.pNearRaw * sureScale); });
   // typed arrays sort numerically without a comparator (much faster)
   all.forEach((a, i) => { const v = sims[i].sort(); a.p10 = v[Math.floor(N * .1)]; a.p50 = v[Math.floor(N * .5)]; a.p90 = v[Math.floor(N * .9)]; a.pBest = wins[i] / N; });
-  return { win, startMin, startMax, deadIdx, dur, all, items, wish, bShare, B, Bwd, Bday, surv, poolVals, taste, events, kws, rareMul, U, season, byDate, poolMean };
+  return { win, startMin, startMax, deadIdx, dur, all, items, wish, bShare, B, Bwd, Bday, surv, poolVals, taste, events, kws, rareMul, U, season, shrink, byDate, poolMean };
 }
 
 // ---------- days you can't play: a small calendar ----------
@@ -522,12 +528,14 @@ function render(recompute = true) {
   else if (left <= 7) note = left <= 1 ? `Last chance: activate before ${esc(dlLocal)} (your time).` : `Only ${left} days left to activate. Deadline: ${esc(dlLocal)} (your time).`;
   $('vNote').hidden = !note; $('vNote').innerHTML = note;
   if (prev && opensIn > 0) $('vDay').textContent = 'Activate ' + fmtL(best) + ` ${dt(best).getUTCFullYear()}`;
-  if (render.lastBest !== undefined && render.lastBest !== best) { const v = document.querySelector('.verdict'); v.classList.remove('pop'); void v.offsetWidth; v.classList.add('pop'); coins(); }
+  const movedFrom = render.lastBest !== undefined && render.lastBest !== best ? render.lastBest : null;
+  if (movedFrom !== null) { const v = document.querySelector('.verdict'); v.classList.remove('pop'); void v.offsetWidth; v.classList.add('pop'); coins(); }
   render.lastBest = best;
   $('vWhen').innerHTML = (best === 0 ? 'Now' : `At ${resetLocal}, after the ${T('reset', 'shop reset')}`) + ` · ${T('window', 'your 14 days')} end ${fmtL(best + dur)}` + (best + dur > deadIdx ? ` (past the ${T('deadline', 'deadline')}, unconfirmed)` : '');
   const pb = Math.round(rank[0].pNear * 100), close = rank.slice(1, 4).filter(a => a.tot >= rank[0].tot * 0.97).length;
   render.gctx = { pb, N: M.U.runs, day: fmtL(best) };
   $('vSure').innerHTML = `~${n0(rank[0].tot)} ${T('loot', 'V-Bucks of loot')} · <b>${T('sure', pb + '% sure')}</b>` + (close >= 2 ? ` · ${T('close', 'close race')}, any ${T('top', 'top day')} is fine` : '');
+  sbarSet(best === 0 ? 'Today' : fmtL(best), `Best day · ${pb}% sure`, movedFrom === null ? null : movedFrom === 0 ? 'today' : fmtL(movedFrom));
   const often0 = [...all].sort((a, b) => b.pNear - a.pNear || b.tot - a.tot)[0];
   const often = often0.pNear - rank[0].pNear >= 0.05 ? often0 : rank[0]; // only suggest a safer day if it is clearly safer
   if (often.s !== best) $('vSure').innerHTML += ` · ${T('safer', 'safer')}: ${fmtL(often.s)}`;
@@ -568,7 +576,7 @@ function render(recompute = true) {
   }
   if (zero.length) rows.push(`<tr class="miss"><td data-l="What">${zero.length} items worth 0 to you</td><td data-l="Inputs">${esc(zero.slice(0, 6).map(r => r.x.e.name).join(', '))}${zero.length > 6 ? '…' : ''}</td><td data-l="Calculation">Type weight 0 or marked as owned</td><td class="num" data-l="V-Bucks">0</td></tr>`);
   rows.push(`<tr><td data-l="What">New items on later days</td><td data-l="Inputs">${cur.freshW.length} later shop days · average day for your taste × chance its items are still there on your first play day${M.season(sel + 7).n ? ' × season factor from a year ago' : ''}</td><td data-l="Calculation"><code>${n0(M.Bday[0])} × (${cur.freshW.map(([, v]) => v.toFixed(2)).slice(0, 6).join(' + ')}${cur.freshW.length > 6 ? ' + …' : ''})</code></td><td class="num" data-l="V-Bucks">${n0(cur.fresh)}</td></tr>`);
-  for (const r of cur.wishRows || []) rows.push(`<tr class="${r.v > 0 ? '' : 'miss'}"><td data-l="What">${esc(r.wi.x.n)} <span class="fine">wishlist · ${KINDS[r.wi.x.t] || r.wi.x.t}</span></td><td data-l="Inputs">3 × typical ${KINDS[r.wi.x.t] || r.wi.x.t} price ${n0(r.wi.value / 3)} V-Bucks · chance it returns by your last day: ${Math.round(r.p * 100)}%</td><td data-l="Calculation"><code>${n0(r.wi.value)} × ${r.p.toFixed(2)}</code></td><td class="num" data-l="V-Bucks">${n0(r.v)}</td></tr>`);
+  for (const r of cur.wishRows || []) rows.push(`<tr class="${r.v > 0 ? '' : 'miss'}"><td data-l="What">${esc(r.wi.x.n)} <span class="fine">wishlist · ${KINDS[r.wi.x.t] || r.wi.x.t}</span></td><td data-l="Inputs">3 × typical ${KINDS[r.wi.x.t] || r.wi.x.t} price ${n0(r.wi.value / 3)} V-Bucks · chance it's in the shop on one of your play days: ${Math.round(r.p * 100)}%</td><td data-l="Calculation"><code>${n0(r.wi.value)} × ${r.p.toFixed(2)}</code></td><td class="num" data-l="V-Bucks">${n0(r.v)}</td></tr>`);
   for (const r of cur.evRows) rows.push(`<tr class="${r.v > 0 ? '' : 'miss'}"><td data-l="What">${esc(r.x.e.name)}</td><td data-l="Inputs">${n0(r.x.val)} for your taste${r.x.e.fromHistory ? ' (from past shops)' : ' (estimate)'} · ${r.x.e.status} ×${r.x.conf} · interest ×${r.x.interest.toFixed(1)} · ${r.inside.length} of ${r.x.b - r.x.a + 1} days inside</td><td data-l="Calculation"><code>${n0(r.x.val)} × ${r.x.conf} × ${r.x.interest.toFixed(1)} × ${r.cov.toFixed(2)}</code></td><td class="num" data-l="V-Bucks">${n0(r.v)}</td></tr>`);
   const itemRows = rows.length - 1 - cur.evRows.length - (cur.wishRows || []).length; // item rows first, then later days, wishlist, events
   const keep = render.allMath ? rows : [...rows.slice(0, Math.min(12, itemRows)), ...(itemRows > 12 ? [`<tr class="miss"><td colspan="4">${itemRows - 12} more items…</td></tr>`] : []), ...rows.slice(itemRows)];
@@ -622,7 +630,7 @@ function pastShops(M) {
   const avg = M.Bwd.reduce((a, c) => a + c, 0) / 7, top = M.Bwd.indexOf(Math.max(...M.Bwd)), low = M.Bwd.indexOf(Math.min(...M.Bwd));
   const span = Math.round((Date.parse(b.windowTo) - Date.parse(b.windowFrom)) / DAY) + 1;
   const s0 = M.season(sel + 7);
-  const seasonTxt = s0.n ? (() => { const pc = Math.round((s0.f - 1) * 2 * 100); return ` The same weeks a year ago were <b>${Math.abs(pc)}% ${pc >= 0 ? 'richer' : 'leaner'}</b> than an average day, so the forecast leans ${pc >= 0 ? 'up' : 'down'} a little.`; })() : '';
+  const seasonTxt = s0.n ? (() => { const pc = Math.round((s0.f - 1) / M.shrink * 100); return ` The same weeks a year ago were <b>${Math.abs(pc)}% ${pc >= 0 ? 'richer' : 'leaner'}</b> than an average day, so the forecast leans ${pc >= 0 ? 'up' : 'down'} a little.`; })() : '';
   $('pastLead').innerHTML = `A normal day adds about <b>${n0(avg)} V-Bucks</b> of new loot for your taste. <b>${wdN[top]}</b> is usually the richest day, <b>${wdN[low]}</b> the leanest.${seasonTxt}`;
   // coverage meter: seasons can only be compared with a full year
   const cov = Math.min(1, span / 365);
@@ -657,10 +665,11 @@ function pastShops(M) {
 
 function limits(M) {
   const b = D.base, est = D.events.filter(e => e.extraVbucks > 0 && !e.fromHistory);
+  const bt = D.backtest && (D.backtest.tastes.Balanced || Object.values(D.backtest.tastes)[0]);
   const L = [
     ['The future shop is unknown', `Epic doesn't publish it. Later days are averages of ${b.fallback ? 'a rough guess' : `${b.n} past days`}, not real items. A surprise drop can change the best day.`],
-    ['Past is not future', 'The archive covers only about six months. In back-tests on those months, the pick lost about 6% of loot on average compared with the day that turned out best (always activating on day 1 lost about 9%). Around season launches it was harder: about 12%.'],
-    ['Events are the weakest part', 'Season-launch weeks ranged from well below to well above a normal week, so they are sized from all past launches together. Winterfest has no past data yet (the archive starts in May 2026): its value is an author estimate.'],
+    ['Past is not future', `Daily shop totals go back to ${fmt(idx(b.windowFrom || '2026-05-02'), { month: 'short', year: 'numeric' })}, but the item-level archive used for back-tests starts in May 2026. In back-tests on those months, the pick lost about ${bt ? Math.round(bt.regretNew * 100) : 6}% of loot on average compared with the day that turned out best (always activating on day 1 lost about ${bt ? Math.round(bt.regretDay1 * 100) : 9}%). Around season launches it was harder: about 12%.`],
+    ['Events are the weakest part', 'Season-launch weeks ranged from well below to well above a normal week, so they are sized from all past launches together. Winterfest is sized from a single past Winterfest (2025), so treat it as a rough guide.'],
     ['Some event values are guesses', est.length ? `${est.map(e => `${esc(e.name)} ${n0(e.extraVbucks)} V-Bucks`).join(', ')}: author assumptions with no past data behind them.` : 'All event values come from past shops.'],
     ['Event dates may move', 'Pattern events are dated from past years. The simulation shifts them a few days; real events can move further or not happen.'],
     ['Token rules come from news reports', 'The 14 days, the deadline and the exclusions come from gaming sites, not Epic. Check your own token in-game.'],
@@ -683,6 +692,73 @@ function sources() {
   $('statusRules').innerHTML = (D.rules.statusRules || []).map(esc).join('<br>');
   $('evtab').tBodies[0].innerHTML = D.events.map(e => `<tr><td data-l="Event">${esc(e.name)}</td><td data-l="Dates">${fmt(idx(e.from))}${e.to !== e.from ? ' to ' + fmt(idx(e.to)) : ''}</td><td data-l="Status"><span class="st ${e.status}">${e.status}</span>${e.newsHits && e.newsHits.length ? `<div class="fine">in Epic news: ${e.newsHits.map(esc).join(', ')}</div>` : ''}</td><td class="num" data-l="Extra">${e.fromHistory ? n0(Object.values(e.fromHistory.byKind).reduce((a, b) => a + b, 0)) + ' (past shops)' : n0(e.extraVbucks) + ' (estimate)'}</td><td data-l="Basis"><div>${esc(e.basis)}</div>${srcList(e.sources || [])}</td></tr>`).join('');
   $('fetches').tBodies[0].innerHTML = (m.fetches || []).map(f => `<tr><td data-l="URL">${esc(f.url)}</td><td data-l="Result" class="${f.ok ? 'okc' : 'bad'}">${f.ok ? f.status : esc(f.error || f.status)}</td><td data-l="Fingerprint"><code>${esc(f.sha256 || '–')}</code></td><td class="num" data-l="Time">${f.ms ?? '–'} ms</td></tr>`).join('');
+}
+
+// ---------- sticky best-day bar: while you change settings, the answer stays in view ----------
+function sbarSet(day, sub, from) {
+  const bar = $('sbar'); if (!bar) return;
+  $('sbDay').textContent = day;
+  clearTimeout(sbarSet.t);
+  if (from) {
+    $('sbSub').textContent = `Moved from ${from}`;
+    bar.classList.remove('moved'); void bar.offsetWidth; bar.classList.add('moved');
+    sbarSet.t = setTimeout(() => { $('sbSub').textContent = sub; bar.classList.remove('moved'); }, 3500);
+  } else $('sbSub').textContent = sub;
+}
+function sbarUI() {
+  const bar = $('sbar'), plan = $('plan'), verdict = $('verdict'); if (!bar || !('IntersectionObserver' in window)) return;
+  let inPlan = false, seeV = false;
+  const set = () => { const on = inPlan && !seeV; bar.classList.toggle('on', on); bar.inert = !on; };
+  new IntersectionObserver(es => { for (const e of es) { if (e.target === plan) inPlan = e.isIntersecting; else seeV = e.isIntersecting; } set(); }, { threshold: 0 }).observe(plan);
+  new IntersectionObserver(es => { seeV = es[0].isIntersecting; set(); }, { threshold: 0.35 }).observe(verdict);
+}
+
+// ---------- quick setup: three questions for first-time visitors ----------
+function qsUI() {
+  const dlg = $('qsDlg'); if (!dlg) return;
+  const TASTE = [['Skins only', 'Skins & bundles', 'Outfits and bundles only'], ['Balanced', 'A bit of everything', 'Skins first, extras count a little'], ['Emote collector', 'Emotes', 'Dances and emotes first'], ['Music lover', 'Music', 'Jam Tracks, lobby music, instruments'], ['Hoarder', 'Everything', 'Every item counts the same']];
+  const WDS = ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'];
+  let step = 0, pick = null, days = [], loves = new Set();
+  const steps = [
+    ['What do you buy?', () => `<div class="qsopts" role="group" aria-label="What do you buy?">${TASTE.map(([k, l, d]) => `<button type="button" class="qsopt" data-qp="${k}" aria-pressed="${pick === k}"><b>${l}</b><small>${d}</small></button>`).join('')}</div>`],
+    ['When do you play?', () => `<div class="qschips" role="group" aria-label="Days you play">${WDS.map((d, i) => `<button type="button" class="qschip" data-qd="${i}" aria-pressed="${!!days[i]}">${d}</button>`).join('')}</div><p class="hint">Away on certain dates? Mark them under step 2 afterwards.</p>`],
+    ['Favourite themes?', () => `<div class="qschips" role="group" aria-label="Favourite themes">${GENRES.map(g => `<button type="button" class="qschip" data-qg="${g.id}" aria-pressed="${loves.has(g.id)}">${g.label}</button>`).join('')}</div><p class="hint">Optional. Loved themes count 2×. Skip this if you don't mind.</p>`]
+  ];
+  const draw = focus => {
+    $('qsStep').textContent = `${step + 1} of 3`; $('qsT').textContent = steps[step][0];
+    $('qsBody').innerHTML = steps[step][1]();
+    dlg.querySelectorAll('.qsdots i').forEach((d, i) => d.classList.toggle('on', i <= step));
+    $('qsBack').hidden = step === 0;
+    $('qsNext').textContent = step === 2 ? 'Show my best day' : 'Next';
+    $('qsNext').disabled = (step === 0 && !pick) || (step === 1 && !days.some(Boolean));
+    if (focus) { const f = $('qsBody').querySelector('button'); if (f) f.focus(); }
+  };
+  const open = () => {
+    step = 0; days = [...P.days]; loves = new Set(Object.keys(P.genres || {}).filter(g => P.genres[g] === 'love'));
+    pick = Object.keys(PRESETS).find(k => TKEYS.every(t => (PRESETS[k][t] ?? 0) === (P.types[t] ?? 0))) || null;
+    draw(); dlg.showModal(); draw(true);
+  };
+  const done = () => { try { localStorage.setItem('ptp-qs', '1'); } catch {} $('qsIntro').hidden = true; const cue = document.querySelector('.hero .cue[data-qs]'); if (cue) cue.removeAttribute('data-qs'); };
+  document.addEventListener('click', e => { const b = e.target.closest('[data-qs]'); if (b) { e.preventDefault(); open(); } });
+  $('qsHide').addEventListener('click', done);
+  dlg.addEventListener('close', done);
+  dlg.addEventListener('click', e => {
+    if (e.target === dlg || e.target.closest('[data-close]')) { dlg.close(); return; }
+    const b = e.target.closest('[data-qp],[data-qd],[data-qg]'); if (!b) return;
+    if (b.dataset.qp) { pick = b.dataset.qp; dlg.querySelectorAll('[data-qp]').forEach(x => x.setAttribute('aria-pressed', x === b)); }
+    else if (b.dataset.qd) { const i = +b.dataset.qd; days[i] = days[i] ? 0 : 1; b.setAttribute('aria-pressed', !!days[i]); }
+    else { const g = b.dataset.qg; loves.has(g) ? loves.delete(g) : loves.add(g); b.setAttribute('aria-pressed', loves.has(g)); }
+    $('qsNext').disabled = (step === 0 && !pick) || (step === 1 && !days.some(Boolean));
+  });
+  $('qsBack').addEventListener('click', () => { step = Math.max(0, step - 1); draw(true); });
+  $('qsNext').addEventListener('click', () => {
+    if (step < 2) { step++; draw(true); return; }
+    P.types = { ...PRESETS[pick] }; P.days = days.map(x => x ? 1 : 0);
+    const g = { ...(P.genres || {}) }; for (const x of GENRES) { if (loves.has(x.id)) g[x.id] = 'love'; else if (g[x.id] === 'love') delete g[x.id]; }
+    P.genres = g; save(); controls(); genreChips(); render(); dlg.close();
+    const v = $('verdict'); v.setAttribute('tabindex', '-1'); v.scrollIntoView({ behavior: matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth', block: 'center' }); v.focus({ preventScroll: true });
+  });
+  if (firstVisit) { $('qsIntro').hidden = false; const cue = document.querySelector('.hero .cue'); if (cue) cue.setAttribute('data-qs', ''); }
 }
 
 function genreChips() {
@@ -1189,7 +1265,7 @@ async function init() {
   // installable app: offline copy via a service worker, and an install button where the browser offers one
   if ('serviceWorker' in navigator && location.protocol === 'https:') navigator.serviceWorker.register('sw.js').catch(() => {});
   addEventListener('beforeinstallprompt', e => { e.preventDefault(); const b = $('installBtn'); b.hidden = false; b.onclick = async () => { b.hidden = true; e.prompt(); }; });
-  sharedBanner(); controls(); bind(); glossUI(); howUI(); render(); lockerList(); cardUI(); compareUI();
+  sharedBanner(); controls(); bind(); glossUI(); howUI(); qsUI(); render(); sbarUI(); lockerList(); cardUI(); compareUI();
   // not needed for the first paint: run when the browser is idle
   const later = f => (window.requestIdleCallback ? requestIdleCallback(f, { timeout: 3000 }) : setTimeout(f, 1500));
   later(sources); later(crew);

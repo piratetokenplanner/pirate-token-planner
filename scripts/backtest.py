@@ -27,6 +27,7 @@ BASE = 'https://raw.githubusercontent.com/Fortnite-Datamining/Fortnite-Dataminin
 FIRST = '2026-05-02'
 CACHE = os.environ.get('ARCHIVE_CACHE', '.cache/archive')
 L, H, TOL, SPREAD, RUNS = 14, 21, 0.05, 1.25, 300
+SHRINK = json.load(open('data/rules.json'))['uncertainty'].get('seasonShrink', 0.25) if os.path.exists('data/rules.json') else 0.25
 TASTES = {
     'Balanced': dict(outfit=10, bundle=10, emote=3, pickaxe=3, glider=3, backpack=3, sidekick=3, kicks=3),
     'Skins only': dict(outfit=10, bundle=10),
@@ -100,6 +101,22 @@ class Archive:
         return out
 
 
+def season_series(T):
+    """Daily new loot for one taste over the whole history (data/baseline.json, event days left out, as in the app)."""
+    if not os.path.exists('data/baseline.json'): return {}
+    w = lambda k: T.get(k, 0) / 10
+    return {d['date']: sum(v * w(k) for k, v in d['byKind'].items()) for d in json.load(open('data/baseline.json')).get('days', []) if not d.get('reserved')}
+
+
+def season_factor(ser, before, date, shrink=None):
+    """App's season factor: the same weeks a year earlier (+-10 days) vs the average day, shrunk toward 1."""
+    shrink = SHRINK if shrink is None else shrink
+    past = [v for d, v in ser.items() if d < before]
+    vs = [ser[x] for k in range(-10, 11) if (x := (D2(date) - dt.timedelta(days=364 - k)).isoformat()) in ser and x < before]
+    if len(vs) < 8 or not past: return 1.0
+    return min(1.6, max(0.6, 1 + shrink * (np.mean(vs) / np.mean(past) - 1)))
+
+
 def backtest(days, cfg_events):
     res = {'tastes': {}}
     pairs = []
@@ -108,7 +125,8 @@ def backtest(days, cfg_events):
         a = Archive(days, T); N = a.N
         R = [a.realized(s) for s in range(N)]
         rng = np.random.default_rng(1)
-        r = {k: [] for k in ('old', 'new', 'day1', 'cover', 'stated', 'came', 'origin')}
+        r = {k: [] for k in ('old', 'new', 'noSeason', 'day1', 'cover', 'stated', 'came', 'origin')}
+        ser = season_series(T)
         for t in range(56, N - L - H + 1):
             real = np.array([R[s] if R[s] is not None else np.nan for s in range(t, t + H)])
             if np.isnan(real).any(): continue
@@ -124,12 +142,15 @@ def backtest(days, cfg_events):
             for i, s in enumerate(range(t, t + H)):
                 for d in range(max(s, t + 1), s + L): M[i, d - t - 1] += 1
                 for d in range(t + 1, s): M[i, d - t - 1] += surv[s - d]
-            new = shop + mu * M.sum(1)
-            for k, p in (('old', old), ('new', new)):
+            flat = shop + mu * M.sum(1)
+            # season factor per future day (1 everywhere until the history reaches a year back)
+            sf = np.array([season_factor(ser, a.D[t], (D2(a.D[t]) + dt.timedelta(days=j + 1)).isoformat()) for j in range(H + L)])
+            new = shop + (mu * M) @ sf
+            for k, p in (('old', old), ('new', new), ('noSeason', flat)):
                 r[k].append((real.max() - real[int(np.argmax(p))]) / real.max())
             r['day1'].append((real.max() - real[0]) / real.max())
             m = np.maximum(mu + SPREAD * (rng.choice(pool, size=(RUNS, H + L)) - mu), 0)
-            sims = shop + m @ M.T
+            sims = shop + (m * sf) @ M.T
             p10, p90 = np.percentile(sims, 10, 0), np.percentile(sims, 90, 0)
             r['cover'].append(float(np.mean((real >= p10) & (real <= p90))))
             b = int(np.argmax(new))
@@ -138,7 +159,7 @@ def backtest(days, cfg_events):
         last30 = slice(-30, None)
         res['tastes'][name] = {
             'origins': len(r['new']), 'from': r['origin'][0], 'to': r['origin'][-1],
-            'regretNew': float(np.mean(r['new'])), 'regretOld': float(np.mean(r['old'])), 'regretDay1': float(np.mean(r['day1'])),
+            'regretNew': float(np.mean(r['new'])), 'regretNoSeason': float(np.mean(r['noSeason'])), 'seasonShrink': SHRINK, 'regretOld': float(np.mean(r['old'])), 'regretDay1': float(np.mean(r['day1'])),
             'regretNewLast30': float(np.mean(r['new'][last30])), 'regretDay1Last30': float(np.mean(r['day1'][last30])),
             'cover': float(np.mean(r['cover'])), 'stated': float(np.mean(r['stated'])), 'came': float(np.mean(r['came']))}
         # season-launch weeks: how big were they, and does adding them (sized from the OTHER launches) help?
@@ -234,7 +255,7 @@ if __name__ == '__main__':
     res = backtest(days, cfg_events)
     for name, r in res['tastes'].items():
         print(f"{name:11s} origins {r['origins']}: regret new {r['regretNew']*100:.1f}%  old {r['regretOld']*100:.1f}%  always-day-1 {r['regretDay1']*100:.1f}%"
-              f" | last 30: {r['regretNewLast30']*100:.1f}% vs day-1 {r['regretDay1Last30']*100:.1f}% | range held {r['cover']*100:.0f}% | sure {r['stated']*100:.0f}% -> {r['came']*100:.0f}%")
+              f" (no season factor {r['regretNoSeason']*100:.1f}%) | last 30: {r['regretNewLast30']*100:.1f}% vs day-1 {r['regretDay1Last30']*100:.1f}% | range held {r['cover']*100:.0f}% | sure {r['stated']*100:.0f}% -> {r['came']*100:.0f}%")
         if r.get('launches'):
             l = r['launches']
             print(f"   launch weeks vs average week: {', '.join(f'{k} {v:+,.0f}' for k, v in l['uplift'].items())}"

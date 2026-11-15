@@ -2,7 +2,7 @@
 // - page, code and data: network first (updates show up right away), the last copy when offline
 // - fonts, icons and the QR library never change: from the cache once fetched (kept across versions)
 // Bump VERSION to drop the old page cache. Nothing large is downloaded up front.
-const VERSION = 'ptp-16';
+const VERSION = 'ptp-17';
 const STATIC = 'ptp-static-1';
 const SHELL = ['./', 'index.html', 'style.css', 'app.js', 'shared/normalize.js'];
 const isStatic = u => /\/(fonts|icons|vendor)\//.test(u.pathname);

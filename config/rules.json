@@ -151,13 +151,14 @@
   }
  ],
  "uncertainty": {
-  "about": "Settings for the simulated futures behind the ranges. runs/seed/eventsSpreads are the author's choices. daySpread, weekdayWeight and nearTol were chosen by back-testing on the past-shop archive (May-Nov 2026): with daySpread 1.25 the 10-90% range held about 8 of 10 real outcomes, weekday averages picked worse days than one flat average (weekdayWeight 0), and the share of futures within nearTol (5%) of the best start day matched how often that really happened.",
+  "about": "Settings for the simulated futures behind the ranges. runs/seed/eventsSpreads are the author's choices. daySpread, weekdayWeight and nearTol were chosen by back-testing on the past-shop archive (May-Nov 2026): with daySpread 1.25 the 10-90% range held about 8 of 10 real outcomes, weekday averages picked worse days than one flat average (weekdayWeight 0), and the share of futures within nearTol (5%) of the best start day matched how often that really happened. seasonShrink 0.25: the factor from the same weeks a year ago keeps a quarter of the difference; with the itemshop.gg history (from May 2025) it beat both no season factor and 0.5 in back-tests on May-Nov 2026.",
   "runs": 400,
   "seed": 42,
   "patternShiftDays": 3,
   "estimateSpread": 0.6,
   "observedSpread": 0.2,
   "fallbackSpread": 0.5,
+  "seasonShrink": 0.25,
   "daySpread": 1.25,
   "weekdayWeight": 0,
   "nearTol": 0.05

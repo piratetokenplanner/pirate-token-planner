@@ -328,7 +328,11 @@
 
 <main>
 <section class="deck ctrl steps" id="plan" aria-label="Your settings"><div class="wrap">
-  <div class="zone"><span class="ztag set"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 7h10M18 7h2M4 17h4M12 17h8"/><circle cx="16" cy="7" r="2.2"/><circle cx="10" cy="17" r="2.2"/></svg>Your settings</span></div>
+  <div class="zone"><span class="ztag set"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 7h10M18 7h2M4 17h4M12 17h8"/><circle cx="16" cy="7" r="2.2"/><circle cx="10" cy="17" r="2.2"/></svg>Your settings</span><button class="qsopen" type="button" data-qs><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M13 3L5 14h6l-1 7 8-11h-6z"/></svg>Quick setup</button></div>
+  <div class="qsintro pnl" id="qsIntro" hidden>
+    <p><b>New here?</b> Answer 3 quick questions and we'll pick your day. You can fine-tune everything afterwards.</p>
+    <div class="acts"><button class="btn gold" type="button" data-qs>Start quick setup</button><button class="btn ghost" type="button" id="qsHide">No thanks</button></div>
+  </div>
   <div class="step pnl">
     <span class="stepnum">1</span>
     <div>
@@ -548,6 +552,15 @@
   <p class="hint" id="cardMsg"></p>
 </dialog>
 <div class="gloss" id="gloss" role="tooltip" hidden></div>
+<dialog class="howdlg qsdlg" id="qsDlg" aria-labelledby="qsT">
+  <button class="hclose" type="button" data-close aria-label="Close">×</button>
+  <p class="hkick">Quick setup · <span id="qsStep">1 of 3</span></p>
+  <h2 id="qsT">What do you buy?</h2>
+  <div class="qsdots" aria-hidden="true"><i></i><i></i><i></i></div>
+  <div class="qsbody" id="qsBody"></div>
+  <div class="acts"><button class="btn ghost" type="button" id="qsBack">Back</button><button class="btn gold" type="button" id="qsNext">Next</button></div>
+</dialog>
+
 <dialog class="howdlg" id="howDlg" aria-labelledby="howT">
   <button class="hclose" type="button" data-close aria-label="Close">×</button>
   <p class="hkick">The sleepy pirate's treasure map</p>
@@ -594,5 +607,10 @@
   <p class="sig">Fair winds! Made with care by a sleepy pirate.</p>
 </div></footer>
 <script type="module" src="app.js"></script>
+<aside class="sbar" id="sbar" aria-label="Your best day" inert>
+  <span class="sbx" aria-hidden="true">X</span>
+  <span class="sbt"><b id="sbDay"></b><small id="sbSub"></small></span>
+  <a class="btn gold sbgo" href="#verdict">See result</a>
+</aside>
 </body>
 </html>
