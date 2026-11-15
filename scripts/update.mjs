@@ -13,21 +13,28 @@ const PAST_REPO = 'https://github.com/Fortnite-Datamining/Fortnite-Datamining/tr
 const PAST_FIRST = '2026-05-02';
 const PAST_TARGET_DAYS = 560; // statistics should cover well over a year
 
-// itemshop.gg history (free key, attribution "Data from itemshop.gg" shown on the page)
+// itemshop.gg history. Their API terms (itemshop.gg/terms#api, itemshop.gg/developers), and how we follow them:
+// - the key stays secret (GitHub secret, sent only from the scheduled run as "Authorization: Bearer")
+// - at most 600 requests per minute per key: we send 6 at a time and wait 1 s per batch (about 360 a minute),
+//   and on a 429 we wait the "Retry-After" seconds
+// - a visible "Data from itemshop.gg" link wherever the data shows (footer, Past shops, Sources)
+// - no resale, never presented as our own; each date is fetched once and only daily totals are kept
 async function fetchItemshop(date, key) {
   for (let attempt = 0; attempt < 3; attempt++) {
     try {
-      const r = await fetch(`https://itemshop.gg/api/v1/history/fortnite/${date}`, { headers: { authorization: `Bearer ${key}`, 'user-agent': 'pirate-token-planner' }, signal: AbortSignal.timeout(30000) });
+      const r = await fetch(`https://itemshop.gg/api/v1/history/fortnite/${date}`, { headers: { authorization: `Bearer ${key}`, 'user-agent': 'pirate-token-planner (github.com/piratetokenplanner)' }, signal: AbortSignal.timeout(30000) });
       if (r.status === 429) { await new Promise(res => setTimeout(res, 1000 * (+r.headers.get('retry-after') || 5))); continue; }
-      return r.ok ? await r.text() : null;
+      return { status: r.status, text: r.ok ? await r.text() : null };
     } catch { /* retry */ }
   }
-  return null;
+  return { status: 0, text: null };
 }
 const ISG_KIND = [['bundle', 'bundle'], ['outfit', 'outfit'], ['emote', 'emote'], ['pickaxe', 'pickaxe'], ['harvesting', 'pickaxe'], ['glider', 'glider'], ['back bling', 'backpack'], ['backpack', 'backpack'], ['wrap', 'wrap'], ['jam track', 'jamtrack'], ['track', 'jamtrack'], ['kicks', 'kicks'], ['shoe', 'kicks'], ['sidekick', 'sidekick'], ['car', 'car'], ['wheel', 'car'], ['lego', 'lego'], ['contrail', 'contrail'], ['loading', 'loadingscreen'], ['music', 'music'], ['guitar', 'instrument'], ['bass', 'instrument'], ['drum', 'instrument'], ['keytar', 'instrument'], ['microphone', 'instrument']];
 function parseItemshop(text) {
   let j; try { j = JSON.parse(text); } catch { return null; }
-  const d = j.data || j;
+  // documented shape: { data: { date, shopDate, exact, shop: { sections: [{ items }] } }, meta: { attribution } }
+  const d0 = j.data || j, d = d0.shop || d0;
+  if (j.meta && j.meta.attribution && j.meta.attribution.url) parseItemshop.attribution = j.meta.attribution.url;
   const items = (d.sections || []).flatMap(s => s.items || []).concat(d.items || []);
   if (!items.length) return null;
   const out = [];
@@ -153,7 +160,8 @@ if (!FIX) {
   const older = [];
   for (let t = Date.parse(target); iso(t) < PAST_FIRST; t += DAY) older.push(iso(t));
   const haveDates = new Set(past.days.map(d => d.date));
-  const need = older.filter(d => !haveDates.has(d));
+  // dates before itemshop.gg's record answer 404 once; remember that, so later runs don't ask again
+  const need = older.filter(d => !haveDates.has(d) && (!past.isgFloor || d > past.isgFloor));
   if (KEY && need.length) {
     let pOffers = null, pItems = new Set(), pDate = null, got = 0;
     // resume from the newest backfilled day before the gap, so arrivals are computed against the day before
@@ -161,9 +169,11 @@ if (!FIX) {
     if (lastOld && lastOld.src === 'itemshop.gg' && past.oldTail) { pOffers = new Set(past.oldTail.offers); pItems = new Set(past.oldTail.items); pDate = lastOld.date; }
     for (let i = 0; i < need.length; i += 6) {
       const batch = need.slice(i, i + 6);
-      const texts = await Promise.all(batch.map(d => fetchItemshop(d, KEY)));
+      const res = await Promise.all(batch.map(d => fetchItemshop(d, KEY)));
+      await new Promise(r => setTimeout(r, 1000)); // stay well under 600 requests per minute
       batch.forEach((d, k) => {
-        const day = texts[k] && parseItemshop(texts[k]);
+        if (res[k].status === 404) { if (!past.isgFloor || d > past.isgFloor) past.isgFloor = d; pOffers = null; return; }
+        const day = res[k].text && parseItemshop(res[k].text);
         if (!day) { pastLog.missing.push(d + ' (itemshop.gg)'); pOffers = null; return; }
         const contiguous = pOffers && pDate && Date.parse(d) - Date.parse(pDate) === DAY;
         const byKind = {}; let count = 0;
@@ -184,7 +194,7 @@ if (!FIX) {
     // optional source: without a key this step is skipped, which is not an error
     log.push({ url: 'https://itemshop.gg/api/v1/history/fortnite/…', at: new Date().toISOString(), ok: true, status: 'skipped', sha256: `no ITEMSHOP_KEY: ${need.length} older days not loaded` });
   }
-  past.sources = [{ name: 'Fortnite-Datamining archive', url: PAST_REPO, from: PAST_FIRST }, ...(past.days.some(d => d.src === 'itemshop.gg') ? [{ name: 'itemshop.gg', url: 'https://itemshop.gg', from: past.days.find(d => d.src === 'itemshop.gg').date }] : [])];
+  past.sources = [{ name: 'Fortnite-Datamining archive', url: PAST_REPO, from: PAST_FIRST }, ...(past.days.some(d => d.src === 'itemshop.gg') ? [{ name: 'itemshop.gg', url: (past.isgAttribution = parseItemshop.attribution || past.isgAttribution || 'https://itemshop.gg/fortnite'), attribution: 'Data from itemshop.gg', from: past.days.find(d => d.src === 'itemshop.gg').date }] : [])];
   past.source = PAST_REPO; past.first = past.days[0] && past.days[0].date; past.last = past.days.at(-1) && past.days.at(-1).date;
   await mkdir('data/past', { recursive: true });
   await write('data/past/days.json', past);

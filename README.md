@@ -61,7 +61,8 @@ Add `?today=2026-11-20` to simulate another date, `&time=night` for another time
 No cookies, no accounts, no tracking. Fonts and libraries are hosted here. A tiny anonymous counter ([Abacus](https://v2.jasoncameron.dev/abacus/)) counts visits and bell rings. Settings stay in your browser.
 
 ## Credits and licences
-- Shop data: fortnite-api.com (unofficial), past shops: Fortnite-Datamining archive (ISC).
+- Shop data: fortnite-api.com (unofficial), past shops: Fortnite-Datamining archive (ISC). Older shops: [Data from itemshop.gg](https://itemshop.gg/fortnite), used under its [API terms](https://itemshop.gg/terms#api) (free key, visible link, within the rate limit, no resale; only daily totals per item type and the days each item was in the shop are kept).
+- Item pictures resized by [wsrv.nl](https://wsrv.nl).
 - Fonts: Nunito and Anton (SIL Open Font License), Luckiest Guy (Apache 2.0). QR codes: qrcode-generator by Kazuhiko Arase (MIT).
 
 ---
