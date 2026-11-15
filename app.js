@@ -71,14 +71,14 @@ let P = structuredClone(DEF), sel = null;
 try { Object.assign(P, JSON.parse(localStorage.getItem('ptp3') || '{}')); } catch (e) {}
 if (location.hash.startsWith('#s=')) { try { Object.assign(P, JSON.parse(decodeURIComponent(atob(location.hash.slice(3))))); } catch (e) {} }
 // ---------- compact share codes: #c=… carries someone's taste (and their pirate name) ----------
-// format: v1 . types (one char 0-9/a per type) . play days (7 bits) . boost*2 rare late . events . favourite words . must-haves (last 10 chars of offer ids) . name
+// format: v1 . types (one char 0-9/a per type) . play days (7 bits) . boost*2 rare late . events . favourite words . must-haves (last 10 chars of offer ids) . name . themes (id:l/s, optional)
 const TKEYS = ['outfit', 'bundle', 'emote', 'pickaxe', 'glider', 'backpack', 'wrap', 'sidekick', 'jamtrack', 'music', 'kicks', 'car', 'contrail', 'loadingscreen', 'lego', 'instrument', 'other'];
 const b64u = t => btoa(unescape(encodeURIComponent(t))).replace(/\+/g, '-').replace(/\//g, '_').replace(/=+$/, '');
 const unb64u = t => decodeURIComponent(escape(atob(t.replace(/-/g, '+').replace(/_/g, '/'))));
 function shareCode(name) {
   const d = n => n >= 10 ? 'a' : String(Math.max(0, Math.round(n)));
   const parts = ['1', TKEYS.map(k => d(P.types[k] ?? 0)).join(''), P.days.join(''), `${Math.round(P.kwBoost * 2)}${d(P.rare)}${P.late ? 1 : 0}`,
-    Object.entries(P.ev).map(([k, v]) => `${k}:${v}`).join(','), P.kw || '', (P.must || []).map(id => String(id).slice(-10)).join(','), name || ''];
+    Object.entries(P.ev).map(([k, v]) => `${k}:${v}`).join(','), P.kw || '', (P.must || []).map(id => String(id).slice(-10)).join(','), name || '', Object.entries(P.genres || {}).map(([k, v]) => `${k}:${v[0]}`).join(',')];
   return b64u(parts.join('|'));
 }
 function readCode(code) {
@@ -86,7 +86,7 @@ function readCode(code) {
   const v = c => c === 'a' ? 10 : +c;
   const types = {}; TKEYS.forEach((k, i) => { if (f[1][i] !== undefined) types[k] = v(f[1][i]); });
   const ev = {}; for (const kv of (f[4] || '').split(',').filter(Boolean)) { const [k, x] = kv.split(':'); ev[k] = +x; }
-  return { types, days: f[2].split('').map(Number), kwBoost: +f[3][0] / 2, rare: v(f[3][1]), late: f[3][2] === '1', ev, kw: f[5] || '', mustTail: (f[6] || '').split(',').filter(Boolean), name: f[7] || '' };
+  return { types, days: f[2].split('').map(Number), kwBoost: +f[3][0] / 2, rare: v(f[3][1]), late: f[3][2] === '1', ev, kw: f[5] || '', mustTail: (f[6] || '').split(',').filter(Boolean), name: f[7] || '', genres: Object.fromEntries((f[8] || '').split(',').filter(Boolean).map(kv => kv.split(':')).map(([k, v]) => [k, v === 'l' ? 'love' : 'skip'])) };
 }
 let shared = null;
 if (location.hash.startsWith('#c=')) { try { shared = readCode(location.hash.slice(3)); shared.prev = structuredClone(P); const { mustTail, name, prev, ...rest } = shared; Object.assign(P, rest); } catch (e) { shared = null; } }
@@ -301,7 +301,7 @@ function offCal(M) {
     if (i < 0) { cells.push('<span class="cd past"></span>'); continue; }
     const iso = dt(i).toISOString().slice(0, 10), d = dt(i).getUTCDate(), inWin = M && sel !== null && i >= sel && i < sel + M.dur;
     const wdOff = !P.days[WD(i)], isOff = off.has(iso);
-    cells.push(`<button type="button" class="cd${isOff ? ' off' : ''}${wdOff ? ' wdoff' : ''}${inWin ? ' win' : ''}${i === 0 ? ' tdy' : ''}" data-off="${iso}" aria-pressed="${isOff}" aria-label="${fmtL(i)}${isOff ? ', away' : wdOff ? ', not a play day' : ''}">${d === 1 || i === 0 ? `<small>${fmt(i, { month: 'short' })}</small>` : ''}${d}</button>`);
+    cells.push(`<button type="button" class="cd${isOff ? ' off' : ''}${wdOff ? ' wdoff' : ''}${inWin ? ' win' : ''}${i === 0 ? ' tdy' : ''}" data-off="${iso}" aria-pressed="${isOff}" >${d === 1 || i === 0 ? `<small>${fmt(i, { month: 'short' })} </small>` : ''}${d}<span class="sr">, ${fmt(i, { weekday: 'long' })}${isOff ? ', away' : wdOff ? ', not a play day' : ''}</span></button>`);
   }
   $('offGrid').innerHTML = cells.join('');
   const n = [...off].filter(x => idx(x) >= 0).length;
@@ -543,10 +543,11 @@ function render(recompute = true) {
   const groups = []; for (const d of Object.keys(leave).map(Number).sort((a, b) => a - b)) { const g = groups.at(-1); if (g && d - g.d < gapDays && (g.d > sel) === (d > sel)) g.xs.push(...leave[d]); else groups.push({ d, xs: [...leave[d]] }); }
   const shownEv = D.events.filter(e => e.extraVbucks > 0 || e.fromHistory);
   $('vTitle').textContent = `Your 14 days: ${fmt(sel)} – ${fmt(sel + dur - 1)}`;
+  { const tr = $('track'); tr.setAttribute('aria-valuemin', M.startMin); tr.setAttribute('aria-valuemax', M.startMax); tr.setAttribute('aria-valuenow', sel); tr.setAttribute('aria-valuetext', `Start ${fmtL(sel)}, about ${n0(cur.tot)} V-Bucks`); }
   $('vScore').textContent = `~${n0(cur.tot)} V-Bucks`;
   $('selInfo').textContent = sel === best ? `Showing the best day, ${fmtL(sel)}` : `Showing ${fmtL(sel)} · ${pct(cur.tot)}% of the best day`;
   render.tipFor = s => { const a = all.find(x => x.s === s); return `<b>${fmtL(s)}</b><br>~${n0(a.tot)} V-Bucks<br><span class="tk">known ${n0(a.shop)}</span> · <span class="te">estimate ${n0(a.tot - a.shop)}</span><br>likely ${n0(a.p10)}–${n0(a.p90)}<br>${a.s === best ? 'best day' : pct(a.tot) + '% of best'}`; };
-  $('track').innerHTML = `<div class="estzone" style="left:${tp(1)}%"><b>${T('estimate', 'Estimate from here')} →</b></div><div class="knownzone" style="width:${tp(1)}%"></div><div class="win" style="left:${tp(sel)}%;width:${tp(dur)}%"></div><div class="dl" style="left:${tp(deadIdx)}%"><b>Deadline</b></div><div class="today" style="left:0"><b>Today</b></div>` +
+  $('track').innerHTML = `<div class="estzone" style="left:${tp(1)}%"><b>Estimate from here →</b></div><div class="knownzone" style="width:${tp(1)}%"></div><div class="win" style="left:${tp(sel)}%;width:${tp(dur)}%"></div><div class="dl" style="left:${tp(deadIdx)}%"><b>Deadline</b></div><div class="today" style="left:0"><b>Today</b></div>` +
     `<div class="row">${groups.map(({ d, xs }) => `<span class="tick ${d > sel ? '' : 'out'}" style="left:${tp(d)}%" title="${xs.length} item${xs.length > 1 ? 's' : ''} you want leave from ${fmt(d)}: ${esc(xs.slice(0, 5).map(x => x.e.name).join(', '))}${xs.length > 5 ? '…' : ''}">${xs.length}</span>`).join('')}</div>` +
     shownEv.map(e => { const a = idx(e.from), b = idx(e.to), r = cur.evRows.find(r => r.x.e.id === e.id); return `<div class="row"><div class="ev ${r && r.v > 0 ? 'in' : 'out'}" style="left:${tp(a)}%;width:max(${Math.min(tp(b - a + 1), 100 - tp(a))}%,28px);background:${e.extraVbucks ? '#7fe3c6' : '#cfe3ff'}" title="${esc(e.name)}">${esc(e.name)}</div></div>`; }).join('');
   $('evlist').innerHTML = shownEv.map(e => { const r = cur.evRows.find(r => r.x.e.id === e.id); return `<li class="${r && r.v > 0 ? 'in' : ''}"><b>${esc(e.name)}</b> ${fmt(idx(e.from))}–${fmt(idx(e.to))}${r && r.v > 0 ? ' · in your days' : ''}</li>`; }).join('');
@@ -683,11 +684,11 @@ function sources() {
 
 function genreChips() {
   const count = {}; if (D.shop) for (const e of D.shop.entries) for (const g of genresOf(e)) count[g] = (count[g] || 0) + 1;
-  $('genres').innerHTML = GENRES.map(g => { const st = P.genres[g.id] || ''; return `<button type="button" class="gchip${st ? ' ' + st : ''}" data-genre="${g.id}" aria-label="${g.label}: ${st === 'love' ? 'Love' : st === 'skip' ? 'Skip' : 'no preference'}. ${count[g.id] || 0} in today's shop. Tap to change.">${st === 'love' ? '<i>♥</i>' : st === 'skip' ? '<i>✕</i>' : ''}${g.label}<small>${count[g.id] || 0}</small></button>`; }).join('');
+  $('genres').innerHTML = GENRES.map(g => { const st = P.genres[g.id] || ''; return `<button type="button" class="gchip${st ? ' ' + st : ''}" data-genre="${g.id}">${st === 'love' ? '<i aria-hidden="true">♥</i>' : st === 'skip' ? '<i aria-hidden="true">✕</i>' : ''}${g.label} <small>${count[g.id] || 0}</small><span class="sr"> in today's shop, ${st === 'love' ? 'love' : st === 'skip' ? 'skip' : 'no preference'}. Tap to change.</span></button>`; }).join('');
 }
 function loves() {
   if (D.shop) genreChips();
-  $('loves').innerHTML = GROUPS.map(g => { const l = levelOf(g); return `<button type="button" class="love s${l}" data-g="${g.id}" aria-label="${g.label}: ${LEVELS[l][0]}. Tap to change."><span class="lvrow"><span class="lv">${LEVELS[l][0]}</span><svg class="gi" viewBox="0 0 24 24" aria-hidden="true">${g.icon}</svg></span><span>${g.label}</span></button>`; }).join('');
+  $('loves').innerHTML = GROUPS.map(g => { const l = levelOf(g); return `<button type="button" class="love s${l}" data-g="${g.id}"><span class="lvrow"><span class="lv">${LEVELS[l][0]}</span><svg class="gi" viewBox="0 0 24 24" aria-hidden="true">${g.icon}</svg></span><span>${g.label}</span><span class="sr">. Tap to change.</span></button>`; }).join('');
 }
 // a little burst of gold coins from the X when the best day changes
 function coins() {
