@@ -16,7 +16,7 @@
     "mustContain": [
      "December 5"
     ],
-    "checkedAt": "2026-11-15T03:41:44.791Z",
+    "checkedAt": "2026-11-15T18:42:51.684Z",
     "reachable": true,
     "found": [
      {
@@ -25,7 +25,7 @@
      }
     ],
     "verified": true,
-    "hash": "8d2379ea01129e4c",
+    "hash": "ae70f9f7cbd769af",
     "changedSinceLastCheck": false
    },
    {
@@ -33,7 +33,7 @@
     "mustContain": [
      "December 5"
     ],
-    "checkedAt": "2026-11-15T03:41:45.066Z",
+    "checkedAt": "2026-11-15T18:42:51.825Z",
     "reachable": true,
     "found": [
      {
@@ -42,7 +42,7 @@
      }
     ],
     "verified": true,
-    "hash": "3b99f5d828776f67",
+    "hash": "87b244a5a0f5c5a2",
     "changedSinceLastCheck": true
    }
   ],
@@ -56,6 +56,7 @@
   "to": "2026-12-12",
   "claim": "pattern",
   "extraVbucks": 0,
+  "landmark": true,
   "basis": "Shown as a landmark, with no extra loot. Past season-launch weeks ranged from far below to far above a normal week (June 2026 -64k, August +26k, November +53k V-Bucks for a balanced taste), and in leave-one-out back-tests adding their average made picks worse for every taste tested (e.g. 12.5% -> 13.1% loot lost). The back-test keeps checking this with calibrateFrom.",
   "newsKeywords": [
    "chapter 8"
@@ -66,7 +67,7 @@
     "mustContain": [
      "Chapter 8"
     ],
-    "checkedAt": "2026-11-15T03:41:45.066Z",
+    "checkedAt": "2026-11-15T18:42:51.825Z",
     "reachable": true,
     "found": [
      {
@@ -75,7 +76,7 @@
      }
     ],
     "verified": true,
-    "hash": "8d2379ea01129e4c",
+    "hash": "ae70f9f7cbd769af",
     "changedSinceLastCheck": false
    }
   ],
@@ -107,8 +108,7 @@
    }
   ],
   "newsHits": [],
-  "status": "pattern",
-  "landmark": true
+  "status": "pattern"
  },
  {
   "id": "winterfest",
@@ -127,7 +127,7 @@
     "mustContain": [
      "Winterfest"
     ],
-    "checkedAt": "2026-11-15T03:41:47.360Z",
+    "checkedAt": "2026-11-15T18:42:53.926Z",
     "reachable": true,
     "found": [
      {
@@ -136,7 +136,7 @@
      }
     ],
     "verified": true,
-    "hash": "c56e9165992cdf0d",
+    "hash": "cd4edd41baffa8dc",
     "changedSinceLastCheck": true
    },
    {
@@ -144,7 +144,7 @@
     "mustContain": [
      "Winterfest"
     ],
-    "checkedAt": "2026-11-15T03:41:47.469Z",
+    "checkedAt": "2026-11-15T18:42:54.096Z",
     "reachable": true,
     "found": [
      {
