@@ -8082,6 +8082,125 @@
   "sidekick": 0,
   "loadingscreen": 0
  },
+ "genreShare": {
+  "originals": {
+   "glider": 0.684,
+   "bundle": 0.528,
+   "pickaxe": 0.616,
+   "outfit": 0.782,
+   "backpack": 0.688,
+   "wrap": 0.705,
+   "emote": 0.375,
+   "car": 0.954,
+   "sidekick": 0.757,
+   "kicks": 0.383,
+   "lego": 1,
+   "contrail": 0.46
+  },
+  "starwars": {
+   "bundle": 0.042,
+   "outfit": 0.016,
+   "pickaxe": 0.029,
+   "backpack": 0.027,
+   "emote": 0.01,
+   "wrap": 0.031,
+   "kicks": 0.025,
+   "jamtrack": 0.001,
+   "glider": 0.058,
+   "sidekick": 0.016
+  },
+  "icons": {
+   "emote": 0.508,
+   "wrap": 0.105,
+   "backpack": 0.128,
+   "bundle": 0.149,
+   "outfit": 0.055,
+   "sidekick": 0.039,
+   "pickaxe": 0.099,
+   "glider": 0.081,
+   "contrail": 0.407
+  },
+  "movies": {
+   "outfit": 0.018,
+   "bundle": 0.05,
+   "car": 0.03,
+   "backpack": 0.015,
+   "emote": 0.024,
+   "pickaxe": 0.032,
+   "jamtrack": 0.004,
+   "wrap": 0.019,
+   "sidekick": 0.031,
+   "kicks": 0.016,
+   "glider": 0.006
+  },
+  "spooky": {
+   "bundle": 0.042,
+   "wrap": 0.027,
+   "outfit": 0.026,
+   "pickaxe": 0.029,
+   "backpack": 0.02,
+   "jamtrack": 0.017,
+   "glider": 0.027,
+   "emote": 0.004,
+   "sidekick": 0.019,
+   "kicks": 0.016
+  },
+  "sports": {
+   "kicks": 0.538,
+   "outfit": 0.008,
+   "bundle": 0.026,
+   "pickaxe": 0.011,
+   "backpack": 0.004,
+   "jamtrack": 0.007,
+   "wrap": 0.008,
+   "emote": 0.003
+  },
+  "gaming": {
+   "backpack": 0.058,
+   "emote": 0.039,
+   "pickaxe": 0.083,
+   "bundle": 0.079,
+   "outfit": 0.048,
+   "wrap": 0.055,
+   "glider": 0.03,
+   "kicks": 0.042,
+   "sidekick": 0.091,
+   "car": 0.017
+  },
+  "anime": {
+   "pickaxe": 0.02,
+   "wrap": 0.019,
+   "backpack": 0.014,
+   "bundle": 0.037,
+   "outfit": 0.015,
+   "glider": 0.026,
+   "emote": 0.011,
+   "jamtrack": 0.002,
+   "sidekick": 0.016
+  },
+  "marvel": {
+   "emote": 0.02,
+   "pickaxe": 0.046,
+   "outfit": 0.017,
+   "backpack": 0.029,
+   "bundle": 0.043,
+   "glider": 0.066,
+   "contrail": 0.133,
+   "wrap": 0.035
+  },
+  "dc": {
+   "pickaxe": 0.029,
+   "outfit": 0.016,
+   "bundle": 0.032,
+   "backpack": 0.021,
+   "emote": 0.011,
+   "glider": 0.036,
+   "wrap": 0.008,
+   "sidekick": 0.031,
+   "kicks": 0.011
+  }
+ },
+ "genreDays": 175,
  "medianStayDays": 3,
  "staySamples": 192,
  "survival": [
