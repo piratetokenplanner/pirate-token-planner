@@ -1,47 +1,47 @@
 {
  "tastes": {
   "Balanced": {
-   "origins": 106,
+   "origins": 107,
    "from": "2026-06-27",
-   "to": "2026-10-10",
-   "regretNew": 0.060846165974030204,
-   "regretOld": 0.09272311957731187,
-   "regretDay1": 0.0911591606351799,
-   "regretNewLast30": 0.08056058219047885,
-   "regretDay1Last30": 0.10775109716056384,
-   "cover": 0.7973944294699011,
-   "stated": 0.5930817610062893,
-   "came": 0.5754716981132075,
+   "to": "2026-10-11",
+   "regretNew": 0.06084004186866083,
+   "regretOld": 0.09261575029071391,
+   "regretDay1": 0.09106640778729345,
+   "regretNewLast30": 0.08174918807111665,
+   "regretDay1Last30": 0.10823812877714602,
+   "cover": 0.7952825990209167,
+   "stated": 0.5935202492211838,
+   "came": 0.5700934579439252,
    "launches": {
-    "normalDay": 30611.264367816093,
+    "normalDay": 30518.514285714286,
     "uplift": {
-     "Chapter 7 Season 3 launch week": -64508.85057471266,
-     "Chapter 7 Season 4 launch week": 25841.149425287345,
-     "Treasure Hunters launch week": 52371.14942528734
+     "Chapter 7 Season 3 launch week": -63859.6,
+     "Chapter 7 Season 4 launch week": 26490.4,
+     "Treasure Hunters launch week": 53020.4
     },
     "regretNoEvent": 0.12521860923524775,
-    "regretWithEvent": 0.13172770258125646,
+    "regretWithEvent": 0.13053624834708719,
     "origins": 36
    }
   },
   "Skins only": {
-   "origins": 106,
+   "origins": 107,
    "from": "2026-06-27",
-   "to": "2026-10-10",
-   "regretNew": 0.0656472422584774,
-   "regretOld": 0.09386339508455738,
-   "regretDay1": 0.09326721759938328,
-   "regretNewLast30": 0.08401691765559592,
-   "regretDay1Last30": 0.11251121329867755,
-   "cover": 0.8059299191374661,
-   "stated": 0.5806289308176101,
-   "came": 0.5,
+   "to": "2026-10-11",
+   "regretNew": 0.06563885187019979,
+   "regretOld": 0.09377762462811844,
+   "regretDay1": 0.09318701889514222,
+   "regretNewLast30": 0.08537698948252141,
+   "regretDay1Last30": 0.11300586723832132,
+   "cover": 0.8037383177570092,
+   "stated": 0.5812149532710281,
+   "came": 0.4953271028037383,
    "launches": {
-    "normalDay": 26659.19540229885,
+    "normalDay": 26579.428571428572,
     "uplift": {
-     "Chapter 7 Season 3 launch week": -56914.36781609195,
-     "Chapter 7 Season 4 launch week": 25785.63218390805,
-     "Treasure Hunters launch week": 42985.63218390805
+     "Chapter 7 Season 3 launch week": -56356.00000000001,
+     "Chapter 7 Season 4 launch week": 26343.999999999993,
+     "Treasure Hunters launch week": 43543.99999999999
     },
     "regretNoEvent": 0.12515519346314485,
     "regretWithEvent": 0.1395563539999636,
@@ -49,31 +49,31 @@
    }
   },
   "Hoarder": {
-   "origins": 106,
+   "origins": 107,
    "from": "2026-06-27",
-   "to": "2026-10-10",
-   "regretNew": 0.061206560832198734,
-   "regretOld": 0.09972591963815619,
-   "regretDay1": 0.09829892429535973,
-   "regretNewLast30": 0.06021552848938924,
-   "regretDay1Last30": 0.09151766714809312,
-   "cover": 0.7978436657681941,
-   "stated": 0.6060377358490567,
-   "came": 0.44339622641509435,
+   "to": "2026-10-11",
+   "regretNew": 0.06145692426845186,
+   "regretOld": 0.0998023896569045,
+   "regretDay1": 0.09838873071918092,
+   "regretNewLast30": 0.06093508673614688,
+   "regretDay1Last30": 0.09242688530239168,
+   "cover": 0.7970627503337783,
+   "stated": 0.6049844236760126,
+   "came": 0.4392523364485981,
    "launches": {
-    "normalDay": 45893.67816091954,
+    "normalDay": 45746.857142857145,
     "uplift": {
-     "Chapter 7 Season 3 launch week": -57555.74712643677,
-     "Chapter 7 Season 4 launch week": 38244.25287356323,
-     "Treasure Hunters launch week": 150744.2528735632
+     "Chapter 7 Season 3 launch week": -56528.000000000015,
+     "Chapter 7 Season 4 launch week": 39271.999999999985,
+     "Treasure Hunters launch week": 151772.0
     },
-    "regretNoEvent": 0.07842439457588567,
-    "regretWithEvent": 0.10499759743634969,
+    "regretNoEvent": 0.07772048722603044,
+    "regretWithEvent": 0.10429369008649446,
     "origins": 36
    }
   }
  },
- "sureScale": 0.8534172026291611,
+ "sureScale": 0.8454550228430394,
  "sureBins": [
   {
    "stated": [
@@ -96,16 +96,16 @@
     0.4,
     0.6
    ],
-   "n": 174,
-   "came": 0.39655172413793105
+   "n": 175,
+   "came": 0.3942857142857143
   },
   {
    "stated": [
     0.6,
     0.8
    ],
-   "n": 122,
-   "came": 0.5819672131147541
+   "n": 124,
+   "came": 0.5725806451612904
   },
   {
    "stated": [
@@ -116,7 +116,7 @@
    "came": 0.8
   }
  ],
- "generatedAt": "2026-11-14T20:19:48+00:00",
+ "generatedAt": "2026-11-15T00:21:10+00:00",
  "archiveFrom": "2026-05-02",
- "archiveTo": "2026-11-13"
+ "archiveTo": "2026-11-14"
 }

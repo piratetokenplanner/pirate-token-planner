@@ -1,11 +1,7 @@
 {
- "fetchedAt": "2026-11-14T22:48:11.405Z",
+ "fetchedAt": "2026-11-15T00:19:00.396Z",
  "source": "https://fortnite-api.com/v2/news/br?language=en",
  "items": [
-  {
-   "title": "Cursed Sprite Variants - November 14",
-   "body": "Beware the cursed tide from 2-4 PM ET and 9-11 PM ET! Drop in with Lil Uzi Vert's Lil' SMG and a Self Revive, and track down more Cursed Sprite variants across the Island."
-  },
   {
    "title": "Devil Fruits Across the Island",
    "body": "Rare Devil Fruits have dropped in across the map! Eat the Gum-Gum Fruit to stretch your skills as Luffy, or the Flame-Flame Fruit to come in hot as Ace... just stay away from water."
@@ -21,6 +17,10 @@
   {
    "title": "Multi-Punches Flex",
    "body": "GUM-GUM GATLING!"
+  },
+  {
+   "title": "Adventure Awaits!",
+   "body": "Explore One Piece's Arlong Park, sail past Baratie Bay, or storm The $.$. Rocky on this mysterious skull-shaped island."
   }
  ]
 }
