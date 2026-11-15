@@ -1237,14 +1237,39 @@ async function init() {
   setInterval(() => { if (!root.classList.contains('idle') && Date.now() - lastInput > 30e3) root.classList.add('idle'); }, 5e3);
   // calm sea: no ambient animation at all. On by choice, or automatically on slow devices and data saver
   const calmPref = (() => { try { return localStorage.getItem('ptp-calm'); } catch { return null; } })();
-  const setCalm = on => { root.classList.toggle('lite', on); $('calmBtn').setAttribute('aria-pressed', on); $('calmBtn').textContent = on ? 'Calm sea is on: tap for animations' : 'Calm sea: fewer animations'; };
+  // smooth switch: drifting clouds and swimming fish glide to their resting place, and start moving again
+  // from exactly where they rest (their animation is wound forward to that point) instead of jumping
+  const PATH = { drift: [-25, 110], swim: [110, -40], swimr: [-40, 110] }; // translateX in vw, start -> end
+  const movers = () => [...document.querySelectorAll('.sky .cloud, .fishes .school')];
+  const xNow = el => el.getBoundingClientRect().left; // both sit at left: 0, so this is their translateX
+  const setCalm = (on, smooth) => {
+    const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
+    const before = smooth && !reduce ? movers().map(el => [el, xNow(el)]) : null;
+    root.classList.toggle('lite', on);
+    $('calmBtn').setAttribute('aria-pressed', on); $('calmBtn').textContent = on ? 'Calm sea is on: tap for animations' : 'Calm sea: fewer animations';
+    if (!before) return;
+    const vw = innerWidth / 100;
+    for (const [el, x0] of before) {
+      if (on) { // glide from where it is now to its resting place
+        const to = getComputedStyle(el).transform;
+        el.animate([{ transform: `translateX(${x0}px)` }, { transform: to === 'none' ? 'none' : to }], { duration: 1400, easing: 'cubic-bezier(.4,0,.2,1)' });
+      } else { // continue the CSS animation from the resting place
+        for (const a of el.getAnimations()) {
+          const path = PATH[a.animationName]; if (!path) continue;
+          const t = a.effect.getComputedTiming(), D = t.duration, d = t.delay || 0;
+          let p = (x0 / vw - path[0]) / (path[1] - path[0]); p = Math.min(.999, Math.max(0, p));
+          let ct = p * D + d; while (ct < 0) ct += D; a.currentTime = ct;
+        }
+      }
+    }
+  };
   const slowDevice = (navigator.connection && navigator.connection.saveData) || (navigator.hardwareConcurrency || 8) <= 2 || (navigator.deviceMemory || 8) <= 2;
   setCalm(calmPref === '1' || (calmPref === null && slowDevice));
-  $('calmBtn').addEventListener('click', () => { const on = !root.classList.contains('lite'); setCalm(on); try { localStorage.setItem('ptp-calm', on ? '1' : '0'); } catch {} });
+  $('calmBtn').addEventListener('click', () => { const on = !root.classList.contains('lite'); setCalm(on, true); try { localStorage.setItem('ptp-calm', on ? '1' : '0'); } catch {} });
   // if the first seconds show dropped frames, calm down automatically (unless the visitor chose otherwise)
   if (calmPref === null && !slowDevice) {
     const gaps = []; let prev = 0;
-    const tick = t => { if (prev) gaps.push(t - prev); prev = t; if (gaps.length < 90) requestAnimationFrame(tick); else { gaps.sort((a, b) => a - b); if (!document.hidden && gaps[Math.floor(gaps.length * .75)] > 50) setCalm(true); } };
+    const tick = t => { if (prev) gaps.push(t - prev); prev = t; if (gaps.length < 90) requestAnimationFrame(tick); else { gaps.sort((a, b) => a - b); if (!document.hidden && gaps[Math.floor(gaps.length * .75)] > 50) setCalm(true, true); } };
     setTimeout(() => requestAnimationFrame(tick), 1500);
   }
   addEventListener('resize', () => { last = ''; scene(); }); scene();
