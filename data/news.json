@@ -1,5 +1,5 @@
 {
- "fetchedAt": "2026-11-16T15:00:21.522Z",
+ "fetchedAt": "2026-11-16T18:54:17.676Z",
  "source": "https://fortnite-api.com/v2/news/br?language=en",
  "items": [
   {
@@ -11,16 +11,16 @@
    "body": "Virtual Diva Kasane Teto takes the stage! TWINDRILL DIVA Music Pass holders get access to the Kasane Teto Outfit, Back Bling, Emote, and more. Dive into Festival to start unlocking rewards!"
   },
   {
+   "title": "More Sprite Dust and XP",
+   "body": "Plunder aplenty awaits! Double Sprite Dust and XP, plus boosted Sprite chests and Sprite Wanted Posters."
+  },
+  {
    "title": "Monkey D. Luffy, Nami, and Usopp Outfits",
    "body": "When adventure calls, the Straw Hats answer! Set sail with Monkey D. Luffy, Nami, and Usopp Outfits and chart a course to uncharted waters."
   },
   {
    "title": "Multi-Punches Flex",
    "body": "GUM-GUM GATLING!"
-  },
-  {
-   "title": "Adventure Awaits!",
-   "body": "Explore One Piece's Arlong Park, sail past Baratie Bay, or storm The $.$. Rocky on this mysterious skull-shaped island."
   }
  ]
 }
