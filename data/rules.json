@@ -73,7 +73,7 @@
      "mustContain": [
       "14 days"
      ],
-     "checkedAt": "2026-11-17T07:14:25.645Z",
+     "checkedAt": "2026-11-17T13:02:39.353Z",
      "reachable": true,
      "found": [
       {
@@ -82,7 +82,7 @@
       }
      ],
      "verified": true,
-     "hash": "fdd5f08e8dbb38d7",
+     "hash": "27c50a86f8a7f50b",
      "changedSinceLastCheck": true
     },
     {
@@ -90,7 +90,7 @@
      "mustContain": [
       "14 days"
      ],
-     "checkedAt": "2026-11-17T07:14:25.698Z",
+     "checkedAt": "2026-11-17T13:02:39.507Z",
      "reachable": true,
      "found": [
       {
@@ -99,7 +99,7 @@
       }
      ],
      "verified": true,
-     "hash": "584cf2c3cb898334",
+     "hash": "97fd12de96728730",
      "changedSinceLastCheck": true
     }
    ],
@@ -116,7 +116,7 @@
      "mustContain": [
       "December 15"
      ],
-     "checkedAt": "2026-11-17T07:14:25.698Z",
+     "checkedAt": "2026-11-17T13:02:39.507Z",
      "reachable": true,
      "found": [
       {
@@ -125,7 +125,7 @@
       }
      ],
      "verified": true,
-     "hash": "fdd5f08e8dbb38d7",
+     "hash": "27c50a86f8a7f50b",
      "changedSinceLastCheck": true
     }
    ],
@@ -144,7 +144,7 @@
       "gifting",
       "real money bundles"
      ],
-     "checkedAt": "2026-11-17T07:14:25.704Z",
+     "checkedAt": "2026-11-17T13:02:39.515Z",
      "reachable": true,
      "found": [
       {
@@ -161,7 +161,7 @@
       }
      ],
      "verified": true,
-     "hash": "fdd5f08e8dbb38d7",
+     "hash": "27c50a86f8a7f50b",
      "changedSinceLastCheck": true
     }
    ],
@@ -178,7 +178,7 @@
      "mustContain": [
       "sidekick"
      ],
-     "checkedAt": "2026-11-17T07:14:25.711Z",
+     "checkedAt": "2026-11-17T13:02:39.523Z",
      "reachable": true,
      "found": [
       {
@@ -187,7 +187,7 @@
       }
      ],
      "verified": true,
-     "hash": "fdd5f08e8dbb38d7",
+     "hash": "27c50a86f8a7f50b",
      "changedSinceLastCheck": true
     }
    ],
@@ -204,7 +204,7 @@
      "mustContain": [
       "00:00 UTC"
      ],
-     "checkedAt": "2026-11-17T07:14:25.849Z",
+     "checkedAt": "2026-11-17T13:02:39.720Z",
      "reachable": true,
      "found": [
       {
@@ -213,8 +213,8 @@
       }
      ],
      "verified": true,
-     "hash": "93a501aea08263bc",
-     "changedSinceLastCheck": false
+     "hash": "c4ffee14614c9f41",
+     "changedSinceLastCheck": true
     }
    ],
    "newsHits": [],
@@ -230,7 +230,7 @@
      "mustContain": [
       "2027"
      ],
-     "checkedAt": "2026-11-17T07:14:25.849Z",
+     "checkedAt": "2026-11-17T13:02:39.720Z",
      "reachable": true,
      "found": [
       {
@@ -239,7 +239,7 @@
       }
      ],
      "verified": true,
-     "hash": "584cf2c3cb898334",
+     "hash": "97fd12de96728730",
      "changedSinceLastCheck": true
     }
    ],
