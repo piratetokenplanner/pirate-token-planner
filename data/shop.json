@@ -9407,7 +9407,7 @@
    "inDate": "2026-11-17",
    "outDate": "2026-11-23",
    "section": "No Sweat",
-   "image": "https://fortnite-api.com/images/cosmetics/br/newdisplayassets/d416004a362af80a/renderimage_1.png",
+   "image": "https://fortnite-api.com/images/cosmetics/br/newdisplayassets/d416004a362af80a/renderimage_0.png",
    "gap": 78,
    "items": [
     {
@@ -10500,7 +10500,7 @@
    "inDate": "2026-11-16",
    "outDate": "2026-11-20",
    "section": "Treasure Hunters ",
-   "image": "https://fortnite-api.com/images/cosmetics/br/newdisplayassets/dcb2fb47ab71bba5/renderimage_1.png",
+   "image": "https://fortnite-api.com/images/cosmetics/br/newdisplayassets/dcb2fb47ab71bba5/renderimage_0.png",
    "gap": 80,
    "items": [
     {
@@ -11642,7 +11642,7 @@
    ]
   }
  ],
- "fetchedAt": "2026-11-19T07:13:05.985Z",
+ "fetchedAt": "2026-11-19T13:12:38.677Z",
  "source": "https://fortnite-api.com/v2/shop?language=en",
  "historyFrom": "2025-05-04"
 }
