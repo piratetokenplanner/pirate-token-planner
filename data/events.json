@@ -16,7 +16,7 @@
     "mustContain": [
      "December 5"
     ],
-    "checkedAt": "2026-11-19T18:58:33.484Z",
+    "checkedAt": "2026-11-20T00:59:41.126Z",
     "reachable": true,
     "found": [
      {
@@ -25,15 +25,15 @@
      }
     ],
     "verified": true,
-    "hash": "363df51887d94550",
-    "changedSinceLastCheck": false
+    "hash": "734dbae7864de830",
+    "changedSinceLastCheck": true
    },
    {
     "url": "https://lootrundown.com/fortnite/event-calendar",
     "mustContain": [
      "December 5"
     ],
-    "checkedAt": "2026-11-19T18:58:33.877Z",
+    "checkedAt": "2026-11-20T00:59:41.453Z",
     "reachable": true,
     "found": [
      {
@@ -42,7 +42,7 @@
      }
     ],
     "verified": true,
-    "hash": "a8b1401d4d5f70d5",
+    "hash": "284e16297c8768ee",
     "changedSinceLastCheck": true
    }
   ],
@@ -67,7 +67,7 @@
     "mustContain": [
      "Chapter 8"
     ],
-    "checkedAt": "2026-11-19T18:58:33.877Z",
+    "checkedAt": "2026-11-20T00:59:41.453Z",
     "reachable": true,
     "found": [
      {
@@ -76,8 +76,8 @@
      }
     ],
     "verified": true,
-    "hash": "363df51887d94550",
-    "changedSinceLastCheck": false
+    "hash": "734dbae7864de830",
+    "changedSinceLastCheck": true
    }
   ],
   "calibrateFrom": [
@@ -127,7 +127,7 @@
     "mustContain": [
      "Winterfest"
     ],
-    "checkedAt": "2026-11-19T18:58:34.410Z",
+    "checkedAt": "2026-11-20T00:59:45.237Z",
     "reachable": true,
     "found": [
      {
@@ -136,7 +136,7 @@
      }
     ],
     "verified": true,
-    "hash": "44b8d2adcf6fd71e",
+    "hash": "1cfe91d658f81926",
     "changedSinceLastCheck": true
    },
    {
@@ -144,7 +144,7 @@
     "mustContain": [
      "Winterfest"
     ],
-    "checkedAt": "2026-11-19T18:58:34.489Z",
+    "checkedAt": "2026-11-20T00:59:45.601Z",
     "reachable": true,
     "found": [
      {
@@ -168,22 +168,22 @@
   "status": "pattern",
   "fromHistory": {
    "byKind": {
-    "bundle": 11054,
-    "outfit": 81986,
-    "pickaxe": 8855,
-    "emote": 5601,
-    "backpack": -14752,
-    "instrument": 11047,
-    "wrap": 683,
-    "glider": 5530,
-    "kicks": 7174,
-    "jamtrack": -25531,
-    "other": 1392,
-    "contrail": -438,
-    "car": 363,
-    "lego": -270,
-    "sidekick": -1968,
-    "loadingscreen": -636
+    "bundle": 10847,
+    "outfit": 82380,
+    "pickaxe": 8843,
+    "emote": 5517,
+    "backpack": -14758,
+    "instrument": 11058,
+    "wrap": 681,
+    "glider": 5573,
+    "kicks": 7109,
+    "jamtrack": -25450,
+    "other": 1397,
+    "contrail": -436,
+    "car": 332,
+    "lego": -269,
+    "sidekick": -2039,
+    "loadingscreen": -635
    },
    "from": [
     {
@@ -192,22 +192,22 @@
      "label": "Winterfest 2025",
      "days": 15,
      "byKind": {
-      "bundle": 11054,
-      "outfit": 81986,
-      "pickaxe": 8855,
-      "emote": 5601,
-      "backpack": -14752,
-      "instrument": 11047,
-      "wrap": 683,
-      "glider": 5530,
-      "kicks": 7174,
-      "jamtrack": -25531,
-      "other": 1392,
-      "contrail": -438,
-      "car": 363,
-      "lego": -270,
-      "sidekick": -1968,
-      "loadingscreen": -636
+      "bundle": 10847,
+      "outfit": 82380,
+      "pickaxe": 8843,
+      "emote": 5517,
+      "backpack": -14758,
+      "instrument": 11058,
+      "wrap": 681,
+      "glider": 5573,
+      "kicks": 7109,
+      "jamtrack": -25450,
+      "other": 1397,
+      "contrail": -436,
+      "car": 332,
+      "lego": -269,
+      "sidekick": -2039,
+      "loadingscreen": -635
      }
     }
    ]

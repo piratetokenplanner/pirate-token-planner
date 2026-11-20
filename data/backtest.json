@@ -1,79 +1,90 @@
 {
  "tastes": {
   "Balanced": {
-   "origins": 107,
+   "origins": 112,
    "from": "2026-06-27",
-   "to": "2026-10-11",
-   "regretNew": 0.06084004186866083,
-   "regretOld": 0.09261575029071391,
-   "regretDay1": 0.09106640778729345,
-   "regretNewLast30": 0.08174918807111665,
-   "regretDay1Last30": 0.10823812877714602,
-   "cover": 0.7952825990209167,
-   "stated": 0.5935202492211838,
-   "came": 0.5700934579439252,
+   "to": "2026-10-16",
+   "regretNew": 0.05409302151386778,
+   "regretNoSeason": 0.059346699042451705,
+   "seasonShrink": 0.25,
+   "regretOld": 0.09038091405984328,
+   "regretDay1": 0.08888122112719044,
+   "regretNewLast30": 0.08264187692697522,
+   "regretDay1Last30": 0.11058086757154932,
+   "cover": 0.7882653061224489,
+   "stated": 0.6066666666666666,
+   "came": 0.5625,
    "launches": {
-    "normalDay": 30518.514285714286,
+    "normalDay": 30759.444444444445,
     "uplift": {
-     "Chapter 7 Season 3 launch week": -63859.6,
-     "Chapter 7 Season 4 launch week": 26490.4,
-     "Treasure Hunters launch week": 53020.4
+     "Chapter 7 Season 3 launch week": -65546.11111111112,
+     "Chapter 7 Season 4 launch week": 24803.888888888883,
+     "Treasure Hunters launch week": 51333.88888888888
     },
-    "regretNoEvent": 0.12521860923524775,
-    "regretWithEvent": 0.13053624834708719,
-    "origins": 36
+    "regretNoEvent": 0.10733611733607275,
+    "regretWithEvent": 0.11851508743872416,
+    "origins": 41
    }
   },
   "Skins only": {
-   "origins": 107,
+   "origins": 112,
    "from": "2026-06-27",
-   "to": "2026-10-11",
-   "regretNew": 0.06563885187019979,
-   "regretOld": 0.09377762462811844,
-   "regretDay1": 0.09318701889514222,
-   "regretNewLast30": 0.08537698948252141,
-   "regretDay1Last30": 0.11300586723832132,
-   "cover": 0.8037383177570092,
-   "stated": 0.5812149532710281,
-   "came": 0.4953271028037383,
+   "to": "2026-10-16",
+   "regretNew": 0.06073667229928569,
+   "regretNoSeason": 0.06380177614746838,
+   "seasonShrink": 0.25,
+   "regretOld": 0.09132233383210685,
+   "regretDay1": 0.09084630896425148,
+   "regretNewLast30": 0.08533565554289103,
+   "regretDay1Last30": 0.11486257875620944,
+   "cover": 0.7967687074829932,
+   "stated": 0.5954166666666667,
+   "came": 0.5178571428571429,
    "launches": {
-    "normalDay": 26579.428571428572,
+    "normalDay": 26776.11111111111,
     "uplift": {
-     "Chapter 7 Season 3 launch week": -56356.00000000001,
-     "Chapter 7 Season 4 launch week": 26343.999999999993,
-     "Treasure Hunters launch week": 43543.99999999999
+     "Chapter 7 Season 3 launch week": -57732.77777777777,
+     "Chapter 7 Season 4 launch week": 24967.222222222234,
+     "Treasure Hunters launch week": 42167.22222222223
     },
-    "regretNoEvent": 0.12515519346314485,
-    "regretWithEvent": 0.1395563539999636,
-    "origins": 36
+    "regretNoEvent": 0.10460599712986345,
+    "regretWithEvent": 0.12438933961065614,
+    "origins": 41
    }
   },
   "Hoarder": {
-   "origins": 107,
+   "origins": 112,
    "from": "2026-06-27",
-   "to": "2026-10-11",
-   "regretNew": 0.06145692426845186,
-   "regretOld": 0.0998023896569045,
-   "regretDay1": 0.09838873071918092,
-   "regretNewLast30": 0.06093508673614688,
-   "regretDay1Last30": 0.09242688530239168,
-   "cover": 0.7970627503337783,
-   "stated": 0.6049844236760126,
-   "came": 0.4392523364485981,
+   "to": "2026-10-16",
+   "regretNew": 0.05882093293259721,
+   "regretNoSeason": 0.06295070016124513,
+   "seasonShrink": 0.25,
+   "regretOld": 0.1001473240881982,
+   "regretDay1": 0.09799501528643187,
+   "regretNewLast30": 0.0575796794426395,
+   "regretDay1Last30": 0.09520983878239596,
+   "cover": 0.8052721088435374,
+   "stated": 0.6117261904761904,
+   "came": 0.48214285714285715,
    "launches": {
-    "normalDay": 45746.857142857145,
+    "normalDay": 46001.666666666664,
     "uplift": {
-     "Chapter 7 Season 3 launch week": -56528.000000000015,
-     "Chapter 7 Season 4 launch week": 39271.999999999985,
-     "Treasure Hunters launch week": 151772.0
+     "Chapter 7 Season 3 launch week": -58311.66666666665,
+     "Chapter 7 Season 4 launch week": 37488.33333333335,
+     "Treasure Hunters launch week": 149988.33333333337
     },
-    "regretNoEvent": 0.07772048722603044,
-    "regretWithEvent": 0.10429369008649446,
-    "origins": 36
+    "regretNoEvent": 0.07816925605154298,
+    "regretWithEvent": 0.10376831778155347,
+    "origins": 41
    }
   }
  },
- "sureScale": 0.8454550228430394,
+ "sureScale": 0.8614465739039119,
+ "sureFit": {
+  "a": 0.3,
+  "b": 0.366,
+  "n": 336
+ },
  "sureBins": [
   {
    "stated": [
@@ -88,40 +99,35 @@
     0.2,
     0.4
    ],
-   "n": 6,
-   "came": 1.0
+   "n": 3,
+   "came": 0.3333333333333333
   },
   {
    "stated": [
     0.4,
     0.6
    ],
-   "n": 175,
-   "came": 0.3942857142857143
+   "n": 180,
+   "came": 0.4888888888888889
   },
   {
    "stated": [
     0.6,
     0.8
    ],
-   "n": 124,
-   "came": 0.5725806451612904
+   "n": 128,
+   "came": 0.5390625
   },
   {
    "stated": [
     0.8,
     1.0
    ],
-   "n": 20,
-   "came": 0.8
+   "n": 30,
+   "came": 0.6333333333333333
   }
  ],
- "generatedAt": "2026-11-15T02:20:13+00:00",
+ "generatedAt": "2026-11-20T01:01:09+00:00",
  "archiveFrom": "2026-05-02",
- "archiveTo": "2026-11-14",
- "sureFit": {
-  "a": 0.307,
-  "b": 0.343,
-  "n": 321
- }
+ "archiveTo": "2026-11-19"
 }

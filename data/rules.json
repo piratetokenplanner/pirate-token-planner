@@ -73,7 +73,7 @@
      "mustContain": [
       "14 days"
      ],
-     "checkedAt": "2026-11-19T18:58:35.709Z",
+     "checkedAt": "2026-11-20T00:59:46.362Z",
      "reachable": true,
      "found": [
       {
@@ -82,7 +82,7 @@
       }
      ],
      "verified": true,
-     "hash": "8a0d89eedfc7f571",
+     "hash": "34a3d282802f6e2e",
      "changedSinceLastCheck": true
     },
     {
@@ -90,7 +90,7 @@
      "mustContain": [
       "14 days"
      ],
-     "checkedAt": "2026-11-19T18:58:36.487Z",
+     "checkedAt": "2026-11-20T00:59:46.433Z",
      "reachable": true,
      "found": [
       {
@@ -99,7 +99,7 @@
       }
      ],
      "verified": true,
-     "hash": "bc5383f5854cd9d7",
+     "hash": "092e156862eaa625",
      "changedSinceLastCheck": true
     }
    ],
@@ -116,7 +116,7 @@
      "mustContain": [
       "December 15"
      ],
-     "checkedAt": "2026-11-19T18:58:36.488Z",
+     "checkedAt": "2026-11-20T00:59:46.434Z",
      "reachable": true,
      "found": [
       {
@@ -125,7 +125,7 @@
       }
      ],
      "verified": true,
-     "hash": "8a0d89eedfc7f571",
+     "hash": "34a3d282802f6e2e",
      "changedSinceLastCheck": true
     }
    ],
@@ -144,7 +144,7 @@
       "gifting",
       "real money bundles"
      ],
-     "checkedAt": "2026-11-19T18:58:36.496Z",
+     "checkedAt": "2026-11-20T00:59:46.441Z",
      "reachable": true,
      "found": [
       {
@@ -161,7 +161,7 @@
       }
      ],
      "verified": true,
-     "hash": "8a0d89eedfc7f571",
+     "hash": "34a3d282802f6e2e",
      "changedSinceLastCheck": true
     }
    ],
@@ -178,7 +178,7 @@
      "mustContain": [
       "sidekick"
      ],
-     "checkedAt": "2026-11-19T18:58:36.503Z",
+     "checkedAt": "2026-11-20T00:59:46.449Z",
      "reachable": true,
      "found": [
       {
@@ -187,7 +187,7 @@
       }
      ],
      "verified": true,
-     "hash": "8a0d89eedfc7f571",
+     "hash": "34a3d282802f6e2e",
      "changedSinceLastCheck": true
     }
    ],
@@ -204,7 +204,7 @@
      "mustContain": [
       "00:00 UTC"
      ],
-     "checkedAt": "2026-11-19T18:58:36.634Z",
+     "checkedAt": "2026-11-20T00:59:46.600Z",
      "reachable": true,
      "found": [
       {
@@ -230,7 +230,7 @@
      "mustContain": [
       "2027"
      ],
-     "checkedAt": "2026-11-19T18:58:36.634Z",
+     "checkedAt": "2026-11-20T00:59:46.600Z",
      "reachable": true,
      "found": [
       {
@@ -239,7 +239,7 @@
       }
      ],
      "verified": true,
-     "hash": "bc5383f5854cd9d7",
+     "hash": "092e156862eaa625",
      "changedSinceLastCheck": true
     }
    ],
