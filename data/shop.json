@@ -1,6 +1,29 @@
 {
- "shopDate": "2026-11-22",
+ "shopDate": "2026-11-23",
  "entries": [
+  {
+   "id": "v2:/b87a75d06599244d5822d378251606acd3b621dfb7cf5324f8a41dc87b3f4d20",
+   "name": "Tower of Power",
+   "kind": "backpack",
+   "price": 300,
+   "regular": 300,
+   "inDate": "2026-11-23",
+   "outDate": "2026-11-26",
+   "section": null,
+   "image": "https://fortnite-api.com/images/cosmetics/br/bid_829_colorblock/featured.png",
+   "gap": "unseen",
+   "items": [
+    {
+     "id": "BID_829_ColorBlock",
+     "name": "Tower of Power",
+     "type": "backpack",
+     "rarity": "Rare",
+     "series": null,
+     "set": "1337 Fleet",
+     "appearances": 0
+    }
+   ]
+  },
   {
    "id": "v2:/7da448c18979bb56f2b0abfa2a0ca2a06105702f661081e34f3dabc375b9bc89",
    "name": "Oooohhh!",
@@ -21,6 +44,29 @@
      "series": null,
      "set": "Regular Show",
      "appearances": 7
+    }
+   ]
+  },
+  {
+   "id": "v2:/34c1de1acb6b74b99103ed15c0f46e0e1796fcd0385bc436a0c54d6bc1af6c82",
+   "name": "Gold Digger",
+   "kind": "pickaxe",
+   "price": 800,
+   "regular": 800,
+   "inDate": "2026-11-23",
+   "outDate": "2026-11-30",
+   "section": "Harvest Season",
+   "image": "https://fortnite-api.com/images/cosmetics/br/newdisplayassets/f966ea60e679bb25/renderimage_0.png",
+   "gap": 191,
+   "items": [
+    {
+     "id": "Pickaxe_ID_169_Farmer",
+     "name": "Gold Digger",
+     "type": "pickaxe",
+     "rarity": "Rare",
+     "series": null,
+     "set": "Fatal Fielders",
+     "appearances": 4
     }
    ]
   },
@@ -80,6 +126,131 @@
    ]
   },
   {
+   "id": "v2:/0bee7da1281939f46e8be691474aa2c30029f7384c22a78095dbf52605deb639",
+   "name": "Autumn",
+   "kind": "outfit",
+   "price": 800,
+   "regular": 800,
+   "inDate": "2026-11-23",
+   "outDate": "2026-11-30",
+   "section": "Harvest Season",
+   "image": "https://fortnite-api.com/images/cosmetics/br/newdisplayassets/084b2ed615adaca9/renderimage_0.png",
+   "gap": 378,
+   "items": [
+    {
+     "id": "Character_OakWeld",
+     "name": "Autumn",
+     "type": "outfit",
+     "rarity": "Epic",
+     "series": null,
+     "set": "Changing Seasons",
+     "appearances": 1
+    }
+   ]
+  },
+  {
+   "id": "v2:/9417801fd1d2602ee65fbcde9c3a54df2e6898f93bb877cd6c99c28bf11b1592",
+   "name": "Phineas and Ferb Bundle",
+   "kind": "bundle",
+   "price": 3200,
+   "regular": 6400,
+   "inDate": "2026-11-23",
+   "outDate": "2026-11-26",
+   "section": "Phineas and Ferb",
+   "image": "https://fortnite-api.com/images/cosmetics/br/newdisplayassets/c06afcbf5686c7d5/renderimage_0.png",
+   "gap": 159,
+   "items": [
+    {
+     "id": "Character_BrawnGraze",
+     "name": "Buff Perry",
+     "type": "outfit",
+     "rarity": "Epic",
+     "series": null,
+     "set": "Phineas and Ferb",
+     "appearances": 3
+    },
+    {
+     "id": "Backpack_BrawnGraze",
+     "name": "Ducky Momo Plushie",
+     "type": "backpack",
+     "rarity": "Rare",
+     "series": null,
+     "set": "Phineas and Ferb",
+     "appearances": 4
+    },
+    {
+     "id": "Pickaxe_BrawnGraze",
+     "name": "Perry the Inaction Figure",
+     "type": "pickaxe",
+     "rarity": "Rare",
+     "series": null,
+     "set": "Phineas and Ferb",
+     "appearances": 3
+    },
+    {
+     "id": "Character_PeaceScarf",
+     "name": "Dr. Doofenshmirtz",
+     "type": "outfit",
+     "rarity": "Epic",
+     "series": null,
+     "set": "Phineas and Ferb",
+     "appearances": 3
+    },
+    {
+     "id": "Backpack_PeaceScarf",
+     "name": "Balloony",
+     "type": "backpack",
+     "rarity": "Rare",
+     "series": null,
+     "set": "Phineas and Ferb",
+     "appearances": 4
+    },
+    {
+     "id": "Pickaxe_PeaceScarf",
+     "name": "Gnome-Clamp-inator",
+     "type": "pickaxe",
+     "rarity": "Rare",
+     "series": null,
+     "set": "Phineas and Ferb",
+     "appearances": 3
+    },
+    {
+     "id": "EID_PeaceScarf",
+     "name": "Doof's High Kicks",
+     "type": "emote",
+     "rarity": "Uncommon",
+     "series": null,
+     "set": "Phineas and Ferb",
+     "appearances": 3
+    },
+    {
+     "id": "Backpack_BrawnGraze_Guitar",
+     "name": "Agent G Sharp",
+     "type": "backpack",
+     "rarity": "Rare",
+     "series": null,
+     "set": "Phineas and Ferb",
+     "appearances": 3
+    },
+    {
+     "id": "Pickaxe_BrawnGraze_Guitar",
+     "name": "Agent G Sharp",
+     "type": "pickaxe",
+     "rarity": "Rare",
+     "series": null,
+     "set": "Phineas and Ferb",
+     "appearances": 2
+    },
+    {
+     "id": "sid_placeholder_777",
+     "name": "Today is Gonna be a Great Day ",
+     "type": "jamtrack",
+     "series": null,
+     "set": "Bowling For Soup"
+    }
+   ]
+  },
+  {
    "id": "v2:/63e8915b99ee86cda3f556b28718e4501042aea0738c71e6f935d23ae06c17f9",
    "name": "Ryū Ichimonji",
    "kind": "pickaxe",
@@ -98,7 +269,7 @@
      "rarity": "Gaming Legends Series",
      "series": "Gaming Legends Series",
      "set": "Overwatch",
-     "appearances": 6
+     "appearances": 9
     },
     {
      "id": "Backpack_FacetBlom",
@@ -107,7 +278,7 @@
      "rarity": "Gaming Legends Series",
      "series": "Gaming Legends Series",
      "set": "Overwatch",
-     "appearances": 6
+     "appearances": 9
     }
    ]
   },
@@ -130,7 +301,7 @@
      "rarity": "Icon Series",
      "series": "Icon Series",
      "set": "Rubius",
-     "appearances": 6
+     "appearances": 8
     },
     {
      "id": "Pickaxe_LivelyDomino",
@@ -139,7 +310,53 @@
      "rarity": "Icon Series",
      "series": "Icon Series",
      "set": "Rubius",
-     "appearances": 6
+     "appearances": 8
+    }
+   ]
+  },
+  {
+   "id": "v2:/ef27fc2555667387a205edc6a905f9eb2831ef55f7f98a9986684435bf15fbd9",
+   "name": "Smashrooms",
+   "kind": "pickaxe",
+   "price": 800,
+   "regular": 800,
+   "inDate": "2026-11-23",
+   "outDate": "2026-11-30",
+   "section": "Harvest Season",
+   "image": "https://fortnite-api.com/images/cosmetics/br/newdisplayassets/450f80387ea697da/renderimage_0.png",
+   "gap": 150,
+   "items": [
+    {
+     "id": "Pickaxe_ID_321_ForestQueenFemale1H",
+     "name": "Smashrooms",
+     "type": "pickaxe",
+     "rarity": "Rare",
+     "series": null,
+     "set": "Changing Seasons",
+     "appearances": 2
+    }
+   ]
+  },
+  {
+   "id": "v2:/eb0cbf02511bf4265f3d44ebe3fd0b7e5eb31ac734da3b008accd71cad5798fc",
+   "name": "Auric",
+   "kind": "backpack",
+   "price": 400,
+   "regular": 400,
+   "inDate": "2026-11-23",
+   "outDate": "2026-11-30",
+   "section": null,
+   "image": "https://fortnite-api.com/images/cosmetics/br/bid_639_babayaga/featured.png",
+   "gap": "unseen",
+   "items": [
+    {
+     "id": "BID_639_BabaYaga",
+     "name": "Auric",
+     "type": "backpack",
+     "rarity": "Rare",
+     "series": null,
+     "set": "Coven Fresh",
+     "appearances": 0
     }
    ]
   },
@@ -312,6 +529,38 @@
    ]
   },
   {
+   "id": "v2:/9c4e42fc0c839bc89fd26128e447df28e849a007aeed77ca7919db93593a78fa",
+   "name": "Terns",
+   "kind": "outfit",
+   "price": 1500,
+   "regular": 1500,
+   "inDate": "2026-11-23",
+   "outDate": "2026-11-30",
+   "section": "Harvest Season",
+   "image": "https://fortnite-api.com/images/cosmetics/br/newdisplayassets/7cfbfb7e07e233c7/renderimage_0.png",
+   "gap": 382,
+   "items": [
+    {
+     "id": "CID_618_Athena_Commando_M_ForestDweller",
+     "name": "Terns",
+     "type": "outfit",
+     "rarity": "Epic",
+     "series": null,
+     "set": "Changing Seasons",
+     "appearances": 1
+    },
+    {
+     "id": "BID_414_ForestDwellerMale",
+     "name": "Hollow Horn",
+     "type": "backpack",
+     "rarity": "Epic",
+     "series": null,
+     "set": "Changing Seasons",
+     "appearances": 0
+    }
+   ]
+  },
+  {
    "id": "v2:/eec5cad3f725532b013c804af81bda2edea35171d72a9e41d6792eab093f2948",
    "name": "A$AP's Gauntlets",
    "kind": "pickaxe",
@@ -353,7 +602,7 @@
      "rarity": "Rare",
      "series": null,
      "set": "Silent Stalkers",
-     "appearances": 5
+     "appearances": 7
     },
     {
      "id": "BID_412_CavalryBandit",
@@ -362,7 +611,7 @@
      "rarity": "Rare",
      "series": null,
      "set": "Silent Stalkers",
-     "appearances": 4
+     "appearances": 7
     },
     {
      "id": "Pickaxe_ID_339_CODSquadHoodie",
@@ -371,7 +620,7 @@
      "rarity": "Uncommon",
      "series": null,
      "set": "Tactical Fashions",
-     "appearances": 2
+     "appearances": 4
     },
     {
      "id": "Glider_ID_244_ChOneGlider",
@@ -380,7 +629,7 @@
      "rarity": "Uncommon",
      "series": null,
      "set": "Origins",
-     "appearances": 2
+     "appearances": 4
     },
     {
      "id": "Wrap_195_StreetRat",
@@ -389,7 +638,7 @@
      "rarity": "Uncommon",
      "series": null,
      "set": "Street Rat",
-     "appearances": 0
+     "appearances": 2
     },
     {
      "id": "EID_KEagle",
@@ -398,30 +647,7 @@
      "rarity": "Rare",
      "series": null,
      "set": null,
-     "appearances": 6
-    }
-   ]
-  },
-  {
-   "id": "v2:/dc59ea22843a7e7347815d690b97de9169b9fc6c3897d091f409fd0b2db1b62f",
-   "name": "Air Jordan 5 Retro 'Wolf Grey'",
-   "kind": "kicks",
-   "price": 800,
-   "regular": 800,
-   "inDate": "2026-11-19",
-   "outDate": "2026-11-22",
-   "section": "Get Your Kicks",
-   "image": "https://fortnite-api.com/images/cosmetics/br/newdisplayassets/4dc02f8f7794fd81/renderimage_0.png",
-   "gap": 51,
-   "items": [
-    {
-     "id": "Shoes_ElbowGroutShy",
-     "name": "Air Jordan 5 Retro 'Wolf Grey'",
-     "type": "shoe",
-     "rarity": "Uncommon",
-     "series": null,
-     "set": "Jordan Shoes",
-     "appearances": 2
+     "appearances": 8
     }
    ]
   },
@@ -467,7 +693,7 @@
      "rarity": "Uncommon",
      "series": null,
      "set": "M.E.O.W. Protocol",
-     "appearances": 4
+     "appearances": 6
     }
    ]
   },
@@ -493,6 +719,29 @@
    ]
   },
   {
+   "id": "v2:/d6a54b8bd3d00fe0be960621c1681d0dd6d268b52c4dcdad289cf4a5fe555a3e",
+   "name": "Guild",
+   "kind": "outfit",
+   "price": 800,
+   "regular": 800,
+   "inDate": "2026-11-23",
+   "outDate": "2026-11-26",
+   "section": "Main Character Energy ",
+   "image": "https://fortnite-api.com/images/cosmetics/br/newdisplayassets/256b237189cfa4ec/renderimage_0.png",
+   "gap": 226,
+   "items": [
+    {
+     "id": "CID_398_Athena_Commando_M_TreasureHunterFashion",
+     "name": "Guild",
+     "type": "outfit",
+     "rarity": "Uncommon",
+     "series": null,
+     "set": null,
+     "appearances": 6
+    }
+   ]
+  },
+  {
    "id": "v2:/253ec4a65a1dee92fb8b18e96fb84f9c3b689dcf7a743a7d7b83bf0150d98b04",
    "name": "Crash's Wumpa Mace",
    "kind": "pickaxe",
@@ -511,7 +760,7 @@
      "rarity": "Gaming Legends Series",
      "series": "Gaming Legends Series",
      "set": "Crash Bandicoot",
-     "appearances": 2
+     "appearances": 4
     }
    ]
   },
@@ -578,7 +827,7 @@
      "rarity": "Icon Series",
      "series": "Icon Series",
      "set": "Gorillaz",
-     "appearances": 3
+     "appearances": 5
     },
     {
      "id": "Pickaxe_DegreeProper_Guitar",
@@ -587,7 +836,7 @@
      "rarity": "Icon Series",
      "series": "Icon Series",
      "set": "Gorillaz",
-     "appearances": 3
+     "appearances": 5
     }
    ]
   },
@@ -626,29 +875,6 @@
    "items": []
   },
   {
-   "id": "v2:/428bd0dc83d4f6222d0c40f5e12ef00d3712a099e9f399d08528a9b239c06d2e",
-   "name": "Stone Gryphon",
-   "kind": "sidekick",
-   "price": 1200,
-   "regular": 1200,
-   "inDate": "2026-11-20",
-   "outDate": "2026-11-23",
-   "section": "The Sidekick Squad",
-   "image": "https://fortnite-api.com/images/cosmetics/br/newdisplayassets/5f56aa99b785ffd2/renderimage_0.png",
-   "gap": 48,
-   "items": [
-    {
-     "id": "Companion_RockCrest",
-     "name": "Stone Gryphon",
-     "type": "sidekick",
-     "rarity": "Uncommon",
-     "series": null,
-     "set": "Feathered Sentry",
-     "appearances": 2
-    }
-   ]
-  },
-  {
    "id": "v2:/df9f9771810ae572897a0dc7f6774784027b8fba7023d28bdbe1fc0c8caf5070",
    "name": "Hippo Stompers",
    "kind": "kicks",
@@ -667,6 +893,29 @@
      "rarity": "Uncommon",
      "series": null,
      "set": null,
+     "appearances": 2
+    }
+   ]
+  },
+  {
+   "id": "v2:/428bd0dc83d4f6222d0c40f5e12ef00d3712a099e9f399d08528a9b239c06d2e",
+   "name": "Stone Gryphon",
+   "kind": "sidekick",
+   "price": 1200,
+   "regular": 1200,
+   "inDate": "2026-11-20",
+   "outDate": "2026-11-23",
+   "section": "The Sidekick Squad",
+   "image": "https://fortnite-api.com/images/cosmetics/br/newdisplayassets/5f56aa99b785ffd2/renderimage_0.png",
+   "gap": 48,
+   "items": [
+    {
+     "id": "Companion_RockCrest",
+     "name": "Stone Gryphon",
+     "type": "sidekick",
+     "rarity": "Uncommon",
+     "series": null,
+     "set": "Feathered Sentry",
      "appearances": 2
     }
    ]
@@ -695,29 +944,6 @@
    ]
   },
   {
-   "id": "v2:/85204d603b39cfedee8fc433e1e41af08b019b6ff85234c874bdffe73f1a2349",
-   "name": "Mind Reader",
-   "kind": "emote",
-   "price": 500,
-   "regular": 500,
-   "inDate": "2026-11-17",
-   "outDate": "2026-11-22",
-   "section": "Battle Beats",
-   "image": "https://fortnite-api.com/images/cosmetics/br/newdisplayassets/91aac93a7341b387/renderimage_0.png",
-   "gap": 345,
-   "items": [
-    {
-     "id": "EID_PsychicReader",
-     "name": "Mind Reader",
-     "type": "emote",
-     "rarity": "Icon Series",
-     "series": "Icon Series",
-     "set": null,
-     "appearances": 2
-    }
-   ]
-  },
-  {
    "id": "v2:/8b3a0a504d6a777662e5dcd4b0869c44b7d134162795e623923090cfaf41f368",
    "name": "One-Eyed Octopus",
    "kind": "backpack",
@@ -736,7 +962,30 @@
      "rarity": "Icon Series",
      "series": "Icon Series",
      "set": "Gorillaz",
-     "appearances": 2
+     "appearances": 3
+    }
+   ]
+  },
+  {
+   "id": "v2:/751479291ce38eb12ee14baa03405b24b7fe36eb13cb8526d937d1b49af32483",
+   "name": "The O.G.",
+   "kind": "glider",
+   "price": 500,
+   "regular": 500,
+   "inDate": "2026-11-22",
+   "outDate": "2026-11-24",
+   "section": "Martoz's Locker ",
+   "image": "https://fortnite-api.com/images/cosmetics/br/newdisplayassets/262bbf3d697e2c80/renderimage_0.png",
+   "gap": 306,
+   "items": [
+    {
+     "id": "Glider_ID_244_ChOneGlider",
+     "name": "The O.G.",
+     "type": "glider",
+     "rarity": "Uncommon",
+     "series": null,
+     "set": "Origins",
+     "appearances": 4
     }
    ]
   },
@@ -782,29 +1031,6 @@
    ]
   },
   {
-   "id": "v2:/751479291ce38eb12ee14baa03405b24b7fe36eb13cb8526d937d1b49af32483",
-   "name": "The O.G.",
-   "kind": "glider",
-   "price": 500,
-   "regular": 500,
-   "inDate": "2026-11-22",
-   "outDate": "2026-11-24",
-   "section": "Martoz's Locker ",
-   "image": "https://fortnite-api.com/images/cosmetics/br/newdisplayassets/262bbf3d697e2c80/renderimage_0.png",
-   "gap": 306,
-   "items": [
-    {
-     "id": "Glider_ID_244_ChOneGlider",
-     "name": "The O.G.",
-     "type": "glider",
-     "rarity": "Uncommon",
-     "series": null,
-     "set": "Origins",
-     "appearances": 2
-    }
-   ]
-  },
-  {
    "id": "v2:/00db4ae5d4b0c0a34337539d85f212be758f04b02c392c32134e151ff4d4eae5",
    "name": "Lachlan",
    "kind": "outfit",
@@ -823,7 +1049,7 @@
      "rarity": "Icon Series",
      "series": "Icon Series",
      "set": "PWR",
-     "appearances": 10
+     "appearances": 12
     },
     {
      "id": "BID_629_LunchBox",
@@ -832,7 +1058,7 @@
      "rarity": "Icon Series",
      "series": "Icon Series",
      "set": "PWR",
-     "appearances": 10
+     "appearances": 13
     }
    ]
   },
@@ -855,7 +1081,7 @@
      "rarity": "Gaming Legends Series",
      "series": "Gaming Legends Series",
      "set": "Overwatch",
-     "appearances": 4
+     "appearances": 6
     },
     {
      "id": "Backpack_TrackWaver",
@@ -864,7 +1090,7 @@
      "rarity": "Gaming Legends Series",
      "series": "Gaming Legends Series",
      "set": "Overwatch",
-     "appearances": 6
+     "appearances": 9
     },
     {
      "id": "Glider_TrackWaver",
@@ -873,7 +1099,7 @@
      "rarity": "Gaming Legends Series",
      "series": "Gaming Legends Series",
      "set": "Overwatch",
-     "appearances": 6
+     "appearances": 9
     }
    ]
   },
@@ -989,6 +1215,38 @@
    ]
   },
   {
+   "id": "v2:/8c2b7705f34e3fa8df707aca2811f1ad94e87e22fac51b0461804cc217c5f2fa",
+   "name": "Ludwig",
+   "kind": "outfit",
+   "price": 1500,
+   "regular": 1500,
+   "inDate": "2026-11-23",
+   "outDate": "2026-11-30",
+   "section": "Harvest Season",
+   "image": "https://fortnite-api.com/images/cosmetics/br/newdisplayassets/45f8396531fd05ca/renderimage_0.png",
+   "gap": "unseen",
+   "items": [
+    {
+     "id": "CID_225_Athena_Commando_M_Octoberfest",
+     "name": "Ludwig",
+     "type": "outfit",
+     "rarity": "Epic",
+     "series": null,
+     "set": "Oktoberfest",
+     "appearances": 0
+    },
+    {
+     "id": "BID_117_OctoberfestMale",
+     "name": "Clockworks",
+     "type": "backpack",
+     "rarity": "Epic",
+     "series": null,
+     "set": "Oktoberfest",
+     "appearances": 0
+    }
+   ]
+  },
+  {
    "id": "v2:/83b6128df0a0b91e0bb42aaa0eb6805264cac55d5b7e5b6cffb88b4ac312024a",
    "name": "Fat Lip",
    "kind": "jamtrack",
@@ -1069,6 +1327,70 @@
      "type": "jamtrack",
      "series": null,
      "set": "Ramones"
+    }
+   ]
+  },
+  {
+   "id": "v2:/aa83b58c126e7aa1bdaa98f105b4016e609429cd8937b46018dd2959b09cdfe4",
+   "name": "Comet",
+   "kind": "outfit",
+   "price": 1200,
+   "regular": 1200,
+   "inDate": "2026-11-23",
+   "outDate": "2026-11-26",
+   "section": "Main Character Energy ",
+   "image": "https://fortnite-api.com/images/cosmetics/br/newdisplayassets/4d6b9ccd5e96cc18/renderimage_0.png",
+   "gap": 64,
+   "items": [
+    {
+     "id": "Character_BrightIon",
+     "name": "Comet",
+     "type": "outfit",
+     "rarity": "Rare",
+     "series": null,
+     "set": "Neutron Repair",
+     "appearances": 5
+    },
+    {
+     "id": "Backpack_BrightIon",
+     "name": "Traveler-Class Tekpack",
+     "type": "backpack",
+     "rarity": "Rare",
+     "series": null,
+     "set": "Neutron Repair",
+     "appearances": 6
+    }
+   ]
+  },
+  {
+   "id": "v2:/086d24a09b2b3cfab8864181f49d1f4e3affe2abe4cb27d226a6f892e51575ab",
+   "name": "Buff Perry",
+   "kind": "bundle",
+   "price": 1500,
+   "regular": 1500,
+   "inDate": "2026-11-23",
+   "outDate": "2026-11-26",
+   "section": "Phineas and Ferb",
+   "image": "https://fortnite-api.com/images/cosmetics/br/newdisplayassets/e0d3aa8a4b4fd173/renderimage_0.png",
+   "gap": 159,
+   "items": [
+    {
+     "id": "Character_BrawnGraze",
+     "name": "Buff Perry",
+     "type": "outfit",
+     "rarity": "Epic",
+     "series": null,
+     "set": "Phineas and Ferb",
+     "appearances": 3
+    },
+    {
+     "id": "Backpack_BrawnGraze",
+     "name": "Ducky Momo Plushie",
+     "type": "backpack",
+     "rarity": "Rare",
+     "series": null,
+     "set": "Phineas and Ferb",
+     "appearances": 4
     }
    ]
   },
@@ -1169,7 +1491,7 @@
      "rarity": "Gaming Legends Series",
      "series": "Gaming Legends Series",
      "set": "Overwatch",
-     "appearances": 4
+     "appearances": 6
     }
    ]
   },
@@ -1236,7 +1558,7 @@
      "rarity": "Icon Series",
      "series": "Icon Series",
      "set": "Gorillaz",
-     "appearances": 2
+     "appearances": 3
     }
    ]
   },
@@ -1273,25 +1595,25 @@
    ]
   },
   {
-   "id": "v2:/2f1eaabbf0da879f0c8027220d066f2de342bcd919dc82a7dcf5831c5bcec962",
-   "name": "Lil' Lootie",
-   "kind": "sidekick",
-   "price": 1500,
-   "regular": 1500,
-   "inDate": "2026-11-20",
-   "outDate": "2026-11-30",
-   "section": "The Sidekick Squad",
-   "image": "https://fortnite-api.com/images/cosmetics/br/newdisplayassets/1f74632b3270dbfe/renderimage_0.png",
-   "gap": 108,
+   "id": "v2:/6f2ddd3ca34a0ae64536c4280bf7100ad4b8b78262ca11186f849142207b35f9",
+   "name": "5 Ton Hammer",
+   "kind": "pickaxe",
+   "price": 500,
+   "regular": 500,
+   "inDate": "2026-11-01",
+   "outDate": "2026-12-05",
+   "section": "One Piece ",
+   "image": "https://fortnite-api.com/images/cosmetics/br/newdisplayassets/1ee2767c8db118a8/renderimage_0.png",
+   "gap": "unseen",
    "items": [
     {
-     "id": "Companion_BurrBaby",
-     "name": "Lil' Lootie",
-     "type": "sidekick",
-     "rarity": "Uncommon",
+     "id": "Pickaxe_LoomRise",
+     "name": "5 Ton Hammer",
+     "type": "pickaxe",
+     "rarity": "Rare",
      "series": null,
-     "set": "Llama Buddy",
-     "appearances": 7
+     "set": "One Piece",
+     "appearances": 3
     }
    ]
   },
@@ -1349,94 +1671,48 @@
    ]
   },
   {
-   "id": "v2:/6f2ddd3ca34a0ae64536c4280bf7100ad4b8b78262ca11186f849142207b35f9",
-   "name": "5 Ton Hammer",
-   "kind": "pickaxe",
-   "price": 500,
-   "regular": 500,
-   "inDate": "2026-11-01",
-   "outDate": "2026-12-05",
-   "section": "One Piece ",
-   "image": "https://fortnite-api.com/images/cosmetics/br/newdisplayassets/1ee2767c8db118a8/renderimage_0.png",
-   "gap": "unseen",
+   "id": "v2:/2f1eaabbf0da879f0c8027220d066f2de342bcd919dc82a7dcf5831c5bcec962",
+   "name": "Lil' Lootie",
+   "kind": "sidekick",
+   "price": 1500,
+   "regular": 1500,
+   "inDate": "2026-11-20",
+   "outDate": "2026-11-30",
+   "section": "The Sidekick Squad",
+   "image": "https://fortnite-api.com/images/cosmetics/br/newdisplayassets/1f74632b3270dbfe/renderimage_0.png",
+   "gap": 108,
    "items": [
     {
-     "id": "Pickaxe_LoomRise",
-     "name": "5 Ton Hammer",
-     "type": "pickaxe",
-     "rarity": "Rare",
-     "series": null,
-     "set": "One Piece",
-     "appearances": 3
-    }
-   ]
-  },
-  {
-   "id": "v2:/03d19d16aeba90323fadd780617fa24e33c732503ee960f954b8c60496c0aa22",
-   "name": "Heartwave",
-   "kind": "wrap",
-   "price": 300,
-   "regular": 300,
-   "inDate": "2026-11-21",
-   "outDate": "2026-11-22",
-   "section": "Main Character Energy ",
-   "image": "https://fortnite-api.com/images/cosmetics/br/newdisplayassets/dedf6311e252ec18/renderimage_0.png",
-   "gap": 59,
-   "items": [
-    {
-     "id": "Wrap_503_FuzzyBearSummer",
-     "name": "Heartwave",
-     "type": "wrap",
+     "id": "Companion_BurrBaby",
+     "name": "Lil' Lootie",
+     "type": "sidekick",
      "rarity": "Uncommon",
      "series": null,
-     "set": "Beary Cuddly",
-     "appearances": 4
+     "set": "Llama Buddy",
+     "appearances": 7
     }
    ]
   },
   {
-   "id": "v2:/2737e1508db6555906ce191238be609960d747453a5df49ae159d27c9b1a8e06",
-   "name": "Meaty TNT",
-   "kind": "backpack",
-   "price": 300,
-   "regular": 300,
-   "inDate": "2026-11-20",
-   "outDate": "2026-11-22",
-   "section": null,
-   "image": "https://fortnite-api.com/images/cosmetics/br/backpack_democrook/featured.png",
-   "gap": "unseen",
+   "id": "v2:/ab44f51e3f10c02931e2c1eadecc595d6db2cbda6d9cbc89a0234c9db99b3119",
+   "name": "Jack's Ship",
+   "kind": "glider",
+   "price": 1200,
+   "regular": 1200,
+   "inDate": "2026-11-23",
+   "outDate": "2026-11-26",
+   "section": "Pirates of the Caribbean",
+   "image": "https://fortnite-api.com/images/cosmetics/br/newdisplayassets/5e8a6d19a4f47bf6/renderimage_0.png",
+   "gap": 55,
    "items": [
     {
-     "id": "Backpack_DemoCrook",
-     "name": "Meaty TNT",
-     "type": "backpack",
-     "rarity": "Rare",
+     "id": "Glider_SpringBreak",
+     "name": "Jack's Ship",
+     "type": "glider",
+     "rarity": "Epic",
      "series": null,
-     "set": "Detonator",
-     "appearances": 2
-    }
-   ]
-  },
-  {
-   "id": "v2:/713143f8194a8cceff52981d9ec9f4aaee1ed48462a10ea6492c9ad0df04af97",
-   "name": "Cuddlebear Cutie",
-   "kind": "backpack",
-   "price": 400,
-   "regular": 400,
-   "inDate": "2026-11-21",
-   "outDate": "2026-11-22",
-   "section": null,
-   "image": "https://fortnite-api.com/images/cosmetics/br/newdisplayassets/d0f210b0af207083/renderimage_0.png",
-   "gap": 16,
-   "items": [
-    {
-     "id": "BID_A_042_FuzzyBearSummerFemale",
-     "name": "Cuddlebear Cutie",
-     "type": "backpack",
-     "rarity": "Rare",
-     "series": null,
-     "set": "Beary Cuddly",
-     "appearances": 10
+     "set": "Pirates of the Caribbean",
+     "appearances": 3
     }
    ]
   },
@@ -1489,34 +1765,25 @@
    ]
   },
   {
-   "id": "v2:/51a7156cebe505fdf595edd314ce01bbb94d55a4e4bbc5f3fb0233d007b8f4ef",
-   "name": "Russel's Drums",
-   "kind": "backpack",
-   "price": 800,
-   "regular": 800,
-   "inDate": "2026-11-22",
-   "outDate": "2026-11-24",
-   "section": "Gorillaz",
-   "image": "https://fortnite-api.com/images/cosmetics/br/newdisplayassets/62a62be45fbab899/renderimage_0.png",
-   "gap": 119,
+   "id": "v2:/d4383b30147d2192624802900d1dcb8deb2a30acbed09051068de1219de207ab",
+   "name": "Jack Sparrow",
+   "kind": "outfit",
+   "price": 1500,
+   "regular": 1500,
+   "inDate": "2026-11-23",
+   "outDate": "2026-11-26",
+   "section": null,
+   "image": "https://fortnite-api.com/images/cosmetics/br/character_springbreak/featured.png",
+   "gap": 55,
    "items": [
     {
-     "id": "Backpack_TerrierCure_DrumStick",
-     "name": "Russel's Drums",
-     "type": "backpack",
-     "rarity": "Icon Series",
-     "series": "Icon Series",
-     "set": "Gorillaz",
-     "appearances": 2
-    },
-    {
-     "id": "Pickaxe_TerrierCure_DrumStick",
-     "name": "Russel's Drums",
-     "type": "pickaxe",
-     "rarity": "Icon Series",
-     "series": "Icon Series",
-     "set": "Gorillaz",
-     "appearances": 2
+     "id": "Character_SpringBreak",
+     "name": "Jack Sparrow",
+     "type": "outfit",
+     "rarity": "Epic",
+     "series": null,
+     "set": "Pirates of the Caribbean",
+     "appearances": 3
     }
    ]
   },
@@ -1539,30 +1806,71 @@
      "rarity": "Icon Series",
      "series": "Icon Series",
      "set": "PWR",
-     "appearances": 10
+     "appearances": 12
     }
    ]
   },
   {
-   "id": "v2:/230ea6a886b6be07649a2cedc5b9df47517caf3ef0cacb8e6063c8940892d29e",
-   "name": "Mira",
-   "kind": "outfit",
+   "id": "v2:/51a7156cebe505fdf595edd314ce01bbb94d55a4e4bbc5f3fb0233d007b8f4ef",
+   "name": "Russel's Drums",
+   "kind": "backpack",
    "price": 800,
    "regular": 800,
-   "inDate": "2026-11-20",
-   "outDate": "2026-11-22",
-   "section": "Main Character Energy ",
-   "image": "https://fortnite-api.com/images/cosmetics/br/newdisplayassets/e8333fdc8adedb35/renderimage_0.png",
-   "gap": 272,
+   "inDate": "2026-11-22",
+   "outDate": "2026-11-24",
+   "section": "Gorillaz",
+   "image": "https://fortnite-api.com/images/cosmetics/br/newdisplayassets/62a62be45fbab899/renderimage_0.png",
+   "gap": 119,
    "items": [
     {
-     "id": "Character_TwinGinger",
-     "name": "Mira",
+     "id": "Backpack_TerrierCure_DrumStick",
+     "name": "Russel's Drums",
+     "type": "backpack",
+     "rarity": "Icon Series",
+     "series": "Icon Series",
+     "set": "Gorillaz",
+     "appearances": 3
+    },
+    {
+     "id": "Pickaxe_TerrierCure_DrumStick",
+     "name": "Russel's Drums",
+     "type": "pickaxe",
+     "rarity": "Icon Series",
+     "series": "Icon Series",
+     "set": "Gorillaz",
+     "appearances": 3
+    }
+   ]
+  },
+  {
+   "id": "v2:/763124f368c6837f888153890fb2ff62515122e10c9585e2de421156fc7ee5af",
+   "name": "Jack Sparrow Bundle",
+   "kind": "bundle",
+   "price": 2000,
+   "regular": 3000,
+   "inDate": "2026-11-23",
+   "outDate": "2026-11-26",
+   "section": "Pirates of the Caribbean",
+   "image": "https://fortnite-api.com/images/cosmetics/br/newdisplayassets/2318c47eb2410af2/renderimage_0.png",
+   "gap": 55,
+   "items": [
+    {
+     "id": "Character_SpringBreak",
+     "name": "Jack Sparrow",
      "type": "outfit",
      "rarity": "Epic",
      "series": null,
-     "set": "Twin Echo",
-     "appearances": 8
+     "set": "Pirates of the Caribbean",
+     "appearances": 3
+    },
+    {
+     "id": "Character_SpringBreakTrip",
+     "name": "Cursed Jack Sparrow",
+     "type": "outfit",
+     "rarity": "Epic",
+     "series": null,
+     "set": "Pirates of the Caribbean",
+     "appearances": 3
     }
    ]
   },
@@ -1590,25 +1898,25 @@
    ]
   },
   {
-   "id": "v2:/df8a3ab5dc42a9024d8a1e8b194d533a6dd17b8ca1a88a084cedf47cad869053",
-   "name": "Weighted Spikegloves",
-   "kind": "pickaxe",
-   "price": 800,
-   "regular": 800,
-   "inDate": "2026-11-21",
-   "outDate": "2026-11-22",
-   "section": "Main Character Energy ",
-   "image": "https://fortnite-api.com/images/cosmetics/br/newdisplayassets/db48220ac915bb4e/renderimage_0.png",
-   "gap": "unseen",
+   "id": "v2:/ee3e47aeec5aa5b6ff1f5c21c53caa9d100bb69dd19a3a7c159d763da1cd5447",
+   "name": "Diamond Drop",
+   "kind": "emote",
+   "price": 500,
+   "regular": 500,
+   "inDate": "2026-11-20",
+   "outDate": "2026-11-24",
+   "section": "Kim Kardashian",
+   "image": "https://fortnite-api.com/images/cosmetics/br/newdisplayassets/fd852c57241ce147/renderimage_0.png",
+   "gap": 39,
    "items": [
     {
-     "id": "Pickaxe_ID_831_FuzzyBearSummerFemale",
-     "name": "Weighted Spikegloves",
-     "type": "pickaxe",
-     "rarity": "Rare",
-     "series": null,
-     "set": "Beary Cuddly",
-     "appearances": 2
+     "id": "EID_QuicheLorraineLime",
+     "name": "Diamond Drop",
+     "type": "emote",
+     "rarity": "Icon Series",
+     "series": "Icon Series",
+     "set": "Kim Kardashian",
+     "appearances": 13
     }
    ]
   },
@@ -1630,29 +1938,6 @@
      "type": "jamtrack",
      "series": null,
      "set": "Green Day"
-    }
-   ]
-  },
-  {
-   "id": "v2:/ee3e47aeec5aa5b6ff1f5c21c53caa9d100bb69dd19a3a7c159d763da1cd5447",
-   "name": "Diamond Drop",
-   "kind": "emote",
-   "price": 500,
-   "regular": 500,
-   "inDate": "2026-11-20",
-   "outDate": "2026-11-24",
-   "section": "Kim Kardashian",
-   "image": "https://fortnite-api.com/images/cosmetics/br/newdisplayassets/fd852c57241ce147/renderimage_0.png",
-   "gap": 39,
-   "items": [
-    {
-     "id": "EID_QuicheLorraineLime",
-     "name": "Diamond Drop",
-     "type": "emote",
-     "rarity": "Icon Series",
-     "series": "Icon Series",
-     "set": "Kim Kardashian",
-     "appearances": 13
     }
    ]
   },
@@ -1753,7 +2038,7 @@
      "rarity": "Gaming Legends Series",
      "series": "Gaming Legends Series",
      "set": "Overwatch",
-     "appearances": 6
+     "appearances": 9
     }
    ]
   },
@@ -1776,7 +2061,7 @@
      "rarity": "Gaming Legends Series",
      "series": "Gaming Legends Series",
      "set": "Overwatch",
-     "appearances": 4
+     "appearances": 6
     },
     {
      "id": "Pickaxe_LooseCreep",
@@ -1785,7 +2070,7 @@
      "rarity": "Gaming Legends Series",
      "series": "Gaming Legends Series",
      "set": "Overwatch",
-     "appearances": 6
+     "appearances": 9
     },
     {
      "id": "Backpack_LooseCreep",
@@ -1794,7 +2079,75 @@
      "rarity": "Gaming Legends Series",
      "series": "Gaming Legends Series",
      "set": "Overwatch",
-     "appearances": 6
+     "appearances": 9
+    }
+   ]
+  },
+  {
+   "id": "v2:/54ff5d2de58076ed95947df7efb15c16cad1dceba75d37cffdacf69aea443c64",
+   "name": "Fatal Fielders Bundle",
+   "kind": "bundle",
+   "price": 2000,
+   "regular": 3600,
+   "inDate": "2026-11-23",
+   "outDate": "2026-11-30",
+   "section": "Harvest Season",
+   "image": "https://fortnite-api.com/images/cosmetics/br/newdisplayassets/6de40cc2b4887396/renderimage_0.png",
+   "gap": 9,
+   "items": [
+    {
+     "id": "CID_356_Athena_Commando_F_Farmer",
+     "name": "Sunflower",
+     "type": "outfit",
+     "rarity": "Uncommon",
+     "series": null,
+     "set": "Fatal Fielders",
+     "appearances": 4
+    },
+    {
+     "id": "CID_355_Athena_Commando_M_Farmer",
+     "name": "Hayseed",
+     "type": "outfit",
+     "rarity": "Uncommon",
+     "series": null,
+     "set": "Fatal Fielders",
+     "appearances": 5
+    },
+    {
+     "id": "BID_219_FarmerMale",
+     "name": "Haystacks",
+     "type": "backpack",
+     "rarity": "Uncommon",
+     "series": null,
+     "set": "Fatal Fielders",
+     "appearances": 0
+    },
+    {
+     "id": "BID_220_FarmerFemale",
+     "name": "Sun Sprout",
+     "type": "backpack",
+     "rarity": "Uncommon",
+     "series": null,
+     "set": "Fatal Fielders",
+     "appearances": 10
+    },
+    {
+     "id": "Pickaxe_ID_169_Farmer",
+     "name": "Gold Digger",
+     "type": "pickaxe",
+     "rarity": "Rare",
+     "series": null,
+     "set": "Fatal Fielders",
+     "appearances": 4
+    },
+    {
+     "id": "Glider_ID_126_Farmer",
+     "name": "Crop Duster",
+     "type": "glider",
+     "rarity": "Rare",
+     "series": null,
+     "set": "Fatal Fielders",
+     "appearances": 3
     }
    ]
   },
@@ -1866,6 +2219,29 @@
    ]
   },
   {
+   "id": "v2:/38b987b55a9b47c006d7501e5f86b7c55e75447971442a60359bc96cc381d30b",
+   "name": "Perry the Inaction Figure",
+   "kind": "pickaxe",
+   "price": 800,
+   "regular": 800,
+   "inDate": "2026-11-23",
+   "outDate": "2026-11-26",
+   "section": "Phineas and Ferb",
+   "image": "https://fortnite-api.com/images/cosmetics/br/newdisplayassets/5626ac7f27450956/renderimage_0.png",
+   "gap": 159,
+   "items": [
+    {
+     "id": "Pickaxe_BrawnGraze",
+     "name": "Perry the Inaction Figure",
+     "type": "pickaxe",
+     "rarity": "Rare",
+     "series": null,
+     "set": "Phineas and Ferb",
+     "appearances": 3
+    }
+   ]
+  },
+  {
    "id": "v2:/19ad94c7cd027deca7121960bf5bb25d503d7358825306519cebf84bad1d0c4c",
    "name": "Next Semester",
    "kind": "jamtrack",
@@ -1908,6 +2284,29 @@
    ]
   },
   {
+   "id": "v2:/201d90433532cfd6f60b7c43e130820cb73141d70921bb0558a2dab19a5c0da5",
+   "name": "Usopp's Kit",
+   "kind": "backpack",
+   "price": 300,
+   "regular": 300,
+   "inDate": "2026-11-01",
+   "outDate": "2026-12-05",
+   "section": "One Piece ",
+   "image": "https://fortnite-api.com/images/cosmetics/br/newdisplayassets/15b9c6582ec17a78/renderimage_0.png",
+   "gap": "unseen",
+   "items": [
+    {
+     "id": "Backpack_LoomRise",
+     "name": "Usopp's Kit",
+     "type": "backpack",
+     "rarity": "Rare",
+     "series": null,
+     "set": "One Piece",
+     "appearances": 3
+    }
+   ]
+  },
+  {
    "id": "v2:/74d351ca3ad27d0af155a93955d4d692d699e6a4fbf1d7bc8ce457a3b09b98b3",
    "name": "Sad But True",
    "kind": "jamtrack",
@@ -1929,25 +2328,25 @@
    ]
   },
   {
-   "id": "v2:/201d90433532cfd6f60b7c43e130820cb73141d70921bb0558a2dab19a5c0da5",
-   "name": "Usopp's Kit",
+   "id": "v2:/f7de121b65b4c698fa7d0ff5c5a8cbc26c8fe5fa3a637b1eef4c2b607b39982d",
+   "name": "Stir-Baby",
    "kind": "backpack",
-   "price": 300,
-   "regular": 300,
-   "inDate": "2026-11-01",
-   "outDate": "2026-12-05",
-   "section": "One Piece ",
-   "image": "https://fortnite-api.com/images/cosmetics/br/newdisplayassets/15b9c6582ec17a78/renderimage_0.png",
-   "gap": "unseen",
+   "price": 400,
+   "regular": 400,
+   "inDate": "2026-11-23",
+   "outDate": "2026-11-30",
+   "section": null,
+   "image": "https://fortnite-api.com/images/cosmetics/br/bid_655_pieman/featured.png",
+   "gap": 32,
    "items": [
     {
-     "id": "Backpack_LoomRise",
-     "name": "Usopp's Kit",
+     "id": "BID_655_PieMan",
+     "name": "Stir-Baby",
      "type": "backpack",
-     "rarity": "Rare",
+     "rarity": "Epic",
      "series": null,
-     "set": "One Piece",
-     "appearances": 3
+     "set": "Baker's Nightmare",
+     "appearances": 2
     }
    ]
   },
@@ -2014,7 +2413,7 @@
      "rarity": "Icon Series",
      "series": "Icon Series",
      "set": "Rubius",
-     "appearances": 11
+     "appearances": 13
     }
    ]
   },
@@ -2036,6 +2435,38 @@
      "type": "jamtrack",
      "series": null,
      "set": "Sabrina Carpenter"
+    }
+   ]
+  },
+  {
+   "id": "v2:/0d0027031ca3e1a774d1d80b2287aa1507c374f66b0f7e13ad6302d391969cf8",
+   "name": "Cade",
+   "kind": "outfit",
+   "price": 1200,
+   "regular": 1200,
+   "inDate": "2026-11-23",
+   "outDate": "2026-11-26",
+   "section": "Main Character Energy ",
+   "image": "https://fortnite-api.com/images/cosmetics/br/newdisplayassets/defd7d49e755ea03/renderimage_0.png",
+   "gap": 501,
+   "items": [
+    {
+     "id": "CID_A_188_Athena_Commando_M_ColorBlock",
+     "name": "Cade",
+     "type": "outfit",
+     "rarity": "Rare",
+     "series": null,
+     "set": "1337 Fleet",
+     "appearances": 1
+    },
+    {
+     "id": "BID_829_ColorBlock",
+     "name": "Tower of Power",
+     "type": "backpack",
+     "rarity": "Rare",
+     "series": null,
+     "set": "1337 Fleet",
+     "appearances": 0
     }
    ]
   },
@@ -2166,7 +2597,7 @@
      "rarity": "Gaming Legends Series",
      "series": "Gaming Legends Series",
      "set": "Overwatch",
-     "appearances": 4
+     "appearances": 6
     }
    ]
   },
@@ -2190,6 +2621,29 @@
      "series": null,
      "set": "Regular Show",
      "appearances": 7
+    }
+   ]
+  },
+  {
+   "id": "v2:/ac6ec0c67e6522166027eec8c69c88e236f56d3df1fea18ece6f5646a76f3398",
+   "name": "Ducky Momo Plushie",
+   "kind": "backpack",
+   "price": 400,
+   "regular": 400,
+   "inDate": "2026-11-23",
+   "outDate": "2026-11-26",
+   "section": "Phineas and Ferb",
+   "image": "https://fortnite-api.com/images/cosmetics/br/newdisplayassets/b787eae02906ed8f/renderimage_0.png",
+   "gap": 159,
+   "items": [
+    {
+     "id": "Backpack_BrawnGraze",
+     "name": "Ducky Momo Plushie",
+     "type": "backpack",
+     "rarity": "Rare",
+     "series": null,
+     "set": "Phineas and Ferb",
+     "appearances": 4
     }
    ]
   },
@@ -2234,6 +2688,29 @@
      "type": "jamtrack",
      "series": null,
      "set": "Lil Uzi Vert"
+    }
+   ]
+  },
+  {
+   "id": "v2:/3cabf5c10fe5d09b01507fb2961d00c8c3a1761ff9162a60d3c4f1acb6134310",
+   "name": "Air Jordan 3 SE Co.JP 'Denim'",
+   "kind": "kicks",
+   "price": 1000,
+   "regular": 1000,
+   "inDate": "2026-11-23",
+   "outDate": "2026-11-26",
+   "section": "Get Your Kicks",
+   "image": "https://fortnite-api.com/images/cosmetics/br/newdisplayassets/535e0f57621c72f1/renderimage_0.png",
+   "gap": 228,
+   "items": [
+    {
+     "id": "Shoes_TunaCabinLard",
+     "name": "Air Jordan 3 SE Co.JP 'Denim'",
+     "type": "shoe",
+     "rarity": "Uncommon",
+     "series": null,
+     "set": "Jordan Shoes",
+     "appearances": 3
     }
    ]
   },
@@ -2348,6 +2825,29 @@
    ]
   },
   {
+   "id": "v2:/398341c90888de2c1277f0f40ca2c29241be226d073f2573a0c6c5dafc63d75d",
+   "name": "Rootcarver",
+   "kind": "pickaxe",
+   "price": 800,
+   "regular": 800,
+   "inDate": "2026-11-23",
+   "outDate": "2026-11-30",
+   "section": "Harvest Season",
+   "image": "https://fortnite-api.com/images/cosmetics/br/newdisplayassets/e0e182654e8ae87b/renderimage_0.png",
+   "gap": 158,
+   "items": [
+    {
+     "id": "Pickaxe_PatronPoppet",
+     "name": "Rootcarver",
+     "type": "pickaxe",
+     "rarity": "Rare",
+     "series": null,
+     "set": "Toil & Trouble",
+     "appearances": 5
+    }
+   ]
+  },
+  {
    "id": "v2:/c1c469b1cd292d375109466b840d0801b409897a9c59766ece261cb586a60a2d",
    "name": "Lil Uzi Vert",
    "kind": "outfit",
@@ -2398,30 +2898,7 @@
      "rarity": "Icon Series",
      "series": "Icon Series",
      "set": "Rubius",
-     "appearances": 11
-    }
-   ]
-  },
-  {
-   "id": "v2:/d03a55f3d0fcd0cd531549ecab3a00bef507abf7517c70040ce8b87a69633a84",
-   "name": "Air Jordan 11 'Legend Blue'",
-   "kind": "kicks",
-   "price": 1000,
-   "regular": 1000,
-   "inDate": "2026-11-19",
-   "outDate": "2026-11-22",
-   "section": "Get Your Kicks",
-   "image": "https://fortnite-api.com/images/cosmetics/br/newdisplayassets/046d29f0ef76170c/renderimage_0.png",
-   "gap": 11,
-   "items": [
-    {
-     "id": "Shoes_StrandModeAcai",
-     "name": "Air Jordan 11 'Legend Blue'",
-     "type": "shoe",
-     "rarity": "Uncommon",
-     "series": null,
-     "set": "Jordan Shoes",
-     "appearances": 5
+     "appearances": 13
     }
    ]
   },
@@ -2532,7 +3009,7 @@
      "rarity": "Icon Series",
      "series": "Icon Series",
      "set": "Gorillaz",
-     "appearances": 4
+     "appearances": 6
     }
    ]
   },
@@ -2654,6 +3131,29 @@
    ]
   },
   {
+   "id": "v2:/38e18cf038ee7748cd0e74aa1c16cbb217d96f4c43314430fb6c10d3c6b0b494",
+   "name": "Skull and Crossed Swords",
+   "kind": "backpack",
+   "price": 200,
+   "regular": 200,
+   "inDate": "2026-11-23",
+   "outDate": "2026-11-26",
+   "section": "Pirates of the Caribbean",
+   "image": "https://fortnite-api.com/images/cosmetics/br/newdisplayassets/2b504a78bbe59227/renderimage_0.png",
+   "gap": 55,
+   "items": [
+    {
+     "id": "Backpack_SpringBreakStraw",
+     "name": "Skull and Crossed Swords",
+     "type": "backpack",
+     "rarity": "Rare",
+     "series": null,
+     "set": "Pirates of the Caribbean",
+     "appearances": 3
+    }
+   ]
+  },
+  {
    "id": "v2:/bbb61c62584d2e447460e22d4fd3921883d540302288693ed2e3633c8ffd9710",
    "name": "PWR Pack",
    "kind": "backpack",
@@ -2672,7 +3172,62 @@
      "rarity": "Icon Series",
      "series": "Icon Series",
      "set": "PWR",
-     "appearances": 10
+     "appearances": 13
+    }
+   ]
+  },
+  {
+   "id": "v2:/aca311d89d15c857af0127cf988a093549646716677be7028f26012fcc9e10ed",
+   "name": "Pumpkin Season",
+   "kind": "wrap",
+   "price": 500,
+   "regular": 500,
+   "inDate": "2026-11-23",
+   "outDate": "2026-11-30",
+   "section": "Harvest Season",
+   "image": "https://fortnite-api.com/images/cosmetics/br/newdisplayassets/5138b769aabfad37/renderimage_0.png",
+   "gap": 158,
+   "items": [
+    {
+     "id": "Wrap_PatronPoppet",
+     "name": "Pumpkin Season",
+     "type": "wrap",
+     "rarity": "Rare",
+     "series": null,
+     "set": "Toil & Trouble",
+     "appearances": 4
+    }
+   ]
+  },
+  {
+   "id": "v2:/6f6b180abd2bf878706fa9feb0fbe94eea899bd834bad9afa30a8f82a65e3c27",
+   "name": "Murdoc's Bass",
+   "kind": "backpack",
+   "price": 800,
+   "regular": 800,
+   "inDate": "2026-11-22",
+   "outDate": "2026-11-24",
+   "section": "Gorillaz",
+   "image": "https://fortnite-api.com/images/cosmetics/br/newdisplayassets/3892489ce134ca7a/renderimage_0.png",
+   "gap": 119,
+   "items": [
+    {
+     "id": "Backpack_GatorCeladon_Bass",
+     "name": "Murdoc's Bass",
+     "type": "backpack",
+     "rarity": "Icon Series",
+     "series": "Icon Series",
+     "set": "Gorillaz",
+     "appearances": 3
+    },
+    {
+     "id": "Pickaxe_GatorCeladon_Bass",
+     "name": "Murdoc's Bass",
+     "type": "pickaxe",
+     "rarity": "Icon Series",
+     "series": "Icon Series",
+     "set": "Gorillaz",
+     "appearances": 3
     }
    ]
   },
@@ -2696,38 +3251,6 @@
      "series": "Icon Series",
      "set": "Miku Sets Sail!",
      "appearances": 3
-    }
-   ]
-  },
-  {
-   "id": "v2:/6f6b180abd2bf878706fa9feb0fbe94eea899bd834bad9afa30a8f82a65e3c27",
-   "name": "Murdoc's Bass",
-   "kind": "backpack",
-   "price": 800,
-   "regular": 800,
-   "inDate": "2026-11-22",
-   "outDate": "2026-11-24",
-   "section": "Gorillaz",
-   "image": "https://fortnite-api.com/images/cosmetics/br/newdisplayassets/3892489ce134ca7a/renderimage_0.png",
-   "gap": 119,
-   "items": [
-    {
-     "id": "Backpack_GatorCeladon_Bass",
-     "name": "Murdoc's Bass",
-     "type": "backpack",
-     "rarity": "Icon Series",
-     "series": "Icon Series",
-     "set": "Gorillaz",
-     "appearances": 2
-    },
-    {
-     "id": "Pickaxe_GatorCeladon_Bass",
-     "name": "Murdoc's Bass",
-     "type": "pickaxe",
-     "rarity": "Icon Series",
-     "series": "Icon Series",
-     "set": "Gorillaz",
-     "appearances": 2
     }
    ]
   },
@@ -2776,6 +3299,29 @@
    ]
   },
   {
+   "id": "v2:/5d7ce8cd5b4f33f934d996777bd6907ef1b7a2187e3fd68f6bb3bf66ad4a5fea",
+   "name": "Air Jordan 1 High 'Pine Green'",
+   "kind": "kicks",
+   "price": 1000,
+   "regular": 1000,
+   "inDate": "2026-11-23",
+   "outDate": "2026-11-26",
+   "section": "Get Your Kicks",
+   "image": "https://fortnite-api.com/images/cosmetics/br/newdisplayassets/cf054c7eb49675fa/renderimage_0.png",
+   "gap": 262,
+   "items": [
+    {
+     "id": "Shoes_StrandModePeach",
+     "name": "Air Jordan 1 High 'Pine Green'",
+     "type": "shoe",
+     "rarity": "Uncommon",
+     "series": null,
+     "set": "Jordan Shoes",
+     "appearances": 3
+    }
+   ]
+  },
+  {
    "id": "v2:/74a67d49c82d67b59a346486c3ed9a6ceacfa1eee708787961865e0d8fbebd2f",
    "name": "Aku Aku",
    "kind": "backpack",
@@ -2794,7 +3340,7 @@
      "rarity": "Gaming Legends Series",
      "series": "Gaming Legends Series",
      "set": "Crash Bandicoot",
-     "appearances": 2
+     "appearances": 4
     }
    ]
   },
@@ -2894,6 +3440,61 @@
    ]
   },
   {
+   "id": "v2:/2378f9a9489a1b66b21c17a8daa4ad813e2eb325552a2312c21fc76461c5b18b",
+   "name": "Norrington's Sacrifice",
+   "kind": "pickaxe",
+   "price": 500,
+   "regular": 500,
+   "inDate": "2026-11-23",
+   "outDate": "2026-11-26",
+   "section": null,
+   "image": "https://fortnite-api.com/images/cosmetics/br/pickaxe_accentwall/featured.png",
+   "gap": 55,
+   "items": [
+    {
+     "id": "Pickaxe_AccentWall",
+     "name": "Norrington's Sacrifice",
+     "type": "pickaxe",
+     "rarity": "Rare",
+     "series": null,
+     "set": "Pirates of the Caribbean",
+     "appearances": 4
+    }
+   ]
+  },
+  {
+   "id": "v2:/e3f0442b868338b979c5b1050e84e1fbc9440815fb8e9376e7f8b96e14252e37",
+   "name": "The Autumn Queen",
+   "kind": "outfit",
+   "price": 1200,
+   "regular": 1200,
+   "inDate": "2026-11-23",
+   "outDate": "2026-11-30",
+   "section": "Harvest Season",
+   "image": "https://fortnite-api.com/images/cosmetics/br/newdisplayassets/37a9b55f0a4b8ef2/renderimage_0.png",
+   "gap": 382,
+   "items": [
+    {
+     "id": "CID_617_Athena_Commando_F_ForestQueen",
+     "name": "The Autumn Queen",
+     "type": "outfit",
+     "rarity": "Rare",
+     "series": null,
+     "set": "Changing Seasons",
+     "appearances": 1
+    },
+    {
+     "id": "BID_413_ForestQueen",
+     "name": "Autumn's Mantle",
+     "type": "backpack",
+     "rarity": "Rare",
+     "series": null,
+     "set": "Changing Seasons",
+     "appearances": 0
+    }
+   ]
+  },
+  {
    "id": "v2:/a2b01afe09247653ea50e932f5de7e8742f7f3c9b29608e797313eafd6743db6",
    "name": "Ofuda Whirlwind",
    "kind": "emote",
@@ -2938,6 +3539,29 @@
    ]
   },
   {
+   "id": "v2:/9b500f107b0da8b37d82aa4e908dc840b578f77349a31fcadccd7cb9ff0d0057",
+   "name": "SH4RK",
+   "kind": "outfit",
+   "price": 800,
+   "regular": 800,
+   "inDate": "2026-11-23",
+   "outDate": "2026-11-24",
+   "section": "Main Character Energy ",
+   "image": "https://fortnite-api.com/images/cosmetics/br/newdisplayassets/33b7d8d13903ec07/renderimage_0.png",
+   "gap": 285,
+   "items": [
+    {
+     "id": "Character_TechSpeeder",
+     "name": "SH4RK",
+     "type": "outfit",
+     "rarity": "Epic",
+     "series": null,
+     "set": "Sharktooth Racer",
+     "appearances": 2
+    }
+   ]
+  },
+  {
    "id": "v2:/9e42da7792e3d2768d6639b473b20f2acc14306d6e6f6b74fa7c3862cced5703",
    "name": "Feather",
    "kind": "jamtrack",
@@ -2955,38 +3579,6 @@
      "type": "jamtrack",
      "series": null,
      "set": "Sabrina Carpenter"
-    }
-   ]
-  },
-  {
-   "id": "v2:/33d4e033c8e410c6f964a814cddc06687200be66aa14ad28d9b60de4cab2503c",
-   "name": "Sterling",
-   "kind": "outfit",
-   "price": 1500,
-   "regular": 1500,
-   "inDate": "2026-11-20",
-   "outDate": "2026-11-22",
-   "section": "Main Character Energy ",
-   "image": "https://fortnite-api.com/images/cosmetics/br/newdisplayassets/3364d8e3a0e89a89/renderimage_0.png",
-   "gap": 190,
-   "items": [
-    {
-     "id": "CID_393_Athena_Commando_M_Shiny",
-     "name": "Sterling",
-     "type": "outfit",
-     "rarity": "Epic",
-     "series": null,
-     "set": "24K",
-     "appearances": 3
-    },
-    {
-     "id": "BID_254_ShinyMale",
-     "name": "Diamond Star",
-     "type": "backpack",
-     "rarity": "Epic",
-     "series": null,
-     "set": "24K",
-     "appearances": 4
     }
    ]
   },
@@ -3012,6 +3604,29 @@
    ]
   },
   {
+   "id": "v2:/ba6c00510cb355e5e0daeef67409357a1a2e6d17868005413c2d86520525c844",
+   "name": "Cardamom",
+   "kind": "sidekick",
+   "price": 1200,
+   "regular": 1200,
+   "inDate": "2026-11-23",
+   "outDate": "2026-11-30",
+   "section": "Harvest Season",
+   "image": "https://fortnite-api.com/images/cosmetics/br/newdisplayassets/96ae9fafb5662bfa/renderimage_0.png",
+   "gap": "unseen",
+   "items": [
+    {
+     "id": "Companion_FuzzySock",
+     "name": "Cardamom",
+     "type": "sidekick",
+     "rarity": "Uncommon",
+     "series": null,
+     "set": null,
+     "appearances": 0
+    }
+   ]
+  },
+  {
    "id": "v2:/e9278708e4e0c0c0b49b55aa56c15817fa541886b05a8c57cf874748b3eb566f",
    "name": "Best of You",
    "kind": "jamtrack",
@@ -3029,6 +3644,29 @@
      "type": "jamtrack",
      "series": null,
      "set": "Foo Fighters"
+    }
+   ]
+  },
+  {
+   "id": "v2:/7372f128f08139fc417fb82086f4a5297f90ed8547f33577993c0ce3cff577ea",
+   "name": "Sunflower",
+   "kind": "outfit",
+   "price": 800,
+   "regular": 800,
+   "inDate": "2026-11-23",
+   "outDate": "2026-11-30",
+   "section": "Harvest Season",
+   "image": "https://fortnite-api.com/images/cosmetics/br/newdisplayassets/1a6c8c8dff79dce3/renderimage_0.png",
+   "gap": 70,
+   "items": [
+    {
+     "id": "CID_356_Athena_Commando_F_Farmer",
+     "name": "Sunflower",
+     "type": "outfit",
+     "rarity": "Uncommon",
+     "series": null,
+     "set": "Fatal Fielders",
+     "appearances": 4
     }
    ]
   },
@@ -3051,7 +3689,7 @@
      "rarity": "Icon Series",
      "series": "Icon Series",
      "set": "Gorillaz",
-     "appearances": 3
+     "appearances": 5
     },
     {
      "id": "Pickaxe_PajamaSoar_Mic",
@@ -3060,30 +3698,30 @@
      "rarity": "Icon Series",
      "series": "Icon Series",
      "set": "Gorillaz",
-     "appearances": 3
+     "appearances": 5
     }
    ]
   },
   {
-   "id": "v2:/caffa480b772643f24fea7122e807446f6d6831556cb2a4f384ac2ec36dbce76",
-   "name": "Caduceus Pickaxe",
-   "kind": "pickaxe",
-   "price": 800,
-   "regular": 800,
-   "inDate": "2026-11-22",
-   "outDate": "2026-12-04",
-   "section": "Overwatch",
-   "image": "https://fortnite-api.com/images/cosmetics/br/newdisplayassets/d37ba55e54eac5b1/renderimage_0.png",
-   "gap": 67,
+   "id": "v2:/68b42abc6e3971d2daf84d94b3a2fac2e3748ddd4a8cc7704c18c0ea695e970a",
+   "name": "Autumn's Mantle",
+   "kind": "backpack",
+   "price": 300,
+   "regular": 300,
+   "inDate": "2026-11-23",
+   "outDate": "2026-11-30",
+   "section": null,
+   "image": "https://fortnite-api.com/images/cosmetics/br/bid_413_forestqueen/featured.png",
+   "gap": "unseen",
    "items": [
     {
-     "id": "Pickaxe_TrackWaver",
-     "name": "Caduceus Pickaxe",
-     "type": "pickaxe",
-     "rarity": "Gaming Legends Series",
-     "series": "Gaming Legends Series",
-     "set": "Overwatch",
-     "appearances": 4
+     "id": "BID_413_ForestQueen",
+     "name": "Autumn's Mantle",
+     "type": "backpack",
+     "rarity": "Rare",
+     "series": null,
+     "set": "Changing Seasons",
+     "appearances": 0
     }
    ]
   },
@@ -3101,20 +3739,20 @@
    "items": []
   },
   {
-   "id": "v2:/a228bd5a00fc68cdaf831deb21b8c907b3276eb4fb53ae7e306083553eb52369",
-   "name": "Tokki's Slicer",
+   "id": "v2:/caffa480b772643f24fea7122e807446f6d6831556cb2a4f384ac2ec36dbce76",
+   "name": "Caduceus Pickaxe",
    "kind": "pickaxe",
    "price": 800,
    "regular": 800,
    "inDate": "2026-11-22",
    "outDate": "2026-12-04",
    "section": "Overwatch",
-   "image": "https://fortnite-api.com/images/cosmetics/br/newdisplayassets/9003084766030b18/renderimage_0.png",
+   "image": "https://fortnite-api.com/images/cosmetics/br/newdisplayassets/d37ba55e54eac5b1/renderimage_0.png",
    "gap": 67,
    "items": [
     {
-     "id": "Pickaxe_SkiffGrind",
-     "name": "Tokki's Slicer",
+     "id": "Pickaxe_TrackWaver",
+     "name": "Caduceus Pickaxe",
      "type": "pickaxe",
      "rarity": "Gaming Legends Series",
      "series": "Gaming Legends Series",
@@ -3142,7 +3780,7 @@
      "rarity": "Rare",
      "series": null,
      "set": "Silent Stalkers",
-     "appearances": 5
+     "appearances": 7
     },
     {
      "id": "BID_412_CavalryBandit",
@@ -3151,7 +3789,30 @@
      "rarity": "Rare",
      "series": null,
      "set": "Silent Stalkers",
-     "appearances": 4
+     "appearances": 7
+    }
+   ]
+  },
+  {
+   "id": "v2:/a228bd5a00fc68cdaf831deb21b8c907b3276eb4fb53ae7e306083553eb52369",
+   "name": "Tokki's Slicer",
+   "kind": "pickaxe",
+   "price": 800,
+   "regular": 800,
+   "inDate": "2026-11-22",
+   "outDate": "2026-12-04",
+   "section": "Overwatch",
+   "image": "https://fortnite-api.com/images/cosmetics/br/newdisplayassets/9003084766030b18/renderimage_0.png",
+   "gap": 67,
+   "items": [
+    {
+     "id": "Pickaxe_SkiffGrind",
+     "name": "Tokki's Slicer",
+     "type": "pickaxe",
+     "rarity": "Gaming Legends Series",
+     "series": "Gaming Legends Series",
+     "set": "Overwatch",
+     "appearances": 9
     }
    ]
   },
@@ -3174,7 +3835,7 @@
      "rarity": "Icon Series",
      "series": "Icon Series",
      "set": "Gorillaz",
-     "appearances": 4
+     "appearances": 6
     },
     {
      "id": "Character_PajamaSoar",
@@ -3183,7 +3844,7 @@
      "rarity": "Icon Series",
      "series": "Icon Series",
      "set": "Gorillaz",
-     "appearances": 4
+     "appearances": 6
     },
     {
      "id": "EID_DegreeProper",
@@ -3192,7 +3853,7 @@
      "rarity": "Icon Series",
      "series": "Icon Series",
      "set": "Gorillaz",
-     "appearances": 4
+     "appearances": 6
     },
     {
      "id": "Backpack_DegreeProper",
@@ -3201,7 +3862,7 @@
      "rarity": "Icon Series",
      "series": "Icon Series",
      "set": "Gorillaz",
-     "appearances": 4
+     "appearances": 6
     },
     {
      "id": "Backpack_DegreeProper_Guitar",
@@ -3210,7 +3871,7 @@
      "rarity": "Icon Series",
      "series": "Icon Series",
      "set": "Gorillaz",
-     "appearances": 3
+     "appearances": 5
     },
     {
      "id": "Pickaxe_DegreeProper_Guitar",
@@ -3219,7 +3880,7 @@
      "rarity": "Icon Series",
      "series": "Icon Series",
      "set": "Gorillaz",
-     "appearances": 3
+     "appearances": 5
     },
     {
      "id": "Backpack_PajamaSoar",
@@ -3228,7 +3889,7 @@
      "rarity": "Icon Series",
      "series": "Icon Series",
      "set": "Gorillaz",
-     "appearances": 4
+     "appearances": 6
     },
     {
      "id": "Contrail_PajamaSoar",
@@ -3237,7 +3898,7 @@
      "rarity": "Icon Series",
      "series": "Icon Series",
      "set": "Gorillaz",
-     "appearances": 4
+     "appearances": 6
     },
     {
      "id": "Backpack_PajamaSoar_Mic",
@@ -3246,7 +3907,7 @@
      "rarity": "Icon Series",
      "series": "Icon Series",
      "set": "Gorillaz",
-     "appearances": 3
+     "appearances": 5
     },
     {
      "id": "Pickaxe_PajamaSoar_Mic",
@@ -3255,7 +3916,7 @@
      "rarity": "Icon Series",
      "series": "Icon Series",
      "set": "Gorillaz",
-     "appearances": 3
+     "appearances": 5
     },
     {
      "id": "Wrap_PajamaSoar",
@@ -3264,7 +3925,7 @@
      "rarity": "Icon Series",
      "series": "Icon Series",
      "set": "Gorillaz",
-     "appearances": 4
+     "appearances": 6
     },
     {
      "id": "sid_placeholder_636",
@@ -3272,29 +3933,6 @@
      "type": "jamtrack",
      "series": null,
      "set": "Gorillaz ft. Shaun Ryder & Roses Gabor"
-    }
-   ]
-  },
-  {
-   "id": "v2:/7e8f374c6a3133200fa506db8692837823ff4655da8be9d71fba53d2164baba1",
-   "name": "Without You",
-   "kind": "emote",
-   "price": 500,
-   "regular": 500,
-   "inDate": "2026-11-17",
-   "outDate": "2026-11-22",
-   "section": "Battle Beats",
-   "image": "https://fortnite-api.com/images/cosmetics/br/newdisplayassets/dd9056f7c35910b5/renderimage_0.png",
-   "gap": 95,
-   "items": [
-    {
-     "id": "EID_Devotion",
-     "name": "Without You",
-     "type": "emote",
-     "rarity": "Icon Series",
-     "series": "Icon Series",
-     "set": null,
-     "appearances": 6
     }
    ]
   },
@@ -3338,7 +3976,30 @@
      "rarity": "Gaming Legends Series",
      "series": "Gaming Legends Series",
      "set": "Overwatch",
-     "appearances": 4
+     "appearances": 6
+    }
+   ]
+  },
+  {
+   "id": "v2:/6a32d3c5c97eff4bcb08b9985b5612f8083d5a10ba30cb688b4c5308b957fe56",
+   "name": "Piggy Slippies",
+   "kind": "kicks",
+   "price": 600,
+   "regular": 600,
+   "inDate": "2026-11-21",
+   "outDate": "2026-11-24",
+   "section": "Get Your Kicks",
+   "image": "https://fortnite-api.com/images/cosmetics/br/newdisplayassets/bf23d13490ed1ac8/renderimage_0.png",
+   "gap": 55,
+   "items": [
+    {
+     "id": "Shoes_ButtonMud",
+     "name": "Piggy Slippies",
+     "type": "shoe",
+     "rarity": "Uncommon",
+     "series": null,
+     "set": null,
+     "appearances": 3
     }
    ]
   },
@@ -3371,29 +4032,6 @@
      "series": "Icon Series",
      "set": "Kim Kardashian",
      "appearances": 18
-    }
-   ]
-  },
-  {
-   "id": "v2:/6a32d3c5c97eff4bcb08b9985b5612f8083d5a10ba30cb688b4c5308b957fe56",
-   "name": "Piggy Slippies",
-   "kind": "kicks",
-   "price": 600,
-   "regular": 600,
-   "inDate": "2026-11-21",
-   "outDate": "2026-11-24",
-   "section": "Get Your Kicks",
-   "image": "https://fortnite-api.com/images/cosmetics/br/newdisplayassets/bf23d13490ed1ac8/renderimage_0.png",
-   "gap": 55,
-   "items": [
-    {
-     "id": "Shoes_ButtonMud",
-     "name": "Piggy Slippies",
-     "type": "shoe",
-     "rarity": "Uncommon",
-     "series": null,
-     "set": null,
-     "appearances": 3
     }
    ]
   },
@@ -3465,6 +4103,29 @@
    ]
   },
   {
+   "id": "v2:/65ca00beef4a0b2126436705c4f92b2f538cdf415c2e85b6c2143ade2f7a7606",
+   "name": "Oakworn Wings",
+   "kind": "backpack",
+   "price": 300,
+   "regular": 300,
+   "inDate": "2026-11-23",
+   "outDate": "2026-11-30",
+   "section": "Harvest Season",
+   "image": "https://fortnite-api.com/images/cosmetics/br/newdisplayassets/b5fdef92c76983bc/renderimage_0.png",
+   "gap": 378,
+   "items": [
+    {
+     "id": "Backpack_OakWeld",
+     "name": "Oakworn Wings",
+     "type": "backpack",
+     "rarity": "Rare",
+     "series": null,
+     "set": "Changing Seasons",
+     "appearances": 1
+    }
+   ]
+  },
+  {
    "id": "v2:/96098fe02e75a218c5f05c88b6d230f5c3278c3864f1dd65b7abf47617308b76",
    "name": "Wildberry Lillet",
    "kind": "jamtrack",
@@ -3482,6 +4143,29 @@
      "type": "jamtrack",
      "series": null,
      "set": "Nina Chuba"
+    }
+   ]
+  },
+  {
+   "id": "v2:/b0ef1cf353f6fd31edb4f8d586e5cbc8fa9b97c56672011a4f73ec2aee0d6f80",
+   "name": "Aspen",
+   "kind": "outfit",
+   "price": 800,
+   "regular": 800,
+   "inDate": "2026-11-23",
+   "outDate": "2026-11-30",
+   "section": "Harvest Season",
+   "image": "https://fortnite-api.com/images/cosmetics/br/newdisplayassets/36ea7648078f258f/renderimage_0.png",
+   "gap": 50,
+   "items": [
+    {
+     "id": "CID_A_064_Athena_Commando_F_SurvivalSpecialistAutumn",
+     "name": "Aspen",
+     "type": "outfit",
+     "rarity": "Uncommon",
+     "series": null,
+     "set": "Autumn Attack",
+     "appearances": 5
     }
    ]
   },
@@ -3546,7 +4230,30 @@
      "rarity": "Icon Series",
      "series": "Icon Series",
      "set": "PWR",
-     "appearances": 10
+     "appearances": 12
+    }
+   ]
+  },
+  {
+   "id": "v2:/f263b9d8ac30432deb00d5889e5a7d964dc9d2a6559528a39c1b5b460e36e7ef",
+   "name": "Batti",
+   "kind": "backpack",
+   "price": 300,
+   "regular": 300,
+   "inDate": "2026-11-23",
+   "outDate": "2026-11-30",
+   "section": null,
+   "image": "https://fortnite-api.com/images/cosmetics/br/backpack_patronpoppet/featured.png",
+   "gap": 158,
+   "items": [
+    {
+     "id": "Backpack_PatronPoppet",
+     "name": "Batti",
+     "type": "backpack",
+     "rarity": "Rare",
+     "series": null,
+     "set": "Toil & Trouble",
+     "appearances": 3
     }
    ]
   },
@@ -3590,7 +4297,7 @@
      "rarity": "Icon Series",
      "series": "Icon Series",
      "set": "Gorillaz",
-     "appearances": 4
+     "appearances": 6
     }
    ]
   },
@@ -3616,52 +4323,48 @@
    ]
   },
   {
-   "id": "v2:/bb38b6d1fb3cac760a3a484e0de17767e3e17c70b7f97df416f5113ae83f8a43",
-   "name": "Beary Cuddly Bundle",
-   "kind": "bundle",
-   "price": 1700,
-   "regular": 2300,
-   "inDate": "2026-11-21",
-   "outDate": "2026-11-22",
-   "section": "Main Character Energy ",
-   "image": "https://fortnite-api.com/images/cosmetics/br/newdisplayassets/bfab08ebbd35ec75/renderimage_0.png",
-   "gap": 16,
+   "id": "v2:/2db112e9c15bffeb7829f0048b7d45aee06930ebfe308860cc5dc5dbf6f976df",
+   "name": "Cobb",
+   "kind": "outfit",
+   "price": 1200,
+   "regular": 1200,
+   "inDate": "2026-11-23",
+   "outDate": "2026-11-30",
+   "section": "Harvest Season",
+   "image": "https://fortnite-api.com/images/cosmetics/br/newdisplayassets/ed3ce7c575dea3b3/renderimage_0.png",
+   "gap": 188,
    "items": [
     {
-     "id": "CID_A_453_Athena_Commando_F_FuzzyBearSummer",
-     "name": "Syd",
+     "id": "CID_959_Athena_Commando_M_Corny",
+     "name": "Cobb",
      "type": "outfit",
      "rarity": "Rare",
      "series": null,
-     "set": "Beary Cuddly",
-     "appearances": 10
-    },
-    {
-     "id": "BID_A_042_FuzzyBearSummerFemale",
-     "name": "Cuddlebear Cutie",
-     "type": "backpack",
-     "rarity": "Rare",
-     "series": null,
-     "set": "Beary Cuddly",
-     "appearances": 10
-    },
-    {
-     "id": "Pickaxe_ID_831_FuzzyBearSummerFemale",
-     "name": "Weighted Spikegloves",
-     "type": "pickaxe",
-     "rarity": "Rare",
-     "series": null,
-     "set": "Beary Cuddly",
-     "appearances": 2
-    },
-    {
-     "id": "Wrap_503_FuzzyBearSummer",
-     "name": "Heartwave",
-     "type": "wrap",
-     "rarity": "Uncommon",
-     "series": null,
-     "set": "Beary Cuddly",
+     "set": "Kernel Commando",
      "appearances": 4
+    }
+   ]
+  },
+  {
+   "id": "v2:/5c222993a2cff58a84765125425ebacb438ce180336bec8896d9f9aa36c3c534",
+   "name": "Mad Mochi",
+   "kind": "outfit",
+   "price": 1400,
+   "regular": 1400,
+   "inDate": "2026-11-23",
+   "outDate": "2026-11-23",
+   "section": "Main Character Energy ",
+   "image": "https://fortnite-api.com/images/cosmetics/br/newdisplayassets/4efa5624f4cc3baf/renderimage_0.png",
+   "gap": 127,
+   "items": [
+    {
+     "id": "Character_Mochi",
+     "name": "Mad Mochi",
+     "type": "outfit",
+     "rarity": "Epic",
+     "series": null,
+     "set": "Glutinous Guardian",
+     "appearances": 6
     }
    ]
   },
@@ -3705,7 +4408,7 @@
      "rarity": "Icon Series",
      "series": "Icon Series",
      "set": "Gorillaz",
-     "appearances": 2
+     "appearances": 3
     }
    ]
   },
@@ -3727,6 +4430,38 @@
      "type": "jamtrack",
      "series": null,
      "set": "Pitbull ft. John Ryan"
+    }
+   ]
+  },
+  {
+   "id": "v2:/c1c72d7fcc502398a7a0b9a8c64983d74fbe6dab88f967cf4854aff26d8bc0fa",
+   "name": "Heidi",
+   "kind": "outfit",
+   "price": 1500,
+   "regular": 1500,
+   "inDate": "2026-11-23",
+   "outDate": "2026-11-30",
+   "section": "Harvest Season",
+   "image": "https://fortnite-api.com/images/cosmetics/br/newdisplayassets/4ddcf75897ac58a1/renderimage_0.png",
+   "gap": 153,
+   "items": [
+    {
+     "id": "CID_226_Athena_Commando_F_Octoberfest",
+     "name": "Heidi",
+     "type": "outfit",
+     "rarity": "Epic",
+     "series": null,
+     "set": "Oktoberfest",
+     "appearances": 3
+    },
+    {
+     "id": "BID_118_OctoberfestFemale",
+     "name": "Pretzel Protector",
+     "type": "backpack",
+     "rarity": "Epic",
+     "series": null,
+     "set": "Oktoberfest",
+     "appearances": 2
     }
    ]
   },
@@ -3763,6 +4498,29 @@
    ]
   },
   {
+   "id": "v2:/ca64c01187c1b799bbb2f1ef62c5744b960d3f569de9ff295441cdd2fd8288b8",
+   "name": "Cursed Jack Sparrow",
+   "kind": "outfit",
+   "price": 1500,
+   "regular": 1500,
+   "inDate": "2026-11-23",
+   "outDate": "2026-11-26",
+   "section": null,
+   "image": "https://fortnite-api.com/images/cosmetics/br/character_springbreaktrip/featured.png",
+   "gap": 55,
+   "items": [
+    {
+     "id": "Character_SpringBreakTrip",
+     "name": "Cursed Jack Sparrow",
+     "type": "outfit",
+     "rarity": "Epic",
+     "series": null,
+     "set": "Pirates of the Caribbean",
+     "appearances": 3
+    }
+   ]
+  },
+  {
    "id": "v2:/d4262fb2508b3fac3b294690abf0382e69b1051d16af5d4f248a4d787bc555ca",
    "name": "Beanie",
    "kind": "jamtrack",
@@ -3784,19 +4542,6 @@
    ]
   },
   {
-   "id": "v2:/3529188ada7f0d81a3ec7c0f8766d2d27a8ce82aff58f531f01570fa45708c56",
-   "name": "[VIRTUAL]1 x Blank for 400 MtxCurrency",
-   "kind": "car",
-   "price": 400,
-   "regular": 400,
-   "inDate": "2026-11-14",
-   "outDate": "2026-11-23",
-   "section": null,
-   "image": null,
-   "gap": null,
-   "items": []
-  },
-  {
    "id": "v2:/c904e861da072c8088847a39c74afcfd43698459f0a3dab5745bd42a6259f455",
    "name": "Somebody That I Used To Know",
    "kind": "jamtrack",
@@ -3816,6 +4561,19 @@
      "set": "Gotye ft. Kimbra"
     }
    ]
+  },
+  {
+   "id": "v2:/3529188ada7f0d81a3ec7c0f8766d2d27a8ce82aff58f531f01570fa45708c56",
+   "name": "[VIRTUAL]1 x Blank for 400 MtxCurrency",
+   "kind": "car",
+   "price": 400,
+   "regular": 400,
+   "inDate": "2026-11-14",
+   "outDate": "2026-11-23",
+   "section": null,
+   "image": null,
+   "gap": null,
+   "items": []
   },
   {
    "id": "v2:/4b4a492038e46778b029ed994a7821ea3d15ec6e078b8ae41deae597d6a945c0",
@@ -3878,7 +4636,7 @@
      "rarity": "Rare",
      "series": null,
      "set": "M.E.O.W. Protocol",
-     "appearances": 3
+     "appearances": 5
     }
    ]
   },
@@ -4167,6 +4925,61 @@
    ]
   },
   {
+   "id": "v2:/d79f579d96822c438a5322d21e897e388e3cd7f59e580390f28f2b3519d5dbdd",
+   "name": "Mincemeat",
+   "kind": "outfit",
+   "price": 1500,
+   "regular": 1500,
+   "inDate": "2026-11-23",
+   "outDate": "2026-11-30",
+   "section": "Harvest Season",
+   "image": "https://fortnite-api.com/images/cosmetics/br/newdisplayassets/8f3152074385312d/renderimage_0.png",
+   "gap": 32,
+   "items": [
+    {
+     "id": "CID_958_Athena_Commando_M_PieMan",
+     "name": "Mincemeat",
+     "type": "outfit",
+     "rarity": "Epic",
+     "series": null,
+     "set": "Baker's Nightmare",
+     "appearances": 3
+    },
+    {
+     "id": "BID_655_PieMan",
+     "name": "Stir-Baby",
+     "type": "backpack",
+     "rarity": "Epic",
+     "series": null,
+     "set": "Baker's Nightmare",
+     "appearances": 2
+    }
+   ]
+  },
+  {
+   "id": "v2:/1583c33c19b34460b27762dfdf540874a57b574e4b1a699197c01868ffd1e5bb",
+   "name": "Surf the Soundwaves",
+   "kind": "emote",
+   "price": 500,
+   "regular": 500,
+   "inDate": "2026-11-23",
+   "outDate": "2026-11-28",
+   "section": "Battle Beats",
+   "image": "https://fortnite-api.com/images/cosmetics/br/newdisplayassets/92246bae1833a424/renderimage_0.png",
+   "gap": 37,
+   "items": [
+    {
+     "id": "EID_FareSporeCookie",
+     "name": "Surf the Soundwaves",
+     "type": "emote",
+     "rarity": "Icon Series",
+     "series": "Icon Series",
+     "set": "deadmau5",
+     "appearances": 4
+    }
+   ]
+  },
+  {
    "id": "v2:/11d375db886e0b282a767e923873372c54a349573007c1c6d9e38b62eee99bc1",
    "name": "Bust A Move",
    "kind": "jamtrack",
@@ -4252,38 +5065,6 @@
    ]
   },
   {
-   "id": "v2:/2ed22ceea658d71234e48fa79c6237d1975dbf2617c634dd953b86037b745623",
-   "name": "Syd",
-   "kind": "outfit",
-   "price": 1200,
-   "regular": 1200,
-   "inDate": "2026-11-21",
-   "outDate": "2026-11-22",
-   "section": "Main Character Energy ",
-   "image": "https://fortnite-api.com/images/cosmetics/br/newdisplayassets/8cb2de50001d0c62/renderimage_0.png",
-   "gap": 16,
-   "items": [
-    {
-     "id": "CID_A_453_Athena_Commando_F_FuzzyBearSummer",
-     "name": "Syd",
-     "type": "outfit",
-     "rarity": "Rare",
-     "series": null,
-     "set": "Beary Cuddly",
-     "appearances": 10
-    },
-    {
-     "id": "BID_A_042_FuzzyBearSummerFemale",
-     "name": "Cuddlebear Cutie",
-     "type": "backpack",
-     "rarity": "Rare",
-     "series": null,
-     "set": "Beary Cuddly",
-     "appearances": 10
-    }
-   ]
-  },
-  {
    "id": "v2:/7df7d1b95e14b049dda130cd61113fd65be748bd0d4786a4b630f0a06facce17",
    "name": "LAROI Free Style",
    "kind": "wrap",
@@ -4325,7 +5106,7 @@
      "rarity": "Epic",
      "series": null,
      "set": "M.E.O.W. Protocol",
-     "appearances": 6
+     "appearances": 8
     }
    ]
   },
@@ -4358,6 +5139,52 @@
      "series": "Icon Series",
      "set": "Ice Spice",
      "appearances": 3
+    }
+   ]
+  },
+  {
+   "id": "v2:/5f2f53911c2820fbecbb4eb6c05c395dae61da6f29ab0a4f75242f0ddc2c436a",
+   "name": "Doof's High Kicks",
+   "kind": "emote",
+   "price": 500,
+   "regular": 500,
+   "inDate": "2026-11-23",
+   "outDate": "2026-11-26",
+   "section": "Phineas and Ferb",
+   "image": "https://fortnite-api.com/images/cosmetics/br/newdisplayassets/fd5805dd9503c20e/renderimage_0.png",
+   "gap": 159,
+   "items": [
+    {
+     "id": "EID_PeaceScarf",
+     "name": "Doof's High Kicks",
+     "type": "emote",
+     "rarity": "Uncommon",
+     "series": null,
+     "set": "Phineas and Ferb",
+     "appearances": 3
+    }
+   ]
+  },
+  {
+   "id": "v2:/23837f78b8260bee091204d40c21a2c720e5926387c32ea765293fae8b63b00d",
+   "name": "Boom Boom Bass",
+   "kind": "emote",
+   "price": 500,
+   "regular": 500,
+   "inDate": "2026-11-23",
+   "outDate": "2026-11-28",
+   "section": "Battle Beats",
+   "image": "https://fortnite-api.com/images/cosmetics/br/newdisplayassets/2328fe57600afbef/renderimage_0.png",
+   "gap": 107,
+   "items": [
+    {
+     "id": "EID_FenderJazz",
+     "name": "Boom Boom Bass",
+     "type": "emote",
+     "rarity": "Icon Series",
+     "series": "Icon Series",
+     "set": null,
+     "appearances": 2
     }
    ]
   },
@@ -4444,7 +5271,30 @@
      "rarity": "Uncommon",
      "series": null,
      "set": "Big Cat Hunter",
-     "appearances": 0
+     "appearances": 2
+    }
+   ]
+  },
+  {
+   "id": "v2:/70b9f6dd8bd6e9d679696cd9061e97494890ac72bba550933c73d3887a1e8bd8",
+   "name": "Wand of Oak",
+   "kind": "pickaxe",
+   "price": 800,
+   "regular": 800,
+   "inDate": "2026-11-23",
+   "outDate": "2026-11-30",
+   "section": "Harvest Season",
+   "image": "https://fortnite-api.com/images/cosmetics/br/newdisplayassets/867e8817862c2b78/renderimage_0.png",
+   "gap": 378,
+   "items": [
+    {
+     "id": "Pickaxe_OakWeld",
+     "name": "Wand of Oak",
+     "type": "pickaxe",
+     "rarity": "Rare",
+     "series": null,
+     "set": "Changing Seasons",
+     "appearances": 1
     }
    ]
   },
@@ -4493,6 +5343,29 @@
    ]
   },
   {
+   "id": "v2:/ebae449aec17ba41076ab3c961d1c1ec3ed86a8e7096d467476570f46fda9008",
+   "name": "Bark Basher",
+   "kind": "pickaxe",
+   "price": 800,
+   "regular": 800,
+   "inDate": "2026-11-23",
+   "outDate": "2026-11-30",
+   "section": "Harvest Season",
+   "image": "https://fortnite-api.com/images/cosmetics/br/newdisplayassets/ea1ec733dec6e994/renderimage_0.png",
+   "gap": 382,
+   "items": [
+    {
+     "id": "Pickaxe_ID_320_ForestDwellerMale",
+     "name": "Bark Basher",
+     "type": "pickaxe",
+     "rarity": "Rare",
+     "series": null,
+     "set": "Changing Seasons",
+     "appearances": 1
+    }
+   ]
+  },
+  {
    "id": "v2:/e783f1937018b64bda7d1f4670f8d36fec32805a1b62e7055095de8f2bc46a33",
    "name": "Side To Side",
    "kind": "jamtrack",
@@ -4510,6 +5383,29 @@
      "type": "jamtrack",
      "series": null,
      "set": "Ariana Grande ft. Nicki Minaj"
+    }
+   ]
+  },
+  {
+   "id": "v2:/6b7e98d9141e23aa298c65ad3e76e3c507764125141f5e6892e2b115c6542233",
+   "name": "Clockworks",
+   "kind": "backpack",
+   "price": 300,
+   "regular": 300,
+   "inDate": "2026-11-23",
+   "outDate": "2026-11-30",
+   "section": null,
+   "image": "https://fortnite-api.com/images/cosmetics/br/bid_117_octoberfestmale/featured.png",
+   "gap": "unseen",
+   "items": [
+    {
+     "id": "BID_117_OctoberfestMale",
+     "name": "Clockworks",
+     "type": "backpack",
+     "rarity": "Epic",
+     "series": null,
+     "set": "Oktoberfest",
+     "appearances": 0
     }
    ]
   },
@@ -4606,9 +5502,22 @@
      "rarity": "Icon Series",
      "series": "Icon Series",
      "set": "Gorillaz",
-     "appearances": 4
+     "appearances": 6
     }
    ]
+  },
+  {
+   "id": "v2:/c9a8918a1293f71281301d7bbec53666f63733b0fd7b36d6f80a02ce56fcfd10",
+   "name": "[VIRTUAL]1 x Blank for 400 MtxCurrency",
+   "kind": "car",
+   "price": 400,
+   "regular": 400,
+   "inDate": "2026-11-19",
+   "outDate": "2026-11-28",
+   "section": null,
+   "image": null,
+   "gap": null,
+   "items": []
   },
   {
    "id": "v2:/672047b076e6d4e9c81fe892813fa511a79dd617773246150d9f103f03f65ee7",
@@ -4628,42 +5537,6 @@
      "type": "jamtrack",
      "series": null,
      "set": "Olivia Rodrigo"
-    }
-   ]
-  },
-  {
-   "id": "v2:/c9a8918a1293f71281301d7bbec53666f63733b0fd7b36d6f80a02ce56fcfd10",
-   "name": "[VIRTUAL]1 x Blank for 400 MtxCurrency",
-   "kind": "car",
-   "price": 400,
-   "regular": 400,
-   "inDate": "2026-11-19",
-   "outDate": "2026-11-28",
-   "section": null,
-   "image": null,
-   "gap": null,
-   "items": []
-  },
-  {
-   "id": "v2:/e720517515a7bc9886dac44437d9d056ba0768a90bc88870141b9964d8d380bf",
-   "name": "Woman",
-   "kind": "emote",
-   "price": 500,
-   "regular": 500,
-   "inDate": "2026-11-17",
-   "outDate": "2026-11-22",
-   "section": "Battle Beats",
-   "image": "https://fortnite-api.com/images/cosmetics/br/newdisplayassets/f53acb9e09843412/renderimage_0.png",
-   "gap": 18,
-   "items": [
-    {
-     "id": "EID_TangyRadishMagma",
-     "name": "Woman",
-     "type": "emote",
-     "rarity": "Icon Series",
-     "series": "Icon Series",
-     "set": "Doja Cat",
-     "appearances": 5
     }
    ]
   },
@@ -4767,29 +5640,6 @@
    ]
   },
   {
-   "id": "v2:/92605dcfd265e903b9430a497183a0b4a0bf0d2fc3d1e6fe9dc051f24d54dd5e",
-   "name": "Diamond Star",
-   "kind": "backpack",
-   "price": 400,
-   "regular": 400,
-   "inDate": "2026-11-20",
-   "outDate": "2026-11-22",
-   "section": null,
-   "image": "https://fortnite-api.com/images/cosmetics/br/bid_254_shinymale/featured.png",
-   "gap": 190,
-   "items": [
-    {
-     "id": "BID_254_ShinyMale",
-     "name": "Diamond Star",
-     "type": "backpack",
-     "rarity": "Epic",
-     "series": null,
-     "set": "24K",
-     "appearances": 4
-    }
-   ]
-  },
-  {
    "id": "v2:/ea61a66765b22af97d62e0038ca14a1233b8628888ae007c1613d958daa12a77",
    "name": "The Way Life Goes",
    "kind": "jamtrack",
@@ -4855,6 +5705,29 @@
    ]
   },
   {
+   "id": "v2:/2eb94a52c7dcfb84708b9e5efaeba05777c3a5095727928c3e1d6987e3191be8",
+   "name": "Air Jordan 1 Retro OG 'Shattered Backboard'",
+   "kind": "kicks",
+   "price": 1000,
+   "regular": 1000,
+   "inDate": "2026-11-23",
+   "outDate": "2026-11-26",
+   "section": "Get Your Kicks",
+   "image": "https://fortnite-api.com/images/cosmetics/br/newdisplayassets/01b8119334c26522/renderimage_0.png",
+   "gap": 262,
+   "items": [
+    {
+     "id": "Shoes_BalletChockDodo",
+     "name": "Air Jordan 1 Retro OG 'Shattered Backboard'",
+     "type": "shoe",
+     "rarity": "Uncommon",
+     "series": null,
+     "set": "Jordan Shoes",
+     "appearances": 2
+    }
+   ]
+  },
+  {
    "id": "v2:/041922819b2f194fdbde94619f459449b2c8a4cbed8f0b401cae3da38c8c5bc2",
    "name": "Therefore I Am",
    "kind": "jamtrack",
@@ -4876,23 +5749,25 @@
    ]
   },
   {
-   "id": "v2:/e7ee90fe1e617b25afeb3011b08c3e779b16fc3f34d6fb87bd8191e5d8fddb37",
-   "name": "The Emptiness Machine",
-   "kind": "jamtrack",
+   "id": "v2:/3b17d66551d7b93e2afb69ae86fc987dd0d08f3ca2330ca0b1941c2597dddc20",
+   "name": "Elizabeth's Favor",
+   "kind": "pickaxe",
    "price": 500,
    "regular": 500,
-   "inDate": "2026-11-01",
-   "outDate": "2026-11-30",
-   "section": "Jam Tracks",
-   "image": "https://cdn.fortnite-api.com/tracks/9a95b07e32db4fc7.jpg",
-   "gap": null,
+   "inDate": "2026-11-23",
+   "outDate": "2026-11-26",
+   "section": null,
+   "image": "https://fortnite-api.com/images/cosmetics/br/pickaxe_stonelion/featured.png",
+   "gap": 55,
    "items": [
     {
-     "id": "sid_placeholder_500",
-     "name": "The Emptiness Machine",
-     "type": "jamtrack",
+     "id": "Pickaxe_StoneLion",
+     "name": "Elizabeth's Favor",
+     "type": "pickaxe",
+     "rarity": "Rare",
      "series": null,
-     "set": "Linkin Park"
+     "set": "Pirates of the Caribbean",
+     "appearances": 4
     }
    ]
   },
@@ -4914,6 +5789,27 @@
      "type": "jamtrack",
      "series": null,
      "set": "Pikotaro"
+    }
+   ]
+  },
+  {
+   "id": "v2:/e7ee90fe1e617b25afeb3011b08c3e779b16fc3f34d6fb87bd8191e5d8fddb37",
+   "name": "The Emptiness Machine",
+   "kind": "jamtrack",
+   "price": 500,
+   "regular": 500,
+   "inDate": "2026-11-01",
+   "outDate": "2026-11-30",
+   "section": "Jam Tracks",
+   "image": "https://cdn.fortnite-api.com/tracks/9a95b07e32db4fc7.jpg",
+   "gap": null,
+   "items": [
+    {
+     "id": "sid_placeholder_500",
+     "name": "The Emptiness Machine",
+     "type": "jamtrack",
+     "series": null,
+     "set": "Linkin Park"
     }
    ]
   },
@@ -4976,6 +5872,29 @@
      "series": null,
      "set": "Hexed & Haunted",
      "appearances": 2
+    }
+   ]
+  },
+  {
+   "id": "v2:/0cfefff9551fe12f520792c293351a48e98077179d315a15ca84dbf577b3c52e",
+   "name": "Jack's Compass",
+   "kind": "backpack",
+   "price": 200,
+   "regular": 200,
+   "inDate": "2026-11-23",
+   "outDate": "2026-11-26",
+   "section": "Pirates of the Caribbean",
+   "image": "https://fortnite-api.com/images/cosmetics/br/newdisplayassets/ac6ead31749dd088/renderimage_0.png",
+   "gap": 55,
+   "items": [
+    {
+     "id": "Backpack_SpringBreak",
+     "name": "Jack's Compass",
+     "type": "backpack",
+     "rarity": "Rare",
+     "series": null,
+     "set": "Pirates of the Caribbean",
+     "appearances": 3
     }
    ]
   },
@@ -5046,27 +5965,6 @@
    ]
   },
   {
-   "id": "v2:/c03fe690e36763d0ebcac43bb3d952b5f3f9bc3112e67826f6dfbf8807674887",
-   "name": "LUNCH",
-   "kind": "jamtrack",
-   "price": 500,
-   "regular": 500,
-   "inDate": "2026-11-01",
-   "outDate": "2026-11-30",
-   "section": "Jam Tracks",
-   "image": "https://cdn.fortnite-api.com/tracks/757663086a417e80.jpg",
-   "gap": null,
-   "items": [
-    {
-     "id": "sid_placeholder_219",
-     "name": "LUNCH",
-     "type": "jamtrack",
-     "series": null,
-     "set": "Billie Eilish"
-    }
-   ]
-  },
-  {
    "id": "v2:/c5943e402bce1966f4024f39748bc75a2e8eab31c0182c79f72030df5bb85aff",
    "name": "Barbaras Rhabarberbar",
    "kind": "emote",
@@ -5086,6 +5984,27 @@
      "series": "Icon Series",
      "set": null,
      "appearances": 3
+    }
+   ]
+  },
+  {
+   "id": "v2:/c03fe690e36763d0ebcac43bb3d952b5f3f9bc3112e67826f6dfbf8807674887",
+   "name": "LUNCH",
+   "kind": "jamtrack",
+   "price": 500,
+   "regular": 500,
+   "inDate": "2026-11-01",
+   "outDate": "2026-11-30",
+   "section": "Jam Tracks",
+   "image": "https://cdn.fortnite-api.com/tracks/757663086a417e80.jpg",
+   "gap": null,
+   "items": [
+    {
+     "id": "sid_placeholder_219",
+     "name": "LUNCH",
+     "type": "jamtrack",
+     "series": null,
+     "set": "Billie Eilish"
     }
    ]
   },
@@ -5158,7 +6077,62 @@
      "rarity": "Gaming Legends Series",
      "series": "Gaming Legends Series",
      "set": "Overwatch",
-     "appearances": 4
+     "appearances": 6
+    }
+   ]
+  },
+  {
+   "id": "v2:/76e7325a673ba0cda6010a3c72680212ce5e1e02e916cf2b343c5d175a6f88c9",
+   "name": "Lil Kraken",
+   "kind": "backpack",
+   "price": 400,
+   "regular": 400,
+   "inDate": "2026-11-23",
+   "outDate": "2026-11-26",
+   "section": null,
+   "image": "https://fortnite-api.com/images/cosmetics/br/backpack_accentwall/featured.png",
+   "gap": 55,
+   "items": [
+    {
+     "id": "Backpack_AccentWall",
+     "name": "Lil Kraken",
+     "type": "backpack",
+     "rarity": "Rare",
+     "series": null,
+     "set": "Pirates of the Caribbean",
+     "appearances": 3
+    }
+   ]
+  },
+  {
+   "id": "v2:/739eec3496fe79005bab0efeef1ecc2bb5e56293d54d48fe0ef4e93e8deb2af2",
+   "name": "Agent G Sharp",
+   "kind": "backpack",
+   "price": 800,
+   "regular": 800,
+   "inDate": "2026-11-23",
+   "outDate": "2026-11-26",
+   "section": "Phineas and Ferb",
+   "image": "https://fortnite-api.com/images/cosmetics/br/newdisplayassets/6a129da3279a1bed/renderimage_0.png",
+   "gap": 159,
+   "items": [
+    {
+     "id": "Backpack_BrawnGraze_Guitar",
+     "name": "Agent G Sharp",
+     "type": "backpack",
+     "rarity": "Rare",
+     "series": null,
+     "set": "Phineas and Ferb",
+     "appearances": 3
+    },
+    {
+     "id": "Pickaxe_BrawnGraze_Guitar",
+     "name": "Agent G Sharp",
+     "type": "pickaxe",
+     "rarity": "Rare",
+     "series": null,
+     "set": "Phineas and Ferb",
+     "appearances": 2
     }
    ]
   },
@@ -5251,6 +6225,29 @@
    ]
   },
   {
+   "id": "v2:/ba7a6df7756f40a44ea58b094b578214c953dd287e46cead70d49147450507f7",
+   "name": "SH4RKT00TH",
+   "kind": "pickaxe",
+   "price": 500,
+   "regular": 500,
+   "inDate": "2026-11-23",
+   "outDate": "2026-11-24",
+   "section": "Main Character Energy ",
+   "image": "https://fortnite-api.com/images/cosmetics/br/newdisplayassets/2a1a652f76f654b9/renderimage_0.png",
+   "gap": 486,
+   "items": [
+    {
+     "id": "Pickaxe_TechSpeeder",
+     "name": "SH4RKT00TH",
+     "type": "pickaxe",
+     "rarity": "Rare",
+     "series": null,
+     "set": "Sharktooth Racer",
+     "appearances": 1
+    }
+   ]
+  },
+  {
    "id": "v2:/bb49b60e6ecd6f904ba9148fd3940048a338912f161a14c5a5e772dde78ad016",
    "name": "Rogue Scout Bundle",
    "kind": "bundle",
@@ -5287,6 +6284,29 @@
      "rarity": "Rare",
      "series": null,
      "set": "Rogue Scout",
+     "appearances": 2
+    }
+   ]
+  },
+  {
+   "id": "v2:/8d19b5d71207843957563a8bf591f3cc24995e6250cd2bcc89f2839763d063e7",
+   "name": "Mash",
+   "kind": "glider",
+   "price": 800,
+   "regular": 800,
+   "inDate": "2026-11-23",
+   "outDate": "2026-11-30",
+   "section": "Harvest Season",
+   "image": "https://fortnite-api.com/images/cosmetics/br/newdisplayassets/063e10b77978026b/renderimage_0.png",
+   "gap": 381,
+   "items": [
+    {
+     "id": "Glider_ID_252_PieManMale",
+     "name": "Mash",
+     "type": "glider",
+     "rarity": "Rare",
+     "series": null,
+     "set": "Baker's Nightmare",
      "appearances": 2
     }
    ]
@@ -5384,6 +6404,27 @@
    ]
   },
   {
+   "id": "v2:/1664eef7d3397bb0ee8b469a260ff6cc0013c175617de95d5f86bb2e04c4d636",
+   "name": "Tusa",
+   "kind": "jamtrack",
+   "price": 500,
+   "regular": 500,
+   "inDate": "2026-11-20",
+   "outDate": "2026-11-26",
+   "section": "Jam Tracks",
+   "image": "https://cdn.fortnite-api.com/tracks/7064f4ebd83d331b.jpg",
+   "gap": null,
+   "items": [
+    {
+     "id": "sid_placeholder_45",
+     "name": "Tusa",
+     "type": "jamtrack",
+     "series": null,
+     "set": "Karol G ft. Nicki Minaj"
+    }
+   ]
+  },
+  {
    "id": "v2:/3627ae28767a22ccfe63ad2560854eb7d839ca1ada5344aae91e0734ffd93581",
    "name": "Young, Wild & Free",
    "kind": "jamtrack",
@@ -5405,23 +6446,25 @@
    ]
   },
   {
-   "id": "v2:/1664eef7d3397bb0ee8b469a260ff6cc0013c175617de95d5f86bb2e04c4d636",
-   "name": "Tusa",
-   "kind": "jamtrack",
-   "price": 500,
-   "regular": 500,
-   "inDate": "2026-11-20",
-   "outDate": "2026-11-26",
-   "section": "Jam Tracks",
-   "image": "https://cdn.fortnite-api.com/tracks/7064f4ebd83d331b.jpg",
-   "gap": null,
+   "id": "v2:/8786ac6c4767425ac078a93b0aa57bcb858809feed2067200c455f7576a9a511",
+   "name": "Hollow Horn",
+   "kind": "backpack",
+   "price": 400,
+   "regular": 400,
+   "inDate": "2026-11-23",
+   "outDate": "2026-11-30",
+   "section": null,
+   "image": "https://fortnite-api.com/images/cosmetics/br/bid_414_forestdwellermale/featured.png",
+   "gap": "unseen",
    "items": [
     {
-     "id": "sid_placeholder_45",
-     "name": "Tusa",
-     "type": "jamtrack",
+     "id": "BID_414_ForestDwellerMale",
+     "name": "Hollow Horn",
+     "type": "backpack",
+     "rarity": "Epic",
      "series": null,
-     "set": "Karol G ft. Nicki Minaj"
+     "set": "Changing Seasons",
+     "appearances": 0
     }
    ]
   },
@@ -5476,6 +6519,38 @@
      "rarity": "Uncommon",
      "series": null,
      "set": "NIKE Shoes",
+     "appearances": 3
+    }
+   ]
+  },
+  {
+   "id": "v2:/b31fd71e39e50b59801744152e3546efa9c9e58f1d03afc1003d6b8baffade0d",
+   "name": "Captain Barbossa",
+   "kind": "bundle",
+   "price": 1500,
+   "regular": 1500,
+   "inDate": "2026-11-23",
+   "outDate": "2026-11-26",
+   "section": "Pirates of the Caribbean",
+   "image": "https://fortnite-api.com/images/cosmetics/br/newdisplayassets/1628cff6e02ddc70/renderimage_0.png",
+   "gap": 55,
+   "items": [
+    {
+     "id": "Character_DomeRoof",
+     "name": "Captain Barbossa",
+     "type": "outfit",
+     "rarity": "Epic",
+     "series": null,
+     "set": "Pirates of the Caribbean",
+     "appearances": 5
+    },
+    {
+     "id": "Pickaxe_DomeRoof",
+     "name": "Barbossa's Sword",
+     "type": "pickaxe",
+     "rarity": "Rare",
+     "series": null,
+     "set": "Pirates of the Caribbean",
      "appearances": 3
     }
    ]
@@ -5575,6 +6650,101 @@
      "rarity": "Rare",
      "series": null,
      "set": "Silent Stalkers",
+     "appearances": 7
+    }
+   ]
+  },
+  {
+   "id": "v2:/8dcfcc18a936c86384d6b03544a0f996194380cbbf55e490f3f532848f57c57a",
+   "name": "Pirates of the Caribbean Bundle",
+   "kind": "bundle",
+   "price": 3400,
+   "regular": 5200,
+   "inDate": "2026-11-23",
+   "outDate": "2026-11-26",
+   "section": "Pirates of the Caribbean",
+   "image": "https://fortnite-api.com/images/cosmetics/br/newdisplayassets/5ca9ea664ed01532/renderimage_0.png",
+   "gap": 55,
+   "items": [
+    {
+     "id": "Character_AccentWall",
+     "name": "Davy Jones",
+     "type": "outfit",
+     "rarity": "Epic",
+     "series": null,
+     "set": "Pirates of the Caribbean",
+     "appearances": 5
+    },
+    {
+     "id": "Backpack_AccentWall",
+     "name": "Lil Kraken",
+     "type": "backpack",
+     "rarity": "Rare",
+     "series": null,
+     "set": "Pirates of the Caribbean",
+     "appearances": 3
+    },
+    {
+     "id": "Pickaxe_AccentWall",
+     "name": "Norrington's Sacrifice",
+     "type": "pickaxe",
+     "rarity": "Rare",
+     "series": null,
+     "set": "Pirates of the Caribbean",
+     "appearances": 4
+    },
+    {
+     "id": "Character_StoneLion",
+     "name": "Elizabeth Swann",
+     "type": "outfit",
+     "rarity": "Epic",
+     "series": null,
+     "set": "Pirates of the Caribbean",
+     "appearances": 5
+    },
+    {
+     "id": "Backpack_StoneLion",
+     "name": "Dead Man's Chest",
+     "type": "backpack",
+     "rarity": "Rare",
+     "series": null,
+     "set": "Pirates of the Caribbean",
+     "appearances": 3
+    },
+    {
+     "id": "Pickaxe_StoneLion",
+     "name": "Elizabeth's Favor",
+     "type": "pickaxe",
+     "rarity": "Rare",
+     "series": null,
+     "set": "Pirates of the Caribbean",
+     "appearances": 4
+    },
+    {
+     "id": "Character_DomeRoof",
+     "name": "Captain Barbossa",
+     "type": "outfit",
+     "rarity": "Epic",
+     "series": null,
+     "set": "Pirates of the Caribbean",
+     "appearances": 5
+    },
+    {
+     "id": "Pickaxe_DomeRoof",
+     "name": "Barbossa's Sword",
+     "type": "pickaxe",
+     "rarity": "Rare",
+     "series": null,
+     "set": "Pirates of the Caribbean",
+     "appearances": 3
+    },
+    {
+     "id": "EID_AccentWall",
+     "name": "Davy's Pipe Organ",
+     "type": "emote",
+     "rarity": "Uncommon",
+     "series": null,
+     "set": "Pirates of the Caribbean",
      "appearances": 4
     }
    ]
@@ -5599,61 +6769,6 @@
      "series": null,
      "set": "One Piece",
      "appearances": 2
-    }
-   ]
-  },
-  {
-   "id": "v2:/2ec3e6c9b405e60ea462bc8c4ec51e78758ecc1cf2e3c1ae2aca37fd803b504d",
-   "name": "Bronto",
-   "kind": "outfit",
-   "price": 1200,
-   "regular": 1200,
-   "inDate": "2026-11-22",
-   "outDate": "2026-11-22",
-   "section": "Main Character Energy ",
-   "image": "https://fortnite-api.com/images/cosmetics/br/newdisplayassets/b94c0a3e22b55d31/renderimage_1.png",
-   "gap": 93,
-   "items": [
-    {
-     "id": "CID_492_Athena_Commando_M_Bronto",
-     "name": "Bronto",
-     "type": "outfit",
-     "rarity": "Rare",
-     "series": null,
-     "set": "Dino Guard",
-     "appearances": 7
-    },
-    {
-     "id": "BID_326_Bronto",
-     "name": "Bronto Bag",
-     "type": "backpack",
-     "rarity": "Rare",
-     "series": null,
-     "set": "Dino Guard",
-     "appearances": 7
-    }
-   ]
-  },
-  {
-   "id": "v2:/3f65ca4472935033b7e8db4e45ca48099274fd38649dad6653d6f6fe6b9b86ee",
-   "name": "Air Jordan 14 Retro 'Yellow/Black'",
-   "kind": "kicks",
-   "price": 1000,
-   "regular": 1000,
-   "inDate": "2026-11-19",
-   "outDate": "2026-11-22",
-   "section": "Get Your Kicks",
-   "image": "https://fortnite-api.com/images/cosmetics/br/shoes_purityjadeyen/featured.png",
-   "gap": "unseen",
-   "items": [
-    {
-     "id": "Shoes_PurityJadeYen",
-     "name": "Air Jordan 14 Retro 'Yellow/Black'",
-     "type": "shoe",
-     "rarity": "Uncommon",
-     "series": null,
-     "set": "Air Jordan Shoes",
-     "appearances": 1
     }
    ]
   },
@@ -5711,6 +6826,29 @@
    ]
   },
   {
+   "id": "v2:/7301aae95dbc067a79a88f9e165442cb84f87517582907843a30d57f7af47687",
+   "name": "Jack Sparrow's Sword",
+   "kind": "pickaxe",
+   "price": 500,
+   "regular": 500,
+   "inDate": "2026-11-23",
+   "outDate": "2026-11-26",
+   "section": "Pirates of the Caribbean",
+   "image": "https://fortnite-api.com/images/cosmetics/br/newdisplayassets/e3a2125d31f66d6c/renderimage_0.png",
+   "gap": 55,
+   "items": [
+    {
+     "id": "Pickaxe_SpringBreak",
+     "name": "Jack Sparrow's Sword",
+     "type": "pickaxe",
+     "rarity": "Rare",
+     "series": null,
+     "set": "Pirates of the Caribbean",
+     "appearances": 3
+    }
+   ]
+  },
+  {
    "id": "v2:/14ff85f0fe3aa1d720fc075d2161e6c54e050cfa824a78345155db3df34724e6",
    "name": "Russel",
    "kind": "outfit",
@@ -5729,7 +6867,7 @@
      "rarity": "Icon Series",
      "series": "Icon Series",
      "set": "Gorillaz",
-     "appearances": 2
+     "appearances": 3
     }
    ]
   },
@@ -5801,6 +6939,29 @@
    ]
   },
   {
+   "id": "v2:/ffad601661f654c2fb86d0ccb231db5b692dd2c345282bbf04319e5450c660e0",
+   "name": "Phew!",
+   "kind": "emote",
+   "price": 200,
+   "regular": 200,
+   "inDate": "2026-11-23",
+   "outDate": "2026-11-23",
+   "section": "Main Character Energy ",
+   "image": "https://fortnite-api.com/images/cosmetics/br/newdisplayassets/3b8e5f874057f6e6/renderimage_0.png",
+   "gap": 302,
+   "items": [
+    {
+     "id": "EID_Phew",
+     "name": "Phew!",
+     "type": "emote",
+     "rarity": "Uncommon",
+     "series": null,
+     "set": null,
+     "appearances": 2
+    }
+   ]
+  },
+  {
    "id": "v2:/942980190d180e09313de68263e88ea3d71941251a9276877775969a0cad025d",
    "name": "Hunter of the Seas",
    "kind": "wrap",
@@ -5819,7 +6980,48 @@
      "rarity": "Rare",
      "series": null,
      "set": "Big Cat Hunter",
-     "appearances": 0
+     "appearances": 2
+    }
+   ]
+  },
+  {
+   "id": "v2:/5a5e04002b499330004564fac6b49e22caf49c3bc2355b08615c934744845096",
+   "name": "Sharktooth Racer Bundle",
+   "kind": "bundle",
+   "price": 1100,
+   "regular": 1500,
+   "inDate": "2026-11-23",
+   "outDate": "2026-11-24",
+   "section": "Main Character Energy ",
+   "image": "https://fortnite-api.com/images/cosmetics/br/newdisplayassets/79ef770ae0b2cc3f/renderimage_0.png",
+   "gap": 285,
+   "items": [
+    {
+     "id": "Character_TechSpeeder",
+     "name": "SH4RK",
+     "type": "outfit",
+     "rarity": "Epic",
+     "series": null,
+     "set": "Sharktooth Racer",
+     "appearances": 2
+    },
+    {
+     "id": "Pickaxe_TechSpeeder",
+     "name": "SH4RKT00TH",
+     "type": "pickaxe",
+     "rarity": "Rare",
+     "series": null,
+     "set": "Sharktooth Racer",
+     "appearances": 1
+    },
+    {
+     "id": "Backpack_TechSpeeder",
+     "name": "SH4RK CH4RGES",
+     "type": "backpack",
+     "rarity": "Rare",
+     "series": null,
+     "set": "Sharktooth Racer",
+     "appearances": 1
     }
    ]
   },
@@ -5891,6 +7093,29 @@
    ]
   },
   {
+   "id": "v2:/03d26856b0a16c7a4a10d50beec3a803841555748edd6f7ae2f861de7fef767d",
+   "name": "Sparrow Run",
+   "kind": "emote",
+   "price": 500,
+   "regular": 500,
+   "inDate": "2026-11-23",
+   "outDate": "2026-11-26",
+   "section": "Pirates of the Caribbean",
+   "image": "https://fortnite-api.com/images/cosmetics/br/newdisplayassets/297faeb8a0d7e927/renderimage_0.png",
+   "gap": 55,
+   "items": [
+    {
+     "id": "EID_SpringBreak",
+     "name": "Sparrow Run",
+     "type": "emote",
+     "rarity": "Uncommon",
+     "series": null,
+     "set": "Pirates of the Caribbean",
+     "appearances": 3
+    }
+   ]
+  },
+  {
    "id": "v2:/38e2125d5dd784759f35662e2b1c3c80b7d0ef9dd5f3abe37c8c03febae57f96",
    "name": "Right Round",
    "kind": "jamtrack",
@@ -5908,6 +7133,29 @@
      "type": "jamtrack",
      "series": null,
      "set": "Flo Rida, Kesha"
+    }
+   ]
+  },
+  {
+   "id": "v2:/6d947c259454458878a76d940464708409cc765bde08109db41346174814999c",
+   "name": "SH4RK CH4RGES",
+   "kind": "backpack",
+   "price": 200,
+   "regular": 200,
+   "inDate": "2026-11-23",
+   "outDate": "2026-11-24",
+   "section": "Main Character Energy ",
+   "image": "https://fortnite-api.com/images/cosmetics/br/newdisplayassets/d0cbbe54970c2b36/renderimage_0.png",
+   "gap": 486,
+   "items": [
+    {
+     "id": "Backpack_TechSpeeder",
+     "name": "SH4RK CH4RGES",
+     "type": "backpack",
+     "rarity": "Rare",
+     "series": null,
+     "set": "Sharktooth Racer",
+     "appearances": 1
     }
    ]
   },
@@ -6050,6 +7298,29 @@
      "rarity": "Icon Series",
      "series": "Icon Series",
      "set": "Gorillaz",
+     "appearances": 6
+    }
+   ]
+  },
+  {
+   "id": "v2:/a484569acdf16269cc38ccbba747d28e5b7fc7a9750359dc7c00929f30efae24",
+   "name": "Shape Up",
+   "kind": "emote",
+   "price": 500,
+   "regular": 500,
+   "inDate": "2026-11-23",
+   "outDate": "2026-11-28",
+   "section": "Battle Beats",
+   "image": "https://fortnite-api.com/images/cosmetics/br/newdisplayassets/aea64b58e1865e59/renderimage_0.png",
+   "gap": 109,
+   "items": [
+    {
+     "id": "EID_FightNight",
+     "name": "Shape Up",
+     "type": "emote",
+     "rarity": "Icon Series",
+     "series": "Icon Series",
+     "set": null,
      "appearances": 4
     }
    ]
@@ -6078,24 +7349,24 @@
    ]
   },
   {
-   "id": "v2:/6717d3ca32176bd6623a8f93cddc964888c58d0a00d47b3e5922a7dfe719ca23",
-   "name": "Zoro's Training Gear",
+   "id": "v2:/aaa2585e3665d976c0661c49897c9e240d473d52a057ecfaf9aebf2304f07f84",
+   "name": "Jack's Prize",
    "kind": "backpack",
-   "price": 300,
-   "regular": 300,
-   "inDate": "2026-11-08",
-   "outDate": "2026-12-05",
-   "section": "One Piece ",
-   "image": "https://fortnite-api.com/images/cosmetics/br/newdisplayassets/c543c72dcaf558da/renderimage_0.png",
-   "gap": "unseen",
+   "price": 200,
+   "regular": 200,
+   "inDate": "2026-11-23",
+   "outDate": "2026-11-26",
+   "section": "Pirates of the Caribbean",
+   "image": "https://fortnite-api.com/images/cosmetics/br/newdisplayassets/56e03eace6f4d63c/renderimage_0.png",
+   "gap": 55,
    "items": [
     {
-     "id": "Backpack_BrandCreed",
-     "name": "Zoro's Training Gear",
+     "id": "Backpack_DomeRoof",
+     "name": "Jack's Prize",
      "type": "backpack",
      "rarity": "Rare",
      "series": null,
-     "set": "One Piece",
+     "set": "Pirates of the Caribbean",
      "appearances": 3
     }
    ]
@@ -6122,6 +7393,52 @@
    ]
   },
   {
+   "id": "v2:/6717d3ca32176bd6623a8f93cddc964888c58d0a00d47b3e5922a7dfe719ca23",
+   "name": "Zoro's Training Gear",
+   "kind": "backpack",
+   "price": 300,
+   "regular": 300,
+   "inDate": "2026-11-08",
+   "outDate": "2026-12-05",
+   "section": "One Piece ",
+   "image": "https://fortnite-api.com/images/cosmetics/br/newdisplayassets/c543c72dcaf558da/renderimage_0.png",
+   "gap": "unseen",
+   "items": [
+    {
+     "id": "Backpack_BrandCreed",
+     "name": "Zoro's Training Gear",
+     "type": "backpack",
+     "rarity": "Rare",
+     "series": null,
+     "set": "One Piece",
+     "appearances": 3
+    }
+   ]
+  },
+  {
+   "id": "v2:/dc3031933813c25e8cc76cd8c31a66a40480e0d15a45e08503760195b864902b",
+   "name": "Jar of Dirt",
+   "kind": "emote",
+   "price": 300,
+   "regular": 300,
+   "inDate": "2026-11-23",
+   "outDate": "2026-11-26",
+   "section": "Pirates of the Caribbean",
+   "image": "https://fortnite-api.com/images/cosmetics/br/newdisplayassets/eede6a8383374893/renderimage_0.png",
+   "gap": 55,
+   "items": [
+    {
+     "id": "EID_StoneLion",
+     "name": "Jar of Dirt",
+     "type": "emote",
+     "rarity": "Uncommon",
+     "series": null,
+     "set": "Pirates of the Caribbean",
+     "appearances": 3
+    }
+   ]
+  },
+  {
    "id": "v2:/d8de5790e6dbd540af40add9a18f4d09aac3699068f7f485a96a98055e7823bb",
    "name": "Mercy's Valkyrie Wings",
    "kind": "backpack",
@@ -6140,7 +7457,7 @@
      "rarity": "Gaming Legends Series",
      "series": "Gaming Legends Series",
      "set": "Overwatch",
-     "appearances": 6
+     "appearances": 9
     },
     {
      "id": "Glider_TrackWaver",
@@ -6149,7 +7466,7 @@
      "rarity": "Gaming Legends Series",
      "series": "Gaming Legends Series",
      "set": "Overwatch",
-     "appearances": 6
+     "appearances": 9
     }
    ]
   },
@@ -6230,29 +7547,6 @@
    ]
   },
   {
-   "id": "v2:/313570ab5d44bfdd5696948fc84f6162475a527cc03a17c3fe8315aeeefa7642",
-   "name": "Grizzly Gearbag",
-   "kind": "backpack",
-   "price": 200,
-   "regular": 200,
-   "inDate": "2026-11-22",
-   "outDate": "2026-11-22",
-   "section": null,
-   "image": "https://fortnite-api.com/images/cosmetics/br/backpack_prisonbreak/featured.png",
-   "gap": 143,
-   "items": [
-    {
-     "id": "Backpack_PrisonBreak",
-     "name": "Grizzly Gearbag",
-     "type": "backpack",
-     "rarity": "Rare",
-     "series": null,
-     "set": "Grizzled Instincts",
-     "appearances": 4
-    }
-   ]
-  },
-  {
    "id": "v2:/c49dd58f4587ddd06e6fd0fe7ca134080939daf0c03dc57d092b9f817571268b",
    "name": "Lean Back",
    "kind": "jamtrack",
@@ -6318,27 +7612,6 @@
    ]
   },
   {
-   "id": "v2:/888bf0778b2a6503c164ec180eeca42a4303cfefb0d83ab02544165405096b05",
-   "name": "Less Than",
-   "kind": "jamtrack",
-   "price": 500,
-   "regular": 500,
-   "inDate": "2026-11-01",
-   "outDate": "2026-11-30",
-   "section": "Jam Tracks",
-   "image": "https://cdn.fortnite-api.com/tracks/6f72cb9e6eb4bea2.jpg",
-   "gap": null,
-   "items": [
-    {
-     "id": "sid_placeholder_104",
-     "name": "Less Than",
-     "type": "jamtrack",
-     "series": null,
-     "set": "Nine Inch Nails"
-    }
-   ]
-  },
-  {
    "id": "v2:/9dba7ac842566a12c66a11ae52f428e5b790aadf81593b45109b7066cbaa8d2f",
    "name": "Battery",
    "kind": "jamtrack",
@@ -6356,6 +7629,27 @@
      "type": "jamtrack",
      "series": null,
      "set": "Metallica"
+    }
+   ]
+  },
+  {
+   "id": "v2:/888bf0778b2a6503c164ec180eeca42a4303cfefb0d83ab02544165405096b05",
+   "name": "Less Than",
+   "kind": "jamtrack",
+   "price": 500,
+   "regular": 500,
+   "inDate": "2026-11-01",
+   "outDate": "2026-11-30",
+   "section": "Jam Tracks",
+   "image": "https://cdn.fortnite-api.com/tracks/6f72cb9e6eb4bea2.jpg",
+   "gap": null,
+   "items": [
+    {
+     "id": "sid_placeholder_104",
+     "name": "Less Than",
+     "type": "jamtrack",
+     "series": null,
+     "set": "Nine Inch Nails"
     }
    ]
   },
@@ -6540,6 +7834,38 @@
    ]
   },
   {
+   "id": "v2:/d49045dedfec1e09c0e65356d3982eb4fd75957a170988ca1f74fd583f692357",
+   "name": "Dr. Doofenshmirtz",
+   "kind": "bundle",
+   "price": 1500,
+   "regular": 1500,
+   "inDate": "2026-11-23",
+   "outDate": "2026-11-26",
+   "section": "Phineas and Ferb",
+   "image": "https://fortnite-api.com/images/cosmetics/br/newdisplayassets/af816489292eed42/renderimage_0.png",
+   "gap": 159,
+   "items": [
+    {
+     "id": "Character_PeaceScarf",
+     "name": "Dr. Doofenshmirtz",
+     "type": "outfit",
+     "rarity": "Epic",
+     "series": null,
+     "set": "Phineas and Ferb",
+     "appearances": 3
+    },
+    {
+     "id": "Backpack_PeaceScarf",
+     "name": "Balloony",
+     "type": "backpack",
+     "rarity": "Rare",
+     "series": null,
+     "set": "Phineas and Ferb",
+     "appearances": 4
+    }
+   ]
+  },
+  {
    "id": "v2:/688650ac0f33c0d5200bba81602574bb2acc3b2592735387bfb834026693777b",
    "name": "Sakura Wheels",
    "kind": "bundle",
@@ -6564,6 +7890,29 @@
    "image": "https://fortnite-api.com/images/cosmetics/br/newdisplayassets/b1b5f35e662e04b6/renderimage_0.png",
    "gap": null,
    "items": []
+  },
+  {
+   "id": "v2:/3671edb8bba7b0d4711937ce6265d8298f81ac4e1ea413c08a9dd6c7f683c6d7",
+   "name": "Kappa Back-a Pack-a",
+   "kind": "backpack",
+   "price": 400,
+   "regular": 400,
+   "inDate": "2026-11-23",
+   "outDate": "2026-11-23",
+   "section": null,
+   "image": "https://fortnite-api.com/images/cosmetics/br/backpack_pocketscrunchie/featured.png",
+   "gap": 38,
+   "items": [
+    {
+     "id": "Backpack_PocketScrunchie",
+     "name": "Kappa Back-a Pack-a",
+     "type": "backpack",
+     "rarity": "Rare",
+     "series": null,
+     "set": "Demonically Cute",
+     "appearances": 5
+    }
+   ]
   },
   {
    "id": "v2:/07db242397afa95a9066601dff6b297d686556777d9b553d0c54177058758f13",
@@ -6619,6 +7968,65 @@
    ]
   },
   {
+   "id": "v2:/c113c39036316d882127b0c578d06385613e7cae377722a3ec93a925ff5ce5cf",
+   "name": "Harvest's Bounty Bundle",
+   "kind": "bundle",
+   "price": 2000,
+   "regular": 4000,
+   "inDate": "2026-11-23",
+   "outDate": "2026-11-30",
+   "section": "Harvest Season",
+   "image": "https://fortnite-api.com/images/cosmetics/br/newdisplayassets/cbd956ebad6b5a54/renderimage_0.png",
+   "gap": 32,
+   "items": [
+    {
+     "id": "CID_958_Athena_Commando_M_PieMan",
+     "name": "Mincemeat",
+     "type": "outfit",
+     "rarity": "Epic",
+     "series": null,
+     "set": "Baker's Nightmare",
+     "appearances": 3
+    },
+    {
+     "id": "BID_655_PieMan",
+     "name": "Stir-Baby",
+     "type": "backpack",
+     "rarity": "Epic",
+     "series": null,
+     "set": "Baker's Nightmare",
+     "appearances": 2
+    },
+    {
+     "id": "CID_959_Athena_Commando_M_Corny",
+     "name": "Cobb",
+     "type": "outfit",
+     "rarity": "Rare",
+     "series": null,
+     "set": "Kernel Commando",
+     "appearances": 4
+    },
+    {
+     "id": "Pickaxe_ID_502_PiemanMale1H",
+     "name": "Mash-Mincers",
+     "type": "pickaxe",
+     "rarity": "Uncommon",
+     "series": null,
+     "set": "Baker's Nightmare",
+     "appearances": 1
+    },
+    {
+     "id": "Glider_ID_252_PieManMale",
+     "name": "Mash",
+     "type": "glider",
+     "rarity": "Rare",
+     "series": null,
+     "set": "Baker's Nightmare",
+     "appearances": 2
+    }
+   ]
+  },
+  {
    "id": "v2:/d6c2f3bed9d261e88a5f52d73a38c47dbd5a75f3809fc22fa0ffa28f7438d0bf",
    "name": "Kiriko",
    "kind": "outfit",
@@ -6656,6 +8064,38 @@
      "series": "Gaming Legends Series",
      "set": "Overwatch",
      "appearances": 3
+    }
+   ]
+  },
+  {
+   "id": "v2:/abb1e71f457f48db7983cf9eaf73d419593fc5adc091ac5e5ff1d4151180c645",
+   "name": "Baba Yaga",
+   "kind": "outfit",
+   "price": 1200,
+   "regular": 1200,
+   "inDate": "2026-11-23",
+   "outDate": "2026-11-30",
+   "section": "Harvest Season",
+   "image": "https://fortnite-api.com/images/cosmetics/br/newdisplayassets/b938acac5ae55bcd/renderimage_0.png",
+   "gap": 406,
+   "items": [
+    {
+     "id": "CID_919_Athena_Commando_F_BabaYaga",
+     "name": "Baba Yaga",
+     "type": "outfit",
+     "rarity": "Rare",
+     "series": null,
+     "set": "Coven Fresh",
+     "appearances": 1
+    },
+    {
+     "id": "BID_639_BabaYaga",
+     "name": "Auric",
+     "type": "backpack",
+     "rarity": "Rare",
+     "series": null,
+     "set": "Coven Fresh",
+     "appearances": 0
     }
    ]
   },
@@ -6706,29 +8146,6 @@
    ]
   },
   {
-   "id": "v2:/472459ccc789faf337d92aa948cc9db22eca89bfbcdf053ebe343723c2425a2e",
-   "name": "2D",
-   "kind": "outfit",
-   "price": 1500,
-   "regular": 1500,
-   "inDate": "2026-11-22",
-   "outDate": "2026-11-24",
-   "section": "Gorillaz",
-   "image": "https://fortnite-api.com/images/cosmetics/br/newdisplayassets/680122f52d8fe7e9/renderimage_0.png",
-   "gap": 119,
-   "items": [
-    {
-     "id": "Character_PajamaSoar",
-     "name": "2D",
-     "type": "outfit",
-     "rarity": "Icon Series",
-     "series": "Icon Series",
-     "set": "Gorillaz",
-     "appearances": 4
-    }
-   ]
-  },
-  {
    "id": "v2:/117f42f89b68390c4c34cbf2f9d9d0dfc4335e004861a47a7de11f92fbd65b62",
    "name": "Crash Bandicoot",
    "kind": "outfit",
@@ -6747,7 +8164,7 @@
      "rarity": "Gaming Legends Series",
      "series": "Gaming Legends Series",
      "set": "Crash Bandicoot",
-     "appearances": 2
+     "appearances": 4
     },
     {
      "id": "Wrap_SpruceBark",
@@ -6756,7 +8173,30 @@
      "rarity": "Gaming Legends Series",
      "series": "Gaming Legends Series",
      "set": "Crash Bandicoot",
-     "appearances": 3
+     "appearances": 6
+    }
+   ]
+  },
+  {
+   "id": "v2:/472459ccc789faf337d92aa948cc9db22eca89bfbcdf053ebe343723c2425a2e",
+   "name": "2D",
+   "kind": "outfit",
+   "price": 1500,
+   "regular": 1500,
+   "inDate": "2026-11-22",
+   "outDate": "2026-11-24",
+   "section": "Gorillaz",
+   "image": "https://fortnite-api.com/images/cosmetics/br/newdisplayassets/680122f52d8fe7e9/renderimage_0.png",
+   "gap": 119,
+   "items": [
+    {
+     "id": "Character_PajamaSoar",
+     "name": "2D",
+     "type": "outfit",
+     "rarity": "Icon Series",
+     "series": "Icon Series",
+     "set": "Gorillaz",
+     "appearances": 6
     }
    ]
   },
@@ -6848,25 +8288,52 @@
    ]
   },
   {
-   "id": "v2:/4cf71259d8cf3bee7a31c20e4a1f146857b0f5849f2cd0a19df5c842998a618b",
-   "name": "Converse Chuck 70 Hi Canvas 'White'",
-   "kind": "kicks",
-   "price": 800,
-   "regular": 800,
-   "inDate": "2026-11-19",
-   "outDate": "2026-11-22",
-   "section": "Get Your Kicks",
-   "image": "https://fortnite-api.com/images/cosmetics/br/newdisplayassets/41648cb4ef0990d8/renderimage_0.png",
-   "gap": 28,
+   "id": "v2:/4ad0b3ef85ea7a76bc9b60b66a860b690012cf3bde108a5b0cd72017946508b9",
+   "name": "Lexa Hexbringer Bundle",
+   "kind": "bundle",
+   "price": 1800,
+   "regular": 2500,
+   "inDate": "2026-11-23",
+   "outDate": "2026-11-30",
+   "section": "Harvest Season",
+   "image": "https://fortnite-api.com/images/cosmetics/br/newdisplayassets/289b8999a42873ae/renderimage_0.png",
+   "gap": 158,
    "items": [
     {
-     "id": "Shoes_NumbGulpSew",
-     "name": "Converse Chuck 70 Hi Canvas 'White'",
-     "type": "shoe",
-     "rarity": "Uncommon",
+     "id": "Character_PatronPoppet",
+     "name": "Lexa Hexbringer",
+     "type": "outfit",
+     "rarity": "Epic",
      "series": null,
-     "set": "Converse Shoes",
+     "set": "Toil & Trouble",
+     "appearances": 4
+    },
+    {
+     "id": "Backpack_PatronPoppet",
+     "name": "Batti",
+     "type": "backpack",
+     "rarity": "Rare",
+     "series": null,
+     "set": "Toil & Trouble",
+     "appearances": 3
+    },
+    {
+     "id": "Pickaxe_PatronPoppet",
+     "name": "Rootcarver",
+     "type": "pickaxe",
+     "rarity": "Rare",
+     "series": null,
+     "set": "Toil & Trouble",
      "appearances": 5
+    },
+    {
+     "id": "Wrap_PatronPoppet",
+     "name": "Pumpkin Season",
+     "type": "wrap",
+     "rarity": "Rare",
+     "series": null,
+     "set": "Toil & Trouble",
+     "appearances": 4
     }
    ]
   },
@@ -6892,19 +8359,6 @@
    ]
   },
   {
-   "id": "v2:/9d1b6c7e5ab0f846417ee919c9e69eb6b0bdd17d892e6d814627d16688cd9970",
-   "name": "Miku's Beam Wheels",
-   "kind": "bundle",
-   "price": 700,
-   "regular": 700,
-   "inDate": "2026-11-15",
-   "outDate": "2026-12-14",
-   "section": "Hatsune Miku",
-   "image": "https://fortnite-api.com/images/cosmetics/br/newdisplayassets/9c89d2c3642f36ad/renderimage_0.png",
-   "gap": null,
-   "items": []
-  },
-  {
    "id": "v2:/7ee09d1f693d4e71c90921aef75891bf8188b2558db8d89e5e88adeb0d2a99c3",
    "name": "Stick Season",
    "kind": "jamtrack",
@@ -6926,27 +8380,17 @@
    ]
   },
   {
-   "id": "v2:/64b7e207fb99e728ff4597319b7fa79babd99b562c7acad2cd5e8626ab2e0b1c",
-   "name": "Bronto Bag",
-   "kind": "backpack",
-   "price": 300,
-   "regular": 300,
-   "inDate": "2026-11-22",
-   "outDate": "2026-11-22",
-   "section": null,
-   "image": "https://fortnite-api.com/images/cosmetics/br/bid_326_bronto/featured.png",
-   "gap": 93,
-   "items": [
-    {
-     "id": "BID_326_Bronto",
-     "name": "Bronto Bag",
-     "type": "backpack",
-     "rarity": "Rare",
-     "series": null,
-     "set": "Dino Guard",
-     "appearances": 7
-    }
-   ]
+   "id": "v2:/9d1b6c7e5ab0f846417ee919c9e69eb6b0bdd17d892e6d814627d16688cd9970",
+   "name": "Miku's Beam Wheels",
+   "kind": "bundle",
+   "price": 700,
+   "regular": 700,
+   "inDate": "2026-11-15",
+   "outDate": "2026-12-14",
+   "section": "Hatsune Miku",
+   "image": "https://fortnite-api.com/images/cosmetics/br/newdisplayassets/9c89d2c3642f36ad/renderimage_0.png",
+   "gap": null,
+   "items": []
   },
   {
    "id": "v2:/ddd43fd6bb547df5afd4a594071e1501ff8e4da7182b8b204f108c4c0993ac2c",
@@ -6966,27 +8410,6 @@
      "type": "jamtrack",
      "series": null,
      "set": "Afrojack ft. Eva Simons"
-    }
-   ]
-  },
-  {
-   "id": "v2:/87a901b668f717aae37c69f95c2d2160ab8872641b04ecb9e2de2cdccb040c8a",
-   "name": "Bang Bang",
-   "kind": "jamtrack",
-   "price": 500,
-   "regular": 500,
-   "inDate": "2026-11-20",
-   "outDate": "2026-11-26",
-   "section": "Jam Tracks",
-   "image": "https://cdn.fortnite-api.com/tracks/d4725a571ffb5396.jpg",
-   "gap": null,
-   "items": [
-    {
-     "id": "sid_placeholder_447",
-     "name": "Bang Bang",
-     "type": "jamtrack",
-     "series": null,
-     "set": "Jessie J, Nicki Minaj, Ariana Grande"
     }
    ]
   },
@@ -7086,34 +8509,23 @@
    ]
   },
   {
-   "id": "v2:/d3f3281c2c8c5d96e3a598511b9cb11f26d320894670757fdd7f9180870d824b",
-   "name": "Aubrey",
-   "kind": "outfit",
-   "price": 1200,
-   "regular": 1200,
+   "id": "v2:/87a901b668f717aae37c69f95c2d2160ab8872641b04ecb9e2de2cdccb040c8a",
+   "name": "Bang Bang",
+   "kind": "jamtrack",
+   "price": 500,
+   "regular": 500,
    "inDate": "2026-11-20",
-   "outDate": "2026-11-22",
-   "section": "Main Character Energy ",
-   "image": "https://fortnite-api.com/images/cosmetics/br/newdisplayassets/de8ade6a3e485852/renderimage_0.png",
-   "gap": 255,
+   "outDate": "2026-11-26",
+   "section": "Jam Tracks",
+   "image": "https://cdn.fortnite-api.com/tracks/d4725a571ffb5396.jpg",
+   "gap": null,
    "items": [
     {
-     "id": "Character_DemoCrook",
-     "name": "Aubrey",
-     "type": "outfit",
-     "rarity": "Rare",
+     "id": "sid_placeholder_447",
+     "name": "Bang Bang",
+     "type": "jamtrack",
      "series": null,
-     "set": "Detonator",
-     "appearances": 5
-    },
-    {
-     "id": "Backpack_DemoCrook",
-     "name": "Meaty TNT",
-     "type": "backpack",
-     "rarity": "Rare",
-     "series": null,
-     "set": "Detonator",
-     "appearances": 2
+     "set": "Jessie J, Nicki Minaj, Ariana Grande"
     }
    ]
   },
@@ -7238,6 +8650,79 @@
    ]
   },
   {
+   "id": "v2:/655fa7a76673a6fa054788cae6dc50af212a5b8d582ba8f69a2a9316ee136cb2",
+   "name": "Autumn Bundle",
+   "kind": "bundle",
+   "price": 1200,
+   "regular": 2100,
+   "inDate": "2026-11-23",
+   "outDate": "2026-11-30",
+   "section": "Harvest Season",
+   "image": "https://fortnite-api.com/images/cosmetics/br/newdisplayassets/096a9d47a44bb2db/renderimage_0.png",
+   "gap": 378,
+   "items": [
+    {
+     "id": "Character_OakWeld",
+     "name": "Autumn",
+     "type": "outfit",
+     "rarity": "Epic",
+     "series": null,
+     "set": "Changing Seasons",
+     "appearances": 1
+    },
+    {
+     "id": "Backpack_OakWeld",
+     "name": "Oakworn Wings",
+     "type": "backpack",
+     "rarity": "Rare",
+     "series": null,
+     "set": "Changing Seasons",
+     "appearances": 1
+    },
+    {
+     "id": "Pickaxe_OakWeld",
+     "name": "Wand of Oak",
+     "type": "pickaxe",
+     "rarity": "Rare",
+     "series": null,
+     "set": "Changing Seasons",
+     "appearances": 1
+    },
+    {
+     "id": "EID_ChopChop",
+     "name": "Choppin'",
+     "type": "emote",
+     "rarity": "Uncommon",
+     "series": null,
+     "set": null,
+     "appearances": 1
+    }
+   ]
+  },
+  {
+   "id": "v2:/fa1d6106ac6340834c57f2f682df2579a88a17d2638702b39fc2e1bba70e6ae0",
+   "name": "Choppin'",
+   "kind": "emote",
+   "price": 200,
+   "regular": 200,
+   "inDate": "2026-11-23",
+   "outDate": "2026-11-30",
+   "section": "Harvest Season",
+   "image": "https://fortnite-api.com/images/cosmetics/br/newdisplayassets/343111752105fc7c/renderimage_0.png",
+   "gap": 378,
+   "items": [
+    {
+     "id": "EID_ChopChop",
+     "name": "Choppin'",
+     "type": "emote",
+     "rarity": "Uncommon",
+     "series": null,
+     "set": null,
+     "appearances": 1
+    }
+   ]
+  },
+  {
    "id": "v2:/d412ac41babbc1d2ae12183d41ba8df1829794046fcd9edf3e57ab511d74f889",
    "name": "Maps",
    "kind": "jamtrack",
@@ -7314,6 +8799,38 @@
    ]
   },
   {
+   "id": "v2:/3a1b6276663af061373c0210d163c53905e1f80f06150ef46ae1188993a266ae",
+   "name": "Lexa Hexbringer",
+   "kind": "outfit",
+   "price": 1200,
+   "regular": 1200,
+   "inDate": "2026-11-23",
+   "outDate": "2026-11-30",
+   "section": "Harvest Season",
+   "image": "https://fortnite-api.com/images/cosmetics/br/newdisplayassets/2df748e6c3192c4f/renderimage_0.png",
+   "gap": 158,
+   "items": [
+    {
+     "id": "Character_PatronPoppet",
+     "name": "Lexa Hexbringer",
+     "type": "outfit",
+     "rarity": "Epic",
+     "series": null,
+     "set": "Toil & Trouble",
+     "appearances": 4
+    },
+    {
+     "id": "Backpack_PatronPoppet",
+     "name": "Batti",
+     "type": "backpack",
+     "rarity": "Rare",
+     "series": null,
+     "set": "Toil & Trouble",
+     "appearances": 3
+    }
+   ]
+  },
+  {
    "id": "v2:/1d4339811ca59ffd63f40a83a974bf599a91eab186487f6ee9decc0517ed6491",
    "name": "NIGHT DANCER",
    "kind": "jamtrack",
@@ -7353,53 +8870,7 @@
      "rarity": "Gaming Legends Series",
      "series": "Gaming Legends Series",
      "set": "Overwatch",
-     "appearances": 6
-    }
-   ]
-  },
-  {
-   "id": "v2:/b3e027fd664f58315e555acaa754282ea0c7cf224a0b2ce55893073f5f9ddce2",
-   "name": "Chase Me Down",
-   "kind": "emote",
-   "price": 500,
-   "regular": 500,
-   "inDate": "2026-11-17",
-   "outDate": "2026-11-22",
-   "section": "Battle Beats",
-   "image": "https://fortnite-api.com/images/cosmetics/br/newdisplayassets/479889df99aa7cb7/renderimage_0.png",
-   "gap": 463,
-   "items": [
-    {
-     "id": "EID_Caddie",
-     "name": "Chase Me Down",
-     "type": "emote",
-     "rarity": "Icon Series",
-     "series": "Icon Series",
-     "set": null,
-     "appearances": 3
-    }
-   ]
-  },
-  {
-   "id": "v2:/59d8308e75bf23dd3a3de06cf789cda08c6f0ea686472561d0d6db9e0cbad651",
-   "name": "Meltdown",
-   "kind": "wrap",
-   "price": 500,
-   "regular": 500,
-   "inDate": "2026-11-22",
-   "outDate": "2026-11-22",
-   "section": "Main Character Energy ",
-   "image": "https://fortnite-api.com/images/cosmetics/br/newdisplayassets/a46f0fa75fe44fc6/renderimage_0.png",
-   "gap": 253,
-   "items": [
-    {
-     "id": "Wrap_LethalSwipe",
-     "name": "Meltdown",
-     "type": "wrap",
-     "rarity": "Rare",
-     "series": null,
-     "set": "Royale Hazard",
-     "appearances": 2
+     "appearances": 9
     }
    ]
   },
@@ -7485,7 +8956,7 @@
      "rarity": "Rare",
      "series": null,
      "set": "Big Cat Hunter",
-     "appearances": 0
+     "appearances": 2
     }
    ]
   },
@@ -7522,6 +8993,29 @@
    ]
   },
   {
+   "id": "v2:/429de02dfd9ce4dceef992c946e80d4e06cfd5dda2c6f120e4694661d0b10c23",
+   "name": "Traveler-Class Tekpack",
+   "kind": "backpack",
+   "price": 300,
+   "regular": 300,
+   "inDate": "2026-11-23",
+   "outDate": "2026-11-26",
+   "section": null,
+   "image": "https://fortnite-api.com/images/cosmetics/br/backpack_brightion/featured.png",
+   "gap": 64,
+   "items": [
+    {
+     "id": "Backpack_BrightIon",
+     "name": "Traveler-Class Tekpack",
+     "type": "backpack",
+     "rarity": "Rare",
+     "series": null,
+     "set": "Neutron Repair",
+     "appearances": 6
+    }
+   ]
+  },
+  {
    "id": "v2:/c80cfdf9fc62a986e72526906123c1c595b6005358a9d7d595b33ae7826831ea",
    "name": "Pop Muzik",
    "kind": "emote",
@@ -7541,29 +9035,6 @@
      "series": "Icon Series",
      "set": null,
      "appearances": 3
-    }
-   ]
-  },
-  {
-   "id": "v2:/f59b2695402e64a7e0abc71fecb2843a9d139484bcaa3ab1e2c305929c33ac09",
-   "name": "Widowmaker's Salute",
-   "kind": "wrap",
-   "price": 500,
-   "regular": 500,
-   "inDate": "2026-11-21",
-   "outDate": "2026-12-04",
-   "section": "Overwatch",
-   "image": "https://fortnite-api.com/images/cosmetics/br/wrap_shonestays/featured.png",
-   "gap": "unseen",
-   "items": [
-    {
-     "id": "Wrap_ShoneStays",
-     "name": "Widowmaker's Salute",
-     "type": "wrap",
-     "rarity": "Gaming Legends Series",
-     "series": "Gaming Legends Series",
-     "set": "Overwatch",
-     "appearances": 2
     }
    ]
   },
@@ -7663,6 +9134,29 @@
    ]
   },
   {
+   "id": "v2:/f59b2695402e64a7e0abc71fecb2843a9d139484bcaa3ab1e2c305929c33ac09",
+   "name": "Widowmaker's Salute",
+   "kind": "wrap",
+   "price": 500,
+   "regular": 500,
+   "inDate": "2026-11-21",
+   "outDate": "2026-12-04",
+   "section": "Overwatch",
+   "image": "https://fortnite-api.com/images/cosmetics/br/wrap_shonestays/featured.png",
+   "gap": "unseen",
+   "items": [
+    {
+     "id": "Wrap_ShoneStays",
+     "name": "Widowmaker's Salute",
+     "type": "wrap",
+     "rarity": "Gaming Legends Series",
+     "series": "Gaming Legends Series",
+     "set": "Overwatch",
+     "appearances": 2
+    }
+   ]
+  },
+  {
    "id": "v2:/8fb03ee2c339068e1eab31ee7a6cb0543ecedfdfb0d027396a2036a1b362bb5b",
    "name": "Purrfect",
    "kind": "glider",
@@ -7681,7 +9175,7 @@
      "rarity": "Uncommon",
      "series": null,
      "set": "Bushido",
-     "appearances": 4
+     "appearances": 5
     }
    ]
   },
@@ -7709,27 +9203,6 @@
    ]
   },
   {
-   "id": "v2:/6d26d409e990b36336fcec9fd5cd7a766e3655038a355b855f80477f24f7d973",
-   "name": "CONNECT:COMMUNE",
-   "kind": "jamtrack",
-   "price": 500,
-   "regular": 500,
-   "inDate": "2026-11-15",
-   "outDate": "2026-12-14",
-   "section": "Hatsune Miku",
-   "image": "https://cdn.fortnite-api.com/tracks/b0a043a9cc2b61f9.jpg",
-   "gap": null,
-   "items": [
-    {
-     "id": "sid_placeholder_991",
-     "name": "CONNECT:COMMUNE",
-     "type": "jamtrack",
-     "series": null,
-     "set": "FLAVOR FOLEY ft. Hatsune Miku"
-    }
-   ]
-  },
-  {
    "id": "v2:/da65787233853fb385666c803aca9b9572eeea0c7b5a8930f427fb5377455f78",
    "name": "Monster",
    "kind": "jamtrack",
@@ -7751,23 +9224,23 @@
    ]
   },
   {
-   "id": "v2:/465c5f816908ee726245731d693572264af488b4d69788b2706cf68ea135ae21",
-   "name": "PROVENZA (REMIX)",
+   "id": "v2:/6d26d409e990b36336fcec9fd5cd7a766e3655038a355b855f80477f24f7d973",
+   "name": "CONNECT:COMMUNE",
    "kind": "jamtrack",
    "price": 500,
    "regular": 500,
-   "inDate": "2026-11-01",
-   "outDate": "2026-11-30",
-   "section": "Jam Tracks",
-   "image": "https://cdn.fortnite-api.com/tracks/a7ee9312ee568df6.jpg",
+   "inDate": "2026-11-15",
+   "outDate": "2026-12-14",
+   "section": "Hatsune Miku",
+   "image": "https://cdn.fortnite-api.com/tracks/b0a043a9cc2b61f9.jpg",
    "gap": null,
    "items": [
     {
-     "id": "sid_placeholder_276",
-     "name": "PROVENZA (REMIX)",
+     "id": "sid_placeholder_991",
+     "name": "CONNECT:COMMUNE",
      "type": "jamtrack",
      "series": null,
-     "set": "Karol G ft. Tiësto"
+     "set": "FLAVOR FOLEY ft. Hatsune Miku"
     }
    ]
   },
@@ -7795,6 +9268,27 @@
    ]
   },
   {
+   "id": "v2:/465c5f816908ee726245731d693572264af488b4d69788b2706cf68ea135ae21",
+   "name": "PROVENZA (REMIX)",
+   "kind": "jamtrack",
+   "price": 500,
+   "regular": 500,
+   "inDate": "2026-11-01",
+   "outDate": "2026-11-30",
+   "section": "Jam Tracks",
+   "image": "https://cdn.fortnite-api.com/tracks/a7ee9312ee568df6.jpg",
+   "gap": null,
+   "items": [
+    {
+     "id": "sid_placeholder_276",
+     "name": "PROVENZA (REMIX)",
+     "type": "jamtrack",
+     "series": null,
+     "set": "Karol G ft. Tiësto"
+    }
+   ]
+  },
+  {
    "id": "v2:/0b0e06d31820ca42249f6f851856ede77de773e9be3329983fac5a81c73b4b3e",
    "name": "Rubius Bundle",
    "kind": "bundle",
@@ -7813,7 +9307,7 @@
      "rarity": "Icon Series",
      "series": "Icon Series",
      "set": "Rubius",
-     "appearances": 11
+     "appearances": 13
     },
     {
      "id": "Backpack_LivelyDomino",
@@ -7822,7 +9316,7 @@
      "rarity": "Icon Series",
      "series": "Icon Series",
      "set": "Rubius",
-     "appearances": 6
+     "appearances": 8
     },
     {
      "id": "Pickaxe_LivelyDomino",
@@ -7831,7 +9325,7 @@
      "rarity": "Icon Series",
      "series": "Icon Series",
      "set": "Rubius",
-     "appearances": 6
+     "appearances": 8
     },
     {
      "id": "Wrap_LivelyDomino",
@@ -7840,7 +9334,7 @@
      "rarity": "Icon Series",
      "series": "Icon Series",
      "set": "Rubius",
-     "appearances": 11
+     "appearances": 13
     },
     {
      "id": "EID_LivelyDomino",
@@ -7849,7 +9343,53 @@
      "rarity": "Icon Series",
      "series": "Icon Series",
      "set": "Rubius",
-     "appearances": 11
+     "appearances": 13
+    }
+   ]
+  },
+  {
+   "id": "v2:/3e2724a9cd1b515bed81903e562cc54f55088b60001ef2e06830009e6b94b6ba",
+   "name": "Haystacks",
+   "kind": "backpack",
+   "price": 200,
+   "regular": 200,
+   "inDate": "2026-11-23",
+   "outDate": "2026-11-30",
+   "section": "Harvest Season",
+   "image": "https://fortnite-api.com/images/cosmetics/br/newdisplayassets/1b24dd09b12dd1af/renderimage_0.png",
+   "gap": "unseen",
+   "items": [
+    {
+     "id": "BID_219_FarmerMale",
+     "name": "Haystacks",
+     "type": "backpack",
+     "rarity": "Uncommon",
+     "series": null,
+     "set": "Fatal Fielders",
+     "appearances": 0
+    }
+   ]
+  },
+  {
+   "id": "v2:/2bd123dec5de7c80fb475f4f5b003a56c9551f82219e46f4c71e1b98980bd053",
+   "name": "Air Jordan 11 Retro 'Gamma Blue'",
+   "kind": "kicks",
+   "price": 1000,
+   "regular": 1000,
+   "inDate": "2026-11-23",
+   "outDate": "2026-11-26",
+   "section": "Get Your Kicks",
+   "image": "https://fortnite-api.com/images/cosmetics/br/newdisplayassets/78b7e2de9c4e2f63/renderimage_0.png",
+   "gap": 57,
+   "items": [
+    {
+     "id": "Shoes_CheerNiceShrug",
+     "name": "Air Jordan 11 Retro 'Gamma Blue'",
+     "type": "shoe",
+     "rarity": "Uncommon",
+     "series": null,
+     "set": "Air Jordan Shoes",
+     "appearances": 2
     }
    ]
   },
@@ -7872,29 +9412,6 @@
      "rarity": "Rare",
      "series": null,
      "set": "Big Cat Hunter",
-     "appearances": 0
-    }
-   ]
-  },
-  {
-   "id": "v2:/a267ed2852ef4bf8bcafde20612e3ff43331d4f31b799d0cb081e015da3d3553",
-   "name": "Street Rōnin Kendo",
-   "kind": "outfit",
-   "price": 800,
-   "regular": 800,
-   "inDate": "2026-11-20",
-   "outDate": "2026-11-22",
-   "section": "Main Character Energy ",
-   "image": "https://fortnite-api.com/images/cosmetics/br/newdisplayassets/f9aa4ad01d04e230/renderimage_0.png",
-   "gap": 138,
-   "items": [
-    {
-     "id": "Character_CyberMittHomer",
-     "name": "Street Rōnin Kendo",
-     "type": "outfit",
-     "rarity": "Epic",
-     "series": null,
-     "set": "Rōnin's Ride",
      "appearances": 3
     }
    ]
@@ -7918,7 +9435,7 @@
      "rarity": "Icon Series",
      "series": "Icon Series",
      "set": "PWR",
-     "appearances": 10
+     "appearances": 12
     },
     {
      "id": "BID_629_LunchBox",
@@ -7927,7 +9444,7 @@
      "rarity": "Icon Series",
      "series": "Icon Series",
      "set": "PWR",
-     "appearances": 10
+     "appearances": 13
     },
     {
      "id": "EID_LunchBox",
@@ -7936,7 +9453,7 @@
      "rarity": "Icon Series",
      "series": "Icon Series",
      "set": "PWR",
-     "appearances": 10
+     "appearances": 12
     },
     {
      "id": "Pickaxe_ID_479_LunchBox1H",
@@ -7945,7 +9462,30 @@
      "rarity": "Icon Series",
      "series": "Icon Series",
      "set": "PWR",
-     "appearances": 10
+     "appearances": 12
+    }
+   ]
+  },
+  {
+   "id": "v2:/df7bda30ef760ebc2c80ba4859241a4dc11e0c7daa9a93cdb60594f90be7abe7",
+   "name": "Leaf Blower",
+   "kind": "emote",
+   "price": 300,
+   "regular": 300,
+   "inDate": "2026-11-23",
+   "outDate": "2026-11-30",
+   "section": "Harvest Season",
+   "image": "https://fortnite-api.com/images/cosmetics/br/newdisplayassets/e48ec2984ffc0f15/renderimage_0.png",
+   "gap": 101,
+   "items": [
+    {
+     "id": "EID_Blustery",
+     "name": "Leaf Blower",
+     "type": "emote",
+     "rarity": "Uncommon",
+     "series": null,
+     "set": null,
+     "appearances": 4
     }
    ]
   },
@@ -8005,6 +9545,27 @@
    ]
   },
   {
+   "id": "v2:/0a0d3c349388cdb41bf82ffdcdd6ce5af858b74c1554f5ad8100a8ad5fd64c46",
+   "name": "Gangnam Style",
+   "kind": "jamtrack",
+   "price": 500,
+   "regular": 500,
+   "inDate": "2026-11-01",
+   "outDate": "2026-11-30",
+   "section": "Jam Tracks",
+   "image": "https://cdn.fortnite-api.com/tracks/d74499515df37724.jpg",
+   "gap": null,
+   "items": [
+    {
+     "id": "sid_placeholder_91",
+     "name": "Gangnam Style",
+     "type": "jamtrack",
+     "series": null,
+     "set": "PSY"
+    }
+   ]
+  },
+  {
    "id": "v2:/049f1c000993c05d0587ee5d059000ba2f586451cdb1e9f61dac84fef8a9cb02",
    "name": "Cupid Kitty",
    "kind": "sidekick",
@@ -8028,23 +9589,25 @@
    ]
   },
   {
-   "id": "v2:/0a0d3c349388cdb41bf82ffdcdd6ce5af858b74c1554f5ad8100a8ad5fd64c46",
-   "name": "Gangnam Style",
-   "kind": "jamtrack",
-   "price": 500,
-   "regular": 500,
-   "inDate": "2026-11-01",
+   "id": "v2:/95205b8ce4a4f9ad3b5f5d5f648a5bdeeca64373cac878b17130b4350d1053c6",
+   "name": "Pretzel Protector",
+   "kind": "backpack",
+   "price": 300,
+   "regular": 300,
+   "inDate": "2026-11-23",
    "outDate": "2026-11-30",
-   "section": "Jam Tracks",
-   "image": "https://cdn.fortnite-api.com/tracks/d74499515df37724.jpg",
-   "gap": null,
+   "section": null,
+   "image": "https://fortnite-api.com/images/cosmetics/br/bid_118_octoberfestfemale/featured.png",
+   "gap": 153,
    "items": [
     {
-     "id": "sid_placeholder_91",
-     "name": "Gangnam Style",
-     "type": "jamtrack",
+     "id": "BID_118_OctoberfestFemale",
+     "name": "Pretzel Protector",
+     "type": "backpack",
+     "rarity": "Epic",
      "series": null,
-     "set": "PSY"
+     "set": "Oktoberfest",
+     "appearances": 2
     }
    ]
   },
@@ -8081,47 +9644,6 @@
    ]
   },
   {
-   "id": "v2:/e5803144dd782ddc2553fb3d6a18dd013db3f8281ded3bface13f2c7f972e214",
-   "name": "Genji",
-   "kind": "bundle",
-   "price": 1600,
-   "regular": 1600,
-   "inDate": "2026-11-22",
-   "outDate": "2026-12-04",
-   "section": "Overwatch",
-   "image": "https://fortnite-api.com/images/cosmetics/br/newdisplayassets/c850e67ef35e1130/renderimage_0.png",
-   "gap": 67,
-   "items": [
-    {
-     "id": "Character_FacetBlom",
-     "name": "Genji",
-     "type": "outfit",
-     "rarity": "Gaming Legends Series",
-     "series": "Gaming Legends Series",
-     "set": "Overwatch",
-     "appearances": 4
-    },
-    {
-     "id": "Pickaxe_FacetBlom",
-     "name": "Ryū Ichimonji",
-     "type": "pickaxe",
-     "rarity": "Gaming Legends Series",
-     "series": "Gaming Legends Series",
-     "set": "Overwatch",
-     "appearances": 6
-    },
-    {
-     "id": "Backpack_FacetBlom",
-     "name": "Ryū Ichimonji",
-     "type": "backpack",
-     "rarity": "Gaming Legends Series",
-     "series": "Gaming Legends Series",
-     "set": "Overwatch",
-     "appearances": 6
-    }
-   ]
-  },
-  {
    "id": "v2:/64cb0ef45952b00e793490bad5ab92ce2ca34e3047a5958bfcb89dbf12893c78",
    "name": "Climate Baton",
    "kind": "pickaxe",
@@ -8145,6 +9667,47 @@
    ]
   },
   {
+   "id": "v2:/e5803144dd782ddc2553fb3d6a18dd013db3f8281ded3bface13f2c7f972e214",
+   "name": "Genji",
+   "kind": "bundle",
+   "price": 1600,
+   "regular": 1600,
+   "inDate": "2026-11-22",
+   "outDate": "2026-12-04",
+   "section": "Overwatch",
+   "image": "https://fortnite-api.com/images/cosmetics/br/newdisplayassets/c850e67ef35e1130/renderimage_0.png",
+   "gap": 67,
+   "items": [
+    {
+     "id": "Character_FacetBlom",
+     "name": "Genji",
+     "type": "outfit",
+     "rarity": "Gaming Legends Series",
+     "series": "Gaming Legends Series",
+     "set": "Overwatch",
+     "appearances": 6
+    },
+    {
+     "id": "Pickaxe_FacetBlom",
+     "name": "Ryū Ichimonji",
+     "type": "pickaxe",
+     "rarity": "Gaming Legends Series",
+     "series": "Gaming Legends Series",
+     "set": "Overwatch",
+     "appearances": 9
+    },
+    {
+     "id": "Backpack_FacetBlom",
+     "name": "Ryū Ichimonji",
+     "type": "backpack",
+     "rarity": "Gaming Legends Series",
+     "series": "Gaming Legends Series",
+     "set": "Overwatch",
+     "appearances": 9
+    }
+   ]
+  },
+  {
    "id": "v2:/08b99a8bc6e9118d4e9b4930ed8399d9247a61e284fd6a1e8bc625a6cb5ba577",
    "name": "March Of The Pigs",
    "kind": "jamtrack",
@@ -8162,6 +9725,61 @@
      "type": "jamtrack",
      "series": null,
      "set": "Nine Inch Nails"
+    }
+   ]
+  },
+  {
+   "id": "v2:/703362f4057e2e0c8875bd916228aa6b3190e29bcc0774179d5d19b16ef19919",
+   "name": "Nemia",
+   "kind": "outfit",
+   "price": 1200,
+   "regular": 1200,
+   "inDate": "2026-11-23",
+   "outDate": "2026-11-23",
+   "section": "Main Character Energy ",
+   "image": "https://fortnite-api.com/images/cosmetics/br/newdisplayassets/515557820db4e8f6/renderimage_0.png",
+   "gap": 38,
+   "items": [
+    {
+     "id": "Character_PocketScrunchie",
+     "name": "Nemia",
+     "type": "outfit",
+     "rarity": "Epic",
+     "series": null,
+     "set": "Demonically Cute",
+     "appearances": 9
+    },
+    {
+     "id": "Backpack_PocketScrunchie",
+     "name": "Kappa Back-a Pack-a",
+     "type": "backpack",
+     "rarity": "Rare",
+     "series": null,
+     "set": "Demonically Cute",
+     "appearances": 5
+    }
+   ]
+  },
+  {
+   "id": "v2:/4ca09d37ec81ab700c6a526ebb5c5f3d634b9499371587bbb0ce27bdf8d53904",
+   "name": "Vik Vyce",
+   "kind": "outfit",
+   "price": 800,
+   "regular": 800,
+   "inDate": "2026-11-23",
+   "outDate": "2026-11-26",
+   "section": "Main Character Energy ",
+   "image": "https://fortnite-api.com/images/cosmetics/br/newdisplayassets/dfbf9684c0f0fda1/renderimage_0.png",
+   "gap": 56,
+   "items": [
+    {
+     "id": "Character_TatToon",
+     "name": "Vik Vyce",
+     "type": "outfit",
+     "rarity": "Epic",
+     "series": null,
+     "set": "Victorious Bruiser",
+     "appearances": 4
     }
    ]
   },
@@ -8210,6 +9828,75 @@
    ]
   },
   {
+   "id": "v2:/638c4b84a932d865ead8b78978d9ae22e5a4b8623485349451b5da52c1d004ab",
+   "name": "Crop Duster",
+   "kind": "glider",
+   "price": 800,
+   "regular": 800,
+   "inDate": "2026-11-23",
+   "outDate": "2026-11-30",
+   "section": "Harvest Season",
+   "image": "https://fortnite-api.com/images/cosmetics/br/newdisplayassets/6f407d3cb43e4784/renderimage_0.png",
+   "gap": 70,
+   "items": [
+    {
+     "id": "Glider_ID_126_Farmer",
+     "name": "Crop Duster",
+     "type": "glider",
+     "rarity": "Rare",
+     "series": null,
+     "set": "Fatal Fielders",
+     "appearances": 3
+    }
+   ]
+  },
+  {
+   "id": "v2:/ca898acf03cbf47db1a1303565bcf67ae5d6fb7b134f836ed53ddf5d4474c1d7",
+   "name": "Davy's Pipe Organ",
+   "kind": "emote",
+   "price": 500,
+   "regular": 500,
+   "inDate": "2026-11-23",
+   "outDate": "2026-11-26",
+   "section": "Pirates of the Caribbean",
+   "image": "https://fortnite-api.com/images/cosmetics/br/newdisplayassets/259d54b18a69b73e/renderimage_0.png",
+   "gap": 55,
+   "items": [
+    {
+     "id": "EID_AccentWall",
+     "name": "Davy's Pipe Organ",
+     "type": "emote",
+     "rarity": "Uncommon",
+     "series": null,
+     "set": "Pirates of the Caribbean",
+     "appearances": 4
+    }
+   ]
+  },
+  {
+   "id": "v2:/5829e3ccb1cd924f591ffbb6262c86132731e67d6ec16fea9aeb39993e5b3580",
+   "name": "Hayseed",
+   "kind": "outfit",
+   "price": 800,
+   "regular": 800,
+   "inDate": "2026-11-23",
+   "outDate": "2026-11-30",
+   "section": "Harvest Season",
+   "image": "https://fortnite-api.com/images/cosmetics/br/newdisplayassets/2d245c8d4b1ed7f3/renderimage_0.png",
+   "gap": 70,
+   "items": [
+    {
+     "id": "CID_355_Athena_Commando_M_Farmer",
+     "name": "Hayseed",
+     "type": "outfit",
+     "rarity": "Uncommon",
+     "series": null,
+     "set": "Fatal Fielders",
+     "appearances": 5
+    }
+   ]
+  },
+  {
    "id": "v2:/48e334fb77a6addda37681298f5bbada30bd0ff1a974b76dac3ec8f1a8feb48b",
    "name": "Shake It",
    "kind": "emote",
@@ -8229,6 +9916,27 @@
      "series": "Icon Series",
      "set": null,
      "appearances": 1
+    }
+   ]
+  },
+  {
+   "id": "v2:/263f541ae72138a8d3baac175c3104840a2e634ef30c94168712c147d6fdef87",
+   "name": "Today is Gonna be a Great Day ",
+   "kind": "jamtrack",
+   "price": 500,
+   "regular": 500,
+   "inDate": "2026-11-23",
+   "outDate": "2026-11-26",
+   "section": "Phineas and Ferb",
+   "image": "https://cdn.fortnite-api.com/tracks/68e34b52f7f16b6e.jpg",
+   "gap": null,
+   "items": [
+    {
+     "id": "sid_placeholder_777",
+     "name": "Today is Gonna be a Great Day ",
+     "type": "jamtrack",
+     "series": null,
+     "set": "Bowling For Soup"
     }
    ]
   },
@@ -8277,6 +9985,29 @@
    ]
   },
   {
+   "id": "v2:/76d138b0e2227a810c43356d7cb4faabf836e92aea2374dea264673c9d28d30d",
+   "name": "Bandicoot",
+   "kind": "wrap",
+   "price": 500,
+   "regular": 500,
+   "inDate": "2026-11-22",
+   "outDate": "2026-11-26",
+   "section": "Crash Bandicoot & Spyro the Dragon",
+   "image": "https://fortnite-api.com/images/cosmetics/br/newdisplayassets/56855aa0ee9d9743/renderimage_0.png",
+   "gap": 72,
+   "items": [
+    {
+     "id": "Wrap_SpruceBark",
+     "name": "Bandicoot",
+     "type": "wrap",
+     "rarity": "Gaming Legends Series",
+     "series": "Gaming Legends Series",
+     "set": "Crash Bandicoot",
+     "appearances": 6
+    }
+   ]
+  },
+  {
    "id": "v2:/2ea1f0c34f5344faccf2c7422dce1c06d342cc564437d90c5a820aed5f98b35d",
    "name": "Privateer Oscar",
    "kind": "outfit",
@@ -8295,7 +10026,7 @@
      "rarity": "Epic",
      "series": null,
      "set": "Big Cat Hunter",
-     "appearances": 0
+     "appearances": 2
     },
     {
      "id": "Backpack_FierceStripe",
@@ -8304,7 +10035,7 @@
      "rarity": "Rare",
      "series": null,
      "set": "Big Cat Hunter",
-     "appearances": 0
+     "appearances": 3
     }
    ]
   },
@@ -8332,29 +10063,6 @@
    ]
   },
   {
-   "id": "v2:/76d138b0e2227a810c43356d7cb4faabf836e92aea2374dea264673c9d28d30d",
-   "name": "Bandicoot",
-   "kind": "wrap",
-   "price": 500,
-   "regular": 500,
-   "inDate": "2026-11-22",
-   "outDate": "2026-11-26",
-   "section": "Crash Bandicoot & Spyro the Dragon",
-   "image": "https://fortnite-api.com/images/cosmetics/br/newdisplayassets/56855aa0ee9d9743/renderimage_0.png",
-   "gap": 72,
-   "items": [
-    {
-     "id": "Wrap_SpruceBark",
-     "name": "Bandicoot",
-     "type": "wrap",
-     "rarity": "Gaming Legends Series",
-     "series": "Gaming Legends Series",
-     "set": "Crash Bandicoot",
-     "appearances": 3
-    }
-   ]
-  },
-  {
    "id": "v2:/c829cd9af48eee38aa9c87b0220400e40d0cd79337f58913cd511b265760bbea",
    "name": "Crash's Victory",
    "kind": "emote",
@@ -8373,30 +10081,7 @@
      "rarity": "Gaming Legends Series",
      "series": "Gaming Legends Series",
      "set": "Crash Bandicoot",
-     "appearances": 2
-    }
-   ]
-  },
-  {
-   "id": "v2:/0eb64bc1e57c819e4ca4eecbefaf503828c5571d932aa26eb1b045ffb141e730",
-   "name": "Pterodactyl",
-   "kind": "glider",
-   "price": 1200,
-   "regular": 1200,
-   "inDate": "2026-11-22",
-   "outDate": "2026-11-22",
-   "section": "Main Character Energy ",
-   "image": "https://fortnite-api.com/images/cosmetics/br/newdisplayassets/ece105ac445cd6bf/renderimage_0.png",
-   "gap": 132,
-   "items": [
-    {
-     "id": "Glider_ID_044_Pterodactyl",
-     "name": "Pterodactyl",
-     "type": "glider",
-     "rarity": "Epic",
-     "series": null,
-     "set": "Dino Guard",
-     "appearances": 7
+     "appearances": 4
     }
    ]
   },
@@ -8527,7 +10212,7 @@
      "rarity": "Gaming Legends Series",
      "series": "Gaming Legends Series",
      "set": "Overwatch",
-     "appearances": 4
+     "appearances": 6
     },
     {
      "id": "Pickaxe_SkiffGrind",
@@ -8536,7 +10221,7 @@
      "rarity": "Gaming Legends Series",
      "series": "Gaming Legends Series",
      "set": "Overwatch",
-     "appearances": 6
+     "appearances": 9
     },
     {
      "id": "Backpack_SkiffGrind",
@@ -8545,7 +10230,7 @@
      "rarity": "Gaming Legends Series",
      "series": "Gaming Legends Series",
      "set": "Overwatch",
-     "appearances": 6
+     "appearances": 9
     }
    ]
   },
@@ -8567,6 +10252,74 @@
      "type": "jamtrack",
      "series": null,
      "set": "Panic! At The Disco"
+    }
+   ]
+  },
+  {
+   "id": "v2:/e30b9910f9e3826de9c50d45f46fd633dbf20d5880487cb37ddfb4ee45d91009",
+   "name": "Crash Bandicoot & Spyro the Dragon Bundle",
+   "kind": "bundle",
+   "price": 3000,
+   "regular": 4900,
+   "inDate": "2026-11-22",
+   "outDate": "2026-11-26",
+   "section": "Crash Bandicoot & Spyro the Dragon",
+   "image": "https://fortnite-api.com/images/cosmetics/br/newdisplayassets/50df3ec91772656e/renderimage_0.png",
+   "gap": 72,
+   "items": [
+    {
+     "id": "Character_SpruceBark",
+     "name": "Crash Bandicoot",
+     "type": "outfit",
+     "rarity": "Gaming Legends Series",
+     "series": "Gaming Legends Series",
+     "set": "Crash Bandicoot",
+     "appearances": 4
+    },
+    {
+     "id": "Wrap_SpruceBark",
+     "name": "Bandicoot",
+     "type": "wrap",
+     "rarity": "Gaming Legends Series",
+     "series": "Gaming Legends Series",
+     "set": "Crash Bandicoot",
+     "appearances": 6
+    },
+    {
+     "id": "Companion_SandyInland",
+     "name": "Spyro the Dragon",
+     "type": "sidekick",
+     "rarity": "Gaming Legends Series",
+     "series": "Gaming Legends Series",
+     "set": "Spyro",
+     "appearances": 4
+    },
+    {
+     "id": "Backpack_SpruceBark",
+     "name": "Aku Aku",
+     "type": "backpack",
+     "rarity": "Gaming Legends Series",
+     "series": "Gaming Legends Series",
+     "set": "Crash Bandicoot",
+     "appearances": 4
+    },
+    {
+     "id": "EID_SpruceBark",
+     "name": "Crash's Victory",
+     "type": "emote",
+     "rarity": "Gaming Legends Series",
+     "series": "Gaming Legends Series",
+     "set": "Crash Bandicoot",
+     "appearances": 4
+    },
+    {
+     "id": "Pickaxe_SpruceBark",
+     "name": "Crash's Wumpa Mace",
+     "type": "pickaxe",
+     "rarity": "Gaming Legends Series",
+     "series": "Gaming Legends Series",
+     "set": "Crash Bandicoot",
+     "appearances": 4
     }
    ]
   },
@@ -8702,74 +10455,6 @@
    ]
   },
   {
-   "id": "v2:/e30b9910f9e3826de9c50d45f46fd633dbf20d5880487cb37ddfb4ee45d91009",
-   "name": "Crash Bandicoot & Spyro the Dragon Bundle",
-   "kind": "bundle",
-   "price": 3000,
-   "regular": 4900,
-   "inDate": "2026-11-22",
-   "outDate": "2026-11-26",
-   "section": "Crash Bandicoot & Spyro the Dragon",
-   "image": "https://fortnite-api.com/images/cosmetics/br/newdisplayassets/50df3ec91772656e/renderimage_0.png",
-   "gap": 72,
-   "items": [
-    {
-     "id": "Character_SpruceBark",
-     "name": "Crash Bandicoot",
-     "type": "outfit",
-     "rarity": "Gaming Legends Series",
-     "series": "Gaming Legends Series",
-     "set": "Crash Bandicoot",
-     "appearances": 2
-    },
-    {
-     "id": "Wrap_SpruceBark",
-     "name": "Bandicoot",
-     "type": "wrap",
-     "rarity": "Gaming Legends Series",
-     "series": "Gaming Legends Series",
-     "set": "Crash Bandicoot",
-     "appearances": 3
-    },
-    {
-     "id": "Companion_SandyInland",
-     "name": "Spyro the Dragon",
-     "type": "sidekick",
-     "rarity": "Gaming Legends Series",
-     "series": "Gaming Legends Series",
-     "set": "Spyro",
-     "appearances": 2
-    },
-    {
-     "id": "Backpack_SpruceBark",
-     "name": "Aku Aku",
-     "type": "backpack",
-     "rarity": "Gaming Legends Series",
-     "series": "Gaming Legends Series",
-     "set": "Crash Bandicoot",
-     "appearances": 2
-    },
-    {
-     "id": "EID_SpruceBark",
-     "name": "Crash's Victory",
-     "type": "emote",
-     "rarity": "Gaming Legends Series",
-     "series": "Gaming Legends Series",
-     "set": "Crash Bandicoot",
-     "appearances": 2
-    },
-    {
-     "id": "Pickaxe_SpruceBark",
-     "name": "Crash's Wumpa Mace",
-     "type": "pickaxe",
-     "rarity": "Gaming Legends Series",
-     "series": "Gaming Legends Series",
-     "set": "Crash Bandicoot",
-     "appearances": 2
-    }
-   ]
-  },
-  {
    "id": "v2:/1854b424e1e43ffe59a856d7cd75f1a6b0b42ede8dabfd9a260c47704abb4d85",
    "name": "Kyra",
    "kind": "outfit",
@@ -8802,6 +10487,29 @@
    ]
   },
   {
+   "id": "v2:/0fc372e04cda07dcad11c7d4d2f1ff2a958e9696242acb32b468d3a0f6283339",
+   "name": "Turkey Trompers",
+   "kind": "kicks",
+   "price": 600,
+   "regular": 600,
+   "inDate": "2026-11-23",
+   "outDate": "2026-11-30",
+   "section": "Harvest Season",
+   "image": "https://fortnite-api.com/images/cosmetics/br/newdisplayassets/3ffeaff17be83349/renderimage_0.png",
+   "gap": 370,
+   "items": [
+    {
+     "id": "Shoes_PeekTwine",
+     "name": "Turkey Trompers",
+     "type": "shoe",
+     "rarity": "Uncommon",
+     "series": null,
+     "set": null,
+     "appearances": 1
+    }
+   ]
+  },
+  {
    "id": "v2:/c9c2e78a13f719083f98f9f26b6907f37f3a8f5f0ba9867de459c2349ef18c14",
    "name": "ASMR Keys ",
    "kind": "emote",
@@ -8820,7 +10528,71 @@
      "rarity": "Icon Series",
      "series": "Icon Series",
      "set": "Rubius",
-     "appearances": 11
+     "appearances": 13
+    }
+   ]
+  },
+  {
+   "id": "v2:/034f983bba7177f710dbd31d82d3d0a064d1e45b0352829cdb8b534a0dc88a79",
+   "name": "Davy Jones",
+   "kind": "bundle",
+   "price": 1600,
+   "regular": 1600,
+   "inDate": "2026-11-23",
+   "outDate": "2026-11-26",
+   "section": "Pirates of the Caribbean",
+   "image": "https://fortnite-api.com/images/cosmetics/br/newdisplayassets/79ed4afe5d6b75c8/renderimage_0.png",
+   "gap": 55,
+   "items": [
+    {
+     "id": "Character_AccentWall",
+     "name": "Davy Jones",
+     "type": "outfit",
+     "rarity": "Epic",
+     "series": null,
+     "set": "Pirates of the Caribbean",
+     "appearances": 5
+    },
+    {
+     "id": "Backpack_AccentWall",
+     "name": "Lil Kraken",
+     "type": "backpack",
+     "rarity": "Rare",
+     "series": null,
+     "set": "Pirates of the Caribbean",
+     "appearances": 3
+    },
+    {
+     "id": "Pickaxe_AccentWall",
+     "name": "Norrington's Sacrifice",
+     "type": "pickaxe",
+     "rarity": "Rare",
+     "series": null,
+     "set": "Pirates of the Caribbean",
+     "appearances": 4
+    }
+   ]
+  },
+  {
+   "id": "v2:/b46678eca4f3d2a04b77d82d0f467a492b65c0c3885d00db72aee22d8b4a05a0",
+   "name": "Murdoc",
+   "kind": "outfit",
+   "price": 1500,
+   "regular": 1500,
+   "inDate": "2026-11-22",
+   "outDate": "2026-11-24",
+   "section": "Gorillaz",
+   "image": "https://fortnite-api.com/images/cosmetics/br/newdisplayassets/1fb10734fac20638/renderimage_0.png",
+   "gap": 119,
+   "items": [
+    {
+     "id": "Character_GatorCeladon",
+     "name": "Murdoc",
+     "type": "outfit",
+     "rarity": "Icon Series",
+     "series": "Icon Series",
+     "set": "Gorillaz",
+     "appearances": 3
     }
    ]
   },
@@ -8853,29 +10625,6 @@
      "series": "Icon Series",
      "set": "Kim Kardashian",
      "appearances": 18
-    }
-   ]
-  },
-  {
-   "id": "v2:/b46678eca4f3d2a04b77d82d0f467a492b65c0c3885d00db72aee22d8b4a05a0",
-   "name": "Murdoc",
-   "kind": "outfit",
-   "price": 1500,
-   "regular": 1500,
-   "inDate": "2026-11-22",
-   "outDate": "2026-11-24",
-   "section": "Gorillaz",
-   "image": "https://fortnite-api.com/images/cosmetics/br/newdisplayassets/1fb10734fac20638/renderimage_0.png",
-   "gap": 119,
-   "items": [
-    {
-     "id": "Character_GatorCeladon",
-     "name": "Murdoc",
-     "type": "outfit",
-     "rarity": "Icon Series",
-     "series": "Icon Series",
-     "set": "Gorillaz",
-     "appearances": 2
     }
    ]
   },
@@ -9005,7 +10754,7 @@
      "rarity": "Gaming Legends Series",
      "series": "Gaming Legends Series",
      "set": "Overwatch",
-     "appearances": 6
+     "appearances": 9
     }
    ]
   },
@@ -9054,6 +10803,29 @@
    ]
   },
   {
+   "id": "v2:/96cce1934cb9cbf6f1d846f8aeff121182d19f7d145b0e440f8c7217a1b08399",
+   "name": "Gnome-Clamp-inator",
+   "kind": "pickaxe",
+   "price": 800,
+   "regular": 800,
+   "inDate": "2026-11-23",
+   "outDate": "2026-11-26",
+   "section": "Phineas and Ferb",
+   "image": "https://fortnite-api.com/images/cosmetics/br/newdisplayassets/aff8fc683268da52/renderimage_0.png",
+   "gap": 159,
+   "items": [
+    {
+     "id": "Pickaxe_PeaceScarf",
+     "name": "Gnome-Clamp-inator",
+     "type": "pickaxe",
+     "rarity": "Rare",
+     "series": null,
+     "set": "Phineas and Ferb",
+     "appearances": 3
+    }
+   ]
+  },
+  {
    "id": "v2:/7a369cc844d5de4588a17542794657ea4d9a9a2b20bf88ff2d9ae31edb97519c",
    "name": "Picco-Axe",
    "kind": "pickaxe",
@@ -9094,6 +10866,29 @@
      "type": "jamtrack",
      "series": null,
      "set": "Sam Smith w/ Kim Petras"
+    }
+   ]
+  },
+  {
+   "id": "v2:/9a4d3cb6a13aff09f311e018994129948675d641edc6c72959d310de2d431e16",
+   "name": "Mash-Mincers",
+   "kind": "pickaxe",
+   "price": 500,
+   "regular": 500,
+   "inDate": "2026-11-23",
+   "outDate": "2026-11-30",
+   "section": "Harvest Season",
+   "image": "https://fortnite-api.com/images/cosmetics/br/newdisplayassets/0228b77e03bdad34/renderimage_0.png",
+   "gap": 381,
+   "items": [
+    {
+     "id": "Pickaxe_ID_502_PiemanMale1H",
+     "name": "Mash-Mincers",
+     "type": "pickaxe",
+     "rarity": "Uncommon",
+     "series": null,
+     "set": "Baker's Nightmare",
+     "appearances": 1
     }
    ]
   },
@@ -9302,7 +11097,7 @@
      "rarity": "Gaming Legends Series",
      "series": "Gaming Legends Series",
      "set": "Spyro",
-     "appearances": 2
+     "appearances": 4
     }
    ]
   },
@@ -9328,6 +11123,29 @@
    ]
   },
   {
+   "id": "v2:/26dad4a9c1527f641bbb2192723b8489742f27fc43d160e1e5caa788a9772621",
+   "name": "Dead Man's Chest",
+   "kind": "backpack",
+   "price": 300,
+   "regular": 300,
+   "inDate": "2026-11-23",
+   "outDate": "2026-11-26",
+   "section": null,
+   "image": "https://fortnite-api.com/images/cosmetics/br/backpack_stonelion/featured.png",
+   "gap": 55,
+   "items": [
+    {
+     "id": "Backpack_StoneLion",
+     "name": "Dead Man's Chest",
+     "type": "backpack",
+     "rarity": "Rare",
+     "series": null,
+     "set": "Pirates of the Caribbean",
+     "appearances": 3
+    }
+   ]
+  },
+  {
    "id": "v2:/dbd2532073a312ee1a3799b50b0335b7b3a2706da968844967595280472476e7",
    "name": "Song 2",
    "kind": "jamtrack",
@@ -9345,27 +11163,6 @@
      "type": "jamtrack",
      "series": null,
      "set": "Blur"
-    }
-   ]
-  },
-  {
-   "id": "v2:/44338f94f4465869b07f9ee6b5edf14dc1b2963a2d25d01636fed0a3a99e4a36",
-   "name": "Don't You Worry Child",
-   "kind": "jamtrack",
-   "price": 500,
-   "regular": 500,
-   "inDate": "2026-10-01",
-   "outDate": "2026-11-30",
-   "section": "Jam Tracks",
-   "image": "https://cdn.fortnite-api.com/tracks/cc99d7a91551cc5b.jpg",
-   "gap": null,
-   "items": [
-    {
-     "id": "sid_placeholder_176",
-     "name": "Don't You Worry Child",
-     "type": "jamtrack",
-     "series": null,
-     "set": "Swedish House Mafia ft. John Martin"
     }
    ]
   },
@@ -9388,7 +11185,28 @@
      "rarity": "Uncommon",
      "series": null,
      "set": "Tactical Fashions",
-     "appearances": 2
+     "appearances": 4
+    }
+   ]
+  },
+  {
+   "id": "v2:/44338f94f4465869b07f9ee6b5edf14dc1b2963a2d25d01636fed0a3a99e4a36",
+   "name": "Don't You Worry Child",
+   "kind": "jamtrack",
+   "price": 500,
+   "regular": 500,
+   "inDate": "2026-10-01",
+   "outDate": "2026-11-30",
+   "section": "Jam Tracks",
+   "image": "https://cdn.fortnite-api.com/tracks/cc99d7a91551cc5b.jpg",
+   "gap": null,
+   "items": [
+    {
+     "id": "sid_placeholder_176",
+     "name": "Don't You Worry Child",
+     "type": "jamtrack",
+     "series": null,
+     "set": "Swedish House Mafia ft. John Martin"
     }
    ]
   },
@@ -9516,6 +11334,29 @@
    ]
   },
   {
+   "id": "v2:/573e09d341b0f5df57bd1076fd306778f7ee25090b39df1fead467567a2db458",
+   "name": "The Airplane",
+   "kind": "emote",
+   "price": 300,
+   "regular": 300,
+   "inDate": "2026-11-23",
+   "outDate": "2026-11-28",
+   "section": "Battle Beats",
+   "image": "https://fortnite-api.com/images/cosmetics/br/newdisplayassets/fd59df9a881d2b48/renderimage_0.png",
+   "gap": 396,
+   "items": [
+    {
+     "id": "EID_Swish",
+     "name": "The Airplane",
+     "type": "emote",
+     "rarity": "Icon Series",
+     "series": "Icon Series",
+     "set": null,
+     "appearances": 2
+    }
+   ]
+  },
+  {
    "id": "v2:/8aa10acab19379abf341ebc54ae96bebc80fcb5593228731ff5012bfb4b69493",
    "name": "Felina's Claw",
    "kind": "pickaxe",
@@ -9534,7 +11375,7 @@
      "rarity": "Rare",
      "series": null,
      "set": "Kat's M.E.O.W.",
-     "appearances": 3
+     "appearances": 4
     }
    ]
   },
@@ -9578,7 +11419,7 @@
      "rarity": "Epic",
      "series": null,
      "set": "Kat's M.E.O.W.",
-     "appearances": 5
+     "appearances": 6
     }
    ]
   },
@@ -9621,6 +11462,52 @@
      "type": "jamtrack",
      "series": null,
      "set": "Taio Cruz"
+    }
+   ]
+  },
+  {
+   "id": "v2:/08ae5de46728a290c30298ca98abc2bedcb4cbc3c0a78b23468773374bc82745",
+   "name": "Sun Sprout",
+   "kind": "backpack",
+   "price": 200,
+   "regular": 200,
+   "inDate": "2026-11-23",
+   "outDate": "2026-11-30",
+   "section": "Harvest Season",
+   "image": "https://fortnite-api.com/images/cosmetics/br/newdisplayassets/ae3673682d1f7b89/renderimage_0.png",
+   "gap": 9,
+   "items": [
+    {
+     "id": "BID_220_FarmerFemale",
+     "name": "Sun Sprout",
+     "type": "backpack",
+     "rarity": "Uncommon",
+     "series": null,
+     "set": "Fatal Fielders",
+     "appearances": 10
+    }
+   ]
+  },
+  {
+   "id": "v2:/2400a9b5d1b086dbf7a3d2806e6fe15fb5e3b399e133a3cb841f12fcb247d3c6",
+   "name": "Jack's Cutlass and Bane",
+   "kind": "pickaxe",
+   "price": 500,
+   "regular": 500,
+   "inDate": "2026-11-23",
+   "outDate": "2026-11-26",
+   "section": "Pirates of the Caribbean",
+   "image": "https://fortnite-api.com/images/cosmetics/br/newdisplayassets/3db2623834041926/renderimage_0.png",
+   "gap": 55,
+   "items": [
+    {
+     "id": "Pickaxe_SpringBreakStraw",
+     "name": "Jack's Cutlass and Bane",
+     "type": "pickaxe",
+     "rarity": "Rare",
+     "series": null,
+     "set": "Pirates of the Caribbean",
+     "appearances": 3
     }
    ]
   },
@@ -9773,7 +11660,7 @@
      "rarity": "Epic",
      "series": null,
      "set": "M.E.O.W. Protocol",
-     "appearances": 6
+     "appearances": 8
     },
     {
      "id": "Pickaxe_BionicKitty",
@@ -9782,7 +11669,7 @@
      "rarity": "Rare",
      "series": null,
      "set": "M.E.O.W. Protocol",
-     "appearances": 3
+     "appearances": 5
     },
     {
      "id": "Backpack_BionicKitty",
@@ -9791,7 +11678,7 @@
      "rarity": "Rare",
      "series": null,
      "set": "M.E.O.W. Protocol",
-     "appearances": 1
+     "appearances": 3
     },
     {
      "id": "Wrap_BionicKitty",
@@ -9800,7 +11687,7 @@
      "rarity": "Uncommon",
      "series": null,
      "set": "M.E.O.W. Protocol",
-     "appearances": 4
+     "appearances": 6
     }
    ]
   },
@@ -9823,7 +11710,30 @@
      "rarity": "Rare",
      "series": null,
      "set": null,
-     "appearances": 6
+     "appearances": 8
+    }
+   ]
+  },
+  {
+   "id": "v2:/b85ff8b2bc4f49ef9cd6d08685ea0d579f2020f3ab38363363efe25af2d00d32",
+   "name": "Ratty",
+   "kind": "wrap",
+   "price": 300,
+   "regular": 300,
+   "inDate": "2026-11-22",
+   "outDate": "2026-11-24",
+   "section": "Martoz's Locker ",
+   "image": "https://fortnite-api.com/images/cosmetics/br/newdisplayassets/c881998318ed21fc/renderimage_0.png",
+   "gap": "unseen",
+   "items": [
+    {
+     "id": "Wrap_195_StreetRat",
+     "name": "Ratty",
+     "type": "wrap",
+     "rarity": "Uncommon",
+     "series": null,
+     "set": "Street Rat",
+     "appearances": 2
     }
    ]
   },
@@ -9860,25 +11770,43 @@
    ]
   },
   {
-   "id": "v2:/b85ff8b2bc4f49ef9cd6d08685ea0d579f2020f3ab38363363efe25af2d00d32",
-   "name": "Ratty",
-   "kind": "wrap",
-   "price": 300,
-   "regular": 300,
-   "inDate": "2026-11-22",
-   "outDate": "2026-11-24",
-   "section": "Martoz's Locker ",
-   "image": "https://fortnite-api.com/images/cosmetics/br/newdisplayassets/c881998318ed21fc/renderimage_0.png",
-   "gap": "unseen",
+   "id": "v2:/19ad05bc02314e7125835a68025d1ae5949dc98cc4124b8e238a358dd403f950",
+   "name": "Elizabeth Swann",
+   "kind": "bundle",
+   "price": 1600,
+   "regular": 1600,
+   "inDate": "2026-11-23",
+   "outDate": "2026-11-26",
+   "section": "Pirates of the Caribbean",
+   "image": "https://fortnite-api.com/images/cosmetics/br/newdisplayassets/ef2a2e5d96aa813f/renderimage_0.png",
+   "gap": 55,
    "items": [
     {
-     "id": "Wrap_195_StreetRat",
-     "name": "Ratty",
-     "type": "wrap",
-     "rarity": "Uncommon",
+     "id": "Character_StoneLion",
+     "name": "Elizabeth Swann",
+     "type": "outfit",
+     "rarity": "Epic",
      "series": null,
-     "set": "Street Rat",
-     "appearances": 0
+     "set": "Pirates of the Caribbean",
+     "appearances": 5
+    },
+    {
+     "id": "Backpack_StoneLion",
+     "name": "Dead Man's Chest",
+     "type": "backpack",
+     "rarity": "Rare",
+     "series": null,
+     "set": "Pirates of the Caribbean",
+     "appearances": 3
+    },
+    {
+     "id": "Pickaxe_StoneLion",
+     "name": "Elizabeth's Favor",
+     "type": "pickaxe",
+     "rarity": "Rare",
+     "series": null,
+     "set": "Pirates of the Caribbean",
+     "appearances": 4
     }
    ]
   },
@@ -9982,6 +11910,29 @@
    "items": []
   },
   {
+   "id": "v2:/d8b7b207bdc7c4aadec611b2b7c672600dd26ee22ae3f1a349a53a957f444406",
+   "name": "Balloony",
+   "kind": "backpack",
+   "price": 400,
+   "regular": 400,
+   "inDate": "2026-11-23",
+   "outDate": "2026-11-26",
+   "section": "Phineas and Ferb",
+   "image": "https://fortnite-api.com/images/cosmetics/br/newdisplayassets/28ac557d3262aa0f/renderimage_0.png",
+   "gap": 159,
+   "items": [
+    {
+     "id": "Backpack_PeaceScarf",
+     "name": "Balloony",
+     "type": "backpack",
+     "rarity": "Rare",
+     "series": null,
+     "set": "Phineas and Ferb",
+     "appearances": 4
+    }
+   ]
+  },
+  {
    "id": "v2:/269ebc05ac5ba84ae2a5d79e3edaf8f447f01503af3909216a28f1ba3f64878a",
    "name": "Ruby Soho",
    "kind": "jamtrack",
@@ -10003,6 +11954,19 @@
    ]
   },
   {
+   "id": "v2:/8f182edd7d5941d8ddcdba01bc5885e4857678d38bc56bde7e2806bb620fed29",
+   "name": "[VIRTUAL]1 x Shimada Spinners for 400 MtxCurrency",
+   "kind": "car",
+   "price": 400,
+   "regular": 400,
+   "inDate": "2026-11-21",
+   "outDate": "2026-12-04",
+   "section": "Overwatch",
+   "image": "https://fortnite-api.com/images/cosmetics/br/newdisplayassets/d7813b4af7bcc8bf/renderimage_0.png",
+   "gap": null,
+   "items": []
+  },
+  {
    "id": "v2:/400a5de6888cb848fef7c6797a9ca721b93ef91ea7e866a0596743d17f7778cd",
    "name": "Overwatch Bundle",
    "kind": "bundle",
@@ -10021,7 +11985,7 @@
      "rarity": "Gaming Legends Series",
      "series": "Gaming Legends Series",
      "set": "Overwatch",
-     "appearances": 4
+     "appearances": 6
     },
     {
      "id": "Backpack_TrackWaver",
@@ -10030,7 +11994,7 @@
      "rarity": "Gaming Legends Series",
      "series": "Gaming Legends Series",
      "set": "Overwatch",
-     "appearances": 6
+     "appearances": 9
     },
     {
      "id": "Glider_TrackWaver",
@@ -10039,7 +12003,7 @@
      "rarity": "Gaming Legends Series",
      "series": "Gaming Legends Series",
      "set": "Overwatch",
-     "appearances": 6
+     "appearances": 9
     },
     {
      "id": "Pickaxe_TrackWaver",
@@ -10048,7 +12012,7 @@
      "rarity": "Gaming Legends Series",
      "series": "Gaming Legends Series",
      "set": "Overwatch",
-     "appearances": 4
+     "appearances": 6
     },
     {
      "id": "Character_SkiffGrind",
@@ -10057,7 +12021,7 @@
      "rarity": "Gaming Legends Series",
      "series": "Gaming Legends Series",
      "set": "Overwatch",
-     "appearances": 4
+     "appearances": 6
     },
     {
      "id": "Pickaxe_SkiffGrind",
@@ -10066,7 +12030,7 @@
      "rarity": "Gaming Legends Series",
      "series": "Gaming Legends Series",
      "set": "Overwatch",
-     "appearances": 6
+     "appearances": 9
     },
     {
      "id": "Backpack_SkiffGrind",
@@ -10075,7 +12039,7 @@
      "rarity": "Gaming Legends Series",
      "series": "Gaming Legends Series",
      "set": "Overwatch",
-     "appearances": 6
+     "appearances": 9
     },
     {
      "id": "Character_LooseCreep",
@@ -10084,7 +12048,7 @@
      "rarity": "Gaming Legends Series",
      "series": "Gaming Legends Series",
      "set": "Overwatch",
-     "appearances": 4
+     "appearances": 6
     },
     {
      "id": "Pickaxe_LooseCreep",
@@ -10093,7 +12057,7 @@
      "rarity": "Gaming Legends Series",
      "series": "Gaming Legends Series",
      "set": "Overwatch",
-     "appearances": 6
+     "appearances": 9
     },
     {
      "id": "Backpack_LooseCreep",
@@ -10102,7 +12066,7 @@
      "rarity": "Gaming Legends Series",
      "series": "Gaming Legends Series",
      "set": "Overwatch",
-     "appearances": 6
+     "appearances": 9
     },
     {
      "id": "Character_FacetBlom",
@@ -10111,7 +12075,7 @@
      "rarity": "Gaming Legends Series",
      "series": "Gaming Legends Series",
      "set": "Overwatch",
-     "appearances": 4
+     "appearances": 6
     },
     {
      "id": "Pickaxe_FacetBlom",
@@ -10120,7 +12084,7 @@
      "rarity": "Gaming Legends Series",
      "series": "Gaming Legends Series",
      "set": "Overwatch",
-     "appearances": 6
+     "appearances": 9
     },
     {
      "id": "Backpack_FacetBlom",
@@ -10129,7 +12093,7 @@
      "rarity": "Gaming Legends Series",
      "series": "Gaming Legends Series",
      "set": "Overwatch",
-     "appearances": 6
+     "appearances": 9
     },
     {
      "id": "EID_TrackWaver",
@@ -10138,7 +12102,7 @@
      "rarity": "Gaming Legends Series",
      "series": "Gaming Legends Series",
      "set": "Overwatch",
-     "appearances": 4
+     "appearances": 6
     },
     {
      "id": "EID_SkiffGrind",
@@ -10147,7 +12111,7 @@
      "rarity": "Gaming Legends Series",
      "series": "Gaming Legends Series",
      "set": "Overwatch",
-     "appearances": 4
+     "appearances": 6
     },
     {
      "id": "EID_LooseCreep",
@@ -10156,7 +12120,7 @@
      "rarity": "Gaming Legends Series",
      "series": "Gaming Legends Series",
      "set": "Overwatch",
-     "appearances": 4
+     "appearances": 6
     },
     {
      "id": "Wrap_TrackWaver",
@@ -10165,7 +12129,7 @@
      "rarity": "Gaming Legends Series",
      "series": "Gaming Legends Series",
      "set": "Overwatch",
-     "appearances": 4
+     "appearances": 6
     },
     {
      "id": "LoadingScreen_TrackWaver",
@@ -10174,22 +12138,9 @@
      "rarity": "Gaming Legends Series",
      "series": "Gaming Legends Series",
      "set": "Overwatch",
-     "appearances": 2
+     "appearances": 3
     }
    ]
-  },
-  {
-   "id": "v2:/8f182edd7d5941d8ddcdba01bc5885e4857678d38bc56bde7e2806bb620fed29",
-   "name": "[VIRTUAL]1 x Shimada Spinners for 400 MtxCurrency",
-   "kind": "car",
-   "price": 400,
-   "regular": 400,
-   "inDate": "2026-11-21",
-   "outDate": "2026-12-04",
-   "section": "Overwatch",
-   "image": "https://fortnite-api.com/images/cosmetics/br/newdisplayassets/d7813b4af7bcc8bf/renderimage_0.png",
-   "gap": null,
-   "items": []
   },
   {
    "id": "v2:/507db63f9ba40371b54ff43c56a3c504a1559b8d0ce70e8c46a37e02b55fce3e",
@@ -10209,27 +12160,6 @@
      "type": "jamtrack",
      "series": null,
      "set": "Swae Lee"
-    }
-   ]
-  },
-  {
-   "id": "v2:/166c75944551c5968ef8dc2bc204a8a88bfa3f0cc6e4c5bf07eecbe7926e1312",
-   "name": "Hot In Herre",
-   "kind": "jamtrack",
-   "price": 500,
-   "regular": 500,
-   "inDate": "2026-11-01",
-   "outDate": "2026-11-30",
-   "section": "Jam Tracks",
-   "image": "https://cdn.fortnite-api.com/tracks/a590988722909edb.jpg",
-   "gap": null,
-   "items": [
-    {
-     "id": "sid_placeholder_503",
-     "name": "Hot In Herre",
-     "type": "jamtrack",
-     "series": null,
-     "set": "Nelly"
     }
    ]
   },
@@ -10255,25 +12185,23 @@
    ]
   },
   {
-   "id": "v2:/4f9d8fe3972024d0d37ad6253477dc74055737159f175fafa8b756c5c307d981",
-   "name": "Lil Uzi Star",
-   "kind": "backpack",
+   "id": "v2:/166c75944551c5968ef8dc2bc204a8a88bfa3f0cc6e4c5bf07eecbe7926e1312",
+   "name": "Hot In Herre",
+   "kind": "jamtrack",
    "price": 500,
    "regular": 500,
-   "inDate": "2026-11-13",
-   "outDate": "2026-12-12",
-   "section": "Lil Uzi Vert ",
-   "image": "https://fortnite-api.com/images/cosmetics/br/newdisplayassets/aef63d45fa9e31dc/renderimage_0.png",
-   "gap": "unseen",
+   "inDate": "2026-11-01",
+   "outDate": "2026-11-30",
+   "section": "Jam Tracks",
+   "image": "https://cdn.fortnite-api.com/tracks/a590988722909edb.jpg",
+   "gap": null,
    "items": [
     {
-     "id": "Backpack_RookGeckoRye",
-     "name": "Lil Uzi Star",
-     "type": "backpack",
-     "rarity": "Icon Series",
-     "series": "Icon Series",
-     "set": "Lil Uzi Vert",
-     "appearances": 3
+     "id": "sid_placeholder_503",
+     "name": "Hot In Herre",
+     "type": "jamtrack",
+     "series": null,
+     "set": "Nelly"
     }
    ]
   },
@@ -10310,6 +12238,29 @@
    ]
   },
   {
+   "id": "v2:/4f9d8fe3972024d0d37ad6253477dc74055737159f175fafa8b756c5c307d981",
+   "name": "Lil Uzi Star",
+   "kind": "backpack",
+   "price": 500,
+   "regular": 500,
+   "inDate": "2026-11-13",
+   "outDate": "2026-12-12",
+   "section": "Lil Uzi Vert ",
+   "image": "https://fortnite-api.com/images/cosmetics/br/newdisplayassets/aef63d45fa9e31dc/renderimage_0.png",
+   "gap": "unseen",
+   "items": [
+    {
+     "id": "Backpack_RookGeckoRye",
+     "name": "Lil Uzi Star",
+     "type": "backpack",
+     "rarity": "Icon Series",
+     "series": "Icon Series",
+     "set": "Lil Uzi Vert",
+     "appearances": 3
+    }
+   ]
+  },
+  {
    "id": "v2:/240062fc33b72bbbe486a9d9702316fcdcb31165e5a35a9b848cbe72c4b154d6",
    "name": "Noodle's Case",
    "kind": "backpack",
@@ -10328,7 +12279,7 @@
      "rarity": "Icon Series",
      "series": "Icon Series",
      "set": "Gorillaz",
-     "appearances": 4
+     "appearances": 6
     }
    ]
   },
@@ -10372,7 +12323,7 @@
      "rarity": "Icon Series",
      "series": "Icon Series",
      "set": "Gorillaz",
-     "appearances": 4
+     "appearances": 6
     }
    ]
   },
@@ -10547,29 +12498,6 @@
      "rarity": "Rare",
      "series": null,
      "set": "M.E.O.W. Protocol",
-     "appearances": 1
-    }
-   ]
-  },
-  {
-   "id": "v2:/14cecc01d010597eb2b4aff94b860872f01c19235ac3c12b13d9d29b5c3d2c9e",
-   "name": "Ivor",
-   "kind": "backpack",
-   "price": 300,
-   "regular": 300,
-   "inDate": "2026-11-20",
-   "outDate": "2026-11-26",
-   "section": "Save The World",
-   "image": "https://fortnite-api.com/images/cosmetics/br/newdisplayassets/d626622135396852/renderimage_0.png",
-   "gap": "unseen",
-   "items": [
-    {
-     "id": "Backpack_WingedEye",
-     "name": "Ivor",
-     "type": "backpack",
-     "rarity": "Rare",
-     "series": null,
-     "set": "Hexed & Haunted",
      "appearances": 3
     }
    ]
@@ -10593,7 +12521,7 @@
      "rarity": "Epic",
      "series": null,
      "set": "Big Cat Hunter",
-     "appearances": 0
+     "appearances": 2
     },
     {
      "id": "Backpack_FierceStripe",
@@ -10602,7 +12530,7 @@
      "rarity": "Rare",
      "series": null,
      "set": "Big Cat Hunter",
-     "appearances": 0
+     "appearances": 3
     },
     {
      "id": "EID_FierceStripe",
@@ -10611,7 +12539,7 @@
      "rarity": "Uncommon",
      "series": null,
      "set": "Big Cat Hunter",
-     "appearances": 0
+     "appearances": 2
     },
     {
      "id": "Pickaxe_FierceStripe",
@@ -10620,7 +12548,7 @@
      "rarity": "Rare",
      "series": null,
      "set": "Big Cat Hunter",
-     "appearances": 0
+     "appearances": 2
     },
     {
      "id": "Wrap_FierceStripe",
@@ -10629,7 +12557,7 @@
      "rarity": "Rare",
      "series": null,
      "set": "Big Cat Hunter",
-     "appearances": 0
+     "appearances": 2
     },
     {
      "id": "sid_placeholder_956",
@@ -10662,6 +12590,29 @@
    ]
   },
   {
+   "id": "v2:/14cecc01d010597eb2b4aff94b860872f01c19235ac3c12b13d9d29b5c3d2c9e",
+   "name": "Ivor",
+   "kind": "backpack",
+   "price": 300,
+   "regular": 300,
+   "inDate": "2026-11-20",
+   "outDate": "2026-11-26",
+   "section": "Save The World",
+   "image": "https://fortnite-api.com/images/cosmetics/br/newdisplayassets/d626622135396852/renderimage_0.png",
+   "gap": "unseen",
+   "items": [
+    {
+     "id": "Backpack_WingedEye",
+     "name": "Ivor",
+     "type": "backpack",
+     "rarity": "Rare",
+     "series": null,
+     "set": "Hexed & Haunted",
+     "appearances": 3
+    }
+   ]
+  },
+  {
    "id": "v2:/2c390129b6a2706b1b4bf78a19c51d512034c7f026f9d335967f66e2a2c99c8a",
    "name": "[VIRTUAL]1 x ROY G BUFFY for 400 MtxCurrency",
    "kind": "car",
@@ -10675,34 +12626,25 @@
    "items": []
   },
   {
-   "id": "v2:/bcb0ed07c7c1e727fae6d7d140b0b0f1ac741ca49458361be603e43cd72e8d6d",
-   "name": "Barrett",
-   "kind": "outfit",
-   "price": 1200,
-   "regular": 1200,
-   "inDate": "2026-11-22",
-   "outDate": "2026-11-22",
+   "id": "v2:/c427b93a9b1cb2e92573582ca11c6bcf9812653ce13563fa1d2e149d87c85a62",
+   "name": "SLURP Hammer",
+   "kind": "pickaxe",
+   "price": 500,
+   "regular": 500,
+   "inDate": "2026-11-23",
+   "outDate": "2026-11-23",
    "section": "Main Character Energy ",
-   "image": "https://fortnite-api.com/images/cosmetics/br/newdisplayassets/195e74d10da1afdd/renderimage_0.png",
-   "gap": 143,
+   "image": "https://fortnite-api.com/images/cosmetics/br/newdisplayassets/76aaad841a1efae6/renderimage_0.png",
+   "gap": 363,
    "items": [
     {
-     "id": "Character_PrisonBreak",
-     "name": "Barrett",
-     "type": "outfit",
-     "rarity": "Rare",
-     "series": null,
-     "set": "Grizzled Instincts",
-     "appearances": 7
-    },
-    {
-     "id": "Backpack_PrisonBreak",
-     "name": "Grizzly Gearbag",
-     "type": "backpack",
-     "rarity": "Rare",
-     "series": null,
-     "set": "Grizzled Instincts",
-     "appearances": 4
+     "id": "Pickaxe_StrikinglyBright",
+     "name": "SLURP Hammer",
+     "type": "pickaxe",
+     "rarity": "Slurp Series",
+     "series": "Slurp Series",
+     "set": "Slurp Dynasty",
+     "appearances": 2
     }
    ]
   },
@@ -10843,7 +12785,7 @@
    ]
   }
  ],
- "fetchedAt": "2026-11-22T18:45:25.099Z",
+ "fetchedAt": "2026-11-23T01:05:23.443Z",
  "source": "https://fortnite-api.com/v2/shop?language=en",
  "historyFrom": "2025-05-04"
 }

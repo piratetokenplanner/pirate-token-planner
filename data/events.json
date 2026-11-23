@@ -16,7 +16,7 @@
     "mustContain": [
      "December 5"
     ],
-    "checkedAt": "2026-11-22T18:45:25.413Z",
+    "checkedAt": "2026-11-23T01:05:23.844Z",
     "reachable": true,
     "found": [
      {
@@ -33,7 +33,7 @@
     "mustContain": [
      "December 5"
     ],
-    "checkedAt": "2026-11-22T18:45:25.975Z",
+    "checkedAt": "2026-11-23T01:05:24.227Z",
     "reachable": true,
     "found": [
      {
@@ -42,7 +42,7 @@
      }
     ],
     "verified": true,
-    "hash": "32402db7ba2bc831",
+    "hash": "0157de592a58cdf4",
     "changedSinceLastCheck": true
    }
   ],
@@ -67,7 +67,7 @@
     "mustContain": [
      "Chapter 8"
     ],
-    "checkedAt": "2026-11-22T18:45:25.975Z",
+    "checkedAt": "2026-11-23T01:05:24.228Z",
     "reachable": true,
     "found": [
      {
@@ -127,7 +127,7 @@
     "mustContain": [
      "Winterfest"
     ],
-    "checkedAt": "2026-11-22T18:45:26.168Z",
+    "checkedAt": "2026-11-23T01:05:24.830Z",
     "reachable": true,
     "found": [
      {
@@ -137,14 +137,14 @@
     ],
     "verified": true,
     "hash": "5b768bb5950b50f8",
-    "changedSinceLastCheck": true
+    "changedSinceLastCheck": false
    },
    {
     "url": "https://www.techradar.com/gaming/fortnite-winterfest-2025-start-date",
     "mustContain": [
      "Winterfest"
     ],
-    "checkedAt": "2026-11-22T18:45:26.475Z",
+    "checkedAt": "2026-11-23T01:05:24.910Z",
     "reachable": true,
     "found": [
      {
@@ -168,22 +168,22 @@
   "status": "pattern",
   "fromHistory": {
    "byKind": {
-    "bundle": 10319,
-    "outfit": 82312,
-    "pickaxe": 8734,
-    "emote": 5457,
-    "backpack": -14853,
-    "instrument": 11082,
-    "wrap": 670,
-    "glider": 5634,
-    "kicks": 6955,
-    "jamtrack": -25551,
-    "other": 1405,
-    "contrail": -433,
-    "car": 318,
-    "lego": -268,
-    "sidekick": -2304,
-    "loadingscreen": -632
+    "bundle": 9726,
+    "outfit": 82281,
+    "pickaxe": 8612,
+    "emote": 5417,
+    "backpack": -15039,
+    "instrument": 11093,
+    "wrap": 578,
+    "glider": 5612,
+    "kicks": 6995,
+    "jamtrack": -25529,
+    "other": 1410,
+    "contrail": -449,
+    "car": 300,
+    "lego": -267,
+    "sidekick": -2331,
+    "loadingscreen": -631
    },
    "from": [
     {
@@ -192,22 +192,22 @@
      "label": "Winterfest 2025",
      "days": 15,
      "byKind": {
-      "bundle": 10319,
-      "outfit": 82312,
-      "pickaxe": 8734,
-      "emote": 5457,
-      "backpack": -14853,
-      "instrument": 11082,
-      "wrap": 670,
-      "glider": 5634,
-      "kicks": 6955,
-      "jamtrack": -25551,
-      "other": 1405,
-      "contrail": -433,
-      "car": 318,
-      "lego": -268,
-      "sidekick": -2304,
-      "loadingscreen": -632
+      "bundle": 9726,
+      "outfit": 82281,
+      "pickaxe": 8612,
+      "emote": 5417,
+      "backpack": -15039,
+      "instrument": 11093,
+      "wrap": 578,
+      "glider": 5612,
+      "kicks": 6995,
+      "jamtrack": -25529,
+      "other": 1410,
+      "contrail": -449,
+      "car": 300,
+      "lego": -267,
+      "sidekick": -2331,
+      "loadingscreen": -631
      }
     }
    ]

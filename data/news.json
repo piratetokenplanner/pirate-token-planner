@@ -1,11 +1,7 @@
 {
- "fetchedAt": "2026-11-22T18:45:25.278Z",
+ "fetchedAt": "2026-11-23T01:05:23.673Z",
  "source": "https://fortnite-api.com/v2/news/br?language=en",
  "items": [
-  {
-   "title": "Live - EU - FNCS Solos Reload Finals",
-   "body": "Jump into Legends Landing and watch top Reload Solos compete for the title of FNCS Champion in FNCS Solos Reload now!"
-  },
   {
    "title": "Devil Fruits Across the Island",
    "body": "Rare Devil Fruits have dropped in across the map! Eat the Gum-Gum Fruit to stretch your skills as Luffy, or the Flame-Flame Fruit to come in hot as Ace... just stay away from water."
@@ -21,6 +17,10 @@
   {
    "title": "Multi-Punches Flex",
    "body": "GUM-GUM GATLING!"
+  },
+  {
+   "title": "Adventure Awaits!",
+   "body": "Explore One Piece's Arlong Park, sail past Baratie Bay, or storm The $.$. Rocky on this mysterious skull-shaped island."
   }
  ]
 }
