@@ -16,7 +16,7 @@
     "mustContain": [
      "December 5"
     ],
-    "checkedAt": "2026-11-23T01:05:23.844Z",
+    "checkedAt": "2026-11-23T07:32:07.112Z",
     "reachable": true,
     "found": [
      {
@@ -25,15 +25,15 @@
      }
     ],
     "verified": true,
-    "hash": "93c8c0ed869dbb7a",
-    "changedSinceLastCheck": false
+    "hash": "082b31e7e1389813",
+    "changedSinceLastCheck": true
    },
    {
     "url": "https://lootrundown.com/fortnite/event-calendar",
     "mustContain": [
      "December 5"
     ],
-    "checkedAt": "2026-11-23T01:05:24.227Z",
+    "checkedAt": "2026-11-23T07:32:07.436Z",
     "reachable": true,
     "found": [
      {
@@ -42,7 +42,7 @@
      }
     ],
     "verified": true,
-    "hash": "0157de592a58cdf4",
+    "hash": "9c2884f35f2d6264",
     "changedSinceLastCheck": true
    }
   ],
@@ -67,7 +67,7 @@
     "mustContain": [
      "Chapter 8"
     ],
-    "checkedAt": "2026-11-23T01:05:24.228Z",
+    "checkedAt": "2026-11-23T07:32:07.436Z",
     "reachable": true,
     "found": [
      {
@@ -76,8 +76,8 @@
      }
     ],
     "verified": true,
-    "hash": "93c8c0ed869dbb7a",
-    "changedSinceLastCheck": false
+    "hash": "082b31e7e1389813",
+    "changedSinceLastCheck": true
    }
   ],
   "calibrateFrom": [
@@ -127,7 +127,7 @@
     "mustContain": [
      "Winterfest"
     ],
-    "checkedAt": "2026-11-23T01:05:24.830Z",
+    "checkedAt": "2026-11-23T07:32:09.631Z",
     "reachable": true,
     "found": [
      {
@@ -136,15 +136,15 @@
      }
     ],
     "verified": true,
-    "hash": "5b768bb5950b50f8",
-    "changedSinceLastCheck": false
+    "hash": "3b86df41a1780ac7",
+    "changedSinceLastCheck": true
    },
    {
     "url": "https://www.techradar.com/gaming/fortnite-winterfest-2025-start-date",
     "mustContain": [
      "Winterfest"
     ],
-    "checkedAt": "2026-11-23T01:05:24.910Z",
+    "checkedAt": "2026-11-23T07:32:09.813Z",
     "reachable": true,
     "found": [
      {
