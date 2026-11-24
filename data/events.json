@@ -16,7 +16,7 @@
     "mustContain": [
      "December 5"
     ],
-    "checkedAt": "2026-11-24T01:04:41.572Z",
+    "checkedAt": "2026-11-24T07:14:13.829Z",
     "reachable": true,
     "found": [
      {
@@ -25,15 +25,15 @@
      }
     ],
     "verified": true,
-    "hash": "06ab3e9d12f7f0ce",
-    "changedSinceLastCheck": false
+    "hash": "01874936dc3cae63",
+    "changedSinceLastCheck": true
    },
    {
     "url": "https://lootrundown.com/fortnite/event-calendar",
     "mustContain": [
      "December 5"
     ],
-    "checkedAt": "2026-11-24T01:04:41.761Z",
+    "checkedAt": "2026-11-24T07:14:14.050Z",
     "reachable": true,
     "found": [
      {
@@ -42,7 +42,7 @@
      }
     ],
     "verified": true,
-    "hash": "b14b3116487cd6b7",
+    "hash": "b0883d9812b4cd5c",
     "changedSinceLastCheck": true
    }
   ],
@@ -67,7 +67,7 @@
     "mustContain": [
      "Chapter 8"
     ],
-    "checkedAt": "2026-11-24T01:04:41.762Z",
+    "checkedAt": "2026-11-24T07:14:14.051Z",
     "reachable": true,
     "found": [
      {
@@ -76,8 +76,8 @@
      }
     ],
     "verified": true,
-    "hash": "06ab3e9d12f7f0ce",
-    "changedSinceLastCheck": false
+    "hash": "01874936dc3cae63",
+    "changedSinceLastCheck": true
    }
   ],
   "calibrateFrom": [
@@ -127,7 +127,7 @@
     "mustContain": [
      "Winterfest"
     ],
-    "checkedAt": "2026-11-24T01:04:42.198Z",
+    "checkedAt": "2026-11-24T07:14:15.333Z",
     "reachable": true,
     "found": [
      {
@@ -136,7 +136,7 @@
      }
     ],
     "verified": true,
-    "hash": "7f36f89346f292c3",
+    "hash": "9d95c042cdb23840",
     "changedSinceLastCheck": true
    },
    {
@@ -144,7 +144,7 @@
     "mustContain": [
      "Winterfest"
     ],
-    "checkedAt": "2026-11-24T01:04:42.373Z",
+    "checkedAt": "2026-11-24T07:14:15.408Z",
     "reachable": true,
     "found": [
      {
@@ -154,7 +154,7 @@
     ],
     "verified": true,
     "hash": "79ec2fe7fd1f54ae",
-    "changedSinceLastCheck": true
+    "changedSinceLastCheck": false
    }
   ],
   "calibrateFrom": [
