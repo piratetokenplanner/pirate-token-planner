@@ -4695,7 +4695,7 @@
    "inDate": "2026-11-24",
    "outDate": "2026-11-28",
    "section": "Ferrari",
-   "image": "https://fortnite-api.com/images/cosmetics/br/bid_806_foray_wg30d/featured.png",
+   "image": "https://fortnite-api.com/images/cosmetics/br/newdisplayassets/ec3206fa433db70a/renderimage_0.png",
    "gap": 146,
    "items": [
     {
@@ -13512,7 +13512,7 @@
    ]
   }
  ],
- "fetchedAt": "2026-11-24T13:14:46.775Z",
+ "fetchedAt": "2026-11-24T18:58:13.784Z",
  "source": "https://fortnite-api.com/v2/shop?language=en",
  "historyFrom": "2025-05-04"
 }
