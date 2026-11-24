@@ -1,7 +1,15 @@
 {
- "fetchedAt": "2026-11-23T18:59:02.402Z",
+ "fetchedAt": "2026-11-24T01:04:41.341Z",
  "source": "https://fortnite-api.com/v2/news/br?language=en",
  "items": [
+  {
+   "title": "Live - PlayStation Cup",
+   "body": "Compete in the Solo Battle Royale or the Solo Zero Build PlayStation Cup now! Participate and earn 8 points to acquire the Froggory Stance Spray. Find additional details in the Compete Tab."
+  },
+  {
+   "title": "Golden Week + Community Day",
+   "body": "Starting 11/28, refreshed loot meets unvaulted Treasure during Golden Week, where each Captain’s golden goods are back in Chests alongside 2X Sprite Dust and XP! Then, hop aboard for Community Day on 12/5."
+  },
   {
    "title": "Devil Fruits Across the Island",
    "body": "Rare Devil Fruits have dropped in across the map! Eat the Gum-Gum Fruit to stretch your skills as Luffy, or the Flame-Flame Fruit to come in hot as Ace... just stay away from water."
@@ -13,14 +21,6 @@
   {
    "title": "Monkey D. Luffy, Nami, and Usopp Outfits",
    "body": "When adventure calls, the Straw Hats answer! Set sail with Monkey D. Luffy, Nami, and Usopp Outfits and chart a course to uncharted waters."
-  },
-  {
-   "title": "Multi-Punches Flex",
-   "body": "GUM-GUM GATLING!"
-  },
-  {
-   "title": "Adventure Awaits!",
-   "body": "Explore One Piece's Arlong Park, sail past Baratie Bay, or storm The $.$. Rocky on this mysterious skull-shaped island."
   }
  ]
 }
