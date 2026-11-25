@@ -73,7 +73,7 @@
      "mustContain": [
       "14 days"
      ],
-     "checkedAt": "2026-11-24T18:58:16.860Z",
+     "checkedAt": "2026-11-25T01:10:28.311Z",
      "reachable": true,
      "found": [
       {
@@ -83,14 +83,14 @@
      ],
      "verified": true,
      "hash": "f51fd98c366b68d5",
-     "changedSinceLastCheck": true
+     "changedSinceLastCheck": false
     },
     {
      "url": "https://beebom.com/fortnite-pirate-shop-guide/",
      "mustContain": [
       "14 days"
      ],
-     "checkedAt": "2026-11-24T18:58:17.417Z",
+     "checkedAt": "2026-11-25T01:10:28.441Z",
      "reachable": true,
      "found": [
       {
@@ -99,7 +99,7 @@
       }
      ],
      "verified": true,
-     "hash": "52b6015898829a85",
+     "hash": "b0db4dec7ce28a44",
      "changedSinceLastCheck": true
     }
    ],
@@ -116,7 +116,7 @@
      "mustContain": [
       "December 15"
      ],
-     "checkedAt": "2026-11-24T18:58:17.417Z",
+     "checkedAt": "2026-11-25T01:10:28.442Z",
      "reachable": true,
      "found": [
       {
@@ -126,7 +126,7 @@
      ],
      "verified": true,
      "hash": "f51fd98c366b68d5",
-     "changedSinceLastCheck": true
+     "changedSinceLastCheck": false
     }
    ],
    "newsHits": [],
@@ -144,7 +144,7 @@
       "gifting",
       "real money bundles"
      ],
-     "checkedAt": "2026-11-24T18:58:17.426Z",
+     "checkedAt": "2026-11-25T01:10:28.449Z",
      "reachable": true,
      "found": [
       {
@@ -162,7 +162,7 @@
      ],
      "verified": true,
      "hash": "f51fd98c366b68d5",
-     "changedSinceLastCheck": true
+     "changedSinceLastCheck": false
     }
    ],
    "newsHits": [],
@@ -178,7 +178,7 @@
      "mustContain": [
       "sidekick"
      ],
-     "checkedAt": "2026-11-24T18:58:17.434Z",
+     "checkedAt": "2026-11-25T01:10:28.458Z",
      "reachable": true,
      "found": [
       {
@@ -188,7 +188,7 @@
      ],
      "verified": true,
      "hash": "f51fd98c366b68d5",
-     "changedSinceLastCheck": true
+     "changedSinceLastCheck": false
     }
    ],
    "newsHits": [],
@@ -204,7 +204,7 @@
      "mustContain": [
       "00:00 UTC"
      ],
-     "checkedAt": "2026-11-24T18:58:17.541Z",
+     "checkedAt": "2026-11-25T01:10:28.652Z",
      "reachable": true,
      "found": [
       {
@@ -213,8 +213,8 @@
       }
      ],
      "verified": true,
-     "hash": "c4ffee14614c9f41",
-     "changedSinceLastCheck": false
+     "hash": "7453a922bd4bd2f8",
+     "changedSinceLastCheck": true
     }
    ],
    "newsHits": [],
@@ -230,7 +230,7 @@
      "mustContain": [
       "2027"
      ],
-     "checkedAt": "2026-11-24T18:58:17.541Z",
+     "checkedAt": "2026-11-25T01:10:28.652Z",
      "reachable": true,
      "found": [
       {
@@ -239,7 +239,7 @@
       }
      ],
      "verified": true,
-     "hash": "52b6015898829a85",
+     "hash": "b0db4dec7ce28a44",
      "changedSinceLastCheck": true
     }
    ],

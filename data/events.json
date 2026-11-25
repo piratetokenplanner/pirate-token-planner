@@ -16,7 +16,7 @@
     "mustContain": [
      "December 5"
     ],
-    "checkedAt": "2026-11-24T18:58:14.206Z",
+    "checkedAt": "2026-11-25T01:10:26.797Z",
     "reachable": true,
     "found": [
      {
@@ -33,7 +33,7 @@
     "mustContain": [
      "December 5"
     ],
-    "checkedAt": "2026-11-24T18:58:14.555Z",
+    "checkedAt": "2026-11-25T01:10:27.091Z",
     "reachable": true,
     "found": [
      {
@@ -42,7 +42,7 @@
      }
     ],
     "verified": true,
-    "hash": "49b7dacb24ae5ffd",
+    "hash": "b220891877413611",
     "changedSinceLastCheck": true
    }
   ],
@@ -67,7 +67,7 @@
     "mustContain": [
      "Chapter 8"
     ],
-    "checkedAt": "2026-11-24T18:58:14.555Z",
+    "checkedAt": "2026-11-25T01:10:27.092Z",
     "reachable": true,
     "found": [
      {
@@ -127,7 +127,7 @@
     "mustContain": [
      "Winterfest"
     ],
-    "checkedAt": "2026-11-24T18:58:16.689Z",
+    "checkedAt": "2026-11-25T01:10:27.458Z",
     "reachable": true,
     "found": [
      {
@@ -136,7 +136,7 @@
      }
     ],
     "verified": true,
-    "hash": "0426eded632b4370",
+    "hash": "199783edd273eca5",
     "changedSinceLastCheck": true
    },
    {
@@ -144,7 +144,7 @@
     "mustContain": [
      "Winterfest"
     ],
-    "checkedAt": "2026-11-24T18:58:16.783Z",
+    "checkedAt": "2026-11-25T01:10:27.862Z",
     "reachable": true,
     "found": [
      {
@@ -168,22 +168,22 @@
   "status": "pattern",
   "fromHistory": {
    "byKind": {
-    "bundle": 9276,
-    "outfit": 82064,
-    "pickaxe": 8458,
-    "emote": 5375,
-    "backpack": -15195,
-    "instrument": 11104,
-    "wrap": 592,
-    "glider": 5573,
-    "kicks": 6902,
-    "jamtrack": -25463,
-    "other": 1414,
-    "contrail": -447,
-    "car": 305,
-    "lego": -267,
-    "sidekick": -2349,
-    "loadingscreen": -630
+    "bundle": 9057,
+    "outfit": 81768,
+    "pickaxe": 8374,
+    "emote": 5434,
+    "backpack": -15347,
+    "instrument": 11116,
+    "wrap": 576,
+    "glider": 5557,
+    "kicks": 6895,
+    "jamtrack": -25383,
+    "other": 1418,
+    "contrail": -446,
+    "car": 289,
+    "lego": -266,
+    "sidekick": -2471,
+    "loadingscreen": -628
    },
    "from": [
     {
@@ -192,22 +192,22 @@
      "label": "Winterfest 2025",
      "days": 15,
      "byKind": {
-      "bundle": 9276,
-      "outfit": 82064,
-      "pickaxe": 8458,
-      "emote": 5375,
-      "backpack": -15195,
-      "instrument": 11104,
-      "wrap": 592,
-      "glider": 5573,
-      "kicks": 6902,
-      "jamtrack": -25463,
-      "other": 1414,
-      "contrail": -447,
-      "car": 305,
-      "lego": -267,
-      "sidekick": -2349,
-      "loadingscreen": -630
+      "bundle": 9057,
+      "outfit": 81768,
+      "pickaxe": 8374,
+      "emote": 5434,
+      "backpack": -15347,
+      "instrument": 11116,
+      "wrap": 576,
+      "glider": 5557,
+      "kicks": 6895,
+      "jamtrack": -25383,
+      "other": 1418,
+      "contrail": -446,
+      "car": 289,
+      "lego": -266,
+      "sidekick": -2471,
+      "loadingscreen": -628
      }
     }
    ]
