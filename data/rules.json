@@ -73,7 +73,7 @@
      "mustContain": [
       "14 days"
      ],
-     "checkedAt": "2026-11-25T01:10:28.311Z",
+     "checkedAt": "2026-11-25T07:18:29.606Z",
      "reachable": true,
      "found": [
       {
@@ -90,7 +90,7 @@
      "mustContain": [
       "14 days"
      ],
-     "checkedAt": "2026-11-25T01:10:28.441Z",
+     "checkedAt": "2026-11-25T07:18:29.674Z",
      "reachable": true,
      "found": [
       {
@@ -99,7 +99,7 @@
       }
      ],
      "verified": true,
-     "hash": "b0db4dec7ce28a44",
+     "hash": "3a3ba791a40205b8",
      "changedSinceLastCheck": true
     }
    ],
@@ -116,7 +116,7 @@
      "mustContain": [
       "December 15"
      ],
-     "checkedAt": "2026-11-25T01:10:28.442Z",
+     "checkedAt": "2026-11-25T07:18:29.675Z",
      "reachable": true,
      "found": [
       {
@@ -144,7 +144,7 @@
       "gifting",
       "real money bundles"
      ],
-     "checkedAt": "2026-11-25T01:10:28.449Z",
+     "checkedAt": "2026-11-25T07:18:29.683Z",
      "reachable": true,
      "found": [
       {
@@ -178,7 +178,7 @@
      "mustContain": [
       "sidekick"
      ],
-     "checkedAt": "2026-11-25T01:10:28.458Z",
+     "checkedAt": "2026-11-25T07:18:29.692Z",
      "reachable": true,
      "found": [
       {
@@ -204,7 +204,7 @@
      "mustContain": [
       "00:00 UTC"
      ],
-     "checkedAt": "2026-11-25T01:10:28.652Z",
+     "checkedAt": "2026-11-25T07:18:29.790Z",
      "reachable": true,
      "found": [
       {
@@ -214,7 +214,7 @@
      ],
      "verified": true,
      "hash": "7453a922bd4bd2f8",
-     "changedSinceLastCheck": true
+     "changedSinceLastCheck": false
     }
    ],
    "newsHits": [],
@@ -230,7 +230,7 @@
      "mustContain": [
       "2027"
      ],
-     "checkedAt": "2026-11-25T01:10:28.652Z",
+     "checkedAt": "2026-11-25T07:18:29.790Z",
      "reachable": true,
      "found": [
       {
@@ -239,7 +239,7 @@
       }
      ],
      "verified": true,
-     "hash": "b0db4dec7ce28a44",
+     "hash": "3a3ba791a40205b8",
      "changedSinceLastCheck": true
     }
    ],

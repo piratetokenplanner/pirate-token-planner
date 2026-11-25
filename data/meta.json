@@ -1,5 +1,5 @@
 {
- "generatedAt": "2026-11-25T01:10:28.653Z",
+ "generatedAt": "2026-11-25T07:18:29.791Z",
  "fixture": false,
  "shopOk": true,
  "newsOk": true,
@@ -8,98 +8,98 @@
   "first": "2025-05-04",
   "last": "2026-11-24",
   "days": 570,
-  "importedThisRun": 1,
+  "importedThisRun": 0,
   "missing": []
  },
  "fetches": [
   {
    "url": "https://raw.githubusercontent.com/Fortnite-Datamining/Fortnite-Datamining/history/shop/…",
-   "at": "2026-11-25T01:10:25.919Z",
+   "at": "2026-11-25T07:18:26.023Z",
    "ok": true,
    "status": 200,
-   "bytes": 1,
-   "sha256": "1 days imported"
+   "bytes": 0,
+   "sha256": "0 days imported"
   },
   {
    "url": "https://fortnite-api.com/v2/shop?language=en",
-   "at": "2026-11-25T01:10:25.922Z",
+   "at": "2026-11-25T07:18:26.025Z",
    "status": 200,
    "ok": true,
    "bytes": 1271638,
    "sha256": "d6282464ba61f510",
-   "ms": 524
+   "ms": 815
   },
   {
    "url": "https://fortnite-api.com/v2/news/br?language=en",
-   "at": "2026-11-25T01:10:26.524Z",
+   "at": "2026-11-25T07:18:26.915Z",
    "status": 200,
    "ok": true,
    "bytes": 3166,
    "sha256": "e1ee45dfef040373",
-   "ms": 126
+   "ms": 187
   },
   {
    "url": "https://ggseason.com/fortnite/",
-   "at": "2026-11-25T01:10:26.652Z",
+   "at": "2026-11-25T07:18:27.104Z",
    "status": 200,
    "ok": true,
-   "bytes": 149678,
-   "sha256": "7febb06e31e213a7",
-   "ms": 145
+   "bytes": 149677,
+   "sha256": "113bdbe234bc8332",
+   "ms": 226
   },
   {
    "url": "https://lootrundown.com/fortnite/event-calendar",
-   "at": "2026-11-25T01:10:26.797Z",
+   "at": "2026-11-25T07:18:27.331Z",
    "status": 200,
    "ok": true,
    "bytes": 98988,
-   "sha256": "b220891877413611",
-   "ms": 294
+   "sha256": "566c59c0b7c92dad",
+   "ms": 416
   },
   {
    "url": "https://arenatrek.com/when-does-fortnite-winterfest-start-your-complete-2026-guide-to-dates-rewards-and-exclusive-content/",
-   "at": "2026-11-25T01:10:27.092Z",
+   "at": "2026-11-25T07:18:27.748Z",
    "status": 200,
    "ok": true,
-   "bytes": 192820,
-   "sha256": "199783edd273eca5",
-   "ms": 366
+   "bytes": 192793,
+   "sha256": "5f88fcb5d800b98f",
+   "ms": 1586
   },
   {
    "url": "https://www.techradar.com/gaming/fortnite-winterfest-2025-start-date",
-   "at": "2026-11-25T01:10:27.459Z",
+   "at": "2026-11-25T07:18:29.335Z",
    "status": 200,
    "ok": true,
    "bytes": 1813863,
    "sha256": "79ec2fe7fd1f54ae",
-   "ms": 403
+   "ms": 108
   },
   {
    "url": "https://www.gamesradar.com/games/fortnite/fortnite-pirate-shop-token/",
-   "at": "2026-11-25T01:10:27.870Z",
+   "at": "2026-11-25T07:18:29.451Z",
    "status": 200,
    "ok": true,
    "bytes": 2115031,
    "sha256": "f51fd98c366b68d5",
-   "ms": 441
+   "ms": 155
   },
   {
    "url": "https://beebom.com/fortnite-pirate-shop-guide/",
-   "at": "2026-11-25T01:10:28.321Z",
+   "at": "2026-11-25T07:18:29.617Z",
    "status": 200,
    "ok": true,
-   "bytes": 185827,
-   "sha256": "b0db4dec7ce28a44",
-   "ms": 120
+   "bytes": 185536,
+   "sha256": "3a3ba791a40205b8",
+   "ms": 57
   },
   {
    "url": "https://piratetoken.net/pirate-token-activation",
-   "at": "2026-11-25T01:10:28.468Z",
+   "at": "2026-11-25T07:18:29.700Z",
    "status": 200,
    "ok": true,
    "bytes": 21273,
    "sha256": "7453a922bd4bd2f8",
-   "ms": 184
+   "ms": 90
   }
  ]
 }
