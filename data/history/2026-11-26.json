@@ -153,8 +153,8 @@
  },
  {
   "id": "v2:/9676230c781cc70d1e1947b566d770e294a583e664074a2970d346ffbafc4014",
-  "name": "Crossbar Crusher",
-  "kind": "outfit",
+  "name": "EXTRA POINT BUNDLE",
+  "kind": "bundle",
   "price": 3500,
   "inDate": "2026-11-26",
   "outDate": "2026-11-29"
@@ -1337,8 +1337,8 @@
  },
  {
   "id": "v2:/7c39f7ef4ab820d0075e06be6afc5b9a8f9ca961eda5e9370c0e7587d078bd92",
-  "name": "Starboy",
-  "kind": "jamtrack",
+  "name": "Starboy 10-Year Anniversary Jam Bundle",
+  "kind": "bundle",
   "price": 800,
   "inDate": "2026-11-25",
   "outDate": "2026-11-27"
@@ -1529,8 +1529,8 @@
  },
  {
   "id": "v2:/1ee8d422e6eaa047fa2ae6c59a8740a5a5c18f57c3c67d6bedc11105f7032f74",
-  "name": "[VIRTUAL]1 x Stripes, 1 x Endo, 1 x Endo, 1 x Endo, 1 x Endo, 1 x Endo, 1 x Endo, 1 x Endo, 1 x Endo, 1 x Endo, 1 x Endo, 1 x Endo, 1 x Endo, 1 x Endo, 1 x Endo, 1 x Circuit Pro, 1 x Cupcake, 1 x Cyrus, 1 x Dyno, 1 x Wings for -1 MtxCurrency",
-  "kind": "car",
+  "name": "Endo",
+  "kind": "bundle",
   "price": 1500,
   "inDate": "2026-11-25",
   "outDate": "2026-12-01"
@@ -1873,8 +1873,8 @@
  },
  {
   "id": "v2:/9fbb555722b35c01b3182e870ab3459d9fa5b7beb2d70cad319c71068a49cf5d",
-  "name": "Famous Addison Rae",
-  "kind": "outfit",
+  "name": "Addison Rae Bundle",
+  "kind": "bundle",
   "price": 3600,
   "inDate": "2026-11-25",
   "outDate": "2026-11-28"
@@ -2177,8 +2177,8 @@
  },
  {
   "id": "v2:/6ff036aa3a8c09acd2200e7de2272c890d573af3e365d24a233156f0bb0324ad",
-  "name": "Becky Lynch",
-  "kind": "outfit",
+  "name": "Becky Lynch & Bianca Belair Bundle",
+  "kind": "bundle",
   "price": 2400,
   "inDate": "2026-11-26",
   "outDate": "2026-11-28"
@@ -2313,8 +2313,8 @@
  },
  {
   "id": "v2:/929c30ec4099dd5baf0789aea852de1a5abcf71d09b6f132cb3e1add9d38475f",
-  "name": "Skillet",
-  "kind": "outfit",
+  "name": "King of the Boom Bundle",
+  "kind": "bundle",
   "price": 1800,
   "inDate": "2026-11-26",
   "outDate": "2026-11-27"
@@ -2457,8 +2457,8 @@
  },
  {
   "id": "v2:/f2552072838346395af3afcd00045f41db22582891e085d31521365ac8846304",
-  "name": "John Cena",
-  "kind": "outfit",
+  "name": "John Cena Bundle",
+  "kind": "bundle",
   "price": 2000,
   "inDate": "2026-11-26",
   "outDate": "2026-11-28"
@@ -3345,8 +3345,8 @@
  },
  {
   "id": "v2:/3ba07cc1b0464e8410a309031aafa702ce24a507965def874c0e2739dc281183",
-  "name": "Scrimmage Scrapper",
-  "kind": "outfit",
+  "name": "ULTIMATE RUSH BUNDLE",
+  "kind": "bundle",
   "price": 3500,
   "inDate": "2026-11-26",
   "outDate": "2026-11-29"
@@ -4105,8 +4105,8 @@
  },
  {
   "id": "v2:/4a4d0da0e71153905296d79a332ed2f9a36fdf29adb7044b4af3643dd257434b",
-  "name": "[VIRTUAL]1 x BMW 1 Series, 1 x BMW 1 Series, 1 x BMW 1 Series, 1 x BMW 1 Series, 1 x BMW 1 Series, 1 x BMW 1 Series, 1 x BMW 1 Series, 1 x BMW 1 Series, 1 x BMW 1 Series, 1 x BMW 1 Series, 1 x BMW 1 Series, 1 x BMW 1 Series, 1 x BMW 1 Series, 1 x BMW 1 Series, 1 x Skyscraper Grey, 1 x F70, 1 x Outlands, 1 x Fiercefield, 1 x Finely Tooned, 1 x Lightning, 1 x Stripes, 1 x Wings, 1 x Flames, 1 x BMW 1 Series for -1 MtxCurrency",
-  "kind": "car",
+  "name": "BMW 1 Series",
+  "kind": "bundle",
   "price": 2000,
   "inDate": "2026-11-26",
   "outDate": "2026-12-05"
