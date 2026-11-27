@@ -953,8 +953,8 @@
  },
  {
   "id": "v2:/8f114946b8d166af6a3f7ae3ed7b1ae75c6a1e9c1d9508c258080c01d88a2365",
-  "name": "Cap'n Hatsune Miku",
-  "kind": "outfit",
+  "name": "Cap’n Hatsune Miku Bundle",
+  "kind": "bundle",
   "price": 2200,
   "inDate": "2026-11-15",
   "outDate": "2026-12-14"
@@ -1153,8 +1153,8 @@
  },
  {
   "id": "v2:/ef6e98b4bf73d9b6bd442a2b213b8bc941c0d899b17c15ea09ebb1abab6e709a",
-  "name": "Puss in Boots",
-  "kind": "sidekick",
+  "name": "Puss in Boots Bundle",
+  "kind": "bundle",
   "price": 2400,
   "inDate": "2026-11-27",
   "outDate": "2026-12-03"
@@ -2777,8 +2777,8 @@
  },
  {
   "id": "v2:/38567ddc43e462542d125af3a11a6a5bff1197bcfce1dd84cebf915be90a1034",
-  "name": "Widowmaker",
-  "kind": "outfit",
+  "name": "Widowmaker & Kiriko Bundle",
+  "kind": "bundle",
   "price": 2400,
   "inDate": "2026-11-21",
   "outDate": "2026-12-04"
